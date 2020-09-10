@@ -7,14 +7,14 @@
     ga('create', 'UA-99071053-2', 'auto');
     ga('send', 'pageview');
 
-    function addAnalyticsLinkListener() {
-      function handleOutboundLinkClicks(event) {
-        ga('send', 'event', {eventCategory: 'Link', eventAction: 'click', eventLabel: event.target.href});
+    window.addEventListener("load", function() {
+      function h(linkElement, event) {
+        ga('send', 'event', {eventCategory: 'Link', eventAction: 'click', eventLabel: linkElement.href});
       }
       for(let e of document.getElementsByClassName("analytics-event")) {
-        e.addEventListener("click", handleOutboundLinkClicks);
+        e.addEventListener("click", h.bind(null, e), true);
       }
-    }
+    });
     </script>
     <script async src='https://www.google-analytics.com/analytics.js'></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +22,7 @@
     <link href="./site.css" rel="stylesheet">
     <script src="./site.js"></script>
 </head>
-<body onload="onload()">
+<body>
 <div class="container">
     <div class="main">
         <header>
@@ -59,16 +59,14 @@
 </div>
 <script>!function(){function e(e){return e.replace(/[a-zA-Z]/g,function(e){return String.fromCharCode((e<="Z"?90:122)>=(e=e.charCodeAt(0)+13)?e:e-26)})}!function(e){for(var r=document.getElementsByClassName("obfuscemail"),t=0;t<r.length;t++){var a=r[t],f=document.createElement("a");f.title=a.title;f.href="mailto:"+e,f.innerHTML=a.innerHTML,a.parentNode.replaceChild(f,a)}}(e("qnivq@tnlrevr.qri"))}();</script>
 <script>
-function onload() {
+window.addEventListener("load", function() {
   setTimeout(function() {
       let terminalLine = document.getElementById("terminal-line");
       terminalLine.className = "";
       typeText(terminalLine, "Bientôt en ligne...");
     },
     1900);
-
-  addAnalyticsLinkListener();
-}
+});
 </script>
 </body>
 </html>
