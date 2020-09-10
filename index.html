@@ -1,12 +1,55 @@
-<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>gayerie.dev</title>
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$gayerie&gt;</title>
+    <link href="./site.css" rel="stylesheet">
+    <script src="./site.js"></script>
+</head>
+<body onload="onload()">
+<div class="container">
+    <div class="main">
+        <header>
+            <div class="logo-frame">
+                <div class="logo">
+                    <div class="david"><span>david</span></div>
+                    <div class="gayerie"><span>gayerie</span></div>
+                    <div class="dotdev"><span>.dev</span></div>
+                    <div class="icon-bar">
+                        <a class="obfuscemail" title="Me contacter"><img src="assets/letter.svg" alt="Email"></a>
+                        <a href="https://github.com/spoonless" title="Me retrouver sur GitHub"><img src="assets/github.svg" alt="github"></a>
+                        <a href="https://gitlab.com/spoonless" title="Me retrouver sur GitLab"><img src="assets/gitlab.svg" alt="gitlab"></a>
+                        <a href="http://digicreatures.net" title="Me retrouver sur digiCreatures"><img src="assets/digicreatures.svg" alt="digicreatures"></a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="wait-message terminal"><span id="terminal-line"></span><span id="prompt"></span></div>
+    </div>
+</div>
 
-    <body>
-	    Bientôt en ligne...
-    
-    </body>
-</html>
+<div class="background">
+    <div class="container">
+        <div class="text-background">
+            <script>
+            for (let i = 0; i < 15; i++) {
+              document.write(getBackgroundKeywords());
+            }
+            </script>
+        </div>
+    </div>
+</div>
+<script>!function(){function e(e){return e.replace(/[a-zA-Z]/g,function(e){return String.fromCharCode((e<="Z"?90:122)>=(e=e.charCodeAt(0)+13)?e:e-26)})}!function(e){for(var r=document.getElementsByClassName("obfuscemail"),t=0;t<r.length;t++){var a=r[t],f=document.createElement("a");f.title=a.title;f.href="mailto:"+e,f.innerHTML=a.innerHTML,a.parentNode.replaceChild(f,a)}}(e("qnivq@tnlrevr.qri"))}();</script>
+<script>
+function onload() {
+  let terminalLine = document.getElementById("terminal-line");
+  terminalLine.className = "eol";
+  setTimeout(function() {
+      terminalLine.className = "";
+      typeText(terminalLine, "Bientôt en ligne...");
+    },
+    1900);
+}
+</script>
+</body>
+</html
