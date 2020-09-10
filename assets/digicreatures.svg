@@ -38,12 +38,12 @@
        id="perspective834" />
   </svg:defs>
   <sodipodi:namedview
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer2"
      inkscape:window-maximized="1"
      inkscape:window-y="0"
      inkscape:window-x="0"
-     inkscape:cy="59.641291"
-     inkscape:cx="50.645065"
+     inkscape:cy="71.920749"
+     inkscape:cx="59.1748"
      inkscape:zoom="5.2003574"
      fit-margin-bottom="0"
      fit-margin-right="0"
@@ -74,25 +74,18 @@
      inkscape:label="back"
      style="display:inline">
     <svg:circle
-       style="color:#000000;overflow:visible;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:7.21151;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:7.21151, 7.21151;stroke-dashoffset:26.6827;stroke-opacity:1"
-       id="path898"
-       cx="17.754103"
-       cy="91.076965"
-       r="17.029333" />
-    <svg:use
-       x="0"
-       y="0"
-       xlink:href="#path898"
+       style="color:#000000;overflow:visible;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:6.70869;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:6.70869, 6.70869;stroke-dashoffset:24.8222;stroke-opacity:1"
        id="use840"
-       transform="translate(28.507557,-72.376886)"
-       width="100%"
-       height="100%" />
+       cx="110.18001"
+       cy="109.12988"
+       r="15.841971"
+       transform="rotate(1.4610475)" />
     <svg:use
        x="0"
        y="0"
        xlink:href="#use840"
        id="use843"
-       transform="translate(63.998629,-1.0930341)"
+       transform="matrix(1.1216478,0,0,1.1216478,-76.200961,-106.70064)"
        width="100%"
        height="100%" />
     <svg:use
@@ -100,14 +93,22 @@
        y="0"
        xlink:href="#use843"
        id="use845"
-       transform="translate(-4.0173319,92.760763)"
+       transform="matrix(0.7074917,0,0,0.7074917,-17.087012,77.970791)"
        width="100%"
        height="100%" />
     <svg:path
-       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.00714px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 10.677569,93.442597 43.257897,15.934119 114.80019,12.28523 110.02655,115.53847 Z"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.03358px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 8.0977389,92.797938 42.432296,13.596863 115.92467,11.725414 108.32546,117.53037 Z"
        id="path847"
        sodipodi:nodetypes="ccccc" />
+    <svg:use
+       x="0"
+       y="0"
+       xlink:href="#use845"
+       id="use846"
+       transform="translate(96.612327,-74.064828)"
+       width="100%"
+       height="100%" />
   </svg:g>
   <script />
   <svg:g
@@ -116,50 +117,43 @@
      inkscape:label="Layer 1"
      style="display:inline">
     <svg:path
-       style="fill:#d9d9d9;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.02856;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4.02856, 4.02856;stroke-dashoffset:14.9056;stroke-opacity:1"
-       d="m 46.563858,18.376504 64.569502,-1.30765 -4.18648,93.625576"
+       style="fill:#d9d9d9;fill-opacity:1;fill-rule:evenodd;stroke:#afafaf;stroke-width:2.93585992;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:8.51397;stroke-opacity:1"
+       d="m 46.475056,18.377292 63.200904,0.331873 -6.43178,91.489315"
        id="path848-6"
        sodipodi:nodetypes="ccc" />
     <svg:path
-       style="fill:#f2f2f2;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.02856;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4.02856, 4.02856;stroke-dashoffset:0;stroke-opacity:1"
-       d="M 46.563858,18.376504 106.94688,110.69443 17.789641,91.816355 Z"
+       style="fill:#f2f2f2;fill-opacity:1;fill-rule:evenodd;stroke:#6c6c6c;stroke-width:2.93585992;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:2.93586;stroke-opacity:1"
+       d="M 46.475056,18.377292 103.24418,110.19848 16.492793,89.505433 Z"
        id="path848"
        sodipodi:nodetypes="cccc" />
-    <svg:ellipse
-       style="color:#000000;overflow:visible;fill:#008080;fill-opacity:0;fill-rule:evenodd;stroke-width:25.1785;stroke-linejoin:bevel"
-       id="path832"
-       cx="41.725407"
-       cy="17.30262"
-       rx="5.0662966"
-       ry="5.1386733" />
-    <svg:use
-       x="0"
-       y="0"
-       xlink:href="#path840"
-       id="use842"
-       transform="translate(-28.60698,72.722993)"
-       width="100%"
-       height="100%" />
-    <svg:use
-       x="0"
-       y="0"
-       xlink:href="#use842"
-       id="use844"
-       transform="translate(88.831456,19.149639)"
-       width="100%"
-       height="100%" />
     <svg:circle
-       style="color:#000000;overflow:visible;fill:#3b2f00;fill-opacity:1;fill-rule:evenodd;stroke:#bfbfbf;stroke-width:4.79891;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="color:#000000;overflow:visible;fill:#3b2f00;fill-opacity:1;fill-rule:evenodd;stroke:#bfbfbf;stroke-width:3.72417;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="use844"
+       cx="16.798531"
+       cy="90.893326"
+       r="8.8801365"
+       transform="rotate(1.4610475)" />
+    <svg:circle
+       style="color:#000000;overflow:visible;fill:#3b2f00;fill-opacity:1;fill-rule:evenodd;stroke:#bfbfbf;stroke-width:4.46431;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path840"
-       cx="46.375042"
-       cy="18.497942"
-       r="11.442821" />
+       cx="110.28545"
+       cy="108.94185"
+       r="10.644975"
+       transform="rotate(1.4610475)" />
     <svg:use
        x="0"
        y="0"
        xlink:href="#path840"
        id="use850"
-       transform="translate(64.385633,-1.0790387)"
+       transform="matrix(1.1216478,0,0,1.1216478,-75.776696,-106.67444)"
+       width="100%"
+       height="100%" />
+    <svg:use
+       x="0"
+       y="0"
+       xlink:href="#use844"
+       id="use848"
+       transform="translate(96.612327,-74.064828)"
        width="100%"
        height="100%" />
   </svg:g>
