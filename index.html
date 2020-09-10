@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-99071053-2"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-99071053-2');
-    </script>
     <meta charset="utf-8">
+    <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+
+    function addAnalyticsLinkListener() {
+      function handleOutboundLinkClicks(event) {
+        ga('send', 'event', {eventCategory: 'Link', eventAction: 'click', eventLabel: event.target.href});
+      }
+      for(let e of document.getElementsByClassName("analytics-event")) {
+        e.addEventListener("click", handleOutboundLinkClicks);
+      }
+    }
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>$gayerie&gt;</title>
     <link href="./site.css" rel="stylesheet">
@@ -26,14 +33,14 @@
                     <div class="dotdev"><span>.dev</span></div>
                     <div class="icon-bar">
                         <a class="obfuscemail" title="Me contacter"><img src="assets/letter.svg" alt="Email"></a>
-                        <a href="https://github.com/spoonless" title="Me retrouver sur GitHub"><img src="assets/github.svg" alt="github"></a>
-                        <a href="https://gitlab.com/spoonless" title="Me retrouver sur GitLab"><img src="assets/gitlab.svg" alt="gitlab"></a>
-                        <a href="http://digicreatures.net" title="Me retrouver sur digiCreatures"><img src="assets/digicreatures.svg" alt="digicreatures"></a>
+                        <a class="analytics-event" href="https://github.com/spoonless" title="Me retrouver sur GitHub"><img src="assets/github.svg" alt="github"></a>
+                        <a class="analytics-event" href="https://gitlab.com/spoonless" title="Me retrouver sur GitLab"><img src="assets/gitlab.svg" alt="gitlab"></a>
+                        <a class="analytics-event" href="http://digicreatures.net" title="Me retrouver sur digiCreatures"><img src="assets/digicreatures.svg" alt="digicreatures"></a>
                     </div>
                 </div>
             </div>
         </header>
-        <div class="wait-message terminal"><span id="terminal-line"></span><span id="prompt"></span></div>
+        <div class="wait-message terminal"><span id="terminal-line" class="eol"></span><span id="prompt"></span></div>
     </div>
 </div>
 
@@ -53,13 +60,14 @@
 <script>!function(){function e(e){return e.replace(/[a-zA-Z]/g,function(e){return String.fromCharCode((e<="Z"?90:122)>=(e=e.charCodeAt(0)+13)?e:e-26)})}!function(e){for(var r=document.getElementsByClassName("obfuscemail"),t=0;t<r.length;t++){var a=r[t],f=document.createElement("a");f.title=a.title;f.href="mailto:"+e,f.innerHTML=a.innerHTML,a.parentNode.replaceChild(f,a)}}(e("qnivq@tnlrevr.qri"))}();</script>
 <script>
 function onload() {
-  let terminalLine = document.getElementById("terminal-line");
-  terminalLine.className = "eol";
   setTimeout(function() {
+      let terminalLine = document.getElementById("terminal-line");
       terminalLine.className = "";
       typeText(terminalLine, "Bientôt en ligne...");
     },
     1900);
+
+  addAnalyticsLinkListener();
 }
 </script>
 </body>
