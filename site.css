@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Syne|Comfortaa');
 
 html {
-    font-size: 11pt;
+    font-size: 9pt;
 }
 
 body{
@@ -27,11 +27,11 @@ body{
 .background {
     z-index: -1;
     position: absolute;
-    top: 2vh;
+    top: 0.3rem;
     left:0;
     width: 100%;
     overflow: hidden;
-    height: 96vh;
+    height: 260rem;
 }
 
 .text-background {
@@ -54,12 +54,6 @@ body{
 		margin-left: 5%;
 		width: 90%
     }
-}
-
-.wait-message {
-    clear: both;
-    padding-top: 10rem;
-    margin-left: .5em;
 }
 
 .terminal {
@@ -103,10 +97,13 @@ body{
     width: 6em;
 }
 
+header {
+    position: absolute;
+}
+
 header .logo-frame {
-    float: left;
-    top: -.15em;
-    left: -.15em;
+    top: -.30em;
+    left: -.30em;
     border-left: 3px solid white;
     border-top: 3px solid white;
 }
@@ -159,5 +156,76 @@ header .icon-bar {
 }
 
 .icon-bar img:hover {
-  filter: sepia(50%) hue-rotate(320deg);
+    filter: sepia(50%) hue-rotate(320deg);
 }
+
+.page1 {
+    height: 61rem;
+}
+
+.page3 {
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+}
+
+.page2 > section {
+    height: 50rem;
+}
+
+.page3 > section {
+    height: 50rem;
+}
+
+.page4 > section {
+    height: 50rem;
+}
+
+.message-titre {
+    position: relative;
+    top: 54rem;
+    margin-left: 1rem;
+}
+
+section.medaillons {
+    display: grid;
+}
+
+.medaillon img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 31rem;
+}
+
+.medaillon img:hover {
+    filter: brightness(120%);
+}
+
+.medaillon.realiser {
+    grid-column: 1 / span 2;
+    grid-row: 1 / 2;
+}
+
+.medaillon.accompagner {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+.medaillon.accompagner img, .medaillon.former img {
+    position: relative;
+    top: -16rem;
+}
+
+.medaillon.former {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+.text-block {
+    border-top: 3px solid white;
+    border-bottom: 3px solid white;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background-color: #404040CC;
+}
+

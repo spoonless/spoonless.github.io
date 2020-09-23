@@ -40,7 +40,34 @@
                 </div>
             </div>
         </header>
-        <div class="wait-message terminal"><span id="terminal-line" class="eol"></span><span id="prompt"></span></div>
+        <div class="message-titre terminal"><span id="terminal-line" class="eol"></span><span id="prompt"></span></div>
+        <div class="page1">
+          <section class="medaillons">
+            <div class="medaillon realiser">
+              <img src="assets/room01.png">
+            </div>
+            <div class="medaillon accompagner">
+              <img src="assets/room02.png">
+            </div>
+            <div class="medaillon former">
+              <img src="assets/room03.png">
+            </div>
+          </section>
+        </div>
+        <div class="page2">
+          <section class="text-block">
+          </section>
+        </div>
+        <div class="page3">
+          <section class="text-block">
+          </section>
+        </div>
+        <div class="page4">
+          <section class="text-block">
+          </section>
+        </div>
+        <footer>
+        </footer>
     </div>
 </div>
 
@@ -49,7 +76,7 @@
         <div class="text-background">
             <script>
             const keywords = getBackgroundKeywords();
-            for (let i = 0; i < 15; i++) {
+            for (let i = 0; i < 42; i++) {
               document.write(keywords);
               document.write(" ");
             }
@@ -63,7 +90,7 @@ window.addEventListener("load", function() {
   setTimeout(function() {
       let terminalLine = document.getElementById("terminal-line");
       terminalLine.className = "";
-      typeText(terminalLine, "Bientôt en ligne...");
+      typeText(terminalLine, "développeur && formateur");
     },
     1900);
 });
