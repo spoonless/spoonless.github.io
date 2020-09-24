@@ -3,12 +3,13 @@
 
 html {
     font-size: 9pt;
+    scroll-behavior: smooth;
 }
 
 body{
     font-family: "Comfortaa", sans-serif;
-    color: white;
-    background-color: #404040;
+    color: #EEE;
+    background-color: #666;
     margin:0;
     padding:0;
 }
@@ -19,9 +20,8 @@ body{
 }
 
 .main {
-    width: 90%;
+    width: 100%;
     margin: auto;
-    border-top: 2em solid #404040;
 }
 
 .background {
@@ -31,14 +31,14 @@ body{
     left:0;
     width: 100%;
     overflow: hidden;
-    height: 260rem;
 }
 
 .text-background {
     font-family: "Syne", sans-serif;
     font-size: 1.2rem;
     color: #535050;
-    width: 100%;
+    width: 110%;
+    margin-left: -5%;
     word-break: break-all;
     clip-path: polygon(5% 0%, 5% 100%, 95% 100%, 95% 0%);
     -moz-user-select: none;
@@ -51,14 +51,14 @@ body{
 
 @supports (-ms-user-select: none) {
     .text-background {
-		margin-left: 5%;
-		width: 90%
+    		margin-left: 5%;
+	    	width: 90%
     }
 }
 
 .terminal {
     font-weight: normal;
-    font-size: 6vw;
+    font-size: 5.1vw;
     font-stretch: condensed;
 }
 
@@ -71,12 +71,6 @@ body{
      50% { opacity: 0;}
      51% { opacity: 1;}
     100% { opacity: 1;}
-}
-
-@media (min-width: 50rem) {
-  .terminal {
-    font-size: 3rem;
-  }
 }
 
 #prompt:before {
@@ -99,13 +93,14 @@ body{
 
 header {
     position: absolute;
+    top: 2em;
 }
 
 header .logo-frame {
     top: -.30em;
-    left: -.30em;
-    border-left: 3px solid white;
-    border-top: 3px solid white;
+    left: .30em;
+    border-left: 3px solid #EEE;
+    border-top: 3px solid #EEE;
 }
 
 .logo {
@@ -144,7 +139,7 @@ header .logo {
     display: inline-block;
     padding-left: .5rem;
     padding-right: .5rem;
-    background-color: white;
+    background-color: #EEE;
 }
 
 header .icon-bar {
@@ -160,72 +155,187 @@ header .icon-bar {
 }
 
 .page1 {
-    height: 61rem;
+    border-top: 2em solid #666;
+    height: calc(100vh - 2em);
+    max-height: 1080px;
+}
+
+.page2 {
+    border-top: 3px solid #EEE;
+    border-bottom: 3px solid #EEE;
 }
 
 .page3 {
-    margin-top: 10rem;
-    margin-bottom: 10rem;
+    border-top: 3px solid #EEE;
+    border-bottom: 3px solid #EEE;
+    margin-top: 15rem;
+    margin-bottom: 15rem;
+}
+
+.page4 {
+    border-top: 3px solid #EEE;
+    border-bottom: 3px solid #EEE;
 }
 
 .page2 > section {
-    height: 50rem;
+    min-height: 50rem;
 }
 
 .page3 > section {
-    height: 50rem;
+    min-height: 50rem;
 }
 
 .page4 > section {
-    height: 50rem;
+    min-height: 50rem;
 }
 
 .message-titre {
     position: relative;
-    top: 54rem;
     margin-left: 1rem;
+    top: 100%;
+    transform: translateY(-2em);
 }
 
-section.medaillons {
+section.rooms {
+    display: none;
+}
+
+section.puces {
     display: grid;
 }
 
-.medaillon img {
+section.medaillons {
+    position: relative;
+    top: 25%;
+}
+
+.page1 .medaillon img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 31rem;
+    max-width: 30rem;
+    width: 45vw;
 }
 
-.medaillon img:hover {
+.page1 .medaillon img:hover {
     filter: brightness(120%);
 }
 
-.medaillon.realiser {
-    grid-column: 1 / span 2;
+.page1 .medaillon.realiser {
+    grid-column: 1;
     grid-row: 1 / 2;
 }
 
-.medaillon.accompagner {
-    grid-column: 1 / 2;
+.page1 .medaillon.accompagner {
+    grid-column: 1;
     grid-row: 2 / 3;
 }
 
-.medaillon.accompagner img, .medaillon.former img {
+.page1 .medaillon.former {
+    grid-column: 1;
+    grid-row: 2 / 3;
+}
+
+.page1 .medaillon.accompagner img {
     position: relative;
-    top: -16rem;
+    top: -30%;
+    left: -20%;
 }
 
-.medaillon.former {
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
+.page1 .medaillon.former img {
+    position: relative;
+    top: -30%;
+    left: 20%;
+}
+
+.page2 .medaillon img, .page3 .medaillon img, .page4 .medaillon img {
+    display: block;
+    margin: auto;
+    width: 80vw;
+    max-width: 30rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
 }
 
 .text-block {
-    border-top: 3px solid white;
-    border-bottom: 3px solid white;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    background-color: #404040CC;
+    padding: 1rem;
+    background-color: #404040AA;
+    font-family: "Syne", sans-serif;
+    font-size: 1.4rem;
+    text-align: justify;
+    line-height: 1.3;
+}
+
+.text-block img.puce {
+    max-width: 15rem;
+    float: left;
+    display: none;
+}
+
+.text-block p:first-of-type {
+    margin-top: 0;
+}
+
+:not(.avis) + p.avis {
+    padding-top: 2.4rem;
+}
+
+p.avis {
+    font-style: italic;
+    font-size: 1.3rem;
+}
+
+p.avis:before {
+  content: "\201C";
+}
+
+p.avis:after {
+  content: "\201D";
+}
+
+@media (min-width: 45rem) {
+    header .logo-frame {
+        left: -.30em;
+    }
+
+    .terminal {
+        font-size: 3rem;
+    }
+
+    .text-block {
+        padding: 4rem;
+    }
+
+    .text-background {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .main {
+        width: 90%;
+    }
+
+    .page2 .medaillon, .page3 .medaillon, .page4 .medaillon {
+        display: none;
+    }
+
+    section.rooms {
+        display: grid;
+    }
+
+    section.puces {
+        display: none;
+    }
+
+    .text-block img.puce {
+        display: inline;
+    }
+
+}
+
+@media (min-width: 800px) {
+    section.medaillons {
+        top: 5%;
+    }
 }
 
