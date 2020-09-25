@@ -15,11 +15,23 @@
    id="svg8"
    inkscape:version="1.0.1 (1.0.1+r73)"
    sodipodi:docname="puces.svg"
-   inkscape:export-filename="/home/david/Workspace/gayerie.dev/assets/puce03.png"
+   inkscape:export-filename="/home/david/Workspace/gayerie.dev/assets/puce01.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96">
   <defs
      id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient948">
+      <stop
+         style="stop-color:#767e81;stop-opacity:1"
+         offset="0"
+         id="stop944" />
+      <stop
+         style="stop-color:#d3d3d3;stop-opacity:1"
+         offset="1"
+         id="stop946" />
+    </linearGradient>
     <rect
        x="-4.3674889"
        y="27.121197"
@@ -323,6 +335,16 @@
          stdDeviation="0.091555801"
          id="feGaussianBlur1305" />
     </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient948"
+       id="linearGradient942"
+       gradientUnits="userSpaceOnUse"
+       x1="105.82135"
+       y1="84.667847"
+       x2="216.42038"
+       y2="-27.362646"
+       gradientTransform="translate(-321.42257,160.71129)" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -331,11 +353,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="61.832476"
-     inkscape:cy="260.33016"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="297.45253"
+     inkscape:cy="263.57569"
      inkscape:document-units="mm"
-     inkscape:current-layer="g944"
+     inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="false"
      inkscape:window-width="1680"
@@ -407,20 +429,21 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(-75.705997,-45.927423)"
-     style="display:inline;mix-blend-mode:normal"
-     sodipodi:insensitive="true">
+     style="display:inline;mix-blend-mode:normal">
     <path
        style="fill:none;fill-rule:evenodd;stroke:#d6d6d6;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 139.1786,53.01381 0.0519,56.61058"
        id="path1000" />
-    <use
-       x="0"
-       y="0"
-       xlink:href="#rect865"
+    <rect
+       style="color:#000000;overflow:visible;fill:url(#linearGradient942);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:6.9847;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"
        id="use896"
-       transform="matrix(-0.99999988,0,0,1,278.36011,-5.8498778e-7)"
-       width="100%"
-       height="100%" />
+       width="55.712826"
+       height="56.787548"
+       x="-160.74121"
+       y="133.28044"
+       rx="0"
+       ry="0"
+       transform="matrix(-0.8660254,0.5,0,1,0,0)" />
     <rect
        style="color:#000000;overflow:visible;fill:url(#linearGradient883);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:6.9847;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"
        id="rect865"
@@ -436,7 +459,7 @@
      inkscape:groupmode="layer"
      id="g944"
      inkscape:label="partage"
-     style="display:inline"
+     style="display:none"
      sodipodi:insensitive="true">
     <g
        inkscape:groupmode="layer"
@@ -447,7 +470,7 @@
          xml:space="preserve"
          id="text897-8-6"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.5833px;line-height:83%;font-family:Comfortaa;-inkscape-font-specification:'Comfortaa, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;letter-spacing:-0.323372px;word-spacing:0px;writing-mode:lr-tb;white-space:pre;shape-inside:url(#rect899-0-5);display:inline;fill:#927f5c;fill-opacity:1;stroke:none;stroke-width:0.161686px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
-         transform="matrix(1.6364045,0.93944281,0,1.6364045,-17.039827,-95.465356)"><tspan
+         transform="matrix(1.6364045,0.93944281,0,1.6364045,-15.09998,-94.191458)"><tspan
            x="49.091797"
            y="48.363041"><tspan
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.5833px;font-family:Comfortaa;-inkscape-font-specification:'Comfortaa, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#927f5c;fill-opacity:1;stroke-width:0.161686px">la for
@@ -486,7 +509,7 @@
          xml:space="preserve"
          id="text897-8-6-0"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.5833px;line-height:83%;font-family:Comfortaa;-inkscape-font-specification:'Comfortaa, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;letter-spacing:-0.323372px;word-spacing:0px;writing-mode:lr-tb;white-space:pre;shape-inside:url(#rect899-0-5-9);display:inline;fill:#7b9449;fill-opacity:1;stroke:none;stroke-width:0.161686px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
-         transform="matrix(1.6364045,0.93944281,0,1.6364045,-17.039827,-82.343485)"><tspan
+         transform="matrix(1.6364045,0.93944281,0,1.6364045,-16.186716,-80.929451)"><tspan
            x="49.091797"
            y="48.363041"><tspan
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.5833px;font-family:Comfortaa;-inkscape-font-specification:'Comfortaa, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#7b9449;fill-opacity:1;stroke-width:0.161686px">l'équi
@@ -510,7 +533,7 @@
      inkscape:groupmode="layer"
      id="g926"
      inkscape:label="code"
-     style="display:none"
+     style="display:inline"
      sodipodi:insensitive="true">
     <g
        inkscape:groupmode="layer"

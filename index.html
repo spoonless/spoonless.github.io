@@ -23,7 +23,7 @@
     <script src="./site.js"></script>
 </head>
 <body>
-<div class="container">
+<div id="foreground" class="container">
     <div class="main">
         <header>
             <div class="logo-frame">
@@ -112,15 +112,20 @@
     </div>
 </div>
 
-<div class="background">
+<div id="background" class="background">
     <div class="container">
         <div class="text-background">
             <script>
             const keywords = getBackgroundKeywords();
-            for (let i = 0; i < 52; i++) {
+            for (let i = 0; i < 60; i++) {
               document.write(keywords);
               document.write(" ");
             }
+            function updateBackground() {
+              document.getElementById("background").style.height = document.getElementById("foreground").clientHeight + "px";
+            }
+            window.addEventListener("load", updateBackground);
+            window.addEventListener("orientationchange", updateBackground);
             </script>
         </div>
     </div>
