@@ -124,6 +124,19 @@ les savoir-faire que j'ai acquis et mis en pratique au travers les différentes 
           </section>
         </div>
         <footer>
+            <div class="logo-frame">
+                <div class="logo">
+                    <div class="icon-bar">
+                        <a class="obfuscemail" title="Me contacter"><img src="assets/letter.svg" alt="Email"></a>
+                        <a class="analytics-event" href="https://github.com/spoonless" title="Me retrouver sur GitHub"><img src="assets/github.svg" alt="github"></a>
+                        <a class="analytics-event" href="https://gitlab.com/spoonless" title="Me retrouver sur GitLab"><img src="assets/gitlab.svg" alt="gitlab"></a>
+                        <a class="analytics-event" href="http://digicreatures.net" title="Me retrouver sur digiCreatures"><img src="assets/digicreatures.svg" alt="digicreatures"></a>
+                    </div>
+                    <div class="david"><span>david</span></div>
+                    <div class="gayerie"><span>gayerie</span></div>
+                    <div class="dotdev"><span>.dev</span></div>
+                </div>
+            </div>
         </footer>
     </div>
 </div>
@@ -138,7 +151,7 @@ les savoir-faire que j'ai acquis et mis en pratique au travers les différentes 
               document.write(" ");
             }
             function updateBackground() {
-              document.getElementById("background").style.height = document.getElementById("foreground").clientHeight + "px";
+              document.getElementById("background").style.height = (document.getElementById("foreground").clientHeight - 5) + "px";
             }
             window.addEventListener("load", updateBackground);
             window.addEventListener("resize", updateBackground);

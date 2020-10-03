@@ -105,30 +105,53 @@ a:active {
     display: block;
     position: relative;
     font-size: 3rem;
-    width: 6em;
+    width: 18rem;
 }
 
-header {
+.main > header {
     position: absolute;
-    top: 2em;
+    top: 2rem;
 }
 
-header .logo-frame {
-    top: -.30em;
-    left: .30em;
-    border-left: 3px solid #EEE;
+.main > header .logo-frame {
+    top: -1rem;
     border-top: 3px solid #EEE;
 }
 
-.logo {
+.main > header .logo {
+    top: -.4rem;
+}
+
+.main > footer {
+    margin-top: 6rem;
+    height: 13rem;
+    border-bottom: 2rem solid #666F;
+}
+
+.main > footer .logo-frame {
+    float: right;
+    position: relative;
+    bottom: -2rem;
+    border-bottom: 3px solid #EEE;
+}
+
+.main > footer .logo {
+    text-align: right;
+    bottom: -1.5rem;
+}
+
+.main > header .icon-bar {
+    margin-left: .5rem;
+}
+
+.main > footer .icon-bar {
+    margin-right: .5rem;
+}
+
+.main .logo {
     position: relative;
     font-weight: lighter;
     color: #404040;
-}
-
-header .logo {
-    top: -.4rem;
-    left: -.4rem;
 }
 
 .logo .david {
@@ -157,10 +180,6 @@ header .logo {
     padding-left: .5rem;
     padding-right: .5rem;
     background-color: #EEE;
-}
-
-header .icon-bar {
-    margin-left: 1rem;
 }
 
 .icon-bar img {
@@ -277,8 +296,35 @@ section.gallery {
 }
 
 @media (min-width: 45rem) {
-    header .logo-frame {
-        left: -.30em;
+    .main > footer {
+        border-bottom: 2rem solid #666;
+    }
+
+    .main header .logo-frame {
+        border-left: 3px solid #EEE;
+        left: -.8rem;
+    }
+
+    .main footer .logo-frame {
+        border-right: 3px solid #EEE;
+        bottom: -1.4rem;
+        right: -.8rem;
+    }
+
+    .main > header .logo {
+        left: -.5rem;
+    }
+
+    .main > footer .logo {
+        right: -.5rem;
+    }
+
+    .main > header .icon-bar {
+        margin-left: 2rem;
+    }
+
+    .main > footer .icon-bar {
+        margin-right: 2rem;
     }
 
     .terminal {
