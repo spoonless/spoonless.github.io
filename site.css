@@ -14,6 +14,23 @@ body{
     padding:0;
 }
 
+a:link {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+a:visited {
+  color: inherit;
+}
+
+a:hover {
+  color: inherit;
+}
+
+a:active {
+  color: inherit;
+}
+
 .container {
     max-width: 75rem;
     margin: auto;
@@ -156,8 +173,7 @@ header .icon-bar {
 
 .page1 {
     border-top: 2em solid #666;
-    height: calc(100vh - 2em);
-    max-height: 1080px;
+    height: 24rem;
 }
 
 .page2 {
@@ -177,88 +193,16 @@ header .icon-bar {
     border-bottom: 3px solid #EEE;
 }
 
-.page2 > section {
-    min-height: 50rem;
-}
-
-.page3 > section {
-    min-height: 50rem;
-}
-
-.page4 > section {
-    min-height: 50rem;
-}
-
 .message-titre {
     position: relative;
     margin-left: 1rem;
-    top: 100%;
+    top: 90%;
     transform: translateY(-2em);
-}
-
-section.rooms {
-    display: none;
-}
-
-section.puces {
-    display: grid;
-}
-
-section.medaillons {
-    position: relative;
-    top: 25%;
-}
-
-.page1 .medaillon img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 30rem;
-    width: 45vw;
-}
-
-.page1 .medaillon img:hover {
-    filter: brightness(120%);
-}
-
-.page1 .medaillon.realiser {
-    grid-column: 1;
-    grid-row: 1 / 2;
-}
-
-.page1 .medaillon.accompagner {
-    grid-column: 1;
-    grid-row: 2 / 3;
-}
-
-.page1 .medaillon.former {
-    grid-column: 1;
-    grid-row: 2 / 3;
-}
-
-.page1 .medaillon.accompagner img {
-    position: relative;
-    top: -30%;
-    left: -20%;
-}
-
-.page1 .medaillon.former img {
-    position: relative;
-    top: -30%;
-    left: 20%;
-}
-
-.page2 .medaillon img, .page3 .medaillon img, .page4 .medaillon img {
-    display: block;
-    margin: auto;
-    width: 80vw;
-    max-width: 30rem;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
 }
 
 .text-block {
     padding: 1rem;
+    padding-top: 2rem;
     background-color: #404040AA;
     font-family: "Syne", sans-serif;
     font-size: 1.4rem;
@@ -267,9 +211,8 @@ section.medaillons {
 }
 
 .text-block img.puce {
-    max-width: 15rem;
+    max-width: 33vw;
     float: left;
-    display: none;
 }
 
 .text-block p:first-of-type {
@@ -286,11 +229,51 @@ p.avis {
 }
 
 p.avis:before {
-  content: "\201C";
+    content: "\201C";
 }
 
 p.avis:after {
-  content: "\201D";
+    content: "\201D";
+}
+
+section.gallery {
+    clear: both;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.gallery-item {
+    margin: 1rem;
+}
+
+.gallery-item:hover .gallery-item-title {
+    filter: invert(.8);
+}
+
+.gallery-item:hover .gallery-item-content {
+    filter: brightness(1.50);
+}
+
+.gallery-item-content {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 0.2rem;
+}
+
+.gallery-item-content img {
+    display: block;
+    margin: auto;
+    width: 38vw;
+}
+
+.gallery-item-title {
+    background-color: #333f;
+    padding: .5rem;
+    margin: 0;
+    text-align: center;
 }
 
 @media (min-width: 45rem) {
@@ -315,27 +298,13 @@ p.avis:after {
         width: 90%;
     }
 
-    .page2 .medaillon, .page3 .medaillon, .page4 .medaillon {
-        display: none;
-    }
-
-    section.rooms {
-        display: grid;
-    }
-
-    section.puces {
-        display: none;
-    }
-
     .text-block img.puce {
-        display: inline;
+        max-width: 12rem;
     }
 
-}
-
-@media (min-width: 800px) {
-    section.medaillons {
-        top: 5%;
+    .gallery-item-content img {
+        width: 8em;
     }
+
 }
 
