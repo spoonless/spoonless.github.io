@@ -111,8 +111,6 @@ a:active {
 }
 
 .icon-message {
-    margin-left: .5rem;
-    margin-right: .5rem;
 }
 
 .icon-bar {
@@ -127,7 +125,7 @@ a:active {
 
 .main > header {
     position: absolute;
-    top: 1rem;
+    top: 1.2rem;
 }
 
 .main > header .logo-name {
@@ -153,7 +151,6 @@ a:active {
 
 .main > footer .logo-name {
     bottom: -1.2rem;
-    right: -.4rem;
 }
 
 .main > footer .icon-message:before {
@@ -195,10 +192,11 @@ a:active {
 
 .icon {
     height: 2.8rem;
+    filter: grayscale(100%);
 }
 
 .icon:hover {
-    filter: sepia(50%) hue-rotate(320deg);
+    filter: grayscale(20%);
 }
 
 .page1 {
@@ -328,6 +326,10 @@ section.gallery {
         border-right: 3px solid #EEE;
         border-bottom: 3px solid #EEE;
         right: -.8rem;
+    }
+
+    .main > footer .logo-name {
+        right: -.4rem;
     }
 
     .text-block {
