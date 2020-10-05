@@ -203,7 +203,9 @@ a:active {
 
 .page1 {
     border-top: 2em solid #666;
-    height: 24rem;
+    height: 30vh;
+    min-height: 18em;
+    max-height: 35em;
 }
 
 .page2 {
@@ -214,8 +216,8 @@ a:active {
 .page3 {
     border-top: 3px solid #EEE;
     border-bottom: 3px solid #EEE;
-    margin-top: 15rem;
-    margin-bottom: 15rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
 }
 
 .page4 {
@@ -227,7 +229,7 @@ a:active {
     position: relative;
     margin-left: 1rem;
     top: 90%;
-    transform: translateY(-2em);
+    transform: translateY(-1em);
 }
 
 .text-block {
@@ -235,14 +237,17 @@ a:active {
     padding-top: 2rem;
     background-color: #404040AA;
     font-family: "Syne", sans-serif;
-    font-size: 1.4rem;
     text-align: justify;
-    line-height: 1.3;
+    font-size: 1.3rem;
+    line-height: 1.2;
 }
 
 .text-block img.puce {
-    max-width: 33vw;
+    max-width: 28vw;
     float: left;
+    position: relative;
+    top: -1rem;
+    margin-right: 1rem;
 }
 
 .text-block p:first-of-type {
@@ -255,7 +260,7 @@ a:active {
 
 p.avis {
     font-style: italic;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 
 p.avis:before {
@@ -307,6 +312,12 @@ section.gallery {
 }
 
 @media (min-width: 45rem) {
+    .terminal {
+        font-size: 3rem;
+    }
+}
+
+@media (min-width: 450px) {
     .main header .logo {
         border-top: 3px solid #EEE;
         border-left: 3px solid #EEE;
@@ -319,12 +330,10 @@ section.gallery {
         right: -.8rem;
     }
 
-    .terminal {
-        font-size: 3rem;
-    }
-
     .text-block {
         padding: 4rem;
+        font-size: 1.6rem;
+        line-height: 1.3;
     }
 
     .text-background {
@@ -337,7 +346,9 @@ section.gallery {
     }
 
     .text-block img.puce {
-        max-width: 12rem;
+        max-width: 11rem;
+        right: 1.5rem;
+        margin-right: 0;
     }
 
     .gallery-item-content img {
