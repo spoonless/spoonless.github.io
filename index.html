@@ -31,16 +31,19 @@
         <header>
             <div class="logo-frame">
                 <div class="logo">
-                    <div class="david"><span>david</span></div>
-                    <div class="gayerie"><span>gayerie</span></div>
-                    <div class="dotdev"><span>.dev</span></div>
+                    <div class="logo-name">
+                      <div class="david"><span>david</span></div>
+                      <div class="gayerie"><span>gayerie</span></div>
+                      <div class="dotdev"><span>.dev</span></div>
+                    </div>
                     <div class="icon-bar">
-                        <a class="obfuscemail" title="Me contacter"><img src="assets/letter.svg" alt="Email"></a>
-                        <a class="analytics-event" href="https://github.com/spoonless" title="Me retrouver sur GitHub"><img src="assets/github.svg" alt="github"></a>
-                        <a class="analytics-event" href="https://gitlab.com/spoonless" title="Me retrouver sur GitLab"><img src="assets/gitlab.svg" alt="gitlab"></a>
-                        <a class="analytics-event" href="http://digicreatures.net" title="Me retrouver sur digiCreatures"><img src="assets/digicreatures.svg" alt="digicreatures"></a>
+                        <a class="obfuscemail"><img class="icon" data-title="Contactez-moi par mail" src="assets/letter.svg" alt="Email"></a>
+                        <a class="analytics-event" href="https://github.com/spoonless" ><img class="icon" data-title="Retrouvez-moi sur GitHub" src="assets/github.svg" alt="github"></a>
+                        <a class="analytics-event" href="https://gitlab.com/spoonless"><img class="icon" data-title="Retrouvez-moi sur GitLab" src="assets/gitlab.svg" alt="gitlab"></a>
+                        <a class="analytics-event" href="http://digicreatures.net"><img class="icon" data-title="Retrouvez-moi sur digiCreatures.net" src="assets/digicreatures.svg" alt="digicreatures"></a>
                     </div>
                 </div>
+                <div class="icon-message"></div>
             </div>
         </header>
         <div id="page1" class="page1">
@@ -125,16 +128,19 @@ les savoir-faire que j'ai acquis et mis en pratique au travers les différentes 
         </div>
         <footer>
             <div class="logo-frame">
+                <div class="icon-message">&nbsp;</div>
                 <div class="logo">
                     <div class="icon-bar">
-                        <a class="obfuscemail" title="Me contacter"><img src="assets/letter.svg" alt="Email"></a>
-                        <a class="analytics-event" href="https://github.com/spoonless" title="Me retrouver sur GitHub"><img src="assets/github.svg" alt="github"></a>
-                        <a class="analytics-event" href="https://gitlab.com/spoonless" title="Me retrouver sur GitLab"><img src="assets/gitlab.svg" alt="gitlab"></a>
-                        <a class="analytics-event" href="http://digicreatures.net" title="Me retrouver sur digiCreatures"><img src="assets/digicreatures.svg" alt="digicreatures"></a>
+                        <a class="obfuscemail"><img class="icon" data-title="Contactez-moi par mail" src="assets/letter.svg" alt="Email"></a>
+                        <a class="analytics-event" href="https://github.com/spoonless" ><img class="icon" data-title="Retrouvez-moi sur GitHub" src="assets/github.svg" alt="github"></a>
+                        <a class="analytics-event" href="https://gitlab.com/spoonless"><img class="icon" data-title="Retrouvez-moi sur GitLab" src="assets/gitlab.svg" alt="gitlab"></a>
+                        <a class="analytics-event" href="http://digicreatures.net"><img class="icon" data-title="Retrouvez-moi sur digiCreatures.net" src="assets/digicreatures.svg" alt="digicreatures"></a>
                     </div>
-                    <div class="david"><span>david</span></div>
-                    <div class="gayerie"><span>gayerie</span></div>
-                    <div class="dotdev"><span>.dev</span></div>
+                    <div class="logo-name">
+                      <div class="david"><span>david</span></div>
+                      <div class="gayerie"><span>gayerie</span></div>
+                      <div class="dotdev"><span>.dev</span></div>
+                    </div>
                 </div>
             </div>
         </footer>
@@ -162,6 +168,19 @@ les savoir-faire que j'ai acquis et mis en pratique au travers les différentes 
 </div>
 <script>!function(){function e(e){return e.replace(/[a-zA-Z]/g,function(e){return String.fromCharCode((e<="Z"?90:122)>=(e=e.charCodeAt(0)+13)?e:e-26)})}!function(e){for(var r=document.getElementsByClassName("obfuscemail"),t=0;t<r.length;t++){var a=r[t],f=document.createElement("a");f.title=a.title;f.href="mailto:"+e,f.innerHTML=a.innerHTML,a.parentNode.replaceChild(f,a)}}(e("qnivq@tnlrevr.qri"))}();</script>
 <script>
+window.addEventListener("load", function() {
+  function updateIconMessage(message) {
+    for(let e of document.getElementsByClassName("icon-message")) {
+      e.innerText = message;
+    }
+  }
+
+  for(let e of document.getElementsByClassName("icon")) {
+    e.addEventListener("mouseover", updateIconMessage.bind(null, e.dataset.title));
+    e.addEventListener("mouseout", updateIconMessage.bind(null, ""));
+  }
+});
+
 window.addEventListener("load", function() {
   setTimeout(function() {
       let terminalLine = document.getElementById("terminal-line");
