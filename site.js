@@ -37,3 +37,35 @@ function getBackgroundKeywords() {
   return shuffleWords(keywords, ",");
 }
 
+function updateBackgroundHeight() {
+  document.getElementById("background").style.height = (document.getElementById("foreground").clientHeight - 5) + "px";
+}
+
+function registerIconMessageListener() {
+  function updateIconMessage(message) {
+    for(let e of document.getElementsByClassName("icon-message")) {
+      e.innerText = message;
+    }
+  }
+
+  for(let e of document.getElementsByClassName("icon")) {
+    e.addEventListener("mouseover", updateIconMessage.bind(null, e.dataset.title));
+    e.addEventListener("mouseout", updateIconMessage.bind(null, ""));
+  }
+}
+
+function writeOnTerminal() {
+  setTimeout(function() {
+      let terminalLine = document.getElementById("terminal-line");
+      terminalLine.className = "";
+      typeText(terminalLine, terminalLine.dataset.message);
+    },
+    1900);
+}
+
+window.addEventListener("load", updateBackgroundHeight);
+window.addEventListener("resize", updateBackgroundHeight);
+window.addEventListener("orientationchange", updateBackgroundHeight);
+window.addEventListener("load", registerIconMessageListener);
+window.addEventListener("load", writeOnTerminal);
+
