@@ -111,6 +111,7 @@ a:active {
 }
 
 .icon-message {
+    font-size: 1.2rem;
 }
 
 .icon-bar {
@@ -131,6 +132,11 @@ a:active {
 .main > header .logo-name {
     top: -.4rem;
     left: -.4rem;
+}
+
+.main > header .icon-bar {
+    position: absolute;
+    top: 21rem;
 }
 
 .main > footer {
@@ -201,9 +207,11 @@ a:active {
 
 .page1 {
     border-top: 2em solid #666;
-    height: 30vh;
-    min-height: 18em;
-    max-height: 35em;
+    background-image: url("assets/room.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+    height: 30rem;
+    background-size: 20rem;
 }
 
 .page2 {
@@ -222,6 +230,7 @@ a:active {
     border-top: 3px solid #EEE;
     border-bottom: 3px solid #EEE;
 }
+
 
 .message-titre {
     position: relative;
@@ -299,7 +308,7 @@ section.gallery {
 .gallery-item-content img {
     display: block;
     margin: auto;
-    width: 38vw;
+    width: 35vw;
 }
 
 .gallery-item-title {
@@ -307,6 +316,7 @@ section.gallery {
     padding: .5rem;
     margin: 0;
     text-align: center;
+    font-size: 1.2rem;
 }
 
 @media (min-width: 45rem) {
@@ -316,13 +326,18 @@ section.gallery {
 }
 
 @media (min-width: 450px) {
-    .main header .logo {
+    .main > header .logo {
         border-top: 3px solid #EEE;
         border-left: 3px solid #EEE;
         left: -.8rem;
     }
 
-    .main footer .logo {
+    .main > header .icon-bar {
+        position: static;
+        top: 0;
+    }
+
+    .main > footer .logo {
         border-right: 3px solid #EEE;
         border-bottom: 3px solid #EEE;
         right: -.8rem;
@@ -347,6 +362,11 @@ section.gallery {
         width: 90%;
     }
 
+    .page1 {
+        height: 34rem;
+        background-size: 29rem;
+    }
+
     .text-block img.puce {
         max-width: 11rem;
         right: 1.5rem;
@@ -354,7 +374,7 @@ section.gallery {
     }
 
     .gallery-item-content img {
-        width: 8em;
+        width: 9rem;
     }
 
 }
