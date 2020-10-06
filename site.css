@@ -101,17 +101,14 @@ a:active {
     animation-iteration-count: infinite;
 }
 
-.logo-frame {
-    width: 23rem;
-}
-
 .logo {
     position: relative;
     font-size: 3rem;
+    width: 22rem;
 }
 
 .icon-message {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
 .icon-bar {
@@ -143,6 +140,10 @@ a:active {
     margin-top: 6rem;
     height: 13rem;
     border-bottom: 2rem solid #666F;
+}
+
+.main > footer .logo {
+    float: right;
 }
 
 .main > footer .logo-frame {
