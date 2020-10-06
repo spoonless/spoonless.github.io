@@ -108,12 +108,14 @@ a:active {
 }
 
 .icon-message {
+    margin-left: .5rem;
+    margin-right: .5rem;
     font-size: 1.3rem;
 }
 
 .icon-bar {
-    margin-left: .5rem;
-    margin-right: .5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .logo-name {
@@ -133,7 +135,7 @@ a:active {
 
 .main > header .icon-bar {
     position: absolute;
-    top: 21rem;
+    top: 22.5rem;
 }
 
 .main > footer {
@@ -212,7 +214,7 @@ a:active {
     background-repeat: no-repeat;
     background-position: right top;
     height: 30rem;
-    background-size: 20rem;
+    background-size: 22rem;
 }
 
 .page2 {
@@ -326,6 +328,13 @@ section.gallery {
     }
 }
 
+@media (min-width: 650px) {
+    .page1 {
+        height: 34rem;
+        background-size: 30rem;
+    }
+}
+
 @media (min-width: 450px) {
     .main > header .logo {
         border-top: 3px solid #EEE;
@@ -361,11 +370,6 @@ section.gallery {
 
     .main {
         width: 90%;
-    }
-
-    .page1 {
-        height: 34rem;
-        background-size: 29rem;
     }
 
     .text-block img.puce {
