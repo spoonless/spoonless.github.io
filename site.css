@@ -125,32 +125,26 @@ a:active {
 
 .main > header {
     position: absolute;
-    top: 1.2rem;
-}
-
-.main > header .logo-name {
-    top: -.4rem;
-    left: -.4rem;
+    top: 0;
 }
 
 .main > header .icon-bar {
     position: absolute;
-    top: 22.5rem;
+    top: 21.5rem;
 }
 
 .main > footer {
-    margin-top: 6rem;
-    height: 13rem;
-    border-bottom: 2rem solid #666F;
+  height: 18rem;
+}
+
+.main > footer .logo-frame {
+    position: relative;
+    top: 3rem;
+    text-align: right;
 }
 
 .main > footer .logo {
     float: right;
-}
-
-.main > footer .logo-frame {
-    float: right;
-    text-align: right;
 }
 
 .main > footer .icon-bar {
@@ -170,12 +164,8 @@ a:active {
     bottom: -.4rem;
 }
 
-
 .logo-name .david {
-    position: relative;
-    top: 0;
-    line-height: .9em;
-    z-index: 20;
+    line-height: 1em;
 }
 
 .logo-name .gayerie {
@@ -188,7 +178,7 @@ a:active {
 .logo-name .dotdev {
     position: relative;
     top: -.8rem;
-    line-height: .8em;
+    line-height: 1em;
     z-index: 5;
 }
 
@@ -209,12 +199,11 @@ a:active {
 }
 
 .page1 {
-    border-top: 2em solid #666;
     background-image: url("assets/room.png");
     background-repeat: no-repeat;
     background-position: right top;
     height: 30rem;
-    background-size: 22rem;
+    background-size: 26rem;
 }
 
 .page2 {
@@ -331,11 +320,20 @@ section.gallery {
 @media (min-width: 650px) {
     .page1 {
         height: 34rem;
-        background-size: 30rem;
+        background-size: 36rem;
     }
 }
 
 @media (min-width: 450px) {
+
+    .main > header {
+        top: 1.2rem;
+    }
+
+    .main > footer {
+        border-bottom: 2rem solid #666F;
+    }
+
     .main > header .logo {
         border-top: 3px solid #EEE;
         border-left: 3px solid #EEE;
@@ -351,6 +349,12 @@ section.gallery {
         border-right: 3px solid #EEE;
         border-bottom: 3px solid #EEE;
         right: -.8rem;
+        bottom: -1.6rem;
+    }
+
+    .main > header .logo-name {
+        top: -.6rem;
+        left: -.6rem;
     }
 
     .main > footer .logo-name {
@@ -370,6 +374,10 @@ section.gallery {
 
     .main {
         width: 90%;
+    }
+
+    .page1 {
+        border-top: 2em solid #666;
     }
 
     .text-block img.puce {
