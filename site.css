@@ -242,7 +242,8 @@ a:active {
 }
 
 .text-block img.puce {
-    max-width: 28vw;
+    width: 28vw;
+    max-width: 11rem;
     float: left;
     position: relative;
     top: -1rem;
@@ -301,6 +302,7 @@ section.gallery {
     display: block;
     margin: auto;
     width: 35vw;
+    max-width: 9rem;
 }
 
 .gallery-item-title {
@@ -318,14 +320,6 @@ section.gallery {
 }
 
 @media (min-width: 650px) {
-    .page1 {
-        height: 34rem;
-        background-size: 36rem;
-    }
-}
-
-@media (min-width: 450px) {
-
     .main > header {
         top: 1.2rem;
     }
@@ -377,18 +371,14 @@ section.gallery {
     }
 
     .page1 {
+        height: 34rem;
+        background-size: 36rem;
         border-top: 2em solid #666;
     }
 
     .text-block img.puce {
-        max-width: 11rem;
         right: 1.5rem;
         margin-right: 0;
     }
-
-    .gallery-item-content img {
-        width: 9rem;
-    }
-
 }
 
