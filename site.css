@@ -134,12 +134,11 @@ a:active {
 }
 
 .main > footer {
-  height: 18rem;
+  margin-top: 3rem;
+  height: 15rem;
 }
 
 .main > footer .logo-frame {
-    position: relative;
-    top: 3rem;
     text-align: right;
 }
 
@@ -198,7 +197,7 @@ a:active {
     filter: grayscale(20%);
 }
 
-.page1 {
+.headlines {
     background-image: url("assets/room.png");
     background-repeat: no-repeat;
     background-position: right top;
@@ -206,23 +205,19 @@ a:active {
     background-size: 26rem;
 }
 
-.page2 {
-    border-top: 3px solid #EEE;
-    border-bottom: 3px solid #EEE;
+.headlines + .page {
+    margin-top: 0;
 }
 
-.page3 {
+.page {
+    margin-top: 8rem;
     border-top: 3px solid #EEE;
     border-bottom: 3px solid #EEE;
-    margin-top: 5rem;
-    margin-bottom: 5rem;
+    background-image: url("assets/decoration.png");
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: min(20rem, 55vw);
 }
-
-.page4 {
-    border-top: 3px solid #EEE;
-    border-bottom: 3px solid #EEE;
-}
-
 
 .message-titre {
     position: relative;
@@ -370,7 +365,7 @@ section.gallery {
         width: 90%;
     }
 
-    .page1 {
+    .headlines {
         height: 34rem;
         background-size: 36rem;
         border-top: 2em solid #666;
