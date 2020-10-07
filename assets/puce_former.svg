@@ -14,8 +14,8 @@
    version="1.1"
    id="svg8"
    inkscape:version="1.0.1 (1.0.1+r73)"
-   sodipodi:docname="puces5.svg"
-   inkscape:export-filename="/home/david/Workspace/gayerie.dev/assets/puce01.png"
+   sodipodi:docname="puce_former.svg"
+   inkscape:export-filename="/home/david/Workspace/gayerie.dev/assets/puce_former.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96">
   <defs
@@ -31,18 +31,6 @@
          style="stop-color:#cdcdcd;stop-opacity:1"
          offset="1"
          id="stop984" />
-    </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
-       id="linearGradient948">
-      <stop
-         style="stop-color:#767e81;stop-opacity:1"
-         offset="0"
-         id="stop944" />
-      <stop
-         style="stop-color:#d3d3d3;stop-opacity:1"
-         offset="1"
-         id="stop946" />
     </linearGradient>
     <rect
        x="-4.3674889"
@@ -82,45 +70,9 @@
          offset="0"
          id="stop893" />
       <stop
-         style="stop-color:#eff644;stop-opacity:1"
+         style="stop-color:#8df644;stop-opacity:1"
          offset="1"
          id="stop895" />
-    </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
-       id="linearGradient889">
-      <stop
-         style="stop-color:#2e381c;stop-opacity:1"
-         offset="0"
-         id="stop885" />
-      <stop
-         style="stop-color:#89a651;stop-opacity:1"
-         offset="1"
-         id="stop887" />
-    </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
-       id="linearGradient881">
-      <stop
-         style="stop-color:#adbabd;stop-opacity:1"
-         offset="0"
-         id="stop877" />
-      <stop
-         style="stop-color:#ededed;stop-opacity:1"
-         offset="1"
-         id="stop879" />
-    </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
-       id="linearGradient873">
-      <stop
-         style="stop-color:#311e26;stop-opacity:1"
-         offset="0"
-         id="stop869" />
-      <stop
-         style="stop-color:#a4667e;stop-opacity:1"
-         offset="1"
-         id="stop871" />
     </linearGradient>
     <inkscape:perspective
        sodipodi:type="inkscape:persp3d"
@@ -129,33 +81,6 @@
        inkscape:vp_z="210 : -45.532602 : 1"
        inkscape:persp3d-origin="105 : -95.032596 : 1"
        id="perspective849" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient873"
-       id="linearGradient875"
-       x1="44.075005"
-       y1="-29.257692"
-       x2="155.89774"
-       y2="82.498055"
-       gradientUnits="userSpaceOnUse" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient881"
-       id="linearGradient883"
-       x1="105.82135"
-       y1="84.667847"
-       x2="216.42038"
-       y2="-27.362646"
-       gradientUnits="userSpaceOnUse" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient889"
-       id="linearGradient891"
-       x1="43.660603"
-       y1="-29.739052"
-       x2="155.89774"
-       y2="82.498055"
-       gradientUnits="userSpaceOnUse" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient897"
@@ -322,42 +247,6 @@
        width="54.524082"
        height="35.634296"
        id="rect1058" />
-    <filter
-       inkscape:collect="always"
-       style="color-interpolation-filters:sRGB"
-       id="filter1299"
-       x="-0.0028358337"
-       width="1.0056717"
-       y="-0.0024292895"
-       height="1.0048586">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.11395991"
-         id="feGaussianBlur1301" />
-    </filter>
-    <filter
-       inkscape:collect="always"
-       style="color-interpolation-filters:sRGB"
-       id="filter1303"
-       x="-0.0022783191"
-       width="1.0045567"
-       y="-0.0019517"
-       height="1.0039034">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.091555801"
-         id="feGaussianBlur1305" />
-    </filter>
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient948"
-       id="linearGradient942"
-       gradientUnits="userSpaceOnUse"
-       x1="105.82135"
-       y1="84.667847"
-       x2="216.42038"
-       y2="-27.362646"
-       gradientTransform="translate(-321.42257,160.71129)" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient986"
@@ -376,9 +265,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="-134.79974"
-     inkscape:cy="186.68798"
+     inkscape:zoom="1.4"
+     inkscape:cx="-120.82627"
+     inkscape:cy="217.31409"
      inkscape:document-units="mm"
      inkscape:current-layer="layer5"
      inkscape:document-rotation="0"
@@ -423,6 +312,10 @@
        position="44.672013,51.956067"
        orientation="0,-1"
        id="guide1068" />
+    <sodipodi:guide
+       position="-18.89881,36.254598"
+       orientation="0,-1"
+       id="guide888" />
   </sodipodi:namedview>
   <metadata
      id="metadata5">
@@ -432,68 +325,12 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
-     inkscape:groupmode="layer"
-     id="layer6"
-     inkscape:label="misc"
-     style="display:none"
-     sodipodi:insensitive="true"
-     transform="translate(-20.556946,-11.287246)">
-    <text
-       xml:space="preserve"
-       id="text897"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:120%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;white-space:pre;shape-inside:url(#rect899);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.16983px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
-       transform="matrix(1.5579363,0.89439503,0,1.5579363,-30.12666,-71.762641)"><tspan
-         x="49.091797"
-         y="50.504653"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.5833px;font-family:Comfortaa;-inkscape-font-specification:'Comfortaa, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.16983px">le code</tspan></tspan></text>
-    <text
-       xml:space="preserve"
-       id="text897-0"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.5833px;line-height:120%;font-family:Comfortaa;-inkscape-font-specification:'Comfortaa, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;white-space:pre;shape-inside:url(#rect899-7);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.16983px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
-       transform="matrix(1.5579363,-0.89844945,0,1.5579363,-77.6089,63.753789)"><tspan
-         x="49.091797"
-         y="50.320951"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.5833px;font-family:Comfortaa;-inkscape-font-specification:'Comfortaa, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.16983px">l'équipe</tspan></tspan></text>
-  </g>
-  <g
      inkscape:label="fond"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(-96.262943,-57.214669)"
-     style="display:none;mix-blend-mode:normal"
-     sodipodi:insensitive="true">
-    <path
-       style="fill:none;fill-rule:evenodd;stroke:#d6d6d6;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 139.1786,53.01381 0.0519,56.61058"
-       id="path1000" />
-    <rect
-       style="color:#000000;overflow:visible;fill:url(#linearGradient942);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:6.9847;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"
-       id="use896"
-       width="55.712826"
-       height="56.787548"
-       x="-160.74121"
-       y="133.28044"
-       rx="0"
-       ry="0"
-       transform="matrix(-0.8660254,0.5,0,1,0,0)" />
-    <rect
-       style="color:#000000;overflow:visible;fill:url(#linearGradient883);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:6.9847;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"
-       id="rect865"
-       width="55.71283"
-       height="56.787548"
-       x="160.68137"
-       y="-27.430847"
-       rx="0"
-       ry="0"
-       transform="matrix(0.86602543,0.49999996,0,1,0,0)" />
-  </g>
-  <g
-     inkscape:label="fond copy"
      inkscape:groupmode="layer"
      id="g952"
      transform="translate(-96.262943,-57.214669)"
@@ -514,7 +351,7 @@
   <g
      inkscape:groupmode="layer"
      id="g944"
-     inkscape:label="partage"
+     inkscape:label="haut"
      style="display:inline"
      transform="translate(-20.556946,-11.287246)">
     <g
@@ -525,17 +362,17 @@
       <text
          xml:space="preserve"
          id="text897-8-6"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.5833px;line-height:83%;font-family:Comfortaa;-inkscape-font-specification:'Comfortaa, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;letter-spacing:-0.323372px;word-spacing:0px;writing-mode:lr-tb;white-space:pre;shape-inside:url(#rect899-0-5);display:inline;fill:#eff644;fill-opacity:1;stroke:none;stroke-width:0.161686px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.5833px;line-height:83%;font-family:Comfortaa;-inkscape-font-specification:'Comfortaa, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;letter-spacing:-0.323372px;word-spacing:0px;writing-mode:lr-tb;white-space:pre;shape-inside:url(#rect899-0-5);display:inline;fill:#8df644;fill-opacity:1;stroke:none;stroke-width:0.161686px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
          transform="matrix(1.7909893,5.5154897e-5,0,1.7909893,-67.505354,-24.365005)"
          inkscape:export-xdpi="96"
          inkscape:export-ydpi="96"><tspan
            x="49.091797"
            y="48.363041"><tspan
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.5833px;font-family:Comfortaa;-inkscape-font-specification:'Comfortaa, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#eff644;fill-opacity:1;stroke-width:0.161686px">form
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.5833px;font-family:Comfortaa;-inkscape-font-specification:'Comfortaa, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#8df644;fill-opacity:1;stroke-width:0.161686px">form
 </tspan></tspan><tspan
            x="49.091797"
            y="57.147178"><tspan
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.5833px;font-family:Comfortaa;-inkscape-font-specification:'Comfortaa, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#eff644;fill-opacity:1;stroke-width:0.161686px">er</tspan></tspan></text>
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.5833px;font-family:Comfortaa;-inkscape-font-specification:'Comfortaa, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#8df644;fill-opacity:1;stroke-width:0.161686px">er</tspan></tspan></text>
     </g>
     <rect
        style="color:#000000;overflow:visible;fill:url(#linearGradient899);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:6.35498;stop-color:#000000"
@@ -549,90 +386,5 @@
        transform="matrix(0.86512644,0.50155383,-0.86512644,0.50155383,0,0)"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
-  </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer2"
-     inkscape:label="equipe"
-     style="display:none"
-     sodipodi:insensitive="true"
-     transform="translate(-20.556946,-11.287246)">
-    <g
-       inkscape:groupmode="layer"
-       id="layer4"
-       inkscape:label="texte 1"
-       style="display:inline">
-      <text
-         xml:space="preserve"
-         id="text897-8-6-0"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.5833px;line-height:83%;font-family:Comfortaa;-inkscape-font-specification:'Comfortaa, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;letter-spacing:-0.323372px;word-spacing:0px;writing-mode:lr-tb;white-space:pre;shape-inside:url(#rect899-0-5-9);display:inline;fill:#7b9449;fill-opacity:1;stroke:none;stroke-width:0.161686px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
-         transform="matrix(1.6364045,0.93944281,0,1.6364045,-16.186716,-80.929451)"><tspan
-           x="49.091797"
-           y="48.363041"><tspan
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.5833px;font-family:Comfortaa;-inkscape-font-specification:'Comfortaa, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#7b9449;fill-opacity:1;stroke-width:0.161686px">l'équi
-</tspan></tspan><tspan
-           x="49.091797"
-           y="57.147178"><tspan
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.5833px;font-family:Comfortaa;-inkscape-font-specification:'Comfortaa, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#7b9449;fill-opacity:1;stroke-width:0.161686px">pe</tspan></tspan></text>
-    </g>
-    <rect
-       style="color:#000000;overflow:visible;fill:url(#linearGradient891);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:6.9775;stroke-miterlimit:4;stroke-dasharray:none;stop-color:#000000"
-       id="rect847"
-       width="55.710804"
-       height="55.710804"
-       x="100.18693"
-       y="26.787252"
-       rx="0"
-       ry="0"
-       transform="matrix(0.86512644,0.50155383,-0.86512644,0.50155383,0,0)" />
-  </g>
-  <g
-     inkscape:groupmode="layer"
-     id="g926"
-     inkscape:label="code"
-     style="display:none"
-     sodipodi:insensitive="true"
-     transform="translate(-20.556946,-11.287246)">
-    <g
-       inkscape:groupmode="layer"
-       id="layer3"
-       inkscape:label="texte"
-       style="display:inline">
-      <text
-         xml:space="preserve"
-         id="text897-8"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.5833px;line-height:70%;font-family:Comfortaa;-inkscape-font-specification:'Comfortaa, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;letter-spacing:-0.323372px;word-spacing:0px;writing-mode:lr-tb;white-space:pre;shape-inside:url(#rect899-0);display:inline;fill:#784a5c;fill-opacity:1;stroke:none;stroke-width:0.161686px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
-         transform="matrix(1.6364045,0.93944282,0,1.6364045,-15.251559,-76.520573)"><tspan
-           x="49.091797"
-           y="47.675126"><tspan
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.5833px;font-family:Comfortaa;-inkscape-font-specification:'Comfortaa, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#784a5c;fill-opacity:1;stroke-width:0.161686px">le
-</tspan></tspan><tspan
-           x="49.091797"
-           y="55.083436"><tspan
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.5833px;font-family:Comfortaa;-inkscape-font-specification:'Comfortaa, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#784a5c;fill-opacity:1;stroke-width:0.161686px">code</tspan></tspan></text>
-    </g>
-    <rect
-       style="color:#000000;overflow:visible;fill:url(#linearGradient875);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:6.97749;stop-color:#000000"
-       id="rect924"
-       width="55.710804"
-       height="55.710804"
-       x="100.18693"
-       y="26.787252"
-       rx="0"
-       ry="0"
-       transform="matrix(0.86512644,0.50155383,-0.86512644,0.50155383,0,0)" />
-  </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer7"
-     inkscape:label="avant"
-     style="display:none;filter:url(#filter1299)"
-     sodipodi:insensitive="true"
-     transform="translate(-20.556946,-11.287246)">
-    <path
-       style="display:inline;mix-blend-mode:normal;fill:none;fill-rule:evenodd;stroke:#232323;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter1303)"
-       d="m 139.15415,52.909829 -48.196894,27.856411 0.05185,56.78753 48.196894,27.94197 48.19689,-27.94196 -2e-5,-56.787538 z"
-       id="path1095"
-       transform="translate(-75.705996,-45.927423)" />
   </g>
 </svg>
