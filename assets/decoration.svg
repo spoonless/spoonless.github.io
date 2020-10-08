@@ -16,7 +16,7 @@
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
    inkscape:version="1.0.1 (1.0.1+r73)"
-   sodipodi:docname="puces5.svg">
+   sodipodi:docname="decoration.svg">
   <defs
      id="defs2">
     <rect
@@ -66,7 +66,7 @@
      transform="translate(19.238987,29.708931)">
     <path
        sodipodi:type="star"
-       style="color:#000000;font-variation-settings:normal;overflow:visible;opacity:1;vector-effect:none;fill:#b4b4b4;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000;stop-opacity:1"
+       style="color:#000000;font-variation-settings:normal;overflow:visible;opacity:1;vector-effect:none;fill:#666666;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000;stop-opacity:1"
        id="path847-6"
        sodipodi:sides="6"
        sodipodi:cx="-130.3287"
@@ -82,7 +82,7 @@
        transform="scale(-1)" />
     <path
        sodipodi:type="star"
-       style="color:#000000;overflow:visible;fill:#b4b4b4;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal;stop-color:#000000"
+       style="color:#000000;overflow:visible;fill:#666666;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal;stop-color:#000000"
        id="path847-6-2"
        sodipodi:sides="6"
        sodipodi:cx="-30.226782"
@@ -98,7 +98,7 @@
        transform="scale(-1)" />
     <path
        sodipodi:type="star"
-       style="color:#000000;font-variation-settings:normal;overflow:visible;opacity:1;vector-effect:none;fill:#b4b4b4;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000;stop-opacity:1"
+       style="color:#000000;font-variation-settings:normal;overflow:visible;opacity:1;vector-effect:none;fill:#666666;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000;stop-opacity:1"
        id="path847-61"
        sodipodi:sides="6"
        sodipodi:cx="-180.26418"
