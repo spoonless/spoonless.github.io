@@ -63,6 +63,21 @@ function writeOnTerminal() {
     1900);
 }
 
+function rot13(e) {
+  return e.replace(/[a-zA-Z]/g,function(e){
+    return String.fromCharCode((e<="Z"?90:122)>=(e=e.charCodeAt(0)+13)?e:e-26)
+  })
+}
+
+function unobfusce(e) {
+  for(let a of document.getElementsByClassName("obfuscemail")){
+    a.href = "mailto:" + e;
+  }
+}
+
+unobfusce = unobfusce.bind(null, rot13("qnivq@tnlrevr.qri"));
+
+window.addEventListener("load", unobfusce);
 window.addEventListener("load", updateBackgroundHeight);
 window.addEventListener("resize", updateBackgroundHeight);
 window.addEventListener("orientationchange", updateBackgroundHeight);
