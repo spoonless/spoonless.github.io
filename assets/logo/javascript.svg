@@ -122,35 +122,6 @@
          offset="1"
          id="stop1132" />
     </linearGradient>
-    <meshgradient
-       inkscape:collect="always"
-       id="meshgradient851"
-       gradientUnits="userSpaceOnUse"
-       x="573.6947"
-       y="82.040253">
-      <meshrow
-         id="meshrow853">
-        <meshpatch
-           id="meshpatch855">
-          <stop
-             path="c 38.1254,0  76.2507,0  114.376,0"
-             style="stop-color:#ffffff;stop-opacity:1"
-             id="stop857" />
-          <stop
-             path="c 0,19.1685  0,38.337  0,57.5055"
-             style="stop-color:#800080;stop-opacity:1"
-             id="stop859" />
-          <stop
-             path="c -38.1254,0  -76.2507,0  -114.376,0"
-             style="stop-color:#ffffff;stop-opacity:1"
-             id="stop861" />
-          <stop
-             path="c 0,-19.1685  0,-38.337  0,-57.5055"
-             style="stop-color:#800080;stop-opacity:1"
-             id="stop863" />
-        </meshpatch>
-      </meshrow>
-    </meshgradient>
   </defs>
   <circle
      style="color:#000000;overflow:visible;fill:url(#radialGradient1138);fill-opacity:1;fill-rule:evenodd;stroke:#333333;stroke-width:2.31672;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:128.239;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000"
@@ -161,11 +132,11 @@
   <text
      xml:space="preserve"
      id="text845"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:62.3173px;line-height:120%;font-family:Chandas;-inkscape-font-specification:'Chandas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;white-space:pre;shape-inside:url(#rect847);fill:none;stroke:#efefef;stroke-width:1.42468213;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:62.3173px;line-height:120%;font-family:Chandas;-inkscape-font-specification:'Chandas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;white-space:pre;shape-inside:url(#rect847);fill:#eeeeee;stroke:#d6d6d6;stroke-width:0.47489404;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1;"
      transform="matrix(1.049756,0,0,1.0559861,-553.96794,-1.865078)"><tspan
        x="569.32617"
        y="118.03813"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:62.3173px;font-family:Chandas;-inkscape-font-specification:'Chandas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke:#efefef;stroke-width:1.42468;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">$();</tspan></tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:62.3173px;font-family:Chandas;-inkscape-font-specification:'Chandas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#eeeeee;fill-opacity:1;stroke:#d6d6d6;stroke-width:0.474894;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">$();</tspan></tspan></text>
   <script
      id="mesh_polyfill"
      type="text/javascript">
