@@ -10,8 +10,8 @@ body{
     font-family: "Comfortaa", sans-serif;
     color: #EEE;
     background-color: #666;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
 }
 
 a:link {
@@ -205,6 +205,10 @@ a:active {
     background-size: 26rem;
 }
 
+.headlines > h1 {
+    display: none;
+}
+
 .headlines + .page {
     margin-top: 0;
 }
@@ -213,10 +217,17 @@ a:active {
     margin-top: 8rem;
     border-top: 3px solid #EEE;
     border-bottom: 3px solid #EEE;
+    padding: 1rem;
+    padding-top: 2rem;
+    background-color: #404040AA;
     background-image: url("assets/decoration.png");
     background-repeat: no-repeat;
     background-position: bottom right;
     background-size: min(20rem, 55vw);
+    font-family: "Syne", sans-serif;
+    text-align: justify;
+    font-size: 1.3rem;
+    line-height: 1.2;
 }
 
 .message-titre {
@@ -226,17 +237,7 @@ a:active {
     transform: translateY(-1em);
 }
 
-.text-block {
-    padding: 1rem;
-    padding-top: 2rem;
-    background-color: #404040AA;
-    font-family: "Syne", sans-serif;
-    text-align: justify;
-    font-size: 1.3rem;
-    line-height: 1.2;
-}
-
-.text-block img.puce {
+.page img.puce {
     width: 28vw;
     max-width: 11rem;
     float: left;
@@ -245,7 +246,7 @@ a:active {
     margin-right: 1rem;
 }
 
-.text-block p:first-of-type {
+.page > p:first-of-type {
     margin-top: 0;
 }
 
@@ -266,7 +267,7 @@ p.avis:after {
     content: "\201D";
 }
 
-section.gallery {
+.gallery {
     clear: both;
     display: flex;
     flex-direction: row;
@@ -350,7 +351,7 @@ section.gallery {
         right: -.4rem;
     }
 
-    .text-block {
+    .page {
         padding: 4rem;
         font-size: 1.6rem;
         line-height: 1.3;
@@ -371,7 +372,7 @@ section.gallery {
         border-top: 2em solid #666;
     }
 
-    .text-block img.puce {
+    .page img.puce {
         right: 1.5rem;
         margin-right: 0;
     }
