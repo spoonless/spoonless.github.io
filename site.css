@@ -137,6 +137,7 @@ a:active {
 .main > header .icon-message {
   position: absolute;
   width: 100vw;
+  max-width: 50rem;
   top: 20rem;
 }
 
