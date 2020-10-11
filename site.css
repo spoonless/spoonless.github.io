@@ -68,7 +68,7 @@ a:active {
 
 @supports (-ms-user-select: none) {
   .text-background {
-		margin-left: 5%;
+    margin-left: 5%;
   	width: 90%
   }
 }
@@ -131,7 +131,13 @@ a:active {
 
 .main > header .icon-bar {
   position: absolute;
-  top: 21.5rem;
+  top: 22.5rem;
+}
+
+.main > header .icon-message {
+  position: absolute;
+  width: 100vw;
+  top: 20rem;
 }
 
 .main > footer {
@@ -235,7 +241,7 @@ a:active {
   position: relative;
   margin-left: 1rem;
   top: 90%;
-  transform: translateY(-1em);
+  transform: translateY(-.5em);
 }
 
 .page > h2 {
@@ -349,6 +355,11 @@ p.avis:after {
   }
 
   .main > header .icon-bar {
+    position: static;
+    top: 0;
+  }
+
+  .main > header .icon-message {
     position: static;
     top: 0;
   }
