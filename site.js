@@ -49,7 +49,9 @@ function registerIconMessageListener() {
   }
 
   for(let e of document.getElementsByClassName("icon")) {
-    e.addEventListener("mouseover", updateIconMessage.bind(null, e.parentElement.dataset.title));
+    var message = e.parentElement.title;
+    e.parentElement.title = "";
+    e.addEventListener("mouseover", updateIconMessage.bind(null, message));
     e.addEventListener("mouseout", updateIconMessage.bind(null, ""));
   }
 }
@@ -79,7 +81,7 @@ function unobfuscemail(e) {
   e = rot13(e);
   for(let a of document.getElementsByClassName("obfuscemail")){
     a.href = "mailto:" + e;
-    a.dataset.title = a.dataset.title.replace("{}", e);
+    a.title = "Écrivez-moi à " + e;
   }
 }
 
@@ -88,7 +90,7 @@ function unobfuscetel(e, e2) {
   e2 = alpha2num(e2);
   for(let a of document.getElementsByClassName("obfuscetel")){
     a.href = "tel:" + e;
-    a.dataset.title = a.dataset.title.replace("{}", e2);
+    a.title = "Appelez-moi au " + e2;
   }
 }
 
