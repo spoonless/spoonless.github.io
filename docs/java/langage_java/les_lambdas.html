@@ -1,0 +1,1079 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Le langage Java - Programmation fonctionnelle et lambdas" name="description" />
+<meta content="Java, programmation objet, POO, langage de programmation, lambda" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Programmation fonctionnelle et lambdas &mdash; Documentation Le langage Java </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/java/langage_java/les_lambdas.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Streams" href="streams.html" />
+    <link rel="prev" title="Les dates" href="les_dates.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Le langage Java
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Le langage Java</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#l-environnement">L’environnement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#oracle-jdk-et-open-jdk">Oracle JDK et Open JDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#un-bref-historique-des-versions">Un bref historique des versions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#configuration-d-eclipse">Configuration d’Eclipse</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="compilation.html">Compilation &amp; exécution</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#un-premier-programme">Un premier programme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#la-compilation">La compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#l-execution">L’exécution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#la-liaison-dynamique">La liaison dynamique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#le-classpath">Le classpath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#bibliotheques-java-les-fichiers-jar">Bibliothèques Java : les fichiers JAR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#creation-d-un-projet-dans-eclipse">Création d’un projet dans Eclipse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structure_fondamentale.html">La structure fondamentale du langage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-instructions">Les instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#le-typage">Le typage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-blocs-de-code">Les blocs de code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-commentaires">Les commentaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#le-formatage-du-code">Le formatage du code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-conventions-de-nommage">Les conventions de nommage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-mots-cles">Les mots-clés</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="premiere_classe.html">Une première classe</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#declarer-une-classe">Déclarer une classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#anatomie-d-une-classe">Anatomie d’une classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#ajouter-des-methodes">Ajouter des méthodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#la-methode-main">La méthode main</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#executer-le-programme-en-ligne-de-commandes">Exécuter le programme en ligne de commandes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#executer-le-programme-depuis-eclipse">Exécuter le programme depuis Eclipse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="types_primitifs.html">Les types primitifs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#le-type-booleen-boolean">Le type booléen : boolean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#le-type-caractere-char">Le type caractère : char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#les-types-entiers-byte-short-int-long">Les types entiers : byte, short, int, long</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#les-types-a-virgule-flottante-float-double">Les types à virgule flottante : float, double</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#les-classes-enveloppes">Les classes enveloppes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#l-autoboxing">L’autoboxing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="operateurs.html">Les opérateurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur-d-affectation">L’opérateur d’affectation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-arithmetiques">Les opérateurs arithmétiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-arithmetiques-unaires">Les opérateurs arithmétiques unaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur-de-concatenation-de-chaines">L’opérateur de concaténation de chaînes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-relationnels">Les opérateurs relationnels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-logiques">Les opérateurs logiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur-ternaire">L’opérateur ternaire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-bitwise">Les opérateurs <em>bitwise</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-de-decalage">Les opérateurs de décalage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#le-transtypage-cast">Le transtypage (cast)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#operateur-et-assignation">Opérateur et assignation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur">L’opérateur .</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#id1">L’opérateur ,</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structures_de_controle.html">Les structures de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#if-else">if-else</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#return">return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#while">while</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#do-while">do-while</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#for">for</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#for-ameliore">for amélioré</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#break-continue">break-continue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#libelle">libellé</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#switch">switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tableau.html">Les tableaux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#initialisation">Initialisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#creation-avec-new">Création avec new</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#acces-aux-elements-d-un-tableau">Accès aux éléments d’un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#tableau-multi-dimensionnel">Tableau multi-dimensionnel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#conversion-en-chaine-de-caracteres">Conversion en chaîne de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#egalite-de-deux-tableaux">Égalité de deux tableaux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#tri-recherche">Tri &amp; recherche</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#copie-d-un-tableau">Copie d’un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#typage-d-un-tableau">Typage d’un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#conversion-d-un-tableau-en-liste">Conversion d’un tableau en liste</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="attributs_et_methodes.html">Attributs &amp; méthodes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#les-attributs">Les attributs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#la-portee">La portée</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#l-initialisation">L’initialisation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#attributs-finaux">attributs finaux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#attributs-de-classe">Attributs de classe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#attributs-de-classe-finaux">Attributs de classe finaux</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#les-methodes">Les méthodes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#id1">La portée</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#la-valeur-de-retour">La valeur de retour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#les-parametres">Les paramètres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#parametre-final">Paramètre final</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#les-variables">Les variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#methodes-de-classe">Méthodes de classe</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#surcharge-de-methode-overloading">Surcharge de méthode : overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#portee-des-noms-et-this">Portée des noms et this</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#principe-d-encapsulation">Principe d’encapsulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cycle_de_vie.html">Cycle de vie d’un objet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-constructeur">Le constructeur</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#parametres-de-constructeur">Paramètres de constructeur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#valeur-par-defaut-des-attributs">Valeur par défaut des attributs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#constructeur-par-defaut">Constructeur par défaut</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#constructeur-prive">Constructeur privé</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#appel-d-un-constructeur-dans-un-constructeur">Appel d’un constructeur dans un constructeur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#appel-d-une-methode-dans-un-constructeur">Appel d’une méthode dans un constructeur</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#injection-de-dependances-par-le-constructeur">Injection de dépendances par le constructeur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-bloc-d-initialisation">Le bloc d’initialisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-bloc-d-initialisation-de-classe">Le bloc d’initialisation de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#exercice">Exercice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#memoire-heap-et-stack">Mémoire heap et stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-ramasse-miettes">Le ramasse-miettes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#la-methode-finalize">La méthode finalize</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="package.html">Les packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="package.html#declaration-d-un-package">Déclaration d’un package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#sous-package">Sous package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#nom-d-un-package">Nom d’un package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#nom-complet-d-une-classe">Nom complet d’une classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#import-de-noms">Import de noms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#la-portee-de-niveau-package">La portée de niveau package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#le-fichier-package-info-java">Le fichier package-info.java</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="heritage_composition.html">Héritage et composition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#l-heritage-is-a">L’héritage (is-a)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-et-constructeur">Héritage et constructeur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-simple-object">Héritage simple : Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-et-affectation">Héritage et affectation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#le-mot-cle-instanceof">Le mot-clé instanceof</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#la-portee-protected">La portée protected</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-des-methodes-et-attributs-de-classe">Héritage des méthodes et attributs de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-et-final">Héritage et final</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#la-composition-has-a">La composition (has-a)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="polymorphisme.html">Le polymorphisme</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#principe-du-polymorphisme">Principe du polymorphisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#une-exception-les-methodes-privees">Une exception : les méthodes privées</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#redefinition-et-signature-de-methode">Redéfinition et signature de méthode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#le-mot-cle-super">Le mot-clé super</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#l-annotation-override">L’annotation &#64;Override</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#les-methodes-de-classe">Les méthodes de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#methode-finale">Méthode finale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#constructeur-et-polymorphisme">Constructeur et polymorphisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#masquage-des-attributs-par-heritage">Masquage des attributs par héritage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#le-principe-du-ouvert-ferme">Le principe du ouvert/fermé</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="classe_abstraite.html">Les classes abstraites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classe_abstraite.html#declarer-une-classe-abstraite">Déclarer une classe abstraite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_abstraite.html#declarer-une-methode-abstraite">Déclarer une méthode abstraite</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="la_classe_object.html">La classe Object</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-equals">La méthode equals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-hashcode">La méthode hashCode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-tostring">La méthode toString</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-finalize">La méthode finalize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-clone">La méthode clone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-getclass">La méthode getClass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#les-methodes-de-concurrence">Les méthodes de concurrence</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="la_classe_string.html">La classe String</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#string-et-tableau-de-caracteres">String et tableau de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#quelques-methodes-utilitaires">Quelques méthodes utilitaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#construction-d-une-instance-de-string">Construction d’une instance de String</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#immutabilite-des-chaines-de-caracteres">Immutabilité des chaînes de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#la-classe-stringbuilder">La classe StringBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#formatage-de-texte">Formatage de texte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#les-expressions-regulieres">Les expressions régulières</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_exceptions.html">Les exceptions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#qu-est-ce-qu-une-exception">Qu’est-ce qu’une exception ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#signaler-une-exception">Signaler une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#traiter-une-exception">Traiter une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#propagation-d-une-exception">Propagation d’une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#exceptions-et-polymorphisme">Exceptions et polymorphisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#le-bloc-finally">Le bloc finally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#le-try-with-resources">Le try-with-resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#hierarchie-applicative-d-exception">Hiérarchie applicative d’exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#exception-cause">Exception cause</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#les-erreurs-et-les-exceptions-runtime">Les erreurs et les exceptions runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#choix-entre-checked-et-unchecked">Choix entre checked et unchecked</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="enumeration.html">Les énumérations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#les-methodes-d-une-enumeration">Les méthodes d’une énumération</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#egalite-entre-enumerations">Égalité entre énumérations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#support-de-switch">Support de switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#generation-d-une-enumeration">Génération d’une énumération</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#ajout-de-methodes-et-d-attributs">Ajout de méthodes et d’attributs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#ajout-de-constructeurs">Ajout de constructeurs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Les interfaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#declaration-d-une-interface">Déclaration d’une interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#implementation-d-une-interface">Implémentation d’une interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#attributs-et-methodes-statiques">Attributs et méthodes statiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#heritage-d-interface">Héritage d’interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#les-interfaces-marqueurs">Les interfaces marqueurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#implementation-par-defaut">Implémentation par défaut</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#la-segregation-d-interface">La ségrégation d’interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#l-inversion-de-dependance">L’inversion de dépendance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="generiques.html">Méthodes et classes génériques</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#l-exemple-de-la-classe-arraylist">L’exemple de la classe ArrayList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#creation-et-assignation-d-une-classe-generique">Création et assignation d’une classe générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#notation-en-diamant">Notation en diamant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#substitution-et-type-generique">Substitution et type générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#ecrire-une-methode-generique">Écrire une méthode générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#ecrire-une-classe-generique">Écrire une classe générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#limitations">Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_collections.html">Les collections</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#les-listes">Les listes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-arraylist">La classe ArrayList</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-linkedlist">La classe LinkedList</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-arraydeque">La classe ArrayDeque</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-priorityqueue">La classe PriorityQueue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-classes-vector-et-stack">Les classes Vector et Stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-interfaces-pour-les-listes">Les interfaces pour les listes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#les-ensembles-set">Les ensembles (set)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-treeset">La classe TreeSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-hashset">La classe HashSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-linkedhashset">La classe LinkedHashSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-interfaces-pour-les-ensembles">Les interfaces pour les ensembles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#copie-d-une-collection-dans-un-tableau">Copie d’une collection dans un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#les-tableaux-associatifs-maps">Les tableaux associatifs (maps)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-treemap">La classe TreeMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-hashmap">La classe HashMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-linkedhashmap">La classe LinkedHashMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-classes-dictionary-et-hashtable">Les classes Dictionary et Hashtable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-interfaces-pour-les-tableaux-associatifs">Les interfaces pour les tableaux associatifs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#la-classe-outil-collections">La classe outil Collections</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="entrees_sorties.html">Les entrées/sorties</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#inputstream-et-classes-concretes">InputStream et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#outputstream-et-classes-concretes">OutputStream et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#flux-orientes-caracteres">Flux orientés caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#reader-et-classes-concretes">Reader et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#writer-et-classes-concretes">Writer et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#les-decorateurs-de-flux">Les décorateurs de flux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#la-classe-scanner">La classe Scanner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#fichiers-et-chemins">Fichiers et chemins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#acces-au-reseau">Accès au réseau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#la-serialisation-d-objets">La sérialisation d’objets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="entrees_sorties.html#donnee-transient">Donnée transient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="entrees_sorties.html#identifiant-de-version-de-serialisation">Identifiant de version de sérialisation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_dates.html">Les dates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#date-la-classe-historique">Date : la classe historique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#calendar">Calendar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#l-api-date-time">L’API Date/Time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_dates.html#id1">Les Dates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_dates.html#la-classe-instant">La classe Instant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_dates.html#periode-et-duree">Période et durée</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#formatage-des-dates">Formatage des dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#lecture-des-dates">Lecture des dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Programmation fonctionnelle et lambdas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#les-fonctions-anonymes-les-lambdas">Les fonctions anonymes : les lambdas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#syntaxe-des-lambdas">Syntaxe des lambdas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usage-des-lambdas">Usage des lambdas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lambda-et-closure">Lambda et closure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#les-interfaces-fonctionnelles">Les interfaces fonctionnelles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#l-operateur-de-reference-de-methode">L’opérateur :: de référence de méthode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#la-classe-optional">La classe Optional</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="streams.html">Streams</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#creation-d-un-stream">Création d’un stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#la-reduction">La réduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#la-collecte">La collecte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#le-filtrage">Le filtrage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#le-mapping">Le mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#le-parallelisme">Le parallélisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="classe_interne.html">Les classes internes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#les-classes-internes-static">Les classes internes static</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#id1">Les classes internes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#les-classes-anonymes">Les classes anonymes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#acces-aux-elements-de-l-objet-englobant">Accès aux éléments de l’objet englobant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#classe-interne-a-une-methode">Classe interne à une méthode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#interface-et-enumeration">Interface et énumération</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#plusieurs-classes-dans-un-meme-fichier">Plusieurs classes dans un même fichier</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_annotations.html">Les annotations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#utilisation-des-annotations">Utilisation des annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#declaration-d-une-annotation">Déclaration d’une annotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#retention-d-une-annotation">Rétention d’une annotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#utilisation-des-annotations-par-introspection">Utilisation des annotations par introspection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="module.html">Les modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="module.html#des-modules-pour-ameliorer-la-securite">Des modules pour améliorer la sécurité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#des-modules-pour-plus-de-modularite">Des modules pour plus de modularité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#le-descripteur-de-module-module-info-java">Le descripteur de module (module-info.java)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="module.html#dependance-a-d-autres-modules">Dépendance à d’autres modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module.html#exposer-des-packages">Exposer des packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module.html#utiliser-un-service">Utiliser un service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module.html#fournir-un-service">Fournir un service</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#le-module-anonyme">Le module anonyme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#la-notion-de-module-path">La notion de module path</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Le langage Java</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Programmation fonctionnelle et lambdas</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="streams.html" class="btn btn-neutral float-right" title="Streams" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="les_dates.html" class="btn btn-neutral float-left" title="Les dates" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="programmation-fonctionnelle-et-lambdas">
+<h1>Programmation fonctionnelle et lambdas<a class="headerlink" href="#programmation-fonctionnelle-et-lambdas" title="Lien permanent vers ce titre">¶</a></h1>
+<p>La programmation fonctionnelle est un paradigme de programmation basé sur l’appel
+et la composition de fonctions. À l’origine, elle apparaît comme une approche
+alternative à la programmation impérative à laquelle appartient la programmation objet.
+Néanmoins, de plus en plus de langages de programmation impératifs incorporent
+dans leur grammaire des éléments de programmation fonctionnelle. C’est également
+le cas en Java depuis sa version 8.</p>
+<p>Un trait important de la programmation fonctionnelle est de considérer une
+fonction comme une entité de première classe (<em>first class citizen</em>), c’est-à-dire
+qu’on peut lui appliquer les mêmes opérations que n’importe quel autre élément
+du langage. Ainsi une fonction doit posséder une identité intrinsèque lui permettant
+d’être passée en paramètre d’une autre fonction ou retournée par une autre
+fonction.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Une fonction qui accepte une ou plusieurs autres fonctions en paramètres et
+qui retourne une fonction est appelée une fonction d’ordre supérieur
+(<em>higher-order function</em>).</p>
+</div>
+<p>Une approche fonctionnelle va favoriser la représentation d’une application comme
+un appel chaîné de fonctions pouvant prendre elles-mêmes des fonctions en paramètres.
+Ce type de représentation à plusieurs avantages. D’abord, il favorise le découpage
+du traitement en une suite de processus simples représentés chacun par une fonction.
+Cela améliore la lisibilité et la testabilité d’un programme. Pour les langages
+impératifs comme Java, cela offre une manière alternative d’implémenter certains
+traitements en limitant l’usage des structures de contrôle comme <code class="docutils literal notranslate"><span class="pre">if</span></code> ou les
+structures de boucle comme <code class="docutils literal notranslate"><span class="pre">while</span></code> et <code class="docutils literal notranslate"><span class="pre">for</span></code> qui sont alors implémentées sous
+la forme d’appels de fonctions. Là encore, l’objectif est d’améliorer la lisibilité
+du code en évitant l’imbrication de blocs de traitement et d’accolades.</p>
+<p>L’introduction d’éléments de programmation fonctionnelle en Java a été un processus
+complexe car la grammaire du langage ne permet pas la déclaration de fonction.
+Comme nous le verrons, les fonctions anonymes ou les références de fonction en
+Java sont en fait un sucre syntaxique : il s’agit d’une simplification d’écriture
+qui mobilise en arrière-plan des notions purement objet comme l’interface
+fonctionnelle.</p>
+<div class="section" id="les-fonctions-anonymes-les-lambdas">
+<h2>Les fonctions anonymes : les lambdas<a class="headerlink" href="#les-fonctions-anonymes-les-lambdas" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une lambda est une fonction anonyme, c’est-à-dire une fonction qui est déclarée
+sans être associée à un nom. Le terme <em>lambda</em> est emprunté à la méthode
+formelle du <a class="reference external" href="https://fr.wikipedia.org/wiki/Lambda-calcul">lambda-calcul</a>. Les fonctions lambda (ou plus simplement les lambdas)
+sont couramment utilisées dans la programmation fonctionnelle. Elles permettent
+d’écrire des programmes plus concis et elles permettent de créer des <a class="reference external" href="https://fr.wikipedia.org/wiki/Fermeture_(informatique)">closures</a> (<em>fermetures</em>).</p>
+<p>Depuis la version 8, il est possible de déclarer des lambdas en Java.</p>
+<div class="section" id="syntaxe-des-lambdas">
+<h3>Syntaxe des lambdas<a class="headerlink" href="#syntaxe-des-lambdas" title="Lien permanent vers ce titre">¶</a></h3>
+<p>En Java, les lambdas s’écrivent sous la forme :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(paramètres) -&gt; { corps }
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Les parenthèses ne sont pas obligatoires si la lambda n’a qu’un seul paramètre.</p></li>
+<li><p>Si le compilateur peut inférer le type des paramètres alors il n’est pas
+obligatoire de déclarer ce type.</p></li>
+<li><p>Les accolades peuvent être omises si la lambda n’a qu’une instruction et si le contexte le permet.</p></li>
+<li><p>Si le corps de la lambda ne contient qu’une instruction, on peut omettre le point-virgule à la fin de l’instruction.</p></li>
+<li><p>Si le corps de la lambda ne contient qu’une instruction, on peut omettre le mot-clé
+<code class="docutils literal notranslate"><span class="pre">return</span></code> et le compilateur infère que la fonction retourne le résultat de
+l’instruction.</p></li>
+</ul>
+<p>Exemple d’une lambda qui attend deux nombres entiers comme paramètres et qui
+retourne la somme de ces nombres :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">{</span>  <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>Notez qu’il n’est pas nécessaire de fournir le type de retour de la fonction.
+Le compilateur peut inférer qu’il s’agit d’un <code class="docutils literal notranslate"><span class="pre">int</span></code> correspondant à la somme
+des deux paramètres.</p>
+<p>Cette fonction anonyme est équivalente à la déclaration d’une méthode statique dans la classe :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">somme</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>La forme lambda évite d’avoir à fournir un nom à la fonction dont l’implémentation
+est évidente. On peut encore simplifier la lambda en supprimant les accolades,
+le mot-clé <code class="docutils literal notranslate"><span class="pre">return</span></code> et le point-virgule puisque cette fonction anonyme ne
+contient qu’une seule instruction.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Le corps d’une lambda se limite le plus souvent à une seule instruction très simple.
+Même s’il est possible de déclarer une lambda ayant plusieurs lignes d’instruction,
+cela doit rester l’exception dans un programme.</p>
+</div>
+<p>D’autres exemples de lambdas :</p>
+<p>Une fonction qui attend une chaîne de caractères pour l’afficher sur la console :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">s</span> <span class="o">-&gt;</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Une fonction qui ne prend aucun paramètre et qui retourne le nombre 42 :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="p">()</span> <span class="o">-&gt;</span> <span class="mi">42</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="usage-des-lambdas">
+<h3>Usage des lambdas<a class="headerlink" href="#usage-des-lambdas" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Depuis Java 8, beaucoup de méthodes se comportent maintenant comme des fonctions
+de premier ordre en acceptant des fonctions en paramètre. Il est alors possible
+de déclarer une lambda au moment de l’appel.</p>
+<p>Prenons l’exemple de la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html#sort(java.util.Comparator)">sort</a>. Cette méthode déclarée par l’interface
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html">List</a> permet de trier les éléments de cette liste. Mais pour cela, cette
+méthode a besoin d’appliquer une comparaison sur les éléments deux à deux pour
+connaître la relation d’ordre. L’algorithme de comparaison peut être donné par
+une lambda :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">liste</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">liste</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">liste</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">liste</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="n">liste</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+
+<span class="c1">// trie la liste en plaçant en premier les nombres pairs</span>
+<span class="hll"><span class="n">liste</span><span class="p">.</span><span class="na">sort</span><span class="p">((</span><span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">e1</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">e2</span> <span class="o">%</span> <span class="mi">2</span><span class="p">));</span>
+</span>
+<span class="c1">// [2, 4, 1, 3]</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">liste</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Notez qu’il n’est pas nécessaire de préciser le type des paramètres <code class="docutils literal notranslate"><span class="pre">e1</span></code> et <code class="docutils literal notranslate"><span class="pre">e2</span></code>
+pour la déclaration de la lambda. Le compilateur peut les inférer car les éléments
+de la liste sont de type <code class="docutils literal notranslate"><span class="pre">Integer</span></code>.</p>
+<p>Beaucoup de méthodes ont également été ajoutées à partir de Java 8 comme
+la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Iterable.html#forEach(java.util.function.Consumer)">forEach</a> déclarée par l’interface <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Iterable.html">Iterable</a>. On peut ainsi effectuer
+un traitement sur chaque élément d’une collection en passant une lambda en paramètre.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">collection</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">collection</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;un&quot;</span><span class="p">);</span>
+<span class="n">collection</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;deux&quot;</span><span class="p">);</span>
+<span class="n">collection</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;trois&quot;</span><span class="p">);</span>
+
+<span class="n">collection</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">e</span> <span class="o">-&gt;</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">e</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>On voit dans cet exemple simple que la programmation fonctionnelle implique
+un <em>style</em> différent de programmation. Nous pourrions écrire la même portion
+de code en utilisant une structure de boucle typique de la programmation
+impérative :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">collection</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">collection</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;un&quot;</span><span class="p">);</span>
+<span class="n">collection</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;deux&quot;</span><span class="p">);</span>
+<span class="n">collection</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;trois&quot;</span><span class="p">);</span>
+
+<span class="k">for</span><span class="p">(</span><span class="n">String</span> <span class="n">e</span> <span class="p">:</span> <span class="n">collection</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="lambda-et-closure">
+<h3>Lambda et closure<a class="headerlink" href="#lambda-et-closure" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Une lambda définit une <em>closure</em> (fermeture), c’est-à-dire qu’elle définit un
+environnement lexical constitué de toutes les variables et de tous les attributs
+qu’elle capture au moment de sa déclaration. Le corps d’une lambda peut
+donc accéder au contenu d’une variable déclarée dans le code englobant.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">prenoms</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">prenoms</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;Murielle&quot;</span><span class="p">);</span>
+<span class="n">prenoms</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;Jean&quot;</span><span class="p">);</span>
+<span class="n">prenoms</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;Michelle&quot;</span><span class="p">);</span>
+
+<span class="hll"><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">helloList</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span>
+<span class="hll"><span class="n">prenoms</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">e</span> <span class="o">-&gt;</span> <span class="n">helloList</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">e</span><span class="p">));</span>
+</span>
+<span class="c1">// [Hello Murielle, Hello Jean, Hello Michelle]</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">helloList</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+<p>Dans l’exemple ci-dessus, on déclare à la ligne 6 la variable <code class="docutils literal notranslate"><span class="pre">helloList</span></code>
+correspondant à une nouvelle liste. À la ligne 8, la lambda a pour tache d’ajouter
+un nouvel élément dans cette liste. Pour le compilateur, la variable <code class="docutils literal notranslate"><span class="pre">helloList</span></code>
+utilisée dans la lambda correspond bien à celle déclarée précédemment. Cette
+variable a été capturée par la <em>closure</em> définie par la lambda.</p>
+<p>Comme pour la déclaration de classe anonyme, une lambda ne peut pas modifier le
+contenu d’un paramètre ou d’une variable issue d’une <em>closure</em> (le compilateur
+émettra une erreur dans ce cas). Par contre, il n’est pas nécessaire de déclarer
+comme <strong>final</strong> une variable ou un paramètre pour pouvoir y accéder dans une lambda.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">liste</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">liste</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">liste</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">liste</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="n">liste</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="hll"><span class="n">liste</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">e</span> <span class="o">-&gt;</span> <span class="n">i</span> <span class="o">+=</span> <span class="n">e</span><span class="p">);</span> <span class="c1">// ERREUR DE COMPILATION : la variable i ne peut pas</span>
+</span>                            <span class="c1">// être modifiée car elle fait partie de la closure.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="les-interfaces-fonctionnelles">
+<span id="functionalinterface"></span><h3>Les interfaces fonctionnelles<a class="headerlink" href="#les-interfaces-fonctionnelles" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La grammaire du langage Java ne supporte pas la notion de fonction. Il n’est
+donc pas possible de déclarer des fonctions en Java et encore moins des fonctions
+anonymes pour les passer en paramètre des méthodes. Pour incorporer des éléments
+de programmation fonctionnelle, les concepteurs du langage ont dû recourir à
+une astucieuse manipulation. Les lambdas correspondent en fait à une implémentation
+<strong>d’une interface qui ne déclare qu’une seule méthode</strong>. Le corps de la lambda
+correspond au code d’implémentation de cette unique méthode. Ainsi, on appelle
+<strong>interface fonctionnelle</strong> une interface déclarant une seule méthode abstraite
+et dont l’implémentation peut être fournie par une lambda.</p>
+<p>Si nous déclarons l’interface ci-dessous :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">OperationSimple</span> <span class="p">{</span>
+
+  <span class="kt">int</span> <span class="nf">calculer</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Alors, partout où le programme attend une implémentation de cette interface, il
+est possible de fournir une lambda :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">OperationSimple</span> <span class="n">os</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-&gt;</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="n">resultat</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="na">calculer</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">resultat</span><span class="p">);</span> <span class="c1">// Affiche 20</span>
+</pre></div>
+</div>
+<p>Ainsi, il est très facile de déclarer des méthodes qui acceptent une lambda en
+paramètre. Il suffit de spécifier un paramètre correspondant à une interface
+fonctionnelle.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ValeurSimple</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">valeur</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="nf">ValeurSimple</span><span class="p">(</span><span class="kt">int</span> <span class="n">valeur</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">valeur</span> <span class="o">=</span> <span class="n">valeur</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">appliquer</span><span class="p">(</span><span class="n">OperationSimple</span> <span class="n">os</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">valeur</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="na">calculer</span><span class="p">(</span><span class="n">valeur</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getValeur</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">valeur</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Dans la classe déclarée ci-dessus, la méthode <code class="docutils literal notranslate"><span class="pre">appliquer</span></code> attend en paramètre
+une instance d’un objet implémentant une interface fonctionnelle. Il est donc
+possible de fournir une lambda :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">ValeurSimple</span> <span class="n">vs</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ValeurSimple</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+
+<span class="n">vs</span><span class="p">.</span><span class="na">appliquer</span><span class="p">(</span><span class="n">v</span> <span class="o">-&gt;</span> <span class="n">v</span> <span class="o">*</span> <span class="n">v</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">vs</span><span class="p">.</span><span class="na">getValeur</span><span class="p">());</span> <span class="c1">// Affiche 100</span>
+</pre></div>
+</div>
+<p>L’annotation <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/FunctionalInterface.html">&#64;FunctionalInterface</a> peut être utilisée lors de la déclaration de
+l’interface. Elle signale au compilateur qu’il doit vérifier que cette interface
+peut être implémentée par des lambdas. Le compilateur contrôle que l’interface
+ne comporte qu’une seule méthode abstraite et signale une erreur dans le cas
+contraire.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="nd">@FunctionalInterface</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">OperationSimple</span> <span class="p">{</span>
+
+  <span class="kt">int</span> <span class="nf">calculer</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Il est donc très simple d’introduire des lambdas même pour des bibliothèques
+et des applications qui ont été développées avant Java 8.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Concernant la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html#sort(java.util.Comparator)">sort</a> présentée précédemment, sa signature n’a pas
+évolué en Java 8. Cette méthode attend toujours en paramètre un objet qui implémente
+l’interface <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Comparator.html">Comparator</a>. L’interface <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Comparator.html">Comparator</a> ne déclarant qu’une seule méthode
+abstraite, il s’agit donc d’une interface fonctionnelle.</p>
+</div>
+<p>Afin d’éviter aux développeurs de créer systématiquement leurs interfaces, le
+package <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/function/package-summary.html">java.util.function</a> déclare les interfaces fonctionnelles les plus utiles.
+Par exemple, l’interface <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/function/IntUnaryOperator.html">java.util.function.IntUnaryOperator</a> déclare une méthode
+<code class="docutils literal notranslate"><span class="pre">applyAsInt</span></code> qui accepte un entier en paramètre et qui retourne un autre entier.
+Nous pouvons nous en servir pour définir un régulateur de vitesse dans une classe
+<em>Voiture</em>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.function.IntUnaryOperator</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Voiture</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">vitesse</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="n">IntUnaryOperator</span> <span class="n">regulateurDeVitesse</span> <span class="o">=</span> <span class="n">v</span> <span class="o">-&gt;</span> <span class="n">v</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">accelerer</span><span class="p">(</span><span class="kt">int</span> <span class="n">deltaVitesse</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">vitesse</span> <span class="o">=</span> <span class="n">regulateurDeVitesse</span><span class="p">.</span><span class="na">applyAsInt</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">vitesse</span> <span class="o">+</span> <span class="n">deltaVitesse</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setRegulateurDeVitesse</span><span class="p">(</span><span class="n">IntUnaryOperator</span> <span class="n">regulateur</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">regulateurDeVitesse</span> <span class="o">=</span> <span class="n">regulateur</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getVitesse</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">vitesse</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Voiture</span> <span class="n">v</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Voiture</span><span class="p">();</span>
+<span class="n">v</span><span class="p">.</span><span class="na">setRegulateurDeVitesse</span><span class="p">(</span><span class="n">vitesse</span> <span class="o">-&gt;</span> <span class="n">vitesse</span> <span class="o">&gt;</span> <span class="mi">110</span> <span class="o">?</span> <span class="mi">110</span> <span class="p">:</span> <span class="n">vitesse</span><span class="p">);</span>
+
+<span class="n">v</span><span class="p">.</span><span class="na">accelerer</span><span class="p">(</span><span class="mi">90</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="na">getVitesse</span><span class="p">());</span> <span class="c1">// 90</span>
+
+<span class="n">v</span><span class="p">.</span><span class="na">accelerer</span><span class="p">(</span><span class="mi">90</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="na">getVitesse</span><span class="p">());</span> <span class="c1">// 110</span>
+</pre></div>
+</div>
+<p>Le package <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/function/package-summary.html">java.util.function</a> fournit beaucoup d’interfaces. Pour s’y retrouver,
+il suffit de garder à l’esprit la convention de nom utilisée :</p>
+<p>Les interfaces fonctionnelles dont le nom se termine par <code class="docutils literal notranslate"><span class="pre">Function</span></code> déclarent
+une méthode qui prend un ou plusieurs paramètres et qui retourne un résultat.
+Par exemple, l’interface <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/function/BiFunction.html">BiFunction</a> déclare la méthode <code class="docutils literal notranslate"><span class="pre">apply</span></code> qui accepte
+deux paramètres de types différents et retourne un paramètre d’un autre type.</p>
+<p>Les interfaces fonctionnelles dont le nom se termine par <code class="docutils literal notranslate"><span class="pre">Operator</span></code> déclarent
+une méthode qui prend un ou plusieurs paramètres du même type et retourne un
+paramètre du même type. Par exemple, l’interface <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/function/DoubleUnaryOperator.html">DoubleUnaryOperator</a> déclare la
+méthode <code class="docutils literal notranslate"><span class="pre">applyAsDouble</span></code> qui attend un paramètre de type <code class="docutils literal notranslate"><span class="pre">double</span></code> et retourne
+un résultat de type <code class="docutils literal notranslate"><span class="pre">double</span></code>.</p>
+<p>Les interfaces fonctionnelles dont le nom se termine par <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> déclarent
+une méthode qui prend un ou plusieurs paramètres mais qui ne retourne aucun
+résultat. Par exemple, l’interface <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/function/LongConsumer.html">LongConsumer</a> déclare la méthode <code class="docutils literal notranslate"><span class="pre">accept</span></code>
+qui attend un paramètre de type <code class="docutils literal notranslate"><span class="pre">long</span></code> et qui ne retourne rien.</p>
+<p>Les interfaces fonctionnelles dont le nom se termine par <code class="docutils literal notranslate"><span class="pre">Supplier</span></code> déclarent
+une méthode qui ne prend aucun paramètre mais qui retourne un résultat. Par
+exemple, l’interface <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/function/Supplier.html">Supplier</a> déclare la méthode <code class="docutils literal notranslate"><span class="pre">get</span></code> qui n’attend aucun
+paramètre et qui retourne un objet du type générique de l’interface.</p>
+<p>Les interfaces fonctionnelles dont le nom se termine par <code class="docutils literal notranslate"><span class="pre">Predicate</span></code> déclarent
+une méthode qui prend un paramètre et qui retourne un résultat de type booléen.</p>
+</div>
+<div class="section" id="l-operateur-de-reference-de-methode">
+<h3>L’opérateur :: de référence de méthode<a class="headerlink" href="#l-operateur-de-reference-de-methode" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un aspect important de la programmation fonctionnelle est de pouvoir référencer
+les fonctions, notamment pour pouvoir les passer comme paramètres dans un appel
+à une autre fonction.</p>
+<p>En Java, la notion de fonction n’existe pas en tant que telle et une méthode
+n’est pas une entité de première classe. Néanmoins, il est possible de
+référencer une méthode en utilisant l’opérateur <code class="docutils literal notranslate"><span class="pre">::</span></code>. La référence de méthode
+rend le code plus lisible en évitant de déclarer une lambda.</p>
+<p>Prenons un exemple : nous souhaitons écrire une lambda qui attend une chaîne de
+caractères en paramètre et qui retourne la valeur de la chaîne de caractères
+en lettres majuscules. Du point de vue des interfaces fonctionnelles, il s’agit
+d’un opérateur unaire. Nous pouvons donc écrire :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">UnaryOperator</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">s</span> <span class="o">-&gt;</span> <span class="n">s</span><span class="p">.</span><span class="na">toUpperCase</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Mais nous pouvons également considérer que la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#toUpperCase()">toUpperCase</a> agit comme
+un opérateur unaire : elle s’applique sur un objet de type <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html">String</a> puisqu’elle
+est une méthode de la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html">String</a> et elle retourne une valeur de type <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html">String</a>.
+Donc, il est possible de se passer complètement de la lambda pour référencer
+directement la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#toUpperCase()">toUpperCase</a> :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">UnaryOperator</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">String</span><span class="p">::</span><span class="n">toUpperCase</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Notez que dans l’exemple ci-dessus, nous n’appelons pas la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#toUpperCase()">toUpperCase</a>
+mais nous la référençons avec l’opérateur <code class="docutils literal notranslate"><span class="pre">::</span></code>.</p>
+<p>Il est également possible de référencer une méthode d’un objet particulier.
+Dans ce cas, la méthode est nécessairement invoquée sur l’objet à partir duquel
+on référence la méthode. En programmation, on appelle cela un <em>binding</em>.</p>
+<p>Si nous reprenons un exemple vu précédemment :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">collection</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">collection</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;un&quot;</span><span class="p">);</span>
+<span class="n">collection</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;deux&quot;</span><span class="p">);</span>
+<span class="n">collection</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;trois&quot;</span><span class="p">);</span>
+
+<span class="n">collection</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">e</span> <span class="o">-&gt;</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">e</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>La méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Iterable.html#forEach(java.util.function.Consumer)">forEach</a> attend en paramètre une instance qui implémente l’interface
+fonctionnelle <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/function/Consumer.html">Consumer</a>. L’interface <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/function/Consumer.html">Consumer</a> déclare la méthode <code class="docutils literal notranslate"><span class="pre">accept</span></code> qui prend
+un type <strong>T</strong> en paramètre et ne retourne rien. Si maintenant nous comparons
+cette signature avec celle la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(java.lang.Object)">println</a> appelée sur l’objet <code class="docutils literal notranslate"><span class="pre">System.out</span></code>,
+cette dernière attend un objet en paramètre et ne retourne rien. La signature de
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(java.lang.Object)">println</a> est compatible avec celle de la méthode de l’interface fonctionnelle
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/function/Consumer.html">Consumer</a>. Donc, plutôt que de déclarer une lambda, il est possible d’utiliser
+l’opérateur <code class="docutils literal notranslate"><span class="pre">::</span></code> pour passer la référence de la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(java.lang.Object)">println</a> :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">collection</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">collection</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;un&quot;</span><span class="p">);</span>
+<span class="n">collection</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;deux&quot;</span><span class="p">);</span>
+<span class="n">collection</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;trois&quot;</span><span class="p">);</span>
+
+<span class="n">collection</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span> <span class="c1">// passage de la référence de la méthode</span>
+</pre></div>
+</div>
+<p>Il est également possible de référencer les constructeurs d’une classe. Cela aboutira
+à la création d’un nouvel objet à chaque appel.  Les constructeurs sont référencés
+grâce à la syntaxe :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>NomDeLaClasse::new
+</pre></div>
+</div>
+<p>Par exemple, nous pouvons utiliser l’interface fonctionnelle <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/function/Supplier.html">Supplier</a>. Cette
+interface fonctionnelle peut être implémentée en utilisant un constructeur sans
+paramètre. Ainsi, si nous définissons une classe <em>Voiture</em> avec un constructeur
+sans paramètre :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Voiture</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="nf">Voiture</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// ...</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Nous pouvons utiliser la référence de ce constructeur pour créer une implémentation
+de l’interface fonctionnelle <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/function/Supplier.html">Supplier</a> :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Supplier</span><span class="o">&lt;</span><span class="n">Voiture</span><span class="o">&gt;</span> <span class="n">garage</span> <span class="o">=</span> <span class="n">Voiture</span><span class="p">::</span><span class="k">new</span><span class="p">;</span>
+
+<span class="n">Voiture</span> <span class="n">v1</span> <span class="o">=</span> <span class="n">garage</span><span class="p">.</span><span class="na">get</span><span class="p">();</span> <span class="c1">// crée une nouvelle instance</span>
+<span class="n">Voiture</span> <span class="n">v2</span> <span class="o">=</span> <span class="n">garage</span><span class="p">.</span><span class="na">get</span><span class="p">();</span> <span class="c1">// crée une nouvelle instance</span>
+</pre></div>
+</div>
+<p>De la même manière, nous pouvons référencer un constructeur avec des paramètres.
+Par exemple, la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/text/SimpleDateFormat.html">SimpleDateFormat</a> déclare un constructeur qui attend une
+chaîne de caractères en paramètre pour définir le format d’une date. Un tel
+constructeur s’apparente à une interface fonctionnelle de type <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/function/Function.html">Function</a> :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Function</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">SimpleDateFormat</span><span class="o">&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">SimpleDateFormat</span><span class="p">::</span><span class="k">new</span><span class="p">;</span>
+
+<span class="n">SimpleDateFormat</span> <span class="n">sdf</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="s">&quot;dd/MM/YYYY&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p>La référence de méthode permet de simplifier l’écriture du code mais elle permet
+aussi d’étendre le support de la programmation fonctionnelle au-delà des fonctions
+anonymes. Si vous devez écrire un traitement complexe, alors l’utilisation d’une
+lambda risque de complexifier la lecture de votre code. Dans ce cas, il est
+recommandé d’écrire le traitement sous la forme d’une méthode et d’utiliser
+l’opérateur de référence de méthode pour passer cette méthode en paramètre.</p>
+</div>
+</div>
+</div>
+<div class="section" id="la-classe-optional">
+<h2>La classe Optional<a class="headerlink" href="#la-classe-optional" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour donner un aperçu du style de programmation fonctionnelle en Java, nous allons
+prendre l’exemple de la classe générique <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Optional.html">Optional</a> introduite en Java 8.</p>
+<p>Dans beaucoup de langages de programmation, nous avons la possibilité d’affecter
+à des variables, des paramètres ou des attributs une référence nulle.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Il faut bien reconnaître que cela n’a pas vraiment de sens puisque nous affectons
+ainsi à quelque chose, quelque chose qui n’est rien ! Et surtout cela peut
+conduire à toutes sortes de bugs et à l’apparition inopinée de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/NullPointerException.html">NullPointerException</a>
+en Java.</p>
+<p>Java 8 introduit la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Optional.html">Optional</a> qui permet de représenter la possibilité
+qu’il existe ou non une valeur sans avoir besoin d’utiliser <code class="docutils literal notranslate"><span class="pre">null</span></code>. La classe
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Optional.html">Optional</a> fournit les méthodes de construction statiques <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Optional.html#of(T)">of</a> et <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Optional.html#ofNullable(T)">ofNullable</a>
+ainsi que la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Optional.html#isPresent()">isPresent</a> pour vérifier si une valeur est présente et
+la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Optional.html#get()">get</a> pour obtenir sa valeur.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="n">Optional</span><span class="p">.</span><span class="na">ofNullable</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+  <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;valeur non trouvée&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Si on utilise une instance de la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Optional.html">Optional</a> à la manière des langages
+impératifs, on peut obtenir du code simple à comprendre mais assez inutilement
+long. L’intérêt de la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Optional.html">Optional</a> est de l’utiliser avec un style de
+programmation fonctionnelle.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="n">Optional</span><span class="p">.</span><span class="na">ofNullable</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">);</span>
+
+<span class="c1">// retourne la valeur de l&#39;optional si elle est définie ou la valeur par</span>
+<span class="c1">// défaut passée en paramètre.</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="na">orElse</span><span class="p">(</span><span class="s">&quot;valeur non trouvée&quot;</span><span class="p">));</span>
+
+<span class="c1">// invoque la méthode passée en référence uniquement si une valeur est définie</span>
+<span class="c1">// par l&#39;optional</span>
+<span class="n">v</span><span class="p">.</span><span class="na">ifPresent</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span>
+
+<span class="c1">// retourne la valeur de l&#39;optional si elle est définie ou jette une exception</span>
+<span class="c1">// construite à partir du constructeur fourni en paramètre.</span>
+<span class="n">String</span> <span class="n">resultat</span> <span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="na">orElseThrow</span><span class="p">(</span><span class="n">ValeurNonTrouveeException</span><span class="p">::</span><span class="k">new</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Nous pourrions écrire le même code en style impératif mais au prix de l’utilisation
+de plusieurs structures de contrôle <code class="docutils literal notranslate"><span class="pre">if</span></code> … <code class="docutils literal notranslate"><span class="pre">else</span></code>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="streams.html" class="btn btn-neutral float-right" title="Streams" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="les_dates.html" class="btn btn-neutral float-left" title="Les dates" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright David Gayerie - david@gayerie.dev - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

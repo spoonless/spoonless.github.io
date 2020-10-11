@@ -1,0 +1,867 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Ingénierie des tests" name="description" />
+<meta content="test, test acceptation, behavior driven development, BDD, gestion de projet, agile" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Les tests d’acceptation et d’intégration &mdash; Documentation Ingénierie des tests </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/testing/test_acceptation/test_acceptation.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Selenium" href="selenium.html" />
+    <link rel="prev" title="Introduction à l’ingénierie des tests" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Ingénierie des tests
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Les tests unitaires</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../test/junit.html">Les tests unitaires automatisés avec JUnit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../test/junit.html#junit">JUnit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test/junit.html#structure-d-une-classe-de-test-junit">Structure d’une classe de test JUnit</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../test/junit.html#execution-des-tests-junit">Exécution des tests JUnit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../test/junit.html#les-methodes-de-test">Les méthodes de test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../test/junit.html#les-assertions">Les assertions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../test/junit.html#les-fixtures">Les fixtures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test/junit.html#tester-les-exceptions">Tester les exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../test/junit.html#utilisation-de-doublure">Utilisation de doublure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test/junit.html#implementation-d-objet-mock-avec-mockito">Implémentation d’objet mock avec Mockito</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../test/phpunit.html">Les tests unitaires automatisés avec PHPUnit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../test/phpunit.html#phpunit">PHPUnit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test/phpunit.html#structure-d-une-classe-de-test-phpunit">Structure d’une classe de test PHPUnit</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../test/phpunit.html#les-methodes-de-test">Les méthodes de test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../test/phpunit.html#les-assertions">Les assertions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../test/phpunit.html#les-fixtures">Les fixtures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../test/phpunit.html#utilisation-de-doublure">Utilisation de doublure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test/phpunit.html#implementation-d-objet-mock">Implémentation d’objet mock</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../test/tdd.html">TDD : Test Driven Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../test/tdd.html#qu-est-ce-qu-un-test">Qu’est-ce qu’un test ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test/tdd.html#test-driven-development">Test Driven Development</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test/tdd.html#les-etapes-du-tdd">Les étapes du TDD</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../test/tdd.html#qu-est-ce-que-concevoir">Qu’est-ce que concevoir ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test/tdd.html#exercices">Exercices</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Ingénierie des tests</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction à l’ingénierie des tests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#strategie-de-tests-et-types-de-tests">Stratégie de tests et types de tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#les-tests-de-non-regression">Les tests de non régression</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#les-7-principes-des-tests">Les 7 principes des tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Les tests d’acceptation et d’intégration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#methode-de-gestion-de-projet">Méthode de gestion de projet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#notion-d-exigence">Notion d’exigence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#recette-fonctionnelle">Recette fonctionnelle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#notion-de-cas-de-test">Notion de cas de test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scenario-de-test">Scénario de test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exercice">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#la-matrice-de-tracabilite-des-exigences">La matrice de traçabilité des exigences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rapport-de-test">Rapport de test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dans-le-cadre-d-une-methode-agile">Dans le cadre d’une méthode agile</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#le-behavior-driven-developement-bdd">Le <em>Behavior Driven Developement</em> (BDD)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="selenium.html">Selenium</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="selenium.html#selenium-ide">Selenium IDE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#enregistrer-des-commandes">Enregistrer des commandes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#notion-de-commande">Notion de commande</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#finaliser-un-test">Finaliser un test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#sauver-les-tests">Sauver les tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#creation-de-suites-de-tests">Création de suites de tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#bonnes-pratiques">Bonnes pratiques</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="selenium.html#web-driver">Web Driver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#installation-du-web-driver-pour-chrome">Installation du Web Driver pour Chrome</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="selenium.html#windows">Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="selenium.html#macos">MacOs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="selenium.html#linux">Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#utilisation-d-un-binding">Utilisation d’un binding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#gestion-de-l-attente">Gestion de l’attente</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#exporter-les-tests-selenium-ide">Exporter les tests Selenium IDE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#page-object-models">Page object models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#executer-les-tests-selenium-a-la-phase-integration-test-de-maven">Exécuter les tests Selenium à la phase integration-test de Maven</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cucumber.html">Cucumber</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cucumber.html#behavior-driven-development-bdd">Behavior-Driven-Development (BDD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cucumber.html#ecrire-des-scenarios-avec-cucumber">Écrire des scénarios avec Cucumber</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cucumber.html#automatiser-les-scenarios-en-java">Automatiser les scénarios en Java</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cucumber.html#les-classes-d-implementation-des-etapes">Les classes d’implémentation des étapes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cucumber.html#la-classe-de-lancement-junit">La classe de lancement JUnit</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cucumber.html#integration-avec-selenium">Intégration avec Selenium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cucumber.html#pour-aller-plus-loin">Pour aller plus loin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cucumber.html#le-plan-de-scenario">Le plan de scénario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cucumber.html#le-contexte">Le contexte</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cucumber.html#les-tags">Les tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cucumber.html#l-injection-de-dependances">L’injection de dépendances</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jmeter.html">Automatisation des tests avec JMeter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jmeter.html#installation-et-lancement">Installation et lancement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmeter.html#principe-d-un-plan-de-test">Principe d’un plan de test</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-thread-groups-moteurs-d-utilisateurs">Les <em>thread groups</em> (moteurs d’utilisateurs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-samplers-echantillons">Les <em>samplers</em> (échantillons)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-listeners-recepteurs">Les <em>listeners</em> (récepteurs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-logic-controllers-les-controleurs-logiques">Les <em>logic controllers</em> (les contrôleurs logiques)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-configuration-elements-les-configurations">Les <em>configuration elements</em> (les configurations)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-assertions">Les <em>assertions</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-pre-processeurs-et-les-post-processeurs">Les pré-processeurs et les post-processeurs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-timers-compteurs-de-temps">Les <em>timers</em> (compteurs de temps)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jmeter.html#utilisation-des-variables">Utilisation des variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmeter.html#executer-une-campagne-de-test-mode-sans-ihm">Exécuter une campagne de test (mode sans IHM)</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Ingénierie des tests</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Les tests d’acceptation et d’intégration</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="selenium.html" class="btn btn-neutral float-right" title="Selenium" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction à l’ingénierie des tests" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="les-tests-d-acceptation-et-d-integration">
+<h1>Les tests d’acceptation et d’intégration<a class="headerlink" href="#les-tests-d-acceptation-et-d-integration" title="Lien permanent vers ce titre">¶</a></h1>
+<p>La <strong>qualification</strong> correspond à toutes les activités réalisées pour vérifier
+qu’un système logiciel est conforme aux attentes.</p>
+<p>Les <strong>tests d’acceptation</strong> s’inscrivent dans une démarche de qualification pour
+déterminer si le produit est conforme dans son utilisation aux objectifs fixés.
+Il s’agit d’une description formelle du comportement d’un logiciel par des
+scénarios de test.</p>
+<p>Néanmoins, les tests d’acceptation s’inscrivent aussi dans le cycle de
+développement logiciel. Ils ne sont donc pas envisagés de la même manière selon
+la méthode utilisée. Dans ce chapitre, nous verrons les différences dans
+la mise en place d’une stratégie de tests d’acceptation dans le cadre de la
+méthode de gestion de projet et dans le cadre d’une méthode agile.</p>
+<div class="section" id="methode-de-gestion-de-projet">
+<h2>Méthode de gestion de projet<a class="headerlink" href="#methode-de-gestion-de-projet" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La méthode de gestion de projet n’est pas spécifique au développement informatique
+mais est très largement utilisée depuis les années 1980. Elle est souvent
+appelée <em>Cycle en V</em> pour les projets informatiques.</p>
+<p>La notion de projet s’impose aujourd’hui à nous comme si elle était naturelle.
+Mais elle est assez récente dans l’industrie et ne recouvre qu’un
+processus précis de développement. Le mot <em>projet</em> a fait l’objet d’une
+définition par l’ISO :</p>
+<blockquote>
+<div><p>Processus unique, qui consiste en un ensemble d’activités coordonnées et
+maîtrisées, comportant des <strong>dates de début et de fin</strong>, entrepris dans le
+<strong>but d’atteindre un objectif conforme à des exigences spécifiées</strong>, telles
+que les contraintes de délais, de coûts et de ressources.</p>
+<p class="attribution">—Extrait de ISO 10006 : <em>Systèmes de management de la qualité — Lignes directrices pour le management de la qualité dans les projets</em></p>
+</div></blockquote>
+<p>Dans la définition précédente, on voit qu’un projet est limité dans le temps, et
+que cette limite fait partie de sa définition : un projet a un début et une fin
+connus et envisagés dès le lancement. De plus, un projet doit permettre
+d’atteindre un objectif conforme à des exigences.</p>
+<div class="section" id="notion-d-exigence">
+<h3>Notion d’exigence<a class="headerlink" href="#notion-d-exigence" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Une exigence est une forme d’expression de besoins. Il s’agit d’un énoncé
+décrivant un besoin que doit satisfaire le système à réaliser. Une exigence
+ne se limite pas à la description d’une fonctionnalité, elle peut aussi établir
+des critères de disponibilité, de performance, de sécurité… Dans cette
+perspective, un système est présenté sous la forme d’une liste d’exigences (souvent
+plusieurs centaines).</p>
+<p>Une exigence doit posséder certaines caractéristiques :</p>
+<ul class="simple">
+<li><p>Elle est non ambiguë. Elle ne doit donc pas laisser de place à l’interprétation.</p></li>
+<li><p>Elle est délimitée, c’est-à-dire que son intention doit être suffisamment précise.
+Par exemple, une exigence de performance ne doit pas se limiter à exprimer
+que l’application doit répondre <em>rapidement</em>. Elle doit, par exemple, fournir des
+éléments chiffrés : le temps de réponse de l’application doit être inférieur à
+une seconde.</p></li>
+<li><p>Elle doit être testable. C’est cette caractéristique qui nous intéresse en premier
+lieu dans ce chapitre.</p></li>
+</ul>
+<p>Une seule exigence ne suffit généralement pas à exprimer le détail d’une
+fonctionnalité.</p>
+</div>
+<div class="section" id="recette-fonctionnelle">
+<h3>Recette fonctionnelle<a class="headerlink" href="#recette-fonctionnelle" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dans la méthode de gestion de projet, le développement est organisé par phases
+successives. Chaque phase correspond à un ensemble d’activités spécifiques.
+On distingue généralement les phases suivantes :</p>
+<ol class="arabic simple">
+<li><p>La phase d’expression de besoin : c’est au cours de cette phase que l’on
+rédige la liste des exigences et le cahier des charges</p></li>
+<li><p>La phase de conception</p></li>
+<li><p>La phase de réalisation</p></li>
+<li><p>La phase de test (recette)</p></li>
+<li><p>La phase de livraison (fin du projet)</p></li>
+</ol>
+<p>La phase de test est souvent appelée la <em>recette fonctionnelle</em> (ou plus simplement
+la <em>recette</em>). Dans cette approche, les tests sont bien là pour vérifier l’adéquation
+entre les exigences d’une part (phase 1) et la conception et la réalisation
+d’autre part (phase 2 et 3). La recette implique également les éventuelles
+corrections des défauts révélés par les tests.</p>
+<p>La recette fonctionnelle est un moyen de vérification de la conformité d’un système
+produit par rapport aux spécifications émises par le client. Les <strong>tests d’acceptation</strong>
+(souvent appelés tests fonctionnels) servent à réaliser cette vérification.</p>
+<p>La recette implique de réaliser des campagnes de test. Les testeurs ont à leur
+disposition des cahiers de test qui décrivent les procédures à réaliser sous
+la forme de scénarios de test. Un scénario de test est décrit par des cas de
+test.</p>
+<p>Les cahiers de test sont rédigés tardivement dans le processus
+de développement puisqu’ils ne sont réellement exploités qu’au moment de la
+recette. La plupart du temps, leur rédaction constitue la première étape de
+la phase de recette.</p>
+</div>
+<div class="section" id="notion-de-cas-de-test">
+<h3>Notion de cas de test<a class="headerlink" href="#notion-de-cas-de-test" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un cas de test désigne une interaction avec le système destinée à produire un
+résultat attendu.</p>
+<p>Un cas de test est décrit par son titre. Il contient une liste d’étapes
+à réaliser. Chaque étape doit correspondre à une action de l’utilisateur et
+s’accompagne <strong>obligatoirement</strong> d’un résultat attendu (et si possible un seul).
+Le résultat attendu doit être explicité clairement et ne doit pas être interprétable.
+De plus, un cas de test se rapporte à une ou plusieurs exigences dans la mesure
+où il permet d’attester que le système est conforme à ces exigences.</p>
+<p>Les consignes a respecter pour rédiger un cas de test :</p>
+<ul>
+<li><p>limiter le nombre d’étapes d’un cas de test pour en réduire sa complexité</p></li>
+<li><p>un cas de test <strong>ne doit pas</strong> contenir de condition (s’il se passe ceci alors
+faire cela sinon…). Un cas de test décrit une seule interaction possible.
+Pour traduire, une alternative, il suffit d’écrire un autre cas de test</p></li>
+<li><p>Donner la valeur des entrées sous la forme de paramètres de manière a pouvoir
+utiliser un même cas de test pour des données différentes.</p>
+<p><strong>Cas de test</strong> : afficher son profil utilisateur</p>
+<blockquote>
+<div><p><strong>Étape</strong> : Sélectionner le menu utilisateur</p>
+<p><strong>Résultat attendu</strong> : Le menu s’affiche et contient l’entrée « Profil »</p>
+<p><strong>Étape</strong> : Sélectionner l’entrée « Profil »</p>
+<p><strong>Résultat attendu</strong> : Le détail du profil s’affiche dans une popup
+avec le nom <code class="docutils literal notranslate"><span class="pre">$nom</span></code>, le prénom <code class="docutils literal notranslate"><span class="pre">$prenom</span></code> et la photo, les boutons
+« modifier » et « fermer » sont visibles et cliquables.</p>
+</div></blockquote>
+<p><strong>Cas de test</strong> : éditer le profil utilisateur</p>
+<blockquote>
+<div><p><strong>Étape</strong> : Cliquer sur le bouton « modifier »</p>
+<p><strong>Résultat attendu</strong> : Les champs nom et prénom deviennent éditables, le bouton « modifier »
+disparaît et le bouton « sauvegarder » apparaît.</p>
+<p><strong>Étape</strong> : Modifier le nom du profil par la valeur <code class="docutils literal notranslate"><span class="pre">$nouveau_nom</span></code></p>
+<p><strong>Résultat attendu</strong> : La valeur du champ nom est <code class="docutils literal notranslate"><span class="pre">$nouveau_nom</span></code></p>
+<p><strong>Étape</strong> : Modifier le prénom du profil par la valeur <code class="docutils literal notranslate"><span class="pre">$nouveau_prenom</span></code></p>
+<p><strong>Résultat attendu</strong> : La valeur du champ prénom est <code class="docutils literal notranslate"><span class="pre">$nouveau_prenom</span></code></p>
+</div></blockquote>
+<p><strong>Cas de test</strong> : sauver le profil utilisateur</p>
+<blockquote>
+<div><p><strong>Étape</strong> : Cliquer sur le bouton « sauvegarder »</p>
+<p><strong>Résultat attendu</strong> : Les champs nom et prénom ne sont plus éditables.
+Un message confirme que le profil a bien été enregistré.</p>
+</div></blockquote>
+<p><strong>Cas de test</strong> : annuler la modification du profil utilisateur</p>
+<blockquote>
+<div><p><strong>Étape</strong> : Cliquer sur le bouton « fermer »</p>
+<p><strong>Résultat attendu</strong> : La popup du profil utilisateur se ferme.</p>
+</div></blockquote>
+</li>
+</ul>
+<p>La façon d’écrire les cas de test dépend de la connaissance présupposée qu’auront
+les testeurs de l’application. Il ne faut pas croire qu’il existerait objectivement
+un niveau idéal de rédaction pour les cas d’utilisation. Le niveau
+de rédaction nécessaire est donc largement dépendant de l’équipe qui participera
+aux campagnes de test. S’il s’agit d’une équipe spécialisée pour la réalisation
+des tests mais n’ayant que très peu d’implication dans le développement du système,
+alors les cas de tests devront être extrêmement détaillés pour guider au mieux
+les testeurs. <em>A contrario</em>, si les personnes réalisant les tests travaillent
+quotidiennement avec les développeurs et/ou les experts du domaine, les cas de
+test pourront contenir des termes propres au domaine de l’application et
+résumer plus facilement chaque étape en profitant d’un savoir commun de l’ensemble
+de l’équipe. De même, pour les personnes en charge de participer aux sessions de
+test, il faut tenir compte du savoir-faire technique dans la rédaction des cas de
+tests. L’ambiguïté d’un cas de test peut reposer sur un écart des savoirs
+techniques entre le rédacteur et le testeur. Par exemple, si une étape d’un cas
+de test nécessite de vérifier le code retour d’un programme, le testeur doit
+avoir une idée de ce qu’est un code retour et de comment l’obtenir.</p>
+</div>
+<div class="section" id="scenario-de-test">
+<h3>Scénario de test<a class="headerlink" href="#scenario-de-test" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un scénario de test est un regroupement de cas de test. Alors qu’un cas
+de test représente une interaction limitée avec le système, un scénario représente
+la réalisation d’une fonctionnalité complète.</p>
+<p>Un ensemble de scénarios permet de s’assurer qu’une fonctionnalité fournie est
+conforme à l’ensemble des exigences qui la spécifie. Chaque scénario fournit son
+jeu de données particulier pour les paramètres décrits par les cas de tests. Un
+scénario peut également s’accompagner d’un pré-requis sur l’état nécessaire du
+système.</p>
+<blockquote>
+<div><p><strong>Scénario</strong> : Modification du profil utilisateur</p>
+<blockquote>
+<div><p><strong>Pré-requis</strong> : Il existe un profil utilisateur pour David Gayerie</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Paramètre</p></th>
+<th class="head"><p>Valeur</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>$nom</p></td>
+<td><p>Gayerie</p></td>
+</tr>
+<tr class="row-odd"><td><p>$prenom</p></td>
+<td><p>David</p></td>
+</tr>
+<tr class="row-even"><td><p>$nouveau_nom</p></td>
+<td><p>Erin</p></td>
+</tr>
+<tr class="row-odd"><td><p>$nouveau_prenom</p></td>
+<td><p>Julien</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Cas de test</strong> : afficher son profil utilisateur</p>
+<p><strong>Cas de test</strong> : éditer le profil utilisateur</p>
+<p><strong>Cas de test</strong> : sauver le profil utilisateur</p>
+</div></blockquote>
+<p><strong>Scénario</strong> : Annuler la modification du profil utilisateur</p>
+<blockquote>
+<div><p><strong>Pré-requis</strong> : Il existe un profil utilisateur pour David Gayerie</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Paramètre</p></th>
+<th class="head"><p>Valeur</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>$nom</p></td>
+<td><p>Gayerie</p></td>
+</tr>
+<tr class="row-odd"><td><p>$prenom</p></td>
+<td><p>David</p></td>
+</tr>
+<tr class="row-even"><td><p>$nouveau_nom</p></td>
+<td><p>Erin</p></td>
+</tr>
+<tr class="row-odd"><td><p>$nouveau_prenom</p></td>
+<td><p>Julien</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Cas de test</strong> : afficher son profil utilisateur</p>
+<p><strong>Cas de test</strong> : éditer le profil utilisateur</p>
+<p><strong>Cas de test</strong> : annuler la modification du profil utilisateur</p>
+</div></blockquote>
+</div></blockquote>
+<p>L’ensemble des scénarios de test retenus pour une session de test forme le
+<strong>cahier de test</strong>.</p>
+</div>
+<div class="section" id="exercice">
+<h3>Exercice<a class="headerlink" href="#exercice" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="exercice admonition">
+<p class="admonition-title">Cahier de tests pour une application de commande de pizza</p>
+<p>Rédigez le cahier de test pour une application de commandes de pizza. Le cahier de test
+doit contenir :</p>
+<ul class="simple">
+<li><p>La liste des cas de test (constitués des étapes et des exigences associées)</p></li>
+<li><p>La liste des scénarios de test (constitués de cas de test)</p></li>
+</ul>
+<p>Vous devez couvrir l’ensemble des fonctionnalités de l’application :</p>
+<ul class="simple">
+<li><p>commander une pizza,</p></li>
+<li><p>préparer une pizza,</p></li>
+</ul>
+<p>Vous pouvez présenter votre cahier de test sous la forme de plusieurs feuilles
+de tableur. Pensez à faire apparaître des paramètres dans les étapes des
+cas de tests afin de pouvoir définir des jeux de données pour les scénarios.</p>
+<p><strong>Pizza EE</strong></p>
+<dl>
+<dt>Finaliser la commande de pizza</dt><dd><p>L’utilisateur remplit le formulaire de commande avec la pizza choisie
+(il ne peut en choisir qu’une), son nom et son numéro de téléphone.
+Lorsqu’il clique sur le bouton <span class="guilabel">Commander</span>, les données doivent
+être envoyées au serveur et une commande doit être créée. Une page
+récapitulant la commande doit s’afficher avec la pizza choisie et la date
+et l’heure de création de la commande. Tous les champs doivent être
+obligatoirement saisis par l’utilisateur (sinon le formulaire doit être
+à nouveau affiché avec des messages précisant les champs erronés).</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 83%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Numéro</p></th>
+<th class="head"><p>Exigence</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E0001</p></td>
+<td><p>Une commande est constituée par un nom, un numéro de téléphone et une pizza</p></td>
+</tr>
+<tr class="row-odd"><td><p>E0002</p></td>
+<td><p>Une commande ne concerne qu’une seule pizza</p></td>
+</tr>
+<tr class="row-even"><td><p>E0003</p></td>
+<td><p>Dans la commande, le nom est obligatoire</p></td>
+</tr>
+<tr class="row-odd"><td><p>E0004</p></td>
+<td><p>Dans la commande, le numéro de téléphone est obligatoire</p></td>
+</tr>
+<tr class="row-even"><td><p>E0005</p></td>
+<td><p>Dans la commande, la pizza est obligatoire</p></td>
+</tr>
+<tr class="row-odd"><td><p>E0006</p></td>
+<td><p>Lorsque la commande aboutie, un récapitulatif de la commande est fourni au client</p></td>
+</tr>
+<tr class="row-even"><td><p>E0007</p></td>
+<td><p>Le récapitulatif de commande précise la pizza choisie ainsi que la date et l’heure de la commande</p></td>
+</tr>
+<tr class="row-odd"><td><p>E0008</p></td>
+<td><p>Le système doit présenter au moins les pizzas suivantes parmi les pizzas à commander : Margherita, Regina, Trois Fromages</p></td>
+</tr>
+<tr class="row-even"><td><p>E0009</p></td>
+<td><p>Après l’affichage du récapitulatif de la commande, le client peut passer une nouvelle commande</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Préparer une pizza</dt><dd><p>Pour la préparation d’une pizza, l’application doit disposer d’un nouvel
+écran qui affiche la liste des commandes de pizzas sous la forme d’un
+tableau. Le tableau doit indiquer le nom de la personne qui a commandé
+la pizza et l’heure de la commande. Ce tableau est trié dans l’ordre
+chronologique (la commande la plus ancienne est en première position).
+Sur cet écran, apparaît également un bouton <span class="guilabel">commande suivante</span>.
+Quand l’utilisateur clique sur ce bouton, un nouvel écran s’affiche avec
+le détail de la commande : la date, le nom et le téléphone de la personne
+qui a commandé. On indique la pizza commandée et sa composition (la liste
+des ingrédients). Cet écran contient un bouton <span class="guilabel">pizza prête</span>.
+Quand l’utilisateur clique sur ce bouton, la commande n’est plus en
+attente. Elle ne s’affiche donc plus dans le tableau des commandes.
+Ce tableau est à nouveau affiché afin de permettre de passer à la commande
+suivante.</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 83%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Numéro</p></th>
+<th class="head"><p>Exigence</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E0100</p></td>
+<td><p>Un écran doit afficher la liste des commandes non réalisées</p></td>
+</tr>
+<tr class="row-odd"><td><p>E0101</p></td>
+<td><p>Chaque commande dans la liste indique le nom du client et la date et l’heure de la commande.</p></td>
+</tr>
+<tr class="row-even"><td><p>E0102</p></td>
+<td><p>La liste des commandes non réalisées est triée dans l’ordre chronologique.</p></td>
+</tr>
+<tr class="row-odd"><td><p>E0103</p></td>
+<td><p>Le préparateur de pizza doit pouvoir afficher le détail de la commande suivante</p></td>
+</tr>
+<tr class="row-even"><td><p>E0104</p></td>
+<td><p>La commande suivante est la commande non réalisées la plus ancienne</p></td>
+</tr>
+<tr class="row-odd"><td><p>E0105</p></td>
+<td><p>Le détail de la commande suivante indique la date de la commande, le nom du client, le numéro de téléphone, la pizza commandée et la liste des ingrédients pour cette pizza.</p></td>
+</tr>
+<tr class="row-even"><td><p>E0106</p></td>
+<td><p>Le préparateur de pizza doit pouvoir indiquer que la commande est prête</p></td>
+</tr>
+<tr class="row-odd"><td><p>E0107</p></td>
+<td><p>Une commande prête ne doit plus figurer dans la liste des commandes non réalisées</p></td>
+</tr>
+<tr class="row-even"><td><p>E0108</p></td>
+<td><p>Lorsque le préparateur de pizza signale qu’une commande est prête, il doit pouvoir ensuite afficher le détail de la commande suivante</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="la-matrice-de-tracabilite-des-exigences">
+<h3>La matrice de traçabilité des exigences<a class="headerlink" href="#la-matrice-de-tracabilite-des-exigences" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les tests d’acceptation permettent de valider la conformité d’un système à une
+liste d’exigences. Mais comment savoir si les tests d’acceptation couvrent
+l’ensemble des éléments de cette liste ? Pour cela, nous pouvons construire une
+<strong>matrice de traçabilité des exigences</strong>.</p>
+<p>Puisque chaque cas de test est lié à une ou plusieurs exigences, on considère
+que chaque scénario qui utilise ce cas de test est également lié à ces exigences.
+On peut facilement construire un tableau à double entrée. En ligne, nous
+plaçons les exigences et en colonne, les scénarios de test. À l’intersection d’une
+ligne et d’une colonne nous pouvons indiquer si l’exigence est <em>couverte</em> par ce
+scénario (ou plus précisément par un des cas de test qui le constitue).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>L’utilisation d’un outil informatique pour la gestion des exigences, des cas
+de test et des scénarios de test se révèle ici très utile. Ce type d’outil
+est capable de produire une matrice de traçabilité pour un ensemble de
+scénarios de test.</p>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Exercice<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="exercice admonition">
+<p class="admonition-title">Matrice de traçabilité des exigences pour une application de commande de pizza</p>
+<p>Pour l’application de commande de pizza, construisez la matrice de traçabilité
+des exigences pour l’ensemble de vos scénarios de test.</p>
+</div>
+</div>
+<div class="section" id="rapport-de-test">
+<h3>Rapport de test<a class="headerlink" href="#rapport-de-test" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La phase de recette est constituée de plusieurs sessions de test au cours
+desquelles on doit réaliser les tests décrits dans les cahiers de test. Le résultat
+de ces sessions est conservé sous la forme de rapports de test. Un rapport de test
+indique pour chaque étape d’un scénario si le résultat attendu a bien été observé.
+Sinon, le testeur a la possibilité de rapporter le résultat observé afin de
+fournir une indication sur l’écart par rapport au résultat attendu.</p>
+<p>L’utilisation d’un outil informatique permet de créer facilement des rapports
+de test en proposant au testeur de valider ou non un scénario de test étape par
+étape. Dans le cas d’une non validation, le testeur peut immédiatement décrire
+le comportement observé.</p>
+<p>Pour le développement de solution de tests automatisés, il existe de nombreuses
+bibliothèques de programmation qui permettent de produire automatiquement le
+rapport d’exécution des tests.</p>
+</div>
+<div class="section" id="id2">
+<h3>Exercice<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="exercice admonition">
+<p class="admonition-title">Rapport de test pour une application de commande de pizza</p>
+<p>Pour l’application de commande de pizza, réalisez une session de test
+en vous connectant à l’application en ligne. Produisez le rapport de test
+de cette session de test. Le rapport de test doit préciser pour chaque étape
+si le résultat obtenu est conforme au résultat attendu. Si ce n’est pas le
+cas, le testeur doit indiquer ce qui a été observé pour permettre d’identifier
+éventuellement un défaut.</p>
+</div>
+</div>
+</div>
+<div class="section" id="dans-le-cadre-d-une-methode-agile">
+<h2>Dans le cadre d’une méthode agile<a class="headerlink" href="#dans-le-cadre-d-une-methode-agile" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il existe plusieurs méthodes agiles. Les plus utilisées et les plus connues
+sont Scrum et eXtreme Programming (XP). Ces méthodes ne reposent pas sur la notion
+de projet et ne se présentent donc pas comme une succession de phases situées
+entre une date de début et une date de fin.</p>
+<p>Les méthodes agiles sont dites itératives et incrémentales. Le travail de l’équipe
+de développement est découpé en bloc de temps fixe (appelé <em>Sprint</em> dans Scrum
+et <em>Itération</em> dans XP) ne dépassant pas quelques semaines. À la fin de chaque
+bloc de temps, l’équipe fournit un produit correspondant au produit précédent
+plus ce qui a été rajouté par le travail de l’équipe. Il peut s’agir de nouvelles
+fonctionnalités : on parle alors de développement incrémental puisque le produit
+dispose de nouveaux éléments par rapport à la version précédente.
+Il peut s’agir d’une amélioration de fonctionnalités existantes : on parle alors
+de développement itératif puisque l’équipe a repris quelque chose d’existant
+pour l’enrichir. Dans la réalité, les équipes utilisent indifféremment ces deux
+approches pour, petit à petit, développer le produit.</p>
+<p>Dans une approche agile, l’expression de besoin n’est pas nécessairement
+entièrement collectée au lancement des développements. Cette approche insiste sur
+la capacité à améliorer le produit et à s’adapter au changement au fur et à
+mesure des développements. La notion d’exigence est alors peu applicable et on
+la remplace, entre autres, pour l’utilisation de <em>User Stories</em>. Une <em>User Story</em>
+décrit une interaction du point de vue d’un utilisateur. Un produit est
+défini par l’ensemble des <em>User Stories</em> qui évolue au cours des développements.
+Chaque <em>User Story</em> doit être testable, c’est-à-dire fournir des critères
+d’acceptation.</p>
+<p>Dans une approche agile, les tests d’acceptation s’inscrivent dans un processus
+de développement différent. Les tests sont rédigés lorsque les développeurs
+doivent implémenter la partie du système répondant à une <em>User Story</em>. Ainsi, les
+tests d’acceptation servent d’abord à compléter la description d’une <em>User Story</em>.
+Il n’est plus question de vérifier un écart avec une exigence mais de préciser
+les objectifs du développement.</p>
+<p>L’eXtreme Programming a proposé l’approche <a class="reference external" href="https://www.agilealliance.org/glossary/atdd/">ATTD</a> (<em>Acceptance Test Driven Development</em>).
+Il s’agit de rédiger les tests d’acceptation avant le développement d’une
+<em>User Story</em> (ou, au moins, les tests d’acceptation les plus significatifs)
+de manière à guider les développements au plus près des attentes des utilisateurs.
+Avec les méthodes agiles, la notion de test d’acceptation évolue en insistant sur
+les aspects de documentation du système et de support à la communication entre les
+différents intervenants.</p>
+<div class="section" id="le-behavior-driven-developement-bdd">
+<h3>Le <em>Behavior Driven Developement</em> (BDD)<a class="headerlink" href="#le-behavior-driven-developement-bdd" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le <a class="reference external" href="https://fr.wikipedia.org/wiki/Programmation_pilot%C3%A9e_par_le_comportement">BDD</a> (<em>Behavior-Driven-Development</em>) est une approche proposée par Dan North
+dans son article <a class="reference external" href="https://dannorth.net/introducing-bdd/">Introducing BDD</a>. Le <a class="reference external" href="https://fr.wikipedia.org/wiki/Programmation_pilot%C3%A9e_par_le_comportement">BDD</a> est en fait une évolution de la
+notion de test d’acceptation en agilité : le <a class="reference external" href="https://fr.wikipedia.org/wiki/Programmation_pilot%C3%A9e_par_le_comportement">BDD</a> se fonde sur le constat qu’il
+est plus pertinent de raisonner en terme de description de comportement du
+système qu’en terme de test. Le test n’est qu’un formalisme pour mesurer les
+écarts entre une expression de besoin et un produit.</p>
+<p>L’approche BDD oblige à revoir la notion de test et d’expression de besoins.
+Le <a class="reference external" href="https://fr.wikipedia.org/wiki/Programmation_pilot%C3%A9e_par_le_comportement">BDD</a> s’appuie sur les méthodes agiles et reprend la notion de critères
+d’acceptation d’une <em>User Story</em>. Ces critères devraient correspondre à des
+exemples d’utilisation du système. En utilisant un formalisme pour la rédaction
+de ces exemples, ils deviennent un support à la communication entre tous
+les intervenants, qu’ils soient développeurs, utilisateurs, experts
+fonctionnels. Dan North propose de suivre un formalisme simple : <em>Given</em>, <em>When</em>, <em>Then</em>.</p>
+<div class="highlight-gherkin notranslate"><div class="highlight"><pre><span></span><span class="k">Given </span><span class="nf">some initial context,</span>
+<span class="k">When </span><span class="nf">an event occurs,</span>
+<span class="k">Then </span><span class="nf">ensure some outcomes.</span>
+</pre></div>
+</div>
+<p>Soit en français :</p>
+<div class="highlight-gherkin notranslate"><div class="highlight"><pre><span></span><span class="k">Etant donné </span><span class="nf">un contexte initial,</span>
+<span class="k">Quand </span><span class="nf">un événement survient,</span>
+<span class="k">Alors </span><span class="nf">on s&#39;assure de certains résultats</span>
+</pre></div>
+</div>
+<p>En utilisant ce formalisme, les scénarios deviennent facilement communicables
+entre les développeurs, les experts fonctionnels et toutes les parties-prenantes.
+Ces scénarios deviennent un support à la discussion et à la compréhension des
+fonctionnalités à réaliser. Avec le <a class="reference external" href="https://fr.wikipedia.org/wiki/Programmation_pilot%C3%A9e_par_le_comportement">BDD</a>, la spécification du système est
+constituée par l’ensemble de ces scénarios.</p>
+<p>De plus, en utilisant ce formalisme, il est possible de concevoir des outils
+capable d’analyser les scénarios et de les exécuter. On parle alors de
+<strong>spécification exécutable</strong>. Ainsi, on obtient la possibilité de valider plus
+rapidement le système par l’exécution de programme de test et on conserve une
+rédaction en langage naturel, facilement partageable à l’ensemble des intervenants.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Gojko Adzic présente cette nouvelle façon de spécifier un système dans son
+ouvrage <a class="reference external" href="https://gojko.net/books/specification-by-example/">Specification by Examples</a></p>
+</div>
+<p>Plusieurs <em>frameworks</em> ont été proposés pour aider à réaliser une automatisation
+des scénarios <a class="reference external" href="https://fr.wikipedia.org/wiki/Programmation_pilot%C3%A9e_par_le_comportement">BDD</a> : <a class="reference external" href="http://fitnesse.org/">FitNesse</a>, <a class="reference external" href="https://jbehave.org/">JBehave</a> (développé par Dan North lui-même) et <a class="reference external" href="https://cucumber.io/">Cucumber</a>.
+Cependant, il ne faut pas voir le <a class="reference external" href="https://fr.wikipedia.org/wiki/Programmation_pilot%C3%A9e_par_le_comportement">BDD</a> comme une approche technique.
+Il s’agit d’organiser le développement logiciel différemment en
+repensant, d’une part, le lien entre expression de besoin et validation et,
+d’autre part, en cherchant à établir une communication constante entre les
+développeurs et les experts fonctionnels en leur fournissant en langage commun.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="selenium.html" class="btn btn-neutral float-right" title="Selenium" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction à l’ingénierie des tests" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright David Gayerie - david@gayerie.dev - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

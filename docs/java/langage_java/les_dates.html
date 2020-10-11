@@ -1,0 +1,976 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Le langage Java - Les dates" name="description" />
+<meta content="Java, programmation objet, POO, langage de programmation" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Les dates &mdash; Documentation Le langage Java </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/java/langage_java/les_dates.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Programmation fonctionnelle et lambdas" href="les_lambdas.html" />
+    <link rel="prev" title="Les entrées/sorties" href="entrees_sorties.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Le langage Java
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Le langage Java</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#l-environnement">L’environnement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#oracle-jdk-et-open-jdk">Oracle JDK et Open JDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#un-bref-historique-des-versions">Un bref historique des versions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#configuration-d-eclipse">Configuration d’Eclipse</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="compilation.html">Compilation &amp; exécution</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#un-premier-programme">Un premier programme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#la-compilation">La compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#l-execution">L’exécution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#la-liaison-dynamique">La liaison dynamique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#le-classpath">Le classpath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#bibliotheques-java-les-fichiers-jar">Bibliothèques Java : les fichiers JAR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#creation-d-un-projet-dans-eclipse">Création d’un projet dans Eclipse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structure_fondamentale.html">La structure fondamentale du langage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-instructions">Les instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#le-typage">Le typage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-blocs-de-code">Les blocs de code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-commentaires">Les commentaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#le-formatage-du-code">Le formatage du code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-conventions-de-nommage">Les conventions de nommage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-mots-cles">Les mots-clés</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="premiere_classe.html">Une première classe</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#declarer-une-classe">Déclarer une classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#anatomie-d-une-classe">Anatomie d’une classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#ajouter-des-methodes">Ajouter des méthodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#la-methode-main">La méthode main</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#executer-le-programme-en-ligne-de-commandes">Exécuter le programme en ligne de commandes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#executer-le-programme-depuis-eclipse">Exécuter le programme depuis Eclipse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="types_primitifs.html">Les types primitifs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#le-type-booleen-boolean">Le type booléen : boolean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#le-type-caractere-char">Le type caractère : char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#les-types-entiers-byte-short-int-long">Les types entiers : byte, short, int, long</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#les-types-a-virgule-flottante-float-double">Les types à virgule flottante : float, double</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#les-classes-enveloppes">Les classes enveloppes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#l-autoboxing">L’autoboxing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="operateurs.html">Les opérateurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur-d-affectation">L’opérateur d’affectation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-arithmetiques">Les opérateurs arithmétiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-arithmetiques-unaires">Les opérateurs arithmétiques unaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur-de-concatenation-de-chaines">L’opérateur de concaténation de chaînes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-relationnels">Les opérateurs relationnels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-logiques">Les opérateurs logiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur-ternaire">L’opérateur ternaire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-bitwise">Les opérateurs <em>bitwise</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-de-decalage">Les opérateurs de décalage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#le-transtypage-cast">Le transtypage (cast)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#operateur-et-assignation">Opérateur et assignation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur">L’opérateur .</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#id1">L’opérateur ,</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structures_de_controle.html">Les structures de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#if-else">if-else</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#return">return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#while">while</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#do-while">do-while</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#for">for</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#for-ameliore">for amélioré</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#break-continue">break-continue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#libelle">libellé</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#switch">switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tableau.html">Les tableaux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#initialisation">Initialisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#creation-avec-new">Création avec new</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#acces-aux-elements-d-un-tableau">Accès aux éléments d’un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#tableau-multi-dimensionnel">Tableau multi-dimensionnel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#conversion-en-chaine-de-caracteres">Conversion en chaîne de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#egalite-de-deux-tableaux">Égalité de deux tableaux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#tri-recherche">Tri &amp; recherche</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#copie-d-un-tableau">Copie d’un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#typage-d-un-tableau">Typage d’un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#conversion-d-un-tableau-en-liste">Conversion d’un tableau en liste</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="attributs_et_methodes.html">Attributs &amp; méthodes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#les-attributs">Les attributs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#la-portee">La portée</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#l-initialisation">L’initialisation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#attributs-finaux">attributs finaux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#attributs-de-classe">Attributs de classe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#attributs-de-classe-finaux">Attributs de classe finaux</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#les-methodes">Les méthodes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#id1">La portée</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#la-valeur-de-retour">La valeur de retour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#les-parametres">Les paramètres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#parametre-final">Paramètre final</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#les-variables">Les variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#methodes-de-classe">Méthodes de classe</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#surcharge-de-methode-overloading">Surcharge de méthode : overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#portee-des-noms-et-this">Portée des noms et this</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#principe-d-encapsulation">Principe d’encapsulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cycle_de_vie.html">Cycle de vie d’un objet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-constructeur">Le constructeur</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#parametres-de-constructeur">Paramètres de constructeur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#valeur-par-defaut-des-attributs">Valeur par défaut des attributs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#constructeur-par-defaut">Constructeur par défaut</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#constructeur-prive">Constructeur privé</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#appel-d-un-constructeur-dans-un-constructeur">Appel d’un constructeur dans un constructeur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#appel-d-une-methode-dans-un-constructeur">Appel d’une méthode dans un constructeur</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#injection-de-dependances-par-le-constructeur">Injection de dépendances par le constructeur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-bloc-d-initialisation">Le bloc d’initialisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-bloc-d-initialisation-de-classe">Le bloc d’initialisation de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#exercice">Exercice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#memoire-heap-et-stack">Mémoire heap et stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-ramasse-miettes">Le ramasse-miettes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#la-methode-finalize">La méthode finalize</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="package.html">Les packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="package.html#declaration-d-un-package">Déclaration d’un package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#sous-package">Sous package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#nom-d-un-package">Nom d’un package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#nom-complet-d-une-classe">Nom complet d’une classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#import-de-noms">Import de noms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#la-portee-de-niveau-package">La portée de niveau package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#le-fichier-package-info-java">Le fichier package-info.java</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="heritage_composition.html">Héritage et composition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#l-heritage-is-a">L’héritage (is-a)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-et-constructeur">Héritage et constructeur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-simple-object">Héritage simple : Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-et-affectation">Héritage et affectation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#le-mot-cle-instanceof">Le mot-clé instanceof</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#la-portee-protected">La portée protected</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-des-methodes-et-attributs-de-classe">Héritage des méthodes et attributs de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-et-final">Héritage et final</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#la-composition-has-a">La composition (has-a)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="polymorphisme.html">Le polymorphisme</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#principe-du-polymorphisme">Principe du polymorphisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#une-exception-les-methodes-privees">Une exception : les méthodes privées</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#redefinition-et-signature-de-methode">Redéfinition et signature de méthode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#le-mot-cle-super">Le mot-clé super</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#l-annotation-override">L’annotation &#64;Override</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#les-methodes-de-classe">Les méthodes de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#methode-finale">Méthode finale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#constructeur-et-polymorphisme">Constructeur et polymorphisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#masquage-des-attributs-par-heritage">Masquage des attributs par héritage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#le-principe-du-ouvert-ferme">Le principe du ouvert/fermé</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="classe_abstraite.html">Les classes abstraites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classe_abstraite.html#declarer-une-classe-abstraite">Déclarer une classe abstraite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_abstraite.html#declarer-une-methode-abstraite">Déclarer une méthode abstraite</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="la_classe_object.html">La classe Object</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-equals">La méthode equals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-hashcode">La méthode hashCode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-tostring">La méthode toString</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-finalize">La méthode finalize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-clone">La méthode clone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-getclass">La méthode getClass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#les-methodes-de-concurrence">Les méthodes de concurrence</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="la_classe_string.html">La classe String</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#string-et-tableau-de-caracteres">String et tableau de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#quelques-methodes-utilitaires">Quelques méthodes utilitaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#construction-d-une-instance-de-string">Construction d’une instance de String</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#immutabilite-des-chaines-de-caracteres">Immutabilité des chaînes de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#la-classe-stringbuilder">La classe StringBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#formatage-de-texte">Formatage de texte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#les-expressions-regulieres">Les expressions régulières</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_exceptions.html">Les exceptions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#qu-est-ce-qu-une-exception">Qu’est-ce qu’une exception ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#signaler-une-exception">Signaler une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#traiter-une-exception">Traiter une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#propagation-d-une-exception">Propagation d’une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#exceptions-et-polymorphisme">Exceptions et polymorphisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#le-bloc-finally">Le bloc finally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#le-try-with-resources">Le try-with-resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#hierarchie-applicative-d-exception">Hiérarchie applicative d’exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#exception-cause">Exception cause</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#les-erreurs-et-les-exceptions-runtime">Les erreurs et les exceptions runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#choix-entre-checked-et-unchecked">Choix entre checked et unchecked</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="enumeration.html">Les énumérations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#les-methodes-d-une-enumeration">Les méthodes d’une énumération</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#egalite-entre-enumerations">Égalité entre énumérations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#support-de-switch">Support de switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#generation-d-une-enumeration">Génération d’une énumération</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#ajout-de-methodes-et-d-attributs">Ajout de méthodes et d’attributs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#ajout-de-constructeurs">Ajout de constructeurs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Les interfaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#declaration-d-une-interface">Déclaration d’une interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#implementation-d-une-interface">Implémentation d’une interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#attributs-et-methodes-statiques">Attributs et méthodes statiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#heritage-d-interface">Héritage d’interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#les-interfaces-marqueurs">Les interfaces marqueurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#implementation-par-defaut">Implémentation par défaut</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#la-segregation-d-interface">La ségrégation d’interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#l-inversion-de-dependance">L’inversion de dépendance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="generiques.html">Méthodes et classes génériques</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#l-exemple-de-la-classe-arraylist">L’exemple de la classe ArrayList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#creation-et-assignation-d-une-classe-generique">Création et assignation d’une classe générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#notation-en-diamant">Notation en diamant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#substitution-et-type-generique">Substitution et type générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#ecrire-une-methode-generique">Écrire une méthode générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#ecrire-une-classe-generique">Écrire une classe générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#limitations">Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_collections.html">Les collections</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#les-listes">Les listes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-arraylist">La classe ArrayList</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-linkedlist">La classe LinkedList</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-arraydeque">La classe ArrayDeque</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-priorityqueue">La classe PriorityQueue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-classes-vector-et-stack">Les classes Vector et Stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-interfaces-pour-les-listes">Les interfaces pour les listes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#les-ensembles-set">Les ensembles (set)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-treeset">La classe TreeSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-hashset">La classe HashSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-linkedhashset">La classe LinkedHashSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-interfaces-pour-les-ensembles">Les interfaces pour les ensembles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#copie-d-une-collection-dans-un-tableau">Copie d’une collection dans un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#les-tableaux-associatifs-maps">Les tableaux associatifs (maps)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-treemap">La classe TreeMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-hashmap">La classe HashMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-linkedhashmap">La classe LinkedHashMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-classes-dictionary-et-hashtable">Les classes Dictionary et Hashtable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-interfaces-pour-les-tableaux-associatifs">Les interfaces pour les tableaux associatifs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#la-classe-outil-collections">La classe outil Collections</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="entrees_sorties.html">Les entrées/sorties</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#inputstream-et-classes-concretes">InputStream et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#outputstream-et-classes-concretes">OutputStream et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#flux-orientes-caracteres">Flux orientés caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#reader-et-classes-concretes">Reader et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#writer-et-classes-concretes">Writer et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#les-decorateurs-de-flux">Les décorateurs de flux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#la-classe-scanner">La classe Scanner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#fichiers-et-chemins">Fichiers et chemins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#acces-au-reseau">Accès au réseau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#la-serialisation-d-objets">La sérialisation d’objets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="entrees_sorties.html#donnee-transient">Donnée transient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="entrees_sorties.html#identifiant-de-version-de-serialisation">Identifiant de version de sérialisation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Les dates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#date-la-classe-historique">Date : la classe historique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#calendar">Calendar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#l-api-date-time">L’API Date/Time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Les Dates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#la-classe-instant">La classe Instant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#periode-et-duree">Période et durée</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#formatage-des-dates">Formatage des dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lecture-des-dates">Lecture des dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_lambdas.html">Programmation fonctionnelle et lambdas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_lambdas.html#les-fonctions-anonymes-les-lambdas">Les fonctions anonymes : les lambdas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#syntaxe-des-lambdas">Syntaxe des lambdas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#usage-des-lambdas">Usage des lambdas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#lambda-et-closure">Lambda et closure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#les-interfaces-fonctionnelles">Les interfaces fonctionnelles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#l-operateur-de-reference-de-methode">L’opérateur :: de référence de méthode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_lambdas.html#la-classe-optional">La classe Optional</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="streams.html">Streams</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#creation-d-un-stream">Création d’un stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#la-reduction">La réduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#la-collecte">La collecte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#le-filtrage">Le filtrage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#le-mapping">Le mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#le-parallelisme">Le parallélisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="classe_interne.html">Les classes internes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#les-classes-internes-static">Les classes internes static</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#id1">Les classes internes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#les-classes-anonymes">Les classes anonymes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#acces-aux-elements-de-l-objet-englobant">Accès aux éléments de l’objet englobant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#classe-interne-a-une-methode">Classe interne à une méthode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#interface-et-enumeration">Interface et énumération</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#plusieurs-classes-dans-un-meme-fichier">Plusieurs classes dans un même fichier</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_annotations.html">Les annotations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#utilisation-des-annotations">Utilisation des annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#declaration-d-une-annotation">Déclaration d’une annotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#retention-d-une-annotation">Rétention d’une annotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#utilisation-des-annotations-par-introspection">Utilisation des annotations par introspection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="module.html">Les modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="module.html#des-modules-pour-ameliorer-la-securite">Des modules pour améliorer la sécurité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#des-modules-pour-plus-de-modularite">Des modules pour plus de modularité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#le-descripteur-de-module-module-info-java">Le descripteur de module (module-info.java)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="module.html#dependance-a-d-autres-modules">Dépendance à d’autres modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module.html#exposer-des-packages">Exposer des packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module.html#utiliser-un-service">Utiliser un service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module.html#fournir-un-service">Fournir un service</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#le-module-anonyme">Le module anonyme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#la-notion-de-module-path">La notion de module path</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Le langage Java</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Les dates</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="les_lambdas.html" class="btn btn-neutral float-right" title="Programmation fonctionnelle et lambdas" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="entrees_sorties.html" class="btn btn-neutral float-left" title="Les entrées/sorties" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="les-dates">
+<h1>Les dates<a class="headerlink" href="#les-dates" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Les dates et le temps sont représentés en Java par des classes. Cependant, au fil
+des versions de l’API standard, de nouvelles classes ont été proposées pour représenter
+les dates et le temps. Pour des raisons de compatibilité ascendante, les anciennes
+classes sont demeurées même si une partie de leurs méthodes ont été dépréciées.
+Ainsi, il existe plusieurs façons de représenter les dates et le temps en Java.</p>
+<div class="section" id="date-la-classe-historique">
+<h2>Date : la classe historique<a class="headerlink" href="#date-la-classe-historique" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Date.html">java.util.Date</a> est la première classe a être apparue pour représenter
+une date. Elle comporte de nombreuses limitations :</p>
+<ul class="simple">
+<li><p>Il n’est pas possible de représenter des dates antérieures à 1900</p></li>
+<li><p>Elle ne supporte pas les fuseaux horaires</p></li>
+<li><p>Elle ne supporte que les dates pour le calendrier grégorien</p></li>
+<li><p>Elle ne permet pas d’effectuer des opérations (ajout d’un jour, d’une année…)</p></li>
+</ul>
+<p>La quasi totalité des constructeurs et des méthodes de cette classe ont été
+dépréciés. Cela signifie qu’il ne faut pas les utiliser. Pourtant, la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Date.html">Date</a>
+reste une classe largement utilisée en Java. Par exemple, la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Date.html">Date</a> est la
+classe mère des classes <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/Date.html">java.sql.Date</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/Time.html">java.sql.Time</a> et <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/Timestamp.html">java.sql.Timestamp</a> qui
+servent à représenter les types du même nom en SQL. Beaucoup de bibliothèques
+tierces utilisent directement ou indirectement la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Date.html">Date</a>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.time.Instant</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Date</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestDate</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Date</span> <span class="n">aujourdhui</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Date</span><span class="p">();</span> <span class="c1">// crée une date au jour et à l&#39;heure d&#39;aujourd&#39;hui</span>
+    <span class="n">Date</span> <span class="n">dateAvant</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Date</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// crée une date au 1 janvier 1970 00:00:00.000</span>
+
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">aujourdhui</span><span class="p">.</span><span class="na">after</span><span class="p">(</span><span class="n">dateAvant</span><span class="p">));</span> <span class="c1">// true</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">dateAvant</span><span class="p">.</span><span class="na">before</span><span class="p">(</span><span class="n">aujourdhui</span><span class="p">));</span> <span class="c1">// true</span>
+
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">aujourdhui</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">dateAvant</span><span class="p">));</span> <span class="c1">// false</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">aujourdhui</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="n">dateAvant</span><span class="p">));</span> <span class="c1">// 1</span>
+
+    <span class="n">Instant</span> <span class="n">instant</span> <span class="o">=</span> <span class="n">aujourdhui</span><span class="p">.</span><span class="na">toInstant</span><span class="p">();</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Actuellement, les méthodes permettant de comparer des instances de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Date.html">Date</a>
+ne sont pas dépréciées. Pour construire une instance de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Date.html">Date</a>, on peut utiliser
+le constructeur sans paramètre pour créer une date au jour et à l’heure d’aujourd’hui.
+On peut également passer un nombre de type <strong>long</strong> représentant le nombre de millisecondes
+depuis le 1er janvier 1970 à 00:00:00.000 (<em>l’epoch</em>). Il est également possible de modifier
+une instance de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Date.html">Date</a> avec la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Date.html#setTime(long)">Date.setTime</a> en fournissant le nombre de
+millisecondes depuis le 1er janvier 1970 à 00:00:00.000.</p>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p>Pour connaître le nombre de millisecondes écoulées depuis le 1er janvier 1970
+à 00:00:00.000, il faut appeler la méthodes <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#currentTimeMillis()">System.currentTimeMillis</a>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">long</span> <span class="n">nbMilliSecondes</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="na">currentTimeMillis</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Depuis l’introduction en Java 8 de la nouvelle API des dates,
+il est possible de convertir une instance de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Date.html">Date</a> en une instance de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Instant.html">Instant</a> avec
+la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Date.html#toInstant()">Date.toInstant</a>.</p>
+</div>
+</div>
+<div class="section" id="calendar">
+<h2>Calendar<a class="headerlink" href="#calendar" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Depuis Java 1.1, la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Calendar.html">java.util.Calendar</a> a été proposée pour remplacer
+la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Date.html">java.util.Date</a>. La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Calendar.html">Calendar</a> pallie les nombreux désavantages
+de la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Date.html">Date</a> :</p>
+<ul class="simple">
+<li><p>Il est possible de représenter toutes les dates (y compris avant notre ère)</p></li>
+<li><p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Calendar.html">Calendar</a> supporte les fuseaux horaires (<em>timezone</em>)</p></li>
+<li><p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Calendar.html">Calendar</a> est une classe abstraite pour laquelle il est possible de
+fournir des classes concrètes pour gérer différents calendriers (le JDK ne propose
+que la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/GregorianCalendar.html">GregorianCalendar</a> comme implémentation concrète pour le calendrier grégorien).</p></li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Calendar</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Locale</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.TimeZone</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestCalendar</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Date et heure d&#39;aujourd&#39;hui en utilisant le fuseau horaire du système</span>
+    <span class="n">Calendar</span> <span class="n">date</span> <span class="o">=</span> <span class="n">Calendar</span><span class="p">.</span><span class="na">getInstance</span><span class="p">();</span>
+    <span class="c1">// Date et heure d&#39;aujourd&#39;hui en utilisant le fuseau horaire de la France</span>
+    <span class="n">Calendar</span> <span class="n">dateFrance</span> <span class="o">=</span> <span class="n">Calendar</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="n">Locale</span><span class="p">.</span><span class="na">FRANCE</span><span class="p">);</span>
+    <span class="c1">// Date et heure d&#39;aujourd&#39;hui en utilisant le fuseau horaire GMT</span>
+    <span class="n">Calendar</span> <span class="n">dateGmt</span> <span class="o">=</span> <span class="n">Calendar</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="n">TimeZone</span><span class="p">.</span><span class="na">getTimeZone</span><span class="p">(</span><span class="s">&quot;GMT&quot;</span><span class="p">));</span>
+
+    <span class="c1">// On positionne la date au 8 juin 2005 à 12:00:00</span>
+    <span class="n">date</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">date</span><span class="p">.</span><span class="na">toInstant</span><span class="p">());</span>
+
+    <span class="c1">// On ajoute 24 heures à la date et on passe au jour suivant</span>
+    <span class="n">date</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">Calendar</span><span class="p">.</span><span class="na">HOUR</span><span class="p">,</span> <span class="mi">24</span><span class="p">);</span>
+    <span class="c1">// On décale la date de 12 mois sans passer à l&#39;année suivante</span>
+    <span class="n">date</span><span class="p">.</span><span class="na">roll</span><span class="p">(</span><span class="n">Calendar</span><span class="p">.</span><span class="na">MONTH</span><span class="p">,</span> <span class="mi">12</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">date</span><span class="p">.</span><span class="na">toInstant</span><span class="p">());</span> <span class="c1">// 9 juin 2005 à 12:00:00</span>
+
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Comme pour les instances de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Date.html">Date</a>, il est possible de comparer les instances
+de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Calendar.html">Calendar</a> entre elles. Il est également possible de convertir une instance
+de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Calendar.html">Calendar</a> en <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Date.html">Date</a> (mais alors on perd l’information du fuseau horaire
+puisque la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Date.html">Date</a> ne contient pas cette information) grâce à la méthode
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Calendar.html#getTime()">Calendar.getTime</a>. Enfin, on utilise la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Calendar.html#toInstant()">Calendar.toInstant</a> pour convertir
+une instance de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Calendar.html">Calendar</a> en une instance de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Instant.html">Instant</a>.</p>
+<p>Même si la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Calendar.html">Calendar</a> est beaucoup plus complète que la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Date.html">Date</a>, son
+utilisation est restée limitée car elle est également plus difficile à manipuler.
+Son API la rend assez fastidieuse d’utilisation. Elle ne permet pas de représenter
+simplement la notion du durée. Et surtout, comme il s’agit d’une classe abstraite,
+il n’est pas possible construire une instance avec l’opérateur <strong>new</strong>. Il faut
+systématiquement utiliser une des méthodes de classes <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Calendar.html#getInstance()">Calendar.getInstance</a>.</p>
+</div>
+<div class="section" id="l-api-date-time">
+<h2>L’API Date/Time<a class="headerlink" href="#l-api-date-time" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Depuis Java 8, une nouvelle API a été introduite pour représenter les dates, le
+temps et la durée. Toutes ces classes ont été regroupées dans la package <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/package-summary.html">java.time</a>.</p>
+<div class="section" id="id1">
+<h3>Les Dates<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les classes <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/LocalDate.html">LocalDate</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/LocalTime.html">LocalTime</a> et <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/LocalDateTime.html">LocalDateTime</a> permettent de représenter respectivement
+une date, une heure, une date et une heure.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.time.LocalDate</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.time.LocalDateTime</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.time.LocalTime</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.time.Month</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.time.temporal.ChronoUnit</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestTime</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">LocalDate</span> <span class="n">date</span> <span class="o">=</span> <span class="n">LocalDate</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span> <span class="n">Month</span><span class="p">.</span><span class="na">JUNE</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span> <span class="c1">// 05/06/2005</span>
+    <span class="n">date</span> <span class="o">=</span> <span class="n">date</span><span class="p">.</span><span class="na">plus</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ChronoUnit</span><span class="p">.</span><span class="na">DAYS</span><span class="p">);</span> <span class="c1">// 06/06/2005</span>
+    <span class="n">LocalDateTime</span> <span class="n">dateTime</span> <span class="o">=</span> <span class="n">date</span><span class="p">.</span><span class="na">atTime</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mo">00</span><span class="p">);</span> <span class="c1">// 06/06/2005 12:00:00</span>
+    <span class="n">LocalTime</span> <span class="n">time</span> <span class="o">=</span> <span class="n">dateTime</span><span class="p">.</span><span class="na">toLocalTime</span><span class="p">();</span> <span class="c1">// 12:00:00</span>
+
+    <span class="n">time</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="na">minusHours</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span> <span class="c1">// 10:00:00</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>On peut facilement passer d’un type à une autre. Par exemple la méthode
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/LocalDate.html#atTime(int,int)">LocalDate.atTime</a> permet d’ajouter une heure à une date, créant ainsi une instance
+de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/LocalDateTime.html">LocalDateTime</a>. Toutes les instances de ces classes sont immutables.</p>
+<p>Si on veut avoir l’information de la date ou de l’heure d’aujourd’hui, on peut
+créer une instance grâce à la méthode <em>now</em>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">LocalDate</span> <span class="n">dateAujourdhui</span> <span class="o">=</span> <span class="n">LocalDate</span><span class="p">.</span><span class="na">now</span><span class="p">();</span>
+<span class="n">LocalTime</span> <span class="n">heureMaintenant</span> <span class="o">=</span> <span class="n">LocalTime</span><span class="p">.</span><span class="na">now</span><span class="p">();</span>
+<span class="n">LocalDateTime</span> <span class="n">dateHeureMaintenant</span> <span class="o">=</span> <span class="n">LocalDateTime</span><span class="p">.</span><span class="na">now</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Une instance de ces classes ne contient pas d’information de fuseau horaire.
+On peut néanmoins passer en paramètre des méthodes <em>now</em> un <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/ZoneId.html">ZoneId</a> pour indiquer
+le fuseau horaire pour lequel on désire la date et/ou l’heure actuelle.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">LocalDate</span> <span class="n">dateAujourdhui</span> <span class="o">=</span> <span class="n">LocalDate</span><span class="p">.</span><span class="na">now</span><span class="p">(</span><span class="n">ZoneId</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;GMT&quot;</span><span class="p">));</span>
+<span class="n">LocalTime</span> <span class="n">heureMaintenant</span> <span class="o">=</span> <span class="n">LocalTime</span><span class="p">.</span><span class="na">now</span><span class="p">(</span><span class="n">ZoneId</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;Europe/Paris&quot;</span><span class="p">));</span>
+<span class="n">LocalDateTime</span> <span class="n">dateHeureMaintenant</span> <span class="o">=</span> <span class="n">LocalDateTime</span><span class="p">.</span><span class="na">now</span><span class="p">(</span><span class="n">ZoneId</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;America/New_York&quot;</span><span class="p">));</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Si vous avez besoin de représenter des dates avec le fuseau horaire, alors il faut
+utiliser la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/ZonedDateTime.html">ZonedDateTime</a>.</p>
+</div>
+<p>Les classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Year.html">Year</a> et <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/YearMonth.html">YearMonth</a> permettent de manipuler les dates et d’obtenir
+des informations intéressantes à partir de l’année ou du mois et de l’année.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.time.LocalDate</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.time.Month</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.time.Year</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.time.YearMonth</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestYear</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Year</span> <span class="n">year</span> <span class="o">=</span> <span class="n">Year</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">2004</span><span class="p">);</span>
+
+    <span class="c1">// année bissextile ?</span>
+    <span class="kt">boolean</span> <span class="n">isLeap</span> <span class="o">=</span> <span class="n">year</span><span class="p">.</span><span class="na">isLeap</span><span class="p">();</span>
+
+    <span class="c1">// 08/2004</span>
+    <span class="n">YearMonth</span> <span class="n">yearMonth</span> <span class="o">=</span> <span class="n">year</span><span class="p">.</span><span class="na">atMonth</span><span class="p">(</span><span class="n">Month</span><span class="p">.</span><span class="na">AUGUST</span><span class="p">);</span>
+
+    <span class="c1">// 31/08/2004</span>
+    <span class="n">LocalDate</span> <span class="n">localDate</span> <span class="o">=</span> <span class="n">yearMonth</span><span class="p">.</span><span class="na">atEndOfMonth</span><span class="p">();</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="la-classe-instant">
+<h3>La classe Instant<a class="headerlink" href="#la-classe-instant" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Instant.html">Instant</a> représente un point dans le temps. Contrairement aux classes
+précédentes qui permettent de représenter les dates pour les humains, la classe
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Instant.html">Instant</a> est adaptée pour réaliser des traitements de données temporelles.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.time.Instant</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestInstant</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Instant</span> <span class="n">maintenant</span> <span class="o">=</span> <span class="n">Instant</span><span class="p">.</span><span class="na">now</span><span class="p">();</span>
+    <span class="n">Instant</span> <span class="n">epoch</span> <span class="o">=</span> <span class="n">Instant</span><span class="p">.</span><span class="na">ofEpochSecond</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// 01/01/1970 00:00:00.000</span>
+
+    <span class="n">Instant</span> <span class="n">uneMinuteDansLeFuture</span> <span class="o">=</span> <span class="n">maintenant</span><span class="p">.</span><span class="na">plusSeconds</span><span class="p">(</span><span class="mi">60</span><span class="p">);</span>
+
+    <span class="kt">long</span> <span class="n">unixTimestamp</span> <span class="o">=</span> <span class="n">uneMinuteDansLeFuture</span><span class="p">.</span><span class="na">getEpochSecond</span><span class="p">();</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Les classes <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/LocalDate.html">LocalDate</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/LocalTime.html">LocalTime</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/LocalDateTime.html">LocalDateTime</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/ZonedDateTime.html">ZonedDateTime</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Year.html">Year</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/YearMonth.html">YearMonth</a>,
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Instant.html">Instant</a> implémentent toutes les interfaces <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/temporal/Temporal.html">Temporal</a> et <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/temporal/TemporalAccessor.html">TemporalAccessor</a>. Cela
+permet d’utiliser facilement des instances de ces classes les unes avec les autres
+puisque beaucoup de leurs méthodes attendent en paramètres des instances de type
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/temporal/Temporal.html">Temporal</a> ou <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/temporal/TemporalAccessor.html">TemporalAccessor</a>.</p>
+</div>
+</div>
+<div class="section" id="periode-et-duree">
+<span id="java-date-periode-duree"></span><h3>Période et durée<a class="headerlink" href="#periode-et-duree" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il est possible de définir des périodes grâce à des instances de la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Period.html">Period</a>.
+Une période peut être construite directement ou à partir de la différence entre deux
+instances de type <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/temporal/Temporal.html">Temporal</a>. Il est ensuite possible de modifier une date en ajoutant ou soustrayant
+une période.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.time.LocalDate</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.time.Month</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.time.Period</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.time.Year</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.time.YearMonth</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestPeriode</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">YearMonth</span> <span class="n">moisAnnee</span> <span class="o">=</span> <span class="n">Year</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">2000</span><span class="p">).</span><span class="na">atMonth</span><span class="p">(</span><span class="n">Month</span><span class="p">.</span><span class="na">APRIL</span><span class="p">);</span> <span class="c1">// 04/2000</span>
+
+    <span class="c1">// période de 1 an et deux mois</span>
+    <span class="n">Period</span> <span class="n">periode</span> <span class="o">=</span> <span class="n">Period</span><span class="p">.</span><span class="na">ofYears</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="na">plusMonths</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+
+    <span class="n">YearMonth</span> <span class="n">moisAnneePlusTard</span> <span class="o">=</span> <span class="n">moisAnnee</span><span class="p">.</span><span class="na">plus</span><span class="p">(</span><span class="n">periode</span><span class="p">);</span> <span class="c1">// 06/2001</span>
+
+    <span class="n">Period</span> <span class="n">periode65Jours</span> <span class="o">=</span> <span class="n">Period</span><span class="p">.</span><span class="na">between</span><span class="p">(</span><span class="n">LocalDate</span><span class="p">.</span><span class="na">now</span><span class="p">(),</span> <span class="n">LocalDate</span><span class="p">.</span><span class="na">now</span><span class="p">().</span><span class="na">plusDays</span><span class="p">(</span><span class="mi">65</span><span class="p">));</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>La durée est représentée par une instance de la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Duration.html">Duration</a>. Elle peut être
+obtenue à partir de deux instances de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Instant.html">Instant</a>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.time.Duration</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.time.Instant</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestDuree</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Instant</span> <span class="n">debut</span> <span class="o">=</span> <span class="n">Instant</span><span class="p">.</span><span class="na">now</span><span class="p">();</span>
+
+    <span class="c1">// ... traitement à mesurer</span>
+
+    <span class="n">Duration</span> <span class="n">duree</span> <span class="o">=</span> <span class="n">Duration</span><span class="p">.</span><span class="na">between</span><span class="p">(</span><span class="n">debut</span><span class="p">,</span> <span class="n">Instant</span><span class="p">.</span><span class="na">now</span><span class="p">());</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">duree</span><span class="p">.</span><span class="na">toMillis</span><span class="p">());</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="formatage-des-dates">
+<h2>Formatage des dates<a class="headerlink" href="#formatage-des-dates" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour formater une date pour l’affichage, il est possible d’utiliser la méthode
+<code class="docutils literal notranslate"><span class="pre">format</span></code> déclarée dans les classes <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/LocalDate.html">LocalDate</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/LocalTime.html">LocalTime</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/LocalDateTime.html">LocalDateTime</a>,
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/ZonedDateTime.html">ZonedDateTime</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Year.html">Year</a> et <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/YearMonth.html">YearMonth</a>.</p>
+<p>Le format de représentation d’une date et/ou du temps est défini par la classe
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/format/DateTimeFormatter.html">DateTimeFormatter</a>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.time.LocalDateTime</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.time.Month</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.time.format.DateTimeFormatter</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Locale</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestDuree</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 01/09/2010 16:30</span>
+    <span class="n">LocalDateTime</span> <span class="n">dateTime</span> <span class="o">=</span> <span class="n">LocalDateTime</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span> <span class="n">Month</span><span class="p">.</span><span class="na">SEPTEMBER</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+
+    <span class="c1">// En utilisant des formats ISO de dates</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">dateTime</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">BASIC_ISO_DATE</span><span class="p">));</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">dateTime</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ISO_WEEK_DATE</span><span class="p">));</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">dateTime</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ISO_DATE_TIME</span><span class="p">));</span>
+
+    <span class="n">DateTimeFormatter</span> <span class="n">datePattern</span> <span class="o">=</span> <span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ofPattern</span><span class="p">(</span><span class="s">&quot;dd/MM/yyyy&quot;</span><span class="p">);</span>
+    <span class="c1">// 01/09/2010</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">dateTime</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">datePattern</span><span class="p">));</span>
+
+    <span class="n">DateTimeFormatter</span> <span class="n">dateTimePattern</span> <span class="o">=</span> <span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ofPattern</span><span class="p">(</span><span class="s">&quot;dd/MM/yyyy HH:mm&quot;</span><span class="p">);</span>
+    <span class="c1">// 01/09/2010 16:30</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">dateTime</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">dateTimePattern</span><span class="p">));</span>
+
+    <span class="c1">// 1 septembre 2010</span>
+    <span class="n">DateTimeFormatter</span> <span class="n">frenchDatePattern</span> <span class="o">=</span> <span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ofPattern</span><span class="p">(</span><span class="s">&quot;d MMMM yyyy&quot;</span><span class="p">,</span> <span class="n">Locale</span><span class="p">.</span><span class="na">FRANCE</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">dateTime</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">frenchDatePattern</span><span class="p">));</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il est toujours possible d’utiliser la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/text/SimpleDateFormat.html">SimpleDateFormat</a> pour formater
+une instance de la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Date.html">java.util.Date</a>.</p>
+</div>
+</div>
+<div class="section" id="lecture-des-dates">
+<h2>Lecture des dates<a class="headerlink" href="#lecture-des-dates" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour transformer une chaîne de caractères en date (notamment pour obtenir une date
+à partir de la saisie d’un utilisateur ou de la lecture d’un fichier),
+il est possible d’utiliser la méthode <code class="docutils literal notranslate"><span class="pre">parse</span></code> déclarée dans les classes
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/LocalDate.html">LocalDate</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/LocalTime.html">LocalTime</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/LocalDateTime.html">LocalDateTime</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/ZonedDateTime.html">ZonedDateTime</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Year.html">Year</a> et <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/YearMonth.html">YearMonth</a>.</p>
+<p>Le format d’une date et/ou du temps est défini par la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/format/DateTimeFormatter.html">DateTimeFormatter</a>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.time.LocalDate</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.time.LocalDateTime</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.time.Year</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.time.YearMonth</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.time.format.DateTimeFormatter</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SaisieLocalDateTime</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="n">String</span> <span class="n">exemple</span> <span class="o">=</span> <span class="s">&quot;02/06/2010 12:35&quot;</span><span class="p">;</span>
+
+    <span class="n">DateTimeFormatter</span> <span class="n">dtf</span> <span class="o">=</span> <span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ofPattern</span><span class="p">(</span><span class="s">&quot;dd/MM/yyyy HH:mm&quot;</span><span class="p">);</span>
+
+    <span class="n">Year</span> <span class="n">year</span> <span class="o">=</span> <span class="n">Year</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="n">exemple</span><span class="p">,</span> <span class="n">dtf</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">year</span><span class="p">);</span>
+
+    <span class="n">YearMonth</span> <span class="n">yearMonth</span> <span class="o">=</span> <span class="n">YearMonth</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="n">exemple</span><span class="p">,</span> <span class="n">dtf</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">yearMonth</span><span class="p">);</span>
+
+    <span class="n">LocalDate</span> <span class="n">localDate</span> <span class="o">=</span> <span class="n">LocalDate</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="n">exemple</span><span class="p">,</span> <span class="n">dtf</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">localDate</span><span class="p">);</span>
+
+    <span class="n">LocalDateTime</span> <span class="n">localDateTime</span> <span class="o">=</span> <span class="n">LocalDateTime</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="n">exemple</span><span class="p">,</span> <span class="n">dtf</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">localDateTime</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il est toujours possible d’utiliser la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/text/SimpleDateFormat.html">SimpleDateFormat</a> pour transformer
+une chaîne de caractères en une instance de la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Date.html">java.util.Date</a>.</p>
+</div>
+</div>
+<div class="section" id="exercice">
+<h2>Exercice<a class="headerlink" href="#exercice" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="exercice admonition">
+<p class="admonition-title">Calcul de l’âge</p>
+<p>Écrivez une application qui demande à l’utilisateur de saisir sa date de naissance
+au format jour/mois/année et qui affiche ensuite son âge. Pensez à gérer le cas
+où l’utilisateur ne saisit pas la date au format attendu.</p>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p>Pour calculer l’âge, il faut utiliser <a class="reference internal" href="#java-date-periode-duree"><span class="std std-ref">la classe Periode</span></a>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="les_lambdas.html" class="btn btn-neutral float-right" title="Programmation fonctionnelle et lambdas" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="entrees_sorties.html" class="btn btn-neutral float-left" title="Les entrées/sorties" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright David Gayerie - david@gayerie.dev - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

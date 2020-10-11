@@ -1,0 +1,879 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Le langage Java - La compilation et l'exécution d'un programme" name="description" />
+<meta content="Java, programmation objet, POO, langage de programmation" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Compilation &amp; exécution &mdash; Documentation Le langage Java </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/java/langage_java/compilation.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="La structure fondamentale du langage" href="structure_fondamentale.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Le langage Java
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Le langage Java</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#l-environnement">L’environnement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#oracle-jdk-et-open-jdk">Oracle JDK et Open JDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#un-bref-historique-des-versions">Un bref historique des versions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#configuration-d-eclipse">Configuration d’Eclipse</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Compilation &amp; exécution</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#un-premier-programme">Un premier programme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#la-compilation">La compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#l-execution">L’exécution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#la-liaison-dynamique">La liaison dynamique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#le-classpath">Le classpath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bibliotheques-java-les-fichiers-jar">Bibliothèques Java : les fichiers JAR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creation-d-un-projet-dans-eclipse">Création d’un projet dans Eclipse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structure_fondamentale.html">La structure fondamentale du langage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-instructions">Les instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#le-typage">Le typage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-blocs-de-code">Les blocs de code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-commentaires">Les commentaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#le-formatage-du-code">Le formatage du code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-conventions-de-nommage">Les conventions de nommage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-mots-cles">Les mots-clés</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="premiere_classe.html">Une première classe</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#declarer-une-classe">Déclarer une classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#anatomie-d-une-classe">Anatomie d’une classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#ajouter-des-methodes">Ajouter des méthodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#la-methode-main">La méthode main</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#executer-le-programme-en-ligne-de-commandes">Exécuter le programme en ligne de commandes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#executer-le-programme-depuis-eclipse">Exécuter le programme depuis Eclipse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="types_primitifs.html">Les types primitifs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#le-type-booleen-boolean">Le type booléen : boolean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#le-type-caractere-char">Le type caractère : char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#les-types-entiers-byte-short-int-long">Les types entiers : byte, short, int, long</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#les-types-a-virgule-flottante-float-double">Les types à virgule flottante : float, double</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#les-classes-enveloppes">Les classes enveloppes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#l-autoboxing">L’autoboxing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="operateurs.html">Les opérateurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur-d-affectation">L’opérateur d’affectation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-arithmetiques">Les opérateurs arithmétiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-arithmetiques-unaires">Les opérateurs arithmétiques unaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur-de-concatenation-de-chaines">L’opérateur de concaténation de chaînes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-relationnels">Les opérateurs relationnels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-logiques">Les opérateurs logiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur-ternaire">L’opérateur ternaire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-bitwise">Les opérateurs <em>bitwise</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-de-decalage">Les opérateurs de décalage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#le-transtypage-cast">Le transtypage (cast)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#operateur-et-assignation">Opérateur et assignation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur">L’opérateur .</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#id1">L’opérateur ,</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structures_de_controle.html">Les structures de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#if-else">if-else</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#return">return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#while">while</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#do-while">do-while</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#for">for</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#for-ameliore">for amélioré</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#break-continue">break-continue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#libelle">libellé</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#switch">switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tableau.html">Les tableaux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#initialisation">Initialisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#creation-avec-new">Création avec new</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#acces-aux-elements-d-un-tableau">Accès aux éléments d’un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#tableau-multi-dimensionnel">Tableau multi-dimensionnel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#conversion-en-chaine-de-caracteres">Conversion en chaîne de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#egalite-de-deux-tableaux">Égalité de deux tableaux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#tri-recherche">Tri &amp; recherche</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#copie-d-un-tableau">Copie d’un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#typage-d-un-tableau">Typage d’un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#conversion-d-un-tableau-en-liste">Conversion d’un tableau en liste</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="attributs_et_methodes.html">Attributs &amp; méthodes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#les-attributs">Les attributs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#la-portee">La portée</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#l-initialisation">L’initialisation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#attributs-finaux">attributs finaux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#attributs-de-classe">Attributs de classe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#attributs-de-classe-finaux">Attributs de classe finaux</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#les-methodes">Les méthodes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#id1">La portée</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#la-valeur-de-retour">La valeur de retour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#les-parametres">Les paramètres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#parametre-final">Paramètre final</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#les-variables">Les variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#methodes-de-classe">Méthodes de classe</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#surcharge-de-methode-overloading">Surcharge de méthode : overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#portee-des-noms-et-this">Portée des noms et this</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#principe-d-encapsulation">Principe d’encapsulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cycle_de_vie.html">Cycle de vie d’un objet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-constructeur">Le constructeur</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#parametres-de-constructeur">Paramètres de constructeur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#valeur-par-defaut-des-attributs">Valeur par défaut des attributs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#constructeur-par-defaut">Constructeur par défaut</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#constructeur-prive">Constructeur privé</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#appel-d-un-constructeur-dans-un-constructeur">Appel d’un constructeur dans un constructeur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#appel-d-une-methode-dans-un-constructeur">Appel d’une méthode dans un constructeur</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#injection-de-dependances-par-le-constructeur">Injection de dépendances par le constructeur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-bloc-d-initialisation">Le bloc d’initialisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-bloc-d-initialisation-de-classe">Le bloc d’initialisation de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#exercice">Exercice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#memoire-heap-et-stack">Mémoire heap et stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-ramasse-miettes">Le ramasse-miettes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#la-methode-finalize">La méthode finalize</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="package.html">Les packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="package.html#declaration-d-un-package">Déclaration d’un package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#sous-package">Sous package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#nom-d-un-package">Nom d’un package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#nom-complet-d-une-classe">Nom complet d’une classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#import-de-noms">Import de noms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#la-portee-de-niveau-package">La portée de niveau package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#le-fichier-package-info-java">Le fichier package-info.java</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="heritage_composition.html">Héritage et composition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#l-heritage-is-a">L’héritage (is-a)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-et-constructeur">Héritage et constructeur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-simple-object">Héritage simple : Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-et-affectation">Héritage et affectation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#le-mot-cle-instanceof">Le mot-clé instanceof</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#la-portee-protected">La portée protected</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-des-methodes-et-attributs-de-classe">Héritage des méthodes et attributs de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-et-final">Héritage et final</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#la-composition-has-a">La composition (has-a)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="polymorphisme.html">Le polymorphisme</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#principe-du-polymorphisme">Principe du polymorphisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#une-exception-les-methodes-privees">Une exception : les méthodes privées</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#redefinition-et-signature-de-methode">Redéfinition et signature de méthode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#le-mot-cle-super">Le mot-clé super</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#l-annotation-override">L’annotation &#64;Override</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#les-methodes-de-classe">Les méthodes de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#methode-finale">Méthode finale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#constructeur-et-polymorphisme">Constructeur et polymorphisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#masquage-des-attributs-par-heritage">Masquage des attributs par héritage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#le-principe-du-ouvert-ferme">Le principe du ouvert/fermé</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="classe_abstraite.html">Les classes abstraites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classe_abstraite.html#declarer-une-classe-abstraite">Déclarer une classe abstraite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_abstraite.html#declarer-une-methode-abstraite">Déclarer une méthode abstraite</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="la_classe_object.html">La classe Object</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-equals">La méthode equals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-hashcode">La méthode hashCode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-tostring">La méthode toString</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-finalize">La méthode finalize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-clone">La méthode clone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-getclass">La méthode getClass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#les-methodes-de-concurrence">Les méthodes de concurrence</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="la_classe_string.html">La classe String</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#string-et-tableau-de-caracteres">String et tableau de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#quelques-methodes-utilitaires">Quelques méthodes utilitaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#construction-d-une-instance-de-string">Construction d’une instance de String</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#immutabilite-des-chaines-de-caracteres">Immutabilité des chaînes de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#la-classe-stringbuilder">La classe StringBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#formatage-de-texte">Formatage de texte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#les-expressions-regulieres">Les expressions régulières</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_exceptions.html">Les exceptions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#qu-est-ce-qu-une-exception">Qu’est-ce qu’une exception ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#signaler-une-exception">Signaler une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#traiter-une-exception">Traiter une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#propagation-d-une-exception">Propagation d’une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#exceptions-et-polymorphisme">Exceptions et polymorphisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#le-bloc-finally">Le bloc finally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#le-try-with-resources">Le try-with-resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#hierarchie-applicative-d-exception">Hiérarchie applicative d’exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#exception-cause">Exception cause</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#les-erreurs-et-les-exceptions-runtime">Les erreurs et les exceptions runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#choix-entre-checked-et-unchecked">Choix entre checked et unchecked</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="enumeration.html">Les énumérations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#les-methodes-d-une-enumeration">Les méthodes d’une énumération</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#egalite-entre-enumerations">Égalité entre énumérations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#support-de-switch">Support de switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#generation-d-une-enumeration">Génération d’une énumération</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#ajout-de-methodes-et-d-attributs">Ajout de méthodes et d’attributs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#ajout-de-constructeurs">Ajout de constructeurs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Les interfaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#declaration-d-une-interface">Déclaration d’une interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#implementation-d-une-interface">Implémentation d’une interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#attributs-et-methodes-statiques">Attributs et méthodes statiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#heritage-d-interface">Héritage d’interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#les-interfaces-marqueurs">Les interfaces marqueurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#implementation-par-defaut">Implémentation par défaut</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#la-segregation-d-interface">La ségrégation d’interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#l-inversion-de-dependance">L’inversion de dépendance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="generiques.html">Méthodes et classes génériques</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#l-exemple-de-la-classe-arraylist">L’exemple de la classe ArrayList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#creation-et-assignation-d-une-classe-generique">Création et assignation d’une classe générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#notation-en-diamant">Notation en diamant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#substitution-et-type-generique">Substitution et type générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#ecrire-une-methode-generique">Écrire une méthode générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#ecrire-une-classe-generique">Écrire une classe générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#limitations">Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_collections.html">Les collections</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#les-listes">Les listes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-arraylist">La classe ArrayList</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-linkedlist">La classe LinkedList</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-arraydeque">La classe ArrayDeque</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-priorityqueue">La classe PriorityQueue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-classes-vector-et-stack">Les classes Vector et Stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-interfaces-pour-les-listes">Les interfaces pour les listes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#les-ensembles-set">Les ensembles (set)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-treeset">La classe TreeSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-hashset">La classe HashSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-linkedhashset">La classe LinkedHashSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-interfaces-pour-les-ensembles">Les interfaces pour les ensembles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#copie-d-une-collection-dans-un-tableau">Copie d’une collection dans un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#les-tableaux-associatifs-maps">Les tableaux associatifs (maps)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-treemap">La classe TreeMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-hashmap">La classe HashMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-linkedhashmap">La classe LinkedHashMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-classes-dictionary-et-hashtable">Les classes Dictionary et Hashtable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-interfaces-pour-les-tableaux-associatifs">Les interfaces pour les tableaux associatifs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#la-classe-outil-collections">La classe outil Collections</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="entrees_sorties.html">Les entrées/sorties</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#inputstream-et-classes-concretes">InputStream et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#outputstream-et-classes-concretes">OutputStream et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#flux-orientes-caracteres">Flux orientés caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#reader-et-classes-concretes">Reader et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#writer-et-classes-concretes">Writer et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#les-decorateurs-de-flux">Les décorateurs de flux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#la-classe-scanner">La classe Scanner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#fichiers-et-chemins">Fichiers et chemins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#acces-au-reseau">Accès au réseau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#la-serialisation-d-objets">La sérialisation d’objets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="entrees_sorties.html#donnee-transient">Donnée transient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="entrees_sorties.html#identifiant-de-version-de-serialisation">Identifiant de version de sérialisation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_dates.html">Les dates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#date-la-classe-historique">Date : la classe historique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#calendar">Calendar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#l-api-date-time">L’API Date/Time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_dates.html#id1">Les Dates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_dates.html#la-classe-instant">La classe Instant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_dates.html#periode-et-duree">Période et durée</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#formatage-des-dates">Formatage des dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#lecture-des-dates">Lecture des dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_lambdas.html">Programmation fonctionnelle et lambdas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_lambdas.html#les-fonctions-anonymes-les-lambdas">Les fonctions anonymes : les lambdas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#syntaxe-des-lambdas">Syntaxe des lambdas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#usage-des-lambdas">Usage des lambdas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#lambda-et-closure">Lambda et closure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#les-interfaces-fonctionnelles">Les interfaces fonctionnelles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#l-operateur-de-reference-de-methode">L’opérateur :: de référence de méthode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_lambdas.html#la-classe-optional">La classe Optional</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="streams.html">Streams</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#creation-d-un-stream">Création d’un stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#la-reduction">La réduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#la-collecte">La collecte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#le-filtrage">Le filtrage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#le-mapping">Le mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#le-parallelisme">Le parallélisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="classe_interne.html">Les classes internes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#les-classes-internes-static">Les classes internes static</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#id1">Les classes internes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#les-classes-anonymes">Les classes anonymes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#acces-aux-elements-de-l-objet-englobant">Accès aux éléments de l’objet englobant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#classe-interne-a-une-methode">Classe interne à une méthode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#interface-et-enumeration">Interface et énumération</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#plusieurs-classes-dans-un-meme-fichier">Plusieurs classes dans un même fichier</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_annotations.html">Les annotations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#utilisation-des-annotations">Utilisation des annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#declaration-d-une-annotation">Déclaration d’une annotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#retention-d-une-annotation">Rétention d’une annotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#utilisation-des-annotations-par-introspection">Utilisation des annotations par introspection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="module.html">Les modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="module.html#des-modules-pour-ameliorer-la-securite">Des modules pour améliorer la sécurité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#des-modules-pour-plus-de-modularite">Des modules pour plus de modularité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#le-descripteur-de-module-module-info-java">Le descripteur de module (module-info.java)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="module.html#dependance-a-d-autres-modules">Dépendance à d’autres modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module.html#exposer-des-packages">Exposer des packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module.html#utiliser-un-service">Utiliser un service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module.html#fournir-un-service">Fournir un service</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#le-module-anonyme">Le module anonyme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#la-notion-de-module-path">La notion de module path</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Le langage Java</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Compilation &amp; exécution</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="structure_fondamentale.html" class="btn btn-neutral float-right" title="La structure fondamentale du langage" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="compilation-execution">
+<h1>Compilation &amp; exécution<a class="headerlink" href="#compilation-execution" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Dans ce chapitre, nous n’allons pas directement nous intéresser au langage Java.
+Nous allons plutôt essayer de comprendre les mécanismes sous-jacents à la compilation et à l’exécution
+d’un programme Java. Nous verrons également comment créer un projet dans Eclipse.</p>
+<div class="section" id="un-premier-programme">
+<h2>Un premier programme<a class="headerlink" href="#un-premier-programme" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Nous allons utiliser comme exemple la programme Java suivant :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * Ce programme n&#39;est pas très intéressant</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PremierProgramme</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>La syntaxe du langage nous importe peu pour l’instant. Ce programme Java va simplement écrire
+le message « Hello World! » sur la sortie standard.</p>
+<p>Téléchargez le fichier <a class="reference download internal" download="" href="../_downloads/fa4d678b251fb16abb994777a2c2b419/PremierProgramme.java"><code class="xref download docutils literal notranslate"><span class="pre">PremierProgramme.java</span></code></a>
+contenant ce code.</p>
+</div>
+<div class="section" id="la-compilation">
+<h2>La compilation<a class="headerlink" href="#la-compilation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour pouvoir exécuter ce programme, nous allons devoir le compiler. Pour cela,
+nous devons utiliser le programme <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/tools/javac.html">javac</a> (Java Compiler) dont c’est la fonction.
+Dans un terminal, il suffit de se rendre dans le répertoire où se situe le fichier
+et de lancer la commande de compilation :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /home/david/Workspace/workspace-java/exemple
+$ javac PremierProgramme.java
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Si votre système ne connaît pas la commande <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/tools/javac.html">javac</a> cela signifie simplement
+que le répertoire contenant ce programme n’est pas déclaré dans le chemin d’exécution
+du système. Il vous suffit de le rajouter ou de donner le chemin complet menant à
+ce programme. Par exemple :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ /opt/bin/jdk1.8/bin/javac PremierProgramme.java
+</pre></div>
+</div>
+<p>Le programme <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/tools/javac.html">javac</a> est installé dans le sous-répertoire <strong>bin</strong> du répertoire
+d’installation du JDK</p>
+</div>
+<p>La compilation devrait se passer sans problème et aboutir à la création du fichier
+<strong>PremierProgramme.class</strong> dans le même répertoire que le fichier java.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Nous y reviendrons plus tard mais en Java, nous déclarons des classes (parfois un peu spéciales).
+Un fichier source porte l’extension <strong>java</strong> et contient le code source d’une classe. Un fichier
+résultant de la compilation porte le même nom que le fichier source mais avec l’extension <strong>class</strong>.
+Ce fichier n’est pas directement éditable car il contient des instructions en bytecode compréhensibles
+par la JVM.</p>
+</div>
+</div>
+<div class="section" id="l-execution">
+<h2>L’exécution<a class="headerlink" href="#l-execution" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’exécution d’un programme se fait par l’intermédiaire de la machine virtuelle. Pour invoquer cette
+dernière, on utilise tout simplement la commande <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/tools/java.html">java</a> suivie du nom de la classe <strong>sans l’extension</strong> :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ java PremierProgramme
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Si votre système ne connaît pas la commande <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/tools/java.html">java</a> cela signifie simplement
+que le répertoire contenant ce programme n’est pas déclaré dans le chemin d’exécution
+du système. Il vous suffit de le rajouter ou de donner le chemin complet menant à
+ce programme. Par exemple :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ /opt/bin/jdk-10/bin/java PremierProgramme
+</pre></div>
+</div>
+<p>Le programme <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/tools/java.html">java</a> est installé dans le sous-répertoire <strong>bin</strong> du répertoire
+d’installation du JDK</p>
+</div>
+<p>La commande <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/tools/java.html">java</a> va chercher le fichier PremierProgramme.class pour l’exécuter.
+Cela signifie qu’à ce stade, vous n’êtes pas obligé de disposer du fichier source
+PremierProgramme.java.</p>
+</div>
+<div class="section" id="la-liaison-dynamique">
+<h2>La liaison dynamique<a class="headerlink" href="#la-liaison-dynamique" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Tous les langages de programmation évolués utilisent la notion de liaison (<strong>link</strong>).
+En effet, il est nécessaire à un moment donné de pouvoir créer un programme à partir
+de plusieurs fichiers source. Généralement, les fichiers source sont compilés un à un
+puis un mécanisme de liaison permet de gérer les dépendances entre chacun des fichiers.
+En programmation, on distingue la liaison <strong>statique</strong> et la liaison <strong>dynamique</strong>.</p>
+<p>La liaison statique est une étape qui intervient après la compilation et qui permet
+de regrouper l’ensemble des fichiers compilés dans un fichier exécutable unique. Les langages
+tels que C et C++ supportent la liaison statique.</p>
+<p>La liaison dynamique est une étape qui intervient au moment du lancement du programme.
+On vérifie que les fichiers compilés sont disponibles pour l’exécution.</p>
+<p>Java ne supporte que la liaison dynamique. Cela signifie que chaque fichier compilé
+donnera un fichier class. Cela signifie également qu’un programme Java est en fait
+une collection de plusieurs fichiers class.</p>
+<p>Si votre programme est dépendant d’une bibliothèque tierce en Java, vous devez également fournir
+les fichiers de cette bibliothèque au moment de l’exécution.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il est impossible d’écrire un programme Java qui n’ait aucune dépendance avec d’autres
+fichiers class. Dans notre exemple, même simple, nous sommes dépendants de la classe
+<strong>System</strong>. Nous sommes même dépendants de la classe <strong>Object</strong> alors que ce mot
+n’est pas présent dans le fichier source. Heureusement, ces classes font partie
+de la bibliothèque standard de Java qui est disponible avec l’environnement d’exécution.
+Nous n’avons donc pas à nous préoccuper de comment la JVM va trouver le code pour
+ces classes. Mais elle le fera bel et bien en utilisant le mécanisme de liaison
+dynamique.</p>
+</div>
+</div>
+<div class="section" id="le-classpath">
+<h2>Le classpath<a class="headerlink" href="#le-classpath" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La liaison dynamique implique qu’un programme Java est une collection de fichiers.
+Ces fichiers peuvent se trouver à différents endroits dans le système de fichiers.
+Il faut donc un mécanisme pour permettre de les localiser. En Java, on utilise
+le <strong>classpath</strong> : le chemin des classes. On peut par exemple spécifier un
+ou plusieurs chemins avec le paramètre <strong>-classpath</strong> aux commandes <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/tools/java.html">java</a> et <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/tools/javac.html">javac</a>
+indiquant les répertoires à partir desquels il est possible de trouver des fichiers
+class.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ java -classpath /home/david/Workspace/workspace-java/exemple PremierProgramme
+</pre></div>
+</div>
+<p>La commande ci-dessus peut être exécutée à partir de n’importe quel répertoire
+puisqu’elle précise un classpath. La JVM tentera de chercher un fichier PremierProgramme.class
+dans le répertoire <em>/home/david/Workspace/workspace-java/exemple</em>.</p>
+<p>S’il existe des répertoires contenant des fichiers class que vous utilisez souvent,
+vous pouvez les inclure implicitement dans le classpath on déclarant ces répertoires
+dans la variable d’environnement <strong>CLASSPATH</strong>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">CLASSPATH</span><span class="o">=</span>/home/david/Workspace/workspace-java/exemple
+$ java PremierProgramme
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Même si le principe du classpath est simple, cela peut amener à des situations
+très complexes dans les projets. Si on indique plusieurs chemins, on peut avoir
+des répertoires utilisés comme classpath contenant des classes avec des nom identiques
+mais avec des comportements différents. On peut aussi exécuter à son insu du code malicieux.
+Depuis Java 9, un nouveau système baptisé <em>Jigsaw</em> et basé sur la notion de module a fait son apparition.</p>
+</div>
+</div>
+<div class="section" id="bibliotheques-java-les-fichiers-jar">
+<h2>Bibliothèques Java : les fichiers JAR<a class="headerlink" href="#bibliotheques-java-les-fichiers-jar" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Si on se rappelle qu’un programme Java est une collection de fichiers class et qu’il n’est pas rare
+qu’un programme ait besoin de centaines voire de milliers de ces fichiers alors on se rend vite
+compte qu’il n’est pas très facile de distribuer un programme Java sous cette forme.</p>
+<p>Pour palier à ce problème, on peut utiliser des fichiers jar. JAR signifie <em>Java ARchive</em> :
+il s’agit d’un fichier zip contenant un ensemble de fichiers class mais qui a l’extension <strong>.jar</strong>.
+Java fournit l’utilitaire <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/tools/jar.html">jar</a> pour créer une archive :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ jar -cf monappli.jar PremierProgramme.class
+</pre></div>
+</div>
+<p>L’utilitaire <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/tools/jar.html">jar</a> reprend la syntaxe de <strong>tar</strong> sous les systèmes *NIX.</p>
+<p>Un fichier JAR peut être ajouté au classpath rendant ainsi disponible l’ensemble
+des fichiers qu’il contient.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">CLASSPATH</span><span class="o">=</span>/home/david/Workspace/workspace-java/exemple/monappli.jar
+$ java PremierProgramme
+</pre></div>
+</div>
+<p>C’est un moyen simple de distribuer son code. Toutes les bibliothèques tierces
+Java sont disponibles sous la forme d’un fichier JAR.</p>
+</div>
+<div class="section" id="creation-d-un-projet-dans-eclipse">
+<h2>Création d’un projet dans Eclipse<a class="headerlink" href="#creation-d-un-projet-dans-eclipse" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il est utile de comprendre le fonctionnement des outils tels que <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/tools/java.html">java</a> ou <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/tools/javac.html">javac</a>
+mais ils ne sont pas d’une utilisation très aisée pour de vrais projets. On
+préférera utiliser un outil de build comme <a class="reference external" href="http://ant.apache.org">Ant</a>, <a class="reference external" href="http://maven.apache.org">Maven</a> ou <a class="reference external" href="https://gradle.org">Gradle</a> pour automatiser
+la compilation et un environnement de développement intégré comme <a class="reference external" href="https://www.eclipse.org/">Eclipse</a>
+pour le développement.</p>
+<p>Eclipse fournit des avantages précieux pour les développeurs. Notamment :</p>
+<ul class="simple">
+<li><p>Eclipse compile automatiquement les fichiers lorsqu’ils sont sauvés. Il est donc
+possible d’avoir immédiatement un retour sur les éventuelles erreurs de syntaxe ou autres.</p></li>
+<li><p>Eclipse offre un environnement riche pour manipuler et modifier les fichiers sources.</p></li>
+</ul>
+<p>Quelques raccourcis clavier utiles dans Eclipse :</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Raccourcis clavier</span><a class="headerlink" href="#id1" title="Lien permanent vers ce tableau">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>CTRL + espace</p></td>
+<td><p>Complétion de code</p></td>
+</tr>
+<tr class="row-even"><td><p>CTRL + 1 (ou CTRL + SHIFT + 1)</p></td>
+<td><p>Suggestions</p></td>
+</tr>
+<tr class="row-odd"><td><p>SHIFT + ALT + R</p></td>
+<td><p>Renommer dans tous les fichiers</p></td>
+</tr>
+<tr class="row-even"><td><p>MAJ + CTRL + F</p></td>
+<td><p>Reformater le code</p></td>
+</tr>
+<tr class="row-odd"><td><p>MAJ + CTRL + O</p></td>
+<td><p>Organiser les imports</p></td>
+</tr>
+<tr class="row-even"><td><p>CTRL + SHIFT + T</p></td>
+<td><p>Chercher le fichier d’une classe</p></td>
+</tr>
+<tr class="row-odd"><td><p>CTRL + SHIFT + R</p></td>
+<td><p>Chercher une ressource (un fichier)</p></td>
+</tr>
+<tr class="row-even"><td><p>F11</p></td>
+<td><p>Exécuter la classe courante</p></td>
+</tr>
+</tbody>
+</table>
+<p>On peut créer toutes sortes de projets différents dans Eclipse. Pour nous, le plus
+utile sera bien sûr le projet Java. Pour cela, il suffit d’aller dans le menu
+<span class="menuselection">File ‣ New ‣ Java Project</span>. On obtient alors la boite de dialogue suivante :</p>
+<img alt="../_images/eclipse_create_java_project.png" src="../_images/eclipse_create_java_project.png" />
+<p>Il suffit de donner le nom du projet et de cliquer sur <span class="guilabel">Finish</span>.</p>
+<p>Si la boite de dialogue suivante s’affiche :</p>
+<img alt="../_images/eclipse_create_module_info.png" src="../_images/eclipse_create_module_info.png" />
+<p>Cliquez sur <span class="guilabel">Don’t create</span></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Avec la boite de dialogue ci-dessus, Eclipse nous demande si nous voulons créer
+un fichier <code class="file docutils literal notranslate"><span class="pre">module-info.java</span></code>. Il s’agit d’un fichier spécial pour la déclaration
+des modules (c’est-à-dire des dépendances). Il s’agit d’une utilisation avancée
+de Java qui ne nous concerne pas pour l’instant. Si vous devez créer un nouveau
+projet plus tard, choisissez toujours le bouton <span class="guilabel">Don’t create</span>.</p>
+</div>
+<p>Il se peut qu’Eclipse ouvre ensuite une boîte de dialogue pour vous demander si vous voulez changer de
+<em>perspective</em>. Dans Eclipse, une perspective est un agencement de l’espace de travail
+adapté pour certaines tâches. Il existe par exemple une perspective Java adaptée
+pour développer du code Java et une perspective Debug pour le debuggage du code.</p>
+<p>Un fois le projet créé, on voit que Eclipse a ajouté automatiquement un répertoire <code class="file docutils literal notranslate"><span class="pre">src</span></code>
+destiné à accueillir les sources du projet. Il suffit d’ajouter le fichier
+<a class="reference download internal" download="" href="../_downloads/fa4d678b251fb16abb994777a2c2b419/PremierProgramme.java"><code class="xref download docutils literal notranslate"><span class="pre">PremierProgramme.java</span></code></a> à cet endroit.</p>
+<p>Comme indiqué ci-dessus, toute modification dans ce fichier entraînera automatiquement
+sa compilation au moment de la sauvegarde.</p>
+<p>Si l’on souhaite distribuer son projet, on peut, par exemple, produire un fichier JAR.
+Pour cela, il suffit de faire un clic droit sur le nom du projet dans le <em>Package Explorer</em>
+et de choisir <span class="guilabel">Export</span>. Dans la boîte de dialogue d’export, il faut chercher « jar » et sélectionner
+<span class="menuselection">Java ‣ JAR File</span>. En cliquant sur <span class="guilabel">Next</span>, on spécifie le nom et l’emplacement du fichier JAR
+et il sera créé en cliquant sur <span class="guilabel">Finish</span>.</p>
+</div>
+<div class="section" id="exercice">
+<h2>Exercice<a class="headerlink" href="#exercice" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="exercice admonition">
+<p class="admonition-title">Utilisation d’une bibliothèque JAR</p>
+<p>Pour cet exercice, nous allons créer un document PDF grâce à la bibliothèque
+<a class="reference external" href="https://itextpdf.com/en">iText</a>. Pour cela, téléchargez le fichier JAR suivant :</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://central.maven.org/maven2/com/itextpdf/itextpdf/5.5.13/itextpdf-5.5.13.jar">http://central.maven.org/maven2/com/itextpdf/itextpdf/5.5.13/itextpdf-5.5.13.jar</a></p></li>
+</ul>
+<p>Créez une projet Java dans Eclipse et copiez les fichiers JAR téléchargés dans
+un répertoire <code class="file docutils literal notranslate"><span class="pre">lib</span></code> que vous créerez dans le projet Eclipse.</p>
+<p>Ajoutez maintenant le fichier JAR comme bibliothèques du projet. Pour cela,
+faites une clic droit sur le nom du projet dans le <em>Package Explorer</em> et choisissez
+<span class="guilabel">Properties</span>. Dans la boite de dialogue des propriétés du projet, choisissez
+<span class="guilabel">Java Buid Path</span> et enfin, cliquez sur l’onglet <span class="guilabel">Libraries</span> :</p>
+<img alt="../_images/eclipse_build_path.png" src="../_images/eclipse_build_path.png" />
+<p>Utilisez le bouton <span class="guilabel">Add JARs…</span> pour ajouter le fichier téléchargé
+comme une bibliothèque de votre projet.</p>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p>Dans le <em>Package Explorer</em>, vous pouvez directement faire un clic droit
+sur chaque fichier JAR et choisir <span class="menuselection">Build Path ‣ Add to Build Path</span>.</p>
+</div>
+<p>Créer ensuite la classe <em>PremierPdf</em> et ajoutez le code suivant :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.FileOutputStream</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">com.itextpdf.text.Document</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">com.itextpdf.text.Paragraph</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">com.itextpdf.text.pdf.PdfWriter</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PremierPdf</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+    <span class="n">Document</span> <span class="n">document</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Document</span><span class="p">();</span>
+    <span class="n">PdfWriter</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="k">new</span> <span class="n">FileOutputStream</span><span class="p">(</span><span class="s">&quot;premier-pdf.pdf&quot;</span><span class="p">));</span>
+    <span class="n">document</span><span class="p">.</span><span class="na">open</span><span class="p">();</span>
+    <span class="n">document</span><span class="p">.</span><span class="na">addTitle</span><span class="p">(</span><span class="s">&quot;Mon premier PDF&quot;</span><span class="p">);</span>
+    <span class="n">document</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">Paragraph</span><span class="p">(</span><span class="s">&quot;Hello the world en PDF grâce à iText&quot;</span><span class="p">));</span>
+    <span class="n">document</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>En exécutant cette classe, vous obtenez à la racine de votre projet le fichier
+<em>premier-pdf.pdf</em> créé grâce à la bibliothèque <a class="reference external" href="https://itextpdf.com/en">iText</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p>Si vous ne voyez pas le fichier PDF apparaître dans le <em>Package Explorer</em>,
+faites un clic droit sur le nom du projet et choisissez <span class="guilabel">Refresh</span>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour cet exercice , le fichier JAR est téléchargé depuis le site
+<a class="reference external" href="http://central.maven.org">http://central.maven.org</a> qui référence des milliers de bibliothèques Java.
+<a class="reference external" href="http://maven.apache.org">Maven</a> est un outil de <em>build</em> qui permet de gérer les étapes de construction
+de votre projet et notamment de déclarer les dépendances logicielles.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="structure_fondamentale.html" class="btn btn-neutral float-right" title="La structure fondamentale du langage" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright David Gayerie - david@gayerie.dev - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

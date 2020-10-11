@@ -1,0 +1,498 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Ingénierie des tests" name="description" />
+<meta content="test, test acceptation, behavior driven development, BDD, gestion de projet, agile" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction à l’ingénierie des tests &mdash; Documentation Ingénierie des tests </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/testing/test_acceptation/introduction.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Les tests d’acceptation et d’intégration" href="test_acceptation.html" />
+    <link rel="prev" title="TDD : Test Driven Development" href="../test/tdd.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Ingénierie des tests
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Les tests unitaires</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../test/junit.html">Les tests unitaires automatisés avec JUnit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../test/junit.html#junit">JUnit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test/junit.html#structure-d-une-classe-de-test-junit">Structure d’une classe de test JUnit</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../test/junit.html#execution-des-tests-junit">Exécution des tests JUnit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../test/junit.html#les-methodes-de-test">Les méthodes de test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../test/junit.html#les-assertions">Les assertions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../test/junit.html#les-fixtures">Les fixtures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test/junit.html#tester-les-exceptions">Tester les exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../test/junit.html#utilisation-de-doublure">Utilisation de doublure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test/junit.html#implementation-d-objet-mock-avec-mockito">Implémentation d’objet mock avec Mockito</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../test/phpunit.html">Les tests unitaires automatisés avec PHPUnit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../test/phpunit.html#phpunit">PHPUnit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test/phpunit.html#structure-d-une-classe-de-test-phpunit">Structure d’une classe de test PHPUnit</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../test/phpunit.html#les-methodes-de-test">Les méthodes de test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../test/phpunit.html#les-assertions">Les assertions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../test/phpunit.html#les-fixtures">Les fixtures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../test/phpunit.html#utilisation-de-doublure">Utilisation de doublure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test/phpunit.html#implementation-d-objet-mock">Implémentation d’objet mock</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../test/tdd.html">TDD : Test Driven Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../test/tdd.html#qu-est-ce-qu-un-test">Qu’est-ce qu’un test ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test/tdd.html#test-driven-development">Test Driven Development</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test/tdd.html#les-etapes-du-tdd">Les étapes du TDD</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../test/tdd.html#qu-est-ce-que-concevoir">Qu’est-ce que concevoir ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test/tdd.html#exercices">Exercices</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Ingénierie des tests</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction à l’ingénierie des tests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#strategie-de-tests-et-types-de-tests">Stratégie de tests et types de tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#les-tests-de-non-regression">Les tests de non régression</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#les-7-principes-des-tests">Les 7 principes des tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="test_acceptation.html">Les tests d’acceptation et d’intégration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="test_acceptation.html#methode-de-gestion-de-projet">Méthode de gestion de projet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#notion-d-exigence">Notion d’exigence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#recette-fonctionnelle">Recette fonctionnelle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#notion-de-cas-de-test">Notion de cas de test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#scenario-de-test">Scénario de test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#exercice">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#la-matrice-de-tracabilite-des-exigences">La matrice de traçabilité des exigences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#id1">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#rapport-de-test">Rapport de test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#id2">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="test_acceptation.html#dans-le-cadre-d-une-methode-agile">Dans le cadre d’une méthode agile</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#le-behavior-driven-developement-bdd">Le <em>Behavior Driven Developement</em> (BDD)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="selenium.html">Selenium</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="selenium.html#selenium-ide">Selenium IDE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#enregistrer-des-commandes">Enregistrer des commandes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#notion-de-commande">Notion de commande</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#finaliser-un-test">Finaliser un test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#sauver-les-tests">Sauver les tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#creation-de-suites-de-tests">Création de suites de tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#bonnes-pratiques">Bonnes pratiques</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="selenium.html#web-driver">Web Driver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#installation-du-web-driver-pour-chrome">Installation du Web Driver pour Chrome</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="selenium.html#windows">Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="selenium.html#macos">MacOs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="selenium.html#linux">Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#utilisation-d-un-binding">Utilisation d’un binding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#gestion-de-l-attente">Gestion de l’attente</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#exporter-les-tests-selenium-ide">Exporter les tests Selenium IDE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#page-object-models">Page object models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#executer-les-tests-selenium-a-la-phase-integration-test-de-maven">Exécuter les tests Selenium à la phase integration-test de Maven</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cucumber.html">Cucumber</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cucumber.html#behavior-driven-development-bdd">Behavior-Driven-Development (BDD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cucumber.html#ecrire-des-scenarios-avec-cucumber">Écrire des scénarios avec Cucumber</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cucumber.html#automatiser-les-scenarios-en-java">Automatiser les scénarios en Java</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cucumber.html#les-classes-d-implementation-des-etapes">Les classes d’implémentation des étapes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cucumber.html#la-classe-de-lancement-junit">La classe de lancement JUnit</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cucumber.html#integration-avec-selenium">Intégration avec Selenium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cucumber.html#pour-aller-plus-loin">Pour aller plus loin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cucumber.html#le-plan-de-scenario">Le plan de scénario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cucumber.html#le-contexte">Le contexte</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cucumber.html#les-tags">Les tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cucumber.html#l-injection-de-dependances">L’injection de dépendances</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jmeter.html">Automatisation des tests avec JMeter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jmeter.html#installation-et-lancement">Installation et lancement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmeter.html#principe-d-un-plan-de-test">Principe d’un plan de test</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-thread-groups-moteurs-d-utilisateurs">Les <em>thread groups</em> (moteurs d’utilisateurs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-samplers-echantillons">Les <em>samplers</em> (échantillons)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-listeners-recepteurs">Les <em>listeners</em> (récepteurs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-logic-controllers-les-controleurs-logiques">Les <em>logic controllers</em> (les contrôleurs logiques)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-configuration-elements-les-configurations">Les <em>configuration elements</em> (les configurations)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-assertions">Les <em>assertions</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-pre-processeurs-et-les-post-processeurs">Les pré-processeurs et les post-processeurs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-timers-compteurs-de-temps">Les <em>timers</em> (compteurs de temps)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jmeter.html#utilisation-des-variables">Utilisation des variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmeter.html#executer-une-campagne-de-test-mode-sans-ihm">Exécuter une campagne de test (mode sans IHM)</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Ingénierie des tests</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Introduction à l’ingénierie des tests</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="test_acceptation.html" class="btn btn-neutral float-right" title="Les tests d’acceptation et d’intégration" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../test/tdd.html" class="btn btn-neutral float-left" title="TDD : Test Driven Development" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction-a-l-ingenierie-des-tests">
+<h1>Introduction à l’ingénierie des tests<a class="headerlink" href="#introduction-a-l-ingenierie-des-tests" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Un <strong>test</strong> informatique est une <strong>activité permettant de vérifier l’adéquation
+d’un système informatique à un fonctionnement attendu</strong>. Dans l’ingénierie
+logiciel, cette activité est déterminante. Selon les équipes et les organisations,
+elle peut être plus ou moins formalisée et plus ou moins automatisée (exécution
+de programmes de test). Mais elle demeure incontournable pour donner une
+appréciation de la qualité du produit. L’activité de test permet de détecter un
+<strong>défaut</strong>, c’est-à-dire un <strong>écart entre le fonctionnement attendu et le
+fonctionnement constaté</strong>.</p>
+<p>Par extension, on appelle test, la procédure décrivant les activités à réaliser.
+On parle également de test pour désigner l’activité de développement pour la
+production de programmes de test (on parle de tests automatisés). L’ingénierie
+des tests impliquent donc des activités et des spécialités différentes :</p>
+<ul class="simple">
+<li><p>Le testeur en charge de réaliser les tests</p></li>
+<li><p>La personne en charge de définir les procédures à réaliser (les scénarios de
+test). Il ne s’agit pas nécessairement du testeur.</p></li>
+<li><p>Le développeur en charge de réaliser le ou les programmes d’automatisation des
+tests</p></li>
+</ul>
+<p>À cela s’ajoute, les personnes impliquées dans l’organisation et la gestion des
+activités de tests et toutes les personnes impliquées dans la conception et la
+définition du système (comme les experts fonctionnels). L’ingénierie des tests
+impliquent donc des aspects fonctionnels, techniques et organisationnels.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La <a class="reference external" href="https://fr.wikipedia.org/wiki/M%C3%A9thode_formelle_(informatique)">méthode formelle</a>
+est une autre approche pour valider des algorithmes. Elle se base sur la démonstration
+mathématiques. Cette approche est difficile à réaliser (et pas toujours possible
+selon la complexité des systèmes) et coûteuse. Elle est donc réservée à des
+contextes à haut risque pour les système exigeant un haut niveau de fiabilité.
+Elle n’est donc pas appliquée dans le domaine du génie logiciel.</p>
+</div>
+<div class="section" id="strategie-de-tests-et-types-de-tests">
+<h2>Stratégie de tests et types de tests<a class="headerlink" href="#strategie-de-tests-et-types-de-tests" title="Lien permanent vers ce titre">¶</a></h2>
+<p>En informatique, les tests sont conditionnés par la stratégie de tests que
+l’on souhaite mettre en place. Cette stratégie est dépendante du budget mais
+également des types de défauts contre lesquels on souhaite se prémunir. Un
+test permet de fournir un certain degré de confiance sur le fait qu’un système
+<em>fonctionne correctement</em>. Mais que signifie <em>fonctionner correctement</em> ? Comme
+il est possible d’envisager le fonctionnement d’un système sous divers aspects,
+il existe divers types de test. Chacun de ces types servent à adresser un des
+aspects du fonctionnement du système.</p>
+<p>Parmi les types de tests, on distingue généralement :</p>
+<ul class="simple">
+<li><p>Les tests unitaires : testent une partie (une unité) d’un système afin de
+s’assurer qu’il s’exécute sans erreur (<em>build the system right</em>)</p></li>
+<li><p>Les tests d’acceptation : testent le système afin de s’assurer qu’il est
+conforme aux attentes de l’utilisateur (<em>build the right system</em>)</p></li>
+<li><p>Les tests d’intégration : testent le système sur une plate-forme proche
+de la plate-forme cible afin de s’assurer que les différents composants
+s’intègrent correctement les uns avec les autres.</p></li>
+<li><p>Les tests de performance : testent les performances du système afin de s’assurer
+qu’il répond à certains critères de réactivité. Par exemple, pour un service
+en ligne, il peut s’agir du temps de réponse moyen en seconde.</p></li>
+<li><p>Les tests de sécurité : testent que l’application ne contient pas de
+failles de sécurité connues (injection de code, attaque XSS, …)</p></li>
+<li><p>Les tests de robustesse (ou <em>stress tests</em>) : testent le comportement de
+l’application aux limites des ressources disponibles (mémoire, CPU, …).</p></li>
+</ul>
+<p>Cette liste n’est pas exhaustive et ne peut pas l’être. Pour le développement
+d’un système donné, il est tout à fait possible d’envisager un type de tests
+permettant d’identifier des défauts spécifiques à ce système.</p>
+<p>Comme nous le rappelle les grands principes des tests (Cf. ci-dessous), il est
+impossible d’envisager une activité de test qui soit exhaustive, la stratégie de
+test sert donc à préciser quels types de tests doivent être réalisés et les
+conditions opérationnelles de réalisation de ces tests.</p>
+<div class="section" id="les-tests-de-non-regression">
+<h3>Les tests de non régression<a class="headerlink" href="#les-tests-de-non-regression" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les tests de non régression ne sont pas un type particulier de tests. Tous les
+types de tests peuvent servir de tests de non régression.</p>
+<p>Suite à une modification apportée à un système, un test de non régression permet
+de s’assurer que le système continue de fonctionner comme précédemment pour les
+parties qui ne devraient pas être impactées par cette modification. Un test de
+non-régression suppose donc une modification limitée du système et s’applique
+aux parties du système qui n’ont pas subies cette modification.</p>
+<p>Les tests de non régression sont fondamentaux pour garantir la stabilité d’un
+système dans le temps. Cela supposent que l’activité de test est une activité
+périodique : on teste le système régulièrement et pas simplement une fois.
+C’est une des raisons majeures qui conduit les équipes à automatiser
+certains tests, c’est-à-dire à concevoir et développer des programmes capables
+de valider le fonctionnement d’un système. Ces programmes peuvent alors être
+exécutés aussi souvent que nécessaire. Par contre, ils doivent être en partie
+adaptés, au même titre que le système lui-même, lorsqu’une modification est
+apportée.</p>
+</div>
+</div>
+<div class="section" id="les-7-principes-des-tests">
+<h2>Les 7 principes des tests<a class="headerlink" href="#les-7-principes-des-tests" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les 7 principes des tests ont été formalisés par le comité <a class="reference external" href="https://fr.wikipedia.org/wiki/ISTQB">ISTQB</a>.</p>
+<dl class="simple">
+<dt>Les tests montrent la présence d’un défaut</dt><dd><p>Les tests mettent en valeur la présence de défauts (<em>bugs</em>). Cependant les
+tests ne permettent pas de <em>prouver</em> l’absence de défaut. Les tests nous
+permettent de réduire la probabilité qu’il subsiste des défauts dans le
+système. Les tests ne servent donc qu’à nous rassurer en nous donnant
+confiance sur la capacité du système à fonctionner avec un minimum de défaut.</p>
+</dd>
+<dt>Les tests exhaustifs sont impossibles</dt><dd><p>Sauf pour des systèmes extrêmement simples, il n’est pas possible d’envisager
+la totalité des combinaisons impliquées par les entrées fournies au système
+et les conditions d’exécution du système. Ce principe implique la nécessité
+de réfléchir à une stratégie de test, c’est-à-dire aux types de tests que
+l’on souhaite réaliser et les conditions de réalisation de ces tests.</p>
+</dd>
+<dt>Tester au plus tôt</dt><dd><p>Les tests doivent être réalisés au plus tôt après la production du système
+(ou d’une partie du système). Ce principe se base sur l’idée qu’une correction
+tardive sera plus complexe et plus coûteuse.</p>
+</dd>
+<dt>Regroupement des défauts</dt><dd><p>Les défauts d’un système tendent à être regroupés sur des composants ou des
+fonctionnalités particulières (par exemple en raison d’une complexité technique
+ou fonctionnelle plus élevée). Une stratégie de test devraient prendre en
+compte ce principe pour faire porter l’effort de test de manière significative
+sur ces composants ou ces fonctionnalités.</p>
+</dd>
+<dt>Le paradoxe du pesticide</dt><dd><p>Si les tests ne trouvent pas de défaut, cela peut signifier que
+les tests tendent à mettre en valeur une catégorie particulière de défauts
+ignorant ainsi les autres. On prend l’image du pesticide qui éliminent un
+ensemble d’insectes jugés nuisibles mais laissent indemnes d’autres
+populations d’insectes qui vont proliférer et devenir nuisibles à leur tour.
+Il est important de faire varier la nature des tests en produisant de
+nouveaux cas ou en enrichissant les données en entrée.</p>
+</dd>
+<dt>La stratégie de tests dépend du contexte</dt><dd><p>Il n’est pas possible de prévoir une procédure unique de tests applicable
+quel que soit le système car la stratégie de tests dépend du contexte. Un site
+Web grand public n’aura pas les mêmes exigences de fiabilité que des applications
+Web internes à une entreprise. De même sur un site Web de e-commerce,
+les pages de consultation des produits n’auront sans doute pas la même exigence
+de sécurité que les pages de paiement des commandes.</p>
+</dd>
+<dt>L’illusion d’absence d’erreur</dt><dd><p>Une stratégie de test ne permet pas de garantir le zéro défaut. L’absence
+d’identification de défaut ne signifie pas que le système en est exempt. Il
+faut toujours assumer que le système contient des défauts cachés, c’est-à-dire
+non mis en valeur par les tests réalisés.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="test_acceptation.html" class="btn btn-neutral float-right" title="Les tests d’acceptation et d’intégration" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../test/tdd.html" class="btn btn-neutral float-left" title="TDD : Test Driven Development" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright David Gayerie - david@gayerie.dev - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

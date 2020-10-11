@@ -1,0 +1,1250 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Ingénierie des tests avec Selenium" name="description" />
+<meta content="test, test acceptation, behavior driven development, BDD, cucumber, gherkin, gestion de projet, agile, selenium, web, selenium IDE, web driver" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Selenium &mdash; Documentation Ingénierie des tests </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/testing/test_acceptation/selenium.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Cucumber" href="cucumber.html" />
+    <link rel="prev" title="Les tests d’acceptation et d’intégration" href="test_acceptation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Ingénierie des tests
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Les tests unitaires</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../test/junit.html">Les tests unitaires automatisés avec JUnit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../test/junit.html#junit">JUnit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test/junit.html#structure-d-une-classe-de-test-junit">Structure d’une classe de test JUnit</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../test/junit.html#execution-des-tests-junit">Exécution des tests JUnit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../test/junit.html#les-methodes-de-test">Les méthodes de test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../test/junit.html#les-assertions">Les assertions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../test/junit.html#les-fixtures">Les fixtures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test/junit.html#tester-les-exceptions">Tester les exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../test/junit.html#utilisation-de-doublure">Utilisation de doublure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test/junit.html#implementation-d-objet-mock-avec-mockito">Implémentation d’objet mock avec Mockito</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../test/phpunit.html">Les tests unitaires automatisés avec PHPUnit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../test/phpunit.html#phpunit">PHPUnit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test/phpunit.html#structure-d-une-classe-de-test-phpunit">Structure d’une classe de test PHPUnit</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../test/phpunit.html#les-methodes-de-test">Les méthodes de test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../test/phpunit.html#les-assertions">Les assertions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../test/phpunit.html#les-fixtures">Les fixtures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../test/phpunit.html#utilisation-de-doublure">Utilisation de doublure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test/phpunit.html#implementation-d-objet-mock">Implémentation d’objet mock</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../test/tdd.html">TDD : Test Driven Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../test/tdd.html#qu-est-ce-qu-un-test">Qu’est-ce qu’un test ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test/tdd.html#test-driven-development">Test Driven Development</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test/tdd.html#les-etapes-du-tdd">Les étapes du TDD</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../test/tdd.html#qu-est-ce-que-concevoir">Qu’est-ce que concevoir ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test/tdd.html#exercices">Exercices</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Ingénierie des tests</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction à l’ingénierie des tests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#strategie-de-tests-et-types-de-tests">Stratégie de tests et types de tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#les-tests-de-non-regression">Les tests de non régression</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#les-7-principes-des-tests">Les 7 principes des tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="test_acceptation.html">Les tests d’acceptation et d’intégration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="test_acceptation.html#methode-de-gestion-de-projet">Méthode de gestion de projet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#notion-d-exigence">Notion d’exigence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#recette-fonctionnelle">Recette fonctionnelle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#notion-de-cas-de-test">Notion de cas de test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#scenario-de-test">Scénario de test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#exercice">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#la-matrice-de-tracabilite-des-exigences">La matrice de traçabilité des exigences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#id1">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#rapport-de-test">Rapport de test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#id2">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="test_acceptation.html#dans-le-cadre-d-une-methode-agile">Dans le cadre d’une méthode agile</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#le-behavior-driven-developement-bdd">Le <em>Behavior Driven Developement</em> (BDD)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Selenium</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#selenium-ide">Selenium IDE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enregistrer-des-commandes">Enregistrer des commandes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#notion-de-commande">Notion de commande</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#finaliser-un-test">Finaliser un test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sauver-les-tests">Sauver les tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creation-de-suites-de-tests">Création de suites de tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bonnes-pratiques">Bonnes pratiques</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#web-driver">Web Driver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation-du-web-driver-pour-chrome">Installation du Web Driver pour Chrome</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#windows">Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#macos">MacOs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#linux">Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#utilisation-d-un-binding">Utilisation d’un binding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gestion-de-l-attente">Gestion de l’attente</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exporter-les-tests-selenium-ide">Exporter les tests Selenium IDE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#page-object-models">Page object models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#executer-les-tests-selenium-a-la-phase-integration-test-de-maven">Exécuter les tests Selenium à la phase integration-test de Maven</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cucumber.html">Cucumber</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cucumber.html#behavior-driven-development-bdd">Behavior-Driven-Development (BDD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cucumber.html#ecrire-des-scenarios-avec-cucumber">Écrire des scénarios avec Cucumber</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cucumber.html#automatiser-les-scenarios-en-java">Automatiser les scénarios en Java</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cucumber.html#les-classes-d-implementation-des-etapes">Les classes d’implémentation des étapes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cucumber.html#la-classe-de-lancement-junit">La classe de lancement JUnit</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cucumber.html#integration-avec-selenium">Intégration avec Selenium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cucumber.html#pour-aller-plus-loin">Pour aller plus loin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cucumber.html#le-plan-de-scenario">Le plan de scénario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cucumber.html#le-contexte">Le contexte</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cucumber.html#les-tags">Les tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cucumber.html#l-injection-de-dependances">L’injection de dépendances</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jmeter.html">Automatisation des tests avec JMeter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jmeter.html#installation-et-lancement">Installation et lancement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmeter.html#principe-d-un-plan-de-test">Principe d’un plan de test</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-thread-groups-moteurs-d-utilisateurs">Les <em>thread groups</em> (moteurs d’utilisateurs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-samplers-echantillons">Les <em>samplers</em> (échantillons)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-listeners-recepteurs">Les <em>listeners</em> (récepteurs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-logic-controllers-les-controleurs-logiques">Les <em>logic controllers</em> (les contrôleurs logiques)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-configuration-elements-les-configurations">Les <em>configuration elements</em> (les configurations)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-assertions">Les <em>assertions</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-pre-processeurs-et-les-post-processeurs">Les pré-processeurs et les post-processeurs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-timers-compteurs-de-temps">Les <em>timers</em> (compteurs de temps)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jmeter.html#utilisation-des-variables">Utilisation des variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmeter.html#executer-une-campagne-de-test-mode-sans-ihm">Exécuter une campagne de test (mode sans IHM)</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Ingénierie des tests</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Selenium</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="cucumber.html" class="btn btn-neutral float-right" title="Cucumber" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="test_acceptation.html" class="btn btn-neutral float-left" title="Les tests d’acceptation et d’intégration" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="selenium">
+<h1>Selenium<a class="headerlink" href="#selenium" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Selenium est une suite d’outils permettant d’automatiser des interactions avec les
+navigateurs Web. Selenium n’est donc pas un outil complet pour automatiser des tests.
+Par contre, il peut très facilement s’intégrer avec des frameworks de test dans
+différents langages de programmation et permettre ainsi d’automatiser des tests
+pour des interfaces graphiques Web.</p>
+<p>Les outils fournis par Selenium sont :</p>
+<dl>
+<dt>Selenium IDE</dt><dd><p>L’IDE de Selenium se présente sous la forme d’une <em>addon</em> pour navigateur Web.
+Il permet d’enregistrer des scénarios de test à partir des actions de
+l’utilisateur. Cette solution s’adresse avant tout à des personnes ne
+maîtrisant par la programmation.</p>
+</dd>
+<dt>Le WebDriver</dt><dd><p>Le WebDriver est un module qui permet d’interagir par programmation avec un
+navigateur Web. Selenium fournit une API disponible pour plusieurs
+langages de programmation (Java, C#, Python, JavaScript, Ruby) afin de
+communiquer avec un WebDriver.</p>
+<p>Le Web Driver offre une alternative à Selenium IDE pour l’automatisation
+des tests d’intégration et d’acceptation impliquant un navigateur Web.</p>
+</dd>
+<dt>Grid</dt><dd><p>Grid permet d’exécuter les tests développer à partir de l’API du WebDriver
+sur plusieurs types de navigateurs Web et même sur plusieurs systèmes
+d’exploitation.</p>
+</dd>
+</dl>
+<div class="section" id="selenium-ide">
+<h2>Selenium IDE<a class="headerlink" href="#selenium-ide" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference external" href="https://www.selenium.dev/selenium-ide/">Selenium IDE</a> permet d’enregistrer les actions d’un utilisateur dans un navigateur
+Web. Il peut être utilisé comme un outil d’automatisation de tests même pour
+des personnes qui ne maîtrisent pas de langage de programmation. Il peut
+également servir de base de travail en générant des fichiers sources de
+tests pour différents langages (Java, Python, C#…).</p>
+<p><a class="reference external" href="https://www.selenium.dev/selenium-ide/">Selenium IDE</a> a l’avantage d’une prise en main rapide (y compris pour des
+personnes qui ne réalisent pas de développement logiciel). Par contre, cette
+approche reste limitée pour la mise en place d’une vraie solution de test
+automatisée à l’échelle d’une application, notamment à cause d’une difficulté
+dans la maintenance et la lisibilité des tests.</p>
+<div class="section" id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Lien permanent vers ce titre">¶</a></h3>
+<p><a class="reference external" href="https://www.selenium.dev/selenium-ide/">Selenium IDE</a> se présente comme un add-on à installer dans Chrome ou Firefox.</p>
+<dl class="simple">
+<dt>Chrome</dt><dd><p>Téléchargez l’addon sur <a class="reference external" href="https://chrome.google.com/webstore/detail/selenium-ide/mooikfkahbdckldjjndioackbalphokd">https://chrome.google.com/webstore/detail/selenium-ide/mooikfkahbdckldjjndioackbalphokd</a></p>
+</dd>
+<dt>Firefox</dt><dd><p>Téléchargez l’addon sur <a class="reference external" href="https://addons.mozilla.org/en-US/firefox/addon/selenium-ide/">https://addons.mozilla.org/en-US/firefox/addon/selenium-ide/</a></p>
+</dd>
+</dl>
+</div>
+<div class="section" id="enregistrer-des-commandes">
+<h3>Enregistrer des commandes<a class="headerlink" href="#enregistrer-des-commandes" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dans un premier temps, <a class="reference external" href="https://www.selenium.dev/selenium-ide/">Selenium IDE</a> permet d’enregistrer les interactions
+de l’utilisateur avec un navigateur sous la forme d’une suite de commandes.
+Un scénario de test est donc une liste de commandes que l’on peut ensuite
+répéter automatiquement.</p>
+<p>Cliquez sur l’icône de <a class="reference external" href="https://www.selenium.dev/selenium-ide/">Selenium IDE</a> dans la barre d’outils de votre navigateur
+pour ouvrir l’IDE. Dans l’écran d’accueil de l’IDE, choisissez
+<span class="guilabel">Record a new test in a new project</span>. Vous devez ensuite donner le
+nom de votre projet et l’URI de base du site que vous voulez tester. L’IDE
+ouvre une nouvelle fenêtre pour afficher le site.</p>
+<div class="figure align-default" id="id2">
+<img alt="../_images/selenium_ide.png" src="../_images/selenium_ide.png" />
+<p class="caption"><span class="caption-text">L’interface de Selenium IDE</span><a class="headerlink" href="#id2" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>La nouvelle fenêtre affiche un message indiquant qu’un enregistrement est en cours.
+Toutes les interactions avec le site depuis cette fenêtre sont immédiatement
+reportées dans la liste des commandes.</p>
+<p>À tout moment, vous pouvez interrompre l’enregistrement (et le reprendre plus tard)
+en cliquant sur l’icône rouge dans l’IDE.</p>
+<p>À gauche de l’IDE, vous avez la liste des tests. Vous pouvez ainsi faire plusieurs
+enregistrements différents correspondant à plusieurs scénarios de test différents.</p>
+<p>Vous pouvez rejouer un test grâce aux boutons <span class="guilabel">play</span>.</p>
+<div class="figure align-default" id="id3">
+<img alt="../_images/selenium_ide_enregistrement.png" src="../_images/selenium_ide_enregistrement.png" />
+<p class="caption"><span class="caption-text">Le résultat d’un enregistrement</span><a class="headerlink" href="#id3" title="Lien permanent vers cette image">¶</a></p>
+</div>
+</div>
+<div class="section" id="notion-de-commande">
+<h3>Notion de commande<a class="headerlink" href="#notion-de-commande" title="Lien permanent vers ce titre">¶</a></h3>
+<p>L’interaction avec le navigateur est représentée par des commandes. Une commande
+à un nom, une cible (<em>target</em>) et une valeur associée (<em>value</em>). La valeur est
+un champ optionnel utilisé par certaines commandes.</p>
+<p>Par exemple, la commande <code class="docutils literal notranslate"><span class="pre">type</span></code> permet de simuler la saisie au clavier. La cible
+indique l’élément dans la page qui reçoit la saisie. Pour référencer un élément
+dans une page vous pouvez :</p>
+<ul class="simple">
+<li><p>fournir son ID HTML sous la forme <code class="docutils literal notranslate"><span class="pre">id=mon_id</span></code></p></li>
+<li><p>fournir le nom d’un champ de formulaire sous la forme <code class="docutils literal notranslate"><span class="pre">name=nom_de_l_input</span></code></p></li>
+<li><p>fournir un <a class="reference external" href="https://www.w3schools.com/cssref/css_selectors.asp">sélecteur CSS</a> sous la forme <code class="docutils literal notranslate"><span class="pre">css=div&gt;p</span></code></p></li>
+<li><p>fournir un <a class="reference external" href="https://www.w3schools.com/xml/xpath_syntax.asp">chemin XPath</a> sous la forme <code class="docutils literal notranslate"><span class="pre">xpath=//div/p</span></code></p></li>
+</ul>
+<p>Pour la commande <code class="docutils literal notranslate"><span class="pre">type</span></code>, la valeur correspond à la valeur saisie par l’utilisateur.
+Ainsi pour simuler la saisie d’un champ de formulaire dont le nom est <code class="docutils literal notranslate"><span class="pre">adresse</span></code>,
+il est possible d’utiliser :</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>commande</p></th>
+<th class="head"><p>cible</p></th>
+<th class="head"><p>valeur</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>type</p></td>
+<td><p>name=adresse</p></td>
+<td><p>12 rue de là-bas</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La documentation des commandes est fournie par l’outil dans l’onglet
+<span class="guilabel">Reference</span> en bas.</p>
+<p>Vous pouvez également vous reporter à la documentation officielle :</p>
+<blockquote>
+<div><p><a class="reference external" href="https://www.selenium.dev/selenium-ide/docs/en/api/commands">https://www.selenium.dev/selenium-ide/docs/en/api/commands</a></p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="finaliser-un-test">
+<h3>Finaliser un test<a class="headerlink" href="#finaliser-un-test" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Une fois l’enregistrement terminé, le test n’est pas finalisé. Il est nécessaire
+de faire une passe sur les commandes enregistrées pour :</p>
+<ul class="simple">
+<li><p>supprimer les commandes inutiles</p></li>
+<li><p>ajouter des assertions</p></li>
+</ul>
+<p>L’enregistreur va créer des commandes qui ne sont pas strictement utiles à
+votre test. Il est conseillé de repasser sur toutes les commandes créées et de
+supprimer celles qui ne sont pas strictement indispensables. En effet, ces
+commandes pourraient faire échouer plus tard un test suite à des évolutions
+d’IHM. Elles concourent donc à fragiliser les tests.</p>
+<p>Les tests créés avec <a class="reference external" href="https://www.selenium.dev/selenium-ide/">Selenium IDE</a> doivent, comme tous les tests automatisés,
+être auto-validant. Cela signifie qu’ils doivent comporter des assertions
+pour vérifier l’état du système. Les assertions ne peuvent pas être ajoutées
+automatiquement par l’enregistreur. Il nous faut donc ajouter nous-mêmes des
+commandes d’assertion avec l’IDE. Avec un clic droit dans la liste des commandes,
+vous pouvez insérer une nouvelle commande et choisir parmi la liste des assertions.</p>
+<div class="figure align-default" id="id4">
+<img alt="../_images/selenium_ide_assertions.png" src="../_images/selenium_ide_assertions.png" />
+<p class="caption"><span class="caption-text">Le test après suppression des commandes inutiles et ajout des assertions</span><a class="headerlink" href="#id4" title="Lien permanent vers cette image">¶</a></p>
+</div>
+</div>
+<div class="section" id="sauver-les-tests">
+<h3>Sauver les tests<a class="headerlink" href="#sauver-les-tests" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les tests peuvent être sauvés dans un fichier avec l’extension <code class="file docutils literal notranslate"><span class="pre">.side</span></code>.
+Vous pouvez charger ces fichiers dans <a class="reference external" href="https://www.selenium.dev/selenium-ide/">Selenium IDE</a> pour les exécuter à nouveau
+mais vous pouvez aussi exécuter vos tests à partir de la ligne de commandes
+(ce qui les rend exécutables dans le cadre d’un processus d’intégration continue).
+Pour cela, vous aurez besoin de l’application <code class="docutils literal notranslate"><span class="pre">selenium-side-runner</span></code> et de un
+ou plusieurs WebDrider (Cf. ci-dessous). Pour en savoir plus, vous pouvez vous
+reporter à la documentation officielle :</p>
+<blockquote>
+<div><p><a class="reference external" href="https://www.seleniumhq.org/selenium-ide/docs/en/introduction/command-line-runner/">https://www.seleniumhq.org/selenium-ide/docs/en/introduction/command-line-runner/</a></p>
+</div></blockquote>
+</div>
+<div class="section" id="creation-de-suites-de-tests">
+<h3>Création de suites de tests<a class="headerlink" href="#creation-de-suites-de-tests" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Vous pouvez regrouper les tests en suites. Par exemple, vous pouvez faire
+une suite par chaque macro fonctionnalité de votre application. Dans la fenêtre
+gauche de l’IDE, vous pouvez passer de la vue des tests à la vue d’exécution
+mais également à la vue des suites.</p>
+<div class="figure align-default" id="id5">
+<img alt="../_images/selenium_ide_suite.png" src="../_images/selenium_ide_suite.png" />
+<p class="caption"><span class="caption-text">La gestion des suites dans Selenium IDE</span><a class="headerlink" href="#id5" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>La création de suites permet d’organiser les scénarios de test et,
+éventuellement, d’exporter plusieurs tests en même temps.</p>
+</div>
+<div class="section" id="bonnes-pratiques">
+<h3>Bonnes pratiques<a class="headerlink" href="#bonnes-pratiques" title="Lien permanent vers ce titre">¶</a></h3>
+<p><a class="reference external" href="https://www.selenium.dev/selenium-ide/">Selenium IDE</a> permet de créer des tests d’acceptation pour des interfaces Web.
+Mais pour que ces tests soient exploitables, ils doivent rester maintenables et
+évolutifs. En effet, si telle ou telle fonctionnalité évolue, certains tests
+devront évoluer en conséquence. Il est courant pour les développeurs de devoir
+reprendre et modifier des tests existants.</p>
+<p>Pour qu’un test créé avec <a class="reference external" href="https://www.selenium.dev/selenium-ide/">Selenium IDE</a> ne soit pas trop complexe à maintenir,
+il faut donc qu’il reste compréhensible au lecteur. Pour cela, chaque commande
+peut être documentée grâce au champ description.</p>
+<p>Il faut aussi garder à l’esprit que la complexité d’un test est parfois liée
+à la complexité du système à tester. Pour qu’une page Web soit facilement
+exploitable par <a class="reference external" href="https://www.selenium.dev/selenium-ide/">Selenium IDE</a>, il faut que les développeurs respectent au mieux
+certaines pratiques au moment de création de la page elle-même :</p>
+<ul class="simple">
+<li><p>identification des pages. Chaque page HTML devrait avoir un marqueur permettant
+de l’identifier (par un exemple un ID sur la balise <code class="docutils literal notranslate"><span class="pre">&lt;html&gt;</span></code>). Cela permet
+de créer des assertions efficaces pour savoir si l’utilisateur se trouve bien
+sur une page donnée.</p></li>
+<li><p>identification de chaque élément important indépendamment du rendu. Les champs
+de formulaire, les messages d’erreur ou d’information devraient également
+être identifiables facilement avec un attribut ID. Même s’il est possible
+d’employer des sélecteurs CSS et des chemins XPath avec <a class="reference external" href="https://www.selenium.dev/selenium-ide/">Selenium IDE</a>, ils
+peuvent rendre le test dépendant de la structure de la page. Dans ce cas, le
+test peut être fragilisé par une simple modification cosmétique de la page.</p></li>
+<li><p>ajout de méta-informations. Il ne faut pas hésiter à utiliser des
+méta-informations (comme les attributs <code class="docutils literal notranslate"><span class="pre">data-*</span></code> HTML) pour fournir les
+informations de contexte qui peuvent être nécessaires à l’extraction de
+l’information par les tests.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="web-driver">
+<h2>Web Driver<a class="headerlink" href="#web-driver" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le <em>Web Driver</em> est un module permettant de communiquer avec un navigateur Web
+par programmation afin de lui passer des commandes et d’avoir accès au contenu
+de la page affichée. Avec le <em>Web Driver</em>, nous pouvons implémenter directement
+des tests en utilisant un navigateur Web.</p>
+<p>L’avantage du <em>Web Driver</em> est qu’il est indépendant du langage de programmation
+utilisé. On trouve ainsi des API pour différents langages : Java, Python, C#,
+JavaScript. Le <em>Web Driver</em> a fait l’objet d’une
+<a class="reference external" href="https://www.w3.org/TR/webdriver1/">recommandation W3C</a> pour l’intégration dans
+les navigateurs Web. Ainsi, le Web Driver n’est plus fourni par Selenium mais par
+chaque développeur de navigateur Web. L’avantage est la garantie d’une mise à
+jour permanente du <em>Web Driver</em>. L’inconvénient est qu’il est nécessaire
+d’installer le Web Driver à part.</p>
+<div class="section" id="installation-du-web-driver-pour-chrome">
+<h3>Installation du Web Driver pour Chrome<a class="headerlink" href="#installation-du-web-driver-pour-chrome" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un <em>Web Driver</em> se présente sous la forme d’un exécutable. Il faut donc qu’il
+soit installé sur la machine de test et qu’il soit présent dans le chemin
+des exécutables du système.</p>
+<p>Par exemple, pour le <em>Web Driver</em> de Google Chrome, vous devez commencer par
+télécharger l’archive depuis :</p>
+<blockquote>
+<div><p><a class="reference external" href="https://chromedriver.chromium.org/downloads">https://chromedriver.chromium.org/downloads</a></p>
+</div></blockquote>
+<p>Dézippez l’archive téléchargée sur votre disque. Vous devez ensuite modifier
+vos variables d’environnement pour vous assurer que l’exécutable est accessible
+directement.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour télécharger un <em>Web Driver</em> pour un autre navigateur, consultez
+la documentation de Selenium :</p>
+<blockquote>
+<div><p><a class="reference external" href="https://www.selenium.dev/documentation/en/getting_started_with_webdriver/third_party_drivers_and_plugins/">https://www.selenium.dev/documentation/en/getting_started_with_webdriver/third_party_drivers_and_plugins/</a></p>
+</div></blockquote>
+</div>
+<div class="section" id="windows">
+<h4>Windows<a class="headerlink" href="#windows" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Pour Windows, si vous avez placé l’exécutable <code class="file docutils literal notranslate"><span class="pre">chromedriver.exe</span></code> dans le
+répertoire <code class="file docutils literal notranslate"><span class="pre">C:\webdriver</span></code>, vous devez modifier la variable d’environnement
+<code class="docutils literal notranslate"><span class="pre">PATH</span></code> afin d’ajouter le chemin <code class="file docutils literal notranslate"><span class="pre">C:\webdriver</span></code>.</p>
+</div>
+<div class="section" id="macos">
+<h4>MacOs<a class="headerlink" href="#macos" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Pour MacOs, si vous avez placé l’exécutable <code class="file docutils literal notranslate"><span class="pre">chromedriver</span></code> dans le répertoire
+<code class="file docutils literal notranslate"><span class="pre">/Applications/webdriver</span></code> , vous devez modifier la variable d’environnement
+<code class="docutils literal notranslate"><span class="pre">PATH</span></code>. Pour cela, il vous faut éditer le fichier <code class="file docutils literal notranslate"><span class="pre">.bash_profile</span></code> dans
+votre répertoire utilisateur :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>touch .bash_profile
+open -e .bash_profile
+</pre></div>
+</div>
+<p>Et ajouter à la fin du fichier :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/Applications/webdriver:<span class="nv">$PATH</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Si vous utilisez zsh plutôt que bash, vous devez modifier le fichier
+<code class="file docutils literal notranslate"><span class="pre">.zprofile</span></code> et non pas le fichier <code class="file docutils literal notranslate"><span class="pre">.bash_profile</span></code>.</p>
+</div>
+</div>
+<div class="section" id="linux">
+<h4>Linux<a class="headerlink" href="#linux" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Pour Linux, si vous avez placé l’exécutable <code class="file docutils literal notranslate"><span class="pre">chromedriver</span></code> dans le répertoire
+<code class="file docutils literal notranslate"><span class="pre">/opt/webdriver</span></code>, vous devez modifier la variable d’environnement
+<code class="docutils literal notranslate"><span class="pre">PATH</span></code>. Pour cela, si vous utilisez Bash, il vous faut éditer le fichier
+<code class="file docutils literal notranslate"><span class="pre">.bashrc</span></code> :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>touch ~/.bashrc
+xdg-open ~/.bashrc
+</pre></div>
+</div>
+<p>Et ajouter à la fin du fichier :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/opt/webdriver:<span class="nv">$PATH</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Vous pouvez également vérifier s’il n’existe pas un paquet fourni directement
+par votre distribution pour le navigateur Chromium. Pour Ubuntu, le paquet
+s’appelle <code class="docutils literal notranslate"><span class="pre">chromium-chromedriver</span></code>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="utilisation-d-un-binding">
+<h3>Utilisation d’un binding<a class="headerlink" href="#utilisation-d-un-binding" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour interagir avec le <em>Web Driver</em> dans un de vos programmes, vous devez disposer
+d’un <em>binding</em>. Un <em>binding</em> est une bibliothèque de programmation qui vous
+permet d’envoyer des commandes. Actuellement, il existe des <em>bindings</em> pour les
+langages de programmation Java, Python, C#, Ruby, Javascript et Kotlin.</p>
+<div class="exercice admonition">
+<p class="admonition-title">Exemples d’implémentation en Java</p>
+<p>Les exemples présentés ci-dessous sont implémentés en Java. Vous pouvez
+les tester vous-même à partir du projet Maven que vous pouvez télécharger
+directement : <a class="reference download internal" download="" href="../_downloads/aae3a450a2abcf3d91db2b654fe4657a/selenium-demo.zip"><code class="xref download docutils literal notranslate"><span class="pre">selenium-demo.zip</span></code></a>.</p>
+<p>Les fichiers sources sont dans <code class="file docutils literal notranslate"><span class="pre">src/test/java</span></code>. Le fichier <code class="file docutils literal notranslate"><span class="pre">pom.xml</span></code>
+inclus les dépendances pour tous les <em>Web drivers</em>. Vous pouvez ainsi facilement
+remplacer le <em>driver</em> Chrome (utilisé dans les exemples) par celui de votre
+choix.</p>
+</div>
+<p>En Java, un <em>binding</em> est simplement un ensemble de bibliothèques Java qui
+peuvent être déclarées comme dépendances dans un projet Maven. Il existe un
+<em>binding</em> par navigateur (afin de prendre en compte certaines spécificités).
+Dans un projet Maven, vous devez déclarer autant de dépendances que de navigateur
+que vous souhaitez tester :</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>navigateur</p></th>
+<th class="head"><p>artifactId</p></th>
+<th class="head"><p>groupId</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Chrome</p></td>
+<td><p>org.seleniumhq.selenium</p></td>
+<td><p>selenium-chrome-driver</p></td>
+</tr>
+<tr class="row-odd"><td><p>Firefox</p></td>
+<td><p>org.seleniumhq.selenium</p></td>
+<td><p>selenium-firefox-driver</p></td>
+</tr>
+<tr class="row-even"><td><p>Edge</p></td>
+<td><p>org.seleniumhq.selenium</p></td>
+<td><p>selenium-edge-driver</p></td>
+</tr>
+<tr class="row-odd"><td><p>Opera</p></td>
+<td><p>org.seleniumhq.selenium</p></td>
+<td><p>selenium-opera-driver</p></td>
+</tr>
+<tr class="row-even"><td><p>Safari</p></td>
+<td><p>org.seleniumhq.selenium</p></td>
+<td><p>selenium-safari-driver</p></td>
+</tr>
+<tr class="row-odd"><td><p>Internet Explorer</p></td>
+<td><p>org.seleniumhq.selenium</p></td>
+<td><p>selenium-ie-driver</p></td>
+</tr>
+</tbody>
+</table>
+<p>Si vous souhaitez intégrer l’utilisation du <em>Web Driver</em>, vous pouvez déclarer
+dans votre projet Java une dépendance avec JUnit, une dépendance avec les classes
+communes de Selenium et une dépendance au <em>binding</em> du navigateur qui vous intéresse :</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Exemple de dépendances pour des tests JUnit avec Chrome</span><a class="headerlink" href="#id6" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependencies&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>junit<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>junit<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>4.13<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+
+    <span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>org.seleniumhq.selenium<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>selenium-support<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>3.141.59<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+
+    <span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>org.seleniumhq.selenium<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>selenium-chrome-driver<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>3.141.59<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;/dependencies&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>En Java, le <em>binding</em> fournit une classe pour représenter le <em>Web Driver</em> d’un
+navigateur spécifique :</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>navigateur</p></th>
+<th class="head"><p>class du WebDriver</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Chrome</p></td>
+<td><p><a class="reference external" href="https://www.selenium.dev/selenium/docs/api/java/index.html?org/openqa/selenium/chrome/ChromeDriver.html">org.openqa.selenium.chrome.ChromeDriver</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Firefox</p></td>
+<td><p><a class="reference external" href="https://www.selenium.dev/selenium/docs/api/java/index.html?org/openqa/selenium/firefox/FirefoxDriver.html">org.openqa.selenium.firefox.FirefoxDriver</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Edge</p></td>
+<td><p><a class="reference external" href="https://www.selenium.dev/selenium/docs/api/java/index.html?org/openqa/selenium/edge/EdgeDriver.html">org.openqa.selenium.edge.EdgeDriver</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Opera</p></td>
+<td><p><a class="reference external" href="https://www.selenium.dev/selenium/docs/api/java/index.html?org/openqa/selenium/opera/OperaDriver.html">org.openqa.selenium.opera.OperaDriver</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Safari</p></td>
+<td><p><a class="reference external" href="https://www.selenium.dev/selenium/docs/api/java/index.html?org/openqa/selenium/safari/SafariDriver.html">org.openqa.selenium.safari.SafariDriver</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Internet Explorer</p></td>
+<td><p><a class="reference external" href="https://www.selenium.dev/selenium/docs/api/java/index.html?org/openqa/selenium/ie/InternetExplorerDriver.html">org.openqa.selenium.ie.InternetExplorerDriver</a></p></td>
+</tr>
+</tbody>
+</table>
+<p>Toutes ces classes héritent de <a class="reference external" href="https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/remote/RemoteWebDriver.html">RemoteWebDriver</a> et implémentent plusieurs interfaces
+dont l’interface <a class="reference external" href="https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/WebDriver.html">WebDriver</a>. À part au moment de l’initialisation, il est conseillé
+d’utiliser des références sur les interfaces pour permettre de rendre le code
+facilement adaptable pour tous les navigateurs.</p>
+<p>Ci-dessous, un exemple de manipulation du navigateur Chrome dans un test JUnit :</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.selenium</span><span class="p">;</span>
+
+<span class="kn">import static</span> <span class="nn">org.junit.Assert.*</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.After</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.Before</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.openqa.selenium.By</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.openqa.selenium.WebDriver</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.openqa.selenium.WebElement</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.openqa.selenium.chrome.ChromeDriver</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DuckDuckGoReferencementAcceptanceTest</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="n">WebDriver</span> <span class="n">webDriver</span><span class="p">;</span>
+
+  <span class="nd">@Before</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">createWebDriver</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">webDriver</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ChromeDriver</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="nd">@After</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">closeWebDriver</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">webDriver</span><span class="p">.</span><span class="na">quit</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSeleniumDevSiteFoundInFirstPageOfDuckduckgo</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+    <span class="c1">// On précise l&#39;URI sur la barre d&#39;adresse du navigateur</span>
+    <span class="n">webDriver</span><span class="p">.</span><span class="na">navigate</span><span class="p">().</span><span class="na">to</span><span class="p">(</span><span class="s">&quot;https://duckduckgo.com/&quot;</span><span class="p">);</span>
+    <span class="c1">// On extrait des références sur les éléments de la page :</span>
+    <span class="c1">// le champ de saisie pour la recherche et le bouton pour lancer la recherche</span>
+    <span class="n">WebElement</span> <span class="n">searchInput</span> <span class="o">=</span> <span class="n">webDriver</span><span class="p">.</span><span class="na">findElement</span><span class="p">(</span><span class="n">By</span><span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;q&quot;</span><span class="p">));</span>
+    <span class="n">WebElement</span> <span class="n">searchButton</span> <span class="o">=</span> <span class="n">webDriver</span><span class="p">.</span><span class="na">findElement</span><span class="p">(</span><span class="n">By</span><span class="p">.</span><span class="na">id</span><span class="p">(</span><span class="s">&quot;search_button_homepage&quot;</span><span class="p">));</span>
+
+    <span class="c1">// On remplit le champ de saisie et on clique sur le bouton de recherche</span>
+    <span class="n">searchInput</span><span class="p">.</span><span class="na">sendKeys</span><span class="p">(</span><span class="s">&quot;selenium&quot;</span><span class="p">);</span>
+    <span class="n">searchButton</span><span class="p">.</span><span class="na">click</span><span class="p">();</span>
+
+    <span class="c1">// On vérifie que dans la page dans laquelle on se situe</span>
+    <span class="c1">// (normalement la page des résultats de la recherche),</span>
+    <span class="c1">// on trouve bien des liens vers le site voulu.</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">WebElement</span><span class="o">&gt;</span> <span class="n">resultLinks</span> <span class="o">=</span> <span class="n">webDriver</span><span class="p">.</span><span class="na">findElements</span><span class="p">(</span><span class="n">By</span><span class="p">.</span><span class="na">partialLinkText</span><span class="p">(</span><span class="s">&quot;https://www.selenium.dev&quot;</span><span class="p">));</span>
+    <span class="n">assertFalse</span><span class="p">(</span><span class="s">&quot;Aucun lien trouvé pour selenium.dev&quot;</span><span class="p">,</span> <span class="n">resultLinks</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Aux lignes 17 à 20, nous déclarons une méthode qui doit créer une instance du <em>driver</em>.
+Nous plaçons l’objet créé dans un attribut de type <a class="reference external" href="https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/WebDriver.html">WebDriver</a>. Ainsi nous ne sommes
+pas dépendants du type du <em>driver</em> et nous pourrons facilement adapter le code
+pour un autre type de <em>Driver</em> (le <a class="reference external" href="https://www.selenium.dev/selenium/docs/api/java/index.html?org/openqa/selenium/firefox/FirefoxDriver.html">FirefoxDriver</a> par exemple).</p>
+<p>Aux lignes 22 à 25, nous déclarons une méthode qui doit fermer le <em>driver</em> après
+chaque test. Il est <strong>obligatoire</strong> de quitter un <em>Web Driver</em> lorsqu’il n’est
+plus utile. Pour un test unitaire, il est conseillé d’utiliser une instance
+de <em>driver</em> par test afin de garantir l’indépendance des tests entre eux.</p>
+<p>Aux lignes 27 à 45, on trouve le test proprement dit qui utilise le <em>Web driver</em>
+pour manipuler le navigateur Web. Les développeurs du <em>binding</em> Java ont essayé
+de produire une API la plus expressive possible. Pour d’autres exemples
+d’utilisation de l’API, vous pouvez vous reporter à la documentation officielle :</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.selenium.dev/documentation/en/webdriver/browser_manipulation/">https://www.selenium.dev/documentation/en/webdriver/browser_manipulation/</a></p></li>
+<li><p><a class="reference external" href="https://www.selenium.dev/documentation/en/webdriver/web_element/">https://www.selenium.dev/documentation/en/webdriver/web_element/</a></p></li>
+<li><p><a class="reference external" href="https://www.selenium.dev/documentation/en/webdriver/keyboard/">https://www.selenium.dev/documentation/en/webdriver/keyboard/</a></p></li>
+<li><p><a class="reference external" href="https://www.selenium.dev/documentation/en/webdriver/js_alerts_prompts_and_confirmations/">https://www.selenium.dev/documentation/en/webdriver/js_alerts_prompts_and_confirmations/</a></p></li>
+</ul>
+</div>
+<div class="section" id="gestion-de-l-attente">
+<h3>Gestion de l’attente<a class="headerlink" href="#gestion-de-l-attente" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Une difficulté technique importante dans l’utilisation d’un <em>Web Driver</em> est
+que notre programme tourne parallèlement au navigateur Web qui est piloté. Dans
+ce contexte, il faut garder à l’esprit qu’un programme s’exécute généralement
+trop rapidement pour le navigateur Web. Par exemple, l’appel à la méthode
+<code class="docutils literal notranslate"><span class="pre">findElement</span></code> pour trouver un élément dans une page peut se faire alors que
+la page n’est même pas complètement chargée par le navigateur.</p>
+<p>Par défaut, l’API Java adopte une stratégie de retentative. Si une page n’est
+pas complètement chargée, l’appel à la plupart des méthodes du <em>driver</em> finiront
+en erreur. Cette erreur est récupérée en interne par l’API qui émettra à nouveau
+la commande un certain nombre de fois avant de considérer que l’appel doit finir
+en erreur.</p>
+<p>Cette gestion implicite de l’attente peut être remplacée par une gestion explicite
+en utilisant notamment la classe <a class="reference external" href="https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/support/ui/WebDriverWait.html">WebDriverWait</a>. Pour certains tests, il est
+parfois nécessaire d’utiliser ce mécanisme d’attente explicite. Vous pouvez
+trouver des exemples de code dans la documentation officielle :</p>
+<blockquote>
+<div><p><a class="reference external" href="https://www.selenium.dev/documentation/en/webdriver/waits/">https://www.selenium.dev/documentation/en/webdriver/waits/</a></p>
+</div></blockquote>
+</div>
+<div class="section" id="exporter-les-tests-selenium-ide">
+<h3>Exporter les tests Selenium IDE<a class="headerlink" href="#exporter-les-tests-selenium-ide" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Avec <a class="reference external" href="https://www.selenium.dev/selenium-ide/">Selenium IDE</a>, vous pouvez exporter les tests ou les suites vers un
+langage de programmation. Vous pouvez ainsi faire un export Java/JUnit pour que
+l’outil génère le code.</p>
+<p>Malheureusement, cet export est difficilement exploitable dans le cadre d’un
+développement d’une vraie application. En effet, le code généré est très complexe
+et parfois même, les tests ne s’exécutent pas correctement et leur implémentation
+doit être systématiquement modifiée.</p>
+<p>L’export de tests créés avec <a class="reference external" href="https://www.selenium.dev/selenium-ide/">Selenium IDE</a> peut, tout au plus, servir de
+transition pour l’apprentissage des <em>Web drivers</em>.</p>
+</div>
+<div class="section" id="page-object-models">
+<span id="seleniumpageobjectmodel"></span><h3>Page object models<a class="headerlink" href="#page-object-models" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Si vous vous reportez à la documentation officielle de Selenium, vous trouverez
+un chapitre consacré aux <a class="reference external" href="https://www.selenium.dev/documentation/en/guidelines_and_recommendations/">guidelines</a> afin de sensibiliser les développeurs sur
+la qualité du code produit pour l’automatisation des tests.</p>
+<p>En effet, si vous souhaitez utiliser Selenium pour automatiser des tests pour un
+produit, il faut garder à l’esprit que les tests devront évolués en même temps
+que les fonctionnalités de votre système. Le code des tests évolue autant que
+le code de l’application proprement dit au cours du cycle de vie. Conserver
+un code de test maintenable avec une complexité minimale fait également partie
+des objectifs d’une équipe qui s’engage dans l’automatisation de tests. Ainsi
+les critères de qualité à appliquer au code vaut également pour le code des tests.
+Ce n’est donc pas un hasard si on trouve dans la documentation de Selenium,
+plusieurs chapitres consacrés aux bonnes pratiques à respecter (et aussi aux
+pires pratiques à éviter) pour l’automatisation.</p>
+<p>Parmi ces bonnes pratiques, une des plus importantes est certainement le principe
+du <a class="reference external" href="https://www.selenium.dev/documentation/en/guidelines_and_recommendations/page_object_models/">Page Object Model</a>. Ce principe a pour objectif de rendre le code des tests
+plus lisible et donc plus compréhensible pour la maintenance. L’idée simple
+est de créer une classe par page de l’application Web. Cette classe doit proposer
+des méthodes qui traduisent les opérations de haut niveau que l’utilisateur peut
+réaliser. Par exemple, une classe représentant une page de recherche devrait avoir
+une méthode pour indiquer les mots-clés saisis par l’utilisateur et une méthode
+pour déclencher la recherche. L’objectif principal de ce modèle est d’encapsuler
+l’utilisation de l’API Selenium et de ne présenter dans les tests que des méthodes
+qui traduisent une action utilisateur. Les tests sont ainsi susceptibles d’être
+moins impactés par une évolution cosmétique d’une page (on se contentera
+d’impacter la classe représentant la page).</p>
+<p>Reprenons notre exemple précédent et adaptons le en utilisant le principe du
+<a class="reference external" href="https://www.selenium.dev/documentation/en/guidelines_and_recommendations/page_object_models/">Page Object Model</a>. Nous aurons besoin d’une classe représentant la page de
+recherche du moteur et une classe représentant la page de résultat :</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">La classe représentant la page de recherche</span><a class="headerlink" href="#id7" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.duckduckgo</span><span class="p">;</span>
+
+<span class="kn">import static</span> <span class="nn">org.junit.Assert.assertTrue</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.openqa.selenium.By</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.openqa.selenium.WebDriver</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.openqa.selenium.WebElement</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomePage</span> <span class="p">{</span>
+  <span class="kd">private</span> <span class="n">WebDriver</span> <span class="n">webDriver</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="nf">HomePage</span><span class="p">(</span><span class="n">WebDriver</span> <span class="n">webDriver</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">webDriver</span> <span class="o">=</span> <span class="n">webDriver</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="n">HomePage</span> <span class="nf">open</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">webDriver</span><span class="p">.</span><span class="na">navigate</span><span class="p">().</span><span class="na">to</span><span class="p">(</span><span class="s">&quot;https://duckduckgo.com&quot;</span><span class="p">);</span>
+    <span class="n">assertTrue</span><span class="p">(</span><span class="s">&quot;Titre de page inattendu &quot;</span> <span class="o">+</span> <span class="n">webDriver</span><span class="p">.</span><span class="na">getTitle</span><span class="p">(),</span>
+               <span class="n">webDriver</span><span class="p">.</span><span class="na">getTitle</span><span class="p">().</span><span class="na">startsWith</span><span class="p">(</span><span class="s">&quot;DuckDuckGo&quot;</span><span class="p">));</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">HomePage</span> <span class="nf">openWith</span><span class="p">(</span><span class="n">WebDriver</span> <span class="n">webDriver</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">HomePage</span> <span class="n">homePage</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HomePage</span><span class="p">(</span><span class="n">webDriver</span><span class="p">);</span>
+    <span class="n">homePage</span><span class="p">.</span><span class="na">open</span><span class="p">();</span>
+    <span class="k">return</span> <span class="n">homePage</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="n">HomePage</span> <span class="nf">enterKeywords</span><span class="p">(</span><span class="n">String</span><span class="p">...</span> <span class="n">words</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">WebElement</span> <span class="n">searchInput</span> <span class="o">=</span> <span class="n">webDriver</span><span class="p">.</span><span class="na">findElement</span><span class="p">(</span><span class="n">By</span><span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;q&quot;</span><span class="p">));</span>
+    <span class="n">searchInput</span><span class="p">.</span><span class="na">sendKeys</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="na">join</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">,</span> <span class="n">words</span><span class="p">));</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="n">ResultPage</span> <span class="nf">clickOnSearch</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">WebElement</span> <span class="n">searchButton</span> <span class="o">=</span> <span class="n">webDriver</span><span class="p">.</span><span class="na">findElement</span><span class="p">(</span><span class="n">By</span><span class="p">.</span><span class="na">id</span><span class="p">(</span><span class="s">&quot;search_button_homepage&quot;</span><span class="p">));</span>
+    <span class="n">searchButton</span><span class="p">.</span><span class="na">click</span><span class="p">();</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">ResultPage</span><span class="p">(</span><span class="n">webDriver</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>Notez que la classe <code class="docutils literal notranslate"><span class="pre">HomePage</span></code> fournit une méthode statique de construction
+(<em>factory method</em>) et toutes les méthodes retournent un objet représentant une
+page. Cela permet le
+<a class="reference external" href="https://fr.wikipedia.org/wiki/D%C3%A9signation_cha%C3%AEn%C3%A9e">chaînage d’appel</a>
+(<em>fluent pattern</em>) pour améliorer la lisibilité des tests. Avec les méthodes
+<code class="docutils literal notranslate"><span class="pre">enterKeyworks</span></code> et <code class="docutils literal notranslate"><span class="pre">clickOnSearch</span></code>, cette classe présente dans une API de
+haut-niveau toutes les opérations utilisateur nécessaires à la rédaction des tests.
+Un objet de cette classe est construit en passant un <a class="reference external" href="https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/WebDriver.html">WebDriver</a> en paramètre.</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">La classe représentant la page de résultats</span><a class="headerlink" href="#id8" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.duckduckgo</span><span class="p">;</span>
+
+<span class="kn">import static</span> <span class="nn">org.junit.Assert.assertTrue</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.openqa.selenium.By</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.openqa.selenium.WebDriver</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ResultPage</span> <span class="p">{</span>
+  <span class="kd">private</span> <span class="n">WebDriver</span> <span class="n">webDriver</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="nf">ResultPage</span><span class="p">(</span><span class="n">WebDriver</span> <span class="n">webDriver</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">webDriver</span> <span class="o">=</span> <span class="n">webDriver</span><span class="p">;</span>
+    <span class="n">assertTrue</span><span class="p">(</span><span class="s">&quot;Titre de page inattendu &quot;</span> <span class="o">+</span> <span class="n">webDriver</span><span class="p">.</span><span class="na">getTitle</span><span class="p">(),</span>
+               <span class="n">webDriver</span><span class="p">.</span><span class="na">getTitle</span><span class="p">().</span><span class="na">endsWith</span><span class="p">(</span><span class="s">&quot;at DuckDuckGo&quot;</span><span class="p">));</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isLinkPresent</span><span class="p">(</span><span class="n">String</span> <span class="n">link</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">!</span> <span class="n">webDriver</span><span class="p">.</span><span class="na">findElements</span><span class="p">(</span><span class="n">By</span><span class="p">.</span><span class="na">partialLinkText</span><span class="p">(</span><span class="n">link</span><span class="p">)).</span><span class="na">isEmpty</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>La classe <code class="docutils literal notranslate"><span class="pre">ResultPage</span></code> se crée en passant une instance de <a class="reference external" href="https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/WebDriver.html">WebDriver</a> en paramètre.
+Elle vérifie à la construction que la page courante est bien la page de résultat
+(en vérifiant le titre de la page). Cela permet au test de détecter au plus tôt
+des problèmes de navigation lorsque la page courante n’est pas la page attendue.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Lorsqu’on développe un site destiné à être testé automatiquement, il est
+important de faire apparaître un identifiant unique pour chaque page afin de
+permettre au programme de test de vérifier la page courante de manière non
+ambiguë.</p>
+</div>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">La classe de test</span><a class="headerlink" href="#id9" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.duckduckgo</span><span class="p">;</span>
+
+<span class="kn">import static</span> <span class="nn">org.junit.Assert.*</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.junit.After</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.Before</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.openqa.selenium.WebDriver</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.openqa.selenium.chrome.ChromeDriver</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DuckDuckGoReferencementAcceptanceTest</span> <span class="p">{</span>
+  <span class="kd">private</span> <span class="n">WebDriver</span> <span class="n">webDriver</span><span class="p">;</span>
+
+  <span class="nd">@Before</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">createWebDriver</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">webDriver</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ChromeDriver</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="nd">@After</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">closeWebDriver</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">webDriver</span><span class="p">.</span><span class="na">quit</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSeleniumDevSiteFoundInFirstPageOfDuckduckgo</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+    <span class="n">ResultPage</span> <span class="n">resultPage</span> <span class="o">=</span> <span class="n">HomePage</span><span class="p">.</span><span class="na">openWith</span><span class="p">(</span><span class="n">webDriver</span><span class="p">)</span>
+                                    <span class="p">.</span><span class="na">enterKeywords</span><span class="p">(</span><span class="s">&quot;selenium&quot;</span><span class="p">)</span>
+                                    <span class="p">.</span><span class="na">clickOnSearch</span><span class="p">();</span>
+
+    <span class="n">assertTrue</span><span class="p">(</span><span class="n">resultPage</span><span class="p">.</span><span class="na">isLinkPresent</span><span class="p">(</span><span class="s">&quot;https://www.selenium.dev&quot;</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>Le test écrit en utilisant le <a class="reference external" href="https://www.selenium.dev/documentation/en/guidelines_and_recommendations/page_object_models/">Page Object Model</a> est beaucoup plus compact et
+beaucoup plus simple à lire (et donc à maintenir). À part l’initialisation et
+la fermeture du <a class="reference external" href="https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/WebDriver.html">WebDriver</a>, cette classe ne contient aucune référence à l’API
+Selenium et se concentre sur les interactions utilisateur.</p>
+</div>
+<div class="section" id="executer-les-tests-selenium-a-la-phase-integration-test-de-maven">
+<h3>Exécuter les tests Selenium à la phase integration-test de Maven<a class="headerlink" href="#executer-les-tests-selenium-a-la-phase-integration-test-de-maven" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les tests automatisés avec Selenium ne sont pas des tests unitaires. Ils supposent
+qu’une application Web soit déployée quelque part. Il s’agit donc soit de
+tests d’intégration destinés à valider le bon déploiement, soit de tests
+d’acceptation destinés à valider les fonctionnalités de l’application. Pour
+les différencier des tests unitaires, il est possible de les exécuter
+à la phase <code class="docutils literal notranslate"><span class="pre">integration-test</span></code> du <a class="reference external" href="https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html">cycle de vie de Maven</a>. Cette phase est située
+après la phase <code class="docutils literal notranslate"><span class="pre">package</span></code> et, comme son nom l’indique, est réservée au lancement
+de tests d’intégration. Par défaut, aucun plugin ne s’exécute à cette phase,
+il faut donc configurer le lancement d’un plugin dans le fichier <code class="file docutils literal notranslate"><span class="pre">pom.xml</span></code>
+du projet.</p>
+<p>La façon la plus simple consiste à utiliser le plugin <a class="reference external" href="https://maven.apache.org/surefire/maven-surefire-plugin/">maven-surefire-plugin</a>
+qui permet d’exécuter les tests JUnit. Pour cela, on définit une règle permettant
+de différencier les classes de tests unitaires et les classes de tests avec
+Selenium. Par exemple, ces dernières peuvent avoir un nom se terminant par
+<code class="docutils literal notranslate"><span class="pre">IntegrationTest</span></code> ou <code class="docutils literal notranslate"><span class="pre">AcceptanceTest</span></code>. On configure alors le plugin
+<a class="reference external" href="https://maven.apache.org/surefire/maven-surefire-plugin/">maven-surefire-plugin</a> pour ignorer les classes dont le nom se termine par
+<code class="docutils literal notranslate"><span class="pre">IntegrationTest</span></code> ou <code class="docutils literal notranslate"><span class="pre">AcceptanceTest</span></code> lors de la phase de test et à lancer
+uniquement ces classes lors de la phase <code class="docutils literal notranslate"><span class="pre">integration-test</span></code> :</p>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Configuration du maven-surefire-plugin pour le lancement à la phase integration-test</span><a class="headerlink" href="#id10" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>maven-surefire-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.22.2<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;configuration&gt;</span>
+        <span class="nt">&lt;excludes&gt;</span>
+            <span class="nt">&lt;exclude&gt;</span>**/*IntegrationTest.java<span class="nt">&lt;/exclude&gt;</span>
+            <span class="nt">&lt;exclude&gt;</span>**/*AcceptanceTest.java<span class="nt">&lt;/exclude&gt;</span>
+        <span class="nt">&lt;/excludes&gt;</span>
+    <span class="nt">&lt;/configuration&gt;</span>
+    <span class="nt">&lt;executions&gt;</span>
+        <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;id&gt;</span>integration-test<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;goals&gt;</span>
+                <span class="nt">&lt;goal&gt;</span>test<span class="nt">&lt;/goal&gt;</span>
+            <span class="nt">&lt;/goals&gt;</span>
+            <span class="nt">&lt;phase&gt;</span>integration-test<span class="nt">&lt;/phase&gt;</span>
+            <span class="nt">&lt;configuration&gt;</span>
+                <span class="nt">&lt;excludes&gt;</span>
+                    <span class="nt">&lt;exclude&gt;</span>none<span class="nt">&lt;/exclude&gt;</span>
+                <span class="nt">&lt;/excludes&gt;</span>
+                <span class="nt">&lt;includes&gt;</span>
+                    <span class="nt">&lt;include&gt;</span>**/*IntegrationTest.java<span class="nt">&lt;/include&gt;</span>
+                    <span class="nt">&lt;include&gt;</span>**/*AcceptanceTest.java<span class="nt">&lt;/include&gt;</span>
+                <span class="nt">&lt;/includes&gt;</span>
+            <span class="nt">&lt;/configuration&gt;</span>
+        <span class="nt">&lt;/execution&gt;</span>
+    <span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>Dans le <a class="reference external" href="https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html">cycle de vie de Maven</a>,
+la phase <code class="docutils literal notranslate"><span class="pre">integration-test</span></code> est encadrée par les phases <code class="docutils literal notranslate"><span class="pre">pre-integration-test</span></code>
+et <code class="docutils literal notranslate"><span class="pre">post-integration-test</span></code>. Il est donc facile de réaliser le déploiement
+de l’application sur un serveur lors de la phase <code class="docutils literal notranslate"><span class="pre">pre-integration-test</span></code> et,
+éventuellement, d’effectuer des tâches de <em>nettoyage</em> lors de la phase
+<code class="docutils literal notranslate"><span class="pre">post-integration-test</span></code>.</p>
+<p>Pour exécuter les tests Selenium, il suffit de lancer la commande Maven :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mvn integration-test
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Cette approche permet de conserver les fichiers sources des tests d’intégration
+et d’acceptation dans le même projet que le code source de l’application et
+des tests unitaires. Ce scénario fonctionne pour une solution logicielle
+assez simple qui se résume à une seule application Web. Pour des solutions
+plus complexes impliquant plusieurs modules Web (et donc plusieurs projets
+Maven), il est plus simple de concevoir un projet Maven
+indépendant dédié uniquement à l’implémentation des tests Selenium.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cucumber.html" class="btn btn-neutral float-right" title="Cucumber" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="test_acceptation.html" class="btn btn-neutral float-left" title="Les tests d’acceptation et d’intégration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright David Gayerie - david@gayerie.dev - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,1567 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Le langage Java - Les entrées / sorties" name="description" />
+<meta content="Java, programmation objet, POO, langage de programmation" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Les entrées/sorties &mdash; Documentation Le langage Java </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/java/langage_java/entrees_sorties.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Les dates" href="les_dates.html" />
+    <link rel="prev" title="Les collections" href="les_collections.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Le langage Java
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Le langage Java</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#l-environnement">L’environnement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#oracle-jdk-et-open-jdk">Oracle JDK et Open JDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#un-bref-historique-des-versions">Un bref historique des versions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#configuration-d-eclipse">Configuration d’Eclipse</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="compilation.html">Compilation &amp; exécution</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#un-premier-programme">Un premier programme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#la-compilation">La compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#l-execution">L’exécution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#la-liaison-dynamique">La liaison dynamique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#le-classpath">Le classpath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#bibliotheques-java-les-fichiers-jar">Bibliothèques Java : les fichiers JAR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#creation-d-un-projet-dans-eclipse">Création d’un projet dans Eclipse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structure_fondamentale.html">La structure fondamentale du langage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-instructions">Les instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#le-typage">Le typage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-blocs-de-code">Les blocs de code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-commentaires">Les commentaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#le-formatage-du-code">Le formatage du code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-conventions-de-nommage">Les conventions de nommage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-mots-cles">Les mots-clés</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="premiere_classe.html">Une première classe</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#declarer-une-classe">Déclarer une classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#anatomie-d-une-classe">Anatomie d’une classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#ajouter-des-methodes">Ajouter des méthodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#la-methode-main">La méthode main</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#executer-le-programme-en-ligne-de-commandes">Exécuter le programme en ligne de commandes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#executer-le-programme-depuis-eclipse">Exécuter le programme depuis Eclipse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="types_primitifs.html">Les types primitifs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#le-type-booleen-boolean">Le type booléen : boolean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#le-type-caractere-char">Le type caractère : char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#les-types-entiers-byte-short-int-long">Les types entiers : byte, short, int, long</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#les-types-a-virgule-flottante-float-double">Les types à virgule flottante : float, double</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#les-classes-enveloppes">Les classes enveloppes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#l-autoboxing">L’autoboxing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="operateurs.html">Les opérateurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur-d-affectation">L’opérateur d’affectation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-arithmetiques">Les opérateurs arithmétiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-arithmetiques-unaires">Les opérateurs arithmétiques unaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur-de-concatenation-de-chaines">L’opérateur de concaténation de chaînes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-relationnels">Les opérateurs relationnels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-logiques">Les opérateurs logiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur-ternaire">L’opérateur ternaire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-bitwise">Les opérateurs <em>bitwise</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-de-decalage">Les opérateurs de décalage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#le-transtypage-cast">Le transtypage (cast)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#operateur-et-assignation">Opérateur et assignation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur">L’opérateur .</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#id1">L’opérateur ,</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structures_de_controle.html">Les structures de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#if-else">if-else</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#return">return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#while">while</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#do-while">do-while</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#for">for</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#for-ameliore">for amélioré</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#break-continue">break-continue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#libelle">libellé</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#switch">switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tableau.html">Les tableaux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#initialisation">Initialisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#creation-avec-new">Création avec new</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#acces-aux-elements-d-un-tableau">Accès aux éléments d’un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#tableau-multi-dimensionnel">Tableau multi-dimensionnel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#conversion-en-chaine-de-caracteres">Conversion en chaîne de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#egalite-de-deux-tableaux">Égalité de deux tableaux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#tri-recherche">Tri &amp; recherche</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#copie-d-un-tableau">Copie d’un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#typage-d-un-tableau">Typage d’un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#conversion-d-un-tableau-en-liste">Conversion d’un tableau en liste</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="attributs_et_methodes.html">Attributs &amp; méthodes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#les-attributs">Les attributs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#la-portee">La portée</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#l-initialisation">L’initialisation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#attributs-finaux">attributs finaux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#attributs-de-classe">Attributs de classe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#attributs-de-classe-finaux">Attributs de classe finaux</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#les-methodes">Les méthodes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#id1">La portée</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#la-valeur-de-retour">La valeur de retour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#les-parametres">Les paramètres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#parametre-final">Paramètre final</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#les-variables">Les variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#methodes-de-classe">Méthodes de classe</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#surcharge-de-methode-overloading">Surcharge de méthode : overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#portee-des-noms-et-this">Portée des noms et this</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#principe-d-encapsulation">Principe d’encapsulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cycle_de_vie.html">Cycle de vie d’un objet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-constructeur">Le constructeur</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#parametres-de-constructeur">Paramètres de constructeur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#valeur-par-defaut-des-attributs">Valeur par défaut des attributs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#constructeur-par-defaut">Constructeur par défaut</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#constructeur-prive">Constructeur privé</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#appel-d-un-constructeur-dans-un-constructeur">Appel d’un constructeur dans un constructeur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#appel-d-une-methode-dans-un-constructeur">Appel d’une méthode dans un constructeur</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#injection-de-dependances-par-le-constructeur">Injection de dépendances par le constructeur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-bloc-d-initialisation">Le bloc d’initialisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-bloc-d-initialisation-de-classe">Le bloc d’initialisation de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#exercice">Exercice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#memoire-heap-et-stack">Mémoire heap et stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-ramasse-miettes">Le ramasse-miettes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#la-methode-finalize">La méthode finalize</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="package.html">Les packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="package.html#declaration-d-un-package">Déclaration d’un package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#sous-package">Sous package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#nom-d-un-package">Nom d’un package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#nom-complet-d-une-classe">Nom complet d’une classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#import-de-noms">Import de noms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#la-portee-de-niveau-package">La portée de niveau package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#le-fichier-package-info-java">Le fichier package-info.java</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="heritage_composition.html">Héritage et composition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#l-heritage-is-a">L’héritage (is-a)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-et-constructeur">Héritage et constructeur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-simple-object">Héritage simple : Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-et-affectation">Héritage et affectation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#le-mot-cle-instanceof">Le mot-clé instanceof</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#la-portee-protected">La portée protected</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-des-methodes-et-attributs-de-classe">Héritage des méthodes et attributs de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-et-final">Héritage et final</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#la-composition-has-a">La composition (has-a)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="polymorphisme.html">Le polymorphisme</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#principe-du-polymorphisme">Principe du polymorphisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#une-exception-les-methodes-privees">Une exception : les méthodes privées</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#redefinition-et-signature-de-methode">Redéfinition et signature de méthode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#le-mot-cle-super">Le mot-clé super</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#l-annotation-override">L’annotation &#64;Override</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#les-methodes-de-classe">Les méthodes de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#methode-finale">Méthode finale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#constructeur-et-polymorphisme">Constructeur et polymorphisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#masquage-des-attributs-par-heritage">Masquage des attributs par héritage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#le-principe-du-ouvert-ferme">Le principe du ouvert/fermé</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="classe_abstraite.html">Les classes abstraites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classe_abstraite.html#declarer-une-classe-abstraite">Déclarer une classe abstraite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_abstraite.html#declarer-une-methode-abstraite">Déclarer une méthode abstraite</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="la_classe_object.html">La classe Object</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-equals">La méthode equals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-hashcode">La méthode hashCode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-tostring">La méthode toString</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-finalize">La méthode finalize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-clone">La méthode clone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-getclass">La méthode getClass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#les-methodes-de-concurrence">Les méthodes de concurrence</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="la_classe_string.html">La classe String</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#string-et-tableau-de-caracteres">String et tableau de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#quelques-methodes-utilitaires">Quelques méthodes utilitaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#construction-d-une-instance-de-string">Construction d’une instance de String</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#immutabilite-des-chaines-de-caracteres">Immutabilité des chaînes de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#la-classe-stringbuilder">La classe StringBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#formatage-de-texte">Formatage de texte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#les-expressions-regulieres">Les expressions régulières</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_exceptions.html">Les exceptions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#qu-est-ce-qu-une-exception">Qu’est-ce qu’une exception ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#signaler-une-exception">Signaler une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#traiter-une-exception">Traiter une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#propagation-d-une-exception">Propagation d’une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#exceptions-et-polymorphisme">Exceptions et polymorphisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#le-bloc-finally">Le bloc finally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#le-try-with-resources">Le try-with-resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#hierarchie-applicative-d-exception">Hiérarchie applicative d’exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#exception-cause">Exception cause</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#les-erreurs-et-les-exceptions-runtime">Les erreurs et les exceptions runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#choix-entre-checked-et-unchecked">Choix entre checked et unchecked</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="enumeration.html">Les énumérations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#les-methodes-d-une-enumeration">Les méthodes d’une énumération</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#egalite-entre-enumerations">Égalité entre énumérations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#support-de-switch">Support de switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#generation-d-une-enumeration">Génération d’une énumération</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#ajout-de-methodes-et-d-attributs">Ajout de méthodes et d’attributs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#ajout-de-constructeurs">Ajout de constructeurs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Les interfaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#declaration-d-une-interface">Déclaration d’une interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#implementation-d-une-interface">Implémentation d’une interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#attributs-et-methodes-statiques">Attributs et méthodes statiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#heritage-d-interface">Héritage d’interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#les-interfaces-marqueurs">Les interfaces marqueurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#implementation-par-defaut">Implémentation par défaut</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#la-segregation-d-interface">La ségrégation d’interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#l-inversion-de-dependance">L’inversion de dépendance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="generiques.html">Méthodes et classes génériques</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#l-exemple-de-la-classe-arraylist">L’exemple de la classe ArrayList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#creation-et-assignation-d-une-classe-generique">Création et assignation d’une classe générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#notation-en-diamant">Notation en diamant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#substitution-et-type-generique">Substitution et type générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#ecrire-une-methode-generique">Écrire une méthode générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#ecrire-une-classe-generique">Écrire une classe générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#limitations">Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_collections.html">Les collections</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#les-listes">Les listes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-arraylist">La classe ArrayList</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-linkedlist">La classe LinkedList</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-arraydeque">La classe ArrayDeque</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-priorityqueue">La classe PriorityQueue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-classes-vector-et-stack">Les classes Vector et Stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-interfaces-pour-les-listes">Les interfaces pour les listes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#les-ensembles-set">Les ensembles (set)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-treeset">La classe TreeSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-hashset">La classe HashSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-linkedhashset">La classe LinkedHashSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-interfaces-pour-les-ensembles">Les interfaces pour les ensembles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#copie-d-une-collection-dans-un-tableau">Copie d’une collection dans un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#les-tableaux-associatifs-maps">Les tableaux associatifs (maps)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-treemap">La classe TreeMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-hashmap">La classe HashMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-linkedhashmap">La classe LinkedHashMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-classes-dictionary-et-hashtable">Les classes Dictionary et Hashtable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-interfaces-pour-les-tableaux-associatifs">Les interfaces pour les tableaux associatifs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#la-classe-outil-collections">La classe outil Collections</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Les entrées/sorties</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#inputstream-et-classes-concretes">InputStream et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#outputstream-et-classes-concretes">OutputStream et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#flux-orientes-caracteres">Flux orientés caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reader-et-classes-concretes">Reader et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#writer-et-classes-concretes">Writer et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-decorateurs-de-flux">Les décorateurs de flux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#la-classe-scanner">La classe Scanner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fichiers-et-chemins">Fichiers et chemins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#acces-au-reseau">Accès au réseau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#la-serialisation-d-objets">La sérialisation d’objets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#donnee-transient">Donnée transient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#identifiant-de-version-de-serialisation">Identifiant de version de sérialisation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_dates.html">Les dates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#date-la-classe-historique">Date : la classe historique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#calendar">Calendar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#l-api-date-time">L’API Date/Time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_dates.html#id1">Les Dates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_dates.html#la-classe-instant">La classe Instant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_dates.html#periode-et-duree">Période et durée</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#formatage-des-dates">Formatage des dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#lecture-des-dates">Lecture des dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_lambdas.html">Programmation fonctionnelle et lambdas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_lambdas.html#les-fonctions-anonymes-les-lambdas">Les fonctions anonymes : les lambdas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#syntaxe-des-lambdas">Syntaxe des lambdas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#usage-des-lambdas">Usage des lambdas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#lambda-et-closure">Lambda et closure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#les-interfaces-fonctionnelles">Les interfaces fonctionnelles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#l-operateur-de-reference-de-methode">L’opérateur :: de référence de méthode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_lambdas.html#la-classe-optional">La classe Optional</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="streams.html">Streams</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#creation-d-un-stream">Création d’un stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#la-reduction">La réduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#la-collecte">La collecte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#le-filtrage">Le filtrage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#le-mapping">Le mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#le-parallelisme">Le parallélisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="classe_interne.html">Les classes internes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#les-classes-internes-static">Les classes internes static</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#id1">Les classes internes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#les-classes-anonymes">Les classes anonymes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#acces-aux-elements-de-l-objet-englobant">Accès aux éléments de l’objet englobant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#classe-interne-a-une-methode">Classe interne à une méthode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#interface-et-enumeration">Interface et énumération</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#plusieurs-classes-dans-un-meme-fichier">Plusieurs classes dans un même fichier</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_annotations.html">Les annotations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#utilisation-des-annotations">Utilisation des annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#declaration-d-une-annotation">Déclaration d’une annotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#retention-d-une-annotation">Rétention d’une annotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#utilisation-des-annotations-par-introspection">Utilisation des annotations par introspection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="module.html">Les modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="module.html#des-modules-pour-ameliorer-la-securite">Des modules pour améliorer la sécurité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#des-modules-pour-plus-de-modularite">Des modules pour plus de modularité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#le-descripteur-de-module-module-info-java">Le descripteur de module (module-info.java)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="module.html#dependance-a-d-autres-modules">Dépendance à d’autres modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module.html#exposer-des-packages">Exposer des packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module.html#utiliser-un-service">Utiliser un service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module.html#fournir-un-service">Fournir un service</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#le-module-anonyme">Le module anonyme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#la-notion-de-module-path">La notion de module path</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Le langage Java</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Les entrées/sorties</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="les_dates.html" class="btn btn-neutral float-right" title="Les dates" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="les_collections.html" class="btn btn-neutral float-left" title="Les collections" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="les-entrees-sorties">
+<h1>Les entrées/sorties<a class="headerlink" href="#les-entrees-sorties" title="Lien permanent vers ce titre">¶</a></h1>
+<p>En Java les entrées/sorties sont représentées par des objets de type
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/InputStream.html">java.io.InputStream</a> <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Reader.html">java.io.Reader</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/OutputStream.html">java.io.OutputStream</a> et <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Writer.html">java.io.Writer</a>.
+Le package <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/package-summary.html">java.io</a> définit
+un ensemble de classes qui vont pouvoir être utilisées conjointement avec ces
+quatre classes abstraites pour réaliser des traitements plus complexes.</p>
+<div class="section" id="inputstream-et-classes-concretes">
+<h2>InputStream et classes concrètes<a class="headerlink" href="#inputstream-et-classes-concretes" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/InputStream.html">InputStream</a> est une <a class="reference internal" href="classe_abstraite.html"><span class="doc">classe abstraite</span></a> qui
+représente un flux d’entrée de données binaires. Elle déclare des méthodes <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/InputStream.html#read()">read</a>
+qui permettent de lire des données octet par octet ou bien de les copier
+dans un tableau. Ces méthodes retournent le nombre de caractères lus ou -1 pour
+signaler la fin du flux. Il existe plusieurs classes qui en fournissent une
+implémentation concrète.</p>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/ByteArrayInputStream.html">ByteArrayInputStream</a> permet d’ouvrir un flux de lecture binaire sur
+un tableau de <strong>byte</strong>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.io</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.ByteArrayInputStream</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestByteArrayInputStream</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">byte</span><span class="o">[]</span> <span class="n">tableau</span> <span class="o">=</span> <span class="s">&quot;hello the world&quot;</span><span class="p">.</span><span class="na">getBytes</span><span class="p">();</span>
+    <span class="n">ByteArrayInputStream</span> <span class="n">stream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ByteArrayInputStream</span><span class="p">(</span><span class="n">tableau</span><span class="p">);</span>
+
+    <span class="kt">int</span> <span class="n">octet</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">((</span><span class="n">octet</span> <span class="o">=</span> <span class="n">stream</span><span class="p">.</span><span class="na">read</span><span class="p">())</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">((</span><span class="kt">char</span><span class="p">)</span> <span class="n">octet</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/FileInputStream.html">FileInputStream</a> permet d’ouvrir un flux de lecture binaire sur un fichier.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.io</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.FileInputStream</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestFileInputStream</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+
+    <span class="k">try</span> <span class="p">(</span><span class="n">InputStream</span> <span class="n">stream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="p">(</span><span class="s">&quot;/chemin/vers/mon/fichier.bin&quot;</span><span class="p">))</span> <span class="p">{</span>
+      <span class="kt">byte</span><span class="o">[]</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="mi">1024</span><span class="o">]</span><span class="p">;</span>
+      <span class="kt">int</span> <span class="n">nbRead</span><span class="p">;</span>
+      <span class="k">while</span> <span class="p">((</span><span class="n">nbRead</span> <span class="o">=</span> <span class="n">stream</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">buffer</span><span class="p">))</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// ...</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Dans l’exemple ci-dessus, on utilise la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/InputStream.html#read(byte[])">InputStream.read</a> qui prend un
+tableau d’octets en paramètre. Cela est plus efficace que de lire le fichier
+octet par octet.</p>
+<div class="admonition caution">
+<p class="admonition-title">Prudence</p>
+<p>À part s’ils représentent une zone mémoire, les flux de données sont généralement
+attachés à des ressources système (descripteurs de fichier ou de socket). Il
+est donc impératif de fermer ces flux en appelant leur méthode <strong>close</strong>
+lorsqu’ils ne sont plus nécessaires pour libérer les ressources système associées.
+Comme toutes les méthodes d’un flux sont susceptibles de jeter une <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/IOException.html">IOException</a>,
+on utilise généralement le bloc <strong>finally</strong> pour appeler la méthode <strong>close</strong>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">InputStream</span> <span class="n">stream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="p">(</span><span class="s">&quot;chemin/vers/mon/fichier.bin&quot;</span><span class="p">);</span>
+<span class="k">try</span> <span class="p">{</span>
+  <span class="kt">byte</span><span class="o">[]</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="mi">1024</span><span class="o">]</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">nbRead</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">((</span><span class="n">nbRead</span> <span class="o">=</span> <span class="n">stream</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">buffer</span><span class="p">))</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+<span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+  <span class="n">stream</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Toutes les classes qui représentent
+des flux d’entrée ou de sortie implémentent l’interface <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Closeable.html">Closeable</a>. Cela
+signifie qu’elles peuvent être utilisées avec la syntaxe <em>try-with-resources</em> et
+ainsi faciliter leur gestion en garantissant une fermeture automatique.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">(</span><span class="n">InputStream</span> <span class="n">stream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="p">(</span><span class="s">&quot;/chemin/vers/mon/fichier.bin&quot;</span><span class="p">))</span> <span class="p">{</span>
+  <span class="kt">byte</span><span class="o">[]</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="mi">1024</span><span class="o">]</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">nbRead</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">((</span><span class="n">nbRead</span> <span class="o">=</span> <span class="n">stream</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">buffer</span><span class="p">))</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Les flux <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#in">System.in</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out">System.out</a> et <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#err">System.err</a> qui permettent de lire ou d’écrire
+sur la console sont des cas particuliers. Ils sont ouverts au lancement de l’application
+et seront automatiquement fermés à la fin. Il est néanmoins possible de fermer
+explicitement ces flux si on veut détacher l’application du <em>shell</em> à partir
+duquel elle a été lancée.</p>
+</div>
+</div>
+<div class="section" id="outputstream-et-classes-concretes">
+<h2>OutputStream et classes concrètes<a class="headerlink" href="#outputstream-et-classes-concretes" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/OutputStream.html">OutputStream</a> est une <a class="reference internal" href="classe_abstraite.html"><span class="doc">classe abstraite</span></a> qui
+représente un flux de sortie de données binaires. Elle déclare des méthodes <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/OutputStream.html#write(byte[])">write</a>
+qui permettent d’écrire des données octet par octet ou bien de les écrire
+depuis un tableau. La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/OutputStream.html">OutputStream</a> fournit également la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/OutputStream.html#flush()">flush</a>
+pour forcer l’écriture de la zone tampon (s’il existe une zone tampon sinon un
+appel à cette méthode est sans effet).</p>
+<p>Il existe plusieurs classes qui en fournissent une implémentation concrète.</p>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/ByteArrayOutputStream.html">ByteArrayOutputStream</a> permet d’ouvrir un flux d’écriture binaire en
+mémoire. Le contenu peut ensuite être récupéré sous la forme d’un tableau d’octets
+grâce à la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/ByteArrayOutputStream.html#toByteArray()">toByteArray</a>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.io</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.ByteArrayOutputStream</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestByteArrayOutputStream</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">ByteArrayOutputStream</span> <span class="n">stream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ByteArrayOutputStream</span><span class="p">();</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">byte</span> <span class="n">b</span> <span class="p">:</span> <span class="s">&quot;Hello the world&quot;</span><span class="p">.</span><span class="na">getBytes</span><span class="p">())</span> <span class="p">{</span>
+      <span class="n">stream</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kt">byte</span><span class="o">[]</span> <span class="n">byteArray</span> <span class="o">=</span> <span class="n">stream</span><span class="p">.</span><span class="na">toByteArray</span><span class="p">();</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">byteArray</span><span class="p">));</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/FileOutputStream.html">FileOutputStream</a> permet d’ouvrir un flux d’écriture binaire sur un fichier.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.io</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.FileOutputStream</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestFileOutputStream</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+
+    <span class="k">try</span> <span class="p">(</span><span class="n">FileOutputStream</span> <span class="n">stream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileOutputStream</span><span class="p">(</span><span class="s">&quot;chemin/vers/mon/fichierdesortie.bin&quot;</span><span class="p">))</span> <span class="p">{</span>
+      <span class="kt">byte</span><span class="o">[]</span> <span class="n">octets</span> <span class="o">=</span> <span class="s">&quot;hello the world&quot;</span><span class="p">.</span><span class="na">getBytes</span><span class="p">();</span>
+      <span class="n">stream</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">octets</span><span class="p">);</span>
+    <span class="p">}</span>
+
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Dans l’exemple ci-dessus, on utilise la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/OutputStream.html#write(byte[])">OutputStream.write</a> qui prend un
+tableau d’octets en paramètre. Cela est plus efficace que d’écrire dans le fichier
+octet par octet.</p>
+<div class="admonition caution">
+<p class="admonition-title">Prudence</p>
+<p>Comme cela a été signalé ci-dessus pour les <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/InputStream.html">InputStream</a>, les flux d’écriture
+qui ne correspondent pas à des zones mémoire (fichiers, sockets…) doivent
+impérativement être fermés lorsqu’ils ne sont plus utilisés pour libérer les
+ressources système associées.</p>
+</div>
+</div>
+<div class="section" id="flux-orientes-caracteres">
+<h2>Flux orientés caractères<a class="headerlink" href="#flux-orientes-caracteres" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le package <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/package-summary.html">java.io</a> contient un ensemble de classes qui permettent de manipuler
+des flux caractères et donc du texte. Toutes les classes qui permettent d’écrire
+dans un flux de caractères héritent de la classe abstraite <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Writer.html">Writer</a> et toutes
+les classes qui permettent de lire un flux de caractères héritent de la classe
+abstraite <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Reader.html">Reader</a>.</p>
+</div>
+<div class="section" id="reader-et-classes-concretes">
+<h2>Reader et classes concrètes<a class="headerlink" href="#reader-et-classes-concretes" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Reader.html">Reader</a> est une <a class="reference internal" href="classe_abstraite.html"><span class="doc">classe abstraite</span></a> qui permet de
+lire des flux de caractères. Comme <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/InputStream.html">InputStream</a>, la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Reader.html">Reader</a> fournit des méthodes
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/InputStream.html#read()">read</a> mais qui acceptent en paramètre des caractères. Il existe
+plusieurs classes qui en fournissent une implémentation concrète.</p>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/StringReader.html">StringReader</a> permet de parcourir une chaîne de caractères sous la forme
+d’un flux de caractères.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.io</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.Reader</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.StringReader</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestStringReader</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+    <span class="n">Reader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringReader</span><span class="p">(</span><span class="s">&quot;hello the world&quot;</span><span class="p">);</span>
+
+    <span class="kt">int</span> <span class="n">caractere</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">((</span><span class="n">caractere</span> <span class="o">=</span> <span class="n">reader</span><span class="p">.</span><span class="na">read</span><span class="p">())</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">((</span><span class="kt">char</span><span class="p">)</span> <span class="n">caractere</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il n’est pas nécessaire d’utiliser un <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/StringReader.html">StringReader</a> pour parcourir une chaîne
+de caractères. Par contre, cette classe est très pratique si une partie
+d’un programme réalise des traitements en utilisant une instance de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Reader.html">Reader</a>.
+Le principe de substitution peut s’appliquer en passant une instance de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/StringReader.html">StringReader</a>.</p>
+</div>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/FileReader.html">FileReader</a> permet de lire le contenu d’un fichier texte.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.io</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.FileReader</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.Reader</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestFileReader</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+
+    <span class="k">try</span> <span class="p">(</span><span class="n">Reader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileReader</span><span class="p">(</span><span class="s">&quot;/le/chemin/du/fichier.txt&quot;</span><span class="p">))</span> <span class="p">{</span>
+      <span class="kt">char</span><span class="o">[]</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="mi">1024</span><span class="o">]</span><span class="p">;</span>
+      <span class="kt">int</span> <span class="n">nbRead</span><span class="p">;</span>
+      <span class="k">while</span> <span class="p">((</span><span class="n">nbRead</span> <span class="o">=</span> <span class="n">reader</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">buffer</span><span class="p">))</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// ...</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/FileReader.html">FileReader</a> ne permet pas de positionner l’encodage de caractères
+(<em>charset</em>) utilisé dans le fichier. Elle utilise l’encodage par défaut de la
+JVM qui est dépendant du système. Dans la pratique l’usage de cette classe
+est donc assez limité.</p>
+</div>
+</div>
+<div class="section" id="writer-et-classes-concretes">
+<h2>Writer et classes concrètes<a class="headerlink" href="#writer-et-classes-concretes" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Writer.html">Writer</a> est une <a class="reference internal" href="classe_abstraite.html"><span class="doc">classe abstraite</span></a> qui permet
+d’écrire des flux de caractères. Comme <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/OutputStream.html">OutputStream</a>, la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Writer.html">Writer</a> fournit des méthodes
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/OutputStream.html#write(byte[])">write</a> mais qui acceptent en paramètre des caractères. Elle fournit également
+des méthodes <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Writer.html#append(char)">append</a> qui réalisent la même type d’opérations et qui retournent l’instance du <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Writer.html">Writer</a>
+afin de pouvoir chaîner les appels. Il existe plusieurs classes qui en
+fournissent une implémentation concrète.</p>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/StringWriter.html">StringWriter</a> permet d’écrire dans un flux caractères pour ensuite produire
+une chaîne de caractères.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.io</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.StringWriter</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestStringWriter</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+    <span class="n">StringWriter</span> <span class="n">writer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringWriter</span><span class="p">();</span>
+
+    <span class="n">writer</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span>
+          <span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="sc">&#39; &#39;</span><span class="p">)</span>
+          <span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;the&quot;</span><span class="p">)</span>
+          <span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="sc">&#39; &#39;</span><span class="p">)</span>
+          <span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;world&quot;</span><span class="p">);</span>
+
+    <span class="n">String</span> <span class="n">resultat</span> <span class="o">=</span> <span class="n">writer</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
+
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">resultat</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/FileWriter.html">FileWriter</a> permet d’écrire un flux de caractères dans un fichier.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.io</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.FileWriter</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.Writer</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestFileWriter</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+
+    <span class="k">try</span> <span class="p">(</span><span class="n">Writer</span> <span class="n">writer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileWriter</span><span class="p">(</span><span class="s">&quot;/chemin/vers/mon/fichier.txt&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">))</span> <span class="p">{</span>
+      <span class="n">writer</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;Hello world!\n&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Le booléen passé en second paramètre du constructeur de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/FileWriter.html">FileWriter</a> permet
+de spécifier si le fichier doit être ouvert en ajout (<em>append</em>).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/FileWriter.html">FileWriter</a> ne permet pas de positionner l’encodage de caractères
+(<em>charset</em>) utilisé pour écrire dans le fichier. Elle utilise l’encodage par
+défaut de la JVM qui est dépendant du système. Dans la pratique l’usage de
+cette classe est donc assez limité.</p>
+</div>
+</div>
+<div class="section" id="les-decorateurs-de-flux">
+<h2>Les décorateurs de flux<a class="headerlink" href="#les-decorateurs-de-flux" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le package <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/package-summary.html">java.io</a> fournit un ensemble de classes qui agissent comme
+des <a class="reference external" href="https://en.wikipedia.org/wiki/Decorator_pattern">décorateurs</a> pour des instances de type <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/InputStream.html">InputStream</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Reader.html">Reader</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/OutputStream.html">OutputStream</a>
+ou <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Writer.html">Writer</a>. Ces <a class="reference external" href="https://en.wikipedia.org/wiki/Decorator_pattern">décorateurs</a> permettent d’ajouter des fonctionnalités tout en
+présentant les mêmes méthodes. Il est donc très simple d’utiliser ces décorateurs
+dans du code initialement implémenté pour manipuler des instances des types décorés.</p>
+<p>Les classes <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/BufferedInputStream.html">BufferedInputStream</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/BufferedReader.html">BufferedReader</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/BufferedOutputStream.html">BufferedOutputStream</a> et
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/BufferedWriter.html">BufferedWriter</a> permettent de créer un décorateur qui gère une zone tampon dont
+il est possible d’indiquer la taille à la construction de l’objet. Ces classes
+sont très utiles lorsque l’on veut lire ou écrire des données sur un disque
+ou sur un réseau afin de limiter les accès système et améliorer les performances.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.io</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.BufferedWriter</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.FileWriter</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.Writer</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestFileWriter</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+
+    <span class="k">try</span> <span class="p">(</span><span class="n">Writer</span> <span class="n">writer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedWriter</span><span class="p">(</span><span class="k">new</span> <span class="n">FileWriter</span><span class="p">(</span><span class="s">&quot;monfichier.txt&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">),</span> <span class="mi">1024</span><span class="p">))</span> <span class="p">{</span>
+      <span class="n">writer</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;Hello world!\n&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Dans l’exemple ci-dessus, on crée un <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/BufferedWriter.html">BufferedWriter</a> avec une zone tampon de
+1 Ko.</p>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/LineNumberReader.html">LineNumberReader</a> permet quant à elle, de compter les lignes lors
+de la lecture d’un flux caractères. Elle fournit également la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/LineNumberReader.html#readLine()">readLine</a>
+pour lire une ligne complète.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.io</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.LineNumberReader</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.StringReader</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestStringReader</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+    <span class="n">StringReader</span> <span class="n">stringReader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringReader</span><span class="p">(</span><span class="s">&quot;hello the world\nhello the world&quot;</span><span class="p">);</span>
+
+    <span class="n">LineNumberReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LineNumberReader</span><span class="p">(</span><span class="n">stringReader</span><span class="p">);</span>
+
+    <span class="n">String</span> <span class="n">line</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">((</span><span class="n">line</span> <span class="o">=</span> <span class="n">reader</span><span class="p">.</span><span class="na">readLine</span><span class="p">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Nombre de lignes lues : &quot;</span> <span class="o">+</span> <span class="n">reader</span><span class="p">.</span><span class="na">getLineNumber</span><span class="p">());</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Les classes <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/InputStreamReader.html">InputStreamReader</a> et <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/OutputStreamWriter.html">OutputStreamWriter</a> permettent de manipuler
+un flux binaire sous la forme d’un flux caractères. La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/InputStreamReader.html">InputStreamReader</a>
+hérite de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Reader.html">Reader</a> et prend comme paramètre de constructeur une instance de
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/InputStream.html">InputStream</a>. La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/OutputStreamWriter.html">OutputStreamWriter</a> hérite de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Writer.html">Writer</a> et prend
+comme paramètre de constructeur une instance de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/OutputStream.html">OutputStream</a>. Ces classes sont
+particulièrement utiles car elles permettent de préciser l’encodage des caractères
+(<em>charset</em>) qui doit être utilisé pour passer d’un flux binaire au flux
+caractères et vice-versa.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.io</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.FileInputStream</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.Reader</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestFileReader</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+
+    <span class="n">String</span> <span class="n">fichier</span> <span class="o">=</span> <span class="s">&quot;/le/chemin/du/fichier.txt&quot;</span><span class="p">;</span>
+    <span class="k">try</span> <span class="p">(</span><span class="n">Reader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">InputStreamReader</span><span class="p">(</span><span class="k">new</span> <span class="n">FileInputStream</span><span class="p">(</span><span class="n">fichier</span><span class="p">),</span> <span class="s">&quot;UTF-8&quot;</span><span class="p">))</span> <span class="p">{</span>
+      <span class="kt">char</span><span class="o">[]</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="mi">1024</span><span class="o">]</span><span class="p">;</span>
+      <span class="kt">int</span> <span class="n">nbRead</span><span class="p">;</span>
+      <span class="k">while</span> <span class="p">((</span><span class="n">nbRead</span> <span class="o">=</span> <span class="n">reader</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">buffer</span><span class="p">))</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// ...</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Dans l’exemple ci-dessus, le fichier est ouvert grâce à un instance de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/FileInputStream.html">FileInputStream</a>
+qui est passée à une instance de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/InputStreamReader.html">InputStreamReader</a> qui lit les caractères
+au format UTF-8.</p>
+<p>Il est possible de créer très facilement des chaînes de décorateurs.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.io</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.FileInputStream</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.LineNumberReader</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.Reader</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestFileReader</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+
+    <span class="n">String</span> <span class="n">fichier</span> <span class="o">=</span> <span class="s">&quot;/le/chemin/du/fichier.txt&quot;</span><span class="p">;</span>
+    <span class="n">Reader</span> <span class="n">inputStreamReader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">InputStreamReader</span><span class="p">(</span><span class="k">new</span> <span class="n">FileInputStream</span><span class="p">(</span><span class="n">fichier</span><span class="p">),</span> <span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
+    <span class="k">try</span> <span class="p">(</span><span class="n">LineNumberReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LineNumberReader</span><span class="p">(</span><span class="n">inputStreamReader</span><span class="p">))</span> <span class="p">{</span>
+      <span class="n">String</span> <span class="n">ligne</span><span class="p">;</span>
+      <span class="k">while</span> <span class="p">((</span><span class="n">ligne</span> <span class="o">=</span> <span class="n">reader</span><span class="p">.</span><span class="na">readLine</span><span class="p">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// ...</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Dans l’exemple ci-dessus, on utilise la syntaxe try-with-resources pour
+appeler automatiquement la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Closeable.html#close()">close</a> à la fin du bloc <strong>try</strong>. Les
+décorateurs de flux implémentent la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Closeable.html#close()">close</a> de manière à appeler
+la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Closeable.html#close()">close</a> de l’objet qu’il décore. Ainsi quand on crée une chaîne
+de flux avec des décorateurs, un appel à la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Closeable.html#close()">close</a> du décorateur
+le plus englobant appelle automatiquement toutes les méthodes <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Closeable.html#close()">close</a>
+de la chaîne de flux.</p>
+</div>
+<p>Les objets statiques <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#in">System.in</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out">System.out</a> et <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#err">System.err</a> qui représentent
+respectivement le flux d’entrée de la console, le flux de sortie de la console
+et le flux de sortie d’erreur de la console sont des instances de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/InputStream.html">InputStream</a>
+ou de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html">PrintStream</a>. <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html">PrintStream</a> est un décorateur qui offre notamment les méthodes
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#print(boolean)">print</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println()">println</a> et <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#printf(java.lang.String,java.lang.Object...)">printf</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour manipuler les flux de la console, il est également possible de récupérer
+une instance de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Console.html">Console</a> en appelant la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#console()">System.console()</a>.</p>
+</div>
+</div>
+<div class="section" id="la-classe-scanner">
+<h2>La classe Scanner<a class="headerlink" href="#la-classe-scanner" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Scanner.html">java.util.Scanner</a> agit comme un décorateur pour différents types d’instance
+qui représentent une entrée. Elle permet de réaliser des opérations de lecture
+et de validation de données plus complexes que les classes du packages <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/package-summary.html">java.io</a>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.io</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestScanner</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Scanner</span> <span class="n">scanner</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
+
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Saisissez une chaîne de caractères : &quot;</span><span class="p">);</span>
+    <span class="n">String</span> <span class="n">chaine</span> <span class="o">=</span> <span class="n">scanner</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span>
+
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Saisissez un nombre : &quot;</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">nombre</span> <span class="o">=</span> <span class="n">scanner</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
+
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Saisissez les 8 caractères de votre identifiant : &quot;</span><span class="p">);</span>
+    <span class="n">String</span> <span class="n">identifiant</span> <span class="o">=</span> <span class="n">scanner</span><span class="p">.</span><span class="na">next</span><span class="p">(</span><span class="s">&quot;.{8}&quot;</span><span class="p">);</span>
+
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Vous avez saisi :&quot;</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">chaine</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">nombre</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">identifiant</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>On peut compléter l’implémentation précédente en effectuant une validation
+sur les données saisies par l’utilisateur :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.io</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestScanner</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Scanner</span> <span class="n">scanner</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
+
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Saisissez une chaîne de caractères : &quot;</span><span class="p">);</span>
+    <span class="n">String</span> <span class="n">chaine</span> <span class="o">=</span> <span class="n">scanner</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span>
+
+    <span class="n">Integer</span> <span class="n">nombre</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="k">do</span> <span class="p">{</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Saisissez un nombre : &quot;</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">scanner</span><span class="p">.</span><span class="na">hasNextInt</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">scanner</span><span class="p">.</span><span class="na">next</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">err</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Ceci n&#39;est pas un nombre valide&quot;</span><span class="p">);</span>
+        <span class="k">continue</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="n">nombre</span> <span class="o">=</span> <span class="n">scanner</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">nombre</span> <span class="o">==</span> <span class="kc">null</span><span class="p">);</span>
+
+    <span class="n">String</span> <span class="n">identifiant</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="k">do</span> <span class="p">{</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Saisissez les 8 caractères de votre identifiant : &quot;</span><span class="p">);</span>
+      <span class="c1">// On utilise une expression régulière pour vérifier le prochain token</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">scanner</span><span class="p">.</span><span class="na">hasNext</span><span class="p">(</span><span class="s">&quot;.{8}&quot;</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">scanner</span><span class="p">.</span><span class="na">next</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">err</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Ceci n&#39;est pas un identifiant valide&quot;</span><span class="p">);</span>
+        <span class="k">continue</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="n">identifiant</span> <span class="o">=</span> <span class="n">scanner</span><span class="p">.</span><span class="na">next</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">identifiant</span> <span class="o">==</span> <span class="kc">null</span><span class="p">);</span>
+
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Vous avez saisi :&quot;</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">chaine</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">nombre</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">identifiant</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fichiers-et-chemins">
+<h2>Fichiers et chemins<a class="headerlink" href="#fichiers-et-chemins" title="Lien permanent vers ce titre">¶</a></h2>
+<p>En plus des flux de type fichier, le package <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/package-summary.html">java.io</a> fournit la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/File.html">File</a>
+qui représente un fichier. À travers, cette classe, il est possible de savoir
+si le fichier existe, s’il s’agit d’un répertoire… On peut également créer
+le fichier ou le supprimer.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.io</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.BufferedWriter</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.File</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.FileWriter</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestFile</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+    <span class="n">File</span> <span class="n">fichier</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">&quot;unfichier.txt&quot;</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">fichier</span><span class="p">.</span><span class="na">exists</span><span class="p">())</span> <span class="p">{</span>
+      <span class="n">fichier</span><span class="p">.</span><span class="na">createNewFile</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">fichier</span><span class="p">.</span><span class="na">canWrite</span><span class="p">())</span> <span class="p">{</span>
+      <span class="k">try</span> <span class="p">(</span><span class="n">BufferedWriter</span> <span class="n">writer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedWriter</span><span class="p">(</span><span class="k">new</span> <span class="n">FileWriter</span><span class="p">(</span><span class="n">fichier</span><span class="p">)))</span> <span class="p">{</span>
+        <span class="n">writer</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="s">&quot;Hello world!&quot;</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">fichier</span><span class="p">.</span><span class="na">delete</span><span class="p">();</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Pour représenter un chemin d’accès à un fichier, on peut utiliser une URL avec
+le schéma <em>file</em> :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>file:///home/david/monfichier.txt
+</pre></div>
+</div>
+<p>ou bien une chaîne de caractère représentant directement le chemin. L’inconvénient
+de cette dernière méthode est qu’elle n’est pas portable suivant les différents
+systèmes de fichiers et les différents systèmes d’exploitation. En Java, on
+utilise l’interface <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/Path.html">Path</a> pour représenter un chemin de fichier de manière générique.
+Les classes <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/Paths.html">Paths</a> et <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/FileSystem.html">FileSystem</a> servent à construire des instances de type
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/Path.html">Path</a>. La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/FileSystem.html">FileSystem</a> fournit également des méthodes pour obtenir des
+informations à propos du ou des systèmes de fichiers présents sur la machine.
+On peut accéder à une instance de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/FileSystem.html">FileSystem</a> grâce à la méthode
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/FileSystems.html#getDefault()">FileSystems.getDefault()</a>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.io</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.File</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.file.FileSystems</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.file.Path</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.file.Paths</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestPath</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+    <span class="n">Path</span> <span class="n">cheminFichier</span> <span class="o">=</span> <span class="n">Paths</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;home&quot;</span><span class="p">,</span> <span class="s">&quot;david&quot;</span><span class="p">,</span> <span class="s">&quot;fichier.txt&quot;</span><span class="p">);</span>
+
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">cheminFichier</span><span class="p">);</span> <span class="c1">// home/david/fichier.txt</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">cheminFichier</span><span class="p">.</span><span class="na">getNameCount</span><span class="p">());</span> <span class="c1">// 3</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">cheminFichier</span><span class="p">.</span><span class="na">getParent</span><span class="p">());</span> <span class="c1">// home/david</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">cheminFichier</span><span class="p">.</span><span class="na">getFileName</span><span class="p">());</span> <span class="c1">// fichier.txt</span>
+
+    <span class="n">cheminFichier</span> <span class="o">=</span> <span class="n">FileSystems</span><span class="p">.</span><span class="na">getDefault</span><span class="p">().</span><span class="na">getPath</span><span class="p">(</span><span class="s">&quot;home&quot;</span><span class="p">,</span> <span class="s">&quot;david&quot;</span><span class="p">,</span> <span class="s">&quot;fichier.txt&quot;</span><span class="p">);</span>
+    <span class="n">File</span> <span class="n">fichier</span> <span class="o">=</span> <span class="n">cheminFichier</span><span class="p">.</span><span class="na">toFile</span><span class="p">();</span>
+
+    <span class="c1">// maintenant on peut utiliser le fichier</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Pour les opérations les plus courantes sur les fichiers, la classe outil <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/Files.html">Files</a>
+fournit un ensemble de méthodes statiques qui permettent de créer, de consulter,
+de modifier ou de supprimer des fichiers et des répertoires en utilisant
+un minimum d’appel.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.io</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.BufferedWriter</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.file.Files</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.file.Path</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.file.Paths</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.file.StandardOpenOption</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestFiles</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+    <span class="n">Path</span> <span class="n">fichier1</span> <span class="o">=</span> <span class="n">Paths</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;fichier.txt&quot;</span><span class="p">);</span>
+
+    <span class="c1">// création du fichier</span>
+    <span class="n">fichier1</span> <span class="o">=</span> <span class="n">Files</span><span class="p">.</span><span class="na">createFile</span><span class="p">(</span><span class="n">fichier1</span><span class="p">);</span>
+
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Taille du fichier : &quot;</span> <span class="o">+</span> <span class="n">Files</span><span class="p">.</span><span class="na">size</span><span class="p">(</span><span class="n">fichier1</span><span class="p">));</span>
+
+    <span class="k">try</span> <span class="p">(</span><span class="n">BufferedWriter</span> <span class="n">writer</span> <span class="o">=</span> <span class="n">Files</span><span class="p">.</span><span class="na">newBufferedWriter</span><span class="p">(</span><span class="n">fichier1</span><span class="p">,</span> <span class="n">StandardOpenOption</span><span class="p">.</span><span class="na">WRITE</span><span class="p">))</span> <span class="p">{</span>
+      <span class="n">writer</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;Hello !\n&quot;</span><span class="p">);</span>
+      <span class="n">writer</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;Hello !\n&quot;</span><span class="p">);</span>
+      <span class="n">writer</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;Hello !\n&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Taille du fichier : &quot;</span> <span class="o">+</span> <span class="n">Files</span><span class="p">.</span><span class="na">size</span><span class="p">(</span><span class="n">fichier1</span><span class="p">));</span>
+
+    <span class="c1">// Copie vers un nouveau fichier</span>
+    <span class="n">Path</span> <span class="n">fichier2</span> <span class="o">=</span> <span class="n">Paths</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;fichier2.txt&quot;</span><span class="p">);</span>
+    <span class="n">Files</span><span class="p">.</span><span class="na">copy</span><span class="p">(</span><span class="n">fichier1</span><span class="p">,</span> <span class="n">fichier2</span><span class="p">);</span>
+
+    <span class="c1">// Lecture de l&#39;intégralité du fichier</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">lignes</span> <span class="o">=</span> <span class="n">Files</span><span class="p">.</span><span class="na">readAllLines</span><span class="p">(</span><span class="n">fichier2</span><span class="p">);</span>
+
+    <span class="c1">// Suppression des fichiers créés</span>
+    <span class="n">Files</span><span class="p">.</span><span class="na">deleteIfExists</span><span class="p">(</span><span class="n">fichier1</span><span class="p">);</span>
+    <span class="n">Files</span><span class="p">.</span><span class="na">deleteIfExists</span><span class="p">(</span><span class="n">fichier2</span><span class="p">);</span>
+
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">lignes</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/Files.html">Files</a> se révèle très pratique d’utilisation notamment pour lire
+l’intégralité d’un fichier.
+Elle ne rend pas pour autant obsolète l’utilisation de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Reader.html">Reader</a> ou de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/OutputStream.html">OutputStream</a>.
+En effet, travailler à partir d’un flux peut avoir un impact important sur
+l’empreinte mémoire d’une application. Si une application doit parcourir un
+fichier pour trouver une information précise alors, si le fichier peut
+être de taille importante, l’utilisation de flux sera plus optimale car
+l’empreinte mémoire d’un flux est généralement celle de la taille de la zone
+tampon allouée pour la lecture ou l’écriture.</p>
+</div>
+</div>
+<div class="section" id="acces-au-reseau">
+<h2>Accès au réseau<a class="headerlink" href="#acces-au-reseau" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/net/URL.html">URL</a>, comme son nom l’indique, représente une URL. Elle déclare la méthode
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/net/URL.html#openConnection()">openConnection</a> qui retourne une instance de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/net/URLConnection.html">URLConnection</a>. Une instance de
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/net/URLConnection.html">URLConnection</a> ouvre une connexion distante avec le serveur et permet de
+récupérer des informations du serveur distant. Elle permet surtout d’obtenir
+une instance de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/OutputStream.html">OutputStream</a> si on désire envoyer des informations au serveur
+et une instance de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/InputStream.html">InputStream</a> si on désire récupérer les informations
+retournées par le serveur.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.io</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.LineNumberReader</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.Reader</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.net.URL</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.net.URLConnection</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Objects</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HttpClient</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+    <span class="n">URL</span> <span class="n">url</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="p">(</span><span class="s">&quot;https://www.ietf.org/rfc/rfc1738.txt&quot;</span><span class="p">);</span>
+    <span class="n">URLConnection</span> <span class="n">connection</span> <span class="o">=</span> <span class="n">url</span><span class="p">.</span><span class="na">openConnection</span><span class="p">();</span>
+
+    <span class="n">String</span> <span class="n">encodage</span> <span class="o">=</span> <span class="n">Objects</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">connection</span><span class="p">.</span><span class="na">getContentEncoding</span><span class="p">(),</span> <span class="s">&quot;ISO-8859-1&quot;</span><span class="p">);</span>
+    <span class="n">Reader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">InputStreamReader</span><span class="p">(</span><span class="n">connection</span><span class="p">.</span><span class="na">getInputStream</span><span class="p">(),</span> <span class="n">encodage</span><span class="p">);</span>
+
+    <span class="k">try</span> <span class="p">(</span><span class="n">LineNumberReader</span> <span class="n">linNumberReader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LineNumberReader</span><span class="p">(</span><span class="n">reader</span><span class="p">))</span> <span class="p">{</span>
+      <span class="n">String</span> <span class="n">line</span><span class="p">;</span>
+      <span class="k">while</span> <span class="p">((</span><span class="n">line</span> <span class="o">=</span> <span class="n">linNumberReader</span><span class="p">.</span><span class="na">readLine</span><span class="p">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+      <span class="p">}</span>
+
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Ce fichier contient &quot;</span> <span class="o">+</span> <span class="n">linNumberReader</span><span class="p">.</span><span class="na">getLineNumber</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot; lignes.&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Le programme ci-dessus récupère, affiche sur la sortie standard et donne le nombre
+de lignes du document accessible à l’adresse <a class="reference external" href="https://www.ietf.org/rfc/rfc1738.txt">https://www.ietf.org/rfc/rfc1738.txt</a>
+(il s’agit du document de l’IETF qui décrit ce qu’est une URL).</p>
+<p>L’API d’entrée/sortie de Java fournit une bonne abstraction. Généralement, une
+méthode qui manipule des flux fonctionnera pour des fichiers, des flux
+mémoire et des flux réseaux.</p>
+</div>
+<div class="section" id="la-serialisation-d-objets">
+<h2>La sérialisation d’objets<a class="headerlink" href="#la-serialisation-d-objets" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les classes <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/ObjectOutputStream.html">ObjectOutputStream</a> et <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/ObjectInputStream.html">ObjectInputStream</a>  permettent de réaliser la
+sérialisation/désérialisation d’objets : un objet (et tous les objets qu’il référence)
+peut être écrit dans un flux ou lu depuis un flux. Cela peut permettre de sauvegarder dans
+un fichier un état de l’application ou bien d’échanger des données entre deux programmes
+Java à travers un réseau. La sérialisation d’objets a des limites :</p>
+<ul class="simple">
+<li><p>Seul l’état des objets est écrit ou lu, cela signifie que les fichiers <em>class</em>
+ne font pas partie de la sérialisation et doivent être disponibles pour la JVM
+au moment de la lecture (opération de désérialisation réalisée avec la classe
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/ObjectInputStream.html">ObjectInputStream</a>).</p></li>
+<li><p>Le format des données sérialisées est propre à Java, ce mécanisme n’est donc
+pas adapté pour échanger des informations avec des applications qui ne seraient
+pas écrites en Java.</p></li>
+<li><p>Les données sérialisées sont très dépendantes de la structure des classes. Si
+des modifications sont apportées à ces dernières, une grappe d’objets préalablement
+sérialisée dans un fichier ne sera sans doute plus lisible.</p></li>
+</ul>
+<p>Pour qu’un objet puisse être sérialisé, il faut que sa classe implémente
+<a class="reference internal" href="interface.html#interface-marqueur"><span class="std std-ref">l’interface marqueur</span></a> <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Serializable.html">Serializable</a>. Si un objet
+référence d’autres objets dans ses attributs alors il faut également que les classes
+de ces objets implémentent l’interface <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Serializable.html">Serializable</a>. Beaucoup de classes de l’API standard de
+Java implémentent l’interface <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Serializable.html">Serializable</a>, à commencer par la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html">String</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Tenter de sérialiser un objet dont la classe n’implémente pas <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Serializable.html">Serializable</a>
+produit une exception de type <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/NotSerializableException.html">java.io.NotSerializableException</a>.</p>
+</div>
+<p>Prenons comme exemple une classe <em>Personne</em> qui contient la liste de ses enfants
+(eux-mêmes de type <em>Personne</em>). Cette classe implémente l’interface <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Serializable.html">Serializable</a> :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.Serializable</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Personne</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">prenom</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">nom</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Personne</span><span class="o">&gt;</span> <span class="n">enfants</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+  <span class="kd">public</span> <span class="nf">Personne</span><span class="p">(</span><span class="n">String</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">String</span> <span class="n">nom</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">prenom</span> <span class="o">=</span> <span class="n">prenom</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">nom</span> <span class="o">=</span> <span class="n">nom</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">getNom</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">nom</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">getPrenom</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">prenom</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">ajouterEnfants</span><span class="p">(</span><span class="n">Personne</span><span class="p">...</span> <span class="n">enfants</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Collections</span><span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">enfants</span><span class="p">,</span> <span class="n">enfants</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Personne</span><span class="o">&gt;</span> <span class="nf">getEnfants</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">enfants</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">prenom</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">nom</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Le code ci-dessous sérialise les données dans le fichier <em>arbre_genialogique.bin</em></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.io</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.ObjectOutputStream</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.OutputStream</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.file.Files</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.file.Paths</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">dev.gayerie.Personne</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestSerialisation</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+
+    <span class="n">Personne</span> <span class="n">personne</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Personne</span><span class="p">(</span><span class="s">&quot;Donald&quot;</span><span class="p">,</span> <span class="s">&quot;Duck&quot;</span><span class="p">);</span>
+    <span class="n">personne</span><span class="p">.</span><span class="na">ajouterEnfants</span><span class="p">(</span><span class="k">new</span> <span class="n">Personne</span><span class="p">(</span><span class="s">&quot;Riri&quot;</span><span class="p">,</span> <span class="s">&quot;Duck&quot;</span><span class="p">),</span>
+                            <span class="k">new</span> <span class="n">Personne</span><span class="p">(</span><span class="s">&quot;Fifi&quot;</span><span class="p">,</span> <span class="s">&quot;Duck&quot;</span><span class="p">),</span>
+                            <span class="k">new</span> <span class="n">Personne</span><span class="p">(</span><span class="s">&quot;Loulou&quot;</span><span class="p">,</span> <span class="s">&quot;Duck&quot;</span><span class="p">));</span>
+
+    <span class="n">OutputStream</span> <span class="n">outputStream</span> <span class="o">=</span> <span class="n">Files</span><span class="p">.</span><span class="na">newOutputStream</span><span class="p">(</span><span class="n">Paths</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;arbre_genialogique.bin&quot;</span><span class="p">));</span>
+    <span class="k">try</span><span class="p">(</span><span class="n">ObjectOutputStream</span> <span class="n">objectStream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectOutputStream</span><span class="p">(</span><span class="n">outputStream</span><span class="p">);)</span> <span class="p">{</span>
+      <span class="n">objectStream</span><span class="p">.</span><span class="na">writeObject</span><span class="p">(</span><span class="n">personne</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Un autre code qui a accès à la même classe <em>Personne</em> peut ensuite lire le fichier
+<em>arbre_genialogique.bin</em> pour retrouver les objets dans l’état attendu.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.io</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.ObjectInputStream</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.file.Files</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.file.Paths</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">dev.gayerie.Personne</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestDeserialisation</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="p">,</span> <span class="n">ClassNotFoundException</span> <span class="p">{</span>
+
+    <span class="n">InputStream</span> <span class="n">outputStream</span> <span class="o">=</span> <span class="n">Files</span><span class="p">.</span><span class="na">newInputStream</span><span class="p">(</span><span class="n">Paths</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;arbre_genialogique.bin&quot;</span><span class="p">));</span>
+    <span class="k">try</span><span class="p">(</span><span class="n">ObjectInputStream</span> <span class="n">objectStream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectInputStream</span><span class="p">(</span><span class="n">outputStream</span><span class="p">);)</span> <span class="p">{</span>
+      <span class="n">Personne</span> <span class="n">personne</span> <span class="o">=</span> <span class="p">(</span><span class="n">Personne</span><span class="p">)</span> <span class="n">objectStream</span><span class="p">.</span><span class="na">readObject</span><span class="p">();</span>
+
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">personne</span><span class="p">);</span>
+      <span class="k">for</span> <span class="p">(</span><span class="n">Personne</span> <span class="n">enfant</span> <span class="p">:</span> <span class="n">personne</span><span class="p">.</span><span class="na">getEnfants</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">enfant</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>L’exécution du programme ci-dessus affichera :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Donald Duck
+Riri Duck
+Fifi Duck
+Loulou Duck
+</pre></div>
+</div>
+<div class="section" id="donnee-transient">
+<h3>Donnée transient<a class="headerlink" href="#donnee-transient" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Parfois une classe contient des informations que l’on ne souhaite pas sérialiser.
+Cela peut être dû à des limitations techniques (par exemple la classe associée n’implémente
+pas l’interface <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Serializable.html">Serializable</a>). Mais il peut aussi s’agir de données sensibles
+ou volatiles qui n’ont pas à être sérialisées. Pour que les processus de
+sérialisation/désérialisation ignorent ces attributs, il faut leur ajouter
+le mot-clé <strong>transient</strong>.</p>
+<p>Pour la classe <em>Personne</em>, si on veut exclure la liste des enfants de la
+sérialisation/désérialisation, on peut modifier les attributs comme suit :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.Serializable</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Personne</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">prenom</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">nom</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="kd">transient</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Personne</span><span class="o">&gt;</span> <span class="n">enfants</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+  <span class="kd">public</span> <span class="nf">Personne</span><span class="p">(</span><span class="n">String</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">String</span> <span class="n">nom</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">prenom</span> <span class="o">=</span> <span class="n">prenom</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">nom</span> <span class="o">=</span> <span class="n">nom</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Si nous exécutons à nouveau les programmes de sérialisation et de désérialisation
+du paragraphe précédent, la sortie standard affichera alors :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Donald Duck
+</pre></div>
+</div>
+<p>Car l’état de la liste des enfants ne sera plus écrit dans le fichier
+<em>arbre_genialogique.bin</em>.</p>
+</div>
+<div class="section" id="identifiant-de-version-de-serialisation">
+<h3>Identifiant de version de sérialisation<a class="headerlink" href="#identifiant-de-version-de-serialisation" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La principale difficulté dans la mise en pratique des mécanismes de
+sérialisation/désérialisation provient de leur extrême dépendance au format des
+classes.</p>
+<p>Si la sérialisation est utilisée pour sauvegarder dans un fichier l’état des objets entre deux
+exécutions, alors il n’est pas possible de modifier significativement puis de
+recompiler les classes sérialisables (sinon l’opération de désérialisation
+échouera avec une erreur <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/InvalidClassException.html">InvalidClassException</a>). Si la sérialisation est utilisée
+pour échanger des informations entre deux applications sur un réseau, alors
+le deux applications doivent disposer dans leur <em>classpath</em> des mêmes définitions
+de classes.</p>
+<p>En fait les classes qui implémentent l’interface <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Serializable.html">Serializable</a> possèdent un
+numéro de version interne qui change à la compilation si des modifications
+substantielles ont été apportées (ajout ou suppression d’attributs ou de méthodes
+par exemple). Lorsqu’un objet est sérialisé, le numéro de version de sa classe
+est également sérialisé. Ainsi, lors de la désérialisation, il est facile de comparer
+ce numéro avec celui de la classe disponible. Si ces numéros ne correspondent pas,
+alors le processus de désérialisation échoue en considérant que la classe disponible
+n’est pas compatible avec la classe qui a été utilisée pour créer l’objet sérialisé.</p>
+<p>Si on ne souhaite pas utiliser ce mécanisme implicite de version, il est possible
+de spécifier un numéro de version de sérialisation pour ses classes. À charge
+du développeur de changer ce numéro lorsque les modifications de la classe sont
+trop importantes pour ne plus garantir la compatibilité ascendante avec des versions antérieures
+de cette classe. Le numéro de version est une constante de classe de type <strong>long</strong>
+qui doit s’appeler <em>serialVersionUID</em>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.Serializable</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Personne</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">long</span> <span class="n">serialVersionUID</span> <span class="o">=</span> <span class="mi">1775245980933452908L</span><span class="p">;</span>
+
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Eclipse produit un avertissement si une classe qui implémente <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Serializable.html">Serializable</a>
+ne déclare pas une constante <em>serialVersionUID</em>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p>Pour contourner le problème de dépendance entre le format de sérialisation
+et la déclaration de la classe, il est possible d’implémenter soi-même l’écriture
+et la lecture des données. Pour cela, il faut déclarer deux méthodes privées dans
+la classe : <em>writeObject</em> et <em>readObject</em>. Ces méthodes seront appelées (même
+si elles sont privées) en lieu et place de l’algorithme par défaut de
+sérialisation/désérialisation.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.ObjectInputStream</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.ObjectOutputStream</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.Serializable</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Personne</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">long</span> <span class="n">serialVersionUID</span> <span class="o">=</span> <span class="mi">1775245980933452908L</span><span class="p">;</span>
+
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">prenom</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">nom</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Personne</span><span class="o">&gt;</span> <span class="n">enfants</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+  <span class="kd">private</span> <span class="kt">void</span> <span class="nf">writeObject</span><span class="p">(</span><span class="n">ObjectOutputStream</span> <span class="n">s</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+    <span class="c1">// on ne sérialise que le prénom et le nom</span>
+    <span class="n">s</span><span class="p">.</span><span class="na">writeObject</span><span class="p">(</span><span class="n">prenom</span><span class="p">);</span>
+    <span class="n">s</span><span class="p">.</span><span class="na">writeObject</span><span class="p">(</span><span class="n">nom</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">private</span> <span class="kt">void</span> <span class="nf">readObject</span><span class="p">(</span><span class="n">ObjectInputStream</span> <span class="n">s</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">ClassNotFoundException</span><span class="p">,</span> <span class="n">IOException</span> <span class="p">{</span>
+    <span class="c1">// on lit les données dans le même ordre qu&#39;elles ont été écrites</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">prenom</span> <span class="o">=</span> <span class="p">(</span><span class="n">String</span><span class="p">)</span> <span class="n">s</span><span class="p">.</span><span class="na">readObject</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">nom</span> <span class="o">=</span> <span class="p">(</span><span class="n">String</span><span class="p">)</span> <span class="n">s</span><span class="p">.</span><span class="na">readObject</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">enfants</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="les_dates.html" class="btn btn-neutral float-right" title="Les dates" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="les_collections.html" class="btn btn-neutral float-left" title="Les collections" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright David Gayerie - david@gayerie.dev - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

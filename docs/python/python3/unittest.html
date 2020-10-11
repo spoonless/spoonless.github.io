@@ -1,0 +1,916 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Python 3 - Les fondamentaux du langage" name="description" />
+<meta content="Python, programmation objet, POO, langage de programmation" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Les tests unitaires automatisés avec unittest &mdash; Documentation Le langage Python </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/python/python3/unittest.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Les sockets et la programmation réseau" href="socket.html" />
+    <link rel="prev" title="Gestion des fichiers" href="fichier.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Le langage Python
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Python 3</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#python-2-et-python-3">Python 2 et Python 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#licence-logiciel">Licence logiciel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#les-principales-caracteristiques-du-langage">Les principales caractéristiques du langage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#oriente-objet">Orienté objet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#courbe-d-apprentissage-lineaire">Courbe d’apprentissage linéaire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#compile-et-interprete">Compilé et interprété</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#typage-dynamique">Typage dynamique</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#les-domaines-d-application">Les domaines d’application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#les-differentes-implementations-de-python">Les différentes implémentations de Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#communaute-et-organisation">Communauté et organisation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="execution.html">Console et exécution de fichiers source</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="execution.html#la-console">La console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution.html#les-fichiers-sources">Les fichiers sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution.html#lancement-en-mode-interactif">Lancement en mode interactif</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution.html#lancement-d-un-programme-hors-de-la-console">Lancement d’un programme hors de la console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution.html#notion-de-bloc-et-d-indentation">Notion de bloc et d’indentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution.html#les-commentaires">Les commentaires</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="type_et_variable.html">Types et variables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#nombres-et-calcul-arithmetique">Nombres et calcul arithmétique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#les-variables">Les variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#la-chaine-de-caracteres">La chaîne de caractères</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="type_et_variable.html#formatage-de-chaine-de-caracteres">Formatage de chaîne de caractères</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#le-type-booleen">Le type booléen</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fonction.html">Les fonctions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#appeler-une-fonction">Appeler une fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#les-fonctions-utiles-dans-la-console-python">Les fonctions utiles dans la console Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#les-fonctions-de-conversion-de-type">Les fonctions de conversion de type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fonction.html#convertir-en-nombre">Convertir en nombre</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fonction.html#convertir-en-valeur-booleenne">Convertir en valeur booléenne</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fonction.html#convertir-en-chaine-de-caracteres">Convertir en chaîne de caractères</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#exercices">Exercices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#declarer-une-fonction">Déclarer une fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#documenter-une-fonction">Documenter une fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#les-valeurs-de-retour">Les valeurs de retour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#les-parametres-nommes">Les paramètres nommés</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#valeur-par-defaut-des-parametres">Valeur par défaut des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#fonction-et-portee-des-variables">Fonction et portée des variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#id2">Exercices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#variable-globale-et-fonction">Variable globale et fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#notion-de-methode">Notion de méthode</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="list.html">La liste (<em>list</em>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="list.html#creer-une-liste">Créer une liste</a></li>
+<li class="toctree-l2"><a class="reference internal" href="list.html#acceder-aux-elements">Accéder aux éléments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="list.html#les-operations-sur-les-listes">Les opérations sur les listes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="list.html#connaitre-la-taille-d-une-liste">Connaître la taille d’une liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#supprimer-un-element-d-une-liste">Supprimer un élément d’une liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#ajouter-deux-listes-ensemble">Ajouter deux listes ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#creer-une-liste-etendue">Créer une liste étendue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#savoir-si-un-element-est-present-dans-une-liste">Savoir si un élément est présent dans une liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#comparer-deux-listes">Comparer deux listes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#connaitre-le-plus-grand-element-d-une-liste">Connaître le plus grand élément d’une liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#connaitre-le-plus-petit-element-d-une-liste">Connaître le plus petit élément d’une liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#decouper-une-liste">Découper une liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#copier-une-liste">Copier une liste</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="list.html#quelques-methodes-pour-les-listes">Quelques méthodes pour les listes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tuple.html">Le n-uplet (<em>tuple</em>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tuple.html#creer-un-tuple">Créer un tuple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tuple.html#acceder-aux-elements">Accéder aux éléments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tuple.html#les-operations-sur-les-tuples">Les opérations sur les tuples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#connaitre-la-taille-d-un-tuple">Connaître la taille d’un tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#ajouter-deux-tuples-ensemble">Ajouter deux tuples ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#creer-un-tuple-etendu">Créer un tuple étendu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#savoir-si-un-element-est-present-dans-un-tuple">Savoir si un élément est présent dans un tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#comparer-deux-tuples">Comparer deux tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#connaitre-le-plus-grand-element-d-un-tuple">Connaître le plus grand élément d’un tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#connaitre-le-plus-petit-element-d-une-tuple">Connaître le plus petit élément d’une tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#decouper-un-tuple">Découper un tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#compter-les-occurrences-dans-un-tuple">Compter les occurrences dans un tuple</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tuple.html#listes-et-tuples">Listes et tuples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tuple.html#les-chaines-de-caracteres-comme-tuple">Les chaînes de caractères comme tuple</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="set.html">L’ensemble (<em>set</em>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="set.html#creer-un-ensemble">Créer un ensemble</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set.html#acceder-aux-elements">Accéder aux éléments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set.html#les-operations-sur-les-ensembles">Les opérations sur les ensembles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="set.html#connaitre-la-taille-d-un-ensemble">Connaître la taille d’un ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set.html#savoir-si-un-element-est-present-dans-un-ensemble">Savoir si un élément est présent dans un ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set.html#comparer-deux-ensembles">Comparer deux ensembles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set.html#connaitre-le-plus-grand-element-d-un-ensemble">Connaître le plus grand élément d’un ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set.html#connaitre-le-plus-petit-element-d-un-ensemble">Connaître le plus petit élément d’un ensemble</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="set.html#quelques-methodes-pour-les-ensembles">Quelques méthodes pour les ensembles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set.html#ensemble-liste-et-tuple">Ensemble, liste et tuple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set.html#ensemble-fige">Ensemble figé</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dict.html">Le dictionnaire</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#creer-un-dictionnaire">Créer un dictionnaire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#acceder-aux-elements">Accéder aux éléments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#les-operations-sur-les-dictionnaires">Les opérations sur les dictionnaires</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dict.html#connaitre-la-taille-d-un-dictionnaire">Connaître la taille d’un dictionnaire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dict.html#supprimer-une-cle-d-un-dictionnaire">Supprimer une clé d’un dictionnaire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dict.html#savoir-si-une-cle-est-presente-dans-un-dictionnaire">Savoir si une clé est présente dans un dictionnaire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dict.html#comparer-deux-dictionnaires">Comparer deux dictionnaires</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#quelques-methodes-pour-les-dictionnaires">Quelques méthodes pour les dictionnaires</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structures_de_controle.html">Les structures de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#l-indentation-du-code">L’indentation du code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#structures-de-decision">Structures de décision</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-if">L’instruction <em>if</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-else">L’instruction <em>else</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-elif">L’instruction <em>elif</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-operateur-ternaire">L’opérateur ternaire</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#exercice">Exercice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#structures-iteratives">Structures itératives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-while">L’instruction <em>while</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-for">L’instruction <em>for</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#la-fonction-range">La fonction <em>range</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#interrompre-un-bloc-d-iteration">Interrompre un bloc d’itération</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#structure-iterative-avec-else">Structure itérative avec <em>else</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#id1">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fonction_avance.html">Les fonctions (notions avancées)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#decompactage-des-parametres">décompactage des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#compactage-des-parametres">compactage des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#appel-recursif-de-fonction">Appel récursif de fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#declaration-de-fonction-dans-une-fonction">Déclaration de fonction dans une fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#la-fonction-comme-type-python">La fonction comme type Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#les-fonctions-anonymes-lambdas">Les fonctions anonymes (lambdas)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="list_comprehension.html">Liste en compréhension</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="list_comprehension.html#dictionnaire-en-comprehension">Dictionnaire en compréhension</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="module.html">Les modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="module.html#le-module-pour-prevenir-la-collision-de-nom">Le module pour prévenir la collision de nom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#la-bibliotheque-standard-python">La bibliothèque standard Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#importer-un-module">Importer un module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#importer-directement-un-nom">Importer directement un nom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#creer-un-module-a-partir-d-un-fichier">Créer un module à partir d’un fichier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#module-executable">Module exécutable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#creer-un-module-a-partir-d-un-repertoire">Créer un module à partir d’un répertoire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#module-repertoire-executable">Module répertoire exécutable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#chemin-des-modules">Chemin des modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#les-packages">Les <em>packages</em></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="module.html#import-relatif">Import relatif</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="decorateur.html">Les décorateurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="decorateur.html#un-premier-decorateur">Un premier décorateur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decorateur.html#decorer-des-fonctions-avec-des-parametres-et-des-valeurs-de-retour">Décorer des fonctions avec des paramètres et des valeurs de retour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decorateur.html#decorateur-avec-des-parametres">Décorateur avec des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decorateur.html#conserver-la-documentation-malgre-l-utilisation-d-un-decorateur">Conserver la documentation malgré l’utilisation d’un décorateur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decorateur.html#appliquer-plusieurs-decorateurs">Appliquer plusieurs décorateurs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="objet.html">La programmation orientée objet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#la-classe-et-les-instances">La classe et les instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#les-attributs">Les attributs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#les-attributs-implicites">Les attributs implicites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#les-methodes">Les méthodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#le-constructeur">Le constructeur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#les-proprietes">Les propriétés</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#les-attributs-de-classe">Les attributs de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#methodes-de-classe">Méthodes de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#methodes-statiques">Méthodes statiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#visibilite-des-attributs-et-des-methodes">Visibilité des attributs et des méthodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#fermer-la-liste-des-attributs">Fermer la liste des attributs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#creer-des-objets-avec-des-attributs-constants">Créer des objets avec des attributs constants</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="heritage.html">Héritage et polymorphisme</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#l-heritage">L’héritage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#constructeur-et-heritage">Constructeur et héritage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#heritage-et-mutualisation-de-code">Héritage et mutualisation de code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#la-classe-object">La classe <em>object</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#le-polymorphisme">Le polymorphisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#polymorphisme-et-duck-typing">Polymorphisme et <em>duck typing</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#masquer-les-attributs-et-les-methodes-pour-les-classe-filles">Masquer les attributs et les méthodes pour les classe filles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#heritage-multiple-et-mixin">Héritage multiple et <em>mixin</em></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="heritage.html#l-heritage-en-diamant">L’héritage en diamant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="heritage.html#appel-des-constructeurs">Appel des constructeurs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="heritage.html#les-mixins">Les mixins</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#la-meta-classe">La méta-classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#classes-et-methodes-abstraites">Classes et méthodes abstraites</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">Les exceptions et la gestion des erreurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#traiter-une-exception">Traiter une exception</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exception.html#recuperer-les-donnees-d-une-exception">Récupérer les données d’une exception</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#clause-else">Clause <em>else</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#post-traitement">Post-traitement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#lever-une-exception">Lever une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#creer-son-exception">Créer son exception</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dunder.html">Les méthodes spéciales (<em>dunders</em>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#methodes-speciales-elementaires">Méthodes spéciales élémentaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#methodes-speciales-pour-les-conversions">Méthodes spéciales pour les conversions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#methodes-speciales-pour-les-operateurs-unaires">Méthodes spéciales pour les opérateurs unaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#methodes-speciales-pour-les-operations-arithmetiques">Méthodes spéciales pour les opérations arithmétiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#methodes-speciales-pour-la-comparaison">Méthodes spéciales pour la comparaison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#methodes-speciales-pour-les-conteneurs">Méthodes spéciales pour les conteneurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#tout-est-objet">Tout est objet !</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#les-fonctions-comme-objet">Les fonctions comme objet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#les-classes-comme-objet">Les classes comme objet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#et-bien-d-autres-methodes-speciales">Et bien d’autres méthodes spéciales…</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#methodes-speciales-et-classes-abstraites">Méthodes spéciales et classes abstraites</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="iterateur_generateur.html">Itérateurs et Générateurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#les-iterateurs">Les itérateurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#les-fonctions-iter-et-next">Les fonctions iter() et next()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#les-generateurs">Les générateurs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="iterateur_generateur.html#les-fonctions-generatrices-avec-yield">Les fonctions génératrices avec <em>yield</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="iterateur_generateur.html#les-generateurs-en-comprehension">Les générateurs en compréhension</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#les-fonctions-enumerate-map-zip-filter">Les fonctions <em>enumerate</em>, <em>map</em>, <em>zip</em>, <em>filter</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#le-module-itertools">Le module <em>itertools</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fichier.html">Gestion des fichiers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fichier.html#ouvrir-et-fermer-un-fichier">Ouvrir et fermer un fichier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fichier.html#lire-le-contenu-d-un-fichier">Lire le contenu d’un fichier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fichier.html#les-modes-de-fichier">Les modes de fichier</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#specificite-du-mode-texte">Spécificité du mode texte</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fichier.html#ecrire-dans-un-fichier">Écrire dans un fichier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fichier.html#chemin-de-fichier">Chemin de fichier</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#le-module-os-path">Le module <em>os.path</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#le-module-pathlib">Le module <em>pathlib</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fichier.html#actions-sur-les-fichiers-et-les-repertoires">Actions sur les fichiers et les répertoires</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#connaitre-le-repertoire-de-travail">Connaître le répertoire de travail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#connaitre-le-repertoire-de-l-utilisateur">Connaître le répertoire de l’utilisateur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#copier-un-fichier">Copier un fichier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#supprimer-un-fichier">Supprimer un fichier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#creer-un-repertoire">Créer un répertoire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#supprimer-un-repertoire">Supprimer un répertoire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#verifier-qu-un-fichier-existe">Vérifier qu’un fichier existe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#lister-le-contenu-d-un-repertoire">Lister le contenu d’un répertoire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#rechercher-des-fichiers">Rechercher des fichiers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fichier.html#lecture-de-fichiers-csv">Lecture de fichiers CSV</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Les tests unitaires automatisés avec unittest</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#structure-d-une-classe-de-test">Structure d’une classe de test</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#execution-des-tests">Exécution des tests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tester-des-exceptions">Tester des exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#utilisation-de-doublure">Utilisation de doublure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#utilisation-d-un-objet-mock">Utilisation d’un objet <em>mock</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="socket.html">Les sockets et la programmation réseau</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="socket.html#exemple-d-implementation-d-un-serveur">Exemple d’implémentation d’un serveur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="socket.html#exemple-d-implementation-d-un-client">Exemple d’implémentation d’un client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="socket.html#exemple-d-un-serveur-multi-thread">Exemple d’un serveur multi-thread</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Qt pour Python (PySide2)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pyside2/signal_slot.html">Les signaux et les slots</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/signal_slot.html#les-signaux">Les signaux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/signal_slot.html#les-slots">Les slots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/signal_slot.html#connecter-les-signaux-et-les-slots">Connecter les signaux et les slots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pyside2/boite_dialogue.html">Création d’une boite de dialogue</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/boite_dialogue.html#creation-de-l-interface-avec-designer">Création de l’interface avec Designer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/boite_dialogue.html#generation-du-code-python-avec-pyside2-uic">Génération du code Python avec pyside2-uic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/boite_dialogue.html#implementation-de-la-boite-de-dialogue">Implémentation de la boite de dialogue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/boite_dialogue.html#implementation-de-l-application">Implémentation de l’application</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pyside2/qtsql.html">Accéder aux bases de données avec QtSql</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/qtsql.html#declaration-d-une-connexion">Déclaration d’une connexion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/qtsql.html#ouverture-d-une-connexion">Ouverture d’une connexion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/qtsql.html#requete-avec-qsqlquery">Requête avec QSqlQuery</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pyside2/qtsql.html#requetes-de-modification">Requêtes de modification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pyside2/qtsql.html#requetes-de-consultation">Requêtes de consultation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/qtsql.html#requetes-preparees">Requêtes préparées</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/qtsql.html#gestion-des-erreurs">Gestion des erreurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/qtsql.html#les-transactions">Les transactions</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Le langage Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Les tests unitaires automatisés avec unittest</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="socket.html" class="btn btn-neutral float-right" title="Les sockets et la programmation réseau" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="fichier.html" class="btn btn-neutral float-left" title="Gestion des fichiers" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="les-tests-unitaires-automatises-avec-unittest">
+<h1>Les tests unitaires automatisés avec unittest<a class="headerlink" href="#les-tests-unitaires-automatises-avec-unittest" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Un test automatisé est un programme qui se découpe en trois étapes dites
+AAA pour <em>Arrange</em>, <em>Act</em>, <em>Assert</em>.</p>
+<dl class="simple">
+<dt>Arrange</dt><dd><p>La mise en place de l’environnement : création et initialisation des
+objets nécessaires à l’exécution du test.</p>
+</dd>
+<dt>Act</dt><dd><p>Le test proprement dit.</p>
+</dd>
+<dt>Assert</dt><dd><p>La vérification des résultats obtenus par le test.</p>
+</dd>
+</dl>
+<p>Le sous-système (l’ensemble des objets) éprouvé par le test est parfois
+appelé <strong>SUT</strong> (System Under Test).</p>
+<p>On distingue différentes catégories de tests :</p>
+<ul class="simple">
+<li><p>Tests unitaires : testent une partie (une unité) d’un système afin de
+s’assurer qu’il fonctionne correctement (<em>build the system right</em>)</p></li>
+<li><p>Tests d’acceptation : testent le système afin de s’assurer qu’il est
+conforme aux besoins (<em>build the right system</em>)</p></li>
+<li><p>Tests d’intégration : testent le système sur une plate-forme proche
+de la plate-forme cible</p></li>
+<li><p>Tests de sécurité : testent que l’application ne contient pas de
+failles de sécurité connues (injection de code, attaque XSS, …)</p></li>
+<li><p>Tests de robustesse : testent le comportement de l’application au
+limite des ressources disponibles (mémoire, CPU, …) sur la
+plate-forme</p></li>
+</ul>
+<p>Pour réaliser des tests unitaires, <a class="reference external" href="https://docs.python.org/3.6/library/unittest.html#module-unittest" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">unittest</span></code></a> est le framework de test
+intégré dans la bibliothèque standard Python.</p>
+<div class="section" id="structure-d-une-classe-de-test">
+<h2>Structure d’une classe de test<a class="headerlink" href="#structure-d-une-classe-de-test" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les tests sont regroupés dans des classes de test. Généralement, on groupe dans
+une classe les tests ayant la même classe ou le même module comme point d’entrée.
+La classe de test doit impérativement héritée de <a class="reference external" href="https://docs.python.org/3.6/library/unittest.html#unittest.TestCase" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.TestCase</span></code></a>.
+Les tests sont représentés par des méthodes dont le nom commence par <code class="docutils literal notranslate"><span class="pre">test</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Exemple d’une classe de test</span><a class="headerlink" href="#id1" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
+
+<span class="k">class</span> <span class="nc">UneClasseDeTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">test_simple</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Pour exécuter une classe de test, il faut utiliser la fonction
+<a class="reference external" href="https://docs.python.org/3.6/library/unittest.html#unittest.main" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">unittest.main()</span></code></a>. Pour permettre de rendre le module de test exécutable,
+on ajoute donc dans le fichier :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Il est possible d’exécuter des instructions avant et après chaque test pour
+allouer et désallouer des ressources nécessaires à l’exécution des
+tests. On redéfinit pour cela les méthodes <a class="reference external" href="https://docs.python.org/3.6/library/unittest.html#unittest.TestCase.setUp" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setUp()</span></code></a>
+et <a class="reference external" href="https://docs.python.org/3.6/library/unittest.html#unittest.TestCase.tearDown" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">tearDown()</span></code></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
+
+<span class="k">class</span> <span class="nc">UneClasseDeTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Avant le test&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">tearDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Après le test&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_simple</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Pour réaliser les assertions, une classe de test hérite de
+<a class="reference external" href="https://docs.python.org/3.6/library/unittest.html#unittest.TestCase" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.TestCase</span></code></a> des méthodes d’assertion.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 59%" />
+<col style="width: 41%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Méthode</p></th>
+<th class="head"><p>vérifie</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/library/unittest.html#unittest.TestCase.assertEqual" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">assertEqual(a,</span> <span class="pre">b)</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">==</span> <span class="pre">b</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.6/library/unittest.html#unittest.TestCase.assertNotEqual" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">assertNotEqual(a,</span> <span class="pre">b)</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">!=</span> <span class="pre">b</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/library/unittest.html#unittest.TestCase.assertTrue" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">assertTrue(x)</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool(x)</span> <span class="pre">is</span> <span class="pre">True</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.6/library/unittest.html#unittest.TestCase.assertFalse" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">assertFalse(x)</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool(x)</span> <span class="pre">is</span> <span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/library/unittest.html#unittest.TestCase.assertIs" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">assertIs(a,</span> <span class="pre">b)</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">is</span> <span class="pre">b</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.6/library/unittest.html#unittest.TestCase.assertIsNot" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">assertIsNot(a,</span> <span class="pre">b)</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">b</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/library/unittest.html#unittest.TestCase.assertIsNone" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">assertIsNone(x)</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">is</span> <span class="pre">None</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.6/library/unittest.html#unittest.TestCase.assertIsNotNone" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">assertIsNotNone(x)</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">None</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/library/unittest.html#unittest.TestCase.assertIn" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">assertIn(a,</span> <span class="pre">b)</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">in</span> <span class="pre">b</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.6/library/unittest.html#unittest.TestCase.assertNotIn" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">assertNotIn(a,</span> <span class="pre">b)</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">not</span> <span class="pre">in</span> <span class="pre">b</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/library/unittest.html#unittest.TestCase.assertIsInstance" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">assertIsInstance(a,</span> <span class="pre">b)</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">isinstance(a,</span> <span class="pre">b)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.6/library/unittest.html#unittest.TestCase.assertNotIsInstance" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">assertNotIsInstance(a,</span> <span class="pre">b)</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">isinstance(a,</span> <span class="pre">b)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Toutes ces méthodes acceptent le paramètre optionnel <code class="docutils literal notranslate"><span class="pre">msg</span></code> pour passer un message
+d’erreur à afficher si l’assertion échoue.</p>
+<div class="section" id="execution-des-tests">
+<h3>Exécution des tests<a class="headerlink" href="#execution-des-tests" title="Lien permanent vers ce titre">¶</a></h3>
+<p>En rendant chaque module de test exécutable, il suffit de lancer le module lui-même
+pour produire un rapport de test.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">le fichier <code class="file docutils literal notranslate"><span class="pre">test_str.py</span></code></span><a class="headerlink" href="#id2" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
+
+<span class="k">class</span> <span class="nc">ChaineDeCaractereTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">test_reversed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">resultat</span> <span class="o">=</span> <span class="nb">reversed</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="s2">&quot;dcba&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">resultat</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">test_sorted</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">resultat</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="s2">&quot;dbca&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="n">resultat</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_upper</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">resultat</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="s2">&quot;HELLO&quot;</span><span class="p">,</span> <span class="n">resultat</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python3 test_str.py
+
+...
+----------------------------------------------------------------------
+Ran <span class="m">3</span> tests in <span class="m">0</span>.000s
+
+OK
+</pre></div>
+</div>
+<p>Il est également possible de lancer directement le module <a class="reference external" href="https://docs.python.org/3.6/library/unittest.html#module-unittest" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">unittest</span></code></a> grâce
+à l’option <code class="docutils literal notranslate"><span class="pre">-m</span></code> en passant comme paramètre les modules qui définissent les
+tests (le nom des fichiers sans l’extension <code class="docutils literal notranslate"><span class="pre">.py</span></code>). On peut ainsi lancer
+plusieurs modules de test comme une suite :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python3 -m unittest test_str
+
+...
+----------------------------------------------------------------------
+Ran <span class="m">3</span> tests in <span class="m">0</span>.000s
+
+OK
+</pre></div>
+</div>
+<div class="exercice admonition">
+<p class="admonition-title">Exercice - Tests unitaires de abs()</p>
+<p>Écrire les tests unitaires pour la fonction <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#abs" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">abs()</span></code></a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>L’exercice précédent propose de tester une méthode sans effet de bord
+(ce que l’on appelle également une <a class="reference external" href="https://fr.wikipedia.org/wiki/Fonction_pure">fonction
+pure</a>). Les tests sur ce
+type de méthodes sont faciles à écrire. Ils restent cependant
+l’exception lorsqu’on utilise la programmation orientée objet. En effet,
+l’appel d’une méthode sur un objet modifie le plus souvent son état et
+provoque généralement des effets de bord en sollicitant d’autres objets
+avec lesquels l’objet entretient des dépendances.</p>
+</div>
+</div>
+</div>
+<div class="section" id="tester-des-exceptions">
+<h2>Tester des exceptions<a class="headerlink" href="#tester-des-exceptions" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les tests unitaires automatisés sont utiles pour vérifier qu’une fonction (ou
+une méthode) produit le résultat attendu si l’appel est correct mais ils sont
+également très utiles pour vérifier qu’elle produit l’erreur attendue dans
+certains cas.</p>
+<p>Pour tester qu’une exception survient, on peut utiliser la méthode
+<a class="reference external" href="https://docs.python.org/3.6/library/unittest.html#unittest.TestCase.assertRaises" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TestCase.assertRaises</span></code></a> conjointement
+avec une structure <a class="reference external" href="https://docs.python.org/3.6/reference/compound_stmts.html#with" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">with</span></code></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
+
+<span class="k">class</span> <span class="nc">AbsTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">test_abs_n_accepte_pas_une_chaine_de_caracteres</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">):</span>
+            <span class="nb">abs</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python3 test_abs.py
+.
+----------------------------------------------------------------------
+Ran <span class="m">1</span> <span class="nb">test</span> in <span class="m">0</span>.000s
+
+OK
+</pre></div>
+</div>
+</div>
+<div class="section" id="utilisation-de-doublure">
+<h2>Utilisation de doublure<a class="headerlink" href="#utilisation-de-doublure" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Parfois, il est utile de contrôler l’environnement de test d’un objet ou
+d’une collaboration d’objets. Pour cela, on peut faire appel à des
+doublures qui vont se substituer lors des tests aux objets réellement
+utilisés lors de l’exécution de l’application dans un environnement de
+production.</p>
+<dl class="simple">
+<dt>Simulateur</dt><dd><p>Un simulateur fournit une implémentation alternative d’un
+sous-système. Un simulateur remplace un sous-système qui n’est pas
+disponible pour l’environnement de test. Par exemple, on peut
+remplacer un système de base de données par une implémentation
+simplifiée en mémoire.</p>
+</dd>
+<dt>Fake object</dt><dd><p>Un <em>fake object</em> permet de remplacer un sous-système dont il est
+difficile de garantir le comportement. Le comportement du <em>fake
+object</em> est défini par le test et est donc déterministe. Par exemple,
+si un objet dépend des informations retournées par un service Web,
+il est souhaitable de remplacer pour les tests l’implémentation du
+client par une implémentation qui retournera une réponse déterminée
+par le test lui-même.</p>
+</dd>
+<dt>Mock object</dt><dd><p>Un objet <em>mock</em> est proche d’un <em>fake object</em> sauf qu’un objet <em>mock</em> est
+également capable de faire des assertions sur les méthodes qui sont
+appelées et les paramètres qui sont transmis à ces méthodes.</p>
+</dd>
+</dl>
+<div class="section" id="utilisation-d-un-objet-mock">
+<h3>Utilisation d’un objet <em>mock</em><a class="headerlink" href="#utilisation-d-un-objet-mock" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le module <a class="reference external" href="https://docs.python.org/3.6/library/unittest.mock.html#module-unittest.mock" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">unittest.mock</span></code></a> permet de créer facilement des objets <em>mock</em>.
+Ce module fournit les classes <a class="reference external" href="https://docs.python.org/3.6/library/unittest.mock.html#unittest.mock.Mock" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mock</span></code></a> et
+<a class="reference external" href="https://docs.python.org/3.6/library/unittest.mock.html#unittest.mock.MagicMock" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MagicMock</span></code></a> (cette dernière est une extension
+<a class="reference external" href="https://docs.python.org/3.6/library/unittest.mock.html#unittest.mock.Mock" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mock</span></code></a> pour le support automatique des méthodes spéciales
+ou <em>dunders</em>). On peut programmer le comportement des méthodes d’un objet <em>mock</em>
+et vérifier ensuite qu’il a bien été utilisé comme attendu au cours du test.</p>
+<p>Supposons que nous voulions tester la fonction suivante :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+
+<span class="k">def</span> <span class="nf">is_sourcefile</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Retourne True si le fichier est un fichier source Python&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Fichier indisponible&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">path</span><span class="o">.</span><span class="n">suffix</span> <span class="o">==</span> <span class="s2">&quot;.py&quot;</span>
+</pre></div>
+</div>
+<p>Nous pouvons utiliser un <em>mock</em> à la place du paramètre <code class="docutils literal notranslate"><span class="pre">path</span></code> pour contrôler
+l’appel de la méthode <a class="reference external" href="https://docs.python.org/3.6/library/pathlib.html#pathlib.Path.is_file" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">is_file()</span></code></a> :</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
+<span class="kn">from</span> <span class="nn">unittest.mock</span> <span class="kn">import</span> <span class="n">Mock</span>
+
+
+<span class="k">class</span> <span class="nc">FonctionTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">test_is_sourcefile_when_sourcefile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">()</span>
+        <span class="n">path</span><span class="o">.</span><span class="n">is_file</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">path</span><span class="o">.</span><span class="n">suffix</span> <span class="o">=</span> <span class="s2">&quot;.py&quot;</span>
+
+        <span class="n">resultat</span> <span class="o">=</span> <span class="n">is_sourcefile</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">resultat</span><span class="p">)</span>
+        <span class="n">path</span><span class="o">.</span><span class="n">is_file</span><span class="o">.</span><span class="n">assert_called</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">test_is_sourcefile_when_file_does_not_exist</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">()</span>
+        <span class="n">path</span><span class="o">.</span><span class="n">is_file</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+            <span class="n">is_sourcefile</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+        <span class="n">path</span><span class="o">.</span><span class="n">is_file</span><span class="o">.</span><span class="n">assert_called</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">test_is_sourcefile_when_not_expected_suffix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">()</span>
+        <span class="n">path</span><span class="o">.</span><span class="n">is_file</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">path</span><span class="o">.</span><span class="n">suffix</span> <span class="o">=</span> <span class="s2">&quot;.txt&quot;</span>
+
+        <span class="n">resultat</span> <span class="o">=</span> <span class="n">is_sourcefile</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertFalse</span><span class="p">(</span><span class="n">resultat</span><span class="p">)</span>
+        <span class="n">path</span><span class="o">.</span><span class="n">is_file</span><span class="o">.</span><span class="n">assert_called</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<p>À la ligne 8, nous créons un <em>mock</em> et nous pouvons prédéfinir la valeur qui sera
+retournée par la méthode <a class="reference external" href="https://docs.python.org/3.6/library/pathlib.html#pathlib.Path.is_file" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">is_file()</span></code></a> ainsi que la valeur
+de l’attribut <a class="reference external" href="https://docs.python.org/3.6/library/pathlib.html#pathlib.PurePath.suffix" title="(disponible dans Python v3.6)"><code class="xref py py-data docutils literal notranslate"><span class="pre">suffix</span></code></a>.</p>
+<p>Puis à la ligne 15, nous contrôlons que la méthode <a class="reference external" href="https://docs.python.org/3.6/library/pathlib.html#pathlib.Path.is_file" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">is_file()</span></code></a>
+a bien était appelée pendant l’exécution du test.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="socket.html" class="btn btn-neutral float-right" title="Les sockets et la programmation réseau" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="fichier.html" class="btn btn-neutral float-left" title="Gestion des fichiers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright David Gayerie - david@gayerie.dev - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

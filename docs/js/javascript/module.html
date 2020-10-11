@@ -1,0 +1,416 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Javascript - les modules" name="description" />
+<meta content="Javascript, Ecmascript, ES5, ES6, langage de programmation, Web" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Les modules &mdash; Documentation Le JavaScript moderne </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/js/javascript/module.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Les symboles" href="symbol.html" />
+    <link rel="prev" title="Programmation fonctionnelle" href="fonctionnel.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Le JavaScript moderne
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">JavaScript (notions avancées)</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="evolution_syntaxe.html">Les apports de ES5 et ES6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="evolution_syntaxe.html#le-mode-strict-es5">Le mode strict (ES5)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evolution_syntaxe.html#declarer-une-variable-avec-let-et-const-es6">Déclarer une variable avec let et const (ES6)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evolution_syntaxe.html#gabarit-de-chaine-de-caracteres-es6">Gabarit de chaîne de caractères (ES6)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evolution_syntaxe.html#evolution-de-la-syntaxe-en-es6">Évolution de la syntaxe en ES6</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="evolution_syntaxe.html#valeur-par-defaut-des-parametres">Valeur par défaut des paramètres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="evolution_syntaxe.html#le-parametre-de-reste">Le paramètre de reste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="evolution_syntaxe.html#la-decomposition-de-tableau">La décomposition de tableau</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modele_objet.html">Le modèle objet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modele_objet.html#creer-des-objets">Créer des objets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modele_objet.html#la-declaration-litterale">La déclaration littérale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modele_objet.html#le-constructeur">Le constructeur</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modele_objet.html#le-prototype">Le prototype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modele_objet.html#la-notion-de-propriete">La notion de propriété</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modele_objet.html#l-heritage">L’héritage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modele_objet.html#la-notion-de-classe-depuis-es6">La notion de classe depuis ES6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modele_objet.html#l-heritage-avec-les-classes">L’héritage avec les classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modele_objet.html#utilisation-du-mot-cle-super">Utilisation du mot-clé super</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fonctionnel.html">Programmation fonctionnelle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fonctionnel.html#les-arrow-functions">Les arrow functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonctionnel.html#l-utilisation-de-foreach">L’utilisation de forEach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonctionnel.html#le-modele-filter-map-reduce">Le modèle filter/map/reduce</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Les modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#exporter">Exporter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#export-par-defaut">Export par défaut</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#importer">Importer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="symbol.html">Les symboles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="symbol.html#les-symboles-comme-noms-de-proprietes">Les symboles comme noms de propriétés</a></li>
+<li class="toctree-l2"><a class="reference internal" href="symbol.html#well-known-symbols">well-known symbols</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="iterateur_generateur.html">Les itérateurs et les générateurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#les-iterateurs">Les itérateurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#les-iterables">Les itérables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#la-structure-for-of">La structure for … of</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#les-generateurs">Les générateurs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="promesse.html">Les promesses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="promesse.html#la-classe-promise">La classe Promise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="promesse.html#le-chainage-des-appels">Le chaînage des appels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="promesse.html#traitements-paralleles">Traitements parallèles</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">three.js</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../threejs/introduction.html">Introduction et mise en place</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/introduction.html#chargement-asynchrone-en-local">Chargement asynchrone en local</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/introduction.html#fichier-html-de-base">Fichier HTML de base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/introduction.html#creation-d-un-renderer">Création d’un renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/introduction.html#creation-d-une-camera">Création d’une caméra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/introduction.html#creation-d-une-scene">Création d’une scène</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/introduction.html#rendu-d-une-scene">Rendu d’une scène</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/introduction.html#redimensionnement-du-canevas">Redimensionnement du canevas</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../threejs/objets_et_scene.html">Objets et scène</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/objets_et_scene.html#repere-de-coordonnees">Repère de coordonnées</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/objets_et_scene.html#mesh-et-geometry">Mesh et Geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/objets_et_scene.html#les-transformations-dans-l-espace">Les transformations dans l’espace</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/objets_et_scene.html#exercice">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/objets_et_scene.html#une-animation-simple">Une animation simple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/objets_et_scene.html#hierarchie-d-objets">Hiérarchie d’objets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/objets_et_scene.html#excercice">Excercice</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../threejs/materiaux.html">Les matériaux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/materiaux.html#le-meshbasicmaterial">Le MeshBasicMaterial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/materiaux.html#les-lumieres">Les lumières</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/materiaux.html#les-materiaux-reagissant-a-la-lumiere">Les matériaux réagissant à la lumière</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/materiaux.html#excercice">Excercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/materiaux.html#textures-et-maps">Textures et Maps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/materiaux.html#chargement-d-une-texture">Chargement d’une texture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/materiaux.html#un-texture-comme-color-map">Un texture comme <em>color map</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/materiaux.html#les-autres-types-de-textures">Les autres types de textures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/materiaux.html#les-ombres">Les ombres</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../threejs/interactions.html">Les interactions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/interactions.html#les-controleurs">Les contrôleurs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/interactions.html#le-controleur-orbital">Le contrôleur orbital</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/interactions.html#le-lancer-de-rayon">Le lancer de rayon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/interactions.html#la-projection">La projection</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../threejs/chargement_scene.html">Chargement de modèle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/chargement_scene.html#le-chargeur-gltf">Le chargeur glTF</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../threejs/animation_curve.html">Animation à partir de courbes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/animation_curve.html#les-courbes">Les courbes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/animation_curve.html#representation-graphique-d-une-courbe">Représentation graphique d’une courbe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/animation_curve.html#animation-le-long-d-une-courbe">Animation le long d’une courbe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/animation_curve.html#exercice">Exercice</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Le JavaScript moderne</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Les modules</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="symbol.html" class="btn btn-neutral float-right" title="Les symboles" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="fonctionnel.html" class="btn btn-neutral float-left" title="Programmation fonctionnelle" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="les-modules">
+<h1>Les modules<a class="headerlink" href="#les-modules" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Jusqu’à ES6, JavaScript ne disposait ni d’un mécanisme de déclaration d’un
+espace de noms ni de la possibilité d’importer un fichier source depuis un autre
+fichier source. Plusieurs développeurs et plusieurs <em>frameworks</em> ont proposé
+des solutions mais ES6 fournit maintenant la notion de module.</p>
+<div class="admonition warning">
+<p class="admonition-title">Avertissement</p>
+<p>Les modules sont bien supportés par les <a class="reference external" href="https://caniuse.com/#feat=es6-module">navigateurs Web les plus récents</a>.
+Cependant, pour certains outils, leur usage est encore expérimental. Ainsi,
+avec Node.js, les fichiers modules doivent avoir l’extension <strong>.mjs</strong> et vous
+devez lancer l’exécutable <code class="docutils literal notranslate"><span class="pre">node</span></code> avec l’option <strong>–experimental-modules</strong>.</p>
+</div>
+<div class="section" id="exporter">
+<h2>Exporter<a class="headerlink" href="#exporter" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un module est stocké dans un fichier avec l’extension <em>.js</em>. Un module représente
+un espace de déclaration pour lequel le développeur décide des noms qui sont
+exportés (c’est-à-dire qui sont visibles depuis d’autres fichiers <em>.js</em>). Pour
+cela, on utilise le mot-clé <code class="docutils literal notranslate"><span class="pre">export</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Exemple fichier mon_module.js</span><a class="headerlink" href="#id1" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">fonction_pas_exportee</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">fonction_exportee</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="kd">function</span> <span class="nx">autre_fonction_exportee</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="kr">const</span> <span class="nx">auteur</span> <span class="o">=</span> <span class="s2">&quot;David Gayerie&quot;</span><span class="p">;</span>
+<span class="kr">export</span> <span class="p">{</span><span class="nx">fonction_exportee</span><span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<p>Seules les variables et les fonctions exportées seront accessibles depuis
+d’autres fichiers sources.</p>
+<div class="section" id="export-par-defaut">
+<h3>Export par défaut<a class="headerlink" href="#export-par-defaut" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il est possible d’exporter <strong>un seul</strong> élément par défaut (qu’il s’agisse d’une
+fonction ou d’une variable).</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="importer">
+<h2>Importer<a class="headerlink" href="#importer" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour accéder aux éléments exportés d’un module, on utilise le mot-clé <code class="docutils literal notranslate"><span class="pre">import</span></code>.</p>
+<p>Pour importer un élément précis :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span><span class="nx">auteur</span><span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;mon-module.js&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Pour importer plusieurs éléments :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span><span class="nx">auteur</span><span class="p">,</span> <span class="nx">fonction_exportee</span><span class="p">}</span>  <span class="nx">from</span> <span class="s2">&quot;mon-module.js&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Pour importer tous les éléments dans un objet appelé <code class="docutils literal notranslate"><span class="pre">x</span></code> :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">x</span> <span class="nx">from</span> <span class="s2">&quot;mon-module.js&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Pour importer l’élément par défaut avec l’alias <code class="docutils literal notranslate"><span class="pre">x</span></code> :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">x</span> <span class="nx">from</span> <span class="s2">&quot;mon-module.js&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="symbol.html" class="btn btn-neutral float-right" title="Les symboles" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="fonctionnel.html" class="btn btn-neutral float-left" title="Programmation fonctionnelle" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright David Gayerie - david@gayerie.dev - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

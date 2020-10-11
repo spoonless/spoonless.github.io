@@ -1,0 +1,1298 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Le langage Java - Les relations entre les objets (héritage et composition)" name="description" />
+<meta content="Java, programmation objet, POO, langage de programmation, héritage, composition" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Héritage et composition &mdash; Documentation Le langage Java </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/java/langage_java/heritage_composition.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Le polymorphisme" href="polymorphisme.html" />
+    <link rel="prev" title="Les packages" href="package.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Le langage Java
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Le langage Java</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#l-environnement">L’environnement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#oracle-jdk-et-open-jdk">Oracle JDK et Open JDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#un-bref-historique-des-versions">Un bref historique des versions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#configuration-d-eclipse">Configuration d’Eclipse</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="compilation.html">Compilation &amp; exécution</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#un-premier-programme">Un premier programme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#la-compilation">La compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#l-execution">L’exécution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#la-liaison-dynamique">La liaison dynamique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#le-classpath">Le classpath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#bibliotheques-java-les-fichiers-jar">Bibliothèques Java : les fichiers JAR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#creation-d-un-projet-dans-eclipse">Création d’un projet dans Eclipse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structure_fondamentale.html">La structure fondamentale du langage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-instructions">Les instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#le-typage">Le typage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-blocs-de-code">Les blocs de code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-commentaires">Les commentaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#le-formatage-du-code">Le formatage du code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-conventions-de-nommage">Les conventions de nommage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-mots-cles">Les mots-clés</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="premiere_classe.html">Une première classe</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#declarer-une-classe">Déclarer une classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#anatomie-d-une-classe">Anatomie d’une classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#ajouter-des-methodes">Ajouter des méthodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#la-methode-main">La méthode main</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#executer-le-programme-en-ligne-de-commandes">Exécuter le programme en ligne de commandes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#executer-le-programme-depuis-eclipse">Exécuter le programme depuis Eclipse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="types_primitifs.html">Les types primitifs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#le-type-booleen-boolean">Le type booléen : boolean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#le-type-caractere-char">Le type caractère : char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#les-types-entiers-byte-short-int-long">Les types entiers : byte, short, int, long</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#les-types-a-virgule-flottante-float-double">Les types à virgule flottante : float, double</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#les-classes-enveloppes">Les classes enveloppes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#l-autoboxing">L’autoboxing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="operateurs.html">Les opérateurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur-d-affectation">L’opérateur d’affectation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-arithmetiques">Les opérateurs arithmétiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-arithmetiques-unaires">Les opérateurs arithmétiques unaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur-de-concatenation-de-chaines">L’opérateur de concaténation de chaînes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-relationnels">Les opérateurs relationnels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-logiques">Les opérateurs logiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur-ternaire">L’opérateur ternaire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-bitwise">Les opérateurs <em>bitwise</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-de-decalage">Les opérateurs de décalage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#le-transtypage-cast">Le transtypage (cast)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#operateur-et-assignation">Opérateur et assignation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur">L’opérateur .</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#id1">L’opérateur ,</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structures_de_controle.html">Les structures de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#if-else">if-else</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#return">return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#while">while</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#do-while">do-while</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#for">for</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#for-ameliore">for amélioré</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#break-continue">break-continue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#libelle">libellé</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#switch">switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tableau.html">Les tableaux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#initialisation">Initialisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#creation-avec-new">Création avec new</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#acces-aux-elements-d-un-tableau">Accès aux éléments d’un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#tableau-multi-dimensionnel">Tableau multi-dimensionnel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#conversion-en-chaine-de-caracteres">Conversion en chaîne de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#egalite-de-deux-tableaux">Égalité de deux tableaux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#tri-recherche">Tri &amp; recherche</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#copie-d-un-tableau">Copie d’un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#typage-d-un-tableau">Typage d’un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#conversion-d-un-tableau-en-liste">Conversion d’un tableau en liste</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="attributs_et_methodes.html">Attributs &amp; méthodes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#les-attributs">Les attributs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#la-portee">La portée</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#l-initialisation">L’initialisation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#attributs-finaux">attributs finaux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#attributs-de-classe">Attributs de classe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#attributs-de-classe-finaux">Attributs de classe finaux</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#les-methodes">Les méthodes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#id1">La portée</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#la-valeur-de-retour">La valeur de retour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#les-parametres">Les paramètres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#parametre-final">Paramètre final</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#les-variables">Les variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#methodes-de-classe">Méthodes de classe</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#surcharge-de-methode-overloading">Surcharge de méthode : overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#portee-des-noms-et-this">Portée des noms et this</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#principe-d-encapsulation">Principe d’encapsulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cycle_de_vie.html">Cycle de vie d’un objet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-constructeur">Le constructeur</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#parametres-de-constructeur">Paramètres de constructeur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#valeur-par-defaut-des-attributs">Valeur par défaut des attributs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#constructeur-par-defaut">Constructeur par défaut</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#constructeur-prive">Constructeur privé</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#appel-d-un-constructeur-dans-un-constructeur">Appel d’un constructeur dans un constructeur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#appel-d-une-methode-dans-un-constructeur">Appel d’une méthode dans un constructeur</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#injection-de-dependances-par-le-constructeur">Injection de dépendances par le constructeur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-bloc-d-initialisation">Le bloc d’initialisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-bloc-d-initialisation-de-classe">Le bloc d’initialisation de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#exercice">Exercice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#memoire-heap-et-stack">Mémoire heap et stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-ramasse-miettes">Le ramasse-miettes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#la-methode-finalize">La méthode finalize</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="package.html">Les packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="package.html#declaration-d-un-package">Déclaration d’un package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#sous-package">Sous package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#nom-d-un-package">Nom d’un package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#nom-complet-d-une-classe">Nom complet d’une classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#import-de-noms">Import de noms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#la-portee-de-niveau-package">La portée de niveau package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#le-fichier-package-info-java">Le fichier package-info.java</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Héritage et composition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#l-heritage-is-a">L’héritage (is-a)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#heritage-et-constructeur">Héritage et constructeur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#heritage-simple-object">Héritage simple : Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#heritage-et-affectation">Héritage et affectation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#le-mot-cle-instanceof">Le mot-clé instanceof</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#la-portee-protected">La portée protected</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#heritage-des-methodes-et-attributs-de-classe">Héritage des méthodes et attributs de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#heritage-et-final">Héritage et final</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#la-composition-has-a">La composition (has-a)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="polymorphisme.html">Le polymorphisme</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#principe-du-polymorphisme">Principe du polymorphisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#une-exception-les-methodes-privees">Une exception : les méthodes privées</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#redefinition-et-signature-de-methode">Redéfinition et signature de méthode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#le-mot-cle-super">Le mot-clé super</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#l-annotation-override">L’annotation &#64;Override</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#les-methodes-de-classe">Les méthodes de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#methode-finale">Méthode finale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#constructeur-et-polymorphisme">Constructeur et polymorphisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#masquage-des-attributs-par-heritage">Masquage des attributs par héritage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#le-principe-du-ouvert-ferme">Le principe du ouvert/fermé</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="classe_abstraite.html">Les classes abstraites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classe_abstraite.html#declarer-une-classe-abstraite">Déclarer une classe abstraite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_abstraite.html#declarer-une-methode-abstraite">Déclarer une méthode abstraite</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="la_classe_object.html">La classe Object</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-equals">La méthode equals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-hashcode">La méthode hashCode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-tostring">La méthode toString</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-finalize">La méthode finalize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-clone">La méthode clone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-getclass">La méthode getClass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#les-methodes-de-concurrence">Les méthodes de concurrence</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="la_classe_string.html">La classe String</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#string-et-tableau-de-caracteres">String et tableau de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#quelques-methodes-utilitaires">Quelques méthodes utilitaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#construction-d-une-instance-de-string">Construction d’une instance de String</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#immutabilite-des-chaines-de-caracteres">Immutabilité des chaînes de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#la-classe-stringbuilder">La classe StringBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#formatage-de-texte">Formatage de texte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#les-expressions-regulieres">Les expressions régulières</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_exceptions.html">Les exceptions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#qu-est-ce-qu-une-exception">Qu’est-ce qu’une exception ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#signaler-une-exception">Signaler une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#traiter-une-exception">Traiter une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#propagation-d-une-exception">Propagation d’une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#exceptions-et-polymorphisme">Exceptions et polymorphisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#le-bloc-finally">Le bloc finally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#le-try-with-resources">Le try-with-resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#hierarchie-applicative-d-exception">Hiérarchie applicative d’exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#exception-cause">Exception cause</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#les-erreurs-et-les-exceptions-runtime">Les erreurs et les exceptions runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#choix-entre-checked-et-unchecked">Choix entre checked et unchecked</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="enumeration.html">Les énumérations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#les-methodes-d-une-enumeration">Les méthodes d’une énumération</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#egalite-entre-enumerations">Égalité entre énumérations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#support-de-switch">Support de switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#generation-d-une-enumeration">Génération d’une énumération</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#ajout-de-methodes-et-d-attributs">Ajout de méthodes et d’attributs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#ajout-de-constructeurs">Ajout de constructeurs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Les interfaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#declaration-d-une-interface">Déclaration d’une interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#implementation-d-une-interface">Implémentation d’une interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#attributs-et-methodes-statiques">Attributs et méthodes statiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#heritage-d-interface">Héritage d’interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#les-interfaces-marqueurs">Les interfaces marqueurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#implementation-par-defaut">Implémentation par défaut</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#la-segregation-d-interface">La ségrégation d’interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#l-inversion-de-dependance">L’inversion de dépendance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="generiques.html">Méthodes et classes génériques</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#l-exemple-de-la-classe-arraylist">L’exemple de la classe ArrayList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#creation-et-assignation-d-une-classe-generique">Création et assignation d’une classe générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#notation-en-diamant">Notation en diamant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#substitution-et-type-generique">Substitution et type générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#ecrire-une-methode-generique">Écrire une méthode générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#ecrire-une-classe-generique">Écrire une classe générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#limitations">Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_collections.html">Les collections</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#les-listes">Les listes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-arraylist">La classe ArrayList</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-linkedlist">La classe LinkedList</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-arraydeque">La classe ArrayDeque</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-priorityqueue">La classe PriorityQueue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-classes-vector-et-stack">Les classes Vector et Stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-interfaces-pour-les-listes">Les interfaces pour les listes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#les-ensembles-set">Les ensembles (set)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-treeset">La classe TreeSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-hashset">La classe HashSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-linkedhashset">La classe LinkedHashSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-interfaces-pour-les-ensembles">Les interfaces pour les ensembles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#copie-d-une-collection-dans-un-tableau">Copie d’une collection dans un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#les-tableaux-associatifs-maps">Les tableaux associatifs (maps)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-treemap">La classe TreeMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-hashmap">La classe HashMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-linkedhashmap">La classe LinkedHashMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-classes-dictionary-et-hashtable">Les classes Dictionary et Hashtable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-interfaces-pour-les-tableaux-associatifs">Les interfaces pour les tableaux associatifs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#la-classe-outil-collections">La classe outil Collections</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="entrees_sorties.html">Les entrées/sorties</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#inputstream-et-classes-concretes">InputStream et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#outputstream-et-classes-concretes">OutputStream et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#flux-orientes-caracteres">Flux orientés caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#reader-et-classes-concretes">Reader et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#writer-et-classes-concretes">Writer et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#les-decorateurs-de-flux">Les décorateurs de flux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#la-classe-scanner">La classe Scanner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#fichiers-et-chemins">Fichiers et chemins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#acces-au-reseau">Accès au réseau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#la-serialisation-d-objets">La sérialisation d’objets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="entrees_sorties.html#donnee-transient">Donnée transient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="entrees_sorties.html#identifiant-de-version-de-serialisation">Identifiant de version de sérialisation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_dates.html">Les dates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#date-la-classe-historique">Date : la classe historique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#calendar">Calendar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#l-api-date-time">L’API Date/Time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_dates.html#id1">Les Dates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_dates.html#la-classe-instant">La classe Instant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_dates.html#periode-et-duree">Période et durée</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#formatage-des-dates">Formatage des dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#lecture-des-dates">Lecture des dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_lambdas.html">Programmation fonctionnelle et lambdas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_lambdas.html#les-fonctions-anonymes-les-lambdas">Les fonctions anonymes : les lambdas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#syntaxe-des-lambdas">Syntaxe des lambdas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#usage-des-lambdas">Usage des lambdas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#lambda-et-closure">Lambda et closure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#les-interfaces-fonctionnelles">Les interfaces fonctionnelles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#l-operateur-de-reference-de-methode">L’opérateur :: de référence de méthode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_lambdas.html#la-classe-optional">La classe Optional</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="streams.html">Streams</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#creation-d-un-stream">Création d’un stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#la-reduction">La réduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#la-collecte">La collecte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#le-filtrage">Le filtrage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#le-mapping">Le mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#le-parallelisme">Le parallélisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="classe_interne.html">Les classes internes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#les-classes-internes-static">Les classes internes static</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#id1">Les classes internes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#les-classes-anonymes">Les classes anonymes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#acces-aux-elements-de-l-objet-englobant">Accès aux éléments de l’objet englobant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#classe-interne-a-une-methode">Classe interne à une méthode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#interface-et-enumeration">Interface et énumération</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#plusieurs-classes-dans-un-meme-fichier">Plusieurs classes dans un même fichier</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_annotations.html">Les annotations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#utilisation-des-annotations">Utilisation des annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#declaration-d-une-annotation">Déclaration d’une annotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#retention-d-une-annotation">Rétention d’une annotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#utilisation-des-annotations-par-introspection">Utilisation des annotations par introspection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="module.html">Les modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="module.html#des-modules-pour-ameliorer-la-securite">Des modules pour améliorer la sécurité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#des-modules-pour-plus-de-modularite">Des modules pour plus de modularité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#le-descripteur-de-module-module-info-java">Le descripteur de module (module-info.java)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="module.html#dependance-a-d-autres-modules">Dépendance à d’autres modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module.html#exposer-des-packages">Exposer des packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module.html#utiliser-un-service">Utiliser un service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module.html#fournir-un-service">Fournir un service</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#le-module-anonyme">Le module anonyme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#la-notion-de-module-path">La notion de module path</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Le langage Java</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Héritage et composition</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="polymorphisme.html" class="btn btn-neutral float-right" title="Le polymorphisme" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="package.html" class="btn btn-neutral float-left" title="Les packages" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="heritage-et-composition">
+<h1>Héritage et composition<a class="headerlink" href="#heritage-et-composition" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Une application Java est composée d’un ensemble d’objets. Un des intérêts de la
+programmation objet réside dans les relations que ces objets entretiennent les
+uns avec les autres. Ces relations sont construites par les développeurs et
+constituent ce que l’on appelle l’architecture d’une application. Il existe
+deux relations fondamentales en programmation objet :</p>
+<dl class="simple">
+<dt><strong>est un</strong> (<em>is-a</em>)</dt><dd><p>Cette relation permet de créer une chaîne de relation d’identité entre des
+classes. Elle indique qu’une classe peut être assimilée à une autre classe
+qui correspond à une notion plus abstraite ou plus générale.
+On parle <strong>d’héritage</strong> pour désigner le mécanisme qui permet d’implémenter ce type de relation.</p>
+</dd>
+<dt><strong>a un</strong> (<em>has-a</em>)</dt><dd><p>Cette relation permet de créer une relation de dépendance d’une classe envers
+une autre. Une classe a besoin des services d’une autre classe pour réaliser
+sa fonction. On parle également de relation de <strong>composition</strong> pour désigner
+ce type de relation.</p>
+</dd>
+</dl>
+<div class="section" id="l-heritage-is-a">
+<h2>L’héritage (is-a)<a class="headerlink" href="#l-heritage-is-a" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Imaginons que nous voulions développer un simulateur de conduite. Nous pouvons
+concevoir une classe <em>Voiture</em> qui sera la représentation d’une voiture dans
+notre application.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.conduite</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Voiture</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">marque</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="kt">float</span> <span class="n">vitesse</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="nf">Voiture</span><span class="p">(</span><span class="n">String</span> <span class="n">marque</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">marque</span> <span class="o">=</span> <span class="n">marque</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Mais nous pouvons également rendre possible la simulation d’une moto. Dans ce
+cas, nous aurons également besoin d’une classe <em>Moto</em>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.conduite</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Moto</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">marque</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="kt">float</span> <span class="n">vitesse</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="nf">Moto</span><span class="p">(</span><span class="n">String</span> <span class="n">marque</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">marque</span> <span class="o">=</span> <span class="n">marque</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>On se rend vite compte qu’au stade de notre développement, une voiture et une
+moto représentent la même chose. Faut-il alors créer deux classes
+différentes ? En programmation objet, il n’y a pas de réponse toute faite à cette
+question. Mais si notre application gère, par exemple, le type de permis de
+conduire, il serait judicieux d’avoir des représentations différentes pour ces
+types de véhicule car ils nécessitent des permis de conduire différents.
+Si mon application de simulation permet de faire se déplacer des objets
+de ces classes, alors il va peut-être falloir autoriser les objets de type
+<em>Voiture</em> à aller en marche arrière mais pas les objets de type <em>Moto</em>. Bref,
+comme souvent en programmation objet, on se retrouve avec des classes qui ont
+des notions en commun (dans notre exemple, la vitesse et la marque), tout en ayant
+leurs propres spécificités.</p>
+<p>Pour ce type de relations, nous pouvons utiliser l’héritage pour faire apparaître
+une classe réprésentant une notion plus générale ou plus abstraite. Dans notre
+exemple, il pourrait s’agir de la classe <em>Vehicule</em>. Les classes <em>Voiture</em> et
+<em>Moto</em> peuvent <em>hériter</em> de cette nouvelle classe puiqu’une voiture <strong>est un</strong>
+véhicule et une moto <strong>est un</strong> véhicule.</p>
+<img alt="../_images/heritage_vehicule.png" src="../_images/heritage_vehicule.png" />
+<p>En Java, l’héritage est indiqué par le mot clé <strong>extends</strong> après le nom de la
+classe. On dit donc qu’une classe en <em>étend</em> une autre. La classe qui est étendue
+est appelée <em>classe mère</em> ou <em>classe parente</em> et la classe qui étend est appelée
+<em>classe fille</em> ou <em>classe enfant</em>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.conduite</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Vehicule</span> <span class="p">{</span>
+
+  <span class="c1">// ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.conduite</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Voiture</span> <span class="kd">extends</span> <span class="n">Vehicule</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">marque</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="kt">float</span> <span class="n">vitesse</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="nf">Voiture</span><span class="p">(</span><span class="n">String</span> <span class="n">marque</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">marque</span> <span class="o">=</span> <span class="n">marque</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.conduite</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Moto</span> <span class="kd">extends</span> <span class="n">Vehicule</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">marque</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="kt">float</span> <span class="n">vitesse</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="nf">Moto</span><span class="p">(</span><span class="n">String</span> <span class="n">marque</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">marque</span> <span class="o">=</span> <span class="n">marque</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Le terme d’héritage vient du fait qu’une classe qui en étend une autre <em>hérite</em>
+de la définition de sa classe parente et notamment de ses attributs et de ses
+méthodes. Par exemple, les classes <em>Voiture</em> et <em>Moto</em> ont en commun la déclaration
+de l’attribut <em>vitesse</em>. Cet attribut semble donc faire partie de la généralisation
+commune de <em>Vehicule</em>.</p>
+<img alt="../_images/heritage_vehicule_attribut_vitesse.png" src="../_images/heritage_vehicule_attribut_vitesse.png" />
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.conduite</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Vehicule</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="kt">float</span> <span class="n">vitesse</span><span class="p">;</span>
+
+  <span class="c1">// ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.conduite</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Voiture</span> <span class="kd">extends</span> <span class="n">Vehicule</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">marque</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="nf">Voiture</span><span class="p">(</span><span class="n">String</span> <span class="n">marque</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">marque</span> <span class="o">=</span> <span class="n">marque</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.conduite</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Moto</span> <span class="kd">extends</span> <span class="n">Vehicule</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">marque</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="nf">Moto</span><span class="p">(</span><span class="n">String</span> <span class="n">marque</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">marque</span> <span class="o">=</span> <span class="n">marque</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Il est maintenant possible d’ajouter les méthodes <em>accelerer</em> et <em>decelerer</em> à
+la classe Vehicule et les classes <em>Voiture</em> et <em>Moto</em> en hériteront.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.conduite</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Vehicule</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="kt">float</span> <span class="n">vitesse</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">accelerer</span><span class="p">(</span><span class="kt">float</span> <span class="n">deltaVitesse</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">vitesse</span> <span class="o">+=</span> <span class="n">deltaVitesse</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">decelerer</span><span class="p">(</span><span class="kt">float</span> <span class="n">deltaVitesse</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">vitesse</span> <span class="o">=</span> <span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">vitesse</span> <span class="o">-</span> <span class="n">deltaVitesse</span><span class="p">,</span> <span class="mf">0f</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Tous les véhicules de cette application peuvent maintenant accélérer et décélérer.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.conduite</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AppliSimple</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Voiture</span> <span class="n">voiture</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Voiture</span><span class="p">(</span><span class="s">&quot;DeLorean&quot;</span><span class="p">);</span>
+    <span class="n">voiture</span><span class="p">.</span><span class="na">accelerer</span><span class="p">(</span><span class="mi">88</span><span class="p">);</span>
+
+    <span class="n">Moto</span> <span class="n">moto</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Moto</span><span class="p">(</span><span class="s">&quot;Kaneda&quot;</span><span class="p">);</span>
+    <span class="n">moto</span><span class="p">.</span><span class="na">accelerer</span><span class="p">(</span><span class="mi">120</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="heritage-et-constructeur">
+<h2>Héritage et constructeur<a class="headerlink" href="#heritage-et-constructeur" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Dans notre exemple précédent, l’attribut <em>marque</em> pourrait tout aussi bien être
+mutualisé dans la classe <em>Vehicule</em>. Cependant, il va falloir tenir compte
+des constructeurs de <em>Voiture</em> et <em>Moto</em> qui garantissent une initialisation
+de cet attribut à partir du paramètre.</p>
+<p>En Java, nous avons vu qu’un constructeur peut appeler un autre constructeur
+déclaré dans la même classe grâce au mot-clé <em>this</em>. De la même manière, un
+constructeur peut appeler un constructeur de sa classe parente grâce au mot-clé
+<strong>super</strong>. Il doit respecter les mêmes contraintes :</p>
+<ul class="simple">
+<li><p>Un constructeur ne peut appeler qu’un constructeur.</p></li>
+<li><p>L’appel au constructeur doit être la première instruction du constructeur.</p></li>
+</ul>
+<p>Il est donc possible de déclarer un constructeur dans la classe <em>Vehicule</em> et
+d’appeler ce constructeur depuis les constructeurs de <em>Voiture</em> et <em>Moto</em>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.conduite</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Vehicule</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">marque</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="kt">float</span> <span class="n">vitesse</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="nf">Vehicule</span><span class="p">(</span><span class="n">String</span> <span class="n">marque</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">marque</span> <span class="o">=</span> <span class="n">marque</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">accelerer</span><span class="p">(</span><span class="kt">float</span> <span class="n">deltaVitesse</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">vitesse</span> <span class="o">+=</span> <span class="n">deltaVitesse</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">decelerer</span><span class="p">(</span><span class="kt">float</span> <span class="n">deltaVitesse</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">vitesse</span> <span class="o">=</span> <span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">vitesse</span> <span class="o">-</span> <span class="n">deltaVitesse</span><span class="p">,</span> <span class="mf">0f</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.conduite</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Voiture</span> <span class="kd">extends</span> <span class="n">Vehicule</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="nf">Voiture</span><span class="p">(</span><span class="n">String</span> <span class="n">marque</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">super</span><span class="p">(</span><span class="n">marque</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.conduite</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Moto</span> <span class="kd">extends</span> <span class="n">Vehicule</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="nf">Moto</span><span class="p">(</span><span class="n">String</span> <span class="n">marque</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">super</span><span class="p">(</span><span class="n">marque</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><em>Voiture</em> et <em>Moto</em> peuvent maintenant proposer leurs propres méthodes et attributs
+tout en ayant en commun les mêmes méthodes et attributs que la classe <em>Vehicule</em>.</p>
+<img alt="../_images/heritage_vehicule_attribut_vitesse_marque.png" src="../_images/heritage_vehicule_attribut_vitesse_marque.png" />
+<p>En java, si votre constructeur n’appelle aucun constructeur, alors le compilateur
+génèrera une instruction d’appel au constructeur sans paramètre de la classe parente.</p>
+<p>Si vous créez la classe suivante :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.simple.test</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaClasse</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="nf">MaClasse</span><span class="p">()</span> <span class="p">{</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Le compilateur génèrera le bytecode correspondant au code suivant :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.simple.test</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaClasse</span> <span class="kd">extends</span> <span class="n">Object</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="nf">MaClasse</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">super</span><span class="p">();</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Si vous omettez d’appeler un constructeur, alors le compilateur part du principe
+qu’il en existe un de disponible dans la classe parente et que ce constructeur
+ne prend pas de paramètre. Ainsi, Java garantit qu’un constructeur de la classe
+parente est toujours appelé avant l’exécution du constructeur courant. Cela signifie
+que, lors de la création d’un objet, on commence toujours par initialiser la
+classe la plus haute dans la hiérarchie d’héritage.</p>
+<p>Ce qui peut sembler surprenant dans l’exemple précédent est que la classe
+<em>MaClasse</em> ne déclare pas de classe parente mais que le compilateur va forcer
+un héritage.</p>
+</div>
+<div class="section" id="heritage-simple-object">
+<h2>Héritage simple : Object<a class="headerlink" href="#heritage-simple-object" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Java ne supporte pas l’héritage multiple. Soit le développeur déclare avec
+le mot-clé <strong>extends</strong> une seule classe parente, soit le compilateur part
+du principe que la classe hérite de la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html">Object</a>. Toutes les classes
+en Java ont une classe parente (hormis la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html">Object</a>). L’arbre d’héritage
+en Java ne possède qu’une seule classe racine : la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html">Object</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>C’est la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html">Object</a> qui déclare notamment les méthodes <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html#toString()">toString</a> et <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)">equals</a>.
+Voilà pourquoi tous les objets Java peuvent avoir par défaut une représentation
+sous forme de chaîne de caractères et qu’ils peuvent être comparés aux autres.</p>
+</div>
+</div>
+<div class="section" id="heritage-et-affectation">
+<h2>Héritage et affectation<a class="headerlink" href="#heritage-et-affectation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’héritage introduit la notion de <em>substituabilité</em> entre la classe enfant et la
+classe parente. Une classe enfant a son propre type mais partage également le
+même type que sa classe parente.</p>
+<p>Pour notre exemple, cela signifie que l’on peut affecter à une variable de type
+<em>Vehicule</em>, une instance de <em>Voiture</em> ou une instance de <em>Moto</em> :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Vehicule</span> <span class="n">vehicule</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="n">vehicule</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Voiture</span><span class="p">(</span><span class="s">&quot;DeLorean&quot;</span><span class="p">);</span>
+<span class="n">vehicule</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Moto</span><span class="p">(</span><span class="s">&quot;Kaneda&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Cette possibilité introduit une abstraction importante dans la programmation
+objet. Si une partie d’un programme a besoin d’une instance de type <em>Vehicule</em>
+pour s’exécuter, alors cela signifie qu’une instance de n’importe quelle classe
+héritant directement ou indirectement de <em>Vehicule</em> peut être utilisée.</p>
+<p>Lorsqu’on crée une classe par héritage, cela signifie qu’il faut faire attention
+à ne pas altérer le comportement attendu par les utilisateurs de la classe parente.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>L’acronyme <a class="reference external" href="https://fr.wikipedia.org/wiki/SOLID_(informatique)">SOLID</a> proposé par Robert Matin regroupe 5 principes importants
+de la programmation objet. La lettre L désigne le <a class="reference external" href="https://fr.wikipedia.org/wiki/Principe_de_substitution_de_Liskov">Liskov substitution principle</a>
+(principe de substitution de Liskov) qui décrit ce principe de substitution
+entre un type et son sous-type et les contraintes qui en découlent pour la
+conception objet.</p>
+</div>
+<p>Le principe de substituabilité est une application du transtypage (<em>casting</em>).
+Comme pour les types primitifs, il est possible d’affecter une référence d’un
+objet à une variable, attribut ou paramètre d’un type différent. Pour que cette
+affectation soit possible il faut que les deux types fassent partie de la même
+hiérarchie d’héritage.</p>
+<img alt="../_images/heritage_downcasting_casting.png" src="../_images/heritage_downcasting_casting.png" />
+<p>Si le type d’arrivée correspond à un type parent, on parle <em>d’upcasting</em>
+(transtypage vers le haut). Si le type d’arrivée correspond à un type enfant,
+on parle de <em>downcasting</em> (transtypage vers le bas).</p>
+<p>À partir du moment où l’implémentation des classes respectent le
+<a class="reference external" href="https://fr.wikipedia.org/wiki/Principe_de_substitution_de_Liskov">principe de substitution de Liskov</a>, l’upcasting est une opération sûre en
+programmation objet. Voilà pourquoi, il est possible d’affecter des instances
+de type <em>Voiture</em> à des variables de type <em>Vehicule</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Comme Java se base sur une hiérarchie à racine unique, toutes les classes
+héritent directement ou indirectement de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html">Object</a>. Donc, toute instance peut
+être affectée à une variable, un attribut ou un paramètre de type <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html">Object</a>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Object</span> <span class="n">obj</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Voiture</span><span class="p">(</span><span class="s">&quot;DeLorean&quot;</span><span class="p">);</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="s">&quot;ceci est une chaine de caractère&quot;</span><span class="p">;</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<p>À l’inverse, le downcasting n’est pas une opération sûre en programmation objet.
+Prenons l’exemple trivial suivant :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Vehicule</span> <span class="n">vehicule</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Voiture</span><span class="p">(</span><span class="s">&quot;DeLorean&quot;</span><span class="p">);</span>
+<span class="hll"><span class="n">Moto</span> <span class="n">moto</span> <span class="o">=</span> <span class="n">vehicule</span><span class="p">;</span> <span class="c1">// ERREUR</span>
+</span></pre></div>
+</div>
+<p>La variable <em>vehicule</em> référence un objet de type Voiture, il n’est donc pas possible
+d’affecter cet objet à une variable de type <em>Moto</em>. Pour cette raison, le
+langage Java, n’autorise pas par défaut le downcasting : l’exemple ci-dessus
+ne compilera pas. Il est cependant possible de forcer le transtypage en
+utilisant la même syntaxe que pour les types primitifs.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Vehicule</span> <span class="n">vehicule</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Voiture</span><span class="p">(</span><span class="s">&quot;DeLorean&quot;</span><span class="p">);</span>
+<span class="n">Voiture</span> <span class="n">voiture</span> <span class="o">=</span> <span class="p">(</span><span class="n">Voiture</span><span class="p">)</span> <span class="n">vehicule</span><span class="p">;</span>
+<span class="hll"><span class="n">Moto</span> <span class="n">moto</span> <span class="o">=</span> <span class="p">(</span><span class="n">Moto</span><span class="p">)</span> <span class="n">vehicule</span><span class="p">;</span> <span class="c1">// ERREUR</span>
+</span></pre></div>
+</div>
+<p>Le code précédent compile puisque le développeur déclare explicitement le downcasting.
+Cependant, l’affectation à la ligne 3 est erronée puisque la variable <em>vehicule</em>
+référence une instance de <em>Voiture</em> que l’on veut affecter à une variable de type
+<em>Moto</em>. Pour les types primitifs, un transtypage invalide conduit à une possible
+perte de données. Par contre, pour des objets, un transtypage invalide génère à
+l’exécution une erreur de type <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/ClassCastException.html">java.lang.ClassCastException</a>.</p>
+</div>
+<div class="section" id="le-mot-cle-instanceof">
+<h2>Le mot-clé instanceof<a class="headerlink" href="#le-mot-cle-instanceof" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il est possible de découvrir à l’exécution si une variable, un attribut ou un
+paramètre est d’un type attendu, cela permet de contrôler les opérations de
+downcasting et d’éviter des erreurs d’exécution. Pour cela, le mot-clé <strong>instanceof</strong>
+retourne <strong>true</strong> si l’opérande à gauche est d’un type compatible avec l’opérande
+à droite.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">Vehicule</span> <span class="n">vehicule</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Voiture</span><span class="p">(</span><span class="s">&quot;DeLorean&quot;</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">vehicule</span> <span class="k">instanceof</span> <span class="n">Voiture</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">Voiture</span> <span class="n">voiture</span> <span class="o">=</span> <span class="p">(</span><span class="n">Voiture</span><span class="p">)</span> <span class="n">vehicule</span><span class="p">;</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">vehicule</span> <span class="k">instanceof</span> <span class="n">Moto</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">Moto</span> <span class="n">moto</span> <span class="o">=</span> <span class="p">(</span><span class="n">Moto</span><span class="p">)</span> <span class="n">vehicule</span><span class="p">;</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Le code ci-dessus s’exécutera sans erreur. À la ligne 8, comme la variable
+<em>vehicule</em> ne référence pas un objet compatible avec le type <em>Moto</em>, <strong>instanceof</strong>
+retournera <strong>false</strong>, empêchant ainsi le bloc de s’exécuter. Une opération de
+downcasting devrait toujours être contrôlée par une expression <strong>instanceof</strong> et
+le programme devrait être capable de se comporter correctement si l’instruction
+<strong>instanceof</strong> retourne <strong>false</strong>.</p>
+<div class="admonition caution">
+<p class="admonition-title">Prudence</p>
+<p>Si le recours à <strong>instanceof</strong> permet de rendre les applications plus robustes,
+il n’en reste pas moins que les opérations de downcasting doivent rester
+l’exception dans un programme. Un recours systématique au downcasting est souvent
+le signe d’une mauvaise conception objet.</p>
+</div>
+</div>
+<div class="section" id="la-portee-protected">
+<span id="portee-protected"></span><h2>La portée protected<a class="headerlink" href="#la-portee-protected" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Précédemment, nous avons introduit la classe <em>Vehicule</em> et nous avons pu l’utiliser
+pour mutualiser la déclaration des attributs <em>vitesse</em> et <em>marque</em>. Ces attributs
+ont été déclarés comme <em>private</em>. Donc ils ne sont accessibles que depuis la
+classe <em>Vehicule</em>. Même si la classe <em>Voiture</em> hérite des attributs et des
+méthodes de <em>Vehicule</em>, elles ne peut pas accéder aux attributs et aux méthodes
+privés des classes parentes. Imaginons maintenant que nous souhaitons ajouter
+la méthode <em>reculer</em>. Comme nous ne souhaitons pas fournir cette possibilité aux
+objets de la classe <em>Moto</em>, nous voulons ajouter cette méthode uniquement à la
+classe <em>Voiture</em>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.conduite</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Voiture</span> <span class="kd">extends</span> <span class="n">Vehicule</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="nf">Voiture</span><span class="p">(</span><span class="n">String</span> <span class="n">marque</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">super</span><span class="p">(</span><span class="n">marque</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">reculer</span><span class="p">(</span><span class="kt">float</span> <span class="n">vitesse</span><span class="p">)</span> <span class="p">{</span>
+<span class="hll">    <span class="k">this</span><span class="p">.</span><span class="na">vitesse</span> <span class="o">=</span> <span class="o">-</span><span class="n">vitesse</span><span class="p">;</span>
+</span>  <span class="p">}</span>
+
+  <span class="c1">// ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Le code précédent ne peut pas accéder à l’attribut <em>vitesse</em> déclaré dans la
+classe parente car il a été déclaré avec une portée <strong>private</strong>.</p>
+<p>En Java, il existe une quatrième portée : la portée <strong>protected</strong>. Les attributs
+et les méthodes déclarés avec la portée <strong>protected</strong> sont accessibles par
+les membres du même package et par les classes filles. Ainsi en modifiant
+la déclaration de la classe <em>Vehicule</em> :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.conduite</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Vehicule</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">marque</span><span class="p">;</span>
+  <span class="kd">protected</span> <span class="kt">float</span> <span class="n">vitesse</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="nf">Vehicule</span><span class="p">(</span><span class="n">String</span> <span class="n">marque</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">marque</span> <span class="o">=</span> <span class="n">marque</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">accelerer</span><span class="p">(</span><span class="kt">float</span> <span class="n">deltaVitesse</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">vitesse</span> <span class="o">+=</span> <span class="n">deltaVitesse</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">decelerer</span><span class="p">(</span><span class="kt">float</span> <span class="n">deltaVitesse</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">vitesse</span> <span class="o">=</span> <span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">vitesse</span> <span class="o">-</span> <span class="n">deltaVitesse</span><span class="p">,</span> <span class="mf">0f</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>La classe <em>Voiture</em> pourra compiler car elle a maintenant accès à l’attribut
+<em>vitesse</em>.</p>
+<p>Le tableau ci-dessous résume toutes les portées en Java en les triant de la moins
+restrictive à la plus restrictive.</p>
+<table class="colwidths-given docutils align-default" id="id1">
+<caption><span class="caption-text">Les portées en Java</span><a class="headerlink" href="#id1" title="Lien permanent vers ce tableau">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>type</p></th>
+<th class="head"><p>mot-clé</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Publique</p></td>
+<td><p><strong>public</strong></p></td>
+<td><p>Accessible depuis n’importe quel point de l’application</p></td>
+</tr>
+<tr class="row-odd"><td><p>Protégée</p></td>
+<td><p><strong>protected</strong></p></td>
+<td><p>Accessible uniquement depuis les classes du même package et les classes filles</p></td>
+</tr>
+<tr class="row-even"><td><p>Package</p></td>
+<td></td>
+<td><p>Accessible uniquement depuis les classes du même package</p></td>
+</tr>
+<tr class="row-odd"><td><p>Privée</p></td>
+<td><p><strong>private</strong></p></td>
+<td><p>Accessible uniquement dans la classe de déclaration et les classes internes</p></td>
+</tr>
+</tbody>
+</table>
+<p>La portée <strong>protected</strong> pose parfois un soucis de conception. En effet, on pourrait
+considérer que les portées de type privé et package sont inutiles et que tous
+les attributs peuvent être déclarés avec la portée <em>protected</em>. Cependant,
+en programmation objet, le <a class="reference external" href="https://fr.wikipedia.org/wiki/Principe_ouvert/ferm%C3%A9">principe du ouvert/fermé</a> stipule qu’une classe devrait
+être ouverte en extension mais fermée en modification. Cela signifie que par
+héritage, les développeurs doivent pouvoir étendre les fonctionnalités d’une
+classe en créant un sous-type mais ne doivent pas pouvoir modifier
+significativement le comportement de la classe parente. Empêcher une sous-classe
+de modifier l’état d’un attribut en le déclarant <strong>private</strong> est une bonne
+façon d’éviter aux développeurs d’une sous-classe de modifier involontairement
+le comportement d’une classe.</p>
+<p>Un règle simple consiste à systématiquement déclarer <strong>private</strong> les attributs
+d’une classe sauf si une raison évidente nous suggère de déclarer la portée
+<strong>protected</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Dans l’exemple précédent, la déclaration de l’attribut <em>vitesse</em> comme
+<strong>protected</strong> est peu satisfaisante car toutes les classes filles ont maintenant
+accès à cet attribut : cela n’est pas conforme au <a class="reference external" href="https://fr.wikipedia.org/wiki/Principe_ouvert/ferm%C3%A9">principe du ouvert/fermé</a>.
+Nous verrons au <a class="reference internal" href="polymorphisme.html#redefinition-et-signature"><span class="std std-ref">chapitre suivant</span></a> qu’il existe une
+solution qui évite de modifier la portée de cet attribut.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Le <a class="reference external" href="https://fr.wikipedia.org/wiki/Principe_ouvert/ferm%C3%A9">principe du ouvert/fermé</a> (Open/close principle) représente le O dans
+l’acronyme <a class="reference external" href="https://fr.wikipedia.org/wiki/SOLID_(informatique)">SOLID</a>. Cet acronyme rassemble cinq notions fondamentales dans
+la conception objet.</p>
+</div>
+</div>
+<div class="section" id="heritage-des-methodes-et-attributs-de-classe">
+<h2>Héritage des méthodes et attributs de classe<a class="headerlink" href="#heritage-des-methodes-et-attributs-de-classe" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Comme leur nom l’indique, les méthodes et les attributs de classe appartiennent
+à une classe. Il est possible d’accéder à une méthode de classe par la classe
+dans laquelle la méthode a été déclarée ou par n’importe quelle classe qui en
+hérite. Il en va de même pour les attributs de classe. Attention cependant,
+si l’attribut de classe est modifiable, sa valeur est partagée par l’ensemble
+des classes qui font partie de la hiérarchie d’héritage.</p>
+<p>Un exemple classique est l’implémentation d’un compteur qui permet de savoir
+combien d’instances ont été créées. Il suffit de créer un compteur comme
+attribut de classe.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.conduite</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Vehicule</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">nbInstances</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">marque</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="kt">float</span> <span class="n">vitesse</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="nf">Vehicule</span><span class="p">(</span><span class="n">String</span> <span class="n">marque</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">++</span><span class="n">Vehicule</span><span class="p">.</span><span class="na">nbInstances</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">marque</span> <span class="o">=</span> <span class="n">marque</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">getNbInstances</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">nbInstances</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Dans l’exemple précédent, nous avons ajouté l’attribut de classe <em>nbInstances</em>
+et la méthode de classe <em>getNbInstances</em>. L’attribut de classe est un compteur
+qui est incrémenté à chaque fois que le constructeur de <em>Vehicule</em> est appelé.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Voiture</span> <span class="n">voiture</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Voiture</span><span class="p">(</span><span class="s">&quot;DeLorean&quot;</span><span class="p">);</span>
+
+<span class="n">Moto</span> <span class="n">moto</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Moto</span><span class="p">(</span><span class="s">&quot;Kaneda&quot;</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Vehicule</span><span class="p">.</span><span class="na">getNbInstances</span><span class="p">());</span> <span class="c1">// 2</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Voiture</span><span class="p">.</span><span class="na">getNbInstances</span><span class="p">());</span>  <span class="c1">// 2</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Moto</span><span class="p">.</span><span class="na">getNbInstances</span><span class="p">());</span>     <span class="c1">// 2</span>
+</pre></div>
+</div>
+<p>Dans l’exemple ci-dessus, la création d’une instance de <em>Voiture</em> et d’une
+instance de <em>Moto</em> incrémente le compteur <em>nbInstances</em>. L’appel à la méthode
+<em>getNbInstances</em> retournera le chiffre 2 quelle que soit la classe utilisée
+pour invoquer cette méthode. On voit ici, qu’il est parfois important, pour
+des raisons de lisibilité, d’utiliser la classe dans laquelle la méthode a été
+déclarée pour l’invoquer. En effet, une lecture rapide du code, pourrait nous
+faire croire que l’appel à <em>Voiture.getNbInstances</em> retourne le nombre
+d’instances de type <em>Voiture</em> créées alors qu’il s’agit du nombre d’instances
+de type <em>Vehicule</em> (donc incluant les instances de <em>Moto</em>).</p>
+</div>
+<div class="section" id="heritage-et-final">
+<h2>Héritage et final<a class="headerlink" href="#heritage-et-final" title="Lien permanent vers ce titre">¶</a></h2>
+<p>En Java, il est possible de déclarer une classe <strong>final</strong>. Cela signifie
+qu’il est impossible d’étendre cette classe.
+Elle représente un élément terminal dans l’arborescence d’héritage.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.conduite</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">Moto</span> <span class="kd">extends</span> <span class="n">Vehicule</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="nf">Moto</span><span class="p">(</span><span class="n">String</span> <span class="n">marque</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">super</span><span class="p">(</span><span class="n">marque</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Dans l’exemple ci-dessus, la classe <em>Moto</em> est déclarée <strong>final</strong>. Donc il
+est maintenant impossible de déclarer une classe qui étende la classe <em>Moto</em>.</p>
+<p>En raison de son impact très fort, la déclaration d’une classe comme <strong>final</strong>
+est réservée à des cas très particuliers. Un exemple est la classe
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html">java.lang.String</a>. Cette classe est déclarée <strong>final</strong>. Il est donc impossible
+en Java de créer une classe qui hérite de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html">java.lang.String</a>. Les développeurs de
+l’API standard ont jugé qu’en raison de son importance, cette classe devait être
+fermée en extension afin d’éviter toute modification de comportement par héritage.</p>
+</div>
+<div class="section" id="la-composition-has-a">
+<h2>La composition (has-a)<a class="headerlink" href="#la-composition-has-a" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La composition est le type de relation le plus souvent utilisé en programmation
+objet. Elle indique une dépendance entre deux classes. L’une a besoin des
+services d’une autre pour réaliser sa fonction. La composition se fait en déclarant
+des attributs dans la classe.</p>
+<p>Dans notre application de simulation de conduite, si nous introduisons une
+classe pour représenter des pneus.</p>
+<img alt="../_images/composition_vehicule_pneu.png" src="../_images/composition_vehicule_pneu.png" />
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.conduite</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Pneu</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="kt">float</span> <span class="n">coefficientAdherence</span><span class="p">;</span>
+
+  <span class="c1">// ..</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Alors, nous pouvons indiquer que les véhicules <strong>ont des</strong> pneus.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.conduite</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Vehicule</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">marque</span><span class="p">;</span>
+  <span class="kd">protected</span> <span class="kt">float</span> <span class="n">vitesse</span><span class="p">;</span>
+  <span class="kd">protected</span> <span class="n">Pneu</span><span class="o">[]</span> <span class="n">pneus</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="nf">Vehicule</span><span class="p">(</span><span class="n">String</span> <span class="n">marque</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">marque</span> <span class="o">=</span> <span class="n">marque</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="n">Pneu</span><span class="o">[]</span> <span class="nf">getPneus</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">pneus</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.conduite</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Voiture</span> <span class="kd">extends</span> <span class="n">Vehicule</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="nf">Voiture</span><span class="p">(</span><span class="n">String</span> <span class="n">marque</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">super</span><span class="p">(</span><span class="n">marque</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">pneus</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pneu</span><span class="o">[]</span> <span class="p">{</span><span class="k">new</span> <span class="n">Pneu</span><span class="p">(),</span> <span class="k">new</span> <span class="n">Pneu</span><span class="p">(),</span> <span class="k">new</span> <span class="n">Pneu</span><span class="p">(),</span> <span class="k">new</span> <span class="n">Pneu</span><span class="p">()};</span>
+  <span class="p">}</span>
+
+  <span class="c1">// ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.conduite</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Moto</span> <span class="kd">extends</span> <span class="n">Vehicule</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="nf">Moto</span><span class="p">(</span><span class="n">String</span> <span class="n">marque</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">super</span><span class="p">(</span><span class="n">marque</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">pneus</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pneu</span><span class="o">[]</span> <span class="p">{</span><span class="k">new</span> <span class="n">Pneu</span><span class="p">(),</span> <span class="k">new</span> <span class="n">Pneu</span><span class="p">()};</span>
+  <span class="p">}</span>
+
+  <span class="c1">// ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="polymorphisme.html" class="btn btn-neutral float-right" title="Le polymorphisme" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="package.html" class="btn btn-neutral float-left" title="Les packages" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright David Gayerie - david@gayerie.dev - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

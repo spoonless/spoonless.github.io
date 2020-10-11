@@ -1,0 +1,1189 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Le langage Java - Les interfaces" name="description" />
+<meta content="Java, programmation objet, POO, langage de programmation" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Les interfaces &mdash; Documentation Le langage Java </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/java/langage_java/interface.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Méthodes et classes génériques" href="generiques.html" />
+    <link rel="prev" title="Les énumérations" href="enumeration.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Le langage Java
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Le langage Java</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#l-environnement">L’environnement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#oracle-jdk-et-open-jdk">Oracle JDK et Open JDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#un-bref-historique-des-versions">Un bref historique des versions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#configuration-d-eclipse">Configuration d’Eclipse</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="compilation.html">Compilation &amp; exécution</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#un-premier-programme">Un premier programme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#la-compilation">La compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#l-execution">L’exécution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#la-liaison-dynamique">La liaison dynamique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#le-classpath">Le classpath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#bibliotheques-java-les-fichiers-jar">Bibliothèques Java : les fichiers JAR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#creation-d-un-projet-dans-eclipse">Création d’un projet dans Eclipse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structure_fondamentale.html">La structure fondamentale du langage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-instructions">Les instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#le-typage">Le typage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-blocs-de-code">Les blocs de code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-commentaires">Les commentaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#le-formatage-du-code">Le formatage du code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-conventions-de-nommage">Les conventions de nommage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-mots-cles">Les mots-clés</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="premiere_classe.html">Une première classe</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#declarer-une-classe">Déclarer une classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#anatomie-d-une-classe">Anatomie d’une classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#ajouter-des-methodes">Ajouter des méthodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#la-methode-main">La méthode main</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#executer-le-programme-en-ligne-de-commandes">Exécuter le programme en ligne de commandes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#executer-le-programme-depuis-eclipse">Exécuter le programme depuis Eclipse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="types_primitifs.html">Les types primitifs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#le-type-booleen-boolean">Le type booléen : boolean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#le-type-caractere-char">Le type caractère : char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#les-types-entiers-byte-short-int-long">Les types entiers : byte, short, int, long</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#les-types-a-virgule-flottante-float-double">Les types à virgule flottante : float, double</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#les-classes-enveloppes">Les classes enveloppes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#l-autoboxing">L’autoboxing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="operateurs.html">Les opérateurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur-d-affectation">L’opérateur d’affectation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-arithmetiques">Les opérateurs arithmétiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-arithmetiques-unaires">Les opérateurs arithmétiques unaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur-de-concatenation-de-chaines">L’opérateur de concaténation de chaînes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-relationnels">Les opérateurs relationnels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-logiques">Les opérateurs logiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur-ternaire">L’opérateur ternaire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-bitwise">Les opérateurs <em>bitwise</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-de-decalage">Les opérateurs de décalage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#le-transtypage-cast">Le transtypage (cast)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#operateur-et-assignation">Opérateur et assignation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur">L’opérateur .</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#id1">L’opérateur ,</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structures_de_controle.html">Les structures de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#if-else">if-else</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#return">return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#while">while</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#do-while">do-while</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#for">for</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#for-ameliore">for amélioré</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#break-continue">break-continue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#libelle">libellé</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#switch">switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tableau.html">Les tableaux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#initialisation">Initialisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#creation-avec-new">Création avec new</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#acces-aux-elements-d-un-tableau">Accès aux éléments d’un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#tableau-multi-dimensionnel">Tableau multi-dimensionnel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#conversion-en-chaine-de-caracteres">Conversion en chaîne de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#egalite-de-deux-tableaux">Égalité de deux tableaux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#tri-recherche">Tri &amp; recherche</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#copie-d-un-tableau">Copie d’un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#typage-d-un-tableau">Typage d’un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#conversion-d-un-tableau-en-liste">Conversion d’un tableau en liste</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="attributs_et_methodes.html">Attributs &amp; méthodes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#les-attributs">Les attributs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#la-portee">La portée</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#l-initialisation">L’initialisation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#attributs-finaux">attributs finaux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#attributs-de-classe">Attributs de classe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#attributs-de-classe-finaux">Attributs de classe finaux</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#les-methodes">Les méthodes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#id1">La portée</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#la-valeur-de-retour">La valeur de retour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#les-parametres">Les paramètres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#parametre-final">Paramètre final</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#les-variables">Les variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#methodes-de-classe">Méthodes de classe</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#surcharge-de-methode-overloading">Surcharge de méthode : overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#portee-des-noms-et-this">Portée des noms et this</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#principe-d-encapsulation">Principe d’encapsulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cycle_de_vie.html">Cycle de vie d’un objet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-constructeur">Le constructeur</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#parametres-de-constructeur">Paramètres de constructeur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#valeur-par-defaut-des-attributs">Valeur par défaut des attributs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#constructeur-par-defaut">Constructeur par défaut</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#constructeur-prive">Constructeur privé</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#appel-d-un-constructeur-dans-un-constructeur">Appel d’un constructeur dans un constructeur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#appel-d-une-methode-dans-un-constructeur">Appel d’une méthode dans un constructeur</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#injection-de-dependances-par-le-constructeur">Injection de dépendances par le constructeur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-bloc-d-initialisation">Le bloc d’initialisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-bloc-d-initialisation-de-classe">Le bloc d’initialisation de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#exercice">Exercice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#memoire-heap-et-stack">Mémoire heap et stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-ramasse-miettes">Le ramasse-miettes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#la-methode-finalize">La méthode finalize</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="package.html">Les packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="package.html#declaration-d-un-package">Déclaration d’un package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#sous-package">Sous package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#nom-d-un-package">Nom d’un package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#nom-complet-d-une-classe">Nom complet d’une classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#import-de-noms">Import de noms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#la-portee-de-niveau-package">La portée de niveau package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#le-fichier-package-info-java">Le fichier package-info.java</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="heritage_composition.html">Héritage et composition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#l-heritage-is-a">L’héritage (is-a)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-et-constructeur">Héritage et constructeur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-simple-object">Héritage simple : Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-et-affectation">Héritage et affectation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#le-mot-cle-instanceof">Le mot-clé instanceof</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#la-portee-protected">La portée protected</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-des-methodes-et-attributs-de-classe">Héritage des méthodes et attributs de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-et-final">Héritage et final</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#la-composition-has-a">La composition (has-a)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="polymorphisme.html">Le polymorphisme</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#principe-du-polymorphisme">Principe du polymorphisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#une-exception-les-methodes-privees">Une exception : les méthodes privées</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#redefinition-et-signature-de-methode">Redéfinition et signature de méthode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#le-mot-cle-super">Le mot-clé super</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#l-annotation-override">L’annotation &#64;Override</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#les-methodes-de-classe">Les méthodes de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#methode-finale">Méthode finale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#constructeur-et-polymorphisme">Constructeur et polymorphisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#masquage-des-attributs-par-heritage">Masquage des attributs par héritage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#le-principe-du-ouvert-ferme">Le principe du ouvert/fermé</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="classe_abstraite.html">Les classes abstraites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classe_abstraite.html#declarer-une-classe-abstraite">Déclarer une classe abstraite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_abstraite.html#declarer-une-methode-abstraite">Déclarer une méthode abstraite</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="la_classe_object.html">La classe Object</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-equals">La méthode equals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-hashcode">La méthode hashCode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-tostring">La méthode toString</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-finalize">La méthode finalize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-clone">La méthode clone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-getclass">La méthode getClass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#les-methodes-de-concurrence">Les méthodes de concurrence</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="la_classe_string.html">La classe String</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#string-et-tableau-de-caracteres">String et tableau de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#quelques-methodes-utilitaires">Quelques méthodes utilitaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#construction-d-une-instance-de-string">Construction d’une instance de String</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#immutabilite-des-chaines-de-caracteres">Immutabilité des chaînes de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#la-classe-stringbuilder">La classe StringBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#formatage-de-texte">Formatage de texte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#les-expressions-regulieres">Les expressions régulières</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_exceptions.html">Les exceptions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#qu-est-ce-qu-une-exception">Qu’est-ce qu’une exception ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#signaler-une-exception">Signaler une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#traiter-une-exception">Traiter une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#propagation-d-une-exception">Propagation d’une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#exceptions-et-polymorphisme">Exceptions et polymorphisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#le-bloc-finally">Le bloc finally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#le-try-with-resources">Le try-with-resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#hierarchie-applicative-d-exception">Hiérarchie applicative d’exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#exception-cause">Exception cause</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#les-erreurs-et-les-exceptions-runtime">Les erreurs et les exceptions runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#choix-entre-checked-et-unchecked">Choix entre checked et unchecked</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="enumeration.html">Les énumérations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#les-methodes-d-une-enumeration">Les méthodes d’une énumération</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#egalite-entre-enumerations">Égalité entre énumérations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#support-de-switch">Support de switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#generation-d-une-enumeration">Génération d’une énumération</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#ajout-de-methodes-et-d-attributs">Ajout de méthodes et d’attributs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#ajout-de-constructeurs">Ajout de constructeurs</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Les interfaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#declaration-d-une-interface">Déclaration d’une interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#implementation-d-une-interface">Implémentation d’une interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#attributs-et-methodes-statiques">Attributs et méthodes statiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#heritage-d-interface">Héritage d’interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-interfaces-marqueurs">Les interfaces marqueurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#implementation-par-defaut">Implémentation par défaut</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#la-segregation-d-interface">La ségrégation d’interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#l-inversion-de-dependance">L’inversion de dépendance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="generiques.html">Méthodes et classes génériques</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#l-exemple-de-la-classe-arraylist">L’exemple de la classe ArrayList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#creation-et-assignation-d-une-classe-generique">Création et assignation d’une classe générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#notation-en-diamant">Notation en diamant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#substitution-et-type-generique">Substitution et type générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#ecrire-une-methode-generique">Écrire une méthode générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#ecrire-une-classe-generique">Écrire une classe générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#limitations">Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_collections.html">Les collections</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#les-listes">Les listes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-arraylist">La classe ArrayList</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-linkedlist">La classe LinkedList</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-arraydeque">La classe ArrayDeque</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-priorityqueue">La classe PriorityQueue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-classes-vector-et-stack">Les classes Vector et Stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-interfaces-pour-les-listes">Les interfaces pour les listes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#les-ensembles-set">Les ensembles (set)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-treeset">La classe TreeSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-hashset">La classe HashSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-linkedhashset">La classe LinkedHashSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-interfaces-pour-les-ensembles">Les interfaces pour les ensembles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#copie-d-une-collection-dans-un-tableau">Copie d’une collection dans un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#les-tableaux-associatifs-maps">Les tableaux associatifs (maps)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-treemap">La classe TreeMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-hashmap">La classe HashMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-linkedhashmap">La classe LinkedHashMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-classes-dictionary-et-hashtable">Les classes Dictionary et Hashtable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-interfaces-pour-les-tableaux-associatifs">Les interfaces pour les tableaux associatifs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#la-classe-outil-collections">La classe outil Collections</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="entrees_sorties.html">Les entrées/sorties</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#inputstream-et-classes-concretes">InputStream et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#outputstream-et-classes-concretes">OutputStream et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#flux-orientes-caracteres">Flux orientés caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#reader-et-classes-concretes">Reader et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#writer-et-classes-concretes">Writer et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#les-decorateurs-de-flux">Les décorateurs de flux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#la-classe-scanner">La classe Scanner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#fichiers-et-chemins">Fichiers et chemins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#acces-au-reseau">Accès au réseau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#la-serialisation-d-objets">La sérialisation d’objets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="entrees_sorties.html#donnee-transient">Donnée transient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="entrees_sorties.html#identifiant-de-version-de-serialisation">Identifiant de version de sérialisation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_dates.html">Les dates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#date-la-classe-historique">Date : la classe historique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#calendar">Calendar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#l-api-date-time">L’API Date/Time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_dates.html#id1">Les Dates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_dates.html#la-classe-instant">La classe Instant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_dates.html#periode-et-duree">Période et durée</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#formatage-des-dates">Formatage des dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#lecture-des-dates">Lecture des dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_lambdas.html">Programmation fonctionnelle et lambdas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_lambdas.html#les-fonctions-anonymes-les-lambdas">Les fonctions anonymes : les lambdas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#syntaxe-des-lambdas">Syntaxe des lambdas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#usage-des-lambdas">Usage des lambdas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#lambda-et-closure">Lambda et closure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#les-interfaces-fonctionnelles">Les interfaces fonctionnelles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#l-operateur-de-reference-de-methode">L’opérateur :: de référence de méthode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_lambdas.html#la-classe-optional">La classe Optional</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="streams.html">Streams</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#creation-d-un-stream">Création d’un stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#la-reduction">La réduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#la-collecte">La collecte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#le-filtrage">Le filtrage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#le-mapping">Le mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#le-parallelisme">Le parallélisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="classe_interne.html">Les classes internes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#les-classes-internes-static">Les classes internes static</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#id1">Les classes internes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#les-classes-anonymes">Les classes anonymes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#acces-aux-elements-de-l-objet-englobant">Accès aux éléments de l’objet englobant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#classe-interne-a-une-methode">Classe interne à une méthode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#interface-et-enumeration">Interface et énumération</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#plusieurs-classes-dans-un-meme-fichier">Plusieurs classes dans un même fichier</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_annotations.html">Les annotations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#utilisation-des-annotations">Utilisation des annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#declaration-d-une-annotation">Déclaration d’une annotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#retention-d-une-annotation">Rétention d’une annotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#utilisation-des-annotations-par-introspection">Utilisation des annotations par introspection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="module.html">Les modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="module.html#des-modules-pour-ameliorer-la-securite">Des modules pour améliorer la sécurité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#des-modules-pour-plus-de-modularite">Des modules pour plus de modularité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#le-descripteur-de-module-module-info-java">Le descripteur de module (module-info.java)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="module.html#dependance-a-d-autres-modules">Dépendance à d’autres modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module.html#exposer-des-packages">Exposer des packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module.html#utiliser-un-service">Utiliser un service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module.html#fournir-un-service">Fournir un service</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#le-module-anonyme">Le module anonyme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#la-notion-de-module-path">La notion de module path</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Le langage Java</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Les interfaces</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="generiques.html" class="btn btn-neutral float-right" title="Méthodes et classes génériques" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="enumeration.html" class="btn btn-neutral float-left" title="Les énumérations" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="les-interfaces">
+<h1>Les interfaces<a class="headerlink" href="#les-interfaces" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Une interface permet de définir un ensemble de services qu’un client peut
+obtenir d’un objet. Une interface introduit une abstraction pure qui permet
+un découplage maximal entre un service et son implémentation. On retrouve
+ainsi les interfaces au cœur de l’implémentation de beaucoup de bibliothèques
+et de frameworks. Le mécanisme des interfaces permet d’introduire également une
+forme simplifiée d’héritage multiple.</p>
+<div class="section" id="declaration-d-une-interface">
+<h2>Déclaration d’une interface<a class="headerlink" href="#declaration-d-une-interface" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une interface se déclare avec le mot-clé <strong>interface</strong>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.compte</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Compte</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Comme pour une classe, une interface a une portée, un nom et un bloc de
+déclaration. Une interface est déclarée dans son propre fichier qui porte le même
+nom que l’interface. Pour l’exemple ci-dessus, le fichier doit s’appeler
+<em>Compte.java</em>.</p>
+<p>Une interface décrit un ensemble de méthodes en fournissant uniquement leur
+signature.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.compte</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Compte</span> <span class="p">{</span>
+
+  <span class="kt">void</span> <span class="nf">deposer</span><span class="p">(</span><span class="kt">int</span> <span class="n">montant</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">OperationInterrompueException</span><span class="p">,</span>
+                                   <span class="n">CompteBloqueException</span><span class="p">;</span>
+
+  <span class="kt">int</span> <span class="nf">retirer</span><span class="p">(</span><span class="kt">int</span> <span class="n">montant</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">OperationInterrompueException</span><span class="p">,</span>
+                                  <span class="n">CompteBloqueException</span><span class="p">;</span>
+
+  <span class="kt">int</span> <span class="nf">getBalance</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">OperationInterrompueException</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Une interface introduit un nouveau type d’abstraction qui définit à travers
+ces méthodes un ensemble d’interactions autorisées.
+Une classe peut ensuite implémenter une ou plusieurs interfaces.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Les méthodes d’une interface sont par défaut <strong>public</strong> et <strong>abstract</strong>. Il
+n’est pas possible de déclarer une autre portée que <strong>public</strong>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Mobile</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">deplacer</span><span class="p">();</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>L’interface ci-dessus est strictement identique à celle-ci :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Mobile</span> <span class="p">{</span>
+
+  <span class="kt">void</span> <span class="nf">deplacer</span><span class="p">();</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="implementation-d-une-interface">
+<h2>Implémentation d’une interface<a class="headerlink" href="#implementation-d-une-interface" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une classe signale les interfaces qu’elle implémente grâce au mot-clé <strong>implements</strong>.
+Une classe concrète doit fournir une implémentation pour toutes les méthodes
+d’une interface, soit dans sa déclaration, soit parce qu’elle en hérite.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.compte</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CompteBancaire</span> <span class="kd">implements</span> <span class="n">Compte</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">numero</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">balance</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="nf">CompteBancaire</span><span class="p">(</span><span class="n">String</span> <span class="n">numero</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">numero</span> <span class="o">=</span> <span class="n">numero</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">deposer</span><span class="p">(</span><span class="kt">int</span> <span class="n">montant</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">balance</span> <span class="o">+=</span> <span class="n">montant</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">retirer</span><span class="p">(</span><span class="kt">int</span> <span class="n">montant</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">OperationInterrompueException</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">balance</span> <span class="o">&lt;</span> <span class="n">montant</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="n">OperationInterrompueException</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">balance</span> <span class="o">-=</span> <span class="n">montant</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getBalance</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">balance</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">getNumero</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">numero</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>L’implémentation des méthodes d’une interface suit les mêmes règles que la redéfinition.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Si la classe qui implémente l’interface est une classe abstraite, alors elle n’est
+pas obligée de fournir une implémentation pour les méthodes de l’interface.</p>
+</div>
+<p>Même si les mécanismes des interfaces sont proches de ceux des classes abstraites,
+ces deux notions sont clairement distinctes. Une classe abstraite permet de mutualiser
+une implémentation dans une hiérarchie d’héritage en introduisant un type plus abstrait.
+Une interface permet de définir les interactions possibles entre un objet et
+ses clients. Une interface agit comme un contrat que les deux parties doivent
+remplir. Comme l’interface n’impose pas de s’insérer dans une hiérarchie d’héritage,
+il est relativement simple d’adapter une classe pour qu’elle implémente une interface.</p>
+<p>Une interface introduit un nouveau type de relation qui serait du type <em>est
+comme un</em> (<em>is-like-a</em>).</p>
+<p>Par exemple, il est
+possible de créer un système de gestion de comptes utilisant l’interface
+<em>Compte</em>. Il est facile ensuite de fournir une implémentation de cette interface
+pour un compte bancaire, un porte-monnaie électronique, un compte en ligne…
+t
+Une classe peut implémenter plusieurs interfaces si nécessaire. Pour cela, il
+suffit de donner les noms des interfaces séparés par une virgule.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.animal</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Carnivore</span> <span class="p">{</span>
+
+  <span class="kt">void</span> <span class="nf">manger</span><span class="p">(</span><span class="n">Animal</span> <span class="n">animal</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.animal</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Herbivore</span> <span class="p">{</span>
+
+  <span class="kt">void</span> <span class="nf">manger</span><span class="p">(</span><span class="n">Vegetal</span> <span class="n">vegetal</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.animal</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Humain</span> <span class="kd">extends</span> <span class="n">Animal</span> <span class="kd">implements</span> <span class="n">Carnivore</span><span class="p">,</span> <span class="n">Herbivore</span> <span class="p">{</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">manger</span><span class="p">(</span><span class="n">Animal</span> <span class="n">animal</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">manger</span><span class="p">(</span><span class="n">Vegetal</span> <span class="n">vegetal</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Dans l’exemple précédent, la classe <em>Humain</em> implémente les interfaces
+<em>Carnivore</em> et <em>Herbivore</em>. Donc une instance de la classe <em>Humain</em> peut
+être utilisée dans une application partout où les types <em>Carnivore</em> et <em>Herbivore</em>
+sont attendus.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Humain</span> <span class="n">humain</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Humain</span><span class="p">();</span>
+
+<span class="n">Carnivore</span> <span class="n">carnivore</span> <span class="o">=</span> <span class="n">humain</span><span class="p">;</span>
+<span class="n">carnivore</span><span class="p">.</span><span class="na">manger</span><span class="p">(</span><span class="k">new</span> <span class="n">Poulet</span><span class="p">());</span> <span class="c1">// Poulet hérite de Animal</span>
+
+<span class="n">Herbivore</span> <span class="n">herbivore</span> <span class="o">=</span> <span class="n">humain</span><span class="p">;</span>
+<span class="n">herbivore</span><span class="p">.</span><span class="na">manger</span><span class="p">(</span><span class="k">new</span> <span class="n">Chou</span><span class="p">());</span>   <span class="c1">// Chou hérite de Vegetal</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="attributs-et-methodes-statiques">
+<h2>Attributs et méthodes statiques<a class="headerlink" href="#attributs-et-methodes-statiques" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une interface peut déclarer des attributs. Cependant tous les attributs d’une
+interface sont par défaut <strong>public</strong>, <strong>static</strong> et <strong>final</strong>. Il n’est
+pas possible de modifier la portée de ces attributs. Autrement
+dit, une interface ne peut déclarer que des constantes.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.compte</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Compte</span> <span class="p">{</span>
+
+  <span class="kt">int</span> <span class="n">PLAFOND_DEPOT</span> <span class="o">=</span> <span class="mi">1_000_000</span><span class="p">;</span>
+
+  <span class="kt">void</span> <span class="nf">deposer</span><span class="p">(</span><span class="kt">int</span> <span class="n">montant</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">OperationInterrompueException</span><span class="p">,</span> <span class="n">CompteBloqueException</span><span class="p">;</span>
+
+  <span class="kt">int</span> <span class="nf">retirer</span><span class="p">(</span><span class="kt">int</span> <span class="n">montant</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">OperationInterrompueException</span><span class="p">,</span> <span class="n">CompteBloqueException</span><span class="p">;</span>
+
+  <span class="kt">int</span> <span class="nf">getBalance</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">OperationInterrompueException</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On peut préciser <strong>public</strong>, <strong>static</strong> et <strong>final</strong> dans la déclaration d’un
+attribut d’interface :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">PLAFOND_DEPOT</span> <span class="o">=</span> <span class="mi">1_000_000</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Ceci est strictement équivalent à</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">PLAFOND_DEPOT</span> <span class="o">=</span> <span class="mi">1_000_000</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<p>Une interface peut également déclarer des méthodes <strong>static</strong>. Dans ce cas,
+il s’agit de méthodes équivalentes aux méthodes de classe et l’interface doit
+fournir une implémentation pour ces méthodes. Ces méthodes doivent explicitement
+avoir le mot-clé <strong>static</strong> et elles ont une portée publique par défaut.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.compte</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Compte</span> <span class="p">{</span>
+
+  <span class="kt">int</span> <span class="n">PLAFOND_DEPOT</span> <span class="o">=</span> <span class="mi">1_000_000</span><span class="p">;</span>
+
+  <span class="kd">static</span> <span class="kt">int</span> <span class="nf">getBalanceTotale</span><span class="p">(</span><span class="n">Compte</span><span class="p">...</span> <span class="n">comptes</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">OperationInterrompueException</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">Compte</span> <span class="n">c</span> <span class="p">:</span> <span class="n">comptes</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">total</span> <span class="o">+=</span> <span class="n">c</span><span class="p">.</span><span class="na">getBalance</span><span class="p">();</span>
+
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">total</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kt">void</span> <span class="nf">deposer</span><span class="p">(</span><span class="kt">int</span> <span class="n">montant</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">OperationInterrompueException</span><span class="p">,</span> <span class="n">CompteBloqueException</span><span class="p">;</span>
+
+  <span class="kt">int</span> <span class="nf">retirer</span><span class="p">(</span><span class="kt">int</span> <span class="n">montant</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">OperationInterrompueException</span><span class="p">,</span> <span class="n">CompteBloqueException</span><span class="p">;</span>
+
+  <span class="kt">int</span> <span class="nf">getBalance</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">OperationInterrompueException</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="heritage-d-interface">
+<h2>Héritage d’interface<a class="headerlink" href="#heritage-d-interface" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une interface peut hériter d’autres interfaces. Contrairement aux classes qui
+ne peuvent avoir qu’une classe parente, une interface peut avoir autant d’interfaces
+parentes que nécessaire. Pour déclarer un héritage, on utilise le mot-clé
+<strong>extends</strong>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.animal</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Omnivore</span> <span class="kd">extends</span> <span class="n">Carnivore</span><span class="p">,</span> <span class="n">Herbivore</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Une classe concrète qui implémente une interface doit donc disposer d’une implémentation
+pour les méthodes de cette interface mais également pour toutes les méthodes des
+interfaces dont cette dernière hérite.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.animal</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Humain</span> <span class="kd">extends</span> <span class="n">Animal</span> <span class="kd">implements</span> <span class="n">Omnivore</span> <span class="p">{</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">manger</span><span class="p">(</span><span class="n">Animal</span> <span class="n">animal</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">manger</span><span class="p">(</span><span class="n">Vegetal</span> <span class="n">vegetal</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>L’héritage d’interface permet d’introduire de nouveaux types par agrégat. Dans
+l’exemple ci-dessus, nous faisons apparaître la notion d’omnivore simplement
+comme étant à la fois un carnivore et un herbivore.</p>
+</div>
+<div class="section" id="les-interfaces-marqueurs">
+<span id="interface-marqueur"></span><h2>Les interfaces marqueurs<a class="headerlink" href="#les-interfaces-marqueurs" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Comme chaque interface introduit un nouveau type, il est possible de contrôler
+grâce au mot-clé <strong>instanceof</strong> qu’une variable, un paramètre ou un attribut
+est bien une instance compatible avec cette interface.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Humain</span> <span class="n">bob</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Humain</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">bob</span> <span class="k">instanceof</span> <span class="n">Carnivore</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;bob mange de la viande&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>En Java, on utilise cette possibilité pour créer des interfaces marqueurs. Une
+interface marqueur n’a généralement pas de méthode, elle sert juste à introduire
+un nouveau type. Il est ensuite possible de changer le comportement d’une méthode
+si une variable, un paramètre ou un attribut implémente cette interface.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.animal</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Cannibale</span> <span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.animal</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Humain</span> <span class="kd">extends</span> <span class="n">Animal</span> <span class="kd">implements</span> <span class="n">Omnivore</span> <span class="p">{</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">manger</span><span class="p">(</span><span class="n">Animal</span> <span class="n">animal</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">animal</span> <span class="k">instanceof</span> <span class="n">Humain</span><span class="p">)</span> <span class="o">||</span> <span class="k">this</span> <span class="k">instanceof</span> <span class="n">Cannibale</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// ...</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">manger</span><span class="p">(</span><span class="n">Vegetal</span> <span class="n">vegetal</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Dans l’exemple ci-dessus, <em>Cannibale</em> agit comme une interface marqueur, elle
+permet à une classe héritant de <em>Humain</em> de manger une instance d’humain. Pour
+cela, il suffit de déclarer que cette nouvelle classe implémente <em>Cannibale</em> :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.animal</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Anthropophage</span> <span class="kd">extends</span> <span class="n">Humain</span> <span class="kd">implements</span> <span class="n">Cannibale</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Même si la classe <em>Anthropophage</em> ne redéfinit aucune méthode de sa classe
+parente, le fait de déclarer l’interface marqueur <em>Cannibale</em> suffit a modifier
+son comportement.</p>
+<p>Le principe de l’interface marqueur est quelques fois utilisé dans l’API standard
+de Java. Par exemple, La méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html#clone()">clone</a> déclarée par <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html">Object</a> jette une
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/CloneNotSupportedException.html">CloneNotSupportedException</a> si elle est appelée sur une instance qui n’implémente
+pas l’interface <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Cloneable.html">Cloneable</a>. Cela permet de fournir une méthode par défaut pour créer
+une copie d’un objet mais sans activer la fonctionnalité. Il faut
+que la classe déclare son intention d’être clonable grâce à l’interface
+marqueur.</p>
+</div>
+<div class="section" id="implementation-par-defaut">
+<h2>Implémentation par défaut<a class="headerlink" href="#implementation-par-defaut" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il est parfois difficile de faire évoluer une application qui utilise intensivement
+les interfaces. Reprenons notre exemple du <em>Compte</em>. Imaginons que nous souhaitions
+ajouter la méthode <em>transférer</em> qui consiste à transférer le solde d’un compte vers un autre.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.compte</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Compte</span> <span class="p">{</span>
+
+  <span class="kt">void</span> <span class="nf">deposer</span><span class="p">(</span><span class="kt">int</span> <span class="n">montant</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">OperationInterrompueException</span><span class="p">,</span>
+                                   <span class="n">CompteBloqueException</span><span class="p">;</span>
+
+  <span class="kt">int</span> <span class="nf">retirer</span><span class="p">(</span><span class="kt">int</span> <span class="n">montant</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">OperationInterrompueException</span><span class="p">,</span>
+                                  <span class="n">CompteBloqueException</span><span class="p">;</span>
+
+  <span class="kt">int</span> <span class="nf">getBalance</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">OperationInterrompueException</span><span class="p">;</span>
+
+  <span class="kt">void</span> <span class="nf">transferer</span><span class="p">(</span><span class="n">Compte</span> <span class="n">destination</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">OperationInterrompueException</span><span class="p">,</span>
+                                             <span class="n">CompteBloqueException</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>En ajoutant une nouvelle méthode à notre interface, nous devons
+fournir une implémentation pour cette méthode dans toutes les classes que nous avons
+créées pour qu’elles continuent à compiler. Mais si d’autres équipes de développement
+utilisent notre code et ont, elles-aussi, créé des implémentations pour l’interface
+<em>Compte</em>, alors elles devront adapter leur code au moment d’intégrer la dernière
+version de notre interface.</p>
+<p>Comme les interfaces servent précisément à découpler deux implémentations, elles
+sont très souvent utilisées dans les bibliothèques et les frameworks. D’un
+côté, les interfaces introduisent une meilleure souplesse mais, d’un autre côté,
+elles entraînent une grande rigidité car il peut être difficile de les faire
+évoluer sans risquer de casser des implémentations existantes.</p>
+<p>Pour palier partiellement à ce problème, une interface peut fournir une implémentation
+par défaut de ses méthodes. Ainsi, si une classe concrète qui implémente cette interface
+n’implémente pas une méthode par défaut, c’est le code de l’interface qui
+s’exécutera. Une méthode par défaut doit obligatoirement avoir le mot-clé
+<strong>default</strong> dans sa signature.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.compte</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Compte</span> <span class="p">{</span>
+
+  <span class="kt">void</span> <span class="nf">deposer</span><span class="p">(</span><span class="kt">int</span> <span class="n">montant</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">OperationInterrompueException</span><span class="p">,</span>
+                                   <span class="n">CompteBloqueException</span><span class="p">;</span>
+
+  <span class="kt">int</span> <span class="nf">retirer</span><span class="p">(</span><span class="kt">int</span> <span class="n">montant</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">OperationInterrompueException</span><span class="p">,</span>
+                                  <span class="n">CompteBloqueException</span><span class="p">;</span>
+
+  <span class="kt">int</span> <span class="nf">getBalance</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">OperationInterrompueException</span><span class="p">;</span>
+
+  <span class="k">default</span> <span class="kt">void</span> <span class="nf">transferer</span><span class="p">(</span><span class="n">Compte</span> <span class="n">destination</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">OperationInterrompueException</span><span class="p">,</span>
+                                                     <span class="n">CompteBloqueException</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">destination</span> <span class="o">==</span> <span class="k">this</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">int</span> <span class="n">montant</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">getBalance</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">montant</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">destination</span><span class="p">.</span><span class="na">deposer</span><span class="p">(</span><span class="n">montant</span><span class="p">);</span>
+    <span class="kt">boolean</span> <span class="n">retraitOk</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="na">retirer</span><span class="p">(</span><span class="n">montant</span><span class="p">);</span>
+      <span class="n">retraitOk</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">retraitOk</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">destination</span><span class="p">.</span><span class="na">retirer</span><span class="p">(</span><span class="n">montant</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Une classe implémentant <em>Compte</em> n’a pas besoin de fournir une
+implémentation pour la méthode <em>transferer</em>. La classe <em>CompteBancaire</em> que
+nous avons implémentée au début de ce chapitre continuera de compiler et de
+fonctionner comme attendu tout en ayant une méthode supplémentaire.</p>
+<div class="admonition caution">
+<p class="admonition-title">Prudence</p>
+<p>L’implémentation par défaut de méthode dans une interface la rapproche beaucoup
+du fonctionnement d’une classe abstraite. Cependant leurs usages sont différents.
+L’implémentation d’une méthode dans une classe abstraite est courant car
+la classe abstraite a cette notion de mutualisation de code. Par contre,
+l’implémentation par défaut de méthode dans une interface est très rare.
+Elle est réservée pour les types de situations décrits précédemment, afin
+d’éviter de casser les implémentations existantes.</p>
+</div>
+</div>
+<div class="section" id="la-segregation-d-interface">
+<h2>La ségrégation d’interface<a class="headerlink" href="#la-segregation-d-interface" title="Lien permanent vers ce titre">¶</a></h2>
+<p>En programmation objet, le <a class="reference external" href="https://en.wikipedia.org/wiki/Interface_segregation_principle">principe de ségrégation d’interface</a> stipule
+qu’un client ne devrait pas avoir accès à plus de méthodes d’un objet
+que ce dont il a vraiment besoin. L’objectif est de limiter au strict minimum
+les interactions possibles entre un objet et ces clients afin d’assurer un couplage
+minimal et faciliter ainsi les évolutions et le refactoring. En Java,
+le <a class="reference external" href="https://en.wikipedia.org/wiki/Interface_segregation_principle">principe de ségrégation d’interface</a> a deux conséquences :</p>
+<ol class="arabic simple">
+<li><p>Le type des variables, paramètres et attributs doit être choisi
+judicieusement pour restreindre au type minimum nécessaire par le code.</p></li>
+<li><p>Une interface ne doit pas déclarer <em>trop</em> de méthodes.</p></li>
+</ol>
+<p>Le premier point implique qu’il est préférable de manipuler les objets à travers
+leurs interfaces plutôt que d’utiliser le type réel de l’objet. Un exemple
+classique en Java concerne l’API des <a class="reference internal" href="les_collections.html"><span class="doc">collections</span></a>.
+Il s’agit de classes permettant de gérer un ensemble d’objets. Elles apportent
+des fonctionnalités plus avancées que les tableaux. Par exemple la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayList.html">java.util.ArrayList</a>
+permet de gérer une liste d’objets. Cette classe autorise l’ajout en fin de liste,
+l’insertion, la suppression et bien évidemment l’accès à un élément selon son index
+et le parcours complet des éléments.</p>
+<p>Un programme qui crée une <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayList.html">ArrayList</a> pour stocker un ensemble d’éléments
+n’utilisera jamais une variable de type <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayList.html">ArrayList</a> mais plutôt une variable
+ayant le type d’une interface implémentée par cette classe.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Utilisation de l&#39;interface List</span>
+<span class="n">List</span> <span class="n">maListe</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Utilisation de l&#39;interface Collection</span>
+<span class="n">Collection</span> <span class="n">maListe</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Utilisation de l&#39;interface Iterable</span>
+<span class="n">Iterable</span> <span class="n">maListe</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Plus une partie d’une application a recours à des interfaces pour interagir
+avec les autres parties d’une application, plus il est simple d’introduire
+des nouvelles classes implémentant les interfaces attendues et qui pourront être
+directement utilisées.</p>
+<p>Le second point est lié au principe <a class="reference external" href="https://fr.wikipedia.org/wiki/SOLID_%28informatique%29">SOLID</a> de la <a class="reference external" href="https://fr.wikipedia.org/wiki/Principe_de_responsabilit%C3%A9_unique">responsabilité unique</a>.
+Une interface est conçue pour représenter un type de relation entre la classe
+qui l’implémente et ses clients. Plus le nombre de méthodes augmente, plus
+il a de risque que l’interface représente en fait plusieurs types de relation.
+Dans ce cas, l’héritage entre interfaces et/ou l’implémentation de plusieurs
+interfaces deviennent une bonne solution pour isoler chaque relation.</p>
+<p>Reprenons notre exemple de l’interface <em>Compte</em>. Si notre système
+est composé d’un sous-système de consultation, d’un
+sous-système de retrait et d’un sous-système de gestion de comptes alors cette
+interface devrait probablement être séparée en plusieurs interfaces afin d’isoler
+chaque responsabilité.</p>
+<p>Une interface utilisée par le sous-système de consultation :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.compte</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">CompteConsultable</span> <span class="p">{</span>
+
+  <span class="kt">int</span> <span class="nf">getBalance</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">OperationInterrompueException</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Une interface utilisée par le sous-système de retrait :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.compte</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">OperationDeRetrait</span> <span class="p">{</span>
+
+  <span class="kt">int</span> <span class="nf">retirer</span><span class="p">(</span><span class="kt">int</span> <span class="n">montant</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">OperationInterrompueException</span><span class="p">,</span>
+                                  <span class="n">CompteBloqueException</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Une interface plus complexe utilisée par le système de gestion de comptes :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.compte</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Compte</span> <span class="kd">extends</span> <span class="n">CompteConsultable</span><span class="p">,</span> <span class="n">OperationDeRetrait</span> <span class="p">{</span>
+
+  <span class="kt">void</span> <span class="nf">deposer</span><span class="p">(</span><span class="kt">int</span> <span class="n">montant</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">OperationInterrompueException</span><span class="p">,</span>
+                                   <span class="n">CompteBloqueException</span><span class="p">;</span>
+
+  <span class="k">default</span> <span class="kt">void</span> <span class="nf">transferer</span><span class="p">(</span><span class="n">Compte</span> <span class="n">destination</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">OperationInterrompueException</span><span class="p">,</span>
+                                                     <span class="n">CompteBloqueException</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">destination</span> <span class="o">==</span> <span class="k">this</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">int</span> <span class="n">montant</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">getBalance</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">montant</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">destination</span><span class="p">.</span><span class="na">deposer</span><span class="p">(</span><span class="n">montant</span><span class="p">);</span>
+    <span class="kt">boolean</span> <span class="n">retraitOk</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="na">retirer</span><span class="p">(</span><span class="n">montant</span><span class="p">);</span>
+      <span class="n">retraitOk</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">retraitOk</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">destination</span><span class="p">.</span><span class="na">retirer</span><span class="p">(</span><span class="n">montant</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="l-inversion-de-dependance">
+<h2>L’inversion de dépendance<a class="headerlink" href="#l-inversion-de-dependance" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Lorsque nous avons vu les constructeurs, nous avons vu que nous pouvions réaliser
+de <a class="reference internal" href="cycle_de_vie.html#injection-des-dependances"><span class="std std-ref">l’injection de dépendance</span></a> en passant comme
+paramètres de constructeur les objets nécessaires au fonctionnement d’une classe
+plutôt que de laisser la nouvelle instance créer ces objets elle-même. Grâce à la notion
+d’interface, nous pouvons réaliser une injection de dépendance en découplant
+totalement l’utilisation de l’objet passé par injection de son implémentation.</p>
+<p>Si nous souhaitons créer une classe pour représenter une transaction bancaire,
+nous pouvons réaliser l’implémentation suivante :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.compte</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.time.Instant</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TransactionBancaire</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">Compte</span> <span class="n">compte</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">montant</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="n">Instant</span> <span class="n">date</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="nf">TransactionBancaire</span><span class="p">(</span><span class="n">Compte</span> <span class="n">compte</span><span class="p">,</span> <span class="kt">int</span> <span class="n">montant</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">compte</span> <span class="o">=</span> <span class="n">compte</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">montant</span> <span class="o">=</span> <span class="n">montant</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">effectuer</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">OperationInterrompueException</span><span class="p">,</span> <span class="n">CompteBloqueException</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">isEffectuee</span><span class="p">())</span> <span class="p">{</span>
+      <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">compte</span><span class="p">.</span><span class="na">retirer</span><span class="p">(</span><span class="n">montant</span><span class="p">);</span>
+    <span class="n">date</span> <span class="o">=</span> <span class="n">Instant</span><span class="p">.</span><span class="na">now</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">annuler</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">OperationInterrompueException</span><span class="p">,</span> <span class="n">CompteBloqueException</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="n">isEffectuee</span><span class="p">())</span> <span class="p">{</span>
+      <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">compte</span><span class="p">.</span><span class="na">deposer</span><span class="p">(</span><span class="n">montant</span><span class="p">);</span>
+    <span class="n">date</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isEffectuee</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">date</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="n">Instant</span> <span class="nf">getDate</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">date</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>L’implémentation précédente permet d’effectuer une transaction pour un compte donné
+et un montant donné et mémorise la date. Elle permet également d’annuler la transaction.
+Dans cette implémentation, nous avons réalisé une <strong>inversion de dépendance</strong>.
+La transaction ne connaît pas la nature exacte de l’objet <em>Compte</em> qu’elle manipule.
+La classe <em>TransactionBancaire</em> fonctionnera quelle que soit l’implémentation
+sous-jacente de l’interface <em>Compte</em>.</p>
+<p>L’inversion de dépendance est un principe de programmation objet qui stipule que
+si une classe A est dépendante d’une classe B, alors il peut être souhaitable que,
+non seulement la classe A reçoive une instance de B par injection, mais également
+que B ne soit connue qu’à travers une interface.</p>
+<p>L’inversion de dépendance est très souvent utilisée pour isoler les couches logicielles
+d’une architecture. Au sein d’une application, nous pouvons disposer d’un ensemble
+de classes pour gérer des opérations utilisateur et d’un ensemble de classes pour
+assurer la persistance des informations.</p>
+<img alt="../_images/inversion_de_dependance.png" src="../_images/inversion_de_dependance.png" />
+<p>L’architecture logicielle peut utiliser l’inversion de dépendance pour assurer que
+les opérations utilisateur qui ont besoin de réaliser des opérations persistantes
+réalisent des appels à travers des interfaces qui sont injectées. D’un côté, on peut
+imaginer implémenter différentes classes gérant la persistance pour sauver les informations
+dans des fichiers, dans des bases de données ou sur des serveurs distants (et même
+nulle part si on souhaite exécuter le code dans un environnement de test). D’un autre
+côté on peut créer et faire évoluer un système de persistance en ayant une dépendance
+minimale aux opérations utilisateur puisque le système de persistance doit juste
+fournir des implémentations conformes aux interfaces.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="generiques.html" class="btn btn-neutral float-right" title="Méthodes et classes génériques" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="enumeration.html" class="btn btn-neutral float-left" title="Les énumérations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright David Gayerie - david@gayerie.dev - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8>
+    <title>three.js app</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://threejs.org/build/three.min.js"></script>
+    <script>
+      var renderer = new THREE.WebGLRenderer();
+      document.body.appendChild(renderer.domElement);
+
+      var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+      renderer.setSize(window.innerWidth, window.innerHeight);
+
+      var scene = new THREE.Scene();
+      scene.overrideMaterial = new THREE.MeshPhongMaterial();
+
+      // Ambient light
+      var ambientLight = new THREE.AmbientLight(0xffffff, .2);
+      scene.add(ambientLight);
+
+      // Directional light
+      var directionalLight = new THREE.DirectionalLight(0xffdddd, 1);
+      directionalLight.position.set(1,1,1);
+      scene.add(directionalLight);
+
+      // On crée les objets sélectionnables dans leur groupe
+      var selectionables = new THREE.Group();
+      scene.add(selectionables);
+
+      var geometries = {
+        dodecahèdre: new THREE.DodecahedronGeometry(),
+        sphère: new THREE.SphereGeometry(),
+        cube: new THREE.BoxGeometry(),
+        cône: new THREE.ConeGeometry(),
+      }
+
+      for (var geo in geometries) {
+        var obj = new THREE.Mesh(geometries[geo]);
+        obj.name = geo;
+        obj.position.x = THREE.Math.randFloat(-5, 5);
+        obj.position.z = THREE.Math.randFloat(-5, -10);
+        selectionables.add(obj);
+      }
+
+      var raycaster = new THREE.Raycaster();
+
+      function getSelectionneLePlusProche(position) {
+        // Mise à jour de la position du rayon à lancer.
+        raycaster.setFromCamera(position, camera);
+        // Obtenir la liste des intersections
+        var selectionnes = raycaster.intersectObjects(selectionables.children);
+        if (selectionnes.length) {
+          return selectionnes[0].object;
+        }
+      }
+
+      function onMouseClick(event) {
+        var position = new THREE.Vector2();
+        // On conserve la position de la souris dans l'espace de coordonnées
+        // NDC (Normalized device coordinates).
+        var domRect = renderer.domElement.getBoundingClientRect();
+        position.x = (event.clientX / domRect.width) * 2 - 1 + domRect.left;
+        position.y = - (event.clientY / domRect.height) * 2 + 1 + domRect.top;
+
+        var s = getSelectionneLePlusProche(position);
+        if (s) {
+          alert("Vous avez sélectionné l'objet " + s.name);
+        } else {
+          alert("Vous n'avez rien sélectionné");
+        };
+      }
+
+      renderer.domElement.addEventListener('click', onMouseClick);
+
+      camera.position.z = 10;
+      camera.position.y = 2;
+      camera.lookAt(0, 0, -7.5);
+
+      renderer.render(scene, camera);
+    </script>
+  </body>
+</html>

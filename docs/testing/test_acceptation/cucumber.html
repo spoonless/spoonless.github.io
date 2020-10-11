@@ -1,0 +1,1071 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Ingénierie des tests avec Cucumber" name="description" />
+<meta content="test, test acceptation, behavior driven development, BDD, cucumber, gherkin, gestion de projet, agile" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Cucumber &mdash; Documentation Ingénierie des tests </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/testing/test_acceptation/cucumber.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Automatisation des tests avec JMeter" href="jmeter.html" />
+    <link rel="prev" title="Selenium" href="selenium.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Ingénierie des tests
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Les tests unitaires</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../test/junit.html">Les tests unitaires automatisés avec JUnit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../test/junit.html#junit">JUnit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test/junit.html#structure-d-une-classe-de-test-junit">Structure d’une classe de test JUnit</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../test/junit.html#execution-des-tests-junit">Exécution des tests JUnit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../test/junit.html#les-methodes-de-test">Les méthodes de test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../test/junit.html#les-assertions">Les assertions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../test/junit.html#les-fixtures">Les fixtures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test/junit.html#tester-les-exceptions">Tester les exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../test/junit.html#utilisation-de-doublure">Utilisation de doublure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test/junit.html#implementation-d-objet-mock-avec-mockito">Implémentation d’objet mock avec Mockito</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../test/phpunit.html">Les tests unitaires automatisés avec PHPUnit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../test/phpunit.html#phpunit">PHPUnit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test/phpunit.html#structure-d-une-classe-de-test-phpunit">Structure d’une classe de test PHPUnit</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../test/phpunit.html#les-methodes-de-test">Les méthodes de test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../test/phpunit.html#les-assertions">Les assertions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../test/phpunit.html#les-fixtures">Les fixtures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../test/phpunit.html#utilisation-de-doublure">Utilisation de doublure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test/phpunit.html#implementation-d-objet-mock">Implémentation d’objet mock</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../test/tdd.html">TDD : Test Driven Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../test/tdd.html#qu-est-ce-qu-un-test">Qu’est-ce qu’un test ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test/tdd.html#test-driven-development">Test Driven Development</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test/tdd.html#les-etapes-du-tdd">Les étapes du TDD</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../test/tdd.html#qu-est-ce-que-concevoir">Qu’est-ce que concevoir ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test/tdd.html#exercices">Exercices</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Ingénierie des tests</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction à l’ingénierie des tests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#strategie-de-tests-et-types-de-tests">Stratégie de tests et types de tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#les-tests-de-non-regression">Les tests de non régression</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#les-7-principes-des-tests">Les 7 principes des tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="test_acceptation.html">Les tests d’acceptation et d’intégration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="test_acceptation.html#methode-de-gestion-de-projet">Méthode de gestion de projet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#notion-d-exigence">Notion d’exigence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#recette-fonctionnelle">Recette fonctionnelle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#notion-de-cas-de-test">Notion de cas de test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#scenario-de-test">Scénario de test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#exercice">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#la-matrice-de-tracabilite-des-exigences">La matrice de traçabilité des exigences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#id1">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#rapport-de-test">Rapport de test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#id2">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="test_acceptation.html#dans-le-cadre-d-une-methode-agile">Dans le cadre d’une méthode agile</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#le-behavior-driven-developement-bdd">Le <em>Behavior Driven Developement</em> (BDD)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="selenium.html">Selenium</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="selenium.html#selenium-ide">Selenium IDE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#enregistrer-des-commandes">Enregistrer des commandes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#notion-de-commande">Notion de commande</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#finaliser-un-test">Finaliser un test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#sauver-les-tests">Sauver les tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#creation-de-suites-de-tests">Création de suites de tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#bonnes-pratiques">Bonnes pratiques</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="selenium.html#web-driver">Web Driver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#installation-du-web-driver-pour-chrome">Installation du Web Driver pour Chrome</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="selenium.html#windows">Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="selenium.html#macos">MacOs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="selenium.html#linux">Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#utilisation-d-un-binding">Utilisation d’un binding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#gestion-de-l-attente">Gestion de l’attente</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#exporter-les-tests-selenium-ide">Exporter les tests Selenium IDE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#page-object-models">Page object models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selenium.html#executer-les-tests-selenium-a-la-phase-integration-test-de-maven">Exécuter les tests Selenium à la phase integration-test de Maven</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cucumber</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#behavior-driven-development-bdd">Behavior-Driven-Development (BDD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ecrire-des-scenarios-avec-cucumber">Écrire des scénarios avec Cucumber</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#automatiser-les-scenarios-en-java">Automatiser les scénarios en Java</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#les-classes-d-implementation-des-etapes">Les classes d’implémentation des étapes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#la-classe-de-lancement-junit">La classe de lancement JUnit</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#integration-avec-selenium">Intégration avec Selenium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pour-aller-plus-loin">Pour aller plus loin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#le-plan-de-scenario">Le plan de scénario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#le-contexte">Le contexte</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#les-tags">Les tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#l-injection-de-dependances">L’injection de dépendances</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jmeter.html">Automatisation des tests avec JMeter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jmeter.html#installation-et-lancement">Installation et lancement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmeter.html#principe-d-un-plan-de-test">Principe d’un plan de test</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-thread-groups-moteurs-d-utilisateurs">Les <em>thread groups</em> (moteurs d’utilisateurs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-samplers-echantillons">Les <em>samplers</em> (échantillons)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-listeners-recepteurs">Les <em>listeners</em> (récepteurs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-logic-controllers-les-controleurs-logiques">Les <em>logic controllers</em> (les contrôleurs logiques)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-configuration-elements-les-configurations">Les <em>configuration elements</em> (les configurations)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-assertions">Les <em>assertions</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-pre-processeurs-et-les-post-processeurs">Les pré-processeurs et les post-processeurs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmeter.html#les-timers-compteurs-de-temps">Les <em>timers</em> (compteurs de temps)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jmeter.html#utilisation-des-variables">Utilisation des variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmeter.html#executer-une-campagne-de-test-mode-sans-ihm">Exécuter une campagne de test (mode sans IHM)</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Ingénierie des tests</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Cucumber</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="jmeter.html" class="btn btn-neutral float-right" title="Automatisation des tests avec JMeter" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="selenium.html" class="btn btn-neutral float-left" title="Selenium" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cucumber">
+<h1>Cucumber<a class="headerlink" href="#cucumber" title="Lien permanent vers ce titre">¶</a></h1>
+<p><a class="reference external" href="https://cucumber.io/">Cucumber</a> est un <em>framework</em> pour l’implémentation de scénarios de type BDD
+(<em>Behavior-Driven-Development</em>). Dans ce chapitre, nous verrons en quoi
+consiste une approche BDD ainsi qu’une introduction à l’automatisation de scénarios
+avec <a class="reference external" href="https://cucumber.io/">Cucumber</a> en Java. Enfin nous verrons comment valider une application Web
+en associant <a class="reference external" href="https://cucumber.io/">Cucumber</a> et <a class="reference external" href="https://www.selenium.dev/">Selenium</a>.</p>
+<div class="section" id="behavior-driven-development-bdd">
+<h2>Behavior-Driven-Development (BDD)<a class="headerlink" href="#behavior-driven-development-bdd" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le <a class="reference external" href="https://fr.wikipedia.org/wiki/Programmation_pilot%C3%A9e_par_le_comportement">BDD</a> (<em>Behavior-Driven-Development</em>) est une approche proposée par Dan North
+dans son article <a class="reference external" href="https://dannorth.net/introducing-bdd/">Introducing BDD</a>. Le fondement du <a class="reference external" href="https://fr.wikipedia.org/wiki/Programmation_pilot%C3%A9e_par_le_comportement">BDD</a> est moins de raisonner
+en terme de tests que de comportements d’un système.</p>
+<p>Un test fait le plus souvent référence à une interaction entre un utilisateur
+et un système. Le résultat de cette interaction doit être conforme à une
+exigence ou une expression de besoins. Le test est un formalisme pour valider le
+travail de développement.</p>
+<p>L’approche BDD oblige à revoir la notion de test et d’expression de besoins.
+Par exemple, dans une approche agile (qui est à la base de l’approche <a class="reference external" href="https://fr.wikipedia.org/wiki/Programmation_pilot%C3%A9e_par_le_comportement">BDD</a>),
+une nouvelle fonctionnalité à ajouter dans un système est associée à un ensemble
+de critères d’acceptation avant que l’équipe ne la développe. Dan North
+propose de représenter autant que possible ces critères d’acceptation par des
+scénarios décrivant les comportements attendus du système. Pour faciliter la
+communication, il propose de suivre un formalisme simple pour écrire ces
+scénarios : <em>Given</em>, <em>When</em>, <em>Then</em> :</p>
+<div class="highlight-gherkin notranslate"><div class="highlight"><pre><span></span><span class="k">Given </span><span class="nf">some initial context,</span>
+<span class="k">When </span><span class="nf">an event occurs,</span>
+<span class="k">Then </span><span class="nf">ensure some outcomes.</span>
+</pre></div>
+</div>
+<p>Soit en français :</p>
+<div class="highlight-gherkin notranslate"><div class="highlight"><pre><span></span><span class="k">Etant donné </span><span class="nf">un contexte initial,</span>
+<span class="k">Quand </span><span class="nf">un événement survient,</span>
+<span class="k">Alors </span><span class="nf">on s&#39;assure de certains résultats</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Le formalisme du <a class="reference external" href="https://fr.wikipedia.org/wiki/Programmation_pilot%C3%A9e_par_le_comportement">BDD</a> reprend le principe du <a class="reference external" href="https://wiki.c2.com/?ArrangeActAssert">AAA</a> des tests. L’étape
+<em>Given</em> correspond à la phase <em>Arrange</em>, l’étape <em>When</em> correspond à la
+phase <em>Act</em> et l’étape <em>When</em> correspond à la phase <em>Assert</em>.</p>
+</div>
+<p>En utilisant ce formalisme, les scénarios deviennent facilement communicables
+entre les développeurs, les experts fonctionnels et toutes les parties-prenantes
+dans la création de la solution. Les scénarios deviennent un support à la
+discussion et à la compréhension des fonctionnalités. Idéalement avec le <a class="reference external" href="https://fr.wikipedia.org/wiki/Programmation_pilot%C3%A9e_par_le_comportement">BDD</a>,
+la spécification du système est l’ensemble des scénarios définis.</p>
+<p>De plus, en utilisant ce formalisme, il est possible de concevoir un outil
+capable d’analyser les scénarios et de les exécuter. On parle alors de
+<strong>spécification exécutable</strong>. Ainsi, les scénarios, bien qu’automatisés,
+demeurent écrits en langage naturel et sont facilement accessibles à l’ensemble
+des intervenants du projet.</p>
+<p>Il ne faut pas voir le <a class="reference external" href="https://fr.wikipedia.org/wiki/Programmation_pilot%C3%A9e_par_le_comportement">BDD</a> comme une approche technique mais bien plutôt
+comme une manière d’organiser le développement logiciel différemment en
+repensant, d’une part, le lien entre expression de besoins et validation et,
+d’autre part, la communication entre les développeurs et les experts fonctionnels.</p>
+<p>Plusieurs <em>framework</em> ont été proposés pour aider à réaliser ce type d’approche :
+<a class="reference external" href="http://fitnesse.org/">FitNesse</a>, <a class="reference external" href="https://jbehave.org/">JBehave</a> (proposé par Dan North lui-même) et <a class="reference external" href="https://cucumber.io/">Cucumber</a>. <a class="reference external" href="https://cucumber.io/">Cucumber</a>
+est probablement le plus utilisé actuellement. Il a l’avantage de ne pas
+être lié à un seul langage de programmation car il a été porté pour
+<a class="reference external" href="https://cucumber.io/docs/installation/">plusieurs langages</a>.</p>
+</div>
+<div class="section" id="ecrire-des-scenarios-avec-cucumber">
+<h2>Écrire des scénarios avec Cucumber<a class="headerlink" href="#ecrire-des-scenarios-avec-cucumber" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference external" href="https://cucumber.io/">Cucumber</a> permet de rédiger des scénarios en suivant un formalisme appelé le
+langage <a class="reference external" href="https://cucumber.io/docs/gherkin/reference/">Gherkin</a>. Les scénarios sont regroupés par fonctionnalité (<em>feature</em>).
+Ils sont écrits dans un simple fichier texte. Par défaut, <a class="reference external" href="https://cucumber.io/">Cucumber</a> s’attend à
+ce que le fichier porte l’extension <code class="file docutils literal notranslate"><span class="pre">.feature</span></code>.</p>
+<p>Imaginons que nous voulions tester le <a class="reference external" href="https://fr.wikipedia.org/wiki/Le_Pendu_(jeu)">jeu du pendu</a> (<em>the hangman</em> en anglais).
+Nous pourrions écrire les scénarios suivant dans le fichier
+<code class="file docutils literal notranslate"><span class="pre">PlayHagman.feature</span></code> :</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Le fichier PlayHangman.feature</span><a class="headerlink" href="#id2" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-gherkin notranslate"><div class="highlight"><pre><span></span><span class="k">Feature:</span><span class="nf"> Suggesting a letter</span>
+
+<span class="k">Scenario:</span><span class="nf"> Knowing the occurence of one letter in the word</span>
+
+<span class="k">  Given </span><span class="nf">the word to be guessed is cucumber</span>
+<span class="nf">  </span><span class="k">When </span><span class="nf">the player suggests the letter u</span>
+<span class="nf">  </span><span class="k">Then </span><span class="nf">the letter is found </span><span class="s">2</span><span class="nf"> times</span>
+
+<span class="k">Scenario:</span><span class="nf"> Knowing the position of all occurences in the word</span>
+
+<span class="k">  Given </span><span class="nf">the word to be guessed is cucumber</span>
+<span class="nf">  </span><span class="k">When </span><span class="nf">the player suggests the letter u</span>
+<span class="nf">  </span><span class="k">Then </span><span class="nf">the word is -u-u----</span>
+</pre></div>
+</div>
+</div>
+<p>Le fichier commence par le mot clé <code class="docutils literal notranslate"><span class="pre">Feature</span></code> suivi de deux points et de la
+description de la fonctionnalité. Puis viennent les scénarios. Chacun d’entre-eux
+commence par <code class="docutils literal notranslate"><span class="pre">Scenario</span></code> suivi de deux points et de son nom. Chaque scénario
+est constitué d’étapes (<em>steps</em>) commençant par <code class="docutils literal notranslate"><span class="pre">Given</span></code>, <code class="docutils literal notranslate"><span class="pre">When``ou</span> <span class="pre">``Then</span></code>.
+Il est possible de séquencer plusieurs étapes en utilisant <code class="docutils literal notranslate"><span class="pre">And</span></code>. Nous pourrions
+donc fusionner les deux scénarios précédents en un seul :</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Le fichier PlayHangman.feature</span><a class="headerlink" href="#id3" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-gherkin notranslate"><div class="highlight"><pre><span></span><span class="k">Feature:</span><span class="nf"> Suggesting a letter</span>
+
+<span class="k">Scenario:</span><span class="nf"> Knowing the occurence and position of one letter in the word</span>
+
+<span class="k">  Given </span><span class="nf">the word to be guessed is cucumber</span>
+<span class="nf">  </span><span class="k">When </span><span class="nf">the player suggests the letter u</span>
+<span class="nf">  </span><span class="k">Then </span><span class="nf">the letter is found </span><span class="s">2</span><span class="nf"> times</span>
+<span class="nf">  </span><span class="k">And </span><span class="nf">the word is -u-u----</span>
+</pre></div>
+</div>
+</div>
+<p>La caractère <code class="docutils literal notranslate"><span class="pre">#</span></code> peut être utilisé pour signifier un commentaire. Il est
+également possible de l’utiliser suivi d’un mot-clé pour donner une
+méta-information. Par exemple, <a class="reference external" href="https://cucumber.io/docs/gherkin/reference/">Gherkin</a> est disponible dans de nombreuses langues.
+Pour préciser la langue du fichier, on utilise <code class="docutils literal notranslate"><span class="pre">#language</span></code> :</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Le fichier JeuDuPendu.feature en français</span><a class="headerlink" href="#id4" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-gherkin notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="c">#language: fr</span><span class="nf"></span>
+</span>
+<span class="k">Fonctionnalité:</span><span class="nf"> Proposer une lettre</span>
+
+<span class="k">Scénario:</span><span class="nf"> Connaître l&#39;occurrence d&#39;une lettre dans un mot</span>
+
+<span class="k">  Etant donné </span><span class="nf">que le mot à trouver est cucumber</span>
+<span class="nf">  </span><span class="k">Quand </span><span class="nf">le joueur propose la lettre u</span>
+<span class="nf">  </span><span class="k">Alors </span><span class="nf">la lettre est présente </span><span class="s">2</span><span class="nf"> fois</span>
+
+<span class="k">Scénario:</span><span class="nf"> Connaître la position de toutes les occurrences dans un mot</span>
+
+<span class="k">  Etant donné </span><span class="nf">que le mot à trouver est cucumber</span>
+<span class="nf">  </span><span class="k">Quand </span><span class="nf">le joueur propose la lettre u</span>
+<span class="nf">  </span><span class="k">Alors </span><span class="nf">le mot est -u-u----</span>
+</pre></div>
+</div>
+</div>
+<p>La méta-information <code class="docutils literal notranslate"><span class="pre">#language:</span> <span class="pre">fr</span></code> en tête du fichier permet d’écrire les
+tests en français.</p>
+<p>Chaque fonctionnalité est décrite par des scénarios dans son propre fichier
+portant l’extension <code class="file docutils literal notranslate"><span class="pre">.feature</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference external" href="https://cucumber.io/docs/gherkin/reference/">Gherkin</a> supporte les variantes de la forme <code class="docutils literal notranslate"><span class="pre">Etant</span> <span class="pre">donné</span> <span class="pre">que</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Etant</span> <span class="pre">donné</span> <span class="pre">qu'</span></code>, <code class="docutils literal notranslate"><span class="pre">Etant</span> <span class="pre">donné</span></code>… Vous pouvez également utiliser
+<code class="docutils literal notranslate"><span class="pre">Mais</span></code> (<code class="docutils literal notranslate"><span class="pre">But</span></code>) plutôt que <code class="docutils literal notranslate"><span class="pre">Alors</span></code> quand cela est syntaxiquement plus
+correct.</p>
+<p>Pour une présentation complète du langage <a class="reference external" href="https://cucumber.io/docs/gherkin/reference/">Gherkin</a>, consultez la documentation
+officielle :</p>
+<blockquote>
+<div><p><a class="reference external" href="https://cucumber.io/docs/gherkin/reference/">https://cucumber.io/docs/gherkin/reference/</a></p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="automatiser-les-scenarios-en-java">
+<h2>Automatiser les scénarios en Java<a class="headerlink" href="#automatiser-les-scenarios-en-java" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour poursuivre notre exemple du <a class="reference external" href="https://fr.wikipedia.org/wiki/Le_Pendu_(jeu)">jeu du pendu</a>, nous partirons du principe
+que les développeurs ont créé la classe <code class="docutils literal notranslate"><span class="pre">JeuDuPendu</span></code> que nous allons valider
+grâce à nos scénarios :</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Le fichier JeuDuPendu.java</span><a class="headerlink" href="#id5" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.jeu</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">JeuDuPendu</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="kt">char</span><span class="o">[]</span> <span class="n">motSecret</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kt">char</span><span class="o">[]</span> <span class="n">lettresDecouvertes</span><span class="p">;</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Crée une instance du jeu en donnant le mot à trouver.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param motSecret Le mot à découvrir</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="nf">JeuDuPendu</span><span class="p">(</span><span class="n">String</span> <span class="n">motSecret</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">motSecret</span> <span class="o">=</span> <span class="n">motSecret</span><span class="p">.</span><span class="na">toCharArray</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">lettresDecouvertes</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="k">this</span><span class="p">.</span><span class="na">motSecret</span><span class="p">.</span><span class="na">length</span><span class="o">]</span><span class="p">;</span>
+        <span class="n">Arrays</span><span class="p">.</span><span class="na">fill</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">lettresDecouvertes</span><span class="p">,</span> <span class="sc">&#39;-&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * @param lettre La lettre que le joueur propose</span>
+<span class="cm">     * @return le nombre d&#39;occurrences de la lettre dans le mot</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">proposer</span><span class="p">(</span><span class="kt">char</span> <span class="n">lettre</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">nbOccurences</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">motSecret</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">motSecret</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="n">lettre</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">lettresDecouvertes</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">lettre</span><span class="p">;</span>
+                <span class="n">nbOccurences</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">nbOccurences</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * @return Les lettres découvertes dans le mot.</span>
+<span class="cm">     *         Les lettres inconnues sont remplacées par -</span>
+<span class="cm">     *         Par exemple : bo-jo--</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getLettresDecouvertes</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">String</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">lettresDecouvertes</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="exercice admonition">
+<p class="admonition-title">Projet de démo</p>
+<p>Vous pouvez trouver un exemple plus complet en téléchargeant le projet
+<a class="reference download internal" download="" href="../_downloads/ae2e1568c6a3e8bc068d260dd2935ebf/cucumber-demo.zip"><code class="xref download docutils literal notranslate"><span class="pre">cucumber-demo.zip</span></code></a> qui
+contient tous les exemples de ce chapitre.</p>
+</div>
+<p>Pour automatiser les scénarios avec <a class="reference external" href="https://cucumber.io/">Cucumber</a>, le plus simple est de les lancer
+avec Junit 4. Dans un projet Java géré avec Maven, on commence par ajouter
+les dépendances nécessaires :</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Les dépendances Maven</span><a class="headerlink" href="#id6" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>junit<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>junit<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>4.13<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>io.cucumber<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>cucumber-java<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>5.6.0<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>io.cucumber<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>cucumber-junit<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>5.6.0<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>Pour exécuter les scénarios, nous avons besoin :</p>
+<ul class="simple">
+<li><p>Des scénarios écrits dans des fichiers texte avec l’exentension <code class="file docutils literal notranslate"><span class="pre">.feature</span></code>,</p></li>
+<li><p>D’une ou plusieurs classes contenant l’implémentation à exécuter pour chaque
+étape (<em>step</em>) d’un scénario,</p></li>
+<li><p>D’une classe permettant de lancer les scénarios avec JUnit.</p></li>
+</ul>
+<div class="section" id="les-classes-d-implementation-des-etapes">
+<h3>Les classes d’implémentation des étapes<a class="headerlink" href="#les-classes-d-implementation-des-etapes" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un scénario est découpé en étapes (<em>steps</em>). Chaque étape doit être associée
+à une méthode qui pourra être exécutée. Une telle méthode est publique et est
+annotée avec <code class="docutils literal notranslate"><span class="pre">&#64;Given</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;When</span></code> ou <code class="docutils literal notranslate"><span class="pre">&#64;Then</span></code>. Même si ce n’est pas nécessaire,
+vous pouvez utiliser les annotations équivalentes dans la langue de vos scénarios.
+(par exemple, <a class="reference external" href="https://cucumber.io/">Cucumber</a> fournit des annotations <code class="docutils literal notranslate"><span class="pre">&#64;Etantdonné</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;Etantdonnéque</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&#64;Quand</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;Alors</span></code>).</p>
+<p>Pour l’exemple du <a class="reference external" href="https://fr.wikipedia.org/wiki/Le_Pendu_(jeu)">jeu du pendu</a>, voici la classe d’implémentation des étapes :</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">La classe d’implémentation des étapes</span><a class="headerlink" href="#id7" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.jeu</span><span class="p">;</span>
+
+<span class="kn">import static</span> <span class="nn">org.junit.Assert.*</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">io.cucumber.java.fr.Alors</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">io.cucumber.java.fr.Etantdonnéque</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">io.cucumber.java.fr.Quand</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">JeuDuPenduSteps</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="n">JeuDuPendu</span> <span class="n">jeuDuPendu</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">nbOccurencesDerniereLettreProposee</span><span class="p">;</span>
+
+    <span class="nd">@Etantdonnéque</span><span class="p">(</span><span class="s">&quot;le mot à trouver est {word}&quot;</span><span class="p">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">leMotATrouver</span><span class="p">(</span><span class="n">String</span> <span class="n">mot</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">jeuDuPendu</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JeuDuPendu</span><span class="p">(</span><span class="n">mot</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Quand</span><span class="p">(</span><span class="s">&quot;le joueur propose la lettre {word}&quot;</span><span class="p">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">proposerLettre</span><span class="p">(</span><span class="n">String</span> <span class="n">lettre</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">nbOccurencesDerniereLettreProposee</span> <span class="o">=</span> <span class="n">jeuDuPendu</span><span class="p">.</span><span class="na">proposer</span><span class="p">(</span><span class="n">lettre</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Alors</span><span class="p">(</span><span class="s">&quot;la lettre est présente {int} fois&quot;</span><span class="p">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">laLettreEstPresente</span><span class="p">(</span><span class="kt">int</span> <span class="n">nbFois</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="n">nbFois</span><span class="p">,</span> <span class="n">nbOccurencesDerniereLettreProposee</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Alors</span><span class="p">(</span><span class="s">&quot;le mot est {}&quot;</span><span class="p">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">leMotEst</span><span class="p">(</span><span class="n">String</span> <span class="n">mot</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="n">mot</span><span class="p">,</span> <span class="n">jeuDuPendu</span><span class="p">.</span><span class="na">getLettresDecouvertes</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>Notez que ces méthodes utilisent les annotations pour préciser le texte de
+l’étape qu’elles représentent. Il est possible de paramétrer les étapes avec
+une notation de la forme <code class="docutils literal notranslate"><span class="pre">{}</span></code> donnant le type du paramètre.</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 83%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Notation</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>{int}</p></td>
+<td><p>Le paramètre est un entier</p></td>
+</tr>
+<tr class="row-odd"><td><p>{float}</p></td>
+<td><p>Le paramètre est un nombre à virgule</p></td>
+</tr>
+<tr class="row-even"><td><p>{word}</p></td>
+<td><p>Le paramètre est un mot sans espace</p></td>
+</tr>
+<tr class="row-odd"><td><p>{string}</p></td>
+<td><p>Le paramètre est une chaîne de caractères délimitée par des apostrophes ou des guillemets</p></td>
+</tr>
+<tr class="row-even"><td><p>{}</p></td>
+<td><p>Le paramètre est une chaîne de caractères et correspond à n’importe quelle valeur</p></td>
+</tr>
+</tbody>
+</table>
+<p>Par exemple, à la ligne 14 de la classe, on associe la méthode une étape de la forme
+<code class="docutils literal notranslate"><span class="pre">le</span> <span class="pre">mot</span> <span class="pre">à</span> <span class="pre">trouver</span> <span class="pre">est</span> <span class="pre">{word}</span></code>. <a class="reference external" href="https://cucumber.io/">Cucumber</a> se chargera d’extraire le mot apparaissant
+dans le scénario pour le passer en paramètre de la méthode.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Si vous préférez, vous pouvez associer les méthodes aux étapes en utilisant
+des expressions régulières. Les paramètres à extraire correspondent aux groupes
+définis dans votre expression.</p>
+</div>
+<p>Une classe définissant des méthodes d’étape agit le plus souvent comme une
+machine à état. Elle maintient en interne des attributs qui sont modifiés au
+fur et à mesure de l’appel aux méthodes. Remarquez que les méthodes annotées
+avec <code class="docutils literal notranslate"><span class="pre">&#64;Alors</span></code> utilisent des assertions JUnit pour valider l’état courant.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour allez plus loin, vous pouvez consulter la documentation officielle :</p>
+<blockquote>
+<div><p><a class="reference external" href="https://cucumber.io/docs/cucumber/cucumber-expressions/">https://cucumber.io/docs/cucumber/cucumber-expressions/</a></p>
+<p><a class="reference external" href="https://cucumber.io/docs/cucumber/api/">https://cucumber.io/docs/cucumber/api/</a></p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="la-classe-de-lancement-junit">
+<h3>La classe de lancement JUnit<a class="headerlink" href="#la-classe-de-lancement-junit" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La classe de lancement JUnit est très simple à écrire car elle ne contient aucun
+test particulier. Grâce à l’annotation <a class="reference external" href="https://junit.org/junit4/javadoc/4.12/org/junit/runner/RunWith.html">&#64;RunWith</a>, elle déclare que le moteur
+JUnit doit utiliser Cucumber pour se lancer. On peut également utiliser l’annotation
+<a class="reference external" href="https://cucumber.io/docs/cucumber/api/">&#64;CucumberOptions</a> pour paramétrer l’exécution des scénarios.</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">La classe de lancement avec JUnit</span><a class="headerlink" href="#id8" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.jeu</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.junit.runner.RunWith</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">io.cucumber.junit.Cucumber</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">io.cucumber.junit.CucumberOptions</span><span class="p">;</span>
+
+<span class="nd">@RunWith</span><span class="p">(</span><span class="n">Cucumber</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<span class="nd">@CucumberOptions</span><span class="p">(</span><span class="n">strict</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="n">monochrome</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">JeuDuPenduTest</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>Pour localiser les fichiers <code class="file docutils literal notranslate"><span class="pre">.feature</span></code> et les classes fournissant
+l’implémentation des étapes, la règle par défaut est d’utiliser le même package
+que le package de la classe de lancement.</p>
+<p>Pour l’exemple ci-dessus, toutes les classes dans le package
+dev.gayerie.jeu et définissant des étapes seront utilisées. Dans le répertoire
+Maven <code class="file docutils literal notranslate"><span class="pre">src/test/resources</span></code>, tous les fichiers avec l’extension <code class="file docutils literal notranslate"><span class="pre">.feature</span></code>
+présents dans le package dev.gayerie.jeu seront lus et exécutés.</p>
+<p>Pour exécuter les scénarios associés, il suffit de lancer cette classe de test
+dans votre IDE ou de lancer la commande Maven :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mvn <span class="nb">test</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="integration-avec-selenium">
+<h2>Intégration avec Selenium<a class="headerlink" href="#integration-avec-selenium" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il est relativement simple d’intégrer <a class="reference external" href="https://www.selenium.dev/">Selenium</a> dans l’implémentation des étapes.
+Cela permet d’écrire des scénarios impliquant l’utilisation de navigateur Web.</p>
+<p>À titre d’illustration, nous allons reprendre l’exemple du <a class="reference external" href="https://www.selenium.dev/documentation/en/guidelines_and_recommendations/page_object_models/">Page Object Model</a>
+vu au <a class="reference internal" href="selenium.html#seleniumpageobjectmodel"><span class="std std-ref">chapitre sur Selenium</span></a>.</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">Le fichier DuckDuckGo.feature</span><a class="headerlink" href="#id9" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-gherkin notranslate"><div class="highlight"><pre><span></span><span class="c">#language: fr</span><span class="nf"></span>
+
+<span class="k">Fonctionnalité:</span><span class="nf"> Référencement sur le moteur de recherche DuckDuckGo</span>
+
+<span class="k">Scénario:</span><span class="nf"> Le site de cucumber apparaît dans la première page de résultats de DuckDuckGo</span>
+
+<span class="k">  Etant donné </span><span class="nf">que l&#39;utilisateur est sur la page d&#39;accueil de DuckDuckGo</span>
+<span class="nf">  </span><span class="k">Quand </span><span class="nf">il saisit le mot-clé cucumber</span>
+<span class="nf">  </span><span class="k">Et </span><span class="nf">qu&#39;il lance la recherche</span>
+<span class="nf">  </span><span class="k">Alors </span><span class="nf">la page de résultats contient un lien sur le site https://cucumber.io</span>
+
+<span class="k">Scénario:</span><span class="nf"> Le site de selenium apparaît dans la première page de résultats de DuckDuckGo</span>
+
+<span class="k">  Etant donné </span><span class="nf">que l&#39;utilisateur est sur la page d&#39;accueil de DuckDuckGo</span>
+<span class="nf">  </span><span class="k">Quand </span><span class="nf">il saisit le mot-clé selenium</span>
+<span class="nf">  </span><span class="k">Et </span><span class="nf">qu&#39;il lance la recherche</span>
+<span class="nf">  </span><span class="k">Alors </span><span class="nf">la page de résultats contient un lien sur le site https://www.selenium.dev</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">La classe d’implémentation des étapes</span><a class="headerlink" href="#id10" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.duckduckgo</span><span class="p">;</span>
+
+<span class="kn">import static</span> <span class="nn">org.junit.Assert.*</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.openqa.selenium.WebDriver</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.openqa.selenium.chrome.ChromeDriver</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">io.cucumber.java.After</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">io.cucumber.java.Before</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">io.cucumber.java.fr.Alors</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">io.cucumber.java.fr.Etantdonnéque</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">io.cucumber.java.fr.Quand</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DuckDuckGoSteps</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="n">WebDriver</span> <span class="n">webDriver</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">HomePage</span> <span class="n">homePage</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">ResultPage</span> <span class="n">resultPage</span><span class="p">;</span>
+
+    <span class="nd">@Before</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">createWebDriver</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">webDriver</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ChromeDriver</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nd">@After</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">quitWebDriver</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">webDriver</span><span class="p">.</span><span class="na">quit</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Etantdonnéque</span><span class="p">(</span><span class="s">&quot;l&#39;utilisateur est sur la page d&#39;accueil de DuckDuckGo&quot;</span><span class="p">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">utilisateurSurLaPageDAccueil</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">homePage</span> <span class="o">=</span> <span class="n">HomePage</span><span class="p">.</span><span class="na">openWith</span><span class="p">(</span><span class="n">webDriver</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Quand</span><span class="p">(</span><span class="s">&quot;il saisit le mot-clé {word}&quot;</span><span class="p">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">ilSaisit</span><span class="p">(</span><span class="n">String</span> <span class="n">motCle</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">assertNotNull</span><span class="p">(</span><span class="s">&quot;La page de recherche n&#39;est pas disponible&quot;</span><span class="p">,</span> <span class="n">homePage</span><span class="p">);</span>
+        <span class="n">homePage</span><span class="p">.</span><span class="na">enterKeywords</span><span class="p">(</span><span class="n">motCle</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Quand</span><span class="p">(</span><span class="s">&quot;il lance la recherche&quot;</span><span class="p">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">ilLanceLaRecherche</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">assertNotNull</span><span class="p">(</span><span class="s">&quot;La page de recherche n&#39;est pas disponible&quot;</span><span class="p">,</span> <span class="n">homePage</span><span class="p">);</span>
+        <span class="n">resultPage</span> <span class="o">=</span> <span class="n">homePage</span><span class="p">.</span><span class="na">clickOnSearch</span><span class="p">();</span>
+        <span class="n">homePage</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Alors</span><span class="p">(</span><span class="s">&quot;la page de résultats contient un lien sur le site {}&quot;</span><span class="p">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">laPageDeResultatContient</span><span class="p">(</span><span class="n">String</span> <span class="n">site</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">assertNotNull</span><span class="p">(</span><span class="s">&quot;La page de résultats n&#39;est pas disponible&quot;</span><span class="p">,</span> <span class="n">resultPage</span><span class="p">);</span>
+        <span class="n">assertTrue</span><span class="p">(</span><span class="s">&quot;Pas de résultat pour &quot;</span> <span class="o">+</span> <span class="n">site</span><span class="p">,</span> <span class="n">resultPage</span><span class="p">.</span><span class="na">isLinkPresent</span><span class="p">(</span><span class="n">site</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>L’API de <a class="reference external" href="https://cucumber.io/">Cucumber</a> fournit les annotations <code class="docutils literal notranslate"><span class="pre">&#64;Before</span></code> et <code class="docutils literal notranslate"><span class="pre">&#64;After</span></code> pour déclarer
+des méthodes publiques qui seront appelées avant chaque scénario (respectivement
+après chaque scénario). Ainsi, il est possible de créer et de libérer
+correctement une instance de <a class="reference external" href="https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/WebDriver.html">WebDriver</a>.</p>
+<p>La classe de lancement des scénarios est simplement :</p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">La classe de lancement des scénarios</span><a class="headerlink" href="#id11" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.duckduckgo</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.junit.runner.RunWith</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">io.cucumber.junit.Cucumber</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">io.cucumber.junit.CucumberOptions</span><span class="p">;</span>
+
+<span class="nd">@RunWith</span><span class="p">(</span><span class="n">Cucumber</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<span class="nd">@CucumberOptions</span><span class="p">(</span><span class="n">strict</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="n">monochrome</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DuckDuckGoAcceptanceTest</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Notez que les classes <code class="docutils literal notranslate"><span class="pre">DuckDuckGoSteps</span></code> et <code class="docutils literal notranslate"><span class="pre">DuckDuckGoAcceptanceTest</span></code>
+appartiennent au même package. De même, le fichier <code class="file docutils literal notranslate"><span class="pre">DuckDuckGo.feature</span></code>
+doit être placé dans le répertoire <code class="file docutils literal notranslate"><span class="pre">src/test/resources</span></code> dans le
+package dev.gayerie.duckduckgo.</p>
+</div>
+</div>
+<div class="section" id="pour-aller-plus-loin">
+<h2>Pour aller plus loin<a class="headerlink" href="#pour-aller-plus-loin" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference external" href="https://cucumber.io/">Cucumber</a> dispose de nombreuses fonctionnalités pour permettre de s’adapter
+à des solutions complexes.</p>
+<div class="section" id="le-plan-de-scenario">
+<h3>Le plan de scénario<a class="headerlink" href="#le-plan-de-scenario" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Afin d’éviter de répéter des scénarios qui ne varient que sur leurs paramètres
+en entrée et leurs paramètres en sortie, il est possible de créer un plan
+de scénario (<em>scenario outline</em> ou <em>scenario template</em>) et de passer les
+valeurs à utiliser sous la forme d’un tableau d’exemple :</p>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">Exemple de plan de scénario</span><a class="headerlink" href="#id12" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-gherkin notranslate"><div class="highlight"><pre><span></span><span class="k">Plan du scénario:</span><span class="nf"> Connaître la position d&#39;une lettre</span>
+
+<span class="k">  Etant donné </span><span class="nf">que le mot à trouver est cucumber</span>
+<span class="nf">  </span><span class="k">Quand </span><span class="nf">le joueur propose la lettre </span><span class="nv">&lt;lettre&gt;</span><span class="nf"></span>
+<span class="nf">  </span><span class="k">Alors </span><span class="nf">le mot est </span><span class="nv">&lt;mot&gt;</span><span class="nf"></span>
+
+<span class="k">Exemples:</span>
+
+<span class="k">  |</span><span class="nv"> lettre</span><span class="k"> |</span><span class="nv">    mot</span><span class="k">   |</span><span class="nf"></span>
+<span class="k">  |</span><span class="s">      c</span><span class="k"> |</span><span class="s"> c-c-----</span><span class="k"> |</span><span class="nf"></span>
+<span class="k">  |</span><span class="s">      u</span><span class="k"> |</span><span class="s"> -u-u----</span><span class="k"> |</span><span class="nf"></span>
+<span class="k">  |</span><span class="s">      m</span><span class="k"> |</span><span class="s"> ----m---</span><span class="k"> |</span><span class="nf"></span>
+<span class="k">  |</span><span class="s">      w</span><span class="k"> |</span><span class="s"> --------</span><span class="k"> |</span>
+</pre></div>
+</div>
+</div>
+<p>Le plan ci-dessus permet d’exécuter quatre scénarios différents en remplaçant
+à chaque fois <code class="docutils literal notranslate"><span class="pre">&lt;lettre&gt;</span></code> et <code class="docutils literal notranslate"><span class="pre">&lt;mot&gt;</span></code> par leur valeur.</p>
+</div>
+<div class="section" id="le-contexte">
+<h3>Le contexte<a class="headerlink" href="#le-contexte" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le contexte (<em>background</em>) correspond à un ensemble d’étapes à réaliser avant
+tous les scénarios d’une fonctionnalité. Cela permet d’éviter de copier/coller
+des étapes dans chaque test qui n’apportent pas une réelle plus-value au lecteur.</p>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">Exemple de contexte</span><a class="headerlink" href="#id13" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-gherkin notranslate"><div class="highlight"><pre><span></span><span class="k">Fonctionnalité:</span><span class="nf"> Gérer les commandes</span>
+
+<span class="k">Contexte:</span><span class="nf"></span>
+<span class="k">  Etant donné </span><span class="nf">que l&#39;utilisateur est loggé comme administrateur</span>
+<span class="nf">  </span><span class="k">Et </span><span class="nf">qu&#39;il existe une commande en attente avec le numéro &quot;</span><span class="s">XD-1234</span><span class="nf">&quot;</span>
+
+<span class="k">Scénario:</span><span class="nf"> Consulter la liste des commandes</span>
+<span class="k">  Quand </span><span class="nf">l&#39;utilisateur consulte la liste des commandes</span>
+<span class="nf">  </span><span class="k">Alors </span><span class="nf">il voit la commande avec le numéro &quot;</span><span class="s">XD-1234</span><span class="nf">&quot;</span>
+
+<span class="k">Scénario:</span><span class="nf"> Editer une commande en attente</span>
+<span class="k">  Quand </span><span class="nf">l&#39;utilisateur consulte la liste des commandes</span>
+<span class="nf">  </span><span class="k">Et </span><span class="nf">qu&#39;il édite la commande avec le numéro &quot;</span><span class="s">XD-1234</span><span class="nf">&quot;</span>
+<span class="nf">  </span><span class="k">Alors </span><span class="nf">il peut annuler la commande</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="les-tags">
+<h3>Les tags<a class="headerlink" href="#les-tags" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il est possible d’ajouter des <em>tags</em> sur des scénarios afin de filtrer leur
+exécution. Par exemple, une partie des scénarios ne sont peut-être pas
+automatisables pour des raisons de coûts ou de difficultés techniques. Il est
+possible de les marquer par un <em>tag</em> <code class="docutils literal notranslate"><span class="pre">&#64;manuel</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id14">
+<div class="code-block-caption"><span class="caption-text">Exemple d’utilisation de tag</span><a class="headerlink" href="#id14" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-gherkin notranslate"><div class="highlight"><pre><span></span><span class="nt">@manuel</span><span class="nf"></span>
+<span class="k">Scenario:</span><span class="nf"> Gérer l&#39;annulation d&#39;une commande</span>
+
+<span class="k">  Etant donné </span><span class="nf">qu&#39;une commande n&#39;a pas encore été livrée</span>
+<span class="nf">  </span><span class="k">Quand </span><span class="nf">l&#39;utilisateur consulte la commande</span>
+<span class="nf">  </span><span class="k">Et </span><span class="nf">qu&#39;il la supprime</span>
+<span class="nf">  </span><span class="k">Alors </span><span class="nf">le service commande reçoit une notification d&#39;annulation</span>
+</pre></div>
+</div>
+</div>
+<p>Dans la classe de lancement des scénarios, on peut spécifier de n’exécuter
+que les scénarios qui ne disposent pas du <em>tag</em> <code class="docutils literal notranslate"><span class="pre">&#64;manuel</span></code> :</p>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-text">La classe de lancement avec JUnit</span><a class="headerlink" href="#id15" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.jeu</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.junit.runner.RunWith</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">io.cucumber.junit.Cucumber</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">io.cucumber.junit.CucumberOptions</span><span class="p">;</span>
+
+<span class="nd">@RunWith</span><span class="p">(</span><span class="n">Cucumber</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<span class="hll"><span class="nd">@CucumberOptions</span><span class="p">(</span><span class="n">strict</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="n">monochrome</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="n">tags</span> <span class="o">=</span> <span class="s">&quot;not @manuel&quot;</span><span class="p">)</span>
+</span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">JeuDuPenduTest</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>Pour plus d’information, reportez-vous à la documentation sur les <em>tags</em> :</p>
+<blockquote>
+<div><p><a class="reference external" href="https://cucumber.io/docs/cucumber/api/#tags">https://cucumber.io/docs/cucumber/api/#tags</a></p>
+</div></blockquote>
+</div>
+<div class="section" id="l-injection-de-dependances">
+<h3>L’injection de dépendances<a class="headerlink" href="#l-injection-de-dependances" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Créer des scénarios à l’échelle d’une application signifie créer un large
+panel d’étapes avec leur méthode Java associée. Il est plus simple de répartir
+ces méthodes dans plusieurs classes pour des questions de lisibilité et de maintenance.
+Il est alors courant qu’un même scénario requière l’utilisation d’étapes qui
+sont implémentées par différentes classes. Les instances de ces classes devront
+la plupart du temps partager un état. Pensez, par exemple, à un scénario impliquant
+une interface Web, il est nécessaire de partager au minimum l’instance du
+<a class="reference external" href="https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/WebDriver.html">WebDriver</a> Selenium qui permet de piloter le navigateur Web.</p>
+<p><a class="reference external" href="https://cucumber.io/">Cucumber</a> propose des solutions d’injection de dépendances se basant sur
+différents <em>frameworks</em> : Spring, Guice, Pico Container…</p>
+<p>Pour en savoir plus, reportez-vous à la documentation officielle :</p>
+<blockquote>
+<div><p><a class="reference external" href="https://cucumber.io/docs/cucumber/state/#dependency-injection">https://cucumber.io/docs/cucumber/state/#dependency-injection</a></p>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="jmeter.html" class="btn btn-neutral float-right" title="Automatisation des tests avec JMeter" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="selenium.html" class="btn btn-neutral float-left" title="Selenium" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright David Gayerie - david@gayerie.dev - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

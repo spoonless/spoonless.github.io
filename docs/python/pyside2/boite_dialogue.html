@@ -1,0 +1,718 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Python 3 - PySide2" name="description" />
+<meta content="Pyside2, Qt, Python, Python3, GUI, IHM" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Création d’une boite de dialogue &mdash; Documentation Le langage Python </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/python/pyside2/boite_dialogue.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Accéder aux bases de données avec QtSql" href="qtsql.html" />
+    <link rel="prev" title="Les signaux et les slots" href="signal_slot.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Le langage Python
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Python 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python3/introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python3/introduction.html#python-2-et-python-3">Python 2 et Python 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/introduction.html#licence-logiciel">Licence logiciel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/introduction.html#les-principales-caracteristiques-du-langage">Les principales caractéristiques du langage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../python3/introduction.html#oriente-objet">Orienté objet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/introduction.html#courbe-d-apprentissage-lineaire">Courbe d’apprentissage linéaire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/introduction.html#compile-et-interprete">Compilé et interprété</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/introduction.html#typage-dynamique">Typage dynamique</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/introduction.html#les-domaines-d-application">Les domaines d’application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/introduction.html#les-differentes-implementations-de-python">Les différentes implémentations de Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/introduction.html#communaute-et-organisation">Communauté et organisation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/execution.html">Console et exécution de fichiers source</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python3/execution.html#la-console">La console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/execution.html#les-fichiers-sources">Les fichiers sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/execution.html#lancement-en-mode-interactif">Lancement en mode interactif</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/execution.html#lancement-d-un-programme-hors-de-la-console">Lancement d’un programme hors de la console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/execution.html#notion-de-bloc-et-d-indentation">Notion de bloc et d’indentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/execution.html#les-commentaires">Les commentaires</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/type_et_variable.html">Types et variables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python3/type_et_variable.html#nombres-et-calcul-arithmetique">Nombres et calcul arithmétique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/type_et_variable.html#les-variables">Les variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/type_et_variable.html#la-chaine-de-caracteres">La chaîne de caractères</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../python3/type_et_variable.html#formatage-de-chaine-de-caracteres">Formatage de chaîne de caractères</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/type_et_variable.html#le-type-booleen">Le type booléen</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/fonction.html">Les fonctions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python3/fonction.html#appeler-une-fonction">Appeler une fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/fonction.html#les-fonctions-utiles-dans-la-console-python">Les fonctions utiles dans la console Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/fonction.html#les-fonctions-de-conversion-de-type">Les fonctions de conversion de type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../python3/fonction.html#convertir-en-nombre">Convertir en nombre</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/fonction.html#convertir-en-valeur-booleenne">Convertir en valeur booléenne</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/fonction.html#convertir-en-chaine-de-caracteres">Convertir en chaîne de caractères</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/fonction.html#exercices">Exercices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/fonction.html#declarer-une-fonction">Déclarer une fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/fonction.html#documenter-une-fonction">Documenter une fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/fonction.html#les-valeurs-de-retour">Les valeurs de retour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/fonction.html#les-parametres-nommes">Les paramètres nommés</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/fonction.html#valeur-par-defaut-des-parametres">Valeur par défaut des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/fonction.html#fonction-et-portee-des-variables">Fonction et portée des variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/fonction.html#id2">Exercices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/fonction.html#variable-globale-et-fonction">Variable globale et fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/fonction.html#notion-de-methode">Notion de méthode</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/list.html">La liste (<em>list</em>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python3/list.html#creer-une-liste">Créer une liste</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/list.html#acceder-aux-elements">Accéder aux éléments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/list.html#les-operations-sur-les-listes">Les opérations sur les listes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../python3/list.html#connaitre-la-taille-d-une-liste">Connaître la taille d’une liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/list.html#supprimer-un-element-d-une-liste">Supprimer un élément d’une liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/list.html#ajouter-deux-listes-ensemble">Ajouter deux listes ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/list.html#creer-une-liste-etendue">Créer une liste étendue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/list.html#savoir-si-un-element-est-present-dans-une-liste">Savoir si un élément est présent dans une liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/list.html#comparer-deux-listes">Comparer deux listes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/list.html#connaitre-le-plus-grand-element-d-une-liste">Connaître le plus grand élément d’une liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/list.html#connaitre-le-plus-petit-element-d-une-liste">Connaître le plus petit élément d’une liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/list.html#decouper-une-liste">Découper une liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/list.html#copier-une-liste">Copier une liste</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/list.html#quelques-methodes-pour-les-listes">Quelques méthodes pour les listes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/tuple.html">Le n-uplet (<em>tuple</em>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python3/tuple.html#creer-un-tuple">Créer un tuple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/tuple.html#acceder-aux-elements">Accéder aux éléments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/tuple.html#les-operations-sur-les-tuples">Les opérations sur les tuples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../python3/tuple.html#connaitre-la-taille-d-un-tuple">Connaître la taille d’un tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/tuple.html#ajouter-deux-tuples-ensemble">Ajouter deux tuples ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/tuple.html#creer-un-tuple-etendu">Créer un tuple étendu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/tuple.html#savoir-si-un-element-est-present-dans-un-tuple">Savoir si un élément est présent dans un tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/tuple.html#comparer-deux-tuples">Comparer deux tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/tuple.html#connaitre-le-plus-grand-element-d-un-tuple">Connaître le plus grand élément d’un tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/tuple.html#connaitre-le-plus-petit-element-d-une-tuple">Connaître le plus petit élément d’une tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/tuple.html#decouper-un-tuple">Découper un tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/tuple.html#compter-les-occurrences-dans-un-tuple">Compter les occurrences dans un tuple</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/tuple.html#listes-et-tuples">Listes et tuples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/tuple.html#les-chaines-de-caracteres-comme-tuple">Les chaînes de caractères comme tuple</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/set.html">L’ensemble (<em>set</em>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python3/set.html#creer-un-ensemble">Créer un ensemble</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/set.html#acceder-aux-elements">Accéder aux éléments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/set.html#les-operations-sur-les-ensembles">Les opérations sur les ensembles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../python3/set.html#connaitre-la-taille-d-un-ensemble">Connaître la taille d’un ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/set.html#savoir-si-un-element-est-present-dans-un-ensemble">Savoir si un élément est présent dans un ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/set.html#comparer-deux-ensembles">Comparer deux ensembles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/set.html#connaitre-le-plus-grand-element-d-un-ensemble">Connaître le plus grand élément d’un ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/set.html#connaitre-le-plus-petit-element-d-un-ensemble">Connaître le plus petit élément d’un ensemble</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/set.html#quelques-methodes-pour-les-ensembles">Quelques méthodes pour les ensembles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/set.html#ensemble-liste-et-tuple">Ensemble, liste et tuple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/set.html#ensemble-fige">Ensemble figé</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/dict.html">Le dictionnaire</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python3/dict.html#creer-un-dictionnaire">Créer un dictionnaire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/dict.html#acceder-aux-elements">Accéder aux éléments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/dict.html#les-operations-sur-les-dictionnaires">Les opérations sur les dictionnaires</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../python3/dict.html#connaitre-la-taille-d-un-dictionnaire">Connaître la taille d’un dictionnaire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/dict.html#supprimer-une-cle-d-un-dictionnaire">Supprimer une clé d’un dictionnaire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/dict.html#savoir-si-une-cle-est-presente-dans-un-dictionnaire">Savoir si une clé est présente dans un dictionnaire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/dict.html#comparer-deux-dictionnaires">Comparer deux dictionnaires</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/dict.html#quelques-methodes-pour-les-dictionnaires">Quelques méthodes pour les dictionnaires</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/structures_de_controle.html">Les structures de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python3/structures_de_controle.html#l-indentation-du-code">L’indentation du code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/structures_de_controle.html#structures-de-decision">Structures de décision</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../python3/structures_de_controle.html#l-instruction-if">L’instruction <em>if</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/structures_de_controle.html#l-instruction-else">L’instruction <em>else</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/structures_de_controle.html#l-instruction-elif">L’instruction <em>elif</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/structures_de_controle.html#l-operateur-ternaire">L’opérateur ternaire</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/structures_de_controle.html#exercice">Exercice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/structures_de_controle.html#structures-iteratives">Structures itératives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../python3/structures_de_controle.html#l-instruction-while">L’instruction <em>while</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/structures_de_controle.html#l-instruction-for">L’instruction <em>for</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/structures_de_controle.html#la-fonction-range">La fonction <em>range</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/structures_de_controle.html#interrompre-un-bloc-d-iteration">Interrompre un bloc d’itération</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/structures_de_controle.html#structure-iterative-avec-else">Structure itérative avec <em>else</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/structures_de_controle.html#id1">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/fonction_avance.html">Les fonctions (notions avancées)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python3/fonction_avance.html#decompactage-des-parametres">décompactage des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/fonction_avance.html#compactage-des-parametres">compactage des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/fonction_avance.html#appel-recursif-de-fonction">Appel récursif de fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/fonction_avance.html#declaration-de-fonction-dans-une-fonction">Déclaration de fonction dans une fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/fonction_avance.html#la-fonction-comme-type-python">La fonction comme type Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/fonction_avance.html#les-fonctions-anonymes-lambdas">Les fonctions anonymes (lambdas)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/list_comprehension.html">Liste en compréhension</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python3/list_comprehension.html#dictionnaire-en-comprehension">Dictionnaire en compréhension</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/module.html">Les modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python3/module.html#le-module-pour-prevenir-la-collision-de-nom">Le module pour prévenir la collision de nom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/module.html#la-bibliotheque-standard-python">La bibliothèque standard Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/module.html#importer-un-module">Importer un module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/module.html#importer-directement-un-nom">Importer directement un nom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/module.html#creer-un-module-a-partir-d-un-fichier">Créer un module à partir d’un fichier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/module.html#module-executable">Module exécutable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/module.html#creer-un-module-a-partir-d-un-repertoire">Créer un module à partir d’un répertoire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/module.html#module-repertoire-executable">Module répertoire exécutable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/module.html#chemin-des-modules">Chemin des modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/module.html#les-packages">Les <em>packages</em></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../python3/module.html#import-relatif">Import relatif</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/module.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/decorateur.html">Les décorateurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python3/decorateur.html#un-premier-decorateur">Un premier décorateur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/decorateur.html#decorer-des-fonctions-avec-des-parametres-et-des-valeurs-de-retour">Décorer des fonctions avec des paramètres et des valeurs de retour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/decorateur.html#decorateur-avec-des-parametres">Décorateur avec des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/decorateur.html#conserver-la-documentation-malgre-l-utilisation-d-un-decorateur">Conserver la documentation malgré l’utilisation d’un décorateur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/decorateur.html#appliquer-plusieurs-decorateurs">Appliquer plusieurs décorateurs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/objet.html">La programmation orientée objet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python3/objet.html#la-classe-et-les-instances">La classe et les instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/objet.html#les-attributs">Les attributs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/objet.html#les-attributs-implicites">Les attributs implicites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/objet.html#les-methodes">Les méthodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/objet.html#le-constructeur">Le constructeur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/objet.html#les-proprietes">Les propriétés</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/objet.html#les-attributs-de-classe">Les attributs de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/objet.html#methodes-de-classe">Méthodes de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/objet.html#methodes-statiques">Méthodes statiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/objet.html#visibilite-des-attributs-et-des-methodes">Visibilité des attributs et des méthodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/objet.html#fermer-la-liste-des-attributs">Fermer la liste des attributs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/objet.html#creer-des-objets-avec-des-attributs-constants">Créer des objets avec des attributs constants</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/heritage.html">Héritage et polymorphisme</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python3/heritage.html#l-heritage">L’héritage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/heritage.html#constructeur-et-heritage">Constructeur et héritage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/heritage.html#heritage-et-mutualisation-de-code">Héritage et mutualisation de code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/heritage.html#la-classe-object">La classe <em>object</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/heritage.html#le-polymorphisme">Le polymorphisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/heritage.html#polymorphisme-et-duck-typing">Polymorphisme et <em>duck typing</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/heritage.html#masquer-les-attributs-et-les-methodes-pour-les-classe-filles">Masquer les attributs et les méthodes pour les classe filles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/heritage.html#heritage-multiple-et-mixin">Héritage multiple et <em>mixin</em></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../python3/heritage.html#l-heritage-en-diamant">L’héritage en diamant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/heritage.html#appel-des-constructeurs">Appel des constructeurs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/heritage.html#les-mixins">Les mixins</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/heritage.html#la-meta-classe">La méta-classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/heritage.html#classes-et-methodes-abstraites">Classes et méthodes abstraites</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/exception.html">Les exceptions et la gestion des erreurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python3/exception.html#traiter-une-exception">Traiter une exception</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../python3/exception.html#recuperer-les-donnees-d-une-exception">Récupérer les données d’une exception</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/exception.html#clause-else">Clause <em>else</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/exception.html#post-traitement">Post-traitement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/exception.html#lever-une-exception">Lever une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/exception.html#creer-son-exception">Créer son exception</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/dunder.html">Les méthodes spéciales (<em>dunders</em>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python3/dunder.html#methodes-speciales-elementaires">Méthodes spéciales élémentaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/dunder.html#methodes-speciales-pour-les-conversions">Méthodes spéciales pour les conversions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/dunder.html#methodes-speciales-pour-les-operateurs-unaires">Méthodes spéciales pour les opérateurs unaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/dunder.html#methodes-speciales-pour-les-operations-arithmetiques">Méthodes spéciales pour les opérations arithmétiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/dunder.html#methodes-speciales-pour-la-comparaison">Méthodes spéciales pour la comparaison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/dunder.html#methodes-speciales-pour-les-conteneurs">Méthodes spéciales pour les conteneurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/dunder.html#tout-est-objet">Tout est objet !</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/dunder.html#les-fonctions-comme-objet">Les fonctions comme objet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/dunder.html#les-classes-comme-objet">Les classes comme objet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/dunder.html#et-bien-d-autres-methodes-speciales">Et bien d’autres méthodes spéciales…</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/dunder.html#methodes-speciales-et-classes-abstraites">Méthodes spéciales et classes abstraites</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/iterateur_generateur.html">Itérateurs et Générateurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python3/iterateur_generateur.html#les-iterateurs">Les itérateurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/iterateur_generateur.html#les-fonctions-iter-et-next">Les fonctions iter() et next()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/iterateur_generateur.html#les-generateurs">Les générateurs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../python3/iterateur_generateur.html#les-fonctions-generatrices-avec-yield">Les fonctions génératrices avec <em>yield</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/iterateur_generateur.html#les-generateurs-en-comprehension">Les générateurs en compréhension</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/iterateur_generateur.html#les-fonctions-enumerate-map-zip-filter">Les fonctions <em>enumerate</em>, <em>map</em>, <em>zip</em>, <em>filter</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/iterateur_generateur.html#le-module-itertools">Le module <em>itertools</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/fichier.html">Gestion des fichiers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python3/fichier.html#ouvrir-et-fermer-un-fichier">Ouvrir et fermer un fichier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/fichier.html#lire-le-contenu-d-un-fichier">Lire le contenu d’un fichier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/fichier.html#les-modes-de-fichier">Les modes de fichier</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../python3/fichier.html#specificite-du-mode-texte">Spécificité du mode texte</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/fichier.html#ecrire-dans-un-fichier">Écrire dans un fichier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/fichier.html#chemin-de-fichier">Chemin de fichier</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../python3/fichier.html#le-module-os-path">Le module <em>os.path</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/fichier.html#le-module-pathlib">Le module <em>pathlib</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/fichier.html#actions-sur-les-fichiers-et-les-repertoires">Actions sur les fichiers et les répertoires</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../python3/fichier.html#connaitre-le-repertoire-de-travail">Connaître le répertoire de travail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/fichier.html#connaitre-le-repertoire-de-l-utilisateur">Connaître le répertoire de l’utilisateur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/fichier.html#copier-un-fichier">Copier un fichier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/fichier.html#supprimer-un-fichier">Supprimer un fichier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/fichier.html#creer-un-repertoire">Créer un répertoire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/fichier.html#supprimer-un-repertoire">Supprimer un répertoire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/fichier.html#verifier-qu-un-fichier-existe">Vérifier qu’un fichier existe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/fichier.html#lister-le-contenu-d-un-repertoire">Lister le contenu d’un répertoire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python3/fichier.html#rechercher-des-fichiers">Rechercher des fichiers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/fichier.html#lecture-de-fichiers-csv">Lecture de fichiers CSV</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/unittest.html">Les tests unitaires automatisés avec unittest</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python3/unittest.html#structure-d-une-classe-de-test">Structure d’une classe de test</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../python3/unittest.html#execution-des-tests">Exécution des tests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/unittest.html#tester-des-exceptions">Tester des exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/unittest.html#utilisation-de-doublure">Utilisation de doublure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../python3/unittest.html#utilisation-d-un-objet-mock">Utilisation d’un objet <em>mock</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/socket.html">Les sockets et la programmation réseau</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python3/socket.html#exemple-d-implementation-d-un-serveur">Exemple d’implémentation d’un serveur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/socket.html#exemple-d-implementation-d-un-client">Exemple d’implémentation d’un client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python3/socket.html#exemple-d-un-serveur-multi-thread">Exemple d’un serveur multi-thread</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Qt pour Python (PySide2)</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="signal_slot.html">Les signaux et les slots</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="signal_slot.html#les-signaux">Les signaux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="signal_slot.html#les-slots">Les slots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="signal_slot.html#connecter-les-signaux-et-les-slots">Connecter les signaux et les slots</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Création d’une boite de dialogue</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creation-de-l-interface-avec-designer">Création de l’interface avec Designer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generation-du-code-python-avec-pyside2-uic">Génération du code Python avec pyside2-uic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#implementation-de-la-boite-de-dialogue">Implémentation de la boite de dialogue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#implementation-de-l-application">Implémentation de l’application</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="qtsql.html">Accéder aux bases de données avec QtSql</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="qtsql.html#declaration-d-une-connexion">Déclaration d’une connexion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qtsql.html#ouverture-d-une-connexion">Ouverture d’une connexion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qtsql.html#requete-avec-qsqlquery">Requête avec QSqlQuery</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="qtsql.html#requetes-de-modification">Requêtes de modification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtsql.html#requetes-de-consultation">Requêtes de consultation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="qtsql.html#requetes-preparees">Requêtes préparées</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qtsql.html#gestion-des-erreurs">Gestion des erreurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qtsql.html#les-transactions">Les transactions</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Le langage Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Création d’une boite de dialogue</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="qtsql.html" class="btn btn-neutral float-right" title="Accéder aux bases de données avec QtSql" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="signal_slot.html" class="btn btn-neutral float-left" title="Les signaux et les slots" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="creation-d-une-boite-de-dialogue">
+<h1>Création d’une boite de dialogue<a class="headerlink" href="#creation-d-une-boite-de-dialogue" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Nous allons voir comment créer une boite de dialogue en utilisant <code class="docutils literal notranslate"><span class="pre">Designer</span></code>,
+un outil disponible dans la distribution de Qt et qui permet de créer facilement
+une interface graphique.</p>
+<p>Nous allons créer une boite de dialogue qui permet à un utilisateur de saisir
+son nom et son prénom.</p>
+<div class="figure align-default" id="id1">
+<img alt="../_images/boite_dialogue.png" src="../_images/boite_dialogue.png" />
+<p class="caption"><span class="caption-text">La boite de dialogue</span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<div class="section" id="creation-de-l-interface-avec-designer">
+<h2>Création de l’interface avec Designer<a class="headerlink" href="#creation-de-l-interface-avec-designer" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Designer est un outil qui permet de concevoir graphiquement des interfaces. Il
+permet de créer des fenêtres, des boites de dialogue ou de simples widgets.
+Il sauve votre travail dans des fichiers avec l’extension <code class="docutils literal notranslate"><span class="pre">*.ui</span></code>. Il s’agit
+d’un fichier XML. Ainsi, Designer n’est pas lié à un langage de programmation
+particulier. Nous verrons par la suite que PySide2 fournit un utilitaire pour
+générer du code Python à partir d’un fichier <code class="docutils literal notranslate"><span class="pre">*.ui</span></code>.</p>
+<p>Qt Designer est installé avec la distribution de Qt. Sous Windows, le programme
+s’appelle <code class="file docutils literal notranslate"><span class="pre">designer.exe</span></code>.</p>
+<div class="figure align-default" id="id2">
+<img alt="../_images/designer_nouveau_formulaire.png" src="../_images/designer_nouveau_formulaire.png" />
+<p class="caption"><span class="caption-text">Création du projet dans Designer</span><a class="headerlink" href="#id2" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>À l’ouverture de Designer, choisissez le <em>template</em> <em>Dialog with Buttons Bottom</em>.</p>
+<p>Pour créer la boite de dialogue, vous pouvez :</p>
+<ol class="arabic simple">
+<li><p>Ajouter par glisser/déposer un <em>form layout</em> au dessus de la barre de boutons.</p></li>
+<li><p>Ajouter par glisser/déposer des <em>widgets</em> <em>Label</em> et <em>Line Edit</em> pour les champs.</p></li>
+<li><p>Avec l’inspecteur d’objet (en haut à doite), renommer les widgets <em>Line Edit</em>
+en <code class="docutils literal notranslate"><span class="pre">nom</span></code> et <code class="docutils literal notranslate"><span class="pre">prenom</span></code>.</p></li>
+<li><p>Sélectionner la <em>widget</em> <code class="docutils literal notranslate"><span class="pre">Dialog</span></code> qui représente la boite de dialogue et
+choisir dans le menu <span class="guilabel">Formulaire</span> &gt; <span class="guilabel">Mettre en page verticalement</span>.</p></li>
+</ol>
+<div class="figure align-default" id="id3">
+<img alt="../_images/designer_boite_dialogue.png" src="../_images/designer_boite_dialogue.png" />
+<p class="caption"><span class="caption-text">La boite de dialogue dans Designer</span><a class="headerlink" href="#id3" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Vous pouvez sauver la boite de dialogue dans le fichier <code class="file docutils literal notranslate"><span class="pre">infodialog.ui</span></code>.</p>
+</div>
+<div class="section" id="generation-du-code-python-avec-pyside2-uic">
+<h2>Génération du code Python avec pyside2-uic<a class="headerlink" href="#generation-du-code-python-avec-pyside2-uic" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Grâce à l’outil <code class="docutils literal notranslate"><span class="pre">pyside2-uic</span></code>, nous allons pouvoir générer le code Python
+à partir du fichier <code class="file docutils literal notranslate"><span class="pre">infodialog.ui</span></code>. <code class="docutils literal notranslate"><span class="pre">pyside2-uic</span></code> est un outil en ligne
+de commandes :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ pyside2-uic infodialog.ui -o infodialog_ui.py
+</pre></div>
+</div>
+<p>La ligne de commande ci-dessus génère le fichier <code class="file docutils literal notranslate"><span class="pre">infodialog_ui.py</span></code> avec
+le code Python nécessaire pour créer la boite de dialogue.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il est possible de voir directement la boite de dialogue grâce à la commande :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ pyside2-uic --preview infodialog.ui
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="implementation-de-la-boite-de-dialogue">
+<h2>Implémentation de la boite de dialogue<a class="headerlink" href="#implementation-de-la-boite-de-dialogue" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Si vous éditez le fichier <code class="file docutils literal notranslate"><span class="pre">infodialog_ui.py</span></code>, vous constaterez qu’il contient
+la déclaration de la classe <code class="docutils literal notranslate"><span class="pre">Ui_Dialog</span></code>. Cette classe n’hérite d’aucune <em>widget</em>
+Qt et elle dispose de la méthode <code class="docutils literal notranslate"><span class="pre">setupUi</span></code>. Cette méthode attend en paramètre
+l’objet qui correspond réellement à la boite de dialogue, c’est-à-dire un objet
+de type <a class="reference external" href="https://doc.qt.io/qtforpython/PySide2/QtWidgets/QDialog.html">QDialog</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pyside2-uic</span></code> ne génère donc pas directement des classes qui correspondent aux
+interfaces graphiques. Il génère des classes utilitaires qui permettent de construire
+les interfaces graphiques grâce à la méthode <code class="docutils literal notranslate"><span class="pre">setupUi</span></code>. Notez que la classe
+<code class="docutils literal notranslate"><span class="pre">Ui_Dialog</span></code> définit en attributs toutes les <em>widgets</em> que nous avons ajoutées
+avec Designer. Ainsi, elle définit les attributs <code class="docutils literal notranslate"><span class="pre">nom</span></code> et <code class="docutils literal notranslate"><span class="pre">prenom</span></code> qui correspondent
+aux <em>widgets</em> contenant les données saisies par l’utilisateur.</p>
+<div class="admonition warning">
+<p class="admonition-title">Avertissement</p>
+<p>Il ne faut pas modifier le fichier généré par Designer. Nous allons implémenter
+le reste de l’application dans nos propres fichiers. Ainsi, il est plus facile
+de régénérer les fichiers <code class="docutils literal notranslate"><span class="pre">*.ui</span></code> si nous avons besoin de modifier
+ultérieurement les interfaces graphiques.</p>
+</div>
+<p>Créons le fichier <code class="file docutils literal notranslate"><span class="pre">infodialog.py</span></code>. Nous allons pouvoir implémenter notre
+boite de dialogue dans ce fichier.</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">infodialog.py : l’implémentation de la boite de dialogue</span><a class="headerlink" href="#id4" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PySide2.QtCore</span> <span class="kn">import</span> <span class="n">Slot</span>
+<span class="kn">from</span> <span class="nn">PySide2.QtWidgets</span> <span class="kn">import</span> <span class="n">QDialog</span>
+<span class="kn">import</span> <span class="nn">infodialog_ui</span>
+
+<span class="k">class</span> <span class="nc">InfoDialog</span><span class="p">(</span><span class="n">QDialog</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span> <span class="o">=</span> <span class="n">infodialog_ui</span><span class="o">.</span><span class="n">Ui_Dialog</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">setupUi</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="nd">@Slot</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prenom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">prenom</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">nom</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>La classe <code class="docutils literal notranslate"><span class="pre">InfoDialog</span></code> hérite de <a class="reference external" href="https://doc.qt.io/qtforpython/PySide2/QtWidgets/QDialog.html">QDialog</a>. Pour son constructeur, elle appelle
+le constructeur de sa superclasse. Ensuite elle crée un objet de type <code class="docutils literal notranslate"><span class="pre">Ui_Dialog</span></code>
+afin d’appeler la méthode <code class="docutils literal notranslate"><span class="pre">setupUi</span></code> en se passant en paramètre. Ainsi les
+<em>widgets</em> et les <em>layouts</em> définis ave Designer sont ajoutés dans notre boite
+de dialogue.</p>
+<p>On redéfinit également la méthode <code class="docutils literal notranslate"><span class="pre">accept</span></code> qui est héritée de <a class="reference external" href="https://doc.qt.io/qtforpython/PySide2/QtWidgets/QDialog.html">QDialog</a>. Par
+défaut, cette méthode signale que l’utilisateur a accepté (généralement en cliquant
+sur un bouton <span class="guilabel">Ok</span>) et positionne le résultat de la boite de dialoque
+à <code class="docutils literal notranslate"><span class="pre">QDialog.Accepted</span></code>. La redéfinition de cette méthode permet juste de récupérer
+les valeurs saisies pour les ajouter comme attributs de la boite de dialogue.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Le <em>template</em> que nous avons utilisé dans Designer associe le signal <code class="docutils literal notranslate"><span class="pre">triggered</span></code>
+du bouton <span class="guilabel">Ok</span> au slot <code class="docutils literal notranslate"><span class="pre">accept</span></code> de la boite de dialogue.
+De même, il associe le signal <code class="docutils literal notranslate"><span class="pre">triggered</span></code> du bouton <span class="guilabel">Cancel</span>
+au slot <code class="docutils literal notranslate"><span class="pre">reject</span></code> de la boite de dialogue</p>
+</div>
+</div>
+<div class="section" id="implementation-de-l-application">
+<h2>Implémentation de l’application<a class="headerlink" href="#implementation-de-l-application" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il ne reste plus qu’à créer le programme qui affiche la boite dialogue. Pour
+un programme simple, nous pouvons directement appeler la méthode <code class="docutils literal notranslate"><span class="pre">exec_</span></code>
+pour afficher la boite de dialogue et lancer la boucle d’événements. L’application
+s’arrêtera après la fermeture de la boite de dialogue. Cela donne la possibilité
+au programme de connaître le résultat de la boite de dialogue et, si l’utilisateur
+a accepté, de récupérer et d’afficher les informations sur le prénom et le nom.</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Le programme principal</span><a class="headerlink" href="#id5" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PySide2.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QDialog</span>
+<span class="kn">from</span> <span class="nn">infodialog</span> <span class="kn">import</span> <span class="n">InfoDialog</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">([])</span>
+    <span class="n">dlg</span> <span class="o">=</span> <span class="n">InfoDialog</span><span class="p">()</span>
+    <span class="n">dlg</span><span class="o">.</span><span class="n">exec_</span><span class="p">()</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">dlg</span><span class="o">.</span><span class="n">result</span><span class="p">()</span> <span class="o">==</span> <span class="n">QDialog</span><span class="o">.</span><span class="n">Accepted</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bonjour </span><span class="si">{</span><span class="n">dlg</span><span class="o">.</span><span class="n">prenom</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">dlg</span><span class="o">.</span><span class="n">nom</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="qtsql.html" class="btn btn-neutral float-right" title="Accéder aux bases de données avec QtSql" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="signal_slot.html" class="btn btn-neutral float-left" title="Les signaux et les slots" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright David Gayerie - david@gayerie.dev - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

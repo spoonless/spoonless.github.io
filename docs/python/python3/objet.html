@@ -1,0 +1,1282 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Python 3 - Les fondamentaux du langage" name="description" />
+<meta content="Python, programmation objet, POO, langage de programmation" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>La programmation orientée objet &mdash; Documentation Le langage Python </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/python/python3/objet.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Héritage et polymorphisme" href="heritage.html" />
+    <link rel="prev" title="Les décorateurs" href="decorateur.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Le langage Python
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Python 3</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#python-2-et-python-3">Python 2 et Python 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#licence-logiciel">Licence logiciel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#les-principales-caracteristiques-du-langage">Les principales caractéristiques du langage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#oriente-objet">Orienté objet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#courbe-d-apprentissage-lineaire">Courbe d’apprentissage linéaire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#compile-et-interprete">Compilé et interprété</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#typage-dynamique">Typage dynamique</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#les-domaines-d-application">Les domaines d’application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#les-differentes-implementations-de-python">Les différentes implémentations de Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#communaute-et-organisation">Communauté et organisation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="execution.html">Console et exécution de fichiers source</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="execution.html#la-console">La console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution.html#les-fichiers-sources">Les fichiers sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution.html#lancement-en-mode-interactif">Lancement en mode interactif</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution.html#lancement-d-un-programme-hors-de-la-console">Lancement d’un programme hors de la console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution.html#notion-de-bloc-et-d-indentation">Notion de bloc et d’indentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution.html#les-commentaires">Les commentaires</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="type_et_variable.html">Types et variables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#nombres-et-calcul-arithmetique">Nombres et calcul arithmétique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#les-variables">Les variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#la-chaine-de-caracteres">La chaîne de caractères</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="type_et_variable.html#formatage-de-chaine-de-caracteres">Formatage de chaîne de caractères</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#le-type-booleen">Le type booléen</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fonction.html">Les fonctions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#appeler-une-fonction">Appeler une fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#les-fonctions-utiles-dans-la-console-python">Les fonctions utiles dans la console Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#les-fonctions-de-conversion-de-type">Les fonctions de conversion de type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fonction.html#convertir-en-nombre">Convertir en nombre</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fonction.html#convertir-en-valeur-booleenne">Convertir en valeur booléenne</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fonction.html#convertir-en-chaine-de-caracteres">Convertir en chaîne de caractères</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#exercices">Exercices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#declarer-une-fonction">Déclarer une fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#documenter-une-fonction">Documenter une fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#les-valeurs-de-retour">Les valeurs de retour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#les-parametres-nommes">Les paramètres nommés</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#valeur-par-defaut-des-parametres">Valeur par défaut des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#fonction-et-portee-des-variables">Fonction et portée des variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#id2">Exercices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#variable-globale-et-fonction">Variable globale et fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#notion-de-methode">Notion de méthode</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="list.html">La liste (<em>list</em>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="list.html#creer-une-liste">Créer une liste</a></li>
+<li class="toctree-l2"><a class="reference internal" href="list.html#acceder-aux-elements">Accéder aux éléments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="list.html#les-operations-sur-les-listes">Les opérations sur les listes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="list.html#connaitre-la-taille-d-une-liste">Connaître la taille d’une liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#supprimer-un-element-d-une-liste">Supprimer un élément d’une liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#ajouter-deux-listes-ensemble">Ajouter deux listes ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#creer-une-liste-etendue">Créer une liste étendue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#savoir-si-un-element-est-present-dans-une-liste">Savoir si un élément est présent dans une liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#comparer-deux-listes">Comparer deux listes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#connaitre-le-plus-grand-element-d-une-liste">Connaître le plus grand élément d’une liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#connaitre-le-plus-petit-element-d-une-liste">Connaître le plus petit élément d’une liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#decouper-une-liste">Découper une liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#copier-une-liste">Copier une liste</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="list.html#quelques-methodes-pour-les-listes">Quelques méthodes pour les listes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tuple.html">Le n-uplet (<em>tuple</em>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tuple.html#creer-un-tuple">Créer un tuple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tuple.html#acceder-aux-elements">Accéder aux éléments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tuple.html#les-operations-sur-les-tuples">Les opérations sur les tuples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#connaitre-la-taille-d-un-tuple">Connaître la taille d’un tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#ajouter-deux-tuples-ensemble">Ajouter deux tuples ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#creer-un-tuple-etendu">Créer un tuple étendu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#savoir-si-un-element-est-present-dans-un-tuple">Savoir si un élément est présent dans un tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#comparer-deux-tuples">Comparer deux tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#connaitre-le-plus-grand-element-d-un-tuple">Connaître le plus grand élément d’un tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#connaitre-le-plus-petit-element-d-une-tuple">Connaître le plus petit élément d’une tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#decouper-un-tuple">Découper un tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#compter-les-occurrences-dans-un-tuple">Compter les occurrences dans un tuple</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tuple.html#listes-et-tuples">Listes et tuples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tuple.html#les-chaines-de-caracteres-comme-tuple">Les chaînes de caractères comme tuple</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="set.html">L’ensemble (<em>set</em>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="set.html#creer-un-ensemble">Créer un ensemble</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set.html#acceder-aux-elements">Accéder aux éléments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set.html#les-operations-sur-les-ensembles">Les opérations sur les ensembles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="set.html#connaitre-la-taille-d-un-ensemble">Connaître la taille d’un ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set.html#savoir-si-un-element-est-present-dans-un-ensemble">Savoir si un élément est présent dans un ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set.html#comparer-deux-ensembles">Comparer deux ensembles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set.html#connaitre-le-plus-grand-element-d-un-ensemble">Connaître le plus grand élément d’un ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set.html#connaitre-le-plus-petit-element-d-un-ensemble">Connaître le plus petit élément d’un ensemble</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="set.html#quelques-methodes-pour-les-ensembles">Quelques méthodes pour les ensembles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set.html#ensemble-liste-et-tuple">Ensemble, liste et tuple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set.html#ensemble-fige">Ensemble figé</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dict.html">Le dictionnaire</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#creer-un-dictionnaire">Créer un dictionnaire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#acceder-aux-elements">Accéder aux éléments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#les-operations-sur-les-dictionnaires">Les opérations sur les dictionnaires</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dict.html#connaitre-la-taille-d-un-dictionnaire">Connaître la taille d’un dictionnaire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dict.html#supprimer-une-cle-d-un-dictionnaire">Supprimer une clé d’un dictionnaire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dict.html#savoir-si-une-cle-est-presente-dans-un-dictionnaire">Savoir si une clé est présente dans un dictionnaire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dict.html#comparer-deux-dictionnaires">Comparer deux dictionnaires</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#quelques-methodes-pour-les-dictionnaires">Quelques méthodes pour les dictionnaires</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structures_de_controle.html">Les structures de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#l-indentation-du-code">L’indentation du code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#structures-de-decision">Structures de décision</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-if">L’instruction <em>if</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-else">L’instruction <em>else</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-elif">L’instruction <em>elif</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-operateur-ternaire">L’opérateur ternaire</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#exercice">Exercice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#structures-iteratives">Structures itératives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-while">L’instruction <em>while</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-for">L’instruction <em>for</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#la-fonction-range">La fonction <em>range</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#interrompre-un-bloc-d-iteration">Interrompre un bloc d’itération</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#structure-iterative-avec-else">Structure itérative avec <em>else</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#id1">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fonction_avance.html">Les fonctions (notions avancées)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#decompactage-des-parametres">décompactage des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#compactage-des-parametres">compactage des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#appel-recursif-de-fonction">Appel récursif de fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#declaration-de-fonction-dans-une-fonction">Déclaration de fonction dans une fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#la-fonction-comme-type-python">La fonction comme type Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#les-fonctions-anonymes-lambdas">Les fonctions anonymes (lambdas)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="list_comprehension.html">Liste en compréhension</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="list_comprehension.html#dictionnaire-en-comprehension">Dictionnaire en compréhension</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="module.html">Les modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="module.html#le-module-pour-prevenir-la-collision-de-nom">Le module pour prévenir la collision de nom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#la-bibliotheque-standard-python">La bibliothèque standard Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#importer-un-module">Importer un module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#importer-directement-un-nom">Importer directement un nom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#creer-un-module-a-partir-d-un-fichier">Créer un module à partir d’un fichier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#module-executable">Module exécutable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#creer-un-module-a-partir-d-un-repertoire">Créer un module à partir d’un répertoire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#module-repertoire-executable">Module répertoire exécutable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#chemin-des-modules">Chemin des modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#les-packages">Les <em>packages</em></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="module.html#import-relatif">Import relatif</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="decorateur.html">Les décorateurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="decorateur.html#un-premier-decorateur">Un premier décorateur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decorateur.html#decorer-des-fonctions-avec-des-parametres-et-des-valeurs-de-retour">Décorer des fonctions avec des paramètres et des valeurs de retour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decorateur.html#decorateur-avec-des-parametres">Décorateur avec des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decorateur.html#conserver-la-documentation-malgre-l-utilisation-d-un-decorateur">Conserver la documentation malgré l’utilisation d’un décorateur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decorateur.html#appliquer-plusieurs-decorateurs">Appliquer plusieurs décorateurs</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">La programmation orientée objet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#la-classe-et-les-instances">La classe et les instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-attributs">Les attributs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-attributs-implicites">Les attributs implicites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-methodes">Les méthodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#le-constructeur">Le constructeur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-proprietes">Les propriétés</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-attributs-de-classe">Les attributs de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#methodes-de-classe">Méthodes de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#methodes-statiques">Méthodes statiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#visibilite-des-attributs-et-des-methodes">Visibilité des attributs et des méthodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fermer-la-liste-des-attributs">Fermer la liste des attributs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creer-des-objets-avec-des-attributs-constants">Créer des objets avec des attributs constants</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="heritage.html">Héritage et polymorphisme</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#l-heritage">L’héritage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#constructeur-et-heritage">Constructeur et héritage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#heritage-et-mutualisation-de-code">Héritage et mutualisation de code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#la-classe-object">La classe <em>object</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#le-polymorphisme">Le polymorphisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#polymorphisme-et-duck-typing">Polymorphisme et <em>duck typing</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#masquer-les-attributs-et-les-methodes-pour-les-classe-filles">Masquer les attributs et les méthodes pour les classe filles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#heritage-multiple-et-mixin">Héritage multiple et <em>mixin</em></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="heritage.html#l-heritage-en-diamant">L’héritage en diamant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="heritage.html#appel-des-constructeurs">Appel des constructeurs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="heritage.html#les-mixins">Les mixins</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#la-meta-classe">La méta-classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#classes-et-methodes-abstraites">Classes et méthodes abstraites</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">Les exceptions et la gestion des erreurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#traiter-une-exception">Traiter une exception</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exception.html#recuperer-les-donnees-d-une-exception">Récupérer les données d’une exception</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#clause-else">Clause <em>else</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#post-traitement">Post-traitement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#lever-une-exception">Lever une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#creer-son-exception">Créer son exception</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dunder.html">Les méthodes spéciales (<em>dunders</em>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#methodes-speciales-elementaires">Méthodes spéciales élémentaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#methodes-speciales-pour-les-conversions">Méthodes spéciales pour les conversions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#methodes-speciales-pour-les-operateurs-unaires">Méthodes spéciales pour les opérateurs unaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#methodes-speciales-pour-les-operations-arithmetiques">Méthodes spéciales pour les opérations arithmétiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#methodes-speciales-pour-la-comparaison">Méthodes spéciales pour la comparaison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#methodes-speciales-pour-les-conteneurs">Méthodes spéciales pour les conteneurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#tout-est-objet">Tout est objet !</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#les-fonctions-comme-objet">Les fonctions comme objet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#les-classes-comme-objet">Les classes comme objet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#et-bien-d-autres-methodes-speciales">Et bien d’autres méthodes spéciales…</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#methodes-speciales-et-classes-abstraites">Méthodes spéciales et classes abstraites</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="iterateur_generateur.html">Itérateurs et Générateurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#les-iterateurs">Les itérateurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#les-fonctions-iter-et-next">Les fonctions iter() et next()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#les-generateurs">Les générateurs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="iterateur_generateur.html#les-fonctions-generatrices-avec-yield">Les fonctions génératrices avec <em>yield</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="iterateur_generateur.html#les-generateurs-en-comprehension">Les générateurs en compréhension</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#les-fonctions-enumerate-map-zip-filter">Les fonctions <em>enumerate</em>, <em>map</em>, <em>zip</em>, <em>filter</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#le-module-itertools">Le module <em>itertools</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fichier.html">Gestion des fichiers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fichier.html#ouvrir-et-fermer-un-fichier">Ouvrir et fermer un fichier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fichier.html#lire-le-contenu-d-un-fichier">Lire le contenu d’un fichier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fichier.html#les-modes-de-fichier">Les modes de fichier</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#specificite-du-mode-texte">Spécificité du mode texte</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fichier.html#ecrire-dans-un-fichier">Écrire dans un fichier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fichier.html#chemin-de-fichier">Chemin de fichier</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#le-module-os-path">Le module <em>os.path</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#le-module-pathlib">Le module <em>pathlib</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fichier.html#actions-sur-les-fichiers-et-les-repertoires">Actions sur les fichiers et les répertoires</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#connaitre-le-repertoire-de-travail">Connaître le répertoire de travail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#connaitre-le-repertoire-de-l-utilisateur">Connaître le répertoire de l’utilisateur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#copier-un-fichier">Copier un fichier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#supprimer-un-fichier">Supprimer un fichier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#creer-un-repertoire">Créer un répertoire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#supprimer-un-repertoire">Supprimer un répertoire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#verifier-qu-un-fichier-existe">Vérifier qu’un fichier existe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#lister-le-contenu-d-un-repertoire">Lister le contenu d’un répertoire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#rechercher-des-fichiers">Rechercher des fichiers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fichier.html#lecture-de-fichiers-csv">Lecture de fichiers CSV</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="unittest.html">Les tests unitaires automatisés avec unittest</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="unittest.html#structure-d-une-classe-de-test">Structure d’une classe de test</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="unittest.html#execution-des-tests">Exécution des tests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="unittest.html#tester-des-exceptions">Tester des exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unittest.html#utilisation-de-doublure">Utilisation de doublure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="unittest.html#utilisation-d-un-objet-mock">Utilisation d’un objet <em>mock</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="socket.html">Les sockets et la programmation réseau</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="socket.html#exemple-d-implementation-d-un-serveur">Exemple d’implémentation d’un serveur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="socket.html#exemple-d-implementation-d-un-client">Exemple d’implémentation d’un client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="socket.html#exemple-d-un-serveur-multi-thread">Exemple d’un serveur multi-thread</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Qt pour Python (PySide2)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pyside2/signal_slot.html">Les signaux et les slots</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/signal_slot.html#les-signaux">Les signaux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/signal_slot.html#les-slots">Les slots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/signal_slot.html#connecter-les-signaux-et-les-slots">Connecter les signaux et les slots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pyside2/boite_dialogue.html">Création d’une boite de dialogue</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/boite_dialogue.html#creation-de-l-interface-avec-designer">Création de l’interface avec Designer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/boite_dialogue.html#generation-du-code-python-avec-pyside2-uic">Génération du code Python avec pyside2-uic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/boite_dialogue.html#implementation-de-la-boite-de-dialogue">Implémentation de la boite de dialogue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/boite_dialogue.html#implementation-de-l-application">Implémentation de l’application</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pyside2/qtsql.html">Accéder aux bases de données avec QtSql</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/qtsql.html#declaration-d-une-connexion">Déclaration d’une connexion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/qtsql.html#ouverture-d-une-connexion">Ouverture d’une connexion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/qtsql.html#requete-avec-qsqlquery">Requête avec QSqlQuery</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pyside2/qtsql.html#requetes-de-modification">Requêtes de modification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pyside2/qtsql.html#requetes-de-consultation">Requêtes de consultation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/qtsql.html#requetes-preparees">Requêtes préparées</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/qtsql.html#gestion-des-erreurs">Gestion des erreurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/qtsql.html#les-transactions">Les transactions</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Le langage Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>La programmation orientée objet</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="heritage.html" class="btn btn-neutral float-right" title="Héritage et polymorphisme" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="decorateur.html" class="btn btn-neutral float-left" title="Les décorateurs" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="la-programmation-orientee-objet">
+<h1>La programmation orientée objet<a class="headerlink" href="#la-programmation-orientee-objet" title="Lien permanent vers ce titre">¶</a></h1>
+<p>La programmation orientée objet (POO) est un paradigme, c’est-à-dire une façon
+particulière de concevoir des systèmes logiciels. La POO envisage un logiciel
+comme des interactions entre une myriade d’entités élémentaires que l’on nomme
+des objets. Un objet est défini par un état qui est constitué de <strong>propriétés</strong>
+et par des comportements que l’on appelle des <strong>méthodes</strong>.</p>
+<p>Un des apports importants de la POO est de permettre de concevoir un système
+logiciel en des termes directement issus de la problématique que le système
+est sensé résoudre. Par exemple, si le système est sensé gérer des comptes
+utilisateur, il est possible de créer des objets qui modélisent le comportement
+et les états d’un compte utilisateur. Par exemple, l’état d’un compte utilisateur
+pourra inclure un numéro de compte et une date de création. Il pourra avoir des
+comportements permettant de le verrouiller ou de le valider.</p>
+<p>La POO est donc une façon de répondre à une problématique avec un modèle qui est
+plus proche des utilisateurs que de la représentation interne de l’information.
+Il est également plus aisé d’appréhender des systèmes complexes comme étant des
+composés d’objets aux comportements plus simples.</p>
+<div class="section" id="la-classe-et-les-instances">
+<h2>La classe et les instances<a class="headerlink" href="#la-classe-et-les-instances" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un objet suit un modèle (un patron) qui définit ses propriétés et ses
+comportements. Ce modèle est appelé une <strong>classe</strong> et se définit en Python avec
+le mot-clé <a class="reference external" href="https://docs.python.org/3.6/glossary.html#term-class" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">class</span></code></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MaClasse</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Une classe est définie par un nom et un bloc précisant la définition de la classe.
+Si on ne veut rien préciser de particulier dans le bloc, il faut utiliser le
+mot-clé <a class="reference external" href="https://docs.python.org/3.6/reference/simple_stmts.html#pass" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">pass</span></code></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>En Python, le nom des classes commence par convention par une lettre en majuscule.
+Les différents mots sont également indiqués par une lettre majuscule suivant le
+principe de l’écriture en <a class="reference external" href="https://fr.wikipedia.org/wiki/Camel_case">dromadaire</a>
+(<em>camel case</em>). Cette convention a évolué au cours du temps et donc il
+est possible de trouver des anciennes classes dont le nom commence par une lettre
+minuscule.</p>
+</div>
+<p>Pour créer un objet, il suffit d’appeler la classe :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mon_objet</span> <span class="o">=</span> <span class="n">MaClasse</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>La variable <code class="docutils literal notranslate"><span class="pre">mon_objet</span></code> référence l’objet crée. On dit que l’objet est une
+<strong>instance</strong> de <code class="docutils literal notranslate"><span class="pre">MaClasse</span></code>. Une classe définit un nouveau type dans le langage.
+La POO est d’abord un modèle de programmation qui permet d’ajouter dans le
+langage des nouveaux types d’objet. En Python, il existe deux fonctions standards
+intéressantes pour connaître et tester le type d’un objet :</p>
+<dl>
+<dt><a class="reference external" href="https://docs.python.org/3.6/library/functions.html#type" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type(o)</span></code></a></dt><dd><p>Retourne le type de l’objet passé en paramètre.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">mon_objet</span><span class="p">)</span>
+<span class="go">&lt;class &#39;__main__.MaClasse&#39;&gt;</span>
+</pre></div>
+</div>
+</dd>
+<dt><a class="reference external" href="https://docs.python.org/3.6/library/functions.html#isinstance" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">isinstance(o,</span> <span class="pre">cls)</span></code></a></dt><dd><p>Retourne <a class="reference external" href="https://docs.python.org/3.6/library/constants.html#True" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">True</span></code></a> si l’objet passé en premier paramètre est une
+instance de la classe passée en deuxième paramètre.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="n">mon_objet</span><span class="p">,</span> <span class="n">MaClasse</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Nous verrons dans un chapitre ultérieur, que pour Python, tout est objet.
+Ainsi les fonctions <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#type" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type(o)</span></code></a> et
+<a class="reference external" href="https://docs.python.org/3.6/library/functions.html#isinstance" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">isinstance(o,</span> <span class="pre">cls)</span></code></a> sont utilisables même avec des nombres :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nombre</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">nombre</span><span class="p">)</span>
+<span class="go">&lt;class &#39;int&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="n">nombre</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="les-attributs">
+<h2>Les attributs<a class="headerlink" href="#les-attributs" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un objet est défini par son état interne formé par l’ensemble de ses <strong>attributs</strong>.
+Supposons que nous voulions représenter la notion de vecteur dans un espace
+à deux dimensions dans notre système. Nous allons déclarer une classe <code class="docutils literal notranslate"><span class="pre">Vecteur</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Vecteur</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Nous pouvons maintenant créer autant de vecteurs que nous le souhaitons en leur
+attribuant à chacun une valeur pour ses attributs <code class="docutils literal notranslate"><span class="pre">x</span></code> et <code class="docutils literal notranslate"><span class="pre">y</span></code> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">vec1</span> <span class="o">=</span> <span class="n">Vecteur</span><span class="p">()</span>
+<span class="n">vec1</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">vec1</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="n">vec2</span> <span class="o">=</span> <span class="n">Vecteur</span><span class="p">()</span>
+<span class="n">vec2</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">12</span>
+<span class="n">vec2</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">vec1</span><span class="o">.</span><span class="n">x</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Vecteur 1 : (</span><span class="si">{</span><span class="n">vec1</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">vec1</span><span class="o">.</span><span class="n">y</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+<span class="c1"># Affiche Vecteur 1 : (2, 3)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Vecteur 2 : (</span><span class="si">{</span><span class="n">vec2</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">vec2</span><span class="o">.</span><span class="n">y</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+<span class="c1"># Affiche Vecteur 2 : (-12, 2)</span>
+</pre></div>
+</div>
+<p>L’opérateur <code class="docutils literal notranslate"><span class="pre">.</span></code> permet d’accéder à un attribut, soit pour le consulter, soit
+pour le modifier. Chaque objet possède ses propres valeurs pour ses attributs.
+C’est pour cela que l’on dit que les attributs permettent de définir l’état interne
+de l’objet.</p>
+<div class="admonition caution">
+<p class="admonition-title">Prudence</p>
+<p>Si vous essayez d’accéder à un attribut qui n’existe pas pour en consulter
+la valeur, l’opération échoue avec une erreur de type <a class="reference external" href="https://docs.python.org/3.6/library/exceptions.html#AttributeError" title="(disponible dans Python v3.6)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AttributeError</span></code></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vec3</span> <span class="o">=</span> <span class="n">Vecteur</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vec3</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vec3</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">vec3</span><span class="o">.</span><span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">vec3</span><span class="o">.</span><span class="n">y</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">vec3</span><span class="o">.</span><span class="n">z</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">AttributeError</span>: <span class="n">&#39;Vecteur&#39; object has no attribute &#39;z&#39;</span>
+</pre></div>
+</div>
+</div>
+<p>On peut supprimer un attribut grâce au mot-clé <a class="reference external" href="https://docs.python.org/3.6/reference/simple_stmts.html#del" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">del</span></code></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vec</span> <span class="o">=</span> <span class="n">Vecteur</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vec</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vec</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">vec</span><span class="o">.</span><span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vec</span><span class="o">.</span><span class="n">x</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">AttributeError</span>: <span class="n">&#39;Vecteur&#39; object has no attribute &#39;x&#39;</span>
+</pre></div>
+</div>
+<p>Il est possible pour un programme de découvrir et de manipuler les attributs
+d’un objet grâce aux fonctions <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#hasattr" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">hasattr(o,</span> <span class="pre">n)</span></code></a>,
+<a class="reference external" href="https://docs.python.org/3.6/library/functions.html#getattr" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">getattr(o,</span> <span class="pre">n)</span></code></a>, <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#setattr" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">setattr(o,</span> <span class="pre">n,</span> <span class="pre">v)</span></code></a> et
+<a class="reference external" href="https://docs.python.org/3.6/library/functions.html#delattr" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">delattr(o,</span> <span class="pre">n)</span></code></a> qui permettent respectivement de savoir si
+un objet dispose d’un attribut, d’obtenir la valeur de cet attribut, de positionner
+la valeur d’un attribut et de supprimer un attribut.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vec</span> <span class="o">=</span> <span class="n">Vecteur</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">hasattr</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">setattr</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">hasattr</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">getattr</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">delattr</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">hasattr</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p>L’intérêt de ces fonctions est qu’elles permettent de manipuler un attribut
+en donnant son nom sous la forme d’une chaîne de caractères. Cela ouvre la possibilité
+à un programme d’accéder aux attributs sans avoir réellement besoin de disposer
+de la déclaration de la classe au moment de l’écriture du programme. En Python,
+il est donc possible de manipuler les types comme des données et on parle alors
+de programmation réflexive ou de <strong>réflexivité</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La fonction <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#getattr" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">getattr(o,</span> <span class="pre">n)</span></code></a> accepte également un troisième
+paramètre qui donne la valeur à retourner si l’attribut n’existe pas plutôt
+que de produire une erreur de type <a class="reference external" href="https://docs.python.org/3.6/library/exceptions.html#AttributeError" title="(disponible dans Python v3.6)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AttributeError</span></code></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vec</span> <span class="o">=</span> <span class="n">Vecteur</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">getattr</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="s2">&quot;attribut_qui_n_existe_pas&quot;</span><span class="p">,</span> <span class="s2">&quot;Valeur par défaut&quot;</span><span class="p">)</span>
+<span class="go">&#39;Valeur par défaut&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="les-attributs-implicites">
+<h2>Les attributs implicites<a class="headerlink" href="#les-attributs-implicites" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il existe des attributs implicites (c’est-à-dire pour lesquels il n’est pas nécessaire
+de fournir une valeur) pour chaque objet.</p>
+<p><code class="xref py py-data docutils literal notranslate"><span class="pre">__doc__</span></code></p>
+<blockquote>
+<div><p>Cet attribut contient la documentation de la classe. Pour renseigner cet attribut,
+il suffit d’ajouter une chaîne de caractères directement après la ligne
+de déclaration du nom de la classe :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Vecteur</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Un vecteur à deux dimensions&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>La documentation peut être affichée dans la console Python grâce à la fonction
+<a class="reference external" href="https://docs.python.org/3.6/library/functions.html#help" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">help()</span></code></a>. Pour sortir du mode d’aide, il faut généralement appuyer sur
+la touche <kbd class="kbd docutils literal notranslate">Q</kbd> (pour <em>quit</em>).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Vecteur</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>On peut aussi simplement accéder à l’attribut <code class="xref py py-data docutils literal notranslate"><span class="pre">__doc__</span></code> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="vm">__doc__</span>
+<span class="go">&#39;Un vecteur à deux dimensions&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><code class="xref py py-data docutils literal notranslate"><span class="pre">__class__</span></code></p>
+<blockquote>
+<div><p>Cet attribut contient l’objet qui décrit la classe d’un objet. En Python
+même les classes sont représentées par des objets !
+C’est cet attribut qui est notamment utilisé pour les fonctions
+<a class="reference external" href="https://docs.python.org/3.6/library/functions.html#type" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type()</span></code></a> et <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#isinstance" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">isinstance()</span></code></a>.</p>
+</div></blockquote>
+<p><code class="xref py py-data docutils literal notranslate"><span class="pre">__module__</span></code></p>
+<blockquote>
+<div><p>Cet attribut contient le nom du module auquel l’objet appartient.</p>
+</div></blockquote>
+<p><code class="xref py py-data docutils literal notranslate"><span class="pre">__dict__</span></code></p>
+<blockquote>
+<div><p>Cet attribut est le dictionnaire des attributs de l’objet.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Vecteur</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="vm">__dict__</span>
+<span class="go">{&#39;y&#39;: 3, &#39;x&#39;: 2}</span>
+</pre></div>
+</div>
+<p>Cet attribut est notamment utilisé par la fonction <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#vars" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">vars()</span></code></a> qui permet
+de créer un dictionnaire à partir d’un objet :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">vars</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="go">{&#39;y&#39;: 3, &#39;x&#39;: 2}</span>
+</pre></div>
+</div>
+<p>Cet attribut permet également de mettre à jour tous les attributs à partir
+d’un dictionnaire.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Vecteur</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="vm">__dict__</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">x</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">y</span>
+<span class="go">8</span>
+</pre></div>
+</div>
+<p>En Python, il est donc assez facile de passer d’un objet à un dictionnaire
+et d’un dictionnaire à un objet.</p>
+</div></blockquote>
+</div>
+<div class="section" id="les-methodes">
+<h2>Les méthodes<a class="headerlink" href="#les-methodes" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les méthodes représentent les comportements des objets. Elles sont décrites
+dans la classe en suivant les mêmes règles d’écriture que les fonctions.</p>
+<p>Si on désire ajouter la possibilité de calculer la norme du vecteur, on peut
+ajouter la méthode <code class="docutils literal notranslate"><span class="pre">calculer_norme</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">class</span> <span class="nc">Vecteur</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">calculer_norme</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Pour calculer la norme d’un vecteur, nous avons besoin de la fonction
+<a class="reference external" href="https://docs.python.org/3.6/library/math.html#math.sqrt" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sqrt()</span></code></a> que nous obtenons en important le module <a class="reference external" href="https://docs.python.org/3.6/library/math.html#module-math" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">math</span></code></a>. La
+méthode <code class="docutils literal notranslate"><span class="pre">calculer_norme</span></code> prend un premier paramètre qui est appelé par convention
+<code class="docutils literal notranslate"><span class="pre">self</span></code>. <code class="docutils literal notranslate"><span class="pre">self</span></code> représente l’objet dans le corps de la méthode. Il est
+donc possible d’accéder aux attributs <code class="docutils literal notranslate"><span class="pre">self.x</span></code> et <code class="docutils literal notranslate"><span class="pre">self.y</span></code> pour réaliser
+le calcul :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Vecteur</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">calculer_norme</span><span class="p">()</span>
+<span class="go">3.605551275463989</span>
+</pre></div>
+</div>
+<p>Pour appeler une méthode, on utilise l’opérateur <code class="docutils literal notranslate"><span class="pre">.</span></code> entre la variable qui
+désigne l’objet et la méthode.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour simplifier, nous pourrions dire qu’une méthode est une fonction qui
+appartient à l’espace de nom de la classe et dont le premier paramètre est
+l’objet lui-même. Ainsi l’écriture avec l’opérateur <code class="docutils literal notranslate"><span class="pre">.</span></code>
+est une manière plus simple et raccourcie d’appeler une méthode mais
+nous pouvons tous aussi bien écrire en Python :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Vecteur</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Vecteur</span><span class="o">.</span><span class="n">calculer_norme</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="go">3.605551275463989</span>
+</pre></div>
+</div>
+<p>On comprend mieux ainsi la présence obligatoire du paramètre <code class="docutils literal notranslate"><span class="pre">self</span></code> dans
+la déclaration d’une méthode pour représenter l’objet.</p>
+</div>
+<p>En plus du paramètre <code class="docutils literal notranslate"><span class="pre">self</span></code>, une méthode peut avoir d’autres paramètres
+exactement comme une fonction. Nous pouvons ainsi ajouter une méthode pour calculer
+le produit scalaire entre le vecteur courant et un autre vecteur passé en paramètre :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">class</span> <span class="nc">Vecteur</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">calculer_norme</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">calculer_produit_scalaire</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">v</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">v</span><span class="o">.</span><span class="n">y</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v1</span> <span class="o">=</span> <span class="n">Vecteur</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v1</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v1</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v2</span> <span class="o">=</span> <span class="n">Vecteur</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v2</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v2</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v1</span><span class="o">.</span><span class="n">calculer_produit_scalaire</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
+<span class="go">-1</span>
+</pre></div>
+</div>
+<p>Une méthode peut se contenter de modifier l’état interne d’un objet (ses attributs)
+et ainsi agir comme une procédure. Par exemple, la méthode <code class="docutils literal notranslate"><span class="pre">normaliser</span></code> pour
+la classe <code class="docutils literal notranslate"><span class="pre">Vecteur</span></code> ne produit pas de résultat mais modifie les attributs
+x et y pour garantir que la norme du vecteur est 1.</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">class</span> <span class="nc">Vecteur</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">calculer_norme</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">calculer_produit_scalaire</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">v</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">v</span><span class="o">.</span><span class="n">y</span>
+
+    <span class="k">def</span> <span class="nf">normaliser</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">norme</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculer_norme</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">/=</span> <span class="n">norme</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">/=</span> <span class="n">norme</span>
+</pre></div>
+</td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notez comment la méthode <code class="docutils literal notranslate"><span class="pre">normaliser()</span></code> appelle la méthode
+<code class="docutils literal notranslate"><span class="pre">calculer_norme()</span></code> à la ligne 12.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Vecteur</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">normaliser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">x</span>
+<span class="go">0.5547001962252291</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">y</span>
+<span class="go">0.8320502943378437</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">calculer_norme</span><span class="p">()</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="le-constructeur">
+<h2>Le constructeur<a class="headerlink" href="#le-constructeur" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’implémentation de notre classe <code class="docutils literal notranslate"><span class="pre">Vecteur</span></code> a un inconvénient majeur.
+Toutes ses méthodes utilisent les attributs <code class="docutils literal notranslate"><span class="pre">x</span></code> et <code class="docutils literal notranslate"><span class="pre">y</span></code> pour réaliser leur
+traitement. Que se passe-t-il si on oublie de donner des valeurs pour les attributs
+<code class="docutils literal notranslate"><span class="pre">x</span></code> et <code class="docutils literal notranslate"><span class="pre">y</span></code> ?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Vecteur</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">calculer_norme</span><span class="p">()</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="gr">AttributeError</span>: <span class="n">Vecteur instance has no attribute &#39;x&#39;</span>
+</pre></div>
+</div>
+<p>Dans l’exemple ci-dessus, l’appel à la méthode <code class="docutils literal notranslate"><span class="pre">calculer_norme()</span></code> produit
+une erreur de type <a class="reference external" href="https://docs.python.org/3.6/library/exceptions.html#AttributeError" title="(disponible dans Python v3.6)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AttributeError</span></code></a> car l’objet n’a pas les attributs attendus.
+Cela signifie que si un développeur veut utiliser correctement la classe
+<code class="docutils literal notranslate"><span class="pre">Vecteur</span></code>, il doit affecter une valeur pour les attributs <code class="docutils literal notranslate"><span class="pre">x</span></code> et <code class="docutils literal notranslate"><span class="pre">y</span></code> pour
+chacun des objets de type <code class="docutils literal notranslate"><span class="pre">Vecteur</span></code>.</p>
+<p>Un constructeur est une méthode spéciale qui est appelée <strong>au moment de la création
+de l’objet</strong>. Il permet de garantir que l’objet est dans un état cohérent dès
+sa création. En Python, le constructeur s’appelle <a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__init__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> est prend
+comme premier paramètre l’objet en cours de création.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">class</span> <span class="nc">Vecteur</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">calculer_norme</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">calculer_produit_scalaire</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">v</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">v</span><span class="o">.</span><span class="n">y</span>
+
+    <span class="k">def</span> <span class="nf">normaliser</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">norme</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculer_norme</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">/=</span> <span class="n">norme</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">/=</span> <span class="n">norme</span>
+</pre></div>
+</div>
+<p>Le constructeur de notre classe <code class="docutils literal notranslate"><span class="pre">Vecteur</span></code> positionne à 0 les attributs nécessaires
+aux objets de ce type. Nous avons maintenant corrigé notre problème.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Vecteur</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">x</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">y</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">calculer_norme</span><span class="p">()</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+<p>Même si un constructeur est une méthode un peu particulière, il peut accepter
+autant de paramètres que nécessaire. La valeur de ces paramètres est donnée
+au moment de la création de l’objet.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">class</span> <span class="nc">Vecteur</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+
+    <span class="k">def</span> <span class="nf">calculer_norme</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">calculer_produit_scalaire</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">v</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">v</span><span class="o">.</span><span class="n">y</span>
+
+    <span class="k">def</span> <span class="nf">normaliser</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">norme</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculer_norme</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">/=</span> <span class="n">norme</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">/=</span> <span class="n">norme</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Vecteur</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">y</span>
+<span class="go">(0, 0)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Vecteur</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">y</span>
+<span class="go">(1, 2)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Vecteur</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">y</span>
+<span class="go">(12, 6)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="les-proprietes">
+<h2>Les propriétés<a class="headerlink" href="#les-proprietes" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les attributs permettent de définir l’état d’un objet mais il existe
+d’autres données qui peuvent être représentatives de cet état. Pour reprendre
+notre exemple du vecteur, la norme d’un vecteur est également une donnée qui
+est simplement calculée à partir des coordonnées x et y. L’ensemble de ces
+données sont appelées les propriétés de l’objet. Si on souhaite créer une
+propriété calculée, on peut le faire grâce au décorateur <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#property" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;property</span></code></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">class</span> <span class="nc">Vecteur</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">norme</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">calculer_produit_scalaire</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">v</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">v</span><span class="o">.</span><span class="n">y</span>
+
+    <span class="k">def</span> <span class="nf">normaliser</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">norme</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">norme</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">/=</span> <span class="n">norme</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">/=</span> <span class="n">norme</span>
+</pre></div>
+</div>
+<p>En transformant le calcul de la norme en une propriété <code class="docutils literal notranslate"><span class="pre">norme</span></code>, il est possible
+d’y accéder comme s’il s’agissait d’un attribut :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Vecteur</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">norme</span>
+<span class="go">3.605551275463989</span>
+</pre></div>
+</div>
+<p>Par défaut, une propriété créée grâce à ce décorateur n’est pas modifiable.
+Pour indiquer les méthodes qui doivent être appelées si on souhaite modifier
+ou supprimer la propriété, il faut utiliser le même nom de méthode et ajouter
+des décorateurs de la forme <code class="docutils literal notranslate"><span class="pre">&lt;nom&gt;.setter</span></code> et <code class="docutils literal notranslate"><span class="pre">&lt;nom&gt;.deleter</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Personne</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prenom</span> <span class="o">=</span> <span class="n">prenom</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nom</span> <span class="o">=</span> <span class="n">nom</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">nom_complet</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Prénom et nom de la personne&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">prenom</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nom</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="nd">@nom_complet</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">nom_complet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nom_complet</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prenom</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nom</span> <span class="o">=</span> <span class="n">nom_complet</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="nd">@nom_complet</span><span class="o">.</span><span class="n">deleter</span>
+    <span class="k">def</span> <span class="nf">nom_complet</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prenom</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Personne</span><span class="p">(</span><span class="s2">&quot;David&quot;</span><span class="p">,</span> <span class="s2">&quot;Gayerie&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">nom_complet</span>
+<span class="go">&#39;David Gayerie&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">nom_complet</span> <span class="o">=</span> <span class="s2">&quot;Eric Gayerie&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">prenom</span>
+<span class="go">&#39;Eric&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">p</span><span class="o">.</span><span class="n">nom_complet</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">nom_complet</span>
+<span class="go">&#39; &#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="les-attributs-de-classe">
+<h2>Les attributs de classe<a class="headerlink" href="#les-attributs-de-classe" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une classe peut également avoir des attributs. Pour cela, il suffit de les déclarer
+dans le corps de la classe. Les attributs de classe sont accessibles depuis
+la classe elle-même et sont partagés par tous les objets. Si un objet modifie
+un attribut de classe, cette modification est visible de tous les autres objets.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ClasseAvecCompteur</span><span class="p">:</span>
+
+    <span class="n">nb_instances</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">ClasseAvecCompteur</span><span class="o">.</span><span class="n">nb_instances</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ClasseAvecCompteur</span><span class="o">.</span><span class="n">nb_instances</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span> <span class="o">=</span> <span class="n">ClasseAvecCompteur</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c2</span> <span class="o">=</span> <span class="n">ClasseAvecCompteur</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c3</span> <span class="o">=</span> <span class="n">ClasseAvecCompteur</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ClasseAvecCompteur</span><span class="o">.</span><span class="n">nb_instances</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+<p>Dans cet exemple simple, l’attribut de classe <code class="docutils literal notranslate"><span class="pre">nb_instances</span></code> est incrémenté
+à chaque fois que le constructeur de la classe est appelé. Donc cela permet
+de compter le nombre d’objets de ce type créés par le programme.</p>
+<div class="admonition caution">
+<p class="admonition-title">Prudence</p>
+<p>Notez comment l’attribut de classe <code class="docutils literal notranslate"><span class="pre">nb_instances</span></code> est modifié dans le
+constructeur de la classe <code class="docutils literal notranslate"><span class="pre">ClasseAvecCompteur</span></code>. On utilise le nom de la
+classe et non <code class="docutils literal notranslate"><span class="pre">self</span></code> car sinon il s’agirait de l’attribut de l’objet.
+Il est possible d’utiliser <code class="docutils literal notranslate"><span class="pre">self</span></code> pour lire le contenu d’une variable
+de classe mais cela est fortement déconseillé car cela peut donner lieu à
+une ambiguïté à la lecture du code.</p>
+</div>
+<p>Les attributs de classe sont le plus souvent utilisés pour représenter des
+constantes.</p>
+</div>
+<div class="section" id="methodes-de-classe">
+<h2>Méthodes de classe<a class="headerlink" href="#methodes-de-classe" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Tout comme il est possible de déclarer des attributs de classe, il est également
+possible de déclarer des méthodes de classe. Pour cela, on utilise le décorateur
+<a class="reference external" href="https://docs.python.org/3.6/library/functions.html#classmethod" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">&#64;classmethod</span></code></a>. Comme une méthode de classe appartient à une
+classe, le premier paramètre correspond à la classe. Par convention, on appelle
+ce paramètre <code class="docutils literal notranslate"><span class="pre">cls</span></code> pour préciser qu’il s’agit de la classe et pour le distinguer
+de <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ClasseAvecCompteur</span><span class="p">:</span>
+
+    <span class="n">nb_instances</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">reinitialiser_compteur</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">nb_instances</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">ClasseAvecCompteur</span><span class="o">.</span><span class="n">nb_instances</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span> <span class="o">=</span> <span class="n">ClasseAvecCompteur</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c2</span> <span class="o">=</span> <span class="n">ClasseAvecCompteur</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c3</span> <span class="o">=</span> <span class="n">ClasseAvecCompteur</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ClasseAvecCompteur</span><span class="o">.</span><span class="n">nb_instances</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ClasseAvecCompteur</span><span class="o">.</span><span class="n">reinitialiser_compteur</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ClasseAvecCompteur</span><span class="o">.</span><span class="n">nb_instances</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="methodes-statiques">
+<h2>Méthodes statiques<a class="headerlink" href="#methodes-statiques" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une méthode statique est une méthode qui appartient à la classe mais qui
+n’a pas besoin de s’exécuter dans le contexte d’une classe. Autrement dit,
+c’est une méthode qui ne doit pas prendre le paramètre <code class="docutils literal notranslate"><span class="pre">cls</span></code> comme premier
+paramètre. Pour déclarer une méthode statique, on utilise le décorateur
+<a class="reference external" href="https://docs.python.org/3.6/library/functions.html#staticmethod" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">&#64;staticmethod</span></code></a>. Les méthodes statiques sont des méthodes
+utilitaires très proches des fonctions mais que l’on souhaite déclarer dans le
+corps d’une classe.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">UneClasse</span><span class="p">:</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">une_methode</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;appel de la méthode&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">UneClasse</span><span class="o">.</span><span class="n">une_methode</span><span class="p">():</span>
+<span class="go"># Affiche appel de la méthode</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="visibilite-des-attributs-et-des-methodes">
+<h2>Visibilité des attributs et des méthodes<a class="headerlink" href="#visibilite-des-attributs-et-des-methodes" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Certains langages de programmation proposent des mécanismes pour gérer la visibilité
+des attributs et des méthodes. Il arrive souvent qu’une classe déclare des méthodes
+et des attributs qui ne sont pas destinés à être directement appelés par un programme.
+On dit qu’il s’agit de méthodes et d’attributs privés, c’est-à-dire destinés
+à être utilisés uniquement par l’objet lui-même. Par exemple, un objet peut stocker dans
+un attribut une connexion vers une système externe (base de données, serveur web…)
+avec pour objectif d’offrir une interaction simplifiée avec ce système. Cet attribut n’est pas
+sensé être accédé depuis l’extérieur de l’objet. En le rendant privé, on évite
+au reste du programme d’y accéder inutilement. Cela permet également une meilleure
+évolutivité du programme en évitant de trop exposer les données internes d’un
+objet. C’est ce que l’on appelle le <strong>principe d’encapsulation</strong>.</p>
+<p>En Python, il n’existe pas de mécanisme dans le langage qui nous permettrait
+de gérer la visibilité. Par contre, il existe une convention dans le nommage.
+Une méthode ou un attribut dont le nom commence par <code class="docutils literal notranslate"><span class="pre">_</span></code> (<em>underscore</em>) est
+considéré comme privé. Il est donc déconseillé d’accéder à un tel
+attribut ou d’appeler une telle méthode depuis l’extérieur de l’objet.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ClientSystemeExterne</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">ouvrir_connexion</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_connexion</span> <span class="o">=</span> <span class="n">ConnexionInterne</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">fermer_connexion</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_connexion</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_connexion</span><span class="o">.</span><span class="n">fermer</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_connexion</span> <span class="o">=</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fermer-la-liste-des-attributs">
+<h2>Fermer la liste des attributs<a class="headerlink" href="#fermer-la-liste-des-attributs" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Nous avons vu au début de ce chapitre que nous pouvons créer autant d’attributs
+que nous le souhaitons pour un objet. Cela peut conduire à des bugs ou des
+difficultés de compréhension du code. Si nous reprenons notre classe <code class="docutils literal notranslate"><span class="pre">Vecteur</span></code>,
+nous pouvons écrire :</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Vecteur</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">norme</span>
+<span class="go">1.0</span>
+</pre></div>
+</td></tr></table></div>
+<p>À la ligne 2, le programme positionne la valeur d’un nouvel attribut <code class="docutils literal notranslate"><span class="pre">z</span></code>. Un
+lecteur pourrait penser que le vecteur est en fait un vecteur à trois dimensions.
+Mais il n’en est rien. La classe <code class="docutils literal notranslate"><span class="pre">Vecteur</span></code> n’a pas été conçue pour prendre en
+charge cette troisième dimension et la norme du vecteur sera bien de 1.</p>
+<p>Pour éviter ce genre de situation, il est possible déclarer la liste finie des
+attributs. Pour cela, on déclare une attribut de classe appelé
+<a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__slots__" title="(disponible dans Python v3.6)"><code class="xref py py-data docutils literal notranslate"><span class="pre">__slots__</span></code></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">class</span> <span class="nc">Vecteur</span><span class="p">:</span>
+
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">norme</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">calculer_produit_scalaire</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">v</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">v</span><span class="o">.</span><span class="n">y</span>
+
+    <span class="k">def</span> <span class="nf">normaliser</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">norme</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">norme</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">/=</span> <span class="n">norme</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">/=</span> <span class="n">norme</span>
+</pre></div>
+</div>
+<p>Si maintenant un programme essaie de positionner la valeur d’un attribut qui
+ne fait pas partie de la définition de la classe, l’interpréteur génère une
+erreur <a class="reference external" href="https://docs.python.org/3.6/library/exceptions.html#AttributeError" title="(disponible dans Python v3.6)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AttributeError</span></code></a>.</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Vecteur</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">AttributeError</span>: <span class="n">&#39;Vecteur&#39; object has no attribute &#39;z&#39;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>L’attribut <a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__slots__" title="(disponible dans Python v3.6)"><code class="xref py py-data docutils literal notranslate"><span class="pre">__slots__</span></code></a> a également une utilité pour l’optimisation
+du code. Comme on indique à l’interpréteur le nombre exact d’attributs, il
+peut optimiser l’allocation mémoire pour un objet de ce type.</p>
+</div>
+</div>
+<div class="section" id="creer-des-objets-avec-des-attributs-constants">
+<h2>Créer des objets avec des attributs constants<a class="headerlink" href="#creer-des-objets-avec-des-attributs-constants" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Lorsque l’on veut créer des objets qui contiennent uniquement des attributs
+en lecture seule, il est possible d’utiliser la classe <code class="xref py py-class docutils literal notranslate"><span class="pre">collections.namedtuple</span></code>.
+Elle fournit une solution à la déclaration de constante en Python.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Intervalle</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Intervalle&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">intervalle</span> <span class="o">=</span> <span class="n">Intervalle</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">intervalle</span><span class="o">.</span><span class="n">min</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">intervalle</span><span class="o">.</span><span class="n">max</span>
+<span class="go">100</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">intervalle</span><span class="o">.</span><span class="n">min</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">AttributeError</span>: <span class="n">can&#39;t set attribute</span>
+</pre></div>
+</div>
+<p>La classe <code class="xref py py-class docutils literal notranslate"><span class="pre">namedtuple</span></code> attend en paramètre le nom du type
+à créer ainsi que la liste des noms des attributs. L’objet construit a les mêmes
+comportements qu’un tuple, c’est-à-dire que ses données ne peuvent pas être modifiées
+mais elles peuvent être accessibles comme des attributs. Si on tente de modifier
+la valeur d’un des attributs, cela produit une erreur de type <a class="reference external" href="https://docs.python.org/3.6/library/exceptions.html#AttributeError" title="(disponible dans Python v3.6)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AttributeError</span></code></a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="heritage.html" class="btn btn-neutral float-right" title="Héritage et polymorphisme" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="decorateur.html" class="btn btn-neutral float-left" title="Les décorateurs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright David Gayerie - david@gayerie.dev - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

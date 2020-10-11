@@ -1,0 +1,748 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Tutoriel three.js" name="description" />
+<meta content="three.js, webgl, 3D" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Les interactions &mdash; Documentation Le JavaScript moderne </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/js/threejs/interactions.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Chargement de modèle" href="chargement_scene.html" />
+    <link rel="prev" title="Les matériaux" href="materiaux.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Le JavaScript moderne
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">JavaScript (notions avancées)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../javascript/evolution_syntaxe.html">Les apports de ES5 et ES6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/evolution_syntaxe.html#le-mode-strict-es5">Le mode strict (ES5)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/evolution_syntaxe.html#declarer-une-variable-avec-let-et-const-es6">Déclarer une variable avec let et const (ES6)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/evolution_syntaxe.html#gabarit-de-chaine-de-caracteres-es6">Gabarit de chaîne de caractères (ES6)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/evolution_syntaxe.html#evolution-de-la-syntaxe-en-es6">Évolution de la syntaxe en ES6</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javascript/evolution_syntaxe.html#valeur-par-defaut-des-parametres">Valeur par défaut des paramètres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javascript/evolution_syntaxe.html#le-parametre-de-reste">Le paramètre de reste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javascript/evolution_syntaxe.html#la-decomposition-de-tableau">La décomposition de tableau</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javascript/modele_objet.html">Le modèle objet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/modele_objet.html#creer-des-objets">Créer des objets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javascript/modele_objet.html#la-declaration-litterale">La déclaration littérale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javascript/modele_objet.html#le-constructeur">Le constructeur</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/modele_objet.html#le-prototype">Le prototype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/modele_objet.html#la-notion-de-propriete">La notion de propriété</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/modele_objet.html#l-heritage">L’héritage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/modele_objet.html#la-notion-de-classe-depuis-es6">La notion de classe depuis ES6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/modele_objet.html#l-heritage-avec-les-classes">L’héritage avec les classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/modele_objet.html#utilisation-du-mot-cle-super">Utilisation du mot-clé super</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javascript/fonctionnel.html">Programmation fonctionnelle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/fonctionnel.html#les-arrow-functions">Les arrow functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/fonctionnel.html#l-utilisation-de-foreach">L’utilisation de forEach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/fonctionnel.html#le-modele-filter-map-reduce">Le modèle filter/map/reduce</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javascript/module.html">Les modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/module.html#exporter">Exporter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javascript/module.html#export-par-defaut">Export par défaut</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/module.html#importer">Importer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javascript/symbol.html">Les symboles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/symbol.html#les-symboles-comme-noms-de-proprietes">Les symboles comme noms de propriétés</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/symbol.html#well-known-symbols">well-known symbols</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javascript/iterateur_generateur.html">Les itérateurs et les générateurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/iterateur_generateur.html#les-iterateurs">Les itérateurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/iterateur_generateur.html#les-iterables">Les itérables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/iterateur_generateur.html#la-structure-for-of">La structure for … of</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/iterateur_generateur.html#les-generateurs">Les générateurs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javascript/promesse.html">Les promesses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/promesse.html#la-classe-promise">La classe Promise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/promesse.html#le-chainage-des-appels">Le chaînage des appels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/promesse.html#traitements-paralleles">Traitements parallèles</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">three.js</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction et mise en place</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#chargement-asynchrone-en-local">Chargement asynchrone en local</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#fichier-html-de-base">Fichier HTML de base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#creation-d-un-renderer">Création d’un renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#creation-d-une-camera">Création d’une caméra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#creation-d-une-scene">Création d’une scène</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#rendu-d-une-scene">Rendu d’une scène</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#redimensionnement-du-canevas">Redimensionnement du canevas</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="objets_et_scene.html">Objets et scène</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="objets_et_scene.html#repere-de-coordonnees">Repère de coordonnées</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objets_et_scene.html#mesh-et-geometry">Mesh et Geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objets_et_scene.html#les-transformations-dans-l-espace">Les transformations dans l’espace</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="objets_et_scene.html#exercice">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="objets_et_scene.html#une-animation-simple">Une animation simple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="objets_et_scene.html#hierarchie-d-objets">Hiérarchie d’objets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="objets_et_scene.html#excercice">Excercice</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="materiaux.html">Les matériaux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="materiaux.html#le-meshbasicmaterial">Le MeshBasicMaterial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="materiaux.html#les-lumieres">Les lumières</a></li>
+<li class="toctree-l2"><a class="reference internal" href="materiaux.html#les-materiaux-reagissant-a-la-lumiere">Les matériaux réagissant à la lumière</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="materiaux.html#excercice">Excercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="materiaux.html#textures-et-maps">Textures et Maps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="materiaux.html#chargement-d-une-texture">Chargement d’une texture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="materiaux.html#un-texture-comme-color-map">Un texture comme <em>color map</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="materiaux.html#les-autres-types-de-textures">Les autres types de textures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="materiaux.html#les-ombres">Les ombres</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Les interactions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#les-controleurs">Les contrôleurs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#le-controleur-orbital">Le contrôleur orbital</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#le-lancer-de-rayon">Le lancer de rayon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#la-projection">La projection</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chargement_scene.html">Chargement de modèle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chargement_scene.html#le-chargeur-gltf">Le chargeur glTF</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="animation_curve.html">Animation à partir de courbes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="animation_curve.html#les-courbes">Les courbes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animation_curve.html#representation-graphique-d-une-courbe">Représentation graphique d’une courbe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animation_curve.html#animation-le-long-d-une-courbe">Animation le long d’une courbe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animation_curve.html#exercice">Exercice</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Le JavaScript moderne</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Les interactions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="chargement_scene.html" class="btn btn-neutral float-right" title="Chargement de modèle" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="materiaux.html" class="btn btn-neutral float-left" title="Les matériaux" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="les-interactions">
+<h1>Les interactions<a class="headerlink" href="#les-interactions" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="les-controleurs">
+<h2>Les contrôleurs<a class="headerlink" href="#les-controleurs" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference external" href="https://threejs.org/">three.js</a> fournit des exemples d’implémentations de contrôleurs. Ces classes permettent manipuler des objets
+de la scène à partir du clavier et de la souris. Comme une caméra est également
+un objet de la scène, il est possible de manipuler la caméra pour créer une sensation
+d’immersion.</p>
+<p>Les exemples d’implémentation ne font pas partie de la bibliothèque de base de <a class="reference external" href="https://threejs.org/">three.js</a>.
+Il faut donc télécharger les fichiers indépendamment. Vous pouvez trouver ces fichiers
+sur le dépôt Git du projet :</p>
+<p><a class="reference external" href="https://github.com/mrdoob/three.js/tree/master/examples/js/controls">https://github.com/mrdoob/three.js/tree/master/examples/js/controls</a></p>
+<p>À titre d’exemple, nous allons montrer l’utilisation du contrôleur <a class="reference external" href="https://github.com/mrdoob/three.js/blob/dev/examples/js/controls/OrbitControls.js">OrbitControls</a>.</p>
+<div class="section" id="le-controleur-orbital">
+<h3>Le contrôleur orbital<a class="headerlink" href="#le-controleur-orbital" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La classe <a class="reference external" href="https://github.com/mrdoob/three.js/blob/dev/examples/js/controls/OrbitControls.js">OrbitControls</a> permet de faire se mouvoir un élément de la scène autour
+d’un point (rotation orbitale, déplacement, zoom avant et arrière).
+Si l’élément est la caméra, cela permet à l’utilisateur de tourner autour de la scène.</p>
+<p>Pour utiliser un objet <a class="reference external" href="https://github.com/mrdoob/three.js/blob/dev/examples/js/controls/OrbitControls.js">OrbitControls</a>, il suffit de le créer en passant en paramètre l’objet
+contrôlé et l’élément DOM de la page qui devra écouter les événements clavier et souris
+(généralement le canevas sur lequel la scène est rendue). On peut préciser des contraintes
+afin de limiter les angles de rotation ou si l’utilisateur peut ou non se déplacer.
+Ensuite, il suffit d’appeler la méthode <code class="docutils literal notranslate"><span class="pre">update()</span></code> avant chaque rendu de scène.
+Le contrôleur met ainsi à jour les transformations de l’objet contrôlé.</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">utf-8</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>three.js app<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+      <span class="nt">body</span> <span class="p">{</span>
+        <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">overflow</span><span class="p">:</span> <span class="kc">hidden</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;js/three.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="hll">    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;js/OrbitControls.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span>    <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+      <span class="kd">var</span> <span class="nx">renderer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">WebGLRenderer</span><span class="p">();</span>
+      <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">domElement</span><span class="p">);</span>
+
+      <span class="kd">var</span> <span class="nx">camera</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">PerspectiveCamera</span><span class="p">(</span><span class="mf">45</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span> <span class="o">/</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">10000</span><span class="p">);</span>
+      <span class="nx">renderer</span><span class="p">.</span><span class="nx">setSize</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">);</span>
+
+      <span class="kd">var</span> <span class="nx">scene</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Scene</span><span class="p">();</span>
+
+      <span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span>
+        <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">DodecahedronGeometry</span><span class="p">(),</span>
+        <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshPhongMaterial</span><span class="p">()</span>
+      <span class="p">);</span>
+      <span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+
+      <span class="c1">// Ambient light</span>
+      <span class="kd">var</span> <span class="nx">ambientLight</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">AmbientLight</span><span class="p">(</span><span class="mh">0xffffff</span><span class="p">,</span> <span class="mf">.1</span><span class="p">);</span>
+      <span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">ambientLight</span><span class="p">);</span>
+
+      <span class="c1">// Directional light</span>
+      <span class="kd">var</span> <span class="nx">directionalLight</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">DirectionalLight</span><span class="p">(</span><span class="mh">0xfff0f0</span><span class="p">,</span> <span class="mf">.7</span><span class="p">);</span>
+      <span class="nx">directionalLight</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="mf">1</span><span class="p">,</span><span class="mf">1</span><span class="p">);</span>
+      <span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">directionalLight</span><span class="p">);</span>
+
+      <span class="c1">// Point light</span>
+      <span class="kd">var</span> <span class="nx">pointLight</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">DirectionalLight</span><span class="p">(</span><span class="mh">0xf0f0ff</span><span class="p">,</span> <span class="mf">.3</span><span class="p">);</span>
+      <span class="nx">pointLight</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="o">-</span><span class="mf">2</span><span class="p">,</span><span class="mf">1</span><span class="p">,</span><span class="mf">1</span><span class="p">);</span>
+      <span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">pointLight</span><span class="p">);</span>
+
+      <span class="nx">camera</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">z</span> <span class="o">=</span> <span class="mf">4</span><span class="p">;</span>
+
+      <span class="c1">// Création du contrôleur</span>
+<span class="hll">      <span class="kd">var</span> <span class="nx">controls</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">OrbitControls</span><span class="p">(</span><span class="nx">camera</span><span class="p">,</span> <span class="nx">renderer</span><span class="p">.</span><span class="nx">domElement</span><span class="p">);</span>
+</span><span class="hll">      <span class="nx">controls</span><span class="p">.</span><span class="nx">minDistance</span> <span class="o">=</span> <span class="mf">2</span><span class="p">;</span>
+</span><span class="hll">      <span class="nx">controls</span><span class="p">.</span><span class="nx">maxDistance</span> <span class="o">=</span> <span class="mf">30</span><span class="p">;</span>
+</span>
+      <span class="kd">function</span> <span class="nx">animate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// mise à jour du contrôleur</span>
+<span class="hll">        <span class="nx">controls</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+</span>
+        <span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="nx">animate</span><span class="p">);</span>
+        <span class="nx">renderer</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">scene</span><span class="p">,</span> <span class="nx">camera</span><span class="p">);</span>
+      <span class="p">}</span>
+      <span class="nx">animate</span><span class="p">();</span>
+    <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>À la ligne 48, on crée le contrôleur pour la caméra et on précise des contraintes.
+Puis dans la fonction <code class="docutils literal notranslate"><span class="pre">animate()</span></code> à la ligne 54, on commence par mettre à jour
+le contrôleur, qui va lui même mettre à jour la position de la caméra.</p>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p>Rappelez-vous, qu’une instance de <a class="reference external" href="https://github.com/mrdoob/three.js/blob/dev/examples/js/controls/OrbitControls.js">OrbitControls</a> peut contrôler n’importe quel type
+d’objet. Il est donc possible de contrôler la rotation d’un objet dans la scène
+et même d’une lumière.</p>
+</div>
+<div class="exercice admonition">
+<p class="admonition-title">Le système planétaire (suite)</p>
+<p>Ajoutez un contrôleur orbital autour de la Terre.</p>
+</div>
+</div>
+</div>
+<div class="section" id="le-lancer-de-rayon">
+<h2>Le lancer de rayon<a class="headerlink" href="#le-lancer-de-rayon" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour sélectionner un ou des objets dans un scène, il est possible d’utiliser
+le principe du lancer de rayon grâce à la classe <a class="reference external" href="https://threejs.org/docs/#api/en/core/Raycaster">RayCaster</a>. La fenêtre de rendu
+correspond un plan virtuel dans la scène 3D (qui coïncide avec le
+<a class="reference internal" href="introduction.html#threejs-camera-nearplan"><span class="std std-ref">near plan</span></a> de la caméra). On peut sélectionner
+un point sur se plan (par exemple la position de la souris) et lancer un rayon
+qui part de la caméra et passe par ce point. Les objets traversés par ce rayon
+sont les objets qui sont pointés par ce point.</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">utf-8</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>three.js app<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+      <span class="nt">body</span> <span class="p">{</span>
+        <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">overflow</span><span class="p">:</span> <span class="kc">hidden</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://threejs.org/build/three.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+      <span class="kd">var</span> <span class="nx">renderer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">WebGLRenderer</span><span class="p">();</span>
+      <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">domElement</span><span class="p">);</span>
+
+      <span class="kd">var</span> <span class="nx">camera</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">PerspectiveCamera</span><span class="p">(</span><span class="mf">45</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span> <span class="o">/</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">100</span><span class="p">);</span>
+      <span class="nx">renderer</span><span class="p">.</span><span class="nx">setSize</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">);</span>
+
+      <span class="kd">var</span> <span class="nx">scene</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Scene</span><span class="p">();</span>
+      <span class="nx">scene</span><span class="p">.</span><span class="nx">overrideMaterial</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshPhongMaterial</span><span class="p">();</span>
+
+      <span class="c1">// Ambient light</span>
+      <span class="kd">var</span> <span class="nx">ambientLight</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">AmbientLight</span><span class="p">(</span><span class="mh">0xffffff</span><span class="p">,</span> <span class="mf">.2</span><span class="p">);</span>
+      <span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">ambientLight</span><span class="p">);</span>
+
+      <span class="c1">// Directional light</span>
+      <span class="kd">var</span> <span class="nx">directionalLight</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">DirectionalLight</span><span class="p">(</span><span class="mh">0xffdddd</span><span class="p">,</span> <span class="mf">1</span><span class="p">);</span>
+      <span class="nx">directionalLight</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="mf">1</span><span class="p">,</span><span class="mf">1</span><span class="p">);</span>
+      <span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">directionalLight</span><span class="p">);</span>
+
+      <span class="c1">// On crée les objets sélectionnables dans leur groupe</span>
+      <span class="kd">var</span> <span class="nx">selectionables</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Group</span><span class="p">();</span>
+      <span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">selectionables</span><span class="p">);</span>
+
+      <span class="kd">var</span> <span class="nx">geometries</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">dodecahèdre</span><span class="o">:</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">DodecahedronGeometry</span><span class="p">(),</span>
+        <span class="nx">sphère</span><span class="o">:</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">SphereGeometry</span><span class="p">(),</span>
+        <span class="nx">cube</span><span class="o">:</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">BoxGeometry</span><span class="p">(),</span>
+        <span class="nx">cône</span><span class="o">:</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">ConeGeometry</span><span class="p">(),</span>
+      <span class="p">}</span>
+
+      <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">geo</span> <span class="k">in</span> <span class="nx">geometries</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span><span class="nx">geometries</span><span class="p">[</span><span class="nx">geo</span><span class="p">]);</span>
+        <span class="nx">obj</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">geo</span><span class="p">;</span>
+        <span class="nx">obj</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">THREE</span><span class="p">.</span><span class="nb">Math</span><span class="p">.</span><span class="nx">randFloat</span><span class="p">(</span><span class="o">-</span><span class="mf">5</span><span class="p">,</span> <span class="mf">5</span><span class="p">);</span>
+        <span class="nx">obj</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">z</span> <span class="o">=</span> <span class="nx">THREE</span><span class="p">.</span><span class="nb">Math</span><span class="p">.</span><span class="nx">randFloat</span><span class="p">(</span><span class="o">-</span><span class="mf">5</span><span class="p">,</span> <span class="o">-</span><span class="mf">10</span><span class="p">);</span>
+        <span class="nx">selectionables</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+      <span class="p">}</span>
+
+<span class="hll">      <span class="kd">var</span> <span class="nx">raycaster</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Raycaster</span><span class="p">();</span>
+</span>
+<span class="hll">      <span class="kd">function</span> <span class="nx">getSelectionneLePlusProche</span><span class="p">(</span><span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">        <span class="c1">// Mise à jour de la position du rayon à lancer.</span>
+</span><span class="hll">        <span class="nx">raycaster</span><span class="p">.</span><span class="nx">setFromCamera</span><span class="p">(</span><span class="nx">position</span><span class="p">,</span> <span class="nx">camera</span><span class="p">);</span>
+</span><span class="hll">        <span class="c1">// Obtenir la liste des intersections</span>
+</span><span class="hll">        <span class="kd">var</span> <span class="nx">selectionnes</span> <span class="o">=</span> <span class="nx">raycaster</span><span class="p">.</span><span class="nx">intersectObjects</span><span class="p">(</span><span class="nx">selectionables</span><span class="p">.</span><span class="nx">children</span><span class="p">);</span>
+</span><span class="hll">        <span class="k">if</span> <span class="p">(</span><span class="nx">selectionnes</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">          <span class="k">return</span> <span class="nx">selectionnes</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">object</span><span class="p">;</span>
+</span><span class="hll">        <span class="p">}</span>
+</span><span class="hll">      <span class="p">}</span>
+</span>
+<span class="hll">      <span class="kd">function</span> <span class="nx">onMouseClick</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">        <span class="kd">var</span> <span class="nx">position</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Vector2</span><span class="p">();</span>
+</span><span class="hll">        <span class="c1">// On conserve la position de la souris dans l&#39;espace de coordonnées</span>
+</span><span class="hll">        <span class="c1">// NDC (Normalized device coordinates).</span>
+</span><span class="hll">        <span class="kd">var</span> <span class="nx">domRect</span> <span class="o">=</span> <span class="nx">renderer</span><span class="p">.</span><span class="nx">domElement</span><span class="p">.</span><span class="nx">getBoundingClientRect</span><span class="p">();</span>
+</span><span class="hll">        <span class="nx">position</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">clientX</span> <span class="o">/</span> <span class="nx">domRect</span><span class="p">.</span><span class="nx">width</span><span class="p">)</span> <span class="o">*</span> <span class="mf">2</span> <span class="o">-</span> <span class="mf">1</span> <span class="o">+</span> <span class="nx">domRect</span><span class="p">.</span><span class="nx">left</span><span class="p">;</span>
+</span><span class="hll">        <span class="nx">position</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="o">-</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">clientY</span> <span class="o">/</span> <span class="nx">domRect</span><span class="p">.</span><span class="nx">height</span><span class="p">)</span> <span class="o">*</span> <span class="mf">2</span> <span class="o">+</span> <span class="mf">1</span> <span class="o">+</span> <span class="nx">domRect</span><span class="p">.</span><span class="nx">top</span><span class="p">;</span>
+</span><span class="hll">
+</span><span class="hll">        <span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="nx">getSelectionneLePlusProche</span><span class="p">(</span><span class="nx">position</span><span class="p">);</span>
+</span><span class="hll">        <span class="k">if</span> <span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">          <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Vous avez sélectionné l&#39;objet &quot;</span> <span class="o">+</span> <span class="nx">s</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+</span><span class="hll">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class="hll">          <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Vous n&#39;avez rien sélectionné&quot;</span><span class="p">);</span>
+</span><span class="hll">        <span class="p">};</span>
+</span><span class="hll">      <span class="p">}</span>
+</span>
+<span class="hll">      <span class="nx">renderer</span><span class="p">.</span><span class="nx">domElement</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="nx">onMouseClick</span><span class="p">);</span>
+</span>
+      <span class="nx">camera</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">z</span> <span class="o">=</span> <span class="mf">10</span><span class="p">;</span>
+      <span class="nx">camera</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mf">2</span><span class="p">;</span>
+      <span class="nx">camera</span><span class="p">.</span><span class="nx">lookAt</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">7.5</span><span class="p">);</span>
+
+      <span class="nx">renderer</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">scene</span><span class="p">,</span> <span class="nx">camera</span><span class="p">);</span>
+    <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Vous pouvez <a class="reference download internal" download="" href="../_downloads/6676238add04e0cedbf83a943a879fc4/scene012.html"><code class="xref download docutils literal notranslate"><span class="pre">télécharger</span> <span class="pre">ce</span> <span class="pre">fichier</span> <span class="pre">directement</span></code></a>.</p>
+<p>Dans l’exemple précédent, on prépare une scène puis on crée un objet de type
+<a class="reference external" href="https://threejs.org/docs/#api/en/core/Raycaster">Raycaster</a> à la ligne 53. La fonction <code class="docutils literal notranslate"><span class="pre">getSelectionneLePluProche()</span></code> met à jour
+la position du rayon et demande au <code class="docutils literal notranslate"><span class="pre">raycaster</span></code> la liste des intersections avec
+le rayon. Comme la liste est triée, le premier élément de la liste (s’il y en a un)
+et le plus proche de l’origine du rayon (dans ce cas, la caméra.
+À la ligne 80, on met en place un <em>listener</em> DOM <code class="docutils literal notranslate"><span class="pre">onMouseClick(event)</span></code>, pour détecter
+un clic de souris. Dans ce cas, on calcule la position de la souris <strong>dans le repère
+normalisé</strong> (NDC : <em>Normalized Device Coordinates</em>) et appelle la méthode
+<code class="docutils literal notranslate"><span class="pre">getSelectionneLePluProche()</span></code> pour trouver l’élément sélectionné.</p>
+<p>Avec un <a class="reference external" href="https://threejs.org/docs/#api/en/core/Raycaster">Raycaster</a>, il est possible de réaliser un système de ciblage pour
+permettre à l’utilisateur d’interagir avec les éléments de la scène.</p>
+</div>
+<div class="section" id="la-projection">
+<h2>La projection<a class="headerlink" href="#la-projection" title="Lien permanent vers ce titre">¶</a></h2>
+<p>À l’inverse du lancer de rayon, la projection permet de connaître la position
+d’un élément de la scène dans le repère de coordonnées du canevas de rendu
+ou de la page HTML. Cela peut être très pratique pour positionner un élément
+HTML par rapport au contenu de la scène.</p>
+<p>La méthode <a class="reference external" href="https://threejs.org/docs/#api/en/math/Vector3.project">project</a> disponible sur un <a class="reference external" href="https://threejs.org/docs/#api/en/math/Vector3">Vector3</a> permet de projeter la position
+du vecteur sur le plan de projection de la caméra <strong>dans le repère
+normalisé</strong> (NDC : <em>Normalized Device Coordinates</em>). On peut utiliser la fonction
+ci-dessous pour obtenir les coordonnées dans la fenêtre si le rendu se fait
+sur toute la fenêtre :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">getPositionOnScreen</span><span class="p">(</span><span class="nx">camera</span><span class="p">,</span> <span class="nx">object3d</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">vector</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Vector3</span><span class="p">();</span>
+  <span class="nx">object3d</span><span class="p">.</span><span class="nx">getWorldPosition</span><span class="p">(</span><span class="nx">vector</span><span class="p">).</span><span class="nx">project</span><span class="p">(</span><span class="nx">camera</span><span class="p">);</span>
+  <span class="c1">// On passe des coordonnées dans le repère normalisé (NDC) aux</span>
+  <span class="c1">// coordonnées de l&#39;écran</span>
+  <span class="nx">vector</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">((</span><span class="nx">vector</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="mf">1</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2</span> <span class="o">*</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span><span class="p">);</span>
+  <span class="nx">vector</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="nx">vector</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="mf">1</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2</span> <span class="o">*</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="nx">vector</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Vous pouvez visualiser <a class="reference external" href="https://spoonless.github.io/tuto_threejs/annotation.html">un exemple d’utilisation de cette fonction</a>.</p>
+<div class="exercice admonition">
+<p class="admonition-title">Le système planétaire (suite)</p>
+<p>Ajoutez une zone de texte en HTML à côté de la Terre et de la Lune.</p>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p>Attention, pour placer correctement les zones de texte, il faut connaître la
+position des objets dans le monde pour calculer correctement leur projection. Utilisez la
+méthode <a class="reference external" href="https://threejs.org/docs/index.html#api/en/core/Object3D.getWorldPosition">Object3D.getWorldPosition()</a> pour connaître les coordonnées d’un
+objet dans l’espace de coordonnées du monde.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="chargement_scene.html" class="btn btn-neutral float-right" title="Chargement de modèle" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="materiaux.html" class="btn btn-neutral float-left" title="Les matériaux" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright David Gayerie - david@gayerie.dev - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

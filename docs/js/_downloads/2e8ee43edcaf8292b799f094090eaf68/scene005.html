@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8>
+    <title>three.js app</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://threejs.org/build/three.min.js"></script>
+    <script>
+      // création du renderer
+      var renderer = new THREE.WebGLRenderer();
+      document.body.appendChild(renderer.domElement);
+      renderer.setSize(window.innerWidth, window.innerHeight);
+
+      // création de la caméra
+      var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.5, 1000);
+
+      // création de la scène
+      var scene = new THREE.Scene();
+
+      // couleur de fond noire
+      scene.background = new THREE.Color(0, 0, 0);
+
+      // création du mesh et ajout dans la scène
+      var sphere = new THREE.Mesh(new THREE.SphereGeometry());
+      sphere.position.x = 2;
+      scene.add(sphere);
+
+      // création du mesh et ajout comme fils du premier mesh
+      var cubeFils = new THREE.Mesh(new THREE.BoxGeometry());
+      sphere.add(cubeFils);
+      cubeFils.position.y = 3;
+
+      // positionnement de la caméra
+      camera.position.z = 10;
+
+      renderer.render(scene, camera);
+    </script>
+  </body>
+</html>
+

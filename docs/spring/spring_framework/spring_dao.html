@@ -1,0 +1,735 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Spring Framework - Spring DAO" name="description" />
+<meta content="Java, Spring Framework, framework, Jakarta EE, Java EE, IoC, injection de dépendances, JPA, Hibernate, JDBC" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Spring DAO &mdash; Documentation Le Spring Framework </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/spring/spring_framework/spring_dao.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="JPA avec Spring Data" href="../spring_data/spring_data_jpa.html" />
+    <link rel="prev" title="Spring Transaction" href="spring_tx.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Le Spring Framework
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Spring Framework</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#les-modules-spring">Les modules Spring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#les-projets-spring">Les projets Spring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="principe_ioc.html">L’inversion de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="principe_ioc.html#principe-et-implementation">Principe et implémentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="principe_ioc.html#notion-de-conteneur-ioc">Notion de conteneur IoC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="application_context.html">Le contexte d’application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#definition-d-un-contexte-d-application-en-xml">Définition d’un contexte d’application en XML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#definition-de-beans-dans-le-contexte">Définition de beans dans le contexte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#notion-de-portee-scope">Notion de portée (scope)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#les-differentes-facons-de-creer-des-objets">Les différentes façons de créer des objets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#injection-de-types-simples">Injection de types simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#injection-de-beans">Injection de beans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#gestion-du-cycle-de-vie-des-beans">Gestion du cycle de vie des beans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#autowiring">Autowiring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#contexte-d-application-en-java">Contexte d’application en Java</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="annotations.html">Déclaration par annotations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#configuration-du-support-des-annotations">Configuration du support des annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#l-annotation-required">L’annotation &#64;Required</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#l-annotation-value">L’annotation &#64;Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#l-annotation-autowired">L’annotation &#64;Autowired</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#l-annotation-qualifier">L’annotation &#64;Qualifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#les-annotations-jsr-250">Les annotations JSR-250</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#detection-automatique-des-beans-autoscan">Détection automatique des beans (<em>autoscan</em>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#support-de-annotations-standard-jsr-330">Support de annotations standard JSR-330</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="application_context_conf.html">Configuration d’un contexte d’application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="application_context_conf.html#le-propertyplaceholderconfigurer">Le PropertyPlaceholderConfigurer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spel.html">Le langage d’expression SpEL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spel.html#un-exemple-d-utilisation-de-spel">Un exemple d’utilisation de SpEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spel.html#principe-de-spel">Principe de SpEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spel.html#utilisation-de-spel-dans-les-annotations">Utilisation de SpEL dans les annotations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aop.html">Spring AOP : programmation orientée aspect</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aop.html#principe-de-la-programmation-orientee-aspect">Principe de la programmation orientée aspect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aop.html#terminologie-de-la-programmation-orientee-aspect">Terminologie de la programmation orientée aspect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aop.html#exemple-de-programmation-orientee-aspect-avec-spring-aop">Exemple de programmation orientée aspect avec Spring AOP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spring_tx.html">Spring Transaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#la-transaction">La transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#transaction-globale-et-transaction-locale">Transaction globale et transaction locale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#declaration-d-un-gestionnaire-de-transactions-avec-spring">Déclaration d’un gestionnaire de transactions avec Spring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_tx.html#gestionnaire-de-transactions-jta">Gestionnaire de transactions JTA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_tx.html#gestionnaire-de-transactions-jpa">Gestionnaire de transactions JPA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#strategie-des-transactions">Stratégie des transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#configuration-declarative-des-transactions">Configuration déclarative des transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#gestion-declarative-du-rollback-pour-les-transactions">Gestion déclarative du <em>rollback</em> pour les transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#utilisation-de-l-annotation-transactional">Utilisation de l’annotation &#64;Transactional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#configuration-avancee-pour-les-transactions">Configuration avancée pour les transactions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_tx.html#la-propagation">La propagation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_tx.html#l-isolation">L’isolation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Spring DAO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#l-annotation-repository">L’annotation &#64;Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integration-de-jpa">Intégration de JPA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#uniformite-de-la-hierarchie-des-exceptions">Uniformité de la hiérarchie des exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#acces-aux-donnees-avec-jdbc">Accès aux données avec JDBC</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Spring Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../spring_data/spring_data_jpa.html">JPA avec Spring Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#ajout-de-spring-data-jpa-dans-un-projet-maven">Ajout de Spring Data JPA dans un projet Maven</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#notion-de-repository">Notion de repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#configuration-des-repositories">Configuration des repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#ajout-de-methodes-dans-une-interface-de-repository">Ajout de méthodes dans une interface de repository</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_data/spring_data_jpa.html#requetes-nommees-jpa">Requêtes nommées JPA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spring_data/spring_data_jpa.html#utilisation-de-query">Utilisation de &#64;Query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#declaration-de-requetes-de-modification">Déclaration de requêtes de modification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_data/spring_data_jpa.html#implementation-des-methodes-de-repository">Implémentation des méthodes de repository</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Spring MVC</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../spring_mvc/spring_mvc.html">Spring MVC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#dependance-a-spring-mvc">Dépendance à Spring MVC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-dispatcherservlet">La DispatcherServlet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#contexte-d-application-web">Contexte d’application Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#les-controleurs">Les contrôleurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-signature-des-methodes-de-controleur">La signature des méthodes de contrôleur</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#les-parametres">Les paramètres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-valeur-de-retour">La valeur de retour</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#les-vues-jsp">Les vues JSP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#spring-s-jsp-taglib">Spring’s JSP taglib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc.html#form-taglib">Form taglib</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#post-redirect-get-avec-spring-mvc">POST-redirect-GET avec Spring MVC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#validation-des-parametres-d-une-requete">Validation des paramètres d’une requête</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#la-gestion-des-exceptions">La gestion des exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#methodes-de-modele">Méthodes de modèle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#methodes-de-binder">Méthodes de binder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#utiliser-le-contexte-de-l-application">Utiliser le contexte de l’application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc.html#controlleradvice">ControllerAdvice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spring_mvc/spring_mvc_apiweb.html">Les API Web avec Spring MVC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc_apiweb.html#l-annotation-restcontroller">L’annotation &#64;RestController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc_apiweb.html#support-du-format-json">Support du format JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc_apiweb.html#un-controleur-pour-une-api-web">Un contrôleur pour une API Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc_apiweb.html#la-negociation-de-contenu">La négociation de contenu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc_apiweb.html#l-envoi-de-donnees">L’envoi de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc_apiweb.html#la-reponse">La réponse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc_apiweb.html#restcontrolleradvice">RestControllerAdvice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc_apiweb.html#les-annotations-jackson">Les annotations Jackson</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../spring_mvc/spring_mvc_apiweb.html#les-vues-json">Les vues JSON</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc_apiweb.html#implementation-d-un-client">Implémentation d’un client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spring_mvc/spring_mvc_apiweb.html#exercice">Exercice</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Le Spring Framework</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Spring DAO</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../spring_data/spring_data_jpa.html" class="btn btn-neutral float-right" title="JPA avec Spring Data" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="spring_tx.html" class="btn btn-neutral float-left" title="Spring Transaction" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="spring-dao">
+<h1>Spring DAO<a class="headerlink" href="#spring-dao" title="Lien permanent vers ce titre">¶</a></h1>
+<p>DAO (<em>Data Access Object</em>) est une responsabilité qui est souvent utilisée dans
+les applications d’entreprise. Dans le code source d’une application, on peut
+trouver des classes nommées <code class="docutils literal notranslate"><span class="pre">UserDao</span></code>, <code class="docutils literal notranslate"><span class="pre">ProducDao</span></code>… Ce suffixe « Dao » dénote
+que la classe a pour responsabilité d’accéder au système d’information pour lire
+ou modifier des données. Comme la plupart des applications d’entreprise stockent
+leurs données dans une base de données, les classes DAO sont donc les classes
+qui contiennent le code qui permet d’échanger des informations avec la base de données.
+En Java, selon la technologie utilisée, il peut s’agir des classes qui utilisent
+l’API JDBC ou JPA par exemple.</p>
+<p>Le module <em>Spring Data Access</em> reprend ce principe d’architecture en cherchant à simplifier l’intégration
+et l’implémentation des interactions avec les bases de données.</p>
+<div class="section" id="l-annotation-repository">
+<h2>L’annotation &#64;Repository<a class="headerlink" href="#l-annotation-repository" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le Spring Framework fournit des stéréotypes pour marquer le rôle des classes.
+Le stéréotype le plus général est défini par l’annotation <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/stereotype/Component.html">&#64;Component</a>.
+Il est également possible d’utiliser l’annotation <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/stereotype/Repository.html">&#64;Repository</a> pour indiquer qu’une
+classe sert de point d’accès à un mécanisme de stockage et de recherche d’une
+collection d’objets. La notion de <em>repository</em> vient de l’ouvrage de Eric
+Evans (<em>Domain Driven Development</em>).</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Repository</span><span class="p">;</span>
+
+<span class="nd">@Repository</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserDao</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">save</span><span class="p">(</span><span class="n">User</span> <span class="n">user</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="n">User</span> <span class="nf">getById</span><span class="p">(</span><span class="kt">long</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="integration-de-jpa">
+<h2>Intégration de JPA<a class="headerlink" href="#integration-de-jpa" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour une application utilisant JPA et qui accepte la
+<a class="reference internal" href="annotations.html#spring-configuration-annotations"><span class="std std-ref">configuration par annotations</span></a>, il est
+possible d’injecter un <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/EntityManager.html">EntityManager</a> dans un <em>repository</em> grâce à l’annotation
+<a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Autowired.html">&#64;Autowired</a>, <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/inject/Inject.html">&#64;Inject</a> et même <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/PersistenceContext.html">&#64;PersistenceContext</a> (qui est l’annotation
+standard de Java EE).</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Injection d’un EntityManager dans une classe repository</span><a class="headerlink" href="#id2" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.EntityManager</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.PersistenceContext</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Repository</span><span class="p">;</span>
+
+<span class="nd">@Repository</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserDao</span> <span class="p">{</span>
+
+  <span class="nd">@PersistenceContext</span>
+  <span class="kd">private</span> <span class="n">EntityManager</span> <span class="n">entityManager</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">save</span><span class="p">(</span><span class="n">User</span> <span class="n">user</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="n">User</span> <span class="nf">getById</span><span class="p">(</span><span class="kt">long</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour activer JPA, il faut configurer le contexte d’application avec
+<a class="reference internal" href="spring_tx.html#spring-tx-transaction-jpa"><span class="std std-ref">un gestionnaire de transaction JPA</span></a>.</p>
+</div>
+</div>
+<div class="section" id="uniformite-de-la-hierarchie-des-exceptions">
+<h2>Uniformité de la hiérarchie des exceptions<a class="headerlink" href="#uniformite-de-la-hierarchie-des-exceptions" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un apport du module <em>Spring Data Access</em> est d’uniformiser la hiérarchie des exceptions.
+En effet, l’API JDBC utilise des exceptions héritant
+de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/SQLException.html">SQLException</a> qui est une <em>checked</em> exception. JPA utilise des <em>unechecked</em>
+exceptions héritant de <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/PersistenceException.html">PersistenceException</a>. D’autres bibliothèques ou
+<em>frameworks</em> proposent à leur tour leur propre hiérarchie d’exceptions.</p>
+<p>Pour simplifier la gestion des exceptions, <em>Spring Data Access</em> propose une
+hiérarchie unique d’exceptions pour toutes ces technologies afin de simplifier
+la gestion des erreurs pour les applications.</p>
+<img alt="Hiérarchie des exceptions" src="../_images/spring_data_exceptions.png" />
+<p>À la base de cette hiérarchie, la classe <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/dao/DataAccessException.html">DataAccessException</a> est une <em>unchecked</em>
+exception (elle hérite de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/RuntimeException.html">RuntimeException</a>).</p>
+<p>Pour une application utilisant JPA, l’uniformisation de la hiérarchie des exceptions
+n’est pas activée par défaut. Pour l’activer, il faut utiliser l’annotation
+<a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/stereotype/Repository.html">&#64;Repository</a> et déclarer dans le contexte d’application un <em>bean</em> de type
+<a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/dao/annotation/PersistenceExceptionTranslationPostProcessor.html">PersistenceExceptionTranslationPostProcessor</a>.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">&quot;org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="acces-aux-donnees-avec-jdbc">
+<h2>Accès aux données avec JDBC<a class="headerlink" href="#acces-aux-donnees-avec-jdbc" title="Lien permanent vers ce titre">¶</a></h2>
+<p><em>Spring Data Access</em> fournit la classe <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html">JdbcTemplate</a> pour encapsuler les appels
+JDBC. Cette classe est simplement une classe utilitaire qui réalise :</p>
+<ul class="simple">
+<li><p>la traduction d’une éventuelle <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/SQLException.html">SQLException</a> dans la hiérarchie uniformisée des
+exceptions de <em>Spring Data Access</em></p></li>
+<li><p>l’encapsulation des appels à <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/Statement.html">Statement</a> et <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/PreparedStatement.html">PreparedStatement</a></p></li>
+<li><p>une aide pour la création d’objets à partir d’un <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/ResultSet.html">ResultSet</a></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour activer ce support avancé de JDBC, il faut ajouter comme dépendance Maven :</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.springframework<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>spring-jdbc<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>5.2.1.RELEASE<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>La classe <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html">JdbcTemplate</a> se construit à partir d’une <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/javax/sql/DataSource.html">DataSource</a>. L’implémentation
+recommandée est de créer une instance de <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html">JdbcTemplate</a> au moment de l’injection
+de la <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/javax/sql/DataSource.html">DataSource</a> dans le <em>bean</em>. Ainsi, il est très simple de définir la <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/javax/sql/DataSource.html">DataSource</a>
+dans le contexte de déploiement <em>Spring</em> de l’application (par JNDI, en utilisation un gestionnaire
+de connexions comme <a class="reference external" href="https://commons.apache.org/proper/commons-dbcp/apidocs/index.html">DBCP</a>).</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Un DAO utilisant une instance de JdbcTemplate</span><a class="headerlink" href="#id3" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.sql.DataSource</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.jdbc.core.JdbcTemplate</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Repository</span><span class="p">;</span>
+
+<span class="nd">@Repository</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserDao</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="n">JdbcTemplate</span> <span class="n">jdbcTemplate</span><span class="p">;</span>
+
+  <span class="nd">@Autowired</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDataSource</span><span class="p">(</span><span class="n">DataSource</span> <span class="n">dataSource</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">jdbcTemplate</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JdbcTemplate</span><span class="p">(</span><span class="n">dataSource</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>L’implémentation de la classe <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html">JdbcTemplate</a> est <em>thread-safe</em>. Cela signifie qu’elle
+peut être déclarée comme attribut d’un <em>bean singleton</em> utilisé dans un environnement
+concurrent (comme dans un serveur).</p>
+</div>
+<p>La classe <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html">JdbcTemplate</a> permet d’exécuter des requêtes SQL de manière simplifiée.</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Un exemple complet d’utilisation d’une instance de JdbcTemplate</span><a class="headerlink" href="#id4" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.sql.ResultSet</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.sql.SQLException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.sql.DataSource</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.jdbc.core.JdbcTemplate</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.jdbc.core.RowMapper</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Repository</span><span class="p">;</span>
+
+<span class="nd">@Repository</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserDao</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="n">JdbcTemplate</span> <span class="n">jdbcTemplate</span><span class="p">;</span>
+
+  <span class="nd">@Autowired</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDataSource</span><span class="p">(</span><span class="n">DataSource</span> <span class="n">dataSource</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">jdbcTemplate</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JdbcTemplate</span><span class="p">(</span><span class="n">dataSource</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getUserCount</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">jdbcTemplate</span><span class="p">.</span><span class="na">queryForObject</span><span class="p">(</span><span class="s">&quot;select count(1) from User&quot;</span><span class="p">,</span> <span class="n">Integer</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="n">User</span> <span class="nf">getUserById</span><span class="p">(</span><span class="kt">long</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">jdbcTemplate</span><span class="p">.</span><span class="na">queryForObject</span><span class="p">(</span><span class="s">&quot;select * from User where id = ?&quot;</span><span class="p">,</span>
+                                       <span class="k">new</span> <span class="n">Object</span><span class="o">[]</span> <span class="p">{</span><span class="n">id</span><span class="p">},</span> <span class="k">new</span> <span class="n">UserRowMapper</span><span class="p">());</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="nf">getAll</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">jdbcTemplate</span><span class="p">.</span><span class="na">query</span><span class="p">(</span><span class="s">&quot;select * from User&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="n">UserRowMapper</span><span class="p">());</span>
+  <span class="p">}</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">UserRowMapper</span> <span class="kd">implements</span> <span class="n">RowMapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">User</span> <span class="nf">mapRow</span><span class="p">(</span><span class="n">ResultSet</span> <span class="n">rs</span><span class="p">,</span> <span class="kt">int</span> <span class="n">rowNum</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">SQLException</span> <span class="p">{</span>
+      <span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="p">();</span>
+      <span class="n">user</span><span class="p">.</span><span class="na">setId</span><span class="p">(</span><span class="n">rs</span><span class="p">.</span><span class="na">getLong</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">));</span>
+      <span class="n">user</span><span class="p">.</span><span class="na">setNom</span><span class="p">(</span><span class="n">rs</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;nom&quot;</span><span class="p">));</span>
+      <span class="k">return</span> <span class="n">user</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Dans l’exemple ci-dessus, la classe interne <code class="docutils literal notranslate"><span class="pre">UserRowMapper</span></code> implémente
+l’interface <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/jdbc/core/RowMapper.html">RowMapper&lt;T&gt;</a> qui permet de transformer une ligne retournée par
+un <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/ResultSet.html">ResultSet</a> en objet.</p>
+<p><cite>Spring Data Access</cite> fournit également la classe utilitaire <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/jdbc/core/simple/SimpleJdbcInsert.html">SimpleJdbcInsert</a>
+pour faciliter la génération de requête d’insertion :</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Exemple d’utilisation de la classe SimpleJdbcInsert</span><a class="headerlink" href="#id5" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.sql.DataSource</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.jdbc.core.JdbcTemplate</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.jdbc.core.simple.SimpleJdbcInsert</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Repository</span><span class="p">;</span>
+
+<span class="nd">@Repository</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserDao</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="n">JdbcTemplate</span> <span class="n">jdbcTemplate</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="n">SimpleJdbcInsert</span> <span class="n">simpleJdbcInsert</span><span class="p">;</span>
+
+  <span class="nd">@Autowired</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDataSource</span><span class="p">(</span><span class="n">DataSource</span> <span class="n">dataSource</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">jdbcTemplate</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JdbcTemplate</span><span class="p">(</span><span class="n">dataSource</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">simpleJdbcInsert</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SimpleJdbcInsert</span><span class="p">(</span><span class="n">dataSource</span><span class="p">).</span><span class="na">withTableName</span><span class="p">(</span><span class="s">&quot;User&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">save</span><span class="p">(</span><span class="n">User</span> <span class="n">user</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Object</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="n">params</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="n">user</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
+
+    <span class="n">simpleJdbcInsert</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="n">params</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>À la ligne 22, on crée une instance de <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/jdbc/core/simple/SimpleJdbcInsert.html">SimpleJdbcInsert</a> en précisant le nom
+de la table pour laquelle on souhaite générer des requêtes d’insertion. Aux
+lignes 26-27, on crée un dictionnaire des valeurs à insérer et enfin, à la
+ligne 29, on appelle la méthode <code class="docutils literal notranslate"><span class="pre">execute</span></code> en passant le dictionnaire
+des paramètres. La méthode génère et exécute la requête SQL d’insertion.</p>
+<p>Avec cette classe utilitaire, il est même possible de récupérer la clé
+primaire générée (pour le cas d’une colonne <em>auto increment</em> avec MySQL
+par exemple) :</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Exemple d’utilisation de la classe SimpleJdbcInsert</span><a class="headerlink" href="#id6" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.sql.DataSource</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.jdbc.core.JdbcTemplate</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.jdbc.core.simple.SimpleJdbcInsert</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Repository</span><span class="p">;</span>
+
+<span class="nd">@Repository</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserDao</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="n">JdbcTemplate</span> <span class="n">jdbcTemplate</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="n">SimpleJdbcInsert</span> <span class="n">simpleJdbcInsert</span><span class="p">;</span>
+
+  <span class="nd">@Autowired</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDataSource</span><span class="p">(</span><span class="n">DataSource</span> <span class="n">dataSource</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">jdbcTemplate</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JdbcTemplate</span><span class="p">(</span><span class="n">dataSource</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">simpleJdbcInsert</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SimpleJdbcInsert</span><span class="p">(</span><span class="n">dataSource</span><span class="p">).</span><span class="na">withTableName</span><span class="p">(</span><span class="s">&quot;User&quot;</span><span class="p">)</span>
+                                                            <span class="p">.</span><span class="na">usingGeneratedKeyColumns</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">save</span><span class="p">(</span><span class="n">User</span> <span class="n">user</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Object</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="n">params</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="n">user</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
+
+    <span class="n">Number</span> <span class="n">key</span> <span class="o">=</span> <span class="n">simpleJdbcInsert</span><span class="p">.</span><span class="na">executeAndReturnKey</span><span class="p">(</span><span class="n">params</span><span class="p">);</span>
+    <span class="n">user</span><span class="p">.</span><span class="na">setId</span><span class="p">(</span><span class="n">key</span><span class="p">.</span><span class="na">longValue</span><span class="p">());</span>
+  <span class="p">}</span>
+
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>Dans l’exemple ci-dessus, on précise à la ligne 23 la colonne correspondant à
+la clé primaire. Puis, à la ligne 30, on appelle la méthode <code class="docutils literal notranslate"><span class="pre">executeAndReturnKey</span></code>
+afin d’insérer les données et de récupérer la clé primaire du nouvel enregistrement
+pour pouvoir la positionner dans l’objet de type <code class="docutils literal notranslate"><span class="pre">User</span></code>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../spring_data/spring_data_jpa.html" class="btn btn-neutral float-right" title="JPA avec Spring Data" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="spring_tx.html" class="btn btn-neutral float-left" title="Spring Transaction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright David Gayerie - david@gayerie.dev - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

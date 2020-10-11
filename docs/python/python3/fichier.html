@@ -1,0 +1,1105 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Python 3 - Les fondamentaux du langage" name="description" />
+<meta content="Python, programmation objet, POO, langage de programmation" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Gestion des fichiers &mdash; Documentation Le langage Python </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/python/python3/fichier.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Les tests unitaires automatisés avec unittest" href="unittest.html" />
+    <link rel="prev" title="Itérateurs et Générateurs" href="iterateur_generateur.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Le langage Python
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Python 3</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#python-2-et-python-3">Python 2 et Python 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#licence-logiciel">Licence logiciel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#les-principales-caracteristiques-du-langage">Les principales caractéristiques du langage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#oriente-objet">Orienté objet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#courbe-d-apprentissage-lineaire">Courbe d’apprentissage linéaire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#compile-et-interprete">Compilé et interprété</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#typage-dynamique">Typage dynamique</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#les-domaines-d-application">Les domaines d’application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#les-differentes-implementations-de-python">Les différentes implémentations de Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#communaute-et-organisation">Communauté et organisation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="execution.html">Console et exécution de fichiers source</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="execution.html#la-console">La console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution.html#les-fichiers-sources">Les fichiers sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution.html#lancement-en-mode-interactif">Lancement en mode interactif</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution.html#lancement-d-un-programme-hors-de-la-console">Lancement d’un programme hors de la console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution.html#notion-de-bloc-et-d-indentation">Notion de bloc et d’indentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution.html#les-commentaires">Les commentaires</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="type_et_variable.html">Types et variables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#nombres-et-calcul-arithmetique">Nombres et calcul arithmétique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#les-variables">Les variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#la-chaine-de-caracteres">La chaîne de caractères</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="type_et_variable.html#formatage-de-chaine-de-caracteres">Formatage de chaîne de caractères</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#le-type-booleen">Le type booléen</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fonction.html">Les fonctions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#appeler-une-fonction">Appeler une fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#les-fonctions-utiles-dans-la-console-python">Les fonctions utiles dans la console Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#les-fonctions-de-conversion-de-type">Les fonctions de conversion de type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fonction.html#convertir-en-nombre">Convertir en nombre</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fonction.html#convertir-en-valeur-booleenne">Convertir en valeur booléenne</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fonction.html#convertir-en-chaine-de-caracteres">Convertir en chaîne de caractères</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#exercices">Exercices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#declarer-une-fonction">Déclarer une fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#documenter-une-fonction">Documenter une fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#les-valeurs-de-retour">Les valeurs de retour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#les-parametres-nommes">Les paramètres nommés</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#valeur-par-defaut-des-parametres">Valeur par défaut des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#fonction-et-portee-des-variables">Fonction et portée des variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#id2">Exercices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#variable-globale-et-fonction">Variable globale et fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#notion-de-methode">Notion de méthode</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="list.html">La liste (<em>list</em>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="list.html#creer-une-liste">Créer une liste</a></li>
+<li class="toctree-l2"><a class="reference internal" href="list.html#acceder-aux-elements">Accéder aux éléments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="list.html#les-operations-sur-les-listes">Les opérations sur les listes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="list.html#connaitre-la-taille-d-une-liste">Connaître la taille d’une liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#supprimer-un-element-d-une-liste">Supprimer un élément d’une liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#ajouter-deux-listes-ensemble">Ajouter deux listes ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#creer-une-liste-etendue">Créer une liste étendue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#savoir-si-un-element-est-present-dans-une-liste">Savoir si un élément est présent dans une liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#comparer-deux-listes">Comparer deux listes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#connaitre-le-plus-grand-element-d-une-liste">Connaître le plus grand élément d’une liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#connaitre-le-plus-petit-element-d-une-liste">Connaître le plus petit élément d’une liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#decouper-une-liste">Découper une liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#copier-une-liste">Copier une liste</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="list.html#quelques-methodes-pour-les-listes">Quelques méthodes pour les listes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tuple.html">Le n-uplet (<em>tuple</em>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tuple.html#creer-un-tuple">Créer un tuple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tuple.html#acceder-aux-elements">Accéder aux éléments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tuple.html#les-operations-sur-les-tuples">Les opérations sur les tuples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#connaitre-la-taille-d-un-tuple">Connaître la taille d’un tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#ajouter-deux-tuples-ensemble">Ajouter deux tuples ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#creer-un-tuple-etendu">Créer un tuple étendu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#savoir-si-un-element-est-present-dans-un-tuple">Savoir si un élément est présent dans un tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#comparer-deux-tuples">Comparer deux tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#connaitre-le-plus-grand-element-d-un-tuple">Connaître le plus grand élément d’un tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#connaitre-le-plus-petit-element-d-une-tuple">Connaître le plus petit élément d’une tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#decouper-un-tuple">Découper un tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#compter-les-occurrences-dans-un-tuple">Compter les occurrences dans un tuple</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tuple.html#listes-et-tuples">Listes et tuples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tuple.html#les-chaines-de-caracteres-comme-tuple">Les chaînes de caractères comme tuple</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="set.html">L’ensemble (<em>set</em>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="set.html#creer-un-ensemble">Créer un ensemble</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set.html#acceder-aux-elements">Accéder aux éléments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set.html#les-operations-sur-les-ensembles">Les opérations sur les ensembles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="set.html#connaitre-la-taille-d-un-ensemble">Connaître la taille d’un ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set.html#savoir-si-un-element-est-present-dans-un-ensemble">Savoir si un élément est présent dans un ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set.html#comparer-deux-ensembles">Comparer deux ensembles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set.html#connaitre-le-plus-grand-element-d-un-ensemble">Connaître le plus grand élément d’un ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set.html#connaitre-le-plus-petit-element-d-un-ensemble">Connaître le plus petit élément d’un ensemble</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="set.html#quelques-methodes-pour-les-ensembles">Quelques méthodes pour les ensembles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set.html#ensemble-liste-et-tuple">Ensemble, liste et tuple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set.html#ensemble-fige">Ensemble figé</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dict.html">Le dictionnaire</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#creer-un-dictionnaire">Créer un dictionnaire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#acceder-aux-elements">Accéder aux éléments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#les-operations-sur-les-dictionnaires">Les opérations sur les dictionnaires</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dict.html#connaitre-la-taille-d-un-dictionnaire">Connaître la taille d’un dictionnaire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dict.html#supprimer-une-cle-d-un-dictionnaire">Supprimer une clé d’un dictionnaire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dict.html#savoir-si-une-cle-est-presente-dans-un-dictionnaire">Savoir si une clé est présente dans un dictionnaire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dict.html#comparer-deux-dictionnaires">Comparer deux dictionnaires</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#quelques-methodes-pour-les-dictionnaires">Quelques méthodes pour les dictionnaires</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structures_de_controle.html">Les structures de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#l-indentation-du-code">L’indentation du code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#structures-de-decision">Structures de décision</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-if">L’instruction <em>if</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-else">L’instruction <em>else</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-elif">L’instruction <em>elif</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-operateur-ternaire">L’opérateur ternaire</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#exercice">Exercice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#structures-iteratives">Structures itératives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-while">L’instruction <em>while</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-for">L’instruction <em>for</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#la-fonction-range">La fonction <em>range</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#interrompre-un-bloc-d-iteration">Interrompre un bloc d’itération</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#structure-iterative-avec-else">Structure itérative avec <em>else</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#id1">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fonction_avance.html">Les fonctions (notions avancées)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#decompactage-des-parametres">décompactage des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#compactage-des-parametres">compactage des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#appel-recursif-de-fonction">Appel récursif de fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#declaration-de-fonction-dans-une-fonction">Déclaration de fonction dans une fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#la-fonction-comme-type-python">La fonction comme type Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#les-fonctions-anonymes-lambdas">Les fonctions anonymes (lambdas)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="list_comprehension.html">Liste en compréhension</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="list_comprehension.html#dictionnaire-en-comprehension">Dictionnaire en compréhension</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="module.html">Les modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="module.html#le-module-pour-prevenir-la-collision-de-nom">Le module pour prévenir la collision de nom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#la-bibliotheque-standard-python">La bibliothèque standard Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#importer-un-module">Importer un module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#importer-directement-un-nom">Importer directement un nom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#creer-un-module-a-partir-d-un-fichier">Créer un module à partir d’un fichier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#module-executable">Module exécutable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#creer-un-module-a-partir-d-un-repertoire">Créer un module à partir d’un répertoire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#module-repertoire-executable">Module répertoire exécutable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#chemin-des-modules">Chemin des modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#les-packages">Les <em>packages</em></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="module.html#import-relatif">Import relatif</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="decorateur.html">Les décorateurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="decorateur.html#un-premier-decorateur">Un premier décorateur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decorateur.html#decorer-des-fonctions-avec-des-parametres-et-des-valeurs-de-retour">Décorer des fonctions avec des paramètres et des valeurs de retour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decorateur.html#decorateur-avec-des-parametres">Décorateur avec des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decorateur.html#conserver-la-documentation-malgre-l-utilisation-d-un-decorateur">Conserver la documentation malgré l’utilisation d’un décorateur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decorateur.html#appliquer-plusieurs-decorateurs">Appliquer plusieurs décorateurs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="objet.html">La programmation orientée objet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#la-classe-et-les-instances">La classe et les instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#les-attributs">Les attributs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#les-attributs-implicites">Les attributs implicites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#les-methodes">Les méthodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#le-constructeur">Le constructeur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#les-proprietes">Les propriétés</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#les-attributs-de-classe">Les attributs de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#methodes-de-classe">Méthodes de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#methodes-statiques">Méthodes statiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#visibilite-des-attributs-et-des-methodes">Visibilité des attributs et des méthodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#fermer-la-liste-des-attributs">Fermer la liste des attributs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#creer-des-objets-avec-des-attributs-constants">Créer des objets avec des attributs constants</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="heritage.html">Héritage et polymorphisme</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#l-heritage">L’héritage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#constructeur-et-heritage">Constructeur et héritage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#heritage-et-mutualisation-de-code">Héritage et mutualisation de code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#la-classe-object">La classe <em>object</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#le-polymorphisme">Le polymorphisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#polymorphisme-et-duck-typing">Polymorphisme et <em>duck typing</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#masquer-les-attributs-et-les-methodes-pour-les-classe-filles">Masquer les attributs et les méthodes pour les classe filles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#heritage-multiple-et-mixin">Héritage multiple et <em>mixin</em></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="heritage.html#l-heritage-en-diamant">L’héritage en diamant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="heritage.html#appel-des-constructeurs">Appel des constructeurs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="heritage.html#les-mixins">Les mixins</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#la-meta-classe">La méta-classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#classes-et-methodes-abstraites">Classes et méthodes abstraites</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">Les exceptions et la gestion des erreurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#traiter-une-exception">Traiter une exception</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exception.html#recuperer-les-donnees-d-une-exception">Récupérer les données d’une exception</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#clause-else">Clause <em>else</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#post-traitement">Post-traitement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#lever-une-exception">Lever une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#creer-son-exception">Créer son exception</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dunder.html">Les méthodes spéciales (<em>dunders</em>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#methodes-speciales-elementaires">Méthodes spéciales élémentaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#methodes-speciales-pour-les-conversions">Méthodes spéciales pour les conversions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#methodes-speciales-pour-les-operateurs-unaires">Méthodes spéciales pour les opérateurs unaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#methodes-speciales-pour-les-operations-arithmetiques">Méthodes spéciales pour les opérations arithmétiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#methodes-speciales-pour-la-comparaison">Méthodes spéciales pour la comparaison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#methodes-speciales-pour-les-conteneurs">Méthodes spéciales pour les conteneurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#tout-est-objet">Tout est objet !</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#les-fonctions-comme-objet">Les fonctions comme objet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#les-classes-comme-objet">Les classes comme objet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#et-bien-d-autres-methodes-speciales">Et bien d’autres méthodes spéciales…</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#methodes-speciales-et-classes-abstraites">Méthodes spéciales et classes abstraites</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="iterateur_generateur.html">Itérateurs et Générateurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#les-iterateurs">Les itérateurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#les-fonctions-iter-et-next">Les fonctions iter() et next()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#les-generateurs">Les générateurs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="iterateur_generateur.html#les-fonctions-generatrices-avec-yield">Les fonctions génératrices avec <em>yield</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="iterateur_generateur.html#les-generateurs-en-comprehension">Les générateurs en compréhension</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#les-fonctions-enumerate-map-zip-filter">Les fonctions <em>enumerate</em>, <em>map</em>, <em>zip</em>, <em>filter</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#le-module-itertools">Le module <em>itertools</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Gestion des fichiers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ouvrir-et-fermer-un-fichier">Ouvrir et fermer un fichier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lire-le-contenu-d-un-fichier">Lire le contenu d’un fichier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-modes-de-fichier">Les modes de fichier</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#specificite-du-mode-texte">Spécificité du mode texte</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ecrire-dans-un-fichier">Écrire dans un fichier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chemin-de-fichier">Chemin de fichier</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#le-module-os-path">Le module <em>os.path</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#le-module-pathlib">Le module <em>pathlib</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#actions-sur-les-fichiers-et-les-repertoires">Actions sur les fichiers et les répertoires</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#connaitre-le-repertoire-de-travail">Connaître le répertoire de travail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connaitre-le-repertoire-de-l-utilisateur">Connaître le répertoire de l’utilisateur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#copier-un-fichier">Copier un fichier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#supprimer-un-fichier">Supprimer un fichier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creer-un-repertoire">Créer un répertoire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#supprimer-un-repertoire">Supprimer un répertoire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#verifier-qu-un-fichier-existe">Vérifier qu’un fichier existe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lister-le-contenu-d-un-repertoire">Lister le contenu d’un répertoire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rechercher-des-fichiers">Rechercher des fichiers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#lecture-de-fichiers-csv">Lecture de fichiers CSV</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="unittest.html">Les tests unitaires automatisés avec unittest</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="unittest.html#structure-d-une-classe-de-test">Structure d’une classe de test</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="unittest.html#execution-des-tests">Exécution des tests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="unittest.html#tester-des-exceptions">Tester des exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unittest.html#utilisation-de-doublure">Utilisation de doublure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="unittest.html#utilisation-d-un-objet-mock">Utilisation d’un objet <em>mock</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="socket.html">Les sockets et la programmation réseau</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="socket.html#exemple-d-implementation-d-un-serveur">Exemple d’implémentation d’un serveur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="socket.html#exemple-d-implementation-d-un-client">Exemple d’implémentation d’un client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="socket.html#exemple-d-un-serveur-multi-thread">Exemple d’un serveur multi-thread</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Qt pour Python (PySide2)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pyside2/signal_slot.html">Les signaux et les slots</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/signal_slot.html#les-signaux">Les signaux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/signal_slot.html#les-slots">Les slots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/signal_slot.html#connecter-les-signaux-et-les-slots">Connecter les signaux et les slots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pyside2/boite_dialogue.html">Création d’une boite de dialogue</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/boite_dialogue.html#creation-de-l-interface-avec-designer">Création de l’interface avec Designer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/boite_dialogue.html#generation-du-code-python-avec-pyside2-uic">Génération du code Python avec pyside2-uic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/boite_dialogue.html#implementation-de-la-boite-de-dialogue">Implémentation de la boite de dialogue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/boite_dialogue.html#implementation-de-l-application">Implémentation de l’application</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pyside2/qtsql.html">Accéder aux bases de données avec QtSql</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/qtsql.html#declaration-d-une-connexion">Déclaration d’une connexion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/qtsql.html#ouverture-d-une-connexion">Ouverture d’une connexion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/qtsql.html#requete-avec-qsqlquery">Requête avec QSqlQuery</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pyside2/qtsql.html#requetes-de-modification">Requêtes de modification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pyside2/qtsql.html#requetes-de-consultation">Requêtes de consultation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/qtsql.html#requetes-preparees">Requêtes préparées</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/qtsql.html#gestion-des-erreurs">Gestion des erreurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/qtsql.html#les-transactions">Les transactions</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Le langage Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Gestion des fichiers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="unittest.html" class="btn btn-neutral float-right" title="Les tests unitaires automatisés avec unittest" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="iterateur_generateur.html" class="btn btn-neutral float-left" title="Itérateurs et Générateurs" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gestion-des-fichiers">
+<h1>Gestion des fichiers<a class="headerlink" href="#gestion-des-fichiers" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Python permet très facilement de manipuler des fichiers tout en garantissant
+une très bonne portabilité du code quel que soit le système d’exploitation
+sur lequel s’exécute le programme (pour peu que le développeur soit attentif
+à ce type de problématique).</p>
+<p>Les opérations de manipulation de fichier : écriture, lecture, création, suppression
+sont toutes susceptibles d’échouer. Dans ce cas, les fonctions ou les méthodes
+produiront une erreur de type <a class="reference external" href="https://docs.python.org/3.6/library/exceptions.html#OSError" title="(disponible dans Python v3.6)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a> ou d’un type héritant de cette
+exception.</p>
+<div class="section" id="ouvrir-et-fermer-un-fichier">
+<h2>Ouvrir et fermer un fichier<a class="headerlink" href="#ouvrir-et-fermer-un-fichier" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La fonction <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#open" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a> permet de récupérer un descripteur de fichier en
+passant en paramètre le chemin de ce fichier. Le descripteur de fichier va
+nous permettre de réaliser les opérations de lecture et/ou d’écriture dans le
+fichier.</p>
+<p>Un descripteur de fichier est une ressource système. Cela signifie qu’il est
+géré par le système d’exploitation. Lorsque les opérations sur le fichier sont
+terminées, il faut fermer le descripteur de fichier à l’aide de la méthode
+<a class="reference external" href="https://docs.python.org/3.6/library/io.html#io.IOBase.close" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">close()</span></code></a>. Ne pas fermer un descripteur de fichier conduit à une fuite
+de ressources (<em>resource leak</em>). Si un programme ouvre trop de fichiers sans
+jamais fermer les descripteurs de fichiers, le système d’exploitation peut
+finir par refuser d’ouvrir des fichiers supplémentaires.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;monfichier.txt)</span>
+<span class="c1"># faire des opérations sur le contenu du fichier</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Comme des erreurs peuvent survenir lors de la lecture ou de l’écriture dans
+un fichier ou comme il est très facile d’oublier d’appeler la méthode
+<a class="reference external" href="https://docs.python.org/3.6/library/io.html#io.IOBase.close" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">close()</span></code></a>, Python fournit une syntaxe spéciale :
+le <a class="reference external" href="https://docs.python.org/3.6/reference/compound_stmts.html#with" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">with</span></code></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;monfichier.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="c1"># faire des opérations sur le contenu du fichier</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>La syntaxe <a class="reference external" href="https://docs.python.org/3.6/reference/compound_stmts.html#with" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">with</span></code></a> <strong>appelle automatiquement</strong> la méthode
+<a class="reference external" href="https://docs.python.org/3.6/library/io.html#io.IOBase.close" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">close()</span></code></a> du descripteur de fichier à la sortie du bloc (même si
+la sortie du bloc est due à une erreur).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La syntaxe <a class="reference external" href="https://docs.python.org/3.6/reference/compound_stmts.html#with" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">with</span></code></a> fonctionne en Python pour divers types
+de ressources du système : les fichiers, les accès réseau, les processus,
+les objets de synchronisation entre processus et threads.</p>
+<p>Vous pouvez gérer plusieurs ressources avec un <a class="reference external" href="https://docs.python.org/3.6/reference/compound_stmts.html#with" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">with</span></code></a> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;monfichier.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;autrefichier.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f2</span><span class="p">:</span>
+    <span class="c1"># faire des opérations sur le contenu des fichiers</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Si vous souhaitez développer une classe qui fonctionne comme un gestionnaire
+de ressources et dont les instances peuvent être initialisées dans une structure
+<a class="reference external" href="https://docs.python.org/3.6/reference/compound_stmts.html#with" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">with</span></code></a> comme les descripteurs de fichiers, alors votre classe
+doit fournir une implémentation pour les méthodes spéciales
+<a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__enter__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__enter__()</span></code></a> et <a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__exit__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__exit__()</span></code></a>.</p>
+</div>
+</div>
+<div class="section" id="lire-le-contenu-d-un-fichier">
+<h2>Lire le contenu d’un fichier<a class="headerlink" href="#lire-le-contenu-d-un-fichier" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Par défaut, la fonction <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#open" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a> permet de lire le contenu d’un
+fichier texte.</p>
+<p>Supposons que nous ayons un fichier nommé <code class="file docutils literal notranslate"><span class="pre">dialogues.txt</span></code> dans le répertoire
+courant.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Le fichier dialogues.txt</span><a class="headerlink" href="#id2" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>- Halt! Who goes there?
+
+- It is I, Arthur, son of Uther Pendragon, from the castle
+  of Camelot. King of the Britons, defeator of the Saxons,
+  sovereign of all England!
+</pre></div>
+</div>
+</div>
+<p>Pour obtenir le contenu du fichier dans une chaîne de caractères :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;dialogues.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">contenu</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">contenu</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Pour obtenir le contenu du fichier sous la forme d’un tableau de chaînes de
+caractères (un élément par ligne) :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;dialogues.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">lignes</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lignes</span><span class="p">))</span>
+<span class="c1"># affiche 5</span>
+</pre></div>
+</div>
+<p>Un descripteur de fichier agit également comme une séquence sur les lignes
+d’un fichier.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;dialogues.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">ligne</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Lorsqu’on lit un fichier texte, chaque ligne inclue le caractère de retour
+à la ligne présent dans le fichier. Pour le supprimer, on peut utiliser
+la méthode <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str.rstrip" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">str.rstrip()</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;dialogues.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">ligne</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="les-modes-de-fichier">
+<h2>Les modes de fichier<a class="headerlink" href="#les-modes-de-fichier" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Lorsqu’on ouvre un fichier, il faut préciser le mode d’ouverture qui dépend
+du type du fichier et des opérations que l’on souhaite réaliser. Le mode est
+représenté par une chaîne de caractères qui est passée à la fonction <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#open" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a>
+avec le paramètre <code class="docutils literal notranslate"><span class="pre">mode</span></code>.</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 83%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Mode</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>r</p></td>
+<td><p>ouverture en lecture (mode par défaut)</p></td>
+</tr>
+<tr class="row-odd"><td><p>w</p></td>
+<td><p>ouverture en écriture (efface le contenu précédent)</p></td>
+</tr>
+<tr class="row-even"><td><p>x</p></td>
+<td><p>ouverture uniquement pour création (l’ouverture échoue si le fichier existe déjà)</p></td>
+</tr>
+<tr class="row-odd"><td><p>+</p></td>
+<td><p>ouverture en lecture et écriture</p></td>
+</tr>
+<tr class="row-even"><td><p>a</p></td>
+<td><p>ouverture en écriture pour ajout en fin de fichier</p></td>
+</tr>
+<tr class="row-odd"><td><p>b</p></td>
+<td><p>fichier binaire</p></td>
+</tr>
+<tr class="row-even"><td><p>t</p></td>
+<td><p>fichier texte (mode par défaut)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ouverture en écriture</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;dialogues.txt&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ouverture d&#39;un fichier binaire en création</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;fichier.bin&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;xb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<div class="section" id="specificite-du-mode-texte">
+<h3>Spécificité du mode texte<a class="headerlink" href="#specificite-du-mode-texte" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Ouvrir un fichier en mode texte (mode par défaut ou <code class="docutils literal notranslate"><span class="pre">t</span></code>) entraîne
+un travail de conversion par Python. Convertir les données d’un fichier
+en chaîne de caractères exige d’utiliser une <strong>famille d’encodage</strong>. Il est
+possible de préciser la famille d’encodage d’un fichier grâce au paramètre
+<code class="docutils literal notranslate"><span class="pre">encoding</span></code> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ouverture en écriture</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;dialogues.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Si le paramètre <code class="docutils literal notranslate"><span class="pre">encoding</span></code> n’est pas spécifié alors Python utilise
+un encodage qui est <strong>dépendant du système</strong> qui exécute le code (ce qui
+peut nuire à la portabilité des fichiers produits). Pour connaître l’encodage
+utilisé par défaut par l’interpréteur, il faut utiliser les méthodes du
+module <a class="reference external" href="https://docs.python.org/3.6/library/locale.html#module-locale" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">locale</span></code></a> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">locale</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">locale</span><span class="o">.</span><span class="n">getpreferredencoding</span><span class="p">()</span>
+<span class="go">&#39;UTF-8&#39;</span>
+</pre></div>
+</div>
+<p>Le mode texte entraîne également une conversion des caractères de
+<a class="reference external" href="https://fr.wikipedia.org/wiki/Fin_de_ligne">fin de ligne</a>
+puisque tous les systèmes d’exploitation n’utilisent pas la même convention.
+Python garantit une représentation universelle du caractère de fin de ligne
+en utilisant <code class="docutils literal notranslate"><span class="pre">\n</span></code>.</p>
+<p>Le mode binaire (<code class="docutils literal notranslate"><span class="pre">b</span></code>) est un mode qui permet d’accéder directement au
+contenu du fichier sans conversion de la part de Python. Dans ce cas,
+la lecture du fichier retourne des <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#bytes" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> et non pas des chaînes
+de caractères.</p>
+</div>
+</div>
+<div class="section" id="ecrire-dans-un-fichier">
+<h2>Écrire dans un fichier<a class="headerlink" href="#ecrire-dans-un-fichier" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour écrire d’un bloc dans un fichier, on peut utiliser la méthode
+<a class="reference external" href="https://docs.python.org/3.6/library/io.html#io.RawIOBase.write" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code></a> et pour écrire une liste de lignes, il faut utiliser
+la méthode <a class="reference external" href="https://docs.python.org/3.6/library/io.html#io.IOBase.writelines" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">writelines()</span></code></a>. Attention pour les fichiers textes,
+ces méthodes n’ajoutent pas de caractères de fin de ligne, il faut donc les
+écrire explicitement.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lignes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;- Pull the other one!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;- I am. And this my trusty servant Patsy.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">]</span>
+
+<span class="c1"># ouverture d&#39;un fichier texte en ajout</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;dialogues.txt&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">lignes</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Prudence</p>
+<p>Il faut se rappeler que le mode d’ouverture en écriture (<code class="docutils literal notranslate"><span class="pre">w</span></code>) <strong>remplace
+intégralement</strong> le contenu du fichier. Pour ajouter à la fin du fichier, il
+faut ouvrir le fichier en mode ajout (<code class="docutils literal notranslate"><span class="pre">a</span></code>) sous peine de perdre tout
+le contenu précédemment sauvé.</p>
+</div>
+</div>
+<div class="section" id="chemin-de-fichier">
+<h2>Chemin de fichier<a class="headerlink" href="#chemin-de-fichier" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les fichiers sont organisés selon une structure arborescente dans laquelle
+un nœud peut être soit un fichier soit un répertoire. Même si tous les systèmes
+d’exploitation suivent le même principe, il existe des différences majeures
+d’organisation. Le système MS-Windows utilise un système de fichiers multi-têtes
+(c:, d:, e:…) tandis que les systèmes *nix et MacOS utilisent un système
+mono-tête dont la racine est <code class="file docutils literal notranslate"><span class="pre">/</span></code>. Dans la représentation des chemins
+de fichiers, MS-Windows utilise le caractère <code class="docutils literal notranslate"><span class="pre">\</span></code> pour séparer les composants
+d’un chemin :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>C:\\Users\david\Documents\monfichier.txt
+</pre></div>
+</div>
+<p>tandis que les systèmes *nix et MacOs utilisent le caractère <code class="docutils literal notranslate"><span class="pre">/</span></code></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/home/david/Documents/monfichier.txt
+</pre></div>
+</div>
+<p>Enfin, il faut se souvenir que le système de fichiers de MS-Windows n’est pas sensible
+à la casse (<em>case insensitive</em>), c’est-à-dire que les mots peuvent être écrits
+en lettres majuscules ou en lettres minuscules. Au contraire, les systèmes
+*nix et MacOS sont sensibles à la casse (<em>case sensitive</em>), c’est-à-dire qu’un
+mot écrit en lettres majuscules est différent d’un mot écrit en lettres minuscules.</p>
+<p>Toutes ces nuances peuvent rendre difficiles l’écriture d’un programme portable
+d’un système à l’autre. Heureusement, la bibliothèque standard Python fournit
+plusieurs solutions pour aider les développeurs.</p>
+<div class="section" id="le-module-os-path">
+<h3>Le module <em>os.path</em><a class="headerlink" href="#le-module-os-path" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le module <a class="reference external" href="https://docs.python.org/3.6/library/os.path.html#module-os.path" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">os.path</span></code></a> fournit des fonctions élémentaires pour nous aider à
+gérer les chemins de fichiers.</p>
+<dl>
+<dt><a class="reference external" href="https://docs.python.org/3.6/library/os.path.html#os.path.join" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">join()</span></code></a></dt><dd><p>Cette fonction permet de créer un chemin en utilisant le séparateur approprié
+pour le système.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os.path</span> <span class="k">as</span> <span class="nn">path</span>
+
+<span class="n">chemin</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;fichiers&quot;</span><span class="p">,</span> <span class="s2">&quot;monfichier.txt&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">chemin</span><span class="p">)</span>
+<span class="c1"># Sous Windows affiche fichiers\monfichier.txt</span>
+<span class="c1"># Sous *nix ou MacOS, affiche fichiers/monfichier.txt</span>
+</pre></div>
+</div>
+</dd>
+<dt><a class="reference external" href="https://docs.python.org/3.6/library/os.path.html#os.path.abspath" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">abspath()</span></code></a></dt><dd><p>Cette fonction retourne le chemin absolu.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os.path</span> <span class="k">as</span> <span class="nn">path</span>
+
+<span class="n">chemin</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;monfichier.txt&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">chemin</span><span class="p">)</span>
+<span class="c1"># Si le répertoire de travail est /home/david/Documents</span>
+<span class="c1"># affiche /home/david/Documents/monfichier.txt</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="le-module-pathlib">
+<h3>Le module <em>pathlib</em><a class="headerlink" href="#le-module-pathlib" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le module <a class="reference external" href="https://docs.python.org/3.6/library/pathlib.html#module-pathlib" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pathlib</span></code></a> est un module de haut-niveau qui permet à la fois
+de manipuler un chemin mais également d’interagir avec le fichier ou le répertoire
+désigné par ce chemin. C’est un module tout-en-un qui facilite grandement le
+travail sur les fichiers. L’élément central du module est la classe
+<a class="reference external" href="https://docs.python.org/3.6/library/pathlib.html#pathlib.Path" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="s2">&quot;home&quot;</span><span class="p">,</span> <span class="s2">&quot;david&quot;</span><span class="p">,</span> <span class="s2">&quot;Documents&quot;</span><span class="p">,</span> <span class="s2">&quot;monfichier.txt&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="go">&#39;/home/david/Documents/monfichier.txt&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">path</span><span class="o">.</span><span class="n">parts</span>
+<span class="go">(&#39;/&#39;, &#39;home&#39;, &#39;david&#39;, &#39;Documents&#39;, &#39;monfichier.txt&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">path</span><span class="o">.</span><span class="n">root</span>
+<span class="go">&#39;/&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">path</span><span class="o">.</span><span class="n">drive</span>
+<span class="go">&#39;&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">path</span><span class="o">.</span><span class="n">name</span>
+<span class="go">&#39;monfichier.txt&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parent</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">parent</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parent</span><span class="o">.</span><span class="n">parts</span>
+<span class="go">(&#39;/&#39;, &#39;home&#39;, &#39;david&#39;, &#39;Documents&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">path</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">path</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">path</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">path</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>La classe <a class="reference external" href="https://docs.python.org/3.6/library/pathlib.html#pathlib.Path" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></a> possède la méthode <a class="reference external" href="https://docs.python.org/3.6/library/pathlib.html#pathlib.Path.open" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">open()</span></code></a>
+qui accepte les mêmes paramètres que la fonction <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#open" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a> sauf le chemin
+qui est déjà représenté par l’objet lui-même :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+
+<span class="n">chemin</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;dialogues.txt&quot;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">chemin</span><span class="o">.</span><span class="n">open</span><span class="p">()</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">ligne</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>On peut même faire l’économie de ce code en appelant la méthode <a class="reference external" href="https://docs.python.org/3.6/library/pathlib.html#pathlib.Path.read_text" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">read_text()</span></code></a>
+qui ouvre le fichier en mode texte, lit l’intégralité du fichier et referme le fichier :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+
+<span class="n">chemin</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;dialogues.txt&quot;</span><span class="p">)</span>
+<span class="n">contenu</span> <span class="o">=</span> <span class="n">chemin</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Pour construire un chemin à partir d’un autre chemin, il suffit
+d’utiliser l’opérateur <code class="docutils literal notranslate"><span class="pre">/</span></code> qui est utilisé, non pas comme opérateur de la
+division, mais comme le séparateur universel de chemin de fichiers :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">chemin</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;mondossier&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chemin_fichier</span> <span class="o">=</span> <span class="n">chemin</span> <span class="o">/</span> <span class="s2">&quot;mon fichier.txt&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chemin_fichier</span><span class="o">.</span><span class="n">parts</span>
+<span class="go">(&#39;mondossier&#39;, &#39;mon fichier.txt&#39;)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">chemin_fichier</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span> <span class="o">/</span> <span class="s2">&quot;Documents&quot;</span> <span class="o">/</span> <span class="s2">&quot;monfichier.txt&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">chemin_fichier</span><span class="p">)</span>
+<span class="go">&#39;/home/david/Documents/monfichier.txt&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="actions-sur-les-fichiers-et-les-repertoires">
+<h2>Actions sur les fichiers et les répertoires<a class="headerlink" href="#actions-sur-les-fichiers-et-les-repertoires" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il est possible de réaliser des opérations élémentaires sur les fichiers et
+les répertoires soit avec les modules <a class="reference external" href="https://docs.python.org/3.6/library/os.html#module-os" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">os</span></code></a> et <a class="reference external" href="https://docs.python.org/3.6/library/shutil.html#module-shutil" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">shutil</span></code></a> soit avec le module <a class="reference external" href="https://docs.python.org/3.6/library/pathlib.html#module-pathlib" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pathlib</span></code></a>.
+Les modules <a class="reference external" href="https://docs.python.org/3.6/library/os.html#module-os" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">os</span></code></a> et <a class="reference external" href="https://docs.python.org/3.6/library/shutil.html#module-shutil" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">shutil</span></code></a> sont historiquement les premiers modules qui ont été introduits
+en Python. Ils proposent surtout des fonctions alors que le module <a class="reference external" href="https://docs.python.org/3.6/library/pathlib.html#module-pathlib" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pathlib</span></code></a>
+est orienté objet avec notamment la classe <a class="reference external" href="https://docs.python.org/3.6/library/pathlib.html#pathlib.Path" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></a>.</p>
+<div class="section" id="connaitre-le-repertoire-de-travail">
+<h3>Connaître le répertoire de travail<a class="headerlink" href="#connaitre-le-repertoire-de-travail" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le répertoire de travail correspond au répertoire courant au moment du lancement
+de l’interpréteur Python.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Avec le module <a class="reference external" href="https://docs.python.org/3.6/library/os.html#module-os" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">os</span></code></a></span><a class="headerlink" href="#id3" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Avec le module <a class="reference external" href="https://docs.python.org/3.6/library/pathlib.html#module-pathlib" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pathlib</span></code></a></span><a class="headerlink" href="#id4" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="connaitre-le-repertoire-de-l-utilisateur">
+<h3>Connaître le répertoire de l’utilisateur<a class="headerlink" href="#connaitre-le-repertoire-de-l-utilisateur" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Avec le module <a class="reference external" href="https://docs.python.org/3.6/library/os.html#module-os" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">os</span></code></a></span><a class="headerlink" href="#id5" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;HOME&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Avec le module <a class="reference external" href="https://docs.python.org/3.6/library/pathlib.html#module-pathlib" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pathlib</span></code></a></span><a class="headerlink" href="#id6" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="copier-un-fichier">
+<h3>Copier un fichier<a class="headerlink" href="#copier-un-fichier" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Avec le module <a class="reference external" href="https://docs.python.org/3.6/library/shutil.html#module-shutil" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">shutil</span></code></a></span><a class="headerlink" href="#id7" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">shutil</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="s2">&quot;monfichier.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;macopie.txt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="supprimer-un-fichier">
+<h3>Supprimer un fichier<a class="headerlink" href="#supprimer-un-fichier" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">Avec le module <a class="reference external" href="https://docs.python.org/3.6/library/os.html#module-os" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">os</span></code></a></span><a class="headerlink" href="#id8" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;monfichier.txt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">Avec le module <a class="reference external" href="https://docs.python.org/3.6/library/pathlib.html#module-pathlib" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pathlib</span></code></a></span><a class="headerlink" href="#id9" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;monfichier.txt&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="creer-un-repertoire">
+<h3>Créer un répertoire<a class="headerlink" href="#creer-un-repertoire" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Avec le module <a class="reference external" href="https://docs.python.org/3.6/library/os.html#module-os" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">os</span></code></a></span><a class="headerlink" href="#id10" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">&quot;monrepertoire&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">Avec le module <a class="reference external" href="https://docs.python.org/3.6/library/pathlib.html#module-pathlib" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pathlib</span></code></a></span><a class="headerlink" href="#id11" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;monrepertoire&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="supprimer-un-repertoire">
+<h3>Supprimer un répertoire<a class="headerlink" href="#supprimer-un-repertoire" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour supprimer un répertoire, ce dernier doit être vide.</p>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">Avec le module <a class="reference external" href="https://docs.python.org/3.6/library/os.html#module-os" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">os</span></code></a></span><a class="headerlink" href="#id12" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="s2">&quot;monrepertoire&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">Avec le module <a class="reference external" href="https://docs.python.org/3.6/library/pathlib.html#module-pathlib" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pathlib</span></code></a></span><a class="headerlink" href="#id13" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;monrepertoire&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">rmdir</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="verifier-qu-un-fichier-existe">
+<h3>Vérifier qu’un fichier existe<a class="headerlink" href="#verifier-qu-un-fichier-existe" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="literal-block-wrapper docutils container" id="id14">
+<div class="code-block-caption"><span class="caption-text">Avec le module <a class="reference external" href="https://docs.python.org/3.6/library/os.path.html#module-os.path" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">os.path</span></code></a></span><a class="headerlink" href="#id14" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os.path</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;monfichier.txt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-text">Avec le module <a class="reference external" href="https://docs.python.org/3.6/library/pathlib.html#module-pathlib" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pathlib</span></code></a></span><a class="headerlink" href="#id15" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;monfichier.txt&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="lister-le-contenu-d-un-repertoire">
+<h3>Lister le contenu d’un répertoire<a class="headerlink" href="#lister-le-contenu-d-un-repertoire" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="literal-block-wrapper docutils container" id="id16">
+<div class="code-block-caption"><span class="caption-text">Avec le module <a class="reference external" href="https://docs.python.org/3.6/library/os.html#module-os" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">os</span></code></a></span><a class="headerlink" href="#id16" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">liste_fichiers</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;monrepertoire&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id17">
+<div class="code-block-caption"><span class="caption-text">Avec le module <a class="reference external" href="https://docs.python.org/3.6/library/pathlib.html#module-pathlib" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pathlib</span></code></a></span><a class="headerlink" href="#id17" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;monrepertoire&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">liste_fichiers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">iterdir</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<p>La méthode <a class="reference external" href="https://docs.python.org/3.6/library/pathlib.html#pathlib.Path.iterdir" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iterdir()</span></code></a> retourne un itérateur sur des objets de
+type <a class="reference external" href="https://docs.python.org/3.6/library/pathlib.html#pathlib.Path" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></a> plutôt qu’un tableau de chaînes de caractères comme
+<a class="reference external" href="https://docs.python.org/3.6/library/os.html#os.listdir" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.listdir()</span></code></a>.</p>
+</div>
+<div class="section" id="rechercher-des-fichiers">
+<h3>Rechercher des fichiers<a class="headerlink" href="#rechercher-des-fichiers" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le module <a class="reference external" href="https://docs.python.org/3.6/library/glob.html#module-glob" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">glob</span></code></a> permet d’effectuer une recherche dans l’arborescence
+de fichiers. On peut utiliser le caractère <code class="docutils literal notranslate"><span class="pre">?</span></code> pour représenter n’importe
+quel caractère et  <code class="docutils literal notranslate"><span class="pre">*</span></code> pour représenter n’importe quelle suite de caractères.</p>
+<div class="literal-block-wrapper docutils container" id="id18">
+<div class="code-block-caption"><span class="caption-text">Avec le module <a class="reference external" href="https://docs.python.org/3.6/library/glob.html#module-glob" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">glob</span></code></a></span><a class="headerlink" href="#id18" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">glob</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">liste_fichiers</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.py&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Il est possible d’effectuer une recherche récursive (c’est-à-dire en incluant les sous répertoires)
+en positionnant la paramètre <code class="docutils literal notranslate"><span class="pre">recursive</span></code> à <a class="reference external" href="https://docs.python.org/3.6/library/constants.html#True" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">True</span></code></a> et en utilisant
+la séquence <code class="docutils literal notranslate"><span class="pre">**</span></code> pour indiquer un ou plusieurs sous répertoires.</p>
+<div class="literal-block-wrapper docutils container" id="id19">
+<div class="code-block-caption"><span class="caption-text">Avec le module <a class="reference external" href="https://docs.python.org/3.6/library/glob.html#module-glob" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">glob</span></code></a></span><a class="headerlink" href="#id19" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">glob</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">liste_fichiers</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;**/*.py&quot;</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>La classe <a class="reference external" href="https://docs.python.org/3.6/library/pathlib.html#pathlib.Path" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></a> possède également la méthode
+<a class="reference external" href="https://docs.python.org/3.6/library/pathlib.html#pathlib.Path.glob" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">glob()</span></code></a>.</p>
+<div class="literal-block-wrapper docutils container" id="id20">
+<div class="code-block-caption"><span class="caption-text">Avec le module <a class="reference external" href="https://docs.python.org/3.6/library/pathlib.html#module-pathlib" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pathlib</span></code></a></span><a class="headerlink" href="#id20" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">liste_fichiers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;**/*.py&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<p>La méthode <a class="reference external" href="https://docs.python.org/3.6/library/pathlib.html#pathlib.Path.glob" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">glob()</span></code></a> retourne un itérateur sur des objets de
+type <a class="reference external" href="https://docs.python.org/3.6/library/pathlib.html#pathlib.Path" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></a> plutôt qu’un tableau de chaînes de caractères comme
+<a class="reference external" href="https://docs.python.org/3.6/library/glob.html#glob.glob" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">glob.glob()</span></code></a>.</p>
+</div>
+</div>
+<div class="section" id="lecture-de-fichiers-csv">
+<h2>Lecture de fichiers CSV<a class="headerlink" href="#lecture-de-fichiers-csv" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le fichier CSV (<em>comma separated values</em>) est un format texte très simple pour
+stocker des tables de données. Le module <a class="reference external" href="https://docs.python.org/3.6/library/csv.html#module-csv" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">csv</span></code></a> offre des méthodes pour lire
+et écrire.</p>
+<p>Si on dispose du fichier suivant :</p>
+<div class="literal-block-wrapper docutils container" id="id21">
+<div class="code-block-caption"><span class="caption-text">Le fichier <em>filmographie.csv</em></span><a class="headerlink" href="#id21" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>1971,And Now for Something Completely Different
+1975,Holy Grail
+1979,Life of Brian
+1983,The Meaning of Life
+1996,The Wind in the Willows
+</pre></div>
+</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;filmographie.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">lecteur</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">lecteur</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">ligne</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Chaque ligne lue est un tableau de chaînes de caractères contenant chaque valeur
+en colonne :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;1971&#39;</span><span class="p">,</span> <span class="s1">&#39;And Now for Something Completely Different&#39;</span><span class="p">]</span>
+<span class="p">[</span><span class="s1">&#39;1975&#39;</span><span class="p">,</span> <span class="s1">&#39;Holy Grail&#39;</span><span class="p">]</span>
+<span class="p">[</span><span class="s1">&#39;1979&#39;</span><span class="p">,</span> <span class="s1">&#39;Life of Brian&#39;</span><span class="p">]</span>
+<span class="p">[</span><span class="s1">&#39;1983&#39;</span><span class="p">,</span> <span class="s1">&#39;The Meaning of Life&#39;</span><span class="p">]</span>
+<span class="p">[</span><span class="s1">&#39;1996&#39;</span><span class="p">,</span> <span class="s1">&#39;The Wind in the Willows&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="unittest.html" class="btn btn-neutral float-right" title="Les tests unitaires automatisés avec unittest" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="iterateur_generateur.html" class="btn btn-neutral float-left" title="Itérateurs et Générateurs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright David Gayerie - david@gayerie.dev - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

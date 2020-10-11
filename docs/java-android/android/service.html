@@ -1,0 +1,1098 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Développement d'application Android" name="description" />
+<meta content="android, android studio, java, programmation objet" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Les services Android &mdash; Documentation Développement Android </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/java-android/android/service.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="prev" title="Accès Web" href="acces_web.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Développement Android
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Développement d'applications pour Android</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="premiere_app.html">Une première application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="premiere_app.html#creation-d-une-application-simple">Création d’une application simple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_app.html#organisation-du-projet">Organisation du projet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_app.html#lancement-de-l-application">Lancement de l’application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="premiere_app.html#l-emulateur-android">L’émulateur Android</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_app.html#notion-d-activite">Notion d’activité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_app.html#notion-de-ressources">Notion de ressources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="premiere_app.html#acceder-a-un-identifiant-de-ressource-depuis-le-code-java">Accéder à un identifiant de ressource depuis le code Java</a></li>
+<li class="toctree-l3"><a class="reference internal" href="premiere_app.html#acceder-a-une-ressource-depuis-une-autre-ressource">Accéder à une ressource depuis une autre ressource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="premiere_app.html#identifier-une-ressource-dans-un-layout">Identifier une ressource dans un layout</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_app.html#exercices">Exercices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_app.html#le-fichier-androidmanifest-xml">Le fichier AndroidManifest.xml</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ui_layout.html">Conception d’interfaces graphiques</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ui_layout.html#view-et-layout">View et Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ui_layout.html#layout-xml">Layout XML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ui_layout.html#layout-lineaire-et-positionnement">Layout linéaire et positionnement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ui_layout.html#techniques-avancees-de-positionnement-dans-un-layout">Techniques avancées de positionnement dans un layout</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ui_layout.html#layout-margin-et-padding">layout_margin et padding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui_layout.html#layout-gravity-et-gravity">layout_gravity et gravity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui_layout.html#layout-weight">layout_weight</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ui_layout.html#layout-par-contraintes">Layout par contraintes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ui_layout.html#ajouter-une-image">Ajouter une image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ui_layout.html#exemple-de-formulaire">Exemple de formulaire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ui_layout.html#la-barre-d-action">La barre d’action</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ui_layout.html#creer-un-menu-dans-la-barre-d-action">Créer un menu dans la barre d’action</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui_layout.html#associer-un-menu-a-une-activite">Associer un menu à une activité</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui_layout.html#implementer-les-actions-associees-aux-items-de-menu">Implémenter les actions associées aux items de menu</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ui_layout.html#les-boites-de-dialogue">Les boites de dialogue</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ui_layout.html#boite-de-dialogue-avec-boutons">Boite de dialogue avec boutons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui_layout.html#boite-de-dialogue-avec-choix">Boite de dialogue avec choix</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ui_layout.html#message-a-l-utilisateur">Message à l’utilisateur</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ui_layout.html#toast">Toast</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui_layout.html#snackbar">Snackbar</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="activity.html">Les activités</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="activity.html#le-cycle-de-vie">Le cycle de vie</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="activity.html#terminer-une-activite">Terminer une activité</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="activity.html#gestion-de-l-etat-d-une-activite">Gestion de l’état d’une activité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="activity.html#notion-d-intent">Notion d’intent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="activity.html#associer-une-activite-a-un-intent">Associer une activité à un intent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="activity.html#emettre-un-intent-implicite">Émettre un intent implicite</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="activity_stack.html">Gestion des activités d’une application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="activity_stack.html#l-application-de-demo">L’application de démo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="activity_stack.html#structure-de-l-application">Structure de l’application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="activity_stack.html#l-activite-principale-et-recyclerview">L’activité principale et RecyclerView</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="activity_stack.html#detail-d-une-occupation-et-pile-des-activites">Détail d’une occupation et pile des activités</a></li>
+<li class="toctree-l2"><a class="reference internal" href="activity_stack.html#ouverture-d-une-activite-intent-explicite">Ouverture d’une activité (intent explicite)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="activity_stack.html#strategie-de-gestion-de-la-pile-des-activites">Stratégie de gestion de la pile des activités</a></li>
+<li class="toctree-l2"><a class="reference internal" href="activity_stack.html#terminer-une-activite">Terminer une activité</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="broadcast.html">Gestion des messages broadcast</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="broadcast.html#le-broadcastreceiver">Le BroadcastReceiver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="broadcast.html#suivre-le-branchement-sur-secteur">Suivre le branchement sur secteur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="broadcast.html#suivre-l-etat-de-la-connexion-wifi">Suivre l’état de la connexion Wifi</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="broadcast.html#recevoir-des-broadcasts-depuis-une-activite">Recevoir des broadcasts depuis une activité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="broadcast.html#emettre-un-message-broadcast">Émettre un message broadcast</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="acces_web.html">Accès Web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="acces_web.html#permission-pour-l-acces-internet">Permission pour l’accès Internet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acces_web.html#utilisation-de-la-classe-url">Utilisation de la classe URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acces_web.html#utilisation-de-la-bibliotheque-volley">Utilisation de la bibliothèque Volley</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="acces_web.html#ajout-de-la-dependance">Ajout de la dépendance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="acces_web.html#emission-d-une-requete">Émission d’une requête</a></li>
+<li class="toctree-l3"><a class="reference internal" href="acces_web.html#emission-d-une-requete-pour-une-reponse-json">Émission d’une requête pour une réponse JSON</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Les services Android</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#service-en-tache-de-fond">Service en tâche de fond</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#implementation-et-declaration-du-service">Implémentation et déclaration du service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#le-cycle-de-vie">Le cycle de vie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#execution-en-tache-de-fond">Exécution en tâche de fond</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interaction-avec-l-utilisateur">Interaction avec l’utilisateur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lancement-du-service">Lancement du service</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#service-lie">Service lié</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#declaration-du-service">Déclaration du service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Le cycle de vie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementation-de-la-methode-onbind">Implémentation de la méthode onBind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lier-le-service-a-une-activite">Lier le service à une activité</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Développement Android</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Les services Android</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+      
+        <a href="acces_web.html" class="btn btn-neutral float-left" title="Accès Web" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="les-services-android">
+<h1>Les services Android<a class="headerlink" href="#les-services-android" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="exercice admonition">
+<p class="admonition-title">Le projet d’exemple pour ce chapitre</p>
+<p>Vous pouvez télécharger le projet contenant des exemples complets de services Android :
+<a class="reference download internal" download="" href="../_downloads/cfe669dd8a02878be07b388f5a626b3f/android-demo-service.zip"><code class="xref download docutils literal notranslate"><span class="pre">android-demo-service.zip</span></code></a></p>
+</div>
+<p>Un service est un composant Android qui s’exécute sans interface graphique.
+Il dispose de son propre cycle de vie géré par le système. Un service est
+idéal pour implémenter un traitement long pour lequel on ne souhaite pas
+bloquer l’activité de l’utilisateur. Par exemple, une application peut avoir
+besoin d’envoyer en masse des données à un serveur. Pour cela, une activité
+peut démarrer un service qui aura la charge de l’envoi pendant que l’utilisateur
+peut continuer à interagir avec l’application (il peut même fermer les activités)
+sans interrompre le service. Un service peut également être utilisé
+pour initier des traitements indépendamment de toutes interactions graphiques
+avec l’utilisateur. Si une application doit interagir avec des périphériques
+en Bluetooth, elle peut attendre de capter un échange Bluetooth pour une demande
+de connexion. Ce type de comportement est réalisé à partir d’un service et ne
+nécessite pas d’interaction avec l’utilisateur.</p>
+<p>Lorsqu’on conçoit un service Android, on imagine la plupart du temps un service
+s’exécutant en tâche de fond (<em>background</em>), c’est-à-dire un service qui
+n’interrompt pas l’interaction entre l’utilisateur et les activités. Cependant,
+un service Android n’est pas par défaut exécuté en tâche de fond. Si vous
+souhaitez implémenter un service qui doit réaliser des tâches d’une longue durée,
+vous devez implémenter vous-même une exécution de votre code en tâche de fond.
+Sinon, le système risque d’interrompre votre service en estimant qu’il consomme
+trop de ressources ou qu’il est actif depuis trop longtemps.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Avec Android, il existe même la possibilité de créer des services en avant-plan
+(<em>foreground service</em>). Il s’agit de services qui n’ont pas besoin d’une activité
+mais qui réalisent un traitement pour l’utilisateur. Par exemple, un service
+de traduction automatique audio n’a pas besoin d’une activité pour fonctionner.
+Cependant, il rend bien un service directement à l’utilisateur en captant la
+conversation <em>via</em> le micro pour le retranscrire en audio dans un casque
+par exemple.</p>
+</div>
+<p>Un service Android peut également être appelé directement depuis un autre
+composant (une activité, un <em>broadcast receiver</em> ou même un autre service)
+en exposant une interface. On retrouve alors un modèle d’application multi-couches
+dans lequel l’activité prend en charge la présentation et l’interaction avec
+l’utilisateur et le service réalise les traitements métiers de l’application.
+Dans ce cas, on parle de <strong>service lié</strong> (<em>bound service</em>) à une activité.
+Ce modèle permet de développer des applications plus complexes puisqu’un même
+service peut être utilisé par différentes activités.</p>
+<p>Dans ce chapitre nous verrons comment créer un service en tâche de fond
+(<em>background service</em>) et comment permettre aux autres composants de l’application
+de se lier à un service (<em>bound service</em>).</p>
+<div class="section" id="service-en-tache-de-fond">
+<h2>Service en tâche de fond<a class="headerlink" href="#service-en-tache-de-fond" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Nous allons voir comment implémenter et démarrer un service en tâche de fond.</p>
+<div class="section" id="implementation-et-declaration-du-service">
+<h3>Implémentation et déclaration du service<a class="headerlink" href="#implementation-et-declaration-du-service" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un service Android est un composant qui hérite directement ou indirectement
+de la classe <a class="reference external" href="https://developer.android.com/reference/android/app/Service">Service</a>. Puisqu’un service est un composant, il doit donc être déclaré
+dans le fichier manifeste <code class="file docutils literal notranslate"><span class="pre">AndroidManifest.xml</span></code> du module.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Déclaration d’un service dans le fichier AndroidManifest.xml</span><a class="headerlink" href="#id3" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;manifest</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+          <span class="na">package=</span><span class="s">&quot;dev.gayerie.monappli&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;application&gt;</span>
+<span class="hll">    <span class="nt">&lt;service</span> <span class="na">android:name=</span><span class="s">&quot;.MonService&quot;</span> <span class="na">android:exported=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;/service&gt;</span>
+</span>  <span class="nt">&lt;/application&gt;</span>
+<span class="nt">&lt;/manifest&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>À la ligne 5, on déclare le service. On utilise l’attribut <code class="docutils literal notranslate"><span class="pre">android:exported</span></code>
+pour indiquer si le service peut être sollicité par une autre application. Pour
+des raisons de sécurité, il est conseillé de positionner cet attribut à <code class="docutils literal notranslate"><span class="pre">false</span></code>
+et de n’exporter que les services pour lesquels l’export est souhaitable.</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Structure d’une classe de service</span><a class="headerlink" href="#id4" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.monappli</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">android.app.Service</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.content.Intent</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.os.IBinder</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MonService</span> <span class="kd">extends</span> <span class="n">Service</span> <span class="p">{</span>
+
+  <span class="cm">/*</span>
+<span class="cm">  * La redéfinition de cette méthode est obligatoire car elle est déclarée</span>
+<span class="cm">  * abstraite dans la classe Service. Néanmoins, cette méthode n&#39;est utilisée</span>
+<span class="cm">  * que pour les services liés (Bound Services).</span>
+<span class="cm">  */</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="n">IBinder</span> <span class="nf">onBind</span><span class="p">(</span><span class="n">Intent</span> <span class="n">intent</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">onStartCommand</span><span class="p">(</span><span class="n">Intent</span> <span class="n">intent</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flags</span><span class="p">,</span> <span class="kt">int</span> <span class="n">startId</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// TODO Implémenter le service</span>
+    <span class="k">return</span> <span class="n">START_STICKY</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// TODO Implémenter les actions à la création du service</span>
+  <span class="p">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// TODO Implémenter les actions à la destruction du service</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>La classe ci-dessus présente une structure simple pour un service. La méthode
+<a class="reference external" href="https://developer.android.com/reference/android/app/Service#onBind(android.content.Intent)">onBind</a> à la ligne 15 est la seule obligatoire car elle est déclarée <code class="docutils literal notranslate"><span class="pre">abstract</span></code>
+dans la classe <a class="reference external" href="https://developer.android.com/reference/android/app/Service">Service</a>. Cependant, la méthode <a class="reference external" href="https://developer.android.com/reference/android/app/Service#onBind(android.content.Intent)">onBind</a> est utilisée uniquement
+pour les services liés (<em>Bound Service</em>) que nous verrons plus bas. Donc, nous
+nous contentons de faire retourner <code class="docutils literal notranslate"><span class="pre">null</span></code> à cette méthode.</p>
+</div>
+<div class="section" id="le-cycle-de-vie">
+<h3>Le cycle de vie<a class="headerlink" href="#le-cycle-de-vie" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Tout comme les activités, les services ont un cycle de vie qui est géré par le
+système. Lorsque le service vient d’être créé, le système appelle sa méthode
+<a class="reference external" href="https://developer.android.com/reference/android/app/Service#onCreate()">onCreate</a>. Lorsque le système veut interrompre le service (à sa demande ou
+pour récupérer des ressources), le système appelle préalablement la méthode
+<a class="reference external" href="https://developer.android.com/reference/android/app/Service#onDestroy()">onDestroy</a>. Vous n’êtes pas obligé de redéfinir les méthodes <a class="reference external" href="https://developer.android.com/reference/android/app/Service#onCreate()">onCreate</a> et
+<a class="reference external" href="https://developer.android.com/reference/android/app/Service#onDestroy()">onDestroy</a> dans votre service (leur implémentation par défaut est vide).</p>
+<p>Entre ces étapes de création et de destruction, le cycle de vie varie selon
+l’usage du service. Pour les services en tâche de fond (<em>background service</em>),
+le système appelle également la méthode <a class="reference external" href="https://developer.android.com/reference/android/app/Service#onStartCommand(android.content.Intent,%20int,%20int)">onStartCommand</a> pour informer le service
+qu’il a reçu une demande d’exécution.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Afin de limiter l’usage des ressources, si on demande au système de démarrer
+une instance d’un service alors qu’une instance existe déjà, alors le
+système réutilisera l’instance existante. Il faut garder à l’esprit que
+la méthode <a class="reference external" href="https://developer.android.com/reference/android/app/Service#onStartCommand(android.content.Intent,%20int,%20int)">onStartCommand</a> peut être appelée plusieurs fois pour une instance
+alors que les méthodes <a class="reference external" href="https://developer.android.com/reference/android/app/Service#onCreate()">onCreate</a> et <a class="reference external" href="https://developer.android.com/reference/android/app/Service#onDestroy()">onDestroy</a> ne sont appelées qu’une seule
+fois par instance.</p>
+</div>
+<div class="figure align-default" id="id5">
+<img alt="../_images/background_service_lifecycle.png" src="../_images/background_service_lifecycle.png" />
+<p class="caption"><span class="caption-text">Le cycle de vie d’un service en tâche de fond (extrait de la <a class="reference external" href="https://developer.android.com/guide/components/services">documentation officielle</a>)</span><a class="headerlink" href="#id5" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>La méthode <a class="reference external" href="https://developer.android.com/reference/android/app/Service#onStartCommand(android.content.Intent,%20int,%20int)">onStartCommand</a> signale au service qu’il doit s’exécuter. Cette méthode
+prend trois paramètres :</p>
+<dl class="simple">
+<dt>intent</dt><dd><p>Un <a class="reference external" href="https://developer.android.com/reference/android/content/Intent">intent</a> qui a été utilisé pour démarrer le service (Cf. ci-dessous)</p>
+</dd>
+<dt>flag</dt><dd><p>Un indicateur pour savoir si le service a été redémarré par le
+système. Il peut prendre comme valeur les constantes <a class="reference external" href="https://developer.android.com/reference/android/app/Service#START_FLAG_REDELIVERY">START_FLAG_REDELIVERY</a>
+ou <a class="reference external" href="https://developer.android.com/reference/android/app/Service#START_FLAG_RETRY">START_FLAG_RETRY</a> qui permettent de préciser les conditions de redémarrage
+du service.</p>
+</dd>
+<dt>startId</dt><dd><p>Un entier qui identifie de manière unique l’appel à la méthode <a class="reference external" href="https://developer.android.com/reference/android/app/Service#onStartCommand(android.content.Intent,%20int,%20int)">onStartCommand</a>
+du service. Cet entier permet de gérer l’arrêt du service en s’assurant
+que toutes les commandes ont été traitées.</p>
+</dd>
+</dl>
+<p>La méthode <a class="reference external" href="https://developer.android.com/reference/android/app/Service#onStartCommand(android.content.Intent,%20int,%20int)">onStartCommand</a> doit également retournée un entier pour décrire au
+système la stratégie à appliquer si le service est interrompu par le système.
+Cela peut se produire si le système estime qu’il doit libérer des ressources
+(par exemple pour économiser de l’énergie). Cet entier correspond à une constante
+parmi les suivantes:</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://developer.android.com/reference/android/app/Service#START_STICKY">START_STICKY</a></dt><dd><p>Si le système arrête le service, il devra le redémarrer plus tard en appelant
+à nouveau la méthode <a class="reference external" href="https://developer.android.com/reference/android/app/Service#onStartCommand(android.content.Intent,%20int,%20int)">onStartCommand</a> en passant une référence <code class="docutils literal notranslate"><span class="pre">null</span></code> pour
+l’intent.</p>
+</dd>
+<dt><a class="reference external" href="https://developer.android.com/reference/android/app/Service#START_STICKY_COMPATIBILITY">START_STICKY_COMPATIBILITY</a></dt><dd><p>Si le système arrête le service, il devra le redémarrer plus tard et il
+pourra éventuellement appeler à nouveau la méthode <a class="reference external" href="https://developer.android.com/reference/android/app/Service#onStartCommand(android.content.Intent,%20int,%20int)">onStartCommand</a> en passant
+une référence <code class="docutils literal notranslate"><span class="pre">null</span></code> pour l’intent. Cet appel n’est pas obligatoire.</p>
+</dd>
+<dt><a class="reference external" href="https://developer.android.com/reference/android/app/Service#START_NOT_STICKY">START_NOT_STICKY</a></dt><dd><p>Si le système arrête le service, il n’aura pas à le redémarrer.</p>
+</dd>
+<dt><a class="reference external" href="https://developer.android.com/reference/android/app/Service#START_REDELIVER_INTENT">START_REDELIVER_INTENT</a></dt><dd><p>Si le système arrête le service, il devra le redémarrer en passant à nouveau
+l’intent en paramètre. Dans ce cas, le paramètre <code class="docutils literal notranslate"><span class="pre">flag</span></code> vaudra
+<a class="reference external" href="https://developer.android.com/reference/android/app/Service#START_FLAG_REDELIVERY">START_FLAG_REDELIVERY</a> lors du nouvel appel.</p>
+</dd>
+</dl>
+<p>Un service en tâche de fond ne s’arrête que lorsqu’on appelle sa méthode
+<a class="reference external" href="https://developer.android.com/reference/android/app/Service#stopSelf(int)">stopSelf</a> en passant en paramètre son identifiant d’exécution (le <em>startId</em> reçu
+en paramètre de <a class="reference external" href="https://developer.android.com/reference/android/app/Service#onStartCommand(android.content.Intent,%20int,%20int)">onStartCommand</a>). À moins de vouloir conserver un service en
+mémoire, il est indispensable d’appeler la méthode <a class="reference external" href="https://developer.android.com/reference/android/app/Service#stopSelf(int)">stopSelf</a> lorsqu’un
+traitement est terminé.</p>
+</div>
+<div class="section" id="execution-en-tache-de-fond">
+<h3>Exécution en tâche de fond<a class="headerlink" href="#execution-en-tache-de-fond" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Même si un service est souvent utilisé pour réaliser des traitements en tâche
+de fond, la classe <a class="reference external" href="https://developer.android.com/reference/android/app/Service">Service</a> ne fournit pas directement de mécanisme pour cela.
+Un service utilise, par défaut, le même <em>thread</em> d’exécution que les activités
+de l’application (appelé le <em>thread principal</em>). Si le système détecte un
+service qui utilise depuis trop longtemps le <em>thread</em> principal, il peut décider
+d’interrompre ce service.</p>
+<p>Pour réaliser un traitement en tâche de fond, il existe différents mécanismes
+disponibles dans l’API Android. Pour une présentation détaillée, reportez-vous au
+chapitre <a class="reference external" href="https://developer.android.com/guide/background/threading">Running Android tasks in background threads</a>
+dans la documentation officielle. Pour des traitements qui n’ont pas besoin de
+recevoir des messages du système, vous pouvez simplement utiliser l’API
+Java Standard <a class="reference external" href="https://developer.android.com/reference/java/util/concurrent/package-summary">java.util.concurrent</a> et, notamment, une implémentation de
+<a class="reference external" href="https://developer.android.com/reference/java/util/concurrent/ExecutorService">ExecutorService</a>.</p>
+<p>Ci-dessous un exemple pour l’implémentation d’un service utilisant des exécuteurs :</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Un service s’exécutant en tâche de fond</span><a class="headerlink" href="#id6" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.monappli</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">android.app.Service</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.content.Intent</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.os.IBinder</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.util.Log</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.ExecutorService</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.Executors</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BackgroundService</span> <span class="kd">extends</span> <span class="n">Service</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">TAG</span> <span class="o">=</span> <span class="s">&quot;PremierService&quot;</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="n">ExecutorService</span> <span class="n">executorService</span><span class="p">;</span>
+
+  <span class="cm">/*</span>
+<span class="cm">  * La redéfinition de cette méthode est obligatoire car elle est déclarée</span>
+<span class="cm">  * abstraite dans la classe Service. Néanmoins, cette méthode n&#39;est utilisée</span>
+<span class="cm">  * que pour les services liés (Bound Services).</span>
+<span class="cm">  */</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="n">IBinder</span> <span class="nf">onBind</span><span class="p">(</span><span class="n">Intent</span> <span class="n">intent</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Log</span><span class="p">.</span><span class="na">i</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span> <span class="s">&quot;Lancement du service&quot;</span><span class="p">);</span>
+    <span class="c1">// Création d&#39;un service d&#39;exécution avec cinq threads.</span>
+<span class="hll">    <span class="k">this</span><span class="p">.</span><span class="na">executorService</span> <span class="o">=</span> <span class="n">Executors</span><span class="p">.</span><span class="na">newFixedThreadPool</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</span>  <span class="p">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">onStartCommand</span><span class="p">(</span><span class="n">Intent</span> <span class="n">intent</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flags</span><span class="p">,</span> <span class="kt">int</span> <span class="n">startId</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Log</span><span class="p">.</span><span class="na">i</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span> <span class="s">&quot;Appel à onStartCommand&quot;</span><span class="p">);</span>
+    <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="n">intent</span><span class="p">.</span><span class="na">getStringExtra</span><span class="p">(</span><span class="s">&quot;message&quot;</span><span class="p">);</span>
+    <span class="c1">// Création de l&#39;exécuteur et ajout dans la file d&#39;attente du service.</span>
+    <span class="c1">// L&#39;exécuteur sera lancé dans un thread à part dès que possible.</span>
+<span class="hll">    <span class="k">this</span><span class="p">.</span><span class="na">executorService</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="k">new</span> <span class="n">LogMessageExecutor</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">startId</span><span class="p">));</span>
+</span>    <span class="k">return</span> <span class="n">START_REDELIVER_INTENT</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Log</span><span class="p">.</span><span class="na">i</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span> <span class="s">&quot;Destruction du service&quot;</span><span class="p">);</span>
+    <span class="c1">// arrêt du service d&#39;exécution</span>
+<span class="hll">    <span class="k">this</span><span class="p">.</span><span class="na">executorService</span><span class="p">.</span><span class="na">shutdown</span><span class="p">();</span>
+</span>  <span class="p">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">  * Classe interne fournissant le traitement à réaliser</span>
+<span class="cm">  * en tâche de fond</span>
+<span class="cm">  */</span>
+  <span class="kd">private</span> <span class="kd">class</span> <span class="nc">LogMessageExecutor</span> <span class="kd">implements</span> <span class="n">Runnable</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">message</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">startId</span><span class="p">;</span>
+
+    <span class="n">LogMessageExecutor</span><span class="p">(</span><span class="n">String</span> <span class="n">message</span><span class="p">,</span> <span class="kt">int</span> <span class="n">startId</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="na">message</span> <span class="o">=</span> <span class="n">message</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="na">startId</span> <span class="o">=</span> <span class="n">startId</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">try</span> <span class="p">{</span>
+        <span class="n">Log</span><span class="p">.</span><span class="na">i</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span> <span class="s">&quot;Je suis un service de log avec comme message : &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">message</span><span class="p">);</span>
+        <span class="c1">// On attend 3 secondes pour simuler un traitement</span>
+        <span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+        <span class="n">Log</span><span class="p">.</span><span class="na">i</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span> <span class="s">&quot;Fin de l&#39;exécution&quot;</span><span class="p">);</span>
+      <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Si le thread est interrompu par un signal (rien de spécial à faire)</span>
+      <span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+<span class="hll">        <span class="n">stopSelf</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">startId</span><span class="p">);</span>
+</span>      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>Dans la méthode <a class="reference external" href="https://developer.android.com/reference/android/app/Service#onCreate()">onCreate</a>, on crée une instance de <a class="reference external" href="https://developer.android.com/reference/java/util/concurrent/ExecutorService">ExecutorService</a> (ligne 29).</p>
+<p>Dans la méthode <a class="reference external" href="https://developer.android.com/reference/android/app/Service#onStartCommand(android.content.Intent,%20int,%20int)">onStartCommand</a>, on crée et on ajoute un exécuteur (ligne 38).</p>
+<p>L’exécuteur est une instance de <code class="docutils literal notranslate"><span class="pre">LogMessageExecutor</span></code> qui est une classe interne.
+Cette classe implémente l’interface <a class="reference external" href="https://developer.android.com/reference/java/lang/Runnable">Runnable</a> et réalise un traitement long.
+Pour les besoins de l’exemple, on se contente d’endormir le thread pendant trois
+secondes.</p>
+<p>À la fin de son exécution, à la ligne 73, l’exécuteur appelle la méthode <a class="reference external" href="https://developer.android.com/reference/android/app/Service#stopSelf(int)">stopSelf</a>
+qui est en fait la méthode de la classe englobante <code class="docutils literal notranslate"><span class="pre">BackgroundService</span></code>. Ainsi, dès
+que l’exécuteur a terminé sa tâche, on demande au système d’arrêter le service
+s’il n’existe aucune demande d’exécution postérieure au <code class="docutils literal notranslate"><span class="pre">startId</span></code> passé à la
+construction de l’exécuteur.</p>
+<p>La méthode <a class="reference external" href="https://developer.android.com/reference/android/app/Service#onDestroy()">onDestroy</a> est redéfinie de manière à fermer l’instance de
+<a class="reference external" href="https://developer.android.com/reference/java/util/concurrent/ExecutorService">ExecutorService</a> (ligne 46).</p>
+<p>Notez qu’on peut très facilement passer des paramètres à l’exécution d’un service
+sous la forme d’extras dans l’intent reçu par la méthode <a class="reference external" href="https://developer.android.com/reference/android/app/Service#onStartCommand(android.content.Intent,%20int,%20int)">onStartCommand</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Si votre service a besoin de réaliser des appels Web, vous pouvez
+utiliser la bibliothèque Volley comme nous l’avons vu dans
+<a class="reference internal" href="acces_web.html#android-volley"><span class="std std-ref">un chapitre précédent</span></a>. Volley gère déjà l’exécution
+de requête en tâche de fond. Si votre service n’a pas de traitement long
+à réaliser avant ou après la requête, vous pouvez implémenter le mécanisme
+de tâche de fond en utilisant uniquement le mécanisme de <em>listeners</em> fourni
+par la bibliothèque Volley.</p>
+</div>
+</div>
+<div class="section" id="interaction-avec-l-utilisateur">
+<h3>Interaction avec l’utilisateur<a class="headerlink" href="#interaction-avec-l-utilisateur" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Normalement, un service en tâche de fond n’a pas d’interaction avec l’utilisateur
+puisque sa fonction est précisément de réaliser un traitement en arrière plan.
+Néanmoins, il est souvent très utile de pouvoir informer l’utilisateur de la
+progression du traitement ou de sa fin. Un service correspond lui-même à un
+contexte d’exécution, il peut donc être passé en paramètre lorsqu’une instance
+de <a class="reference external" href="https://developer.android.com/reference/android/content/Context">Context</a> est attendue. Il est donc très facile de faire apparaître des messages
+pour l’utilisateur sous la forme de Toast, de Snackbar ou de notification (Cf.
+le <a class="reference internal" href="ui_layout.html#android-message-vers-utilisateur"><span class="std std-ref">chapitre sur l’interface graphique</span></a>).</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Si vous voulez invoquer une méthode utilisant un <a class="reference external" href="https://developer.android.com/reference/android/content/Context">Context</a> depuis un thread,
+vous devez vous assurer que ce thread dispose d’un accès au thread principal
+qui gère les messages pour l’affichage graphique. Vous devez pour cela utiliser
+un <a class="reference external" href="https://developer.android.com/training/multiple-threads/communicate-ui">handler</a> pour mettre en place un échange de messages entre le thread
+principal de votre application et le thread réalisant le traitement en
+tâche de fond.</p>
+</div>
+</div>
+<div class="section" id="lancement-du-service">
+<h3>Lancement du service<a class="headerlink" href="#lancement-du-service" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour lancer un service, il suffit d’appeler la méthode <a class="reference external" href="https://developer.android.com/reference/android/content/Context#startService(android.content.Intent)">startService</a> depuis
+une activité, un <em>broadcast receiver</em> ou même depuis un autre service. L’appel
+à cette méthode attend une instance de <a class="reference external" href="https://developer.android.com/reference/android/content/Intent">Intent</a> identifiant le service voulu.</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Exemple d’appel d’un service depuis une activité</span><a class="headerlink" href="#id7" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Intent</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">BackgroundService</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<span class="k">this</span><span class="p">.</span><span class="na">startService</span><span class="p">(</span><span class="n">intent</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="service-lie">
+<h2>Service lié<a class="headerlink" href="#service-lie" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un service lié (<em>Bound Service</em>) est un service qui est attaché à un autre
+composant Android (le plus souvent une activité). Il permet de fournir une
+interface de communication avec le service pour appeler directement ses méthodes.
+Un service lié est très adapté pour implémenter un service pour lequel on
+attend un résultat synchrone.</p>
+<p>Il n’y a pas spécifiquement de différence de nature entre un service lié et un
+service en tâche de fond. Un service lié n’a pas besoin d’implémenter la méthode
+<a class="reference external" href="https://developer.android.com/reference/android/app/Service#onStartCommand(android.content.Intent,%20int,%20int)">onStartCommand</a> mais il doit impérativement fournir une implémentation complète
+de la méthode <a class="reference external" href="https://developer.android.com/reference/android/app/Service#onBind(android.content.Intent)">onBind</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il est tout à fait possible d’implémenter un service pouvant être à la fois
+lié et exécuté en tâche de fond. Il suffit pour cela de fournir une
+implémentation pour ses méthodes <a class="reference external" href="https://developer.android.com/reference/android/app/Service#onBind(android.content.Intent)">onBind</a> et <a class="reference external" href="https://developer.android.com/reference/android/app/Service#onStartCommand(android.content.Intent,%20int,%20int)">onStartCommand</a>.</p>
+</div>
+<div class="section" id="declaration-du-service">
+<h3>Déclaration du service<a class="headerlink" href="#declaration-du-service" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un service lié doit également être déclaré dans le fichier manifeste
+<code class="file docutils literal notranslate"><span class="pre">AndroidManifest.xml</span></code> de l’application :</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">Déclaration d’un service dans le fichier AndroidManifest.xml</span><a class="headerlink" href="#id8" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;manifest</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+          <span class="na">package=</span><span class="s">&quot;dev.gayerie.monappli&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;application&gt;</span>
+<span class="hll">    <span class="nt">&lt;service</span> <span class="na">android:name=</span><span class="s">&quot;.MonService&quot;</span> <span class="na">android:exported=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">    <span class="nt">&lt;/service&gt;</span>
+</span>  <span class="nt">&lt;/application&gt;</span>
+<span class="nt">&lt;/manifest&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Dans l’exemple ci-dessus, nous déclarons l’attribut <code class="docutils literal notranslate"><span class="pre">android:exported</span></code>
+à <code class="docutils literal notranslate"><span class="pre">false</span></code>. Cela signifie que le service ne sera pas accessible à d’autres
+applications. Il est possible de créer des services liés accessibles à
+d’autres applications mais il faut pour cela suivre un modèle de développement
+particulier utilisant un <code class="docutils literal notranslate"><span class="pre">Messenger</span></code>. Pour plus d’information sur ce modèle
+avancé de service, consultez la <a class="reference external" href="https://developer.android.com/guide/components/bound-services">documentation officielle consacrée aux Bound Services</a>.</p>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Le cycle de vie<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Comme pour un service en tâche de fond, lorsque le service vient d’être créé,
+le système appelle sa méthode <a class="reference external" href="https://developer.android.com/reference/android/app/Service#onCreate()">onCreate</a>. Lorsque le système veut interrompre le
+service (à sa demande ou pour récupérer des ressources), le système appelle
+préalablement la méthode <a class="reference external" href="https://developer.android.com/reference/android/app/Service#onDestroy()">onDestroy</a>. Vous n’êtes pas obligé de redéfinir les
+méthodes <a class="reference external" href="https://developer.android.com/reference/android/app/Service#onCreate()">onCreate</a> et <a class="reference external" href="https://developer.android.com/reference/android/app/Service#onDestroy()">onDestroy</a> dans votre service (leur implémentation par
+défaut est vide).</p>
+<p>Entre ces étapes de création et de destruction, le cycle de vie varie selon
+l’usage du service. Quand un autre composant veut se lier au service, le système
+appelle la méthode <a class="reference external" href="https://developer.android.com/reference/android/app/Service#onBind(android.content.Intent)">onBind</a> de ce dernier. Cette méthode doit retourner une
+instance de l’interface <a class="reference external" href="https://developer.android.com/reference/android/os/IBinder">IBinder</a>. Lorsque le composant se délie, le système
+appelle la méthode <a class="reference external" href="https://developer.android.com/reference/android/app/Service#onUnbind(android.content.Intent)">onUnbind</a> du service.</p>
+<div class="figure align-default" id="id9">
+<img alt="../_images/bound_service_lifecycle.png" src="../_images/bound_service_lifecycle.png" />
+<p class="caption"><span class="caption-text">Le cycle de vie d’un service lié (extrait de la <a class="reference external" href="https://developer.android.com/guide/components/services">documentation officielle</a>)</span><a class="headerlink" href="#id9" title="Lien permanent vers cette image">¶</a></p>
+</div>
+</div>
+<div class="section" id="implementation-de-la-methode-onbind">
+<h3>Implémentation de la méthode onBind<a class="headerlink" href="#implementation-de-la-methode-onbind" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La méthode <a class="reference external" href="https://developer.android.com/reference/android/app/Service#onBind(android.content.Intent)">onBind</a> doit retourner une instance de l’interface <a class="reference external" href="https://developer.android.com/reference/android/os/IBinder">IBinder</a>.
+Une instance de <a class="reference external" href="https://developer.android.com/reference/android/os/IBinder">IBinder</a> est un objet permettant de se lier au service. Lorsque
+le service reste local à l’application, l’implémentation peut se contenter de
+retourner une instance d’une classe qui hérite de la classe <a class="reference external" href="https://developer.android.com/reference/android/os/Binder">Binder</a>. Cette
+dernière implémente déjà pour nous les méthodes de l’interface <a class="reference external" href="https://developer.android.com/reference/android/os/IBinder">IBinder</a>.</p>
+<p>Nous utiliserons un exemple de service trivial pour illustrer cette présentation.
+Néanmoins, le même mécanisme peut être utilisé pour réaliser des services
+plus complexes.</p>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Exemple d’implémentation d’un service lié</span><a class="headerlink" href="#id10" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.monappli</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">android.app.Service</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.content.Intent</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.os.Binder</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.os.IBinder</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Random</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RandomService</span> <span class="kd">extends</span> <span class="n">Service</span> <span class="p">{</span>
+
+<span class="hll">  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">RandomServiceBinder</span> <span class="kd">extends</span> <span class="n">Binder</span> <span class="p">{</span>
+</span><span class="hll">    <span class="n">RandomService</span> <span class="nf">getService</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">      <span class="k">return</span> <span class="n">RandomService</span><span class="p">.</span><span class="na">this</span><span class="p">;</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">  <span class="p">}</span>
+</span>
+<span class="hll">  <span class="kd">private</span> <span class="n">RandomServiceBinder</span> <span class="n">binder</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RandomServiceBinder</span><span class="p">();</span>
+</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="n">IBinder</span> <span class="nf">onBind</span><span class="p">(</span><span class="n">Intent</span> <span class="n">intent</span><span class="p">)</span> <span class="p">{</span>
+<span class="hll">    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">binder</span><span class="p">;</span>
+</span>  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">getRandomWord</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">String</span><span class="o">[]</span> <span class="n">array</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;bonjour&quot;</span><span class="p">,</span> <span class="s">&quot;méchant&quot;</span><span class="p">,</span> <span class="s">&quot;loup&quot;</span><span class="p">,</span> <span class="s">&quot;maison&quot;</span><span class="p">,</span> <span class="s">&quot;pain d&#39;épice&quot;</span><span class="p">};</span>
+    <span class="k">return</span> <span class="n">array</span><span class="o">[</span><span class="k">new</span> <span class="nf">Random</span><span class="p">().</span><span class="na">nextInt</span><span class="p">(</span><span class="n">array</span><span class="p">.</span><span class="na">length</span><span class="p">)</span><span class="o">]</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>Le service ci-dessus n’offre qu’une méthode réellement utile : <code class="docutils literal notranslate"><span class="pre">getRandomWord</span></code>.
+Cette méthode retourne un mot au hasard parmi une liste prédéfinie. La méthode
+<a class="reference external" href="https://developer.android.com/reference/android/app/Service#onBind(android.content.Intent)">onBind</a> retourne une instance de <code class="docutils literal notranslate"><span class="pre">RandomServiceBinder</span></code> (ligne 22). La classe
+<code class="docutils literal notranslate"><span class="pre">RandomServiceBinder</span></code> est une classe interne qui étend la classe <a class="reference external" href="https://developer.android.com/reference/android/os/Binder">Binder</a>
+(lignes 12 à 16). Elle fournit la méthode <code class="docutils literal notranslate"><span class="pre">getService</span></code> qui retourne l’instance
+du service.</p>
+<p>Pour cet exemple, nous n’avons pas besoin de fournir une implémentation pour
+la méthode <a class="reference external" href="https://developer.android.com/reference/android/app/Service#onUnbind(android.content.Intent)">onUnbind</a> car il n’y a pas de traitement à réaliser lorsque le service
+est délié.</p>
+</div>
+<div class="section" id="lier-le-service-a-une-activite">
+<h3>Lier le service à une activité<a class="headerlink" href="#lier-le-service-a-une-activite" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour se lier à un service, il faut utiliser la méthode <a class="reference external" href="https://developer.android.com/reference/android/content/Context#bindService(android.content.Intent,%20android.content.ServiceConnection,%20int)">bindService</a>. Pour se
+délier d’un service, il faut utiliser la méthode <a class="reference external" href="https://developer.android.com/reference/android/content/Context#unbindService(android.content.ServiceConnection)">unbindService</a>. Ces méthodes
+ont besoin d’une connexion vers le service qui est représentée par une
+implémentation de l’interface <a class="reference external" href="https://developer.android.com/reference/android/content/ServiceConnection">ServiceConnection</a>. Le lien avec un service est
+asynchrone, on ne peut pas créer le service directement, on peut simplement
+ouvrir une connexion vers un service et attendre que le système nous prévienne
+quand le service a été éventuellement démarré et a été correctement lié.</p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">Exemple de liaison du service depuis une activité</span><a class="headerlink" href="#id11" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.monappli</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">androidx.appcompat.app.AppCompatActivity</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.content.ComponentName</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.content.Context</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.content.Intent</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.content.ServiceConnection</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.os.IBinder</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ClientActivity</span> <span class="kd">extends</span> <span class="n">AppCompatActivity</span> <span class="p">{</span>
+
+<span class="hll">  <span class="kd">private</span> <span class="n">RandomService</span> <span class="n">randomService</span><span class="p">;</span>
+</span>
+<span class="hll">  <span class="kd">private</span> <span class="n">ServiceConnection</span> <span class="n">serviceConnection</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServiceConnection</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">    <span class="nd">@Override</span>
+</span><span class="hll">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onServiceConnected</span><span class="p">(</span><span class="n">ComponentName</span> <span class="n">name</span><span class="p">,</span> <span class="n">IBinder</span> <span class="n">service</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">      <span class="n">RandomService</span><span class="p">.</span><span class="na">RandomServiceBinder</span> <span class="n">binder</span> <span class="o">=</span> <span class="p">(</span><span class="n">RandomService</span><span class="p">.</span><span class="na">RandomServiceBinder</span><span class="p">)</span> <span class="n">service</span><span class="p">;</span>
+</span><span class="hll">      <span class="n">randomService</span> <span class="o">=</span> <span class="n">binder</span><span class="p">.</span><span class="na">getService</span><span class="p">();</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="nd">@Override</span>
+</span><span class="hll">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onServiceDisconnected</span><span class="p">(</span><span class="n">ComponentName</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">      <span class="n">randomService</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">  <span class="p">};</span>
+</span>
+  <span class="nd">@Override</span>
+  <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">super</span><span class="p">.</span><span class="na">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">);</span>
+    <span class="n">setContentView</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">layout</span><span class="p">.</span><span class="na">activity_client</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onStart</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">super</span><span class="p">.</span><span class="na">onStart</span><span class="p">();</span>
+<span class="hll">    <span class="n">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Intent</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">RandomService</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+</span><span class="hll">    <span class="n">bindService</span><span class="p">(</span><span class="n">intent</span><span class="p">,</span> <span class="n">serviceConnection</span><span class="p">,</span> <span class="n">Context</span><span class="p">.</span><span class="na">BIND_AUTO_CREATE</span><span class="p">);</span>
+</span>  <span class="p">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onStop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">super</span><span class="p">.</span><span class="na">onStop</span><span class="p">();</span>
+<span class="hll">    <span class="n">unbindService</span><span class="p">(</span><span class="n">serviceConnection</span><span class="p">);</span>
+</span>  <span class="p">}</span>
+
+  <span class="c1">// ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>Dans l’exemple ci-dessus, on crée une classe interne anonyme pour fournir une
+implémentation à l’interface <a class="reference external" href="https://developer.android.com/reference/android/content/ServiceConnection">ServiceConnection</a> (lignes 15 à 26). Il faut pour
+cela implémenter les méthodes <a class="reference external" href="https://developer.android.com/reference/android/content/ServiceConnection#onServiceConnected(android.content.ComponentName,%20android.os.IBinder)">onServiceConnected</a> et <a class="reference external" href="https://developer.android.com/reference/android/content/ServiceConnection#onServiceDisconnected(android.content.ComponentName)">onServiceDisconnected</a>.
+Il s’agit de méthodes de <em>callback</em> qui seront appelées respectivement quand le
+service sera lié et quand le service sera délié. Pour notre implémentation, nous
+récupérons en paramètre de <a class="reference external" href="https://developer.android.com/reference/android/content/ServiceConnection#onServiceConnected(android.content.ComponentName,%20android.os.IBinder)">onServiceConnected</a> l’instance de <a class="reference external" href="https://developer.android.com/reference/android/os/IBinder">IBinder</a> que nous
+trans-typons en <code class="docutils literal notranslate"><span class="pre">RandomService.RandomServiceBinder</span></code> pour pouvoir appeler
+la méthode <code class="docutils literal notranslate"><span class="pre">getService</span></code> que nous avons précédemment implémentée (lignes 18 et
+19). Nous pouvons ainsi initialiser l’attribut <code class="docutils literal notranslate"><span class="pre">randomService</span></code> (ligne 19). La méthode
+<a class="reference external" href="https://developer.android.com/reference/android/content/ServiceConnection#onServiceDisconnected(android.content.ComponentName)">onServiceDisconnected</a> se contente de remettre la valeur de l’attribut
+<code class="docutils literal notranslate"><span class="pre">randomService</span></code> à <code class="docutils literal notranslate"><span class="pre">null</span></code> (ligne 24).</p>
+<p>Un service fait partie des ressources que l’activité peut acquérir. Il est
+donc conseillé d’ouvrir une connexion vers le service dans la redéfinition de
+la méthode <a class="reference external" href="https://developer.android.com/reference/android/app/Activity#onStart()">onStart</a> et de fermer la connexion vers le service dans la redéfinition
+de la méthode <a class="reference external" href="https://developer.android.com/reference/android/app/Activity#onStop()">onStop</a>.</p>
+<p>Dans la redéfinition de <a class="reference external" href="https://developer.android.com/reference/android/app/Activity#onStart()">onStart</a>, nous appelons la méthode <a class="reference external" href="https://developer.android.com/reference/android/content/Context#bindService(android.content.Intent,%20android.content.ServiceConnection,%20int)">bindService</a> en
+fournissant un <a class="reference external" href="https://developer.android.com/reference/android/content/Intent">intent</a> pour identifier le service voulu ainsi que la connexion
+à utiliser. Le dernier paramètre passé à la méthode est un <em>flag</em> pour décrire
+comment la liaison doit se faire. Pour notre exemple, nous utilisons la constante
+<a class="reference external" href="https://developer.android.com/reference/android/content/Context#BIND_AUTO_CREATE">BIND_AUTO_CREATE</a> qui est le comportement par défaut : si le service n’existe
+pas encore en mémoire, il est créé. Sinon on établit une liaison avec le service
+existant.</p>
+<p>Dans la redéfinition de <a class="reference external" href="https://developer.android.com/reference/android/app/Activity#onStop()">onStop</a>, nous appelons la méthode <a class="reference external" href="https://developer.android.com/reference/android/content/Context#unbindService(android.content.ServiceConnection)">unbindService</a> pour
+libérer la liaison avec le service.</p>
+<p>Comme l’établissement de la liaison d’un service est asynchrone, partout dans
+le code de l’activité où nous voulons solliciter le service, nous sommes obligés
+de vérifier d’abord s’il n’est pas <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">Exemple d’utilisation du service pour l’activité</span><a class="headerlink" href="#id12" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">randomService</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">String</span> <span class="n">word</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">randomService</span><span class="p">.</span><span class="na">getRandomWord</span><span class="p">();</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="acces_web.html" class="btn btn-neutral float-left" title="Accès Web" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright David Gayerie - david@gayerie.dev - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

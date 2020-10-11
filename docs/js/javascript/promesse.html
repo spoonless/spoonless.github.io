@@ -1,0 +1,478 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Javascript - les promesses" name="description" />
+<meta content="Javascript, Ecmascript, ES5, ES6, langage de programmation, Web" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Les promesses &mdash; Documentation Le JavaScript moderne </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/js/javascript/promesse.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Introduction et mise en place" href="../threejs/introduction.html" />
+    <link rel="prev" title="Les itérateurs et les générateurs" href="iterateur_generateur.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Le JavaScript moderne
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">JavaScript (notions avancées)</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="evolution_syntaxe.html">Les apports de ES5 et ES6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="evolution_syntaxe.html#le-mode-strict-es5">Le mode strict (ES5)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evolution_syntaxe.html#declarer-une-variable-avec-let-et-const-es6">Déclarer une variable avec let et const (ES6)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evolution_syntaxe.html#gabarit-de-chaine-de-caracteres-es6">Gabarit de chaîne de caractères (ES6)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evolution_syntaxe.html#evolution-de-la-syntaxe-en-es6">Évolution de la syntaxe en ES6</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="evolution_syntaxe.html#valeur-par-defaut-des-parametres">Valeur par défaut des paramètres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="evolution_syntaxe.html#le-parametre-de-reste">Le paramètre de reste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="evolution_syntaxe.html#la-decomposition-de-tableau">La décomposition de tableau</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modele_objet.html">Le modèle objet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modele_objet.html#creer-des-objets">Créer des objets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modele_objet.html#la-declaration-litterale">La déclaration littérale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modele_objet.html#le-constructeur">Le constructeur</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modele_objet.html#le-prototype">Le prototype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modele_objet.html#la-notion-de-propriete">La notion de propriété</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modele_objet.html#l-heritage">L’héritage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modele_objet.html#la-notion-de-classe-depuis-es6">La notion de classe depuis ES6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modele_objet.html#l-heritage-avec-les-classes">L’héritage avec les classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modele_objet.html#utilisation-du-mot-cle-super">Utilisation du mot-clé super</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fonctionnel.html">Programmation fonctionnelle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fonctionnel.html#les-arrow-functions">Les arrow functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonctionnel.html#l-utilisation-de-foreach">L’utilisation de forEach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonctionnel.html#le-modele-filter-map-reduce">Le modèle filter/map/reduce</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="module.html">Les modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="module.html#exporter">Exporter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="module.html#export-par-defaut">Export par défaut</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#importer">Importer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="symbol.html">Les symboles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="symbol.html#les-symboles-comme-noms-de-proprietes">Les symboles comme noms de propriétés</a></li>
+<li class="toctree-l2"><a class="reference internal" href="symbol.html#well-known-symbols">well-known symbols</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="iterateur_generateur.html">Les itérateurs et les générateurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#les-iterateurs">Les itérateurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#les-iterables">Les itérables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#la-structure-for-of">La structure for … of</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#les-generateurs">Les générateurs</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Les promesses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#la-classe-promise">La classe Promise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#le-chainage-des-appels">Le chaînage des appels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#traitements-paralleles">Traitements parallèles</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">three.js</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../threejs/introduction.html">Introduction et mise en place</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/introduction.html#chargement-asynchrone-en-local">Chargement asynchrone en local</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/introduction.html#fichier-html-de-base">Fichier HTML de base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/introduction.html#creation-d-un-renderer">Création d’un renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/introduction.html#creation-d-une-camera">Création d’une caméra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/introduction.html#creation-d-une-scene">Création d’une scène</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/introduction.html#rendu-d-une-scene">Rendu d’une scène</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/introduction.html#redimensionnement-du-canevas">Redimensionnement du canevas</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../threejs/objets_et_scene.html">Objets et scène</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/objets_et_scene.html#repere-de-coordonnees">Repère de coordonnées</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/objets_et_scene.html#mesh-et-geometry">Mesh et Geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/objets_et_scene.html#les-transformations-dans-l-espace">Les transformations dans l’espace</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/objets_et_scene.html#exercice">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/objets_et_scene.html#une-animation-simple">Une animation simple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/objets_et_scene.html#hierarchie-d-objets">Hiérarchie d’objets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/objets_et_scene.html#excercice">Excercice</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../threejs/materiaux.html">Les matériaux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/materiaux.html#le-meshbasicmaterial">Le MeshBasicMaterial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/materiaux.html#les-lumieres">Les lumières</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/materiaux.html#les-materiaux-reagissant-a-la-lumiere">Les matériaux réagissant à la lumière</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/materiaux.html#excercice">Excercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/materiaux.html#textures-et-maps">Textures et Maps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/materiaux.html#chargement-d-une-texture">Chargement d’une texture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/materiaux.html#un-texture-comme-color-map">Un texture comme <em>color map</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/materiaux.html#les-autres-types-de-textures">Les autres types de textures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/materiaux.html#les-ombres">Les ombres</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../threejs/interactions.html">Les interactions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/interactions.html#les-controleurs">Les contrôleurs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/interactions.html#le-controleur-orbital">Le contrôleur orbital</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/interactions.html#le-lancer-de-rayon">Le lancer de rayon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/interactions.html#la-projection">La projection</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../threejs/chargement_scene.html">Chargement de modèle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/chargement_scene.html#le-chargeur-gltf">Le chargeur glTF</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../threejs/animation_curve.html">Animation à partir de courbes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/animation_curve.html#les-courbes">Les courbes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/animation_curve.html#representation-graphique-d-une-courbe">Représentation graphique d’une courbe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/animation_curve.html#animation-le-long-d-une-courbe">Animation le long d’une courbe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/animation_curve.html#exercice">Exercice</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Le JavaScript moderne</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Les promesses</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../threejs/introduction.html" class="btn btn-neutral float-right" title="Introduction et mise en place" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="iterateur_generateur.html" class="btn btn-neutral float-left" title="Les itérateurs et les générateurs" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="les-promesses">
+<h1>Les promesses<a class="headerlink" href="#les-promesses" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Il est très courant d’écrire du code asynchrone en JavaScript. Dans un navigateur,
+cela permet de charger des informations en ajax. Dans un serveur, cela permet
+de préciser les traitements à réaliser lors de la réception d’une requête.
+Avant l’apparition des promesses, il fallait utiliser des méthodes de <em>callback</em>.</p>
+<p>Par exemple, le code suivant permet dans un navigateur de récupérer des données
+JSON :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;http://monsite.fr/data.json&quot;</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">responseType</span> <span class="o">=</span> <span class="s2">&quot;json&quot;</span><span class="p">;</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;load&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">xhr</span><span class="p">.</span><span class="nx">response</span><span class="p">;</span>
+    <span class="c1">// ...</span>
+<span class="p">});</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Dans l’exemple, ci-dessus on définit une fonction de <em>callback</em> pour l’événement
+<code class="docutils literal notranslate"><span class="pre">load</span></code> qui sera appelée lorsque les données auront été récupérées sur le réseau.</p>
+<p>Un autre exemple pour une implémentation avec le serveur Node.js :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">);</span>
+
+<span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">});</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="s1">&#39;Bienvenue sur mon serveur&#39;</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">listen</span><span class="p">(</span><span class="mf">8080</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>On passe une fonction de <em>callback</em> à la fonction <code class="docutils literal notranslate"><span class="pre">createServer</span></code> qui sera
+appelée pour chaque requête reçue.</p>
+<p>L’inconvénient des fonctions de <em>callback</em> est qu’elles rendent le code difficile
+à lire et donc difficile à maintenir. ES6 a introduit le modèle des promesses
+(<em>promises</em>). L’objectif est de produire du code asynchrone plus simple et plus
+lisible sous la forme d’une chaîne d’appels à des fonctions.</p>
+<div class="section" id="la-classe-promise">
+<h2>La classe Promise<a class="headerlink" href="#la-classe-promise" title="Lien permanent vers ce titre">¶</a></h2>
+<p>ES6 fournit la classe <code class="docutils literal notranslate"><span class="pre">Promise</span></code> qui attend en paramètre une fonction. Cette
+dernière prend deux paramètres : <strong>resolve</strong> et <strong>reject</strong>. <strong>resolve</strong> est la
+fonction à appeler quand la tache asynchrone est finie et <strong>reject</strong> quand la
+tache asynchrone a échoué ou ne peut pas être exécutée.</p>
+<p>Nous pouvons facilement transformer un appel ajax avec <code class="docutils literal notranslate"><span class="pre">XMLHttpRequest</span></code> sous
+la forme d’une promesse :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">URL</span> <span class="o">=</span> <span class="s2">&quot;http://quelquepart.com/data.json&quot;</span><span class="p">;</span>
+
+<span class="kd">let</span> <span class="nx">ajax</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+  <span class="nx">request</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="nx">URL</span><span class="p">);</span>
+
+  <span class="nx">request</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;load&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="mf">200</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">resolve</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">reject</span><span class="p">(</span><span class="s2">&quot;Erreur du serveur : &quot;</span> <span class="o">+</span> <span class="nx">request</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
+
+  <span class="nx">request</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">reject</span><span class="p">(</span><span class="s2">&quot;La requête ajax a échoué&quot;</span><span class="p">);</span>
+  <span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
+
+  <span class="nx">request</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>La méthode <strong>resolve</strong> est appelée en passant en paramètre le résultat de la tache.
+La méthode <strong>reject</strong> est appelée en passant un message d’erreur.</p>
+<p>Une promesse dispose de la méthode <code class="docutils literal notranslate"><span class="pre">then</span></code> pour passer le traitement à réaliser
+à la fin de la tache, c’est-à-dire lorsque la méthode <strong>resolve</strong> sera appelée.
+La méthode <code class="docutils literal notranslate"><span class="pre">then</span></code> attend une fonction <em>callback</em> qui recevra en paramètre l’objet
+passé en paramètre de la méthode <strong>resolve</strong>. Dans notre cas, il s’agira de la
+réponse de la requête.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">ajax</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Réponse du serveur :&quot;</span><span class="p">,</span> <span class="nx">response</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>Si la tache échoue et que c’est la méthode <strong>reject</strong> qui est appelée, alors
+on peut utiliser la méthode <code class="docutils literal notranslate"><span class="pre">catch</span></code> pour préciser le traitement à appliquer
+lors de l’échec. Cette méthode attent une fonction <em>callback</em> qui recevra en
+paramètre le message passé en paramètre de la méthode <strong>reject</strong>.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">ajax</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Réponse du serveur :&quot;</span><span class="p">,</span> <span class="nx">response</span><span class="p">))</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">msg</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Message d&#39;erreur :&quot;</span><span class="p">,</span> <span class="nx">msg</span><span class="p">));</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il est également possible de passer une fonction <em>callback</em> dans le cas
+d’un appel à <strong>reject</strong> en second paramètre de la méthode <code class="docutils literal notranslate"><span class="pre">then</span></code>.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">ajax</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Réponse du serveur :&quot;</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span>
+          <span class="nx">msg</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Message d&#39;erreur :&quot;</span><span class="p">,</span> <span class="nx">msg</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="le-chainage-des-appels">
+<h2>Le chaînage des appels<a class="headerlink" href="#le-chainage-des-appels" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une fonction <em>callback</em> passée en paramètre de la méthode <strong>then</strong> peut elle-même
+produire un résultat. Si le résultat n’est pas un objet de type <code class="docutils literal notranslate"><span class="pre">Promise</span></code> alors
+un objet de type <code class="docutils literal notranslate"><span class="pre">Promise</span></code> est créé pour simplement appeler la fonction
+<strong>resolve</strong> avec la valeur de retour. Ainsi, le modèle des promesses garantie
+que l’on peut chaîner les appels à la méthode <strong>then</strong>.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">ajax</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">response</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">json</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">json</span><span class="p">.</span><span class="nx">id</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">&quot;il manque l&#39;id&quot;</span><span class="p">);</span>
+      <span class="p">}</span>
+      <span class="k">return</span> <span class="nx">json</span><span class="p">;</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">json</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
+      <span class="k">return</span> <span class="nx">json</span><span class="p">;</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">msg</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Erreur : &quot;</span><span class="p">,</span> <span class="nx">msg</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>Si une des méthodes <em>callback</em> passées aux méthodes <strong>then</strong> produit une exception,
+le chaînage des appels est interrompu et c’est la fonction passée à <strong>catch</strong> qui
+est exécutée.</p>
+<p>L’intérêt des promesses est de fournir un modèle lisible et universelle pour la
+prise en charge des appels asynchrones. S’il est assez simple de créer ses propres
+promesses, de plus en plus de <em>frameworks</em> et de bibliothèques JavaScript proposent
+des API qui sont directement basées sur le modèle des promesses.</p>
+</div>
+<div class="section" id="traitements-paralleles">
+<h2>Traitements parallèles<a class="headerlink" href="#traitements-paralleles" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le modèle des promesses permet facilement de mettre en place des traitements
+parallèles.</p>
+<p>Ainsi, la fonction <code class="docutils literal notranslate"><span class="pre">Promise.all</span></code> prend en paramètre un tableau (ou un itérable)
+de promesses et retourne une promesse qui s’achève lorsque toutes les promesses
+seront achevées.</p>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">Promise.race</span></code> prend en paramètre un tableau (ou un itérable)
+de promesses et retourne une promesse qui s’achève lorsque la première des promesses
+sera achevée.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../threejs/introduction.html" class="btn btn-neutral float-right" title="Introduction et mise en place" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="iterateur_generateur.html" class="btn btn-neutral float-left" title="Les itérateurs et les générateurs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright David Gayerie - david@gayerie.dev - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

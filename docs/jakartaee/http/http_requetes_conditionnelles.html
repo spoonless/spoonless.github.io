@@ -1,0 +1,808 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Le protocole HTTP et les API Web" name="description" />
+<meta content="HTTP, API Web, Rest, Restful Web Service" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>HTTP : les requêtes conditionnelles &mdash; Documentation Jakarta EE </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/jakartaee/http/http_requetes_conditionnelles.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="HTTP : la gestion du cache" href="http_gestion_cache.html" />
+    <link rel="prev" title="HTTP : la négociation de contenu" href="http_negociation_contenu.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Jakarta EE
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Java EE pour le Web</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_web/environnement_developpement.html">L’environnement de développement</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/environnement_developpement.html#telechargement-des-outils">Téléchargement des outils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/environnement_developpement.html#installation-des-outils">Installation des outils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/environnement_developpement.html#configuration-de-java-dans-eclipse">Configuration de Java dans Eclipse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/environnement_developpement.html#integration-de-tomcat-dans-eclipse">Intégration de Tomcat dans Eclipse</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_web/premiere_application.html">Une première application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/premiere_application.html#qu-est-ce-qu-une-application-java-ee">Qu’est-ce qu’une application Java EE ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/premiere_application.html#creation-d-un-projet-dans-eclipse">Création d’un projet dans Eclipse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/premiere_application.html#deploiement-depuis-eclipse-et-test-de-l-application">Déploiement depuis Eclipse et test de l’application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_web/premiere_application.html#le-contexte-racine-de-deploiement-root-context">Le contexte racine de déploiement (root context)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/premiere_application.html#packaging-de-l-application">Packaging de l’application</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_web/maven.html">Introduction à Maven</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/maven.html#pourquoi-utiliser-maven">Pourquoi utiliser Maven ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/maven.html#caracteristiques-principales-de-maven">Caractéristiques principales de Maven</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/maven.html#installation-de-maven">Installation de Maven</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/maven.html#un-premier-projet-avec-maven">Un premier projet avec Maven</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/maven.html#le-fichier-pom-xml">Le fichier pom.xml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/maven.html#import-du-projet-maven-dans-eclipse">Import du projet Maven dans Eclipse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/maven.html#test-de-l-application-dans-tomcat">Test de l’application dans Tomcat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/maven.html#gerer-le-projet-avec-maven">Gérer le projet avec Maven</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/maven.html#execution-de-maven-dans-eclipse">Exécution de Maven dans Eclipse</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_web/servlet.html">Les Servlets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/servlet.html#structure-d-une-servlet-http">Structure d’une servlet HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/servlet.html#configuration-du-deploiement-d-une-servlet">Configuration du déploiement d’une servlet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_web/servlet.html#chemin-absolu-d-url-dans-une-application-web">Chemin absolu d’URL dans une application Web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_web/servlet.html#motif-d-url-d-une-servlet">Motif d’URL d’une Servlet</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/servlet.html#utilisation-du-fichier-de-deploiement-web-xml">Utilisation du fichier de déploiement web.xml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/servlet.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_web/conteneur_web.html">Le conteneur Web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/conteneur_web.html#cycle-de-vie-des-servlets">Cycle de vie des servlets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/conteneur_web.html#exercice">Exercice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/conteneur_web.html#servlet-et-programmation-concurrente">Servlet et programmation concurrente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/conteneur_web.html#id1">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_web/attributs_web.html">Les attributs d’une application Web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/attributs_web.html#attribut-de-portee-requete">Attribut de portée requête</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/attributs_web.html#attribut-de-portee-session">Attribut de portée session</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_web/attributs_web.html#session-http-comment-cela-marche-t-il">Session HTTP : comment cela marche-t-il ?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/attributs_web.html#les-attributs-de-portee-application">Les attributs de portée application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/attributs_web.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_web/jsp.html">JSP : Java Server Pages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/jsp.html#exercice">Exercice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/jsp.html#el-expression-language">EL : Expression Language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/jsp.html#les-operateurs-dans-l-expression-language">Les opérateurs dans l’expression language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/jsp.html#les-objets-implicites-dans-une-jsp">Les objets implicites dans une JSP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/jsp.html#la-resolution-de-portee-des-attributs-dans-une-jsp">La résolution de portée des attributs dans une JSP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_web/jsp.html#expression-language-et-gestion-des-exceptions">Expression Language et gestion des exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/jsp.html#les-directives-de-jsp">Les directives de JSP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_web/jsp.html#la-directive-page">La directive page</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_web/jsp.html#la-directive-include">La directive include</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/jsp.html#les-balises-d-action-jsp">Les balises d’action JSP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/jsp.html#les-taglibs-et-la-jstl">Les Taglibs et la JSTL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_web/jsp.html#jstl-core">JSTL core</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_web/jsp.html#jstl-formater">JSTL formater</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_web/jsp.html#jstl-functions">JSTL functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_web/jsp.html#jstl-sql">JSTL SQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_web/jsp.html#jstl-xml">JSTL XML</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/jsp.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_web/mvc_request_dispatcher.html">MVC et RequestDispatcher</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/mvc_request_dispatcher.html#le-modele-mvc">Le modèle MVC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/mvc_request_dispatcher.html#le-request-dispatcher">Le request dispatcher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/mvc_request_dispatcher.html#exemple-de-mvc-sans-validation">Exemple de MVC (sans validation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/mvc_request_dispatcher.html#exemple-de-mvc-avec-validation">Exemple de MVC (avec validation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/mvc_request_dispatcher.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_web/web_listeners_filters.html">Web listeners et filtres</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/web_listeners_filters.html#les-listeners-web">Les listeners Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/web_listeners_filters.html#declaration-des-listeners-web">Déclaration des listeners Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/web_listeners_filters.html#exemple-d-utilisation-d-un-listener">Exemple d’utilisation d’un listener</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/web_listeners_filters.html#les-filtres-de-servlet">Les filtres de Servlet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/web_listeners_filters.html#declaration-des-filtres">Déclaration des filtres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/web_listeners_filters.html#implementation-d-un-filtre">Implémentation d’un filtre</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/web_listeners_filters.html#cas-d-utilisation-de-filtres">Cas d’utilisation de filtres</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_web/web_listeners_filters.html#gestion-de-l-utf-8">Gestion de l’UTF-8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_web/web_listeners_filters.html#generation-de-log">Génération de log</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_web/jaxrs.html">Les API Web avec JAX-RS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/jaxrs.html#la-notion-de-ressource">La notion de ressource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/jaxrs.html#configurer-une-application-web-pour-jax-rs">Configurer une application Web pour JAX-RS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/jaxrs.html#implementer-des-ressources-avec-jax-rs">Implémenter des ressources avec JAX-RS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_web/jaxrs.html#les-annotations-de-methodes">Les annotations de méthodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_web/jaxrs.html#parametre-dans-le-chemin-d-uri">Paramètre dans le chemin d’URI</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/jaxrs.html#data-binding">Data binding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/jaxrs.html#generer-une-reponse">Générer une réponse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/jaxrs.html#gerer-des-exceptions">Gérer des exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/jaxrs.html#implementer-un-client-http">Implémenter un client HTTP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_web/securite.html">Sécurisation d’une application Web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/securite.html#declarer-des-contraintes-de-securite">Déclarer des contraintes de sécurité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/securite.html#configuration-de-l-authentification-dans-tomcat">Configuration de l’authentification dans Tomcat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/securite.html#configuration-https-dans-tomcat">Configuration https dans Tomcat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/securite.html#exercice">Exercice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_web/securite.html#login-a-partir-d-un-formulaire-web">Login à partir d’un formulaire Web</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Java EE ORM</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/jdbc.html">Accès aux bases de données : JDBC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jdbc.html#preambule-try-with-resources">Préambule : try-with-resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jdbc.html#le-pilote-de-base-de-donnees">Le pilote de base de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jdbc.html#creation-d-une-connexion">Création d’une connexion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jdbc.html#l-url-de-connexion-et-la-classe-des-pilotes">L’URL de connexion et la classe des pilotes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jdbc.html#les-requetes-sql-statement">Les requêtes SQL (Statement)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jdbc.html#le-statement">Le Statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jdbc.html#le-resultset">Le ResultSet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jdbc.html#le-preparedstatement">Le PreparedStatement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jdbc.html#l-injection-sql">L’injection SQL</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jdbc.html#recuperation-des-cles-generees">Récupération des clés générées</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jdbc.html#le-callablestatement">Le CallableStatement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jdbc.html#la-transaction">La transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/jdbc_webapp.html">JDBC dans une application Web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jdbc_webapp.html#acces-a-une-datasource">Accès à une DataSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jdbc_webapp.html#injection-d-une-datasource">Injection d’une DataSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jdbc_webapp.html#declaration-de-la-datasource-dans-le-fichier-web-xml">Déclaration de la DataSource dans le fichier web.xml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jdbc_webapp.html#declaration-d-une-datasource-dans-tomcat">Déclaration d’une DataSource dans Tomcat</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/jpa_entites.html">Les entités JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_entites.html#les-orm-object-relational-mapping">Les ORM (Object-Relational Mapping)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_entites.html#id1">Les entités JPA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_entites.html#l-entitymanager">L’EntityManager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#obtenir-un-entitymanager">Obtenir un EntityManager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#creer-une-fabrique-d-entitymanager">Créer une fabrique d’EntityManager</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_entites.html#manipuler-des-entites-a-partir-d-un-entitymanager">Manipuler des entités à partir d’un EntityManager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-persist">La méthode persist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-find">La méthode find</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-refresh">La méthode refresh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-merge">La méthode merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-detach">La méthode detach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_entites.html#la-methode-remove">La méthode remove</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/jpa_queries.html">Les requêtes JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_queries.html#les-requetes-natives">Les requêtes Natives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_queries.html#les-requetes-jpql">Les requêtes JPQL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_queries.html#les-requetes-par-programmation">Les requêtes par programmation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_queries.html#utilisation-de-requetes-nommees">Utilisation de requêtes nommées</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/jpa_relations.html">Les relations avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-relation-1-1-one-to-one">La relation 1:1 (one to one)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-relation-n-1-many-to-one">La relation n:1 (many to one)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-relation-1-n-one-to-many">La relation 1:n (one to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-relation-n-n-many-to-many">La relation n:n (many to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#les-relations-bi-directionnelles">Les relations bi-directionnelles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#la-propagation-en-cascade">La propagation en cascade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#requetes-jpql-et-jointure">Requêtes JPQL et jointure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_relations.html#fetch-lazy-ou-fetch-eager">Fetch lazy ou fetch eager</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html">L’héritage avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#l-annotation-inheritance">L’annotation &#64;Inheritance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#heritage-avec-une-seule-table">Héritage avec une seule table</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#heritage-avec-jointure-de-tables">Héritage avec jointure de tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#heritage-avec-une-table-par-classe">Héritage avec une table par classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#l-heritage-et-les-requetes-jpql-polymorphiques">L’héritage et les requêtes JPQL polymorphiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javaee_orm/jpa_inheritance.html#un-cas-a-part-fusion-de-la-super-classe">Un cas à part : fusion de la super classe</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API Web et service Web</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction : Service Web et API Web</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="api_web.html">HTTP, REST et les API Web</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="http.html">Le protocole HTTP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http.html#structure-des-messages">Structure des messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http.html#exercice">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http.html#les-codes-de-statut">Les codes de statut</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http.html#les-methodes-http">Les méthodes HTTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http.html#proprietes-des-methodes-http">Propriétés des méthodes HTTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http.html#les-en-tetes-http">Les en-têtes HTTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http.html#id2">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http_cas_utilisation.html">HTTP : les cas d’utilisation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http_cas_utilisation.html#obtenir-la-representation-d-une-ressource">Obtenir la représentation d’une ressource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http_cas_utilisation.html#obtenir-uniquement-les-meta-informations-d-une-ressource">Obtenir uniquement les meta-informations d’une ressource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http_cas_utilisation.html#creer-une-ressource-dont-on-connait-l-uri">Créer une ressource dont on connait l’URI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http_cas_utilisation.html#creer-une-ressource-dont-on-ne-connait-pas-l-uri">Créer une ressource dont on ne connait pas l’URI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http_cas_utilisation.html#supprimer-l-acces-a-une-ressource">Supprimer l’accès à une ressource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http_cas_utilisation.html#mettre-a-jour-une-ressource">Mettre à jour une ressource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http_cas_utilisation.html#mettre-a-jour-partiellement-une-ressource">Mettre à jour partiellement une ressource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http_cas_utilisation.html#executer-un-processus-de-traitement">Exécuter un processus de traitement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http_cas_utilisation.html#connaitre-les-methodes-autorisees">Connaître les méthodes autorisées</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http_cas_utilisation.html#traitement-asynchrone-d-une-requete">Traitement asynchrone d’une requête</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http_cas_utilisation.html#les-redirections">Les redirections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="http_cas_utilisation.html#evolution-du-service">Évolution du service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="http_cas_utilisation.html#uri-volatile-et-canonicalisation-d-uri">URI volatile et canonicalisation d’URI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="http_cas_utilisation.html#separer-le-traitement-de-la-requete-de-son-resultat">Séparer le traitement de la requête de son résultat</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http_negociation_contenu.html">HTTP : la négociation de contenu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http_negociation_contenu.html#la-negociation-de-type-de-contenu">La négociation de type de contenu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http_negociation_contenu.html#la-negociation-de-jeu-de-caracteres">La négociation de jeu de caractères</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http_negociation_contenu.html#la-negociation-de-langue">La négociation de langue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http_negociation_contenu.html#l-en-tete-vary">L’en-tête Vary</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">HTTP : les requêtes conditionnelles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#demander-une-representation-a-jour">Demander une représentation à jour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creer-une-ressource-si-elle-n-existe-pas-deja">Créer une ressource si elle n’existe pas déjà</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alterer-une-ressource-sous-condition">Altérer une ressource sous condition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alterer-une-ressource-si-elle-existe">Altérer une ressource si elle existe</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http_gestion_cache.html">HTTP : la gestion du cache</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http_gestion_cache.html#serveur-d-origine-et-intermediaires">Serveur d’origine et intermédiaires</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http_gestion_cache.html#principe-generale-de-la-gestion-du-cache">Principe générale de la gestion du cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http_gestion_cache.html#la-fraicheur-d-une-reponse">La fraîcheur d’une réponse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http_gestion_cache.html#la-revalidation">La revalidation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http_gestion_cache.html#les-directives-de-strategie-de-cache">Les directives de stratégie de cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http_gestion_cache.html#l-invalidation-de-cache">L’invalidation de cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http_gestion_cache.html#enrichissement-des-en-tetes-par-les-intermediaires">Enrichissement des en-têtes par les intermédiaires</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http_liens.html">HTTP : les liens</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http_liens.html#l-en-tete-link">L’en-tête Link</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http_liens.html#les-types-de-relation">Les types de relation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http_liens.html#les-attributs-optionnels-d-un-lien">Les attributs optionnels d’un lien</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rest.html">REST</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rest.html#la-ressource">La ressource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rest.html#uri-informative-ou-uri-opaque">URI informative ou URI opaque ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rest.html#ressource-contre-rpc">Ressource contre RPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rest.html#la-representation">La représentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rest.html#les-contraintes-rest">Les contraintes REST</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rest.html#client-serveur">Client/Serveur</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rest.html#interface-uniforme">Interface uniforme</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rest.html#sans-etat-stateless">Sans état (stateless)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rest.html#mise-en-cache-caching">Mise en cache (caching)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rest.html#layered-system">Layered system</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rest.html#code-on-demand">Code on demand</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rest.html#hypermedia">Hypermédia</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rest.html#les-formats-hypermedias">Les formats hypermédias</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rest.html#l-en-tete-link">L’en-tête Link</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rest.html#les-apports-de-l-hypermedia">Les apports de l’hypermédia</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rest.html#rest-ca-veut-dire-quoi">REST : ça veut dire quoi ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rest.html#les-api-web">Les API Web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rest.html#references">Références</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rest.html#sites-web-articles">Sites Web &amp; articles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rest.html#livres">Livres</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rest.html#applications-de-demo">Applications de démo</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rest.html#exercices">Exercices</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="web_services.html">Les services Web SOAP / WSDL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="java_ws.html">Les services Web avec Java</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="java_ws.html#la-quete-de-l-interoperabilite">La quête de l’interopérabilité</a></li>
+<li class="toctree-l3"><a class="reference internal" href="java_ws.html#soap-structure-des-messages">SOAP : structure des messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="java_ws.html#web-service-description-language-wsdl">Web Service Description Language (WSDL)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="java_ws.html#developper-un-service-web-soap">Développer un service Web SOAP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="java_ws.html#exercice">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="java_ws.html#les-outils-java-de-generation">Les outils Java de génération</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="java_ws.html#wsdl-java-contract-first">WSDL → Java (Contract first)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="java_ws.html#consommer-un-service-web-avec-jax-ws">Consommer un service Web avec JAX-WS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="java_ws.html#id1">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="java_ws.html#implementer-des-services-web-avec-jax-ws">Implémenter des services Web avec JAX-WS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="java_ws.html#deployer-un-service-web-dans-un-serveur-tomcat">Déployer un service Web dans un serveur Tomcat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="java_ws.html#id2">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="java_ws.html#pour-aller-plus-loin">Pour aller plus loin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="annexe_xml.html">Annexe : XML</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="annexe_xml.html#structure-du-langage">Structure du langage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="annexe_xml.html#structure-du-document">Structure du document</a></li>
+<li class="toctree-l3"><a class="reference internal" href="annexe_xml.html#exercice">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="annexe_xml.html#espaces-de-noms-xml">Espaces de noms XML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="annexe_xml.html#schemas-xml">Schémas XML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="annexe_xml.html#pour-aller-plus-loin">Pour aller plus loin…</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Jakarta EE</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="api_web.html">HTTP, REST et les API Web</a> &raquo;</li>
+        
+      <li>HTTP : les requêtes conditionnelles</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="http_gestion_cache.html" class="btn btn-neutral float-right" title="HTTP : la gestion du cache" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="http_negociation_contenu.html" class="btn btn-neutral float-left" title="HTTP : la négociation de contenu" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="http-les-requetes-conditionnelles">
+<span id="requetes-conditionnelles"></span><h1>HTTP : les requêtes conditionnelles<a class="headerlink" href="#http-les-requetes-conditionnelles" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Les requêtes conditionnelles permettent au client de préciser dans les
+en-têtes de requête des conditions qui, selon qu’elles sont vraies ou
+fausses, doivent changer le comportement du serveur. Les requêtes
+conditionnelles sont utilisées dans deux cas :</p>
+<ul class="simple">
+<li><p>Pour la gestion de cache lors d’une requête GET. Le client demande au
+serveur de lui retourner la représentation de la ressource si cette
+dernière diffère de la version dont le client dispose déjà.</p></li>
+<li><p>Pour garantir l’intégrité des données lors d’une requête non sûre
+(PUT, POST, PATCH ou DELETE). Le client désire que l’action soit
+effectuée uniquement si la ressource n’a pas été modifiée depuis son
+dernier accès.</p></li>
+</ul>
+<p>Les requêtes conditionnelles peuvent se baser sur la date de dernière
+modification de la ressource que le serveur est sensé communiqué
+(principalement en réponse à une requête GET ou HEAD) grâce à l’en-tête
+de réponse
+<a class="reference external" href="https://tools.ietf.org/html/rfc7232#section-2.2">Last-Modified</a>.</p>
+<p>Une réponse HTTP avec l’en-tête
+<a class="reference external" href="https://tools.ietf.org/html/rfc7232#section-2.2">Last-Modified</a></p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">text/plain; charset=utf-8</span>
+<span class="na">Content-Length</span><span class="o">:</span> <span class="l">17</span>
+<span class="na">Last-Modified</span><span class="o">:</span> <span class="l">Sat, 24 Mar 2018 08:32:00 GMT</span>
+
+Hello the world!
+</pre></div>
+</div>
+<p>Les requêtes conditionnelles peuvent également se baser sur
+l’en-tête <code class="docutils literal notranslate"><span class="pre">Entity-Tag</span></code>. Un <code class="docutils literal notranslate"><span class="pre">Entity-Tag</span></code> est une chaîne de caractères
+(délimitée par « ) que le serveur peut communiquer (principalement en
+réponse à une requête GET ou HEAD) grâce à l’en-tête de réponse
+<a class="reference external" href="https://tools.ietf.org/html/rfc7232#section-2.3">ETag</a>. Ce tag
+reste identique tant que la ressource ou sa représentation associée
+n’ont pas été modifiées. Un <code class="docutils literal notranslate"><span class="pre">Entity-Tag</span></code> est opaque pour le client et
+ce dernier n’a pas besoin de connaître l’algorithme utilisé par le
+serveur pour le produire.</p>
+<p>Une réponse HTTP avec l’en-tête
+<a class="reference external" href="https://tools.ietf.org/html/rfc7232#section-2.3">ETag</a></p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">text/plain; charset=utf-8</span>
+<span class="na">Content-Length</span><span class="o">:</span> <span class="l">17</span>
+<span class="na">ETag</span><span class="o">:</span> <span class="l">&quot;71295647&quot;</span>
+
+Hello the world!
+</pre></div>
+</div>
+<p><a class="reference external" href="https://tools.ietf.org/html/rfc7232#section-2.2">Last-Modified</a>
+et <a class="reference external" href="https://tools.ietf.org/html/rfc7232#section-2.3">ETag</a> ne sont
+normalement pas fournis par le serveur en réponse à la création ou la
+modification d’une ressource. En effet, la représentation transmise par
+le client <em>via</em> une méthode <code class="docutils literal notranslate"><span class="pre">PUT</span></code> ou <code class="docutils literal notranslate"><span class="pre">POST</span></code> peut ne pas correspondre
+exactement à la représentation qui sera retournée par le serveur lors
+d’une requête <code class="docutils literal notranslate"><span class="pre">GET</span></code>. En effet, le serveur ajoute souvent des
+informations à la ressource lors de sa création. Il est donc communément
+admis que la représentation de la ressource envoyée par le client ne
+peut pas être considérée comme fiable. Pour éviter toute mise en cache
+prématurée, le serveur ne renvoie donc pas les en-têtes
+<a class="reference external" href="https://tools.ietf.org/html/rfc7232#section-2.2">Last-Modified</a>
+et <a class="reference external" href="https://tools.ietf.org/html/rfc7232#section-2.3">ETag</a>.</p>
+<div class="section" id="demander-une-representation-a-jour">
+<h2>Demander une représentation à jour<a class="headerlink" href="#demander-une-representation-a-jour" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Lorsque le client dispose déjà d’une représentation de la resource, il
+peut demander au serveur de lui retourner une nouvelle représentation
+uniquement si celle-ci diffère de celle qu’il connaît déjà. L’intérêt
+principal et de limiter la consommation de bande passante. Mais cela
+peut aussi être un moyen de savoir si la ressource a été modifiée par un
+autre client ou un processus asynchrone. Pour ce cas d’utilisation, le
+client a besoin de connaître la date de dernière modification (obtenue
+grâce à l’en-tête de réponse
+<a class="reference external" href="https://tools.ietf.org/html/rfc7232#section-2.2">Last-Modified</a>)
+ou la valeur de l” <code class="docutils literal notranslate"><span class="pre">Entity-Tag</span></code> (obtenue grâce à l’en-tête de réponse
+<a class="reference external" href="https://tools.ietf.org/html/rfc7232#section-2.3">ETag</a>)</p>
+<p>Le client peut construire sa requête en utilisant l’un des en-têtes
+suivants :</p>
+<dl>
+<dt><a class="reference external" href="https://tools.ietf.org/html/rfc7232#section-3.3">If-Modified-Since</a></dt><dd><p>Permet de spécifier au serveur que la ressource doit avoir été
+modifiée depuis la date donnée pour traiter la requête.</p>
+<p>Requête conditionnelle avec <code class="docutils literal notranslate"><span class="pre">If-Modified-Since</span></code></p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/individu/00001</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">www.monserveur.fr</span>
+<span class="na">If-Modified-Since</span><span class="o">:</span> <span class="l">Sat, 24 Mar 2018 08:32:00 GMT</span>
+</pre></div>
+</div>
+<p>Si la ressource <strong>n’a pas été modifiée</strong> depuis cette date, le
+serveur devrait retourner le code <strong>304</strong> (Not modified).</p>
+<p>Réponse lorsque la ressource n’a pas été modifiée depuis la date
+donnée</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">304</span> <span class="ne">Not Modified</span>
+<span class="na">Content-Length</span><span class="o">:</span> <span class="l">0</span>
+</pre></div>
+</div>
+<p>Si la ressource a été effectivement modifiée, le serveur doit
+traiter la requête normalement.</p>
+</dd>
+<dt><a class="reference external" href="https://tools.ietf.org/html/rfc7232#section-3.2">If-None-Match</a></dt><dd><p>Permet de spécifier au serveur que la ressource doit avoir été
+modifiée depuis le dernier état connu pour traiter la requête. Le
+client demande au serveur de comparer l”<code class="docutils literal notranslate"><span class="pre">Entity-Tag</span></code> de la
+représentation de la ressource avec celui envoyé dans la requête.</p>
+<p>Requête conditionnelle avec <code class="docutils literal notranslate"><span class="pre">If-None-Match</span></code></p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/individu/00001</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">www.monserveur.fr</span>
+<span class="na">If-None-Match</span><span class="o">:</span> <span class="l">&quot;71295647&quot;</span>
+</pre></div>
+</div>
+<p>Si l”<code class="docutils literal notranslate"><span class="pre">Entity-Tag</span></code> de la représentation de la ressource
+<strong>correspond à celui envoyé</strong> par le client, alors le serveur en
+déduit qu’il n’y a pas eu de modification et il devrait retourner le
+code <strong>304</strong> (Not modified).</p>
+<p>Réponse lorsque l”<code class="docutils literal notranslate"><span class="pre">Entity-Tag</span></code> correspond à celui envoyé par le
+client</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">304</span> <span class="ne">Not Modified</span>
+<span class="na">Content-Length</span><span class="o">:</span> <span class="l">0</span>
+</pre></div>
+</div>
+<p>Si les <code class="docutils literal notranslate"><span class="pre">Entity-Tags</span></code> diffèrent, alors le serveur doit traiter la
+requête normalement.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="creer-une-ressource-si-elle-n-existe-pas-deja">
+<h2>Créer une ressource si elle n’existe pas déjà<a class="headerlink" href="#creer-une-ressource-si-elle-n-existe-pas-deja" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La méthode <code class="docutils literal notranslate"><span class="pre">PUT</span></code> a une double sémantique de création et de mise à
+jour. Cependant, un client désire parfois créer uniquement une ressource
+et ne souhaite pas la modifier si elle existe déjà. Dans ce cas, on peut
+utiliser l’en-tête <code class="docutils literal notranslate"><span class="pre">If-None-Match</span></code> avec la valeur spéciale <code class="docutils literal notranslate"><span class="pre">*</span></code> (ce
+qui signifie que le serveur doit traiter la requête si aucune
+représentation de la ressource n’est disponible).</p>
+<p>Requête de création uniquement</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">PUT</span> <span class="nn">/individu/David+Gayerie</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">www.monserveur.fr</span>
+<span class="na">If-None-Match</span><span class="o">:</span> <span class="l">*</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/x-www-form-urlencoded; charset=utf-8</span>
+<span class="na">Content-Length</span><span class="o">:</span> <span class="l">65</span>
+
+name=Gayerie&amp;firstname=David&amp;email=david.gayerie@yopmail.com
+</pre></div>
+</div>
+<p>Si le serveur dispose d’une représentation pour cette ressource (et donc
+si elle existe déjà), il doit répondre un code <strong>412</strong> (Precondition
+Failed) :</p>
+<p>Réponse lorsque la ressource existe déjà</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">412</span> <span class="ne">Precondition Failed</span>
+<span class="na">Content-Length</span><span class="o">:</span> <span class="l">0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="alterer-une-ressource-sous-condition">
+<h2>Altérer une ressource sous condition<a class="headerlink" href="#alterer-une-ressource-sous-condition" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Dans un environnement client/serveur, la mise à jour de données pose
+systématiquement un problème : comment savoir si les données que je mets
+à jour n’ont pas été altérées par un autre client depuis le dernier
+accès. Pour le Web, on trouve plusieurs solutions basées sur le principe
+du verrou optimiste ou le principe du verrou pessimiste
+(optimistic/pessimistic lock). HTTP fournit un mécanisme de verrou
+optimiste grâce à différents en-têtes. Le client peut altérer une
+ressource avec une méthode <code class="docutils literal notranslate"><span class="pre">PUT</span></code>, <code class="docutils literal notranslate"><span class="pre">POST</span></code>, <code class="docutils literal notranslate"><span class="pre">PATCH</span></code> ou <code class="docutils literal notranslate"><span class="pre">DELETE</span></code> en
+spécifiant au serveur la condition de validité de la requête. Pour ce
+cas d’utilisation, le client a besoin de connaître la date de dernière
+modification (obtenue grâce à l’en-tête de réponse
+<a class="reference external" href="https://tools.ietf.org/html/rfc7232#section-2.2">Last-Modified</a>)
+ou la valeur de l”<code class="docutils literal notranslate"><span class="pre">Entity-Tag</span></code> (obtenue grâce à l’en-tête de réponse
+<a class="reference external" href="https://tools.ietf.org/html/rfc7232#section-2.3">ETag</a>)</p>
+<p>Le client peut construire sa requête en utilisant l’un des en-têtes
+suivants :</p>
+<dl>
+<dt><a class="reference external" href="https://tools.ietf.org/html/rfc7232#section-3.4">If-Unmodified-Since</a></dt><dd><p>Permet de spécifier au serveur qu’il ne doit traiter la requête que
+si la ressource n’a pas été modifiée depuis la date donnée par
+l’en-tête <code class="docutils literal notranslate"><span class="pre">If-Unmodified-Since</span></code>.</p>
+<p>Requête conditionnelle avec <code class="docutils literal notranslate"><span class="pre">If-Unmodified-Since</span></code></p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">PUT</span> <span class="nn">/individu/David+Gayerie</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">www.monserveur.fr</span>
+<span class="na">If-Unmodified-Since</span><span class="o">:</span> <span class="l">Sat, 24 Mar 2018 08:32:00 GMT</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/x-www-form-urlencoded; charset=utf-8</span>
+<span class="na">Content-Length</span><span class="o">:</span> <span class="l">65</span>
+
+name=Gayerie&amp;firstname=David&amp;email=david.gayerie@yopmail.com
+</pre></div>
+</div>
+<p>Si la ressource a effectivement été modifiée, le serveur doit
+retourner un code <strong>412</strong> (Precondition Failed) :</p>
+<p>Réponse lorsque la ressource a été modifiée depuis la date donnée</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">412</span> <span class="ne">Precondition Failed</span>
+<span class="na">Content-Length</span><span class="o">:</span> <span class="l">0</span>
+</pre></div>
+</div>
+</dd>
+<dt><a class="reference external" href="https://tools.ietf.org/html/rfc7232#section-3.1">If-Match</a></dt><dd><p>Permet de spécifier au serveur qu’il ne doit traiter la requête que
+si la ressource n’a pas été modifiée depuis le dernier état connu.
+Le client demande au serveur de comparer l”<code class="docutils literal notranslate"><span class="pre">Entity-Tag</span></code> de la
+représentation de la ressource avec celui donné par l’en-tête
+<code class="docutils literal notranslate"><span class="pre">If-Match</span></code>.</p>
+<p>Requête conditionnelle avec <code class="docutils literal notranslate"><span class="pre">If-Match</span></code></p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">PUT</span> <span class="nn">/individu/David+Gayerie</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">www.monserveur.fr</span>
+<span class="na">If-Match</span><span class="o">:</span> <span class="l">&quot;71295647&quot;</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/x-www-form-urlencoded; charset=utf-8</span>
+<span class="na">Content-Length</span><span class="o">:</span> <span class="l">65</span>
+
+name=Gayerie&amp;firstname=David&amp;email=david.gayerie@yopmail.com
+</pre></div>
+</div>
+<p>Si l”<code class="docutils literal notranslate"><span class="pre">Entity-Tag</span></code> de la représentation de la ressource <strong>ne
+correspond pas à celui envoyé</strong> par le client, alors le serveur en
+déduit que la ressource a été modifiée entre temps et il devrait
+retourner le code <strong>412</strong> (Precondition failed) sans payload dans la
+réponse.</p>
+<p>Réponse lorsque l”<code class="docutils literal notranslate"><span class="pre">Entity-Tag</span></code> ne correspond pas à celui envoyé
+par le client</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">412</span> <span class="ne">Precondition failed</span>
+<span class="na">Content-Length</span><span class="o">:</span> <span class="l">0</span>
+</pre></div>
+</div>
+<p>Si les <code class="docutils literal notranslate"><span class="pre">Entity-Tags</span></code> sont identiques, alors le serveur doit
+traiter la requête normalement.</p>
+</dd>
+</dl>
+<p>Si la ressource a été modifiée mais que le serveur est capable de
+déduire que l’état actuel est le même que celui résultant du traitement
+de la requête, alors le serveur peut retourner un code statut <strong>2XX</strong>.
+Ainsi la requête n’est pas traitée mais le résultat attendu par le
+client est déjà effectif.</p>
+</div>
+<div class="section" id="alterer-une-ressource-si-elle-existe">
+<h2>Altérer une ressource si elle existe<a class="headerlink" href="#alterer-une-ressource-si-elle-existe" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Parfois, un client désire modifier une ressource et ne souhaite pas que
+sa requête soit traitée si elle n’existe pas. Dans ce cas, on peut
+utiliser l’en-tête <code class="docutils literal notranslate"><span class="pre">If-Match</span></code> avec la valeur spéciale <code class="docutils literal notranslate"><span class="pre">*</span></code> (ce qui
+signifie que le serveur doit traiter la requête si au moins une
+representation de la ressource est disponible).</p>
+<p>Requête de modification uniquement</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">DELETE</span> <span class="nn">/individu/David+Gayerie</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">www.monserveur.fr</span>
+<span class="na">If-Match</span><span class="o">:</span> <span class="l">*</span>
+</pre></div>
+</div>
+<p>Si le serveur ne dispose pas d’une représentation pour cette ressource
+(et donc si elle n’existe pas), il doit répondre un code <strong>412</strong>
+(Precondition Failed) :</p>
+<p>Réponse lorsque la ressource n’existe pas</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">412</span> <span class="ne">Precondition Failed</span>
+<span class="na">Content-Length</span><span class="o">:</span> <span class="l">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="http_gestion_cache.html" class="btn btn-neutral float-right" title="HTTP : la gestion du cache" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="http_negociation_contenu.html" class="btn btn-neutral float-left" title="HTTP : la négociation de contenu" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright David Gayerie - david@gayerie.dev - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

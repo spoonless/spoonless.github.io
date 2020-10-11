@@ -1,0 +1,1153 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Python 3 - Les fondamentaux du langage" name="description" />
+<meta content="Python, programmation objet, POO, langage de programmation" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Les fonctions &mdash; Documentation Le langage Python </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/python/python3/fonction.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="La liste (list)" href="list.html" />
+    <link rel="prev" title="Types et variables" href="type_et_variable.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Le langage Python
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Python 3</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#python-2-et-python-3">Python 2 et Python 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#licence-logiciel">Licence logiciel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#les-principales-caracteristiques-du-langage">Les principales caractéristiques du langage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#oriente-objet">Orienté objet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#courbe-d-apprentissage-lineaire">Courbe d’apprentissage linéaire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#compile-et-interprete">Compilé et interprété</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#typage-dynamique">Typage dynamique</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#les-domaines-d-application">Les domaines d’application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#les-differentes-implementations-de-python">Les différentes implémentations de Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#communaute-et-organisation">Communauté et organisation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="execution.html">Console et exécution de fichiers source</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="execution.html#la-console">La console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution.html#les-fichiers-sources">Les fichiers sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution.html#lancement-en-mode-interactif">Lancement en mode interactif</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution.html#lancement-d-un-programme-hors-de-la-console">Lancement d’un programme hors de la console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution.html#notion-de-bloc-et-d-indentation">Notion de bloc et d’indentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution.html#les-commentaires">Les commentaires</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="type_et_variable.html">Types et variables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#nombres-et-calcul-arithmetique">Nombres et calcul arithmétique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#les-variables">Les variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#la-chaine-de-caracteres">La chaîne de caractères</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="type_et_variable.html#formatage-de-chaine-de-caracteres">Formatage de chaîne de caractères</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#le-type-booleen">Le type booléen</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Les fonctions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#appeler-une-fonction">Appeler une fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-fonctions-utiles-dans-la-console-python">Les fonctions utiles dans la console Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-fonctions-de-conversion-de-type">Les fonctions de conversion de type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#convertir-en-nombre">Convertir en nombre</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convertir-en-valeur-booleenne">Convertir en valeur booléenne</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convertir-en-chaine-de-caracteres">Convertir en chaîne de caractères</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#exercices">Exercices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#declarer-une-fonction">Déclarer une fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#documenter-une-fonction">Documenter une fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-valeurs-de-retour">Les valeurs de retour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-parametres-nommes">Les paramètres nommés</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#valeur-par-defaut-des-parametres">Valeur par défaut des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fonction-et-portee-des-variables">Fonction et portée des variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Exercices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#variable-globale-et-fonction">Variable globale et fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notion-de-methode">Notion de méthode</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="list.html">La liste (<em>list</em>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="list.html#creer-une-liste">Créer une liste</a></li>
+<li class="toctree-l2"><a class="reference internal" href="list.html#acceder-aux-elements">Accéder aux éléments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="list.html#les-operations-sur-les-listes">Les opérations sur les listes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="list.html#connaitre-la-taille-d-une-liste">Connaître la taille d’une liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#supprimer-un-element-d-une-liste">Supprimer un élément d’une liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#ajouter-deux-listes-ensemble">Ajouter deux listes ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#creer-une-liste-etendue">Créer une liste étendue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#savoir-si-un-element-est-present-dans-une-liste">Savoir si un élément est présent dans une liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#comparer-deux-listes">Comparer deux listes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#connaitre-le-plus-grand-element-d-une-liste">Connaître le plus grand élément d’une liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#connaitre-le-plus-petit-element-d-une-liste">Connaître le plus petit élément d’une liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#decouper-une-liste">Découper une liste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list.html#copier-une-liste">Copier une liste</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="list.html#quelques-methodes-pour-les-listes">Quelques méthodes pour les listes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tuple.html">Le n-uplet (<em>tuple</em>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tuple.html#creer-un-tuple">Créer un tuple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tuple.html#acceder-aux-elements">Accéder aux éléments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tuple.html#les-operations-sur-les-tuples">Les opérations sur les tuples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#connaitre-la-taille-d-un-tuple">Connaître la taille d’un tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#ajouter-deux-tuples-ensemble">Ajouter deux tuples ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#creer-un-tuple-etendu">Créer un tuple étendu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#savoir-si-un-element-est-present-dans-un-tuple">Savoir si un élément est présent dans un tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#comparer-deux-tuples">Comparer deux tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#connaitre-le-plus-grand-element-d-un-tuple">Connaître le plus grand élément d’un tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#connaitre-le-plus-petit-element-d-une-tuple">Connaître le plus petit élément d’une tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#decouper-un-tuple">Découper un tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuple.html#compter-les-occurrences-dans-un-tuple">Compter les occurrences dans un tuple</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tuple.html#listes-et-tuples">Listes et tuples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tuple.html#les-chaines-de-caracteres-comme-tuple">Les chaînes de caractères comme tuple</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="set.html">L’ensemble (<em>set</em>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="set.html#creer-un-ensemble">Créer un ensemble</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set.html#acceder-aux-elements">Accéder aux éléments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set.html#les-operations-sur-les-ensembles">Les opérations sur les ensembles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="set.html#connaitre-la-taille-d-un-ensemble">Connaître la taille d’un ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set.html#savoir-si-un-element-est-present-dans-un-ensemble">Savoir si un élément est présent dans un ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set.html#comparer-deux-ensembles">Comparer deux ensembles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set.html#connaitre-le-plus-grand-element-d-un-ensemble">Connaître le plus grand élément d’un ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set.html#connaitre-le-plus-petit-element-d-un-ensemble">Connaître le plus petit élément d’un ensemble</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="set.html#quelques-methodes-pour-les-ensembles">Quelques méthodes pour les ensembles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set.html#ensemble-liste-et-tuple">Ensemble, liste et tuple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set.html#ensemble-fige">Ensemble figé</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dict.html">Le dictionnaire</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#creer-un-dictionnaire">Créer un dictionnaire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#acceder-aux-elements">Accéder aux éléments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#les-operations-sur-les-dictionnaires">Les opérations sur les dictionnaires</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dict.html#connaitre-la-taille-d-un-dictionnaire">Connaître la taille d’un dictionnaire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dict.html#supprimer-une-cle-d-un-dictionnaire">Supprimer une clé d’un dictionnaire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dict.html#savoir-si-une-cle-est-presente-dans-un-dictionnaire">Savoir si une clé est présente dans un dictionnaire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dict.html#comparer-deux-dictionnaires">Comparer deux dictionnaires</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#quelques-methodes-pour-les-dictionnaires">Quelques méthodes pour les dictionnaires</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structures_de_controle.html">Les structures de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#l-indentation-du-code">L’indentation du code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#structures-de-decision">Structures de décision</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-if">L’instruction <em>if</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-else">L’instruction <em>else</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-elif">L’instruction <em>elif</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-operateur-ternaire">L’opérateur ternaire</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#exercice">Exercice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#structures-iteratives">Structures itératives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-while">L’instruction <em>while</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-for">L’instruction <em>for</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#la-fonction-range">La fonction <em>range</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#interrompre-un-bloc-d-iteration">Interrompre un bloc d’itération</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#structure-iterative-avec-else">Structure itérative avec <em>else</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#id1">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fonction_avance.html">Les fonctions (notions avancées)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#decompactage-des-parametres">décompactage des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#compactage-des-parametres">compactage des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#appel-recursif-de-fonction">Appel récursif de fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#declaration-de-fonction-dans-une-fonction">Déclaration de fonction dans une fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#la-fonction-comme-type-python">La fonction comme type Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#les-fonctions-anonymes-lambdas">Les fonctions anonymes (lambdas)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="list_comprehension.html">Liste en compréhension</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="list_comprehension.html#dictionnaire-en-comprehension">Dictionnaire en compréhension</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="module.html">Les modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="module.html#le-module-pour-prevenir-la-collision-de-nom">Le module pour prévenir la collision de nom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#la-bibliotheque-standard-python">La bibliothèque standard Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#importer-un-module">Importer un module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#importer-directement-un-nom">Importer directement un nom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#creer-un-module-a-partir-d-un-fichier">Créer un module à partir d’un fichier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#module-executable">Module exécutable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#creer-un-module-a-partir-d-un-repertoire">Créer un module à partir d’un répertoire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#module-repertoire-executable">Module répertoire exécutable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#chemin-des-modules">Chemin des modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#les-packages">Les <em>packages</em></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="module.html#import-relatif">Import relatif</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="decorateur.html">Les décorateurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="decorateur.html#un-premier-decorateur">Un premier décorateur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decorateur.html#decorer-des-fonctions-avec-des-parametres-et-des-valeurs-de-retour">Décorer des fonctions avec des paramètres et des valeurs de retour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decorateur.html#decorateur-avec-des-parametres">Décorateur avec des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decorateur.html#conserver-la-documentation-malgre-l-utilisation-d-un-decorateur">Conserver la documentation malgré l’utilisation d’un décorateur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decorateur.html#appliquer-plusieurs-decorateurs">Appliquer plusieurs décorateurs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="objet.html">La programmation orientée objet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#la-classe-et-les-instances">La classe et les instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#les-attributs">Les attributs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#les-attributs-implicites">Les attributs implicites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#les-methodes">Les méthodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#le-constructeur">Le constructeur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#les-proprietes">Les propriétés</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#les-attributs-de-classe">Les attributs de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#methodes-de-classe">Méthodes de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#methodes-statiques">Méthodes statiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#visibilite-des-attributs-et-des-methodes">Visibilité des attributs et des méthodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#fermer-la-liste-des-attributs">Fermer la liste des attributs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objet.html#creer-des-objets-avec-des-attributs-constants">Créer des objets avec des attributs constants</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="heritage.html">Héritage et polymorphisme</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#l-heritage">L’héritage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#constructeur-et-heritage">Constructeur et héritage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#heritage-et-mutualisation-de-code">Héritage et mutualisation de code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#la-classe-object">La classe <em>object</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#le-polymorphisme">Le polymorphisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#polymorphisme-et-duck-typing">Polymorphisme et <em>duck typing</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#masquer-les-attributs-et-les-methodes-pour-les-classe-filles">Masquer les attributs et les méthodes pour les classe filles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#heritage-multiple-et-mixin">Héritage multiple et <em>mixin</em></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="heritage.html#l-heritage-en-diamant">L’héritage en diamant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="heritage.html#appel-des-constructeurs">Appel des constructeurs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="heritage.html#les-mixins">Les mixins</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#la-meta-classe">La méta-classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#classes-et-methodes-abstraites">Classes et méthodes abstraites</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">Les exceptions et la gestion des erreurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#traiter-une-exception">Traiter une exception</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exception.html#recuperer-les-donnees-d-une-exception">Récupérer les données d’une exception</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#clause-else">Clause <em>else</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#post-traitement">Post-traitement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#lever-une-exception">Lever une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#creer-son-exception">Créer son exception</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dunder.html">Les méthodes spéciales (<em>dunders</em>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#methodes-speciales-elementaires">Méthodes spéciales élémentaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#methodes-speciales-pour-les-conversions">Méthodes spéciales pour les conversions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#methodes-speciales-pour-les-operateurs-unaires">Méthodes spéciales pour les opérateurs unaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#methodes-speciales-pour-les-operations-arithmetiques">Méthodes spéciales pour les opérations arithmétiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#methodes-speciales-pour-la-comparaison">Méthodes spéciales pour la comparaison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#methodes-speciales-pour-les-conteneurs">Méthodes spéciales pour les conteneurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#tout-est-objet">Tout est objet !</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#les-fonctions-comme-objet">Les fonctions comme objet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#les-classes-comme-objet">Les classes comme objet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#et-bien-d-autres-methodes-speciales">Et bien d’autres méthodes spéciales…</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dunder.html#methodes-speciales-et-classes-abstraites">Méthodes spéciales et classes abstraites</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="iterateur_generateur.html">Itérateurs et Générateurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#les-iterateurs">Les itérateurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#les-fonctions-iter-et-next">Les fonctions iter() et next()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#les-generateurs">Les générateurs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="iterateur_generateur.html#les-fonctions-generatrices-avec-yield">Les fonctions génératrices avec <em>yield</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="iterateur_generateur.html#les-generateurs-en-comprehension">Les générateurs en compréhension</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#les-fonctions-enumerate-map-zip-filter">Les fonctions <em>enumerate</em>, <em>map</em>, <em>zip</em>, <em>filter</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#le-module-itertools">Le module <em>itertools</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fichier.html">Gestion des fichiers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fichier.html#ouvrir-et-fermer-un-fichier">Ouvrir et fermer un fichier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fichier.html#lire-le-contenu-d-un-fichier">Lire le contenu d’un fichier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fichier.html#les-modes-de-fichier">Les modes de fichier</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#specificite-du-mode-texte">Spécificité du mode texte</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fichier.html#ecrire-dans-un-fichier">Écrire dans un fichier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fichier.html#chemin-de-fichier">Chemin de fichier</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#le-module-os-path">Le module <em>os.path</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#le-module-pathlib">Le module <em>pathlib</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fichier.html#actions-sur-les-fichiers-et-les-repertoires">Actions sur les fichiers et les répertoires</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#connaitre-le-repertoire-de-travail">Connaître le répertoire de travail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#connaitre-le-repertoire-de-l-utilisateur">Connaître le répertoire de l’utilisateur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#copier-un-fichier">Copier un fichier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#supprimer-un-fichier">Supprimer un fichier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#creer-un-repertoire">Créer un répertoire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#supprimer-un-repertoire">Supprimer un répertoire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#verifier-qu-un-fichier-existe">Vérifier qu’un fichier existe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#lister-le-contenu-d-un-repertoire">Lister le contenu d’un répertoire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fichier.html#rechercher-des-fichiers">Rechercher des fichiers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fichier.html#lecture-de-fichiers-csv">Lecture de fichiers CSV</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="unittest.html">Les tests unitaires automatisés avec unittest</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="unittest.html#structure-d-une-classe-de-test">Structure d’une classe de test</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="unittest.html#execution-des-tests">Exécution des tests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="unittest.html#tester-des-exceptions">Tester des exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unittest.html#utilisation-de-doublure">Utilisation de doublure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="unittest.html#utilisation-d-un-objet-mock">Utilisation d’un objet <em>mock</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="socket.html">Les sockets et la programmation réseau</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="socket.html#exemple-d-implementation-d-un-serveur">Exemple d’implémentation d’un serveur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="socket.html#exemple-d-implementation-d-un-client">Exemple d’implémentation d’un client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="socket.html#exemple-d-un-serveur-multi-thread">Exemple d’un serveur multi-thread</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Qt pour Python (PySide2)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pyside2/signal_slot.html">Les signaux et les slots</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/signal_slot.html#les-signaux">Les signaux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/signal_slot.html#les-slots">Les slots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/signal_slot.html#connecter-les-signaux-et-les-slots">Connecter les signaux et les slots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pyside2/boite_dialogue.html">Création d’une boite de dialogue</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/boite_dialogue.html#creation-de-l-interface-avec-designer">Création de l’interface avec Designer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/boite_dialogue.html#generation-du-code-python-avec-pyside2-uic">Génération du code Python avec pyside2-uic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/boite_dialogue.html#implementation-de-la-boite-de-dialogue">Implémentation de la boite de dialogue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/boite_dialogue.html#implementation-de-l-application">Implémentation de l’application</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pyside2/qtsql.html">Accéder aux bases de données avec QtSql</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/qtsql.html#declaration-d-une-connexion">Déclaration d’une connexion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/qtsql.html#ouverture-d-une-connexion">Ouverture d’une connexion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/qtsql.html#requete-avec-qsqlquery">Requête avec QSqlQuery</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pyside2/qtsql.html#requetes-de-modification">Requêtes de modification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pyside2/qtsql.html#requetes-de-consultation">Requêtes de consultation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/qtsql.html#requetes-preparees">Requêtes préparées</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/qtsql.html#gestion-des-erreurs">Gestion des erreurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyside2/qtsql.html#les-transactions">Les transactions</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Le langage Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Les fonctions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="list.html" class="btn btn-neutral float-right" title="La liste (list)" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="type_et_variable.html" class="btn btn-neutral float-left" title="Types et variables" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="les-fonctions">
+<h1>Les fonctions<a class="headerlink" href="#les-fonctions" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Une fonction permet d’identifier une séquence de traitements par un nom. Une fonction
+peut alors être appelée par son nom à plusieurs endroits dans un programme pour
+réaliser ces traitements. Il s’agit ainsi de rendre un programme plus
+compréhensible tout en évitant de dupliquer une séquence à plusieurs points du programme.
+Un autre intérêt d’une fonction est qu’elle peut être écrite par un programmeur
+et être utilisée dans un code source écrit par un autre programmeur qui n’a pas
+besoin de connaître précisément le code exécuté par la fonction si son nom et
+sa documentation sont suffisamment explicites.</p>
+<div class="section" id="appeler-une-fonction">
+<h2>Appeler une fonction<a class="headerlink" href="#appeler-une-fonction" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il existe beaucoup de fonctions déjà fournies avec l’environnement d’exécution
+Python. On les appelle les <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#built-in-funcs" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">builtin</span> <span class="pre">functions</span></code></a>. La plus célèbre d’entre-elles
+est sans doute <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#print" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a>. Elle affiche sur la sortie standard du programme
+une message fourni en paramètre. Pour appeler une fonction dans un programme,
+il faut préciser son nom et passer entre parenthèses la liste des <strong>paramètres</strong>.
+La fonction <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#print" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a> accepte en paramètre ce qu’elle doit afficher :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># appel de la fonction print</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bonjour le monde&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Il est possible de passer plusieurs paramètres à la fonction <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#print" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a>. Dans
+ce cas, il faut séparer la valeur des paramètres par une virgule.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cet appel affiche : Bonjour le monde</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bonjour&quot;</span><span class="p">,</span> <span class="s2">&quot;le&quot;</span><span class="p">,</span> <span class="s2">&quot;monde&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Il est également possible d’appeler la fonction <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#print" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a> sans aucun paramètre.
+La fonction se contentera d’afficher une ligne vide sur la sortie standard.
+Même s’il n’y pas de paramètre, les parenthèses sont obligatoires en Python 3.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cet appel affiche une ligne vide</span>
+<span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Si un paramètre peut être une valeur directement donnée par le programme, un
+paramètre peut aussi être une variable. Dans ce cas, c’est la valeur contenue
+dans la variable qui est passée à la fonction :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span>
+<span class="c1"># Cet appel affiche : hello</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Un paramètre peut aussi être une expression. Dans ce cas, c’est le résultat
+de l’évaluation de l’expression qui est passé à la fonction :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="c1"># Cet appel affiche : Le résultat est 8</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le résultat est&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Une fonction peut retourner une valeur, c’est-à-dire fournir le résultat de son
+traitement. Cette valeur peut être affectée à une variable. Par exemple,
+la fonction <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#abs" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">abs()</span></code></a> retourne la valeur absolue du nombre qui lui est passé
+en paramètre :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
+<span class="n">valeur_absolue</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="c1"># affiche 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">valeur_absolue</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>L’appel d’une fonction peut être passé en paramètre d’une autre fonction. Dans
+ce cas, c’est la valeur retournée par l’appel de la fonction qui est passée à
+l’autre fonction.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># afficher 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Ce type d’écriture permet une plus grande concision dans l’expression.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Une fonction qui ne produit aucun résultat est souvent appelée une <strong>procédure</strong>.
+On dit également qu’elle agit par <em>effet de bord</em>.</p>
+<p>En Python, essayer d’affecter le résultat de l’appel d’une procédure à une
+variable ne produit pas d’erreur. La valeur de la variable est simplement
+positionnée à <a class="reference external" href="https://docs.python.org/3.6/library/constants.html#None" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">None</span></code></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># print est une procédure, elle ne retourne aucune valeur</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">print</span><span class="p">()</span>
+<span class="c1"># affiche None</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="les-fonctions-utiles-dans-la-console-python">
+<h2>Les fonctions utiles dans la console Python<a class="headerlink" href="#les-fonctions-utiles-dans-la-console-python" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Parmi les <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#built-in-funcs" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">builtin</span> <span class="pre">functions</span></code></a>, il existe cinq fonctions
+qui sont très pratiques lorsqu’on exécute des instructions Python dans une
+console :</p>
+<dl>
+<dt><a class="reference external" href="https://docs.python.org/3.6/library/constants.html#exit" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">exit()</span></code></a> et <a class="reference external" href="https://docs.python.org/3.6/library/constants.html#exit" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">quit()</span></code></a></dt><dd><p>Ces fonctions permettent d’arrêter la console Python</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">quit</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+<dt><a class="reference external" href="https://docs.python.org/3.6/library/functions.html#repr" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr(o)</span></code></a></dt><dd><p>Affiche des informations sur l’élément passé en paramètre.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">repr</span><span class="p">(</span><span class="nb">print</span><span class="p">)</span>
+<span class="go">&#39;&lt;built-in function print&gt;&#39;</span>
+</pre></div>
+</div>
+<p>L’interpréteur appelle implicitement cette fonction à chaque fois que vous
+tapez la touche <kbd class="kbd docutils literal notranslate">Entrer</kbd>. L’interpréteur évalue l’expression saisie et,
+si elle produit un résultat, il affiche la chaîne de caractères
+retournée par l’appel à <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#repr" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr(o)</span></code></a> auquel est passé en paramètre
+le résultat de l’expression.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span>
+<span class="go">&#39;&lt;built-in function print&gt;&#39;</span>
+</pre></div>
+</div>
+</dd>
+<dt><a class="reference external" href="https://docs.python.org/3.6/library/functions.html#help" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">help(o)</span></code></a></dt><dd><p>Affiche la documentation de l’élément passé en paramètre. La console passe
+généralement en mode affichage de l’aide. Pour sortir de ce mode, il faut
+presser la touche <kbd class="kbd docutils literal notranslate">Q</kbd> pour <em>quit</em>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="nb">print</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+<dt><a class="reference external" href="https://docs.python.org/3.6/library/functions.html#dir" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">dir(o)</span></code></a></dt><dd><p>Retourne une liste des attributs et des méthodes de l’élément passé en
+paramètre. Nous verrons beaucoup plus tard que, dans le langage Python, tout
+est un objet. Un objet se définit par ses attributs (les données) et par
+ses méthodes (son comportement).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">(</span><span class="nb">print</span><span class="p">)</span>
+<span class="go">[&#39;__call__&#39;, &#39;__class__&#39;, &#39;__delattr__&#39;, &#39;__dir__&#39;, &#39;__doc__&#39;, &#39;__eq__&#39;,</span>
+<span class="go"> &#39;__format__&#39;, &#39;__ge__&#39;, &#39;__getattribute__&#39;, &#39;__gt__&#39;, &#39;__hash__&#39;, &#39;</span>
+<span class="go"> __init__&#39;, &#39;__init_subclass__&#39;, &#39;__le__&#39;, &#39;__lt__&#39;, &#39;__module__&#39;,</span>
+<span class="go"> &#39;__name__&#39;, &#39;__ne__&#39;, &#39;__new__&#39;, &#39;__qualname__&#39;, &#39;__reduce__&#39;,</span>
+<span class="go"> &#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__self__&#39;, &#39;__setattr__&#39;, &#39;__sizeof__&#39;,</span>
+<span class="go"> &#39;__str__&#39;, &#39;__subclasshook__&#39;, &#39;__text_signature__&#39;]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="les-fonctions-de-conversion-de-type">
+<h2>Les fonctions de conversion de type<a class="headerlink" href="#les-fonctions-de-conversion-de-type" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les fonctions <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#int" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int()</span></code></a>, <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#float" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float()</span></code></a>,
+<a class="reference external" href="https://docs.python.org/3.6/library/functions.html#bool" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool()</span></code></a> et <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str()</span></code></a> permettent de réaliser des conversions
+d’un type à l’autre.</p>
+<div class="section" id="convertir-en-nombre">
+<h3>Convertir en nombre<a class="headerlink" href="#convertir-en-nombre" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La conversion entre entiers et nombres à virgule flottante :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="mf">3.5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="go">2.0</span>
+</pre></div>
+</div>
+<p>Il est également possible de convertir une chaîne de caractères :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="s2">&quot;3&quot;</span><span class="p">)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;5.25&quot;</span><span class="p">)</span>
+<span class="go">5.25</span>
+</pre></div>
+</div>
+<p>Dans ce cas, la fonction <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#int" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int()</span></code></a> accepte un deuxième paramètre
+indiquant la base du nombre (par défaut la base est 10) :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="s2">&quot;10&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="go">8</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="s2">&quot;0xFF&quot;</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="go">255</span>
+</pre></div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Prudence</p>
+<p>Pour la conversion en nombre, la chaîne de caractères peut contenir des espaces
+avant et après mais si elle ne représente pas un nombre valide, les fonctions
+<a class="reference external" href="https://docs.python.org/3.6/library/functions.html#int" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int()</span></code></a> et <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#float" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float()</span></code></a> produisent une erreur
+<a class="reference external" href="https://docs.python.org/3.6/library/exceptions.html#ValueError" title="(disponible dans Python v3.6)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a>.</p>
+</div>
+</div>
+<div class="section" id="convertir-en-valeur-booleenne">
+<h3>Convertir en valeur booléenne<a class="headerlink" href="#convertir-en-valeur-booleenne" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La fonction <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#bool" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool()</span></code></a> permet de convertir en valeur booléenne.
+Elle produit la valeur <a class="reference external" href="https://docs.python.org/3.6/library/constants.html#True" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">True</span></code></a> pour un nombre différent de 0 et
+pour une chaîne de caractères non vide. La valeur <a class="reference external" href="https://docs.python.org/3.6/library/constants.html#None" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">None</span></code></a> produit
+toujours la valeur <a class="reference external" href="https://docs.python.org/3.6/library/constants.html#False" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">False</span></code></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="s2">&quot;False&quot;</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="convertir-en-chaine-de-caracteres">
+<h3>Convertir en chaîne de caractères<a class="headerlink" href="#convertir-en-chaine-de-caracteres" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La fonction <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str()</span></code></a> permet de convertir en chaîne de caractères :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">&#39;1&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">&#39;True&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<span class="go">&#39;None&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="exercices">
+<h2>Exercices<a class="headerlink" href="#exercices" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="exercice admonition">
+<p class="admonition-title">Exercice : comparaison à la moyenne</p>
+<p>Écrivez un programme qui demande à l’utilisateur sa taille puis qui indique
+l’écart en centimètres par rapport à la moyenne. On pourra utiliser comme
+moyenne 1m75.</p>
+<p>Pour réaliser ce programme, vous allez avoir besoin de la fonction
+<a class="reference external" href="https://docs.python.org/3.6/library/functions.html#input" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">input()</span></code></a>. Cette fonction accepte en paramètre le message à afficher
+à l’utilisateur. L’appel à cette fonction bloque le programme et attend
+que l’utilisateur saisisse une valeur puis tape sur <kbd class="kbd docutils literal notranslate">Entrer</kbd>. La
+fonction retourne alors la valeur saisie sous la forme d’une chaîne
+de caractères.</p>
+<p>Exemples d’utilisation du programme :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Quelle est votre taille ? 1.70
+Vous avez un écart de -5 centimètres par rapport à la moyenne
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Quelle est votre taille ? 1.75
+Vous avez un écart de 0 centimètres par rapport à la moyenne
+</pre></div>
+</div>
+</div>
+<div class="exercice admonition">
+<p class="admonition-title">Exercice : conversion Fahrenheit / Celsius</p>
+<p>Écrivez un programme qui demande à l’utilisateur de saisir une température
+en degré Fahrenheit et qui affiche le résultat de la conversion en degré
+Celsius avec un seul chiffre après la virgule.</p>
+<p>La formule à appliquer :</p>
+<div class="math">
+<p><img src="../_images/math/2a96424fe97f9f82eac6ba7a89a2a3bd94e9f7b2.svg" alt="d(f) = \frac{f - 32}{1.8}"/></p>
+</div><p>Exemple d’utilisation du programme :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Température Fahrenheit ? 42
+Une température de 42.0°F correspond à 5.5°C
+</pre></div>
+</div>
+</div>
+<div class="exercice admonition">
+<p class="admonition-title">Exercice : QCM en invite de commande</p>
+<p>Écrivez un programme qui pose des questions pour lesquelles l’utilisateur
+doit fournir une réponse. Pour chaque réponse correcte, l’utilisateur
+marque un point. À la fin, le programme indique le nombre de réponses
+justes et le nombre de réponses fausses.</p>
+<p>Exemple d’utilisation du programme :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Quel est ton nom ?
+Sir Robin de Camelot.
+Quelle est ta quête ?
+Trouver le Saint Graal.
+Quelle est la capitale de la Syrie ?
+Je sais pas ça !
+
+Réponses correctes : 2
+Réponses incorrectes : 1
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p>Il faut avoir à l’esprit que :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="declarer-une-fonction">
+<h2>Déclarer une fonction<a class="headerlink" href="#declarer-une-fonction" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’intérêt principal des fonctions est de pouvoir organiser un programme en le
+décomposant en traitements de granularité plus faible. Ces traitements deviendront
+des fonctions dont le nom et la documentation amélioreront la lisibilité et la
+maintenabilité.</p>
+<p>Pour déclarer sa propre fonction, on commence par préciser sa <strong>signature</strong>.
+Cette signature est délimitée par le mot-clé <a class="reference external" href="https://docs.python.org/3.6/reference/compound_stmts.html#def" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">def</span></code></a> et deux-points <code class="docutils literal notranslate"><span class="pre">:</span></code>. Elle
+donne le nom de la fonction et la liste des paramètres. Puis vient le <strong>corps</strong> de
+la fonction, c’est-à-dire le code à exécuter lorsque cette fonction est appelée.
+Pour délimiter le corps d’une fonction, Python utilise <strong>l’indentation</strong>. Chaque
+ligne de la fonction commence par un certain nombre d’espaces (généralement quatre).
+Cela donne, à la fois, une indication visuelle au lecteur et à l’interpréteur
+de code.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Le nom d’une fonction suit la même convention que le nom des variables.
+Il s’écrit en lettres minuscules et les mots sont séparés par un trait inférieur
+(<em>underscore</em>) suivant la notation dite du <a class="reference external" href="https://fr.wikipedia.org/wiki/Snake_case">snake case</a>.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dire_bonjour_a</span><span class="p">(</span><span class="n">nom</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bonjour&quot;</span><span class="p">,</span> <span class="n">nom</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Un paramètre est simplement indiqué par son nom qui peut être ensuite utilisé
+dans le corps de la fonction. Un paramètre a pour valeur celle qui est donnée
+à chaque appel de la fonction.</p>
+<p>Il est ensuite possible d’appeler la fonction qui a été déclarée :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># affiche Bonjour David</span>
+<span class="n">dire_bonjour_a</span><span class="p">(</span><span class="s2">&quot;David&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Le corps d’une fonction Python doit contenir au moins une ligne. Si pour
+une raison ou une autre, vous voulez déclarer une fonction mais que vous
+voulez laisser le corps vide (votre fonction ne réalise aucun traitement), alors
+vous devez utiliser le mot-clé <a class="reference external" href="https://docs.python.org/3.6/reference/simple_stmts.html#pass" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">pass</span></code></a> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ma_fonction_qui_ne_fait_rien</span><span class="p">():</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="documenter-une-fonction">
+<h2>Documenter une fonction<a class="headerlink" href="#documenter-une-fonction" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour écrire la documentation d’une fonction, il suffit d’ajouter une chaîne
+de caractères directement à la suite de la déclaration de la signature de la
+fonction. On appelle ce texte la <a class="reference external" href="https://docs.python.org/3.6/glossary.html#term-docstring" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">docstring</span></code></a>. C’est ce texte qui
+est affiché lorsqu’on passe le nom de la fonction à la fonction <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#help" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">help()</span></code></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dire_bonjour_a</span><span class="p">(</span><span class="n">nom</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Affiche un message qui dit bonjour au nom qui est passé en</span>
+<span class="sd">       paramètre&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bonjour&quot;</span><span class="p">,</span> <span class="n">nom</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="n">dire_bonjour_a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="les-valeurs-de-retour">
+<h2>Les valeurs de retour<a class="headerlink" href="#les-valeurs-de-retour" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour qu’une fonction retourne une valeur, il faut utiliser le mot-clé <a class="reference external" href="https://docs.python.org/3.6/reference/simple_stmts.html#return" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">return</span></code></a>
+suivi de la valeur à retourner.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">creer_nom</span><span class="p">(</span><span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">):</span>
+    <span class="n">nom_complet</span> <span class="o">=</span> <span class="n">prenom</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">nom</span>
+    <span class="k">return</span> <span class="n">nom_complet</span>
+</pre></div>
+</div>
+<p>La valeur à retourner peut être le résultat d’une expression. Cela evite souvent
+d’avoir recours à des variables intermédiaires :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">creer_nom</span><span class="p">(</span><span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">prenom</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">nom</span>
+</pre></div>
+</div>
+<p>Le mot-clé <a class="reference external" href="https://docs.python.org/3.6/reference/simple_stmts.html#return" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">return</span></code></a> interrompt immédiatement le traitement de la fonction et
+retourne la valeur au programme appelant. Si vous écrivez du code après un <a class="reference external" href="https://docs.python.org/3.6/reference/simple_stmts.html#return" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">return</span></code></a>,
+il ne sera jamais exécuté.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">creer_nom</span><span class="p">(</span><span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">prenom</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">nom</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cette instruction ne sera jamais executée&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Une fonction peut retourner plusieurs valeurs. C’est le cas, par exemple, de la
+fonction standard <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#divmod" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">divmod()</span></code></a> qui retourne à la fois le résultat de la division
+et le reste de la division. Python permet de récupérer ces valeurs dans deux
+variables différentes :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">resultat</span><span class="p">,</span> <span class="n">reste</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le resultat de la division de 10 par 3 est&quot;</span><span class="p">,</span> <span class="n">resultat</span><span class="p">,</span> <span class="s2">&quot;et le reste est&quot;</span><span class="p">,</span> <span class="n">reste</span><span class="p">)</span>
+<span class="c1"># Le resultat de la division de 10 par 3 est 3 et le reste est 1</span>
+</pre></div>
+</div>
+<p>Nous pourrions réécrire sans difficulté la fonction <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#divmod" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">divmod()</span></code></a> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">divmod</span><span class="p">(</span><span class="n">numerateur</span><span class="p">,</span> <span class="n">denominateur</span><span class="p">):</span>
+    <span class="n">resultat</span> <span class="o">=</span> <span class="n">numerateur</span> <span class="o">//</span> <span class="n">denominateur</span>
+    <span class="n">reste</span> <span class="o">=</span> <span class="n">numerateur</span> <span class="o">%</span> <span class="n">denominateur</span>
+    <span class="k">return</span> <span class="n">resultat</span><span class="p">,</span> <span class="n">reste</span>
+</pre></div>
+</div>
+<p>Le mot-clé <a class="reference external" href="https://docs.python.org/3.6/reference/simple_stmts.html#return" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">return</span></code></a> peut également être employé seul pour signaler la fin
+d’une procédure. Dans cas, l’exécution de <a class="reference external" href="https://docs.python.org/3.6/reference/simple_stmts.html#return" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">return</span></code></a> interrompt immédiatement
+la procédure sans retourner de valeur.</p>
+</div>
+<div class="section" id="les-parametres-nommes">
+<h2>Les paramètres nommés<a class="headerlink" href="#les-parametres-nommes" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Python supporte les <strong>paramètres nommés</strong> pour une fonction. Cela signifie que
+vous pouvez, lors de l’appel d’une fonction, préciser le nom et la valeur du
+paramètre.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dire_bonjour_a</span><span class="p">(</span><span class="n">nom</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bonjour&quot;</span><span class="p">,</span> <span class="n">nom</span><span class="p">)</span>
+
+<span class="n">dire_bonjour_a</span><span class="p">(</span><span class="n">nom</span><span class="o">=</span><span class="s2">&quot;David&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Cela peut s’avérer utile pour une fonction qui accepte plusieurs paramètres.
+En effet, il n’est pas toujours facile de se souvenir de l’ordre exact des paramètres ni
+de leur signification. En nommant les paramètres au moment de l’appel, leur rôle
+devient plus explicite et nous ne sommes plus obligés de respecter l’ordre de
+leur déclaration :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dire_bonjour_a</span><span class="p">(</span><span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bonjour&quot;</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">)</span>
+
+<span class="n">dire_bonjour_a</span><span class="p">(</span><span class="n">nom</span><span class="o">=</span><span class="s2">&quot;Gayerie&quot;</span><span class="p">,</span> <span class="n">prenom</span><span class="o">=</span><span class="s2">&quot;David&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Vous pouvez appeler un fonction en passant des paramètres et des paramètres nommés.
+Dans ce cas, les paramètres nommés doivent être placés à la fin de la liste
+des paramètres.</p>
+</div>
+</div>
+<div class="section" id="valeur-par-defaut-des-parametres">
+<h2>Valeur par défaut des paramètres<a class="headerlink" href="#valeur-par-defaut-des-parametres" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Python autorise une fonction à avoir une valeur par défaut pour un ou plusieurs
+de ses paramètres. Ainsi le programme qui appelle la fonction peut omettre de
+donner une valeur pour ces paramètres. Cela permet de rendre certains paramètres
+optionnels. On précise la valeur d’un paramètre après le signe <code class="docutils literal notranslate"><span class="pre">=</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dire_bonjour_a</span><span class="p">(</span><span class="n">nom</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Bonjour&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">nom</span><span class="p">)</span>
+
+<span class="c1"># affiche Bonjour David</span>
+<span class="n">dire_bonjour_a</span><span class="p">(</span><span class="s2">&quot;David&quot;</span><span class="p">)</span>
+<span class="c1"># affiche Bonsoir David</span>
+<span class="n">dire_bonjour_a</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s2">&quot;Bonsoir&quot;</span><span class="p">,</span> <span class="n">nom</span><span class="o">=</span><span class="s2">&quot;David&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fonction-et-portee-des-variables">
+<h2>Fonction et portée des variables<a class="headerlink" href="#fonction-et-portee-des-variables" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une fonction peut accepter des paramètres et une fonction peut déclarer des
+variables :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calcul_prix_ttc</span><span class="p">(</span><span class="n">prix_ht</span><span class="p">,</span> <span class="n">taux_tva</span> <span class="o">=</span> <span class="mi">20</span><span class="p">):</span>
+    <span class="c1"># déclaration de la variable tva</span>
+    <span class="n">tva</span> <span class="o">=</span> <span class="n">prix_ht</span> <span class="o">*</span> <span class="n">taux_tva</span> <span class="o">/</span> <span class="mi">100</span>
+    <span class="n">tva</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">tva</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">prix_ht</span> <span class="o">+</span> <span class="n">tva</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p>La fonction <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#round" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">round()</span></code></a> arrondie un nombre (le premier paramètre) avec une
+précision après la virgule donnée par le second paramètre.</p>
+</div>
+<p>Dans l’exemple ci-dessus, la fonction <code class="docutils literal notranslate"><span class="pre">calcul_prix_ttc()</span></code> utilise la variable
+<code class="docutils literal notranslate"><span class="pre">tva</span></code> pour stocker le calcul de la TVA et réaliser un arrondi. Cette variable
+est liée à l’exécution de la fonction <code class="docutils literal notranslate"><span class="pre">calcul_prix_ttc()</span></code>. Cela signifie
+qu’elle n’existe pour l’interpréteur qu’au moment de l’exécution de la
+fonction. Dès que la fonction se termine, la variable et sa valeur ne sont plus
+accessibles. On dit que la <strong>portée</strong> de la variable <code class="docutils literal notranslate"><span class="pre">tva</span></code> est limitée à la
+fonction <code class="docutils literal notranslate"><span class="pre">calcul_prix_ttc()</span></code>. Donc cette variable n’existe pas dans le reste
+du programme.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Génère une erreur NameError car la variable tva n&#39;existe pas</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tva</span><span class="p">)</span>
+
+<span class="n">calcul_prix_ttc</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Génère une erreur NameError car la variable tva n&#39;existe pas</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tva</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Mais que se passe-t-il si le programme déclare et utilise une variable <code class="docutils literal notranslate"><span class="pre">tva</span></code>
+avant et après l’appel à <code class="docutils literal notranslate"><span class="pre">calcul_prix_ttc()</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tva</span> <span class="o">=</span> <span class="s2">&quot;ceci n&#39;est pas vraiment le montant d&#39;une tva&quot;</span>
+
+<span class="n">calcul_prix_ttc</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># affiche: ceci n&#39;est pas vraiment le montant d&#39;une tva</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tva</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Avec l’exemple précédent, on voit bien que la variable <code class="docutils literal notranslate"><span class="pre">tva</span></code> n’est pas modifiée
+par l’appel à la fonction <code class="docutils literal notranslate"><span class="pre">calcul_prix_ttc()</span></code> car même si elle a un nom identique
+à la variable utilisée dans cette fonction, il s’agit de variables différentes
+pour l’interpréteur. On peut déclarer et utiliser des variables
+qui ont le même nom à condition qu’elles n’appartiennent pas à la même portée.</p>
+</div>
+<div class="section" id="id2">
+<h2>Exercices<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="exercice admonition">
+<p class="admonition-title">Exercice : comparaison à la moyenne</p>
+<p>Reprenez l’exercice qui permet de comparer une taille saisie avec la moyenne.</p>
+<p>Créez trois fonctions dans le programme :</p>
+<dl class="simple">
+<dt>demander_taille()</dt><dd><p>Cette fonction demande sa taille à l’utilisateur et retourne
+la valeur saisie sous la forme d’un nombre.</p>
+</dd>
+<dt>comparer_taille()</dt><dd><p>Cette fonction compare une première taille à une seconde et donne la différence
+en centimètres. Le second paramètre a une valeur par défaut qui correspond
+à la moyenne de la taille.</p>
+</dd>
+<dt>afficher_difference_moyenne()</dt><dd><p>Cette fonction prend en paramètre un écart de taille en centimètres
+et affiche l’information à l’utilisateur.</p>
+</dd>
+</dl>
+</div>
+<div class="exercice admonition">
+<p class="admonition-title">Exercice : fonction de conversion Fahrenheit / Celsius</p>
+<p>Écrivez une fonction pour convertir une température en degré Fahrenheit en
+une température en degré Celsius.</p>
+</div>
+</div>
+<div class="section" id="variable-globale-et-fonction">
+<h2>Variable globale et fonction<a class="headerlink" href="#variable-globale-et-fonction" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une variable qui est déclarée dans le fichier principal est aussi appelée <strong>variable
+globale</strong> car elle existe dans la mémoire jusqu’à la fin de l’exécution du programme.</p>
+<p>Imaginons le programme suivant :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">message</span><span class="o">=</span><span class="s2">&quot;Bonjour&quot;</span>
+
+<span class="k">def</span> <span class="nf">dire_bonjour_a</span><span class="p">(</span><span class="n">nom</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">nom</span><span class="p">)</span>
+
+<span class="c1"># Affiche Bonjour David</span>
+<span class="n">dire_bonjour_a</span><span class="p">(</span><span class="s2">&quot;David&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">dire_bonjour_a()</span></code> utilise la paramètre <code class="docutils literal notranslate"><span class="pre">nom</span></code> mais aussi la
+variable globale <code class="docutils literal notranslate"><span class="pre">message</span></code>. Dans les deux cas, la fonction ne fait que lire
+la valeur du paramètre et de la variable globale. Mais comment faire pour modifier
+la valeur d’une variable globale dans le corps d’une fonction ?</p>
+<p>Nous avons vu à la section précédente qu’il n’est pas possible de modifier
+directement une variable globale dans une fonction. Nous pouvons simplement
+<strong>créer une nouvelle variable avec le même nom ayant une portée limitée à la
+fonction</strong>. Pour nous en convaincre, essayons le programme suivant :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Un message global&quot;</span>
+
+<span class="k">def</span> <span class="nf">traiter_message</span><span class="p">():</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Un message local&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<span class="n">traiter_message</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Ce programme produit le résultat suivant :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Un message global
+Un message local
+Un message global
+</pre></div>
+</div>
+<p>Cela montre bien que la variable globale <code class="docutils literal notranslate"><span class="pre">message</span></code> et la variable <code class="docutils literal notranslate"><span class="pre">message</span></code>
+initialiser dans la fonction <code class="docutils literal notranslate"><span class="pre">traiter_message()</span></code> sont bien distinctes.</p>
+<p>En Python, il est tout de même possible de modifier une variable globale dans
+une fonction. Pour cela, il faut préciser explicitement grâce au mot-clé <a class="reference external" href="https://docs.python.org/3.6/reference/simple_stmts.html#global" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">global</span></code></a>
+que la fonction fait référence à la variable globale. Si nous changeons notre
+implémentation :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Un message global&quot;</span>
+
+<span class="k">def</span> <span class="nf">traiter_message</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">message</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Un message local&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<span class="n">traiter_message</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Ce programme produit le résultat suivant et modifie bien le contenu de la
+variable globale :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Un message global
+Un message local
+Un message local
+</pre></div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Prudence</p>
+<p>Le recours à des variables globales est souvent le signe d’une mauvaise
+conception logicielle et est fortement déconseillé. On se limite généralement
+à utiliser ce type de variables pour représenter des constantes, c’est-à-dire
+des valeurs qui ne doivent pas changer pendant l’exécution du programme. Il
+n’existe pas de méthode directe pour déclarer des constantes en Python, on
+se contente d’écrire le nom des constantes en majuscules pour signaler
+notre intention aux autres développeurs :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">TAUX_TVA</span> <span class="o">=</span> <span class="o">.</span><span class="mi">2</span>
+
+<span class="k">def</span> <span class="nf">calculer_prix_ttc</span><span class="p">(</span><span class="n">prix_ht</span><span class="p">):</span>
+    <span class="n">tva</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">prix_ht</span> <span class="o">*</span> <span class="n">TAUX_TVA</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">prix_ht</span> <span class="o">+</span> <span class="n">tva</span>
+</pre></div>
+</div>
+<p>Notez qu’il n’est pas nécessaire d’utiliser le mot-clé <a class="reference external" href="https://docs.python.org/3.6/reference/simple_stmts.html#global" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">global</span></code></a>
+pour lire et utiliser la valeur d’une variable globale.</p>
+</div>
+</div>
+<div class="section" id="notion-de-methode">
+<h2>Notion de méthode<a class="headerlink" href="#notion-de-methode" title="Lien permanent vers ce titre">¶</a></h2>
+<p>En plus des fonctions, Python connaît la notion de <strong>méthode</strong>. Une méthode
+est une séquence de traitement que l’on effectue sur un type. Une méthode est appelée
+pour une valeur, une variable ou un paramètre en utilisant l’opérateur <code class="docutils literal notranslate"><span class="pre">.</span></code>.
+Par exemple, une chaîne de caractères possède les méthodes <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str.upper" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">upper()</span></code></a>
+et <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str.lower" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">lower()</span></code></a> permettant de créer une nouvelle chaîne de caractères
+en lettres minuscules et respectivement en lettres majuscules :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Testons les méthodes.&quot;</span>
+<span class="n">msg_lower</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="n">msg_upper</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">msg_lower</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">msg_upper</span><span class="p">)</span>
+<span class="n">msg_upper</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">msg_upper</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Nous verrons plus en détail la notion de méthode lorsque nous aborderons
+le paradigme de la programmation orientée objet.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="list.html" class="btn btn-neutral float-right" title="La liste (list)" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="type_et_variable.html" class="btn btn-neutral float-left" title="Types et variables" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright David Gayerie - david@gayerie.dev - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

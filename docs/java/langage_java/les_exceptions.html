@@ -1,0 +1,1373 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Le langage Java - Les exceptions" name="description" />
+<meta content="Java, programmation objet, POO, langage de programmation" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Les exceptions &mdash; Documentation Le langage Java </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/java/langage_java/les_exceptions.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Les énumérations" href="enumeration.html" />
+    <link rel="prev" title="La classe String" href="la_classe_string.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Le langage Java
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Le langage Java</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#l-environnement">L’environnement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#oracle-jdk-et-open-jdk">Oracle JDK et Open JDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#un-bref-historique-des-versions">Un bref historique des versions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#configuration-d-eclipse">Configuration d’Eclipse</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="compilation.html">Compilation &amp; exécution</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#un-premier-programme">Un premier programme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#la-compilation">La compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#l-execution">L’exécution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#la-liaison-dynamique">La liaison dynamique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#le-classpath">Le classpath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#bibliotheques-java-les-fichiers-jar">Bibliothèques Java : les fichiers JAR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#creation-d-un-projet-dans-eclipse">Création d’un projet dans Eclipse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structure_fondamentale.html">La structure fondamentale du langage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-instructions">Les instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#le-typage">Le typage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-blocs-de-code">Les blocs de code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-commentaires">Les commentaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#le-formatage-du-code">Le formatage du code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-conventions-de-nommage">Les conventions de nommage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-mots-cles">Les mots-clés</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="premiere_classe.html">Une première classe</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#declarer-une-classe">Déclarer une classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#anatomie-d-une-classe">Anatomie d’une classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#ajouter-des-methodes">Ajouter des méthodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#la-methode-main">La méthode main</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#executer-le-programme-en-ligne-de-commandes">Exécuter le programme en ligne de commandes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#executer-le-programme-depuis-eclipse">Exécuter le programme depuis Eclipse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="types_primitifs.html">Les types primitifs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#le-type-booleen-boolean">Le type booléen : boolean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#le-type-caractere-char">Le type caractère : char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#les-types-entiers-byte-short-int-long">Les types entiers : byte, short, int, long</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#les-types-a-virgule-flottante-float-double">Les types à virgule flottante : float, double</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#les-classes-enveloppes">Les classes enveloppes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#l-autoboxing">L’autoboxing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="operateurs.html">Les opérateurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur-d-affectation">L’opérateur d’affectation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-arithmetiques">Les opérateurs arithmétiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-arithmetiques-unaires">Les opérateurs arithmétiques unaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur-de-concatenation-de-chaines">L’opérateur de concaténation de chaînes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-relationnels">Les opérateurs relationnels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-logiques">Les opérateurs logiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur-ternaire">L’opérateur ternaire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-bitwise">Les opérateurs <em>bitwise</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-de-decalage">Les opérateurs de décalage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#le-transtypage-cast">Le transtypage (cast)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#operateur-et-assignation">Opérateur et assignation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur">L’opérateur .</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#id1">L’opérateur ,</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structures_de_controle.html">Les structures de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#if-else">if-else</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#return">return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#while">while</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#do-while">do-while</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#for">for</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#for-ameliore">for amélioré</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#break-continue">break-continue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#libelle">libellé</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#switch">switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tableau.html">Les tableaux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#initialisation">Initialisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#creation-avec-new">Création avec new</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#acces-aux-elements-d-un-tableau">Accès aux éléments d’un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#tableau-multi-dimensionnel">Tableau multi-dimensionnel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#conversion-en-chaine-de-caracteres">Conversion en chaîne de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#egalite-de-deux-tableaux">Égalité de deux tableaux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#tri-recherche">Tri &amp; recherche</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#copie-d-un-tableau">Copie d’un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#typage-d-un-tableau">Typage d’un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#conversion-d-un-tableau-en-liste">Conversion d’un tableau en liste</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="attributs_et_methodes.html">Attributs &amp; méthodes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#les-attributs">Les attributs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#la-portee">La portée</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#l-initialisation">L’initialisation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#attributs-finaux">attributs finaux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#attributs-de-classe">Attributs de classe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#attributs-de-classe-finaux">Attributs de classe finaux</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#les-methodes">Les méthodes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#id1">La portée</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#la-valeur-de-retour">La valeur de retour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#les-parametres">Les paramètres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#parametre-final">Paramètre final</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#les-variables">Les variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#methodes-de-classe">Méthodes de classe</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#surcharge-de-methode-overloading">Surcharge de méthode : overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#portee-des-noms-et-this">Portée des noms et this</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#principe-d-encapsulation">Principe d’encapsulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cycle_de_vie.html">Cycle de vie d’un objet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-constructeur">Le constructeur</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#parametres-de-constructeur">Paramètres de constructeur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#valeur-par-defaut-des-attributs">Valeur par défaut des attributs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#constructeur-par-defaut">Constructeur par défaut</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#constructeur-prive">Constructeur privé</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#appel-d-un-constructeur-dans-un-constructeur">Appel d’un constructeur dans un constructeur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#appel-d-une-methode-dans-un-constructeur">Appel d’une méthode dans un constructeur</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#injection-de-dependances-par-le-constructeur">Injection de dépendances par le constructeur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-bloc-d-initialisation">Le bloc d’initialisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-bloc-d-initialisation-de-classe">Le bloc d’initialisation de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#exercice">Exercice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#memoire-heap-et-stack">Mémoire heap et stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-ramasse-miettes">Le ramasse-miettes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#la-methode-finalize">La méthode finalize</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="package.html">Les packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="package.html#declaration-d-un-package">Déclaration d’un package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#sous-package">Sous package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#nom-d-un-package">Nom d’un package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#nom-complet-d-une-classe">Nom complet d’une classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#import-de-noms">Import de noms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#la-portee-de-niveau-package">La portée de niveau package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#le-fichier-package-info-java">Le fichier package-info.java</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="heritage_composition.html">Héritage et composition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#l-heritage-is-a">L’héritage (is-a)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-et-constructeur">Héritage et constructeur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-simple-object">Héritage simple : Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-et-affectation">Héritage et affectation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#le-mot-cle-instanceof">Le mot-clé instanceof</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#la-portee-protected">La portée protected</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-des-methodes-et-attributs-de-classe">Héritage des méthodes et attributs de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-et-final">Héritage et final</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#la-composition-has-a">La composition (has-a)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="polymorphisme.html">Le polymorphisme</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#principe-du-polymorphisme">Principe du polymorphisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#une-exception-les-methodes-privees">Une exception : les méthodes privées</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#redefinition-et-signature-de-methode">Redéfinition et signature de méthode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#le-mot-cle-super">Le mot-clé super</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#l-annotation-override">L’annotation &#64;Override</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#les-methodes-de-classe">Les méthodes de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#methode-finale">Méthode finale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#constructeur-et-polymorphisme">Constructeur et polymorphisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#masquage-des-attributs-par-heritage">Masquage des attributs par héritage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#le-principe-du-ouvert-ferme">Le principe du ouvert/fermé</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="classe_abstraite.html">Les classes abstraites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classe_abstraite.html#declarer-une-classe-abstraite">Déclarer une classe abstraite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_abstraite.html#declarer-une-methode-abstraite">Déclarer une méthode abstraite</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="la_classe_object.html">La classe Object</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-equals">La méthode equals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-hashcode">La méthode hashCode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-tostring">La méthode toString</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-finalize">La méthode finalize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-clone">La méthode clone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-getclass">La méthode getClass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#les-methodes-de-concurrence">Les méthodes de concurrence</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="la_classe_string.html">La classe String</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#string-et-tableau-de-caracteres">String et tableau de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#quelques-methodes-utilitaires">Quelques méthodes utilitaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#construction-d-une-instance-de-string">Construction d’une instance de String</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#immutabilite-des-chaines-de-caracteres">Immutabilité des chaînes de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#la-classe-stringbuilder">La classe StringBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#formatage-de-texte">Formatage de texte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#les-expressions-regulieres">Les expressions régulières</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Les exceptions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#qu-est-ce-qu-une-exception">Qu’est-ce qu’une exception ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#signaler-une-exception">Signaler une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#traiter-une-exception">Traiter une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#propagation-d-une-exception">Propagation d’une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exceptions-et-polymorphisme">Exceptions et polymorphisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#le-bloc-finally">Le bloc finally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#le-try-with-resources">Le try-with-resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hierarchie-applicative-d-exception">Hiérarchie applicative d’exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exception-cause">Exception cause</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-erreurs-et-les-exceptions-runtime">Les erreurs et les exceptions runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#choix-entre-checked-et-unchecked">Choix entre checked et unchecked</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="enumeration.html">Les énumérations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#les-methodes-d-une-enumeration">Les méthodes d’une énumération</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#egalite-entre-enumerations">Égalité entre énumérations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#support-de-switch">Support de switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#generation-d-une-enumeration">Génération d’une énumération</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#ajout-de-methodes-et-d-attributs">Ajout de méthodes et d’attributs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#ajout-de-constructeurs">Ajout de constructeurs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Les interfaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#declaration-d-une-interface">Déclaration d’une interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#implementation-d-une-interface">Implémentation d’une interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#attributs-et-methodes-statiques">Attributs et méthodes statiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#heritage-d-interface">Héritage d’interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#les-interfaces-marqueurs">Les interfaces marqueurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#implementation-par-defaut">Implémentation par défaut</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#la-segregation-d-interface">La ségrégation d’interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#l-inversion-de-dependance">L’inversion de dépendance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="generiques.html">Méthodes et classes génériques</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#l-exemple-de-la-classe-arraylist">L’exemple de la classe ArrayList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#creation-et-assignation-d-une-classe-generique">Création et assignation d’une classe générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#notation-en-diamant">Notation en diamant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#substitution-et-type-generique">Substitution et type générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#ecrire-une-methode-generique">Écrire une méthode générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#ecrire-une-classe-generique">Écrire une classe générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#limitations">Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_collections.html">Les collections</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#les-listes">Les listes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-arraylist">La classe ArrayList</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-linkedlist">La classe LinkedList</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-arraydeque">La classe ArrayDeque</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-priorityqueue">La classe PriorityQueue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-classes-vector-et-stack">Les classes Vector et Stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-interfaces-pour-les-listes">Les interfaces pour les listes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#les-ensembles-set">Les ensembles (set)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-treeset">La classe TreeSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-hashset">La classe HashSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-linkedhashset">La classe LinkedHashSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-interfaces-pour-les-ensembles">Les interfaces pour les ensembles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#copie-d-une-collection-dans-un-tableau">Copie d’une collection dans un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#les-tableaux-associatifs-maps">Les tableaux associatifs (maps)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-treemap">La classe TreeMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-hashmap">La classe HashMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#la-classe-linkedhashmap">La classe LinkedHashMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-classes-dictionary-et-hashtable">Les classes Dictionary et Hashtable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_collections.html#les-interfaces-pour-les-tableaux-associatifs">Les interfaces pour les tableaux associatifs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_collections.html#la-classe-outil-collections">La classe outil Collections</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="entrees_sorties.html">Les entrées/sorties</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#inputstream-et-classes-concretes">InputStream et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#outputstream-et-classes-concretes">OutputStream et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#flux-orientes-caracteres">Flux orientés caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#reader-et-classes-concretes">Reader et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#writer-et-classes-concretes">Writer et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#les-decorateurs-de-flux">Les décorateurs de flux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#la-classe-scanner">La classe Scanner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#fichiers-et-chemins">Fichiers et chemins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#acces-au-reseau">Accès au réseau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#la-serialisation-d-objets">La sérialisation d’objets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="entrees_sorties.html#donnee-transient">Donnée transient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="entrees_sorties.html#identifiant-de-version-de-serialisation">Identifiant de version de sérialisation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_dates.html">Les dates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#date-la-classe-historique">Date : la classe historique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#calendar">Calendar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#l-api-date-time">L’API Date/Time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_dates.html#id1">Les Dates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_dates.html#la-classe-instant">La classe Instant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_dates.html#periode-et-duree">Période et durée</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#formatage-des-dates">Formatage des dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#lecture-des-dates">Lecture des dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_lambdas.html">Programmation fonctionnelle et lambdas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_lambdas.html#les-fonctions-anonymes-les-lambdas">Les fonctions anonymes : les lambdas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#syntaxe-des-lambdas">Syntaxe des lambdas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#usage-des-lambdas">Usage des lambdas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#lambda-et-closure">Lambda et closure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#les-interfaces-fonctionnelles">Les interfaces fonctionnelles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#l-operateur-de-reference-de-methode">L’opérateur :: de référence de méthode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_lambdas.html#la-classe-optional">La classe Optional</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="streams.html">Streams</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#creation-d-un-stream">Création d’un stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#la-reduction">La réduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#la-collecte">La collecte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#le-filtrage">Le filtrage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#le-mapping">Le mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#le-parallelisme">Le parallélisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="classe_interne.html">Les classes internes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#les-classes-internes-static">Les classes internes static</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#id1">Les classes internes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#les-classes-anonymes">Les classes anonymes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#acces-aux-elements-de-l-objet-englobant">Accès aux éléments de l’objet englobant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#classe-interne-a-une-methode">Classe interne à une méthode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#interface-et-enumeration">Interface et énumération</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#plusieurs-classes-dans-un-meme-fichier">Plusieurs classes dans un même fichier</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_annotations.html">Les annotations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#utilisation-des-annotations">Utilisation des annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#declaration-d-une-annotation">Déclaration d’une annotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#retention-d-une-annotation">Rétention d’une annotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#utilisation-des-annotations-par-introspection">Utilisation des annotations par introspection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="module.html">Les modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="module.html#des-modules-pour-ameliorer-la-securite">Des modules pour améliorer la sécurité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#des-modules-pour-plus-de-modularite">Des modules pour plus de modularité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#le-descripteur-de-module-module-info-java">Le descripteur de module (module-info.java)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="module.html#dependance-a-d-autres-modules">Dépendance à d’autres modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module.html#exposer-des-packages">Exposer des packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module.html#utiliser-un-service">Utiliser un service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module.html#fournir-un-service">Fournir un service</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#le-module-anonyme">Le module anonyme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#la-notion-de-module-path">La notion de module path</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Le langage Java</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Les exceptions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="enumeration.html" class="btn btn-neutral float-right" title="Les énumérations" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="la_classe_string.html" class="btn btn-neutral float-left" title="La classe String" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="les-exceptions">
+<h1>Les exceptions<a class="headerlink" href="#les-exceptions" title="Lien permanent vers ce titre">¶</a></h1>
+<p>La gestion des cas d’erreur représente un travail important dans la programmation.
+Les sources d’erreur peuvent être nombreuses dans un programme. Il peut s’agir :</p>
+<ul class="simple">
+<li><p>d’une défaillance physique ou logiciel de l’environnement d’exécution. Par
+exemple une erreur survient lors de l’accès à un fichier ou à la mémoire.</p></li>
+<li><p>d’un état atteint par un objet qui ne correspond pas à un cas prévu. Par
+exemple si une opération demande à positionner une valeur négative alors
+que cela n’est normalement pas permis par la spécification du logiciel.</p></li>
+<li><p>d’une erreur de programmation. Par exemple, un appel à une méthode est réalisé
+sur une variable dont la valeur est <strong>null</strong>.</p></li>
+<li><p>et bien d’autres cas encore…</p></li>
+</ul>
+<p>La robustesse d’une application est souvent comprise comme sa capacité à continuer
+à rendre un service acceptable dans un environnement dégradé, c’est-à-dire quand
+toutes les conditions attendues normalement ne sont pas satisfaites.</p>
+<p>En Java, la gestion des erreurs se confond avec la gestion des cas exceptionnels.
+On utilise alors le mécanisme des exceptions.</p>
+<div class="section" id="qu-est-ce-qu-une-exception">
+<h2>Qu’est-ce qu’une exception ?<a class="headerlink" href="#qu-est-ce-qu-une-exception" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une exception est une classe Java qui représente un état particulier et qui
+hérite directement ou indirectement de la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Exception.html">Exception</a>. Par convention, le
+nom de la classe doit permettre de comprendre le type d’exception et doit
+se terminer par Exception.</p>
+<p>Exemple de classes d’exception fournies par l’API standard :</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/NullPointerException.html">NullPointerException</a></dt><dd><p>Signale qu’une référence <strong>null</strong> est utilisée pour invoquer une méthode
+ou accéder à un attribut.</p>
+</dd>
+<dt><a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/NumberFormatException.html">NumberFormatException</a></dt><dd><p>Signale qu’il n’est pas possible de convertir une chaîne de caractères en nombre
+car la chaîne de caractère ne correspond pas à un nombre valide.</p>
+</dd>
+<dt><a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/IndexOutOfBoundsException.html">IndexOutOfBoundsException</a></dt><dd><p>Signale que l’on tente d’accéder à un indice de tableau en dehors des valeurs
+permises.</p>
+</dd>
+</dl>
+<p>Pour créer sa propre exception, il suffit de créer une classe héritant
+de la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Exception.html">java.lang.Exception</a>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.heroes</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FinDuMondeException</span> <span class="kd">extends</span> <span class="n">Exception</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="nf">FinDuMondeException</span><span class="p">()</span> <span class="p">{</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="nf">FinDuMondeException</span><span class="p">(</span><span class="n">String</span> <span class="n">message</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">super</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Exception.html">Exception</a> fournit plusieurs constructeurs que l’on peut ou non
+appeler depuis la classe fille.</p>
+</div>
+<p>Une exception étant un objet, elle possède son propre état et peut ainsi stocker
+des informations utiles sur les raisons de son apparition.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.heroes</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.time.Instant</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FinDuMondeException</span> <span class="kd">extends</span> <span class="n">Exception</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="n">Instant</span> <span class="n">date</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="nf">FinDuMondeException</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">(</span><span class="n">Instant</span><span class="p">.</span><span class="na">now</span><span class="p">());</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="nf">FinDuMondeException</span><span class="p">(</span><span class="n">Instant</span> <span class="n">instant</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">super</span><span class="p">(</span><span class="s">&quot;La fin du monde est survenue le &quot;</span> <span class="o">+</span> <span class="n">instant</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">date</span> <span class="o">=</span> <span class="n">instant</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="n">Instant</span> <span class="nf">getDate</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">date</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="signaler-une-exception">
+<h2>Signaler une exception<a class="headerlink" href="#signaler-une-exception" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Dans les langages de programmation qui ne supportent pas le mécanisme des
+exceptions, on utilise généralement un code retour ou une valeur booléenne
+pour savoir si une fonction ou une méthode s’est déroulée correctement.
+Cette mécanique se révèle assez fastidieuse dans son implémentation car cela
+signifie qu’un développeur doit tester dans son programme toutes les valeurs
+retournées par les fonctions ou les méthodes appelées</p>
+<p>Les exceptions permettent d’isoler le code responsable du traitement de l’erreur.
+Cela permet d’améliorer la lisibilité du code source.</p>
+<p>Lorsqu’un programme détecte un état exceptionnel, il peut le signaler en <em>jetant</em>
+une exception grâce au mot-clé <strong>throw</strong>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="n">isPlanDiaboliqueReussi</span><span class="p">())</span> <span class="p">{</span>
+  <span class="k">throw</span> <span class="k">new</span> <span class="n">FinDuMondeException</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Exception.html">Exception</a> hérite de la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Throwable.html">Throwable</a>. Le mot-clé <strong>throw</strong>
+peut en fait être utilisé avec n’importe quelle instance qui hérite
+directement ou indirectement de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Throwable.html">Throwable</a>.</p>
+</div>
+<p>Jeter une exception signifie que le flot d’exécution normal de la méthode
+est interrompu jusqu’au point de traitement de l’exception. Si aucun point
+de traitement n’est trouvé, le programme s’interrompt.</p>
+</div>
+<div class="section" id="traiter-une-exception">
+<h2>Traiter une exception<a class="headerlink" href="#traiter-une-exception" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour traiter une exception, il faut d’abord délimiter un bloc de code avec le
+mot-clé <strong>try</strong>. Ce bloc de code correspond au flot d’exécution pour lequel
+on souhaite éventuellement <em>attraper</em> une exception qui serait jetée afin
+d’implémenter un traitement particulier. Le bloc <strong>try</strong> peut être suivi d’un
+ou plusieurs blocs <strong>catch</strong> pour intercepter une exception d’un type
+particulier.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">heros</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">NullPointerException</span><span class="p">(</span><span class="s">&quot;Le heros ne peut pas être nul !&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kt">boolean</span> <span class="n">victoire</span> <span class="o">=</span> <span class="n">heros</span><span class="p">.</span><span class="na">combattre</span><span class="p">(</span><span class="n">espritDuMal</span><span class="p">);</span>
+  <span class="kt">boolean</span> <span class="n">planDejoue</span> <span class="o">=</span> <span class="n">heros</span><span class="p">.</span><span class="na">desamorcer</span><span class="p">(</span><span class="n">machineInfernale</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">victoire</span> <span class="o">||</span> <span class="o">!</span><span class="n">planDejoue</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">FinDuMondeException</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="n">heros</span><span class="p">.</span><span class="na">setPoseVictorieuse</span><span class="p">();</span>
+
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">FinDuMondeException</span> <span class="n">fdme</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Dans l’exemple ci-dessus, si la variable <em>heros</em> vaut <strong>null</strong> alors le traitement
+du bloc <strong>try</strong> est interrompu à la ligne 3 par une <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/NullPointerException.html">NullPointerException</a>.
+Sinon le bloc continue à s’exécuter. La ligne 13 ne sera exécutée que si la condition
+à la ligne 9 est fausse. Par contre, si cette condition est vraie, le traitement
+du bloc est interrompu par le lancement d’une <em>FinDuMondeException</em> et le
+traitement reprend dans le bloc <strong>catch</strong> à partir de la ligne 16.</p>
+<p>La bloc <strong>catch</strong> permet à la fois d’identifier le type d’exception concerné
+par le bloc de traitement et à la fois de déclarer une variable qui permet
+d’avoir accès à l’exception durant l’exécution du bloc <strong>catch</strong>. Un bloc
+<strong>catch</strong> sera exécuté si une exception du même type ou d’un sous-type que celui
+déclaré par le bloc est lancée à l’exécution. Attention, si une exception
+déclenche le traitement d’un bloc <strong>catch</strong>, le flot d’exécution reprend
+ensuite à la fin des blocs <strong>catch</strong>.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">heros</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">NullPointerException</span><span class="p">(</span><span class="s">&quot;Le heros ne peut pas être nul !&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kt">boolean</span> <span class="n">victoire</span> <span class="o">=</span> <span class="n">heros</span><span class="p">.</span><span class="na">combattre</span><span class="p">(</span><span class="n">espritDuMal</span><span class="p">);</span>
+  <span class="kt">boolean</span> <span class="n">planDejoue</span> <span class="o">=</span> <span class="n">heros</span><span class="p">.</span><span class="na">desamorcer</span><span class="p">(</span><span class="n">machineInfernale</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">victoire</span> <span class="o">||</span> <span class="o">!</span><span class="n">planDejoue</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">FinDuMondeException</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="n">heros</span><span class="p">.</span><span class="na">setPoseVictorieuse</span><span class="p">();</span>
+
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Dans le code ci-dessus, le bloc <strong>catch</strong> est associé aux exceptions de type
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Exception.html">Exception</a>. Comme toutes les exceptions en Java hérite directement ou indirectement
+de cette classe, ce bloc sera exécuté pour traité la <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/NullPointerException.html">NullPointerException</a> à
+la ligne 3 ou la <em>FinDuMondeException</em> à la ligne 10.</p>
+<p>Les blocs <strong>catch</strong> sont pris en compte à l’exécution dans l’ordre de leur
+déclaration. Déclarer un bloc <strong>catch</strong> pour une exception parente avant
+un bloc <strong>catch</strong> pour une exception enfant est considéré comme une erreur de compilation.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">heros</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">NullPointerException</span><span class="p">(</span><span class="s">&quot;Le heros ne peut pas être nul !&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kt">boolean</span> <span class="n">victoire</span> <span class="o">=</span> <span class="n">heros</span><span class="p">.</span><span class="na">combattre</span><span class="p">(</span><span class="n">espritDuMal</span><span class="p">);</span>
+  <span class="kt">boolean</span> <span class="n">planDejoue</span> <span class="o">=</span> <span class="n">heros</span><span class="p">.</span><span class="na">desamorcer</span><span class="p">(</span><span class="n">machineInfernale</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">victoire</span> <span class="o">||</span> <span class="o">!</span><span class="n">planDejoue</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">FinDuMondeException</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="n">heros</span><span class="p">.</span><span class="na">setPoseVictorieuse</span><span class="p">();</span>
+
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="hll"><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">FinDuMondeException</span> <span class="n">fdme</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">  <span class="c1">// ERREUR DE COMPILATION</span>
+</span><span class="hll"><span class="p">}</span>
+</span></pre></div>
+</td></tr></table></div>
+<p>Dans, l’exemple précédent, il faut bien comprendre que <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Exception.html">Exception</a> est la classe
+parente de <em>FinDuMondeException</em>. Donc si une exception de type <em>FinDuMondeException</em>
+est lancée, alors seul le premier bloc <strong>catch</strong> sera exécuté. Le second est
+donc simplement du code mort est générera une erreur de compilation. Pour
+que cela fonctionne, il faut inverser l’ordre des blocs <strong>catch</strong> :</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">heros</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">NullPointerException</span><span class="p">(</span><span class="s">&quot;Le heros ne peut pas être nul !&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kt">boolean</span> <span class="n">victoire</span> <span class="o">=</span> <span class="n">heros</span><span class="p">.</span><span class="na">combattre</span><span class="p">(</span><span class="n">espritDuMal</span><span class="p">);</span>
+  <span class="kt">boolean</span> <span class="n">planDejoue</span> <span class="o">=</span> <span class="n">heros</span><span class="p">.</span><span class="na">desamorcer</span><span class="p">(</span><span class="n">machineInfernale</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">victoire</span> <span class="o">||</span> <span class="o">!</span><span class="n">planDejoue</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">FinDuMondeException</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="n">heros</span><span class="p">.</span><span class="na">setPoseVictorieuse</span><span class="p">();</span>
+
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">FinDuMondeException</span> <span class="n">fdme</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Maintenant, un premier bloc <strong>catch</strong> fournit un traitement particulier pour
+les exceptions de type <em>FinDuMondeException</em> ou de type enfant et un second
+bloc <strong>catch</strong> fournit un traitement pour les autres exceptions.</p>
+<p>Parfois, le code du bloc <strong>catch</strong> est identique pour différents types d’exception.
+Si ces exceptions ont une classe parente commune, il est possible de déclarer
+un bloc <strong>catch</strong> simplement pour cette classe parente afin d’éviter la duplication
+de code. Dans notre exemple, la classe ancêtre commune entre <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/NullPointerException.html">NullPointerException</a>
+et <em>FinDuMondeException</em> est la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Exception.html">Exception</a>. Donc si nous déclarons un bloc
+<strong>catch</strong> pour le type <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Exception.html">Exception</a>, nous fournissons un bloc de traitement pour
+tous les types d’exception, ce qui n’est pas vraiment le but recherché. Dans
+cette situation, il est possible de préciser plusieurs types d’exception dans
+le bloc <strong>catch</strong> en les séparant par <strong>|</strong> :</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">heros</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">NullPointerException</span><span class="p">(</span><span class="s">&quot;Le heros ne peut pas être nul !&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kt">boolean</span> <span class="n">victoire</span> <span class="o">=</span> <span class="n">heros</span><span class="p">.</span><span class="na">combattre</span><span class="p">(</span><span class="n">espritDuMal</span><span class="p">);</span>
+  <span class="kt">boolean</span> <span class="n">planDejoue</span> <span class="o">=</span> <span class="n">heros</span><span class="p">.</span><span class="na">desamorcer</span><span class="p">(</span><span class="n">machineInfernale</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">victoire</span> <span class="o">||</span> <span class="o">!</span><span class="n">planDejoue</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">FinDuMondeException</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="n">heros</span><span class="p">.</span><span class="na">setPoseVictorieuse</span><span class="p">();</span>
+
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">NullPointerException</span> <span class="o">|</span> <span class="n">FinDuMondeException</span> <span class="n">ex</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// traitement commun aux deux types d&#39;exception...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>L’exécution d’un bloc <strong>catch</strong> peut très bien être interrompue par une exception.
+L’exécution d’un bloc <strong>catch</strong> peut même conduire à relancer l’exception qui
+vient d’être interceptée.</p>
+</div>
+</div>
+<div class="section" id="propagation-d-une-exception">
+<h2>Propagation d’une exception<a class="headerlink" href="#propagation-d-une-exception" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Si une exception n’est pas interceptée par un bloc <strong>catch</strong>, alors elle remonte
+la pile d’appel, jusqu’à ce qu’un bloc <strong>catch</strong> prenne cette exception en charge.
+Si l’exception remonte tout en haut de la pile d’appel du thread, alors le thread
+s’interrompt. S’il s’agit du thread principal, alors l’application s’arrête
+en erreur.</p>
+<p>Le mécanisme de propagation permet de séparer la partie de l’application qui génère
+l’exception de la partie qui traite cette exception.</p>
+<p>Si nous reprenons notre exemple précédent, nous pouvons grandement l’améliorer.
+En effet, les méthodes <em>combattre</em> et <em>desamorcer</em> devraient s’interrompre
+par une exception plutôt que de retourner un booléen. L’exception jetée
+porte une information plus riche qu’un simple booléen car elle dispose d’un type
+et d’un état interne.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">heros</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">NullPointerException</span><span class="p">(</span><span class="s">&quot;Le heros ne peut pas être nul !&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="n">heros</span><span class="p">.</span><span class="na">combattre</span><span class="p">(</span><span class="n">espritDuMal</span><span class="p">);</span>
+  <span class="n">heros</span><span class="p">.</span><span class="na">desamorcer</span><span class="p">(</span><span class="n">machineInfernale</span><span class="p">);</span>
+  <span class="n">heros</span><span class="p">.</span><span class="na">setPoseVictorieuse</span><span class="p">();</span>
+
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">FinDuMondeException</span> <span class="n">ex</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Le code devient beaucoup plus lisible. On comprend que le bloc <strong>try</strong> peut
+être interrompu par une exception de type <em>FinDuMondeException</em> et
+le code du bloc n’est plus contaminé par des variables et des instructions
+<strong>if</strong> spécifiquement utilisées pour la gestion des erreurs.</p>
+<p>La langage Java impose que les méthodes signalent les types d’exception
+qu’elles peuvent jeter. Ainsi, le code ci-dessus ne compilera que si au moins
+une des instructions du bloc <strong>try</strong> peut générer une <em>FinDuMondeException</em>.
+Cela permet au compilateur de détecter d’éventuel code mort. La déclaration des
+exceptions jetées par une méthode fait donc partie de sa signature et utilise
+le mot-clé <strong>throws</strong>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.heroes</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Heros</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">combattre</span><span class="p">(</span><span class="n">Vilain</span> <span class="n">vilain</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">FinDuMondeException</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">desamorcer</span><span class="p">(</span><span class="n">Piege</span> <span class="n">piege</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">FinDuMondeException</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setPoseVictorieuse</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Grâce aux exceptions, il est maintenant possible d’interrompre une méthode. Il
+est même possible d’interrompre un constructeur. Cela aura pour effet de stopper
+la construction de l’objet et ainsi d’empêcher d’avoir une instance dans un
+état invalide.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.heroes</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Heros</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="nf">Heros</span><span class="p">(</span><span class="n">String</span> <span class="n">classePerso</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">ClasseDePersoInvalideException</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">classePerso</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="s">&quot;&quot;</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">classePerso</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="n">ClasseDePersoInvalideException</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p>La déclaration des exceptions dans la signature d’une méthode permet à la fois
+de documenter dans le code lui-même le comportement de la méthode tout en
+contrôlant à la compilation que les cas d’exception sont gérés par le code.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">Marchandise</span> <span class="nf">acheter</span><span class="p">(</span><span class="kt">long</span> <span class="n">montant</span><span class="p">,</span> <span class="n">Currency</span> <span class="n">devise</span><span class="p">)</span>
+  <span class="kd">throws</span> <span class="n">CreditInsuffisantException</span><span class="p">,</span> <span class="n">DeviseRefuseeException</span><span class="p">,</span>
+         <span class="n">MarchandiseNonDisponibleException</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Dans l’exemple ci-dessus, même sans avoir accès au code source, la signature
+suffit à renseigner sur les cas d’erreur que l’on va pouvoir rencontrer
+lorsqu’on appelle la méthode <em>acheter</em>.</p>
+</div>
+<div class="section" id="exceptions-et-polymorphisme">
+<h2>Exceptions et polymorphisme<a class="headerlink" href="#exceptions-et-polymorphisme" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Comme la déclaration des exceptions jetées par une méthode fait partie de
+sa signature, certaines règles doivent être respectées pour la redéfinition
+de méthode afin que le polymorphisme fonctionne correctement.</p>
+<p>Selon le <a class="reference external" href="https://fr.wikipedia.org/wiki/Principe_de_substitution_de_Liskov">principe de substitution de Liskov</a>, dans la redéfinition d’une méthode,
+les préconditions ne peuvent pas être renforcées par la sous-classe et les
+postconditions ne peuvent pas être affaiblies par la sous-classe. Rapporté
+au mécanisme des exceptions, cela signifie qu’une méthode redéfinie ne peut
+pas lancer des exceptions supplémentaires. Par contre, elle peut lancer des exceptions
+plus spécifiques. Le langage Java ne permet pas de distinguer les exceptions
+qui signalent une violation des préconditions ou des postconditions. C’est
+donc aux développeurs de s’assurer que les postconditions ne sont pas affaiblies
+dans la sous-classe.</p>
+<p>Ainsi, si la classe <em>SuperHeros</em> hérite de la classe <em>Heros</em>, elle peut redéfinir
+les méthodes en ne déclarant pas d’exception.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.heroes</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SuperHeros</span> <span class="kd">extends</span> <span class="n">Heros</span> <span class="p">{</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">combattre</span><span class="p">(</span><span class="n">Vilain</span> <span class="n">vilain</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">desamorcer</span><span class="p">(</span><span class="n">Piege</span> <span class="n">piege</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Cette nouvelle classe peut aussi changer les types d’exception déclarés par
+les méthodes redéfinies à condition que ces types soient des classes filles
+des exceptions d’origine.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.heroes</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SuperHeros</span> <span class="kd">extends</span> <span class="n">Heros</span> <span class="p">{</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">desamorcer</span><span class="p">(</span><span class="n">Piege</span> <span class="n">piege</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">PlanMachiaveliqueException</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Le code précédent ne compile que si l’exception <em>PlanMachiaveliqueException</em>
+hérite directement ou indirectement de <em>FinDuMondeException</em>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.heroes</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PlanMachiaveliqueException</span> <span class="kd">extends</span> <span class="n">FinDuMondeException</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Même si cela est maladroit, il est possible de conserver la déclaration des
+exceptions dans la signature même si la méthode ne jette pas ces types
+d’exception. Le compilateur ne vérifie pas si une méthode jette effectivement
+tous les types d’exception déclarés par sa signature.</p>
+</div>
+</div>
+<div class="section" id="le-bloc-finally">
+<h2>Le bloc finally<a class="headerlink" href="#le-bloc-finally" title="Lien permanent vers ce titre">¶</a></h2>
+<p>À la suite des blocs <strong>catch</strong> il est possible de déclarer un bloc <strong>finally</strong>.
+Un bloc <strong>finally</strong> est exécuté systématiquement, que le bloc <strong>try</strong> se soit
+terminé normalement ou par une exception.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Si un bloc <strong>try</strong> se termine par une exception et qu’il n’existe pas
+de bloc <strong>catch</strong> approprié, alors le bloc <strong>finally</strong> est exécuté et ensuite
+l’exception est propagée.</p>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">heros</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">NullPointerException</span><span class="p">(</span><span class="s">&quot;Le heros ne peut pas être nul !&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="n">heros</span><span class="p">.</span><span class="na">combattre</span><span class="p">(</span><span class="n">espritDuMal</span><span class="p">);</span>
+  <span class="n">heros</span><span class="p">.</span><span class="na">desamorcer</span><span class="p">(</span><span class="n">machineInfernale</span><span class="p">);</span>
+  <span class="n">heros</span><span class="p">.</span><span class="na">setPoseVictorieuse</span><span class="p">();</span>
+
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">FinDuMondeException</span> <span class="n">fdme</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+  <span class="c1">// Ce bloc sera systématiquement exécuté</span>
+  <span class="n">jouerGeneriqueDeFin</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Un bloc <strong>finally</strong> est exécuté même si bloc <strong>try</strong> exécute une instruction
+<strong>return</strong>. Dans ce cas, le bloc <strong>finally</strong> est d’abord exécuté puis ensuite
+l’instruction <strong>return</strong>.</p>
+</div>
+<p>Le bloc <strong>finally</strong> est le plus souvent utilisé pour gérer les ressources autre
+que la mémoire. Si le programme ouvre une connexion, un fichier…, le traitement est
+effectué dans le bloc <strong>try</strong> puis le bloc <strong>finally</strong> se charge de libérer
+la ressource.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">java</span><span class="p">.</span><span class="na">io</span><span class="p">.</span><span class="na">FileReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">java</span><span class="p">.</span><span class="na">io</span><span class="p">.</span><span class="na">FileReader</span><span class="p">(</span><span class="n">filename</span><span class="p">);</span>
+<span class="k">try</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">nbCharRead</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kt">char</span><span class="o">[]</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="mi">1024</span><span class="o">]</span><span class="p">;</span>
+  <span class="n">StringBuilder</span> <span class="n">builder</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="p">();</span>
+  <span class="c1">// L&#39;appel à reader.read peut lancer une java.io.IOException</span>
+  <span class="k">while</span> <span class="p">((</span><span class="n">nbCharRead</span> <span class="o">=</span> <span class="n">reader</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">buffer</span><span class="p">))</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">builder</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">nbCharRead</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="c1">// le retour explicite n&#39;empêche pas l&#39;exécution du block finally.</span>
+  <span class="k">return</span> <span class="n">builder</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+  <span class="c1">// Ce block est obligatoirement exécuté après le block try.</span>
+  <span class="c1">// Ainsi le flux de lecture sur le fichier est fermé</span>
+  <span class="c1">// avant le retour de la méthode.</span>
+  <span class="n">reader</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="le-try-with-resources">
+<h2>Le try-with-resources<a class="headerlink" href="#le-try-with-resources" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La gestion des ressources peut également être réalisée par la syntaxe
+du <a class="reference external" href="https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html">try-with-resources</a>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">io</span><span class="p">.</span><span class="na">FileReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">java</span><span class="p">.</span><span class="na">io</span><span class="p">.</span><span class="na">FileReader</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">nbCharRead</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kt">char</span><span class="o">[]</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="mi">1024</span><span class="o">]</span><span class="p">;</span>
+  <span class="n">StringBuilder</span> <span class="n">builder</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="p">();</span>
+  <span class="k">while</span> <span class="p">((</span><span class="n">nbCharRead</span> <span class="o">=</span> <span class="n">reader</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">buffer</span><span class="p">))</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">builder</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">nbCharRead</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">builder</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Après le mot-clé <strong>try</strong>, on déclare entre parenthèses une ou plusieurs
+initialisations de variable. Ces variables doivent être d’un type qui implémente
+l’interface <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/AutoCloseable.html">AutoCloseable</a> ou <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Closeable.html">Closeable</a>. Ces interfaces ne déclarent qu’une
+seule méthode : <strong>close</strong>. Le compilateur ajoute automatiquement
+un bloc <strong>finally</strong> à la suite du bloc <strong>try</strong> pour appeler la méthode <strong>close</strong>
+sur chacune des variables qui ne valent pas <strong>null</strong>.</p>
+<p>Ainsi pour ce code :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">io</span><span class="p">.</span><span class="na">FileReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">java</span><span class="p">.</span><span class="na">io</span><span class="p">.</span><span class="na">FileReader</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Le compilateur générera le bytecode correspondant à :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="n">java</span><span class="p">.</span><span class="na">io</span><span class="p">.</span><span class="na">FileReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">java</span><span class="p">.</span><span class="na">io</span><span class="p">.</span><span class="na">FileReader</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">reader</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">reader</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>La syntaxe <a class="reference external" href="https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html">try-with-resources</a> est à la fois simple à lire et évite
+d’oublier de libérer des ressources puisque le compilateur se charge d’introduire
+le code pour nous.</p>
+</div>
+<div class="section" id="hierarchie-applicative-d-exception">
+<h2>Hiérarchie applicative d’exception<a class="headerlink" href="#hierarchie-applicative-d-exception" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Comme les exceptions sont des objets, il est possible de créer une hiérarchie
+d’exception par héritage. C’est par exemple le cas pour les exceptions d’entrée/sortie
+en Java.</p>
+<div class="figure align-default" id="id2">
+<img alt="../_images/ioexception.png" src="../_images/ioexception.png" />
+<p class="caption"><span class="caption-text">Un extrait de la hiérarchie de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/IOException.html">java.io.IOException</a></span><a class="headerlink" href="#id2" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>La hiérarchie d’exception permet de grouper des erreurs en concevant des types d’exception
+de plus en plus généraux. Une application pourra donc traiter à sa convenance des exceptions générales
+comme <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/IOException.html">IOException</a> mais pourra, au besoin, fournir une bloc <strong>catch</strong> pour
+traiter des exceptions plus spécifiques.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">{</span>
+
+  <span class="c1">// ... opérations sur des fichiers</span>
+
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">NoSuchFileException</span> <span class="n">nsfe</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="c1">// ...</span>
+
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">ioe</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="c1">// ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exception-cause">
+<h2>Exception cause<a class="headerlink" href="#exception-cause" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il est souvent utile d’encapsuler une exception dans une autre exception.
+Par exemple, imaginons une méthode qui souhaite réaliser une opération distante
+sur un serveur. Se le serveur distant n’est pas joignable, le programme devra
+intercepter une <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/IOException.html">IOException</a>. Mais cela n’a peut-être pas beaucoup de sens pour
+le reste du programme, la méthode peut décider de jeter à la place une exception définie
+par l’application comme une <em>OperationNonDisponibleException</em>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OperationNonDisponibleException</span> <span class="kd">extends</span> <span class="n">Exception</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="nf">OperationNonDisponibleException</span><span class="p">(</span><span class="n">Exception</span> <span class="n">cause</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">super</span><span class="p">(</span><span class="n">cause</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Cette exception n’a pas de lien d’héritage avec une <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/IOException.html">IOException</a>. Par contre, elle
+expose un constructeur qui accepte en paramètre une exception. Cela permet d’indiquer
+que l’exception a été causée par une autre exception.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">{</span>
+
+ <span class="c1">// ... opérations d&#39;entrée / sortie vers le serveur</span>
+
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">ioe</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">throw</span> <span class="k">new</span> <span class="n">OperationNonDisponibleException</span><span class="p">(</span><span class="n">ioe</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Exception.html">Exception</a> fournit la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Throwable.html#getCause()">getCause</a> (qu’elle hérite de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Throwable.html">Throwable</a>)
+pour connaître l’exception qui est la cause du problème.</p>
+</div>
+<div class="section" id="les-erreurs-et-les-exceptions-runtime">
+<h2>Les erreurs et les exceptions runtime<a class="headerlink" href="#les-erreurs-et-les-exceptions-runtime" title="Lien permanent vers ce titre">¶</a></h2>
+<p>En regardant plus en détail la hiérarchie à la base des exceptions, on découvre
+le modèle d’héritage suivant :</p>
+<img alt="../_images/hierarchie_exception.png" src="../_images/hierarchie_exception.png" />
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Throwable.html">Throwable</a> est la classe indiquant qu’il est possible d’utiliser ce type
+avec le mot clé <strong>throw</strong>. De plus la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Throwable.html">Throwable</a> fournit des méthodes utilitaires.
+Par exemple, la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Throwable.html#printStackTrace()">printStackTrace</a> permet d’afficher sur la sortie d’erreur
+standard la pile d’appel de l’application.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">{</span>
+  <span class="kt">double</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">0</span><span class="p">;</span> <span class="c1">// produit une ArithmeticException</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">ArithmeticException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Afficher la pile d&#39;appel sur la sortie d&#39;erreur standard</span>
+  <span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Error.html">Error</a> hérite de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Throwable.html">Throwable</a> comme <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Exception.html">Exception</a>. <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Error.html">Error</a> est la classe de base
+pour représenter les erreurs sérieuses que l’application ne devrait pas intercepter.
+Lorsqu’une erreur survient cela signifie souvent que l’environnement d’exécution
+est dans un état instable. Par exemple, la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/OutOfMemoryError.html">OutOfMemoryError</a> hérite
+indirectement de cette classe. Cette erreur signale que la JVM ne dispose plus d’assez
+de mémoire (généralement pour allouer de l’espace pour les nouveaux objets).</p>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/RuntimeException.html">RuntimeException</a> représente des problèmes d’exécution qui proviennent
+la plupart du temps de bug dans l’application. Parmi les classes filles de cette
+classe, on trouve :</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/ArithmeticException.html">ArithmeticException</a></dt><dd><p>signale une opération arithmetique invalide comme une division par zéro.</p>
+</dd>
+<dt><a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/NullPointerException.html">NullPointerException</a></dt><dd><p>signale que l’on tente d’accéder à une méthode ou un attribut à travers une
+référence <strong>null</strong>.</p>
+</dd>
+<dt><a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/ClassCastException.html">ClassCastException</a></dt><dd><p>signale qu’un transtypage invalide a été réalisé.</p>
+</dd>
+</dl>
+<p>Généralement, les exceptions qui héritent de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/RuntimeException.html">RuntimeException</a> ne sont pas
+interceptées ni traitées par l’application. Au mieux, elles sont interceptées
+au plus haut de la pile d’appel pour signaler une erreur à l’utilisateur ou dans
+les fichiers de log.</p>
+<p>Les classes <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Error.html">Error</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/RuntimeException.html">RuntimeException</a> et toutes les classes qui en héritent
+sont appelées des <em>unchecked exceptions</em>. Cela signifie que le compilateur
+n’exige pas que ces exceptions apparaissent dans la signature des méthodes.
+En effet, elles représentent des problèmes internes graves de la JVM ou des
+bugs. Donc virtuellement toutes les méthodes en Java sont susceptibles de
+lancer de telles exceptions.</p>
+<p>Si nous reprenons notre exemple des véhicules, les méthodes pour accélérer
+et décélerer devraient contrôler que le paramètre passé est bien un nombre
+positif. Si ce n’est pas le cas, elle peut jeter une <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/IllegalArgumentException.html">IllegalArgumentException</a>
+qui est une exception runtime fournie par l’API standard et qui sert à signaler
+qu’un paramètre est invalide. Cette exception ne doit pas être obligatoirement
+déclarée dans la signature de la méthode.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.conduite</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Vehicule</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">marque</span><span class="p">;</span>
+  <span class="kd">protected</span> <span class="kt">float</span> <span class="n">vitesse</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="nf">Vehicule</span><span class="p">(</span><span class="n">String</span> <span class="n">marque</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">marque</span> <span class="o">=</span> <span class="n">marque</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">accelerer</span><span class="p">(</span><span class="kt">float</span> <span class="n">deltaVitesse</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">deltaVitesse</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;deltaVitesse doit être positif&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">vitesse</span> <span class="o">+=</span> <span class="n">deltaVitesse</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">decelerer</span><span class="p">(</span><span class="kt">float</span> <span class="n">deltaVitesse</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">deltaVitesse</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;deltaVitesse doit être positif&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">vitesse</span> <span class="o">=</span> <span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">vitesse</span> <span class="o">-</span> <span class="n">deltaVitesse</span><span class="p">,</span> <span class="mf">0f</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il est tout de même intéressant de signaler les exceptions runtime qui sont
+engendrées par des violations de préconditions ou de postconditions. Cela
+permet de documenter explicitement ces préconditions et ces postconditions.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * Accélère le véhicule</span>
+<span class="cm"> *</span>
+<span class="cm"> * @param deltaVitesse la vitesse à ajouter à la vitesse courante.</span>
+<span class="cm"> * @throws IllegalArgumentException si deltaVitesse est un nombre négatif.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">accelerer</span><span class="p">(</span><span class="kt">float</span> <span class="n">deltaVitesse</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IllegalArgumentException</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">deltaVitesse</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;deltaVitesse doit être positif&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">this</span><span class="p">.</span><span class="na">vitesse</span> <span class="o">+=</span> <span class="n">deltaVitesse</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Par opposition, toutes les autres exceptions sont appelées des <em>checked exception</em>.
+Une méthode qui est susceptible de laisser se propager une <em>checked exception</em>
+doit le signaler dans sa signature à l’aide du mot-clé <strong>throws</strong>.</p>
+</div>
+<div class="section" id="choix-entre-checked-et-unchecked">
+<h2>Choix entre checked et unchecked<a class="headerlink" href="#choix-entre-checked-et-unchecked" title="Lien permanent vers ce titre">¶</a></h2>
+<p>En tant que développeurs, lorsque nous créons de nouvelles classes pour représenter
+des exceptions, nous avons le choix entre hériter de la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Exception.html">Exception</a> ou
+de la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/RuntimeException.html">RuntimeException</a>. C’est-à-dire entre créer une <em>checked</em> ou
+une <em>unchecked</em> exception. La frontière entre les deux familles a évolué
+au cours des versions de Java.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il ne faut jamais créer un classe qui hérite de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Error.html">Error</a>. Les classes qui en héritent
+sont faites pour signaler un problème dans la JVM.</p>
+</div>
+<p>On considère généralement qu’il est préférable de créer une <em>unchecked exception</em>
+lorsque l’exception représente une erreur technique, un événement qui ne relève
+pas du domaine de l’application mais qui est plutôt lié à son contexte
+d’exécution. Généralement il s’agit d’exceptions que l’application ne pourra pas
+traiter correctement à part signaler un problème aux utilisateurs ou aux administrateurs.
+Par exemple, si votre application se connecte à un service distant, vous
+pouvez avoir besoin de créer une exception <em>RemoteServiceUnavailableException</em>
+pour signaler que le service ne répond pas. Ce type d’exception est probablement
+une <em>unchecked exception</em> et devrait hériter de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/RuntimeException.html">RuntimeException</a>.</p>
+<p>Par contre, les exceptions qui peuvent avoir une valeur pour le domaine
+applicatif devraient être des <em>checked exception</em>. Généralement, elles
+traduisent des états particuliers identifiés par les analystes du domaine.</p>
+<p>Par exemple, si vous développez une application bancaire pour réaliser des
+transactions, certaines transactions peuvent échouer lorsqu’un compte bancaire
+n’est pas suffisamment approvisionné. Pour représenter cet état, on peut
+créer une classe <em>SoldeInsuffisantException</em>. Il est probable que cette
+exception devrait être une <em>checked exception</em> afin que le compilateur puisse
+vérifier qu’elle est correctement traitée.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="enumeration.html" class="btn btn-neutral float-right" title="Les énumérations" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="la_classe_string.html" class="btn btn-neutral float-left" title="La classe String" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright David Gayerie - david@gayerie.dev - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

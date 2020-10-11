@@ -1,0 +1,504 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Javascript - itérateurs et générateurs" name="description" />
+<meta content="Javascript, Ecmascript, ES5, ES6, langage de programmation, Web" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Les itérateurs et les générateurs &mdash; Documentation Le JavaScript moderne </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/js/javascript/iterateur_generateur.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Les promesses" href="promesse.html" />
+    <link rel="prev" title="Les symboles" href="symbol.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Le JavaScript moderne
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">JavaScript (notions avancées)</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="evolution_syntaxe.html">Les apports de ES5 et ES6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="evolution_syntaxe.html#le-mode-strict-es5">Le mode strict (ES5)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evolution_syntaxe.html#declarer-une-variable-avec-let-et-const-es6">Déclarer une variable avec let et const (ES6)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evolution_syntaxe.html#gabarit-de-chaine-de-caracteres-es6">Gabarit de chaîne de caractères (ES6)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evolution_syntaxe.html#evolution-de-la-syntaxe-en-es6">Évolution de la syntaxe en ES6</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="evolution_syntaxe.html#valeur-par-defaut-des-parametres">Valeur par défaut des paramètres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="evolution_syntaxe.html#le-parametre-de-reste">Le paramètre de reste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="evolution_syntaxe.html#la-decomposition-de-tableau">La décomposition de tableau</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modele_objet.html">Le modèle objet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modele_objet.html#creer-des-objets">Créer des objets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modele_objet.html#la-declaration-litterale">La déclaration littérale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modele_objet.html#le-constructeur">Le constructeur</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modele_objet.html#le-prototype">Le prototype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modele_objet.html#la-notion-de-propriete">La notion de propriété</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modele_objet.html#l-heritage">L’héritage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modele_objet.html#la-notion-de-classe-depuis-es6">La notion de classe depuis ES6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modele_objet.html#l-heritage-avec-les-classes">L’héritage avec les classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modele_objet.html#utilisation-du-mot-cle-super">Utilisation du mot-clé super</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fonctionnel.html">Programmation fonctionnelle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fonctionnel.html#les-arrow-functions">Les arrow functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonctionnel.html#l-utilisation-de-foreach">L’utilisation de forEach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonctionnel.html#le-modele-filter-map-reduce">Le modèle filter/map/reduce</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="module.html">Les modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="module.html#exporter">Exporter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="module.html#export-par-defaut">Export par défaut</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#importer">Importer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="symbol.html">Les symboles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="symbol.html#les-symboles-comme-noms-de-proprietes">Les symboles comme noms de propriétés</a></li>
+<li class="toctree-l2"><a class="reference internal" href="symbol.html#well-known-symbols">well-known symbols</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Les itérateurs et les générateurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#les-iterateurs">Les itérateurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-iterables">Les itérables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#la-structure-for-of">La structure for … of</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-generateurs">Les générateurs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="promesse.html">Les promesses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="promesse.html#la-classe-promise">La classe Promise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="promesse.html#le-chainage-des-appels">Le chaînage des appels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="promesse.html#traitements-paralleles">Traitements parallèles</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">three.js</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../threejs/introduction.html">Introduction et mise en place</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/introduction.html#chargement-asynchrone-en-local">Chargement asynchrone en local</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/introduction.html#fichier-html-de-base">Fichier HTML de base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/introduction.html#creation-d-un-renderer">Création d’un renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/introduction.html#creation-d-une-camera">Création d’une caméra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/introduction.html#creation-d-une-scene">Création d’une scène</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/introduction.html#rendu-d-une-scene">Rendu d’une scène</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/introduction.html#redimensionnement-du-canevas">Redimensionnement du canevas</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../threejs/objets_et_scene.html">Objets et scène</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/objets_et_scene.html#repere-de-coordonnees">Repère de coordonnées</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/objets_et_scene.html#mesh-et-geometry">Mesh et Geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/objets_et_scene.html#les-transformations-dans-l-espace">Les transformations dans l’espace</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/objets_et_scene.html#exercice">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/objets_et_scene.html#une-animation-simple">Une animation simple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/objets_et_scene.html#hierarchie-d-objets">Hiérarchie d’objets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/objets_et_scene.html#excercice">Excercice</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../threejs/materiaux.html">Les matériaux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/materiaux.html#le-meshbasicmaterial">Le MeshBasicMaterial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/materiaux.html#les-lumieres">Les lumières</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/materiaux.html#les-materiaux-reagissant-a-la-lumiere">Les matériaux réagissant à la lumière</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/materiaux.html#excercice">Excercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/materiaux.html#textures-et-maps">Textures et Maps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/materiaux.html#chargement-d-une-texture">Chargement d’une texture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/materiaux.html#un-texture-comme-color-map">Un texture comme <em>color map</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/materiaux.html#les-autres-types-de-textures">Les autres types de textures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/materiaux.html#les-ombres">Les ombres</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../threejs/interactions.html">Les interactions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/interactions.html#les-controleurs">Les contrôleurs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/interactions.html#le-controleur-orbital">Le contrôleur orbital</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/interactions.html#le-lancer-de-rayon">Le lancer de rayon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/interactions.html#la-projection">La projection</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../threejs/chargement_scene.html">Chargement de modèle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/chargement_scene.html#le-chargeur-gltf">Le chargeur glTF</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../threejs/animation_curve.html">Animation à partir de courbes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/animation_curve.html#les-courbes">Les courbes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/animation_curve.html#representation-graphique-d-une-courbe">Représentation graphique d’une courbe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/animation_curve.html#animation-le-long-d-une-courbe">Animation le long d’une courbe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/animation_curve.html#exercice">Exercice</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Le JavaScript moderne</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Les itérateurs et les générateurs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="promesse.html" class="btn btn-neutral float-right" title="Les promesses" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="symbol.html" class="btn btn-neutral float-left" title="Les symboles" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="les-iterateurs-et-les-generateurs">
+<h1>Les itérateurs et les générateurs<a class="headerlink" href="#les-iterateurs-et-les-generateurs" title="Lien permanent vers ce titre">¶</a></h1>
+<p>ES6 introduit deux nouvelles façons de parcourir des données à travers les
+itérateurs et les générateurs.</p>
+<div class="section" id="les-iterateurs">
+<h2>Les itérateurs<a class="headerlink" href="#les-iterateurs" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Avant ES6, il n’existait pas réellement de manière unifiée et simple de parcourir
+des éléments d’une collection quelconque. ES6 introduit le protocole de l’itérateur.
+Un itérateur sert à parcourir un ensemble d’éléments de manière indépendante de
+la structure sous-jacente de la collection.</p>
+<p>En JavaScript, un itérateur est un objet qui dispose de la méthode <code class="docutils literal notranslate"><span class="pre">next</span></code>. À
+chaque appel, cette méthode retourne un objet avec l’attribut <code class="docutils literal notranslate"><span class="pre">value</span></code> qui représente la
+valeur courante et l’attribut <code class="docutils literal notranslate"><span class="pre">done</span></code> qui est une valeur booléenne qui vaut <code class="docutils literal notranslate"><span class="pre">true</span></code> lorsque
+l’on a dépassé le dernier élément (dans ce cas <code class="docutils literal notranslate"><span class="pre">value</span></code> est non défini).</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">,</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="s2">&quot;u&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">];</span>
+
+<span class="kd">let</span> <span class="nx">monIterateur</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">current</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
+    <span class="nx">next</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">current</span> <span class="o">&gt;=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="p">{</span><span class="nx">done</span><span class="o">:</span> <span class="kc">true</span><span class="p">};</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="p">{</span><span class="nx">value</span><span class="o">:</span> <span class="nx">data</span><span class="p">[</span><span class="nx">current</span><span class="o">++</span><span class="p">],</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span><span class="p">};</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="les-iterables">
+<h2>Les itérables<a class="headerlink" href="#les-iterables" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un itérable doit fournir une méthode <code class="docutils literal notranslate"><span class="pre">&#64;&#64;iterator</span></code>, c’est-à-dire qu’il doit
+posséder une méthode <code class="docutils literal notranslate"><span class="pre">Symbol.iterator</span></code> qui retourne un itérateur.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">voyelles</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">data</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">,</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="s2">&quot;u&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="nx">Symbol</span><span class="p">.</span><span class="nx">iterator</span><span class="p">]()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="nx">data</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">,</span>
+            <span class="nx">current</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
+            <span class="nx">next</span><span class="p">()</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">current</span> <span class="o">&gt;=</span> <span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">return</span> <span class="p">{</span><span class="nx">done</span><span class="o">:</span> <span class="kc">true</span><span class="p">};</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="k">return</span> <span class="p">{</span><span class="nx">value</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">current</span><span class="o">++</span><span class="p">],</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span><span class="p">};</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="la-structure-for-of">
+<h2>La structure for … of<a class="headerlink" href="#la-structure-for-of" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une nouvelle structure de contrôle <code class="docutils literal notranslate"><span class="pre">for</span></code> a été ajoutée avec ES6 pour permettre
+de parcourir les objets itérables. Il s’agit de la structure <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">...</span> <span class="pre">of</span></code></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">v</span> <span class="k">of</span> <span class="nx">voyelles</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">v</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Affiche</span>
+<span class="c1">// a</span>
+<span class="c1">// e</span>
+<span class="c1">// i</span>
+<span class="c1">// o</span>
+<span class="c1">// u</span>
+<span class="c1">// y</span>
+</pre></div>
+</div>
+<p>Les tableaux et les chaînes de caractères sont des objets itérables. Il est donc
+très facile de les parcourir avec cette nouvelle structure de contrôle.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="k">of</span> <span class="p">[</span><span class="mf">1</span><span class="p">,</span> <span class="mf">2</span><span class="p">,</span> <span class="mf">3</span><span class="p">,</span> <span class="mf">4</span><span class="p">])</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">l</span> <span class="k">of</span> <span class="s2">&quot;Bonjour&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">l</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="les-generateurs">
+<h2>Les générateurs<a class="headerlink" href="#les-generateurs" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un générateur est une fonction particulière qui retourne non pas un seul résultat,
+mais qui produit une série de valeurs comme si son exécution était suspendue jusqu’au
+prochain appel. Ce type de fonctions est très pratique pour générer une suite de
+valeurs, d’où son nom de générateur.</p>
+<p>Un générateur est déclaré avec l’expression <code class="docutils literal notranslate"><span class="pre">function*</span></code>. Lorsque le générateur
+veut interrompre temporairement son exécution et produire un résultat, il le fait
+en utilisant le mot-clé <code class="docutils literal notranslate"><span class="pre">yield</span></code>.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span><span class="o">*</span> <span class="nx">suite</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">yield</span> <span class="mf">1</span><span class="p">;</span>
+    <span class="k">yield</span> <span class="mf">2</span><span class="p">;</span>
+    <span class="k">yield</span> <span class="mf">3</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Un générateur peut également être utilisé dans une structure <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">...</span> <span class="pre">of</span></code>.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">n</span> <span class="k">of</span> <span class="nx">suite</span><span class="p">())</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Affiche</span>
+<span class="c1">// 1</span>
+<span class="c1">// 2</span>
+<span class="c1">// 3</span>
+</pre></div>
+</div>
+<p>Un générateur est un itérable. Donc, il est possible d’appeler directement un
+générateur et de récupérer un itérateur. On alors appeler sa méthode <code class="docutils literal notranslate"><span class="pre">next</span></code></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">suite</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">.</span><span class="nx">next</span><span class="p">().</span><span class="nx">value</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">.</span><span class="nx">next</span><span class="p">().</span><span class="nx">value</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">.</span><span class="nx">next</span><span class="p">().</span><span class="nx">value</span><span class="p">);</span>
+
+<span class="c1">// Affiche</span>
+<span class="c1">// 1</span>
+<span class="c1">// 2</span>
+<span class="c1">// 3</span>
+</pre></div>
+</div>
+<p>Il est également possible d’injecter une valeur lors du passage au suivant en
+passant une valeur à la méthode <code class="docutils literal notranslate"><span class="pre">next</span></code>. Cette valeur est récupérable pas le
+générateur en récupérant le résultat de l’instruction <code class="docutils literal notranslate"><span class="pre">yield</span></code>.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span><span class="o">*</span> <span class="nx">mon_generateur</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">resultat</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">resultat</span> <span class="o">!=</span> <span class="s2">&quot;ok&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">resultat</span> <span class="o">=</span> <span class="k">yield</span> <span class="s2">&quot;Pas bon&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">yield</span> <span class="s2">&quot;Bon&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">g</span> <span class="o">=</span> <span class="nx">mon_generateur</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">g</span><span class="p">.</span><span class="nx">next</span><span class="p">().</span><span class="nx">value</span><span class="p">);</span>
+<span class="c1">// Affiche &quot;Pas bon&quot;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">g</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="s2">&quot;ko&quot;</span><span class="p">).</span><span class="nx">value</span><span class="p">);</span>
+<span class="c1">// Affiche &quot;Pas bon&quot;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">g</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="s2">&quot;ok&quot;</span><span class="p">).</span><span class="nx">value</span><span class="p">);</span>
+<span class="c1">// Affiche &quot;Bon&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il est également possible de forcer l’arrêt du générateur en appelant la
+méthode <code class="docutils literal notranslate"><span class="pre">return</span></code> et en passant la valeur de retour.</p>
+<p>Il est également possible de forcer l’arrêt du générateur par une exception
+en appelant la méthode <code class="docutils literal notranslate"><span class="pre">throw</span></code> et en passant le message de l’erreur.</p>
+</div>
+<p>Les générateurs permettent notamment de générer des suites d’éléments sans
+empreinte mémoire car on ne passe pas par la création d’un tableau. Par exemple,
+on peut facilement écrire un générateur qui énumère les nombres pairs :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span><span class="o">*</span> <span class="nx">nombres_pairs</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">pair</span> <span class="o">=</span> <span class="mf">2</span><span class="p">;;</span> <span class="nx">pair</span> <span class="o">+=</span> <span class="mf">2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">yield</span> <span class="nx">pair</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="promesse.html" class="btn btn-neutral float-right" title="Les promesses" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="symbol.html" class="btn btn-neutral float-left" title="Les symboles" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright David Gayerie - david@gayerie.dev - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,1530 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Développement d'application Android" name="description" />
+<meta content="android, android studio, java, programmation objet" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Conception d’interfaces graphiques &mdash; Documentation Développement Android </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/java-android/android/ui_layout.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Les activités" href="activity.html" />
+    <link rel="prev" title="Une première application" href="premiere_app.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Développement Android
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Développement d'applications pour Android</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="premiere_app.html">Une première application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="premiere_app.html#creation-d-une-application-simple">Création d’une application simple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_app.html#organisation-du-projet">Organisation du projet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_app.html#lancement-de-l-application">Lancement de l’application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="premiere_app.html#l-emulateur-android">L’émulateur Android</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_app.html#notion-d-activite">Notion d’activité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_app.html#notion-de-ressources">Notion de ressources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="premiere_app.html#acceder-a-un-identifiant-de-ressource-depuis-le-code-java">Accéder à un identifiant de ressource depuis le code Java</a></li>
+<li class="toctree-l3"><a class="reference internal" href="premiere_app.html#acceder-a-une-ressource-depuis-une-autre-ressource">Accéder à une ressource depuis une autre ressource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="premiere_app.html#identifier-une-ressource-dans-un-layout">Identifier une ressource dans un layout</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_app.html#exercices">Exercices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_app.html#le-fichier-androidmanifest-xml">Le fichier AndroidManifest.xml</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Conception d’interfaces graphiques</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#view-et-layout">View et Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#layout-xml">Layout XML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#layout-lineaire-et-positionnement">Layout linéaire et positionnement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#techniques-avancees-de-positionnement-dans-un-layout">Techniques avancées de positionnement dans un layout</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#layout-margin-et-padding">layout_margin et padding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#layout-gravity-et-gravity">layout_gravity et gravity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#layout-weight">layout_weight</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#layout-par-contraintes">Layout par contraintes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ajouter-une-image">Ajouter une image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exemple-de-formulaire">Exemple de formulaire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#la-barre-d-action">La barre d’action</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creer-un-menu-dans-la-barre-d-action">Créer un menu dans la barre d’action</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#associer-un-menu-a-une-activite">Associer un menu à une activité</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementer-les-actions-associees-aux-items-de-menu">Implémenter les actions associées aux items de menu</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#les-boites-de-dialogue">Les boites de dialogue</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#boite-de-dialogue-avec-boutons">Boite de dialogue avec boutons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#boite-de-dialogue-avec-choix">Boite de dialogue avec choix</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#message-a-l-utilisateur">Message à l’utilisateur</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#toast">Toast</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#snackbar">Snackbar</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="activity.html">Les activités</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="activity.html#le-cycle-de-vie">Le cycle de vie</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="activity.html#terminer-une-activite">Terminer une activité</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="activity.html#gestion-de-l-etat-d-une-activite">Gestion de l’état d’une activité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="activity.html#notion-d-intent">Notion d’intent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="activity.html#associer-une-activite-a-un-intent">Associer une activité à un intent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="activity.html#emettre-un-intent-implicite">Émettre un intent implicite</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="activity_stack.html">Gestion des activités d’une application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="activity_stack.html#l-application-de-demo">L’application de démo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="activity_stack.html#structure-de-l-application">Structure de l’application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="activity_stack.html#l-activite-principale-et-recyclerview">L’activité principale et RecyclerView</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="activity_stack.html#detail-d-une-occupation-et-pile-des-activites">Détail d’une occupation et pile des activités</a></li>
+<li class="toctree-l2"><a class="reference internal" href="activity_stack.html#ouverture-d-une-activite-intent-explicite">Ouverture d’une activité (intent explicite)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="activity_stack.html#strategie-de-gestion-de-la-pile-des-activites">Stratégie de gestion de la pile des activités</a></li>
+<li class="toctree-l2"><a class="reference internal" href="activity_stack.html#terminer-une-activite">Terminer une activité</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="broadcast.html">Gestion des messages broadcast</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="broadcast.html#le-broadcastreceiver">Le BroadcastReceiver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="broadcast.html#suivre-le-branchement-sur-secteur">Suivre le branchement sur secteur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="broadcast.html#suivre-l-etat-de-la-connexion-wifi">Suivre l’état de la connexion Wifi</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="broadcast.html#recevoir-des-broadcasts-depuis-une-activite">Recevoir des broadcasts depuis une activité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="broadcast.html#emettre-un-message-broadcast">Émettre un message broadcast</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="acces_web.html">Accès Web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="acces_web.html#permission-pour-l-acces-internet">Permission pour l’accès Internet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acces_web.html#utilisation-de-la-classe-url">Utilisation de la classe URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acces_web.html#utilisation-de-la-bibliotheque-volley">Utilisation de la bibliothèque Volley</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="acces_web.html#ajout-de-la-dependance">Ajout de la dépendance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="acces_web.html#emission-d-une-requete">Émission d’une requête</a></li>
+<li class="toctree-l3"><a class="reference internal" href="acces_web.html#emission-d-une-requete-pour-une-reponse-json">Émission d’une requête pour une réponse JSON</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="service.html">Les services Android</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="service.html#service-en-tache-de-fond">Service en tâche de fond</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="service.html#implementation-et-declaration-du-service">Implémentation et déclaration du service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service.html#le-cycle-de-vie">Le cycle de vie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service.html#execution-en-tache-de-fond">Exécution en tâche de fond</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service.html#interaction-avec-l-utilisateur">Interaction avec l’utilisateur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service.html#lancement-du-service">Lancement du service</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="service.html#service-lie">Service lié</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="service.html#declaration-du-service">Déclaration du service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service.html#id1">Le cycle de vie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service.html#implementation-de-la-methode-onbind">Implémentation de la méthode onBind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service.html#lier-le-service-a-une-activite">Lier le service à une activité</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Développement Android</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Conception d’interfaces graphiques</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="activity.html" class="btn btn-neutral float-right" title="Les activités" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="premiere_app.html" class="btn btn-neutral float-left" title="Une première application" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="conception-d-interfaces-graphiques">
+<h1>Conception d’interfaces graphiques<a class="headerlink" href="#conception-d-interfaces-graphiques" title="Lien permanent vers ce titre">¶</a></h1>
+<p>La plupart des applications Android impliquent une interaction avec l’utilisateur.
+Nous avons introduit au chapitre précédent la notion d’activité qui correspond
+à un écran. Dans ce chapitre nous allons voir plus en détail comment créer
+des activités riches et <em>responsives</em>.</p>
+<div class="section" id="view-et-layout">
+<h2>View et Layout<a class="headerlink" href="#view-et-layout" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une activité est composée de <em>views</em>. Il s’agit des composants graphiques qui
+peuvent être affichés à l’écran (on parle plus généralement en programmation
+de <em>widgets</em> graphiques). Par exemple, une zone de texte ou un bouton sont
+des <em>views</em> représentés en Java respectivement par les classes <a class="reference external" href="https://developer.android.com/reference/android/widget/TextView">TextView</a> et
+<a class="reference external" href="https://developer.android.com/reference/android/widget/Button">Button</a>. Certaines vues permettent de grouper d’autres vues ensembles (<em>ViewGroup</em>)
+afin de créer une hiérarchie structurée des composants graphiques à afficher.</p>
+<div class="figure align-default" id="id4">
+<img alt="../_images/vue_hierarchique_composants_graphiques.png" src="../_images/vue_hierarchique_composants_graphiques.png" />
+<p class="caption"><span class="caption-text">Exemple de hiérarchie des composants graphiques d’une activité</span><a class="headerlink" href="#id4" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>La difficulté d’une bonne conception d’interfaces graphiques avec Android et
+de concevoir des activités <em>responsives</em>, c’est-à-dire capables de s’adapter
+à des configurations diverses : la résolution de l’écran qui varie suivant
+les modèles d’appareil, la ratio hauteur / largeur de l’écran qui
+dépend de l’orientation de l’appareil (mode paysage ou mode portrait), la
+langue utilisée, la configuration de l’utilisateur… De plus une application
+Android peut parfois être installée sur des appareils très différents :
+smartphones, tablettes, Smart TV…</p>
+<p>Pour aider à la conception d’interfaces graphiques, l’API Android fournit des
+<em>layouts</em>. Un <em>layout</em> agit comme un <a class="reference external" href="https://developer.android.com/reference/android/view/ViewGroup">ViewGroup</a> : il peut contenir
+plusieurs vues. Un <em>layout</em> n’a pas de représentation graphique particulière.
+Cependant, il va positionner à l’écran les vues qu’il contient suivant un modèle
+et en s’adaptant aux conditions particulières d’affichage. Par exemple, le
+<em>layout</em> <a class="reference external" href="https://developer.android.com/reference/androidx/appcompat/widget/LinearLayoutCompat">LinearLayoutCompat</a> permet d’organiser toutes le vues qu’il contient
+horizontalement ou verticalement.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Un <em>layout</em> étant un <a class="reference external" href="https://developer.android.com/reference/android/view/ViewGroup">ViewGroup</a>, cela signifie qu’il peut être placé dans
+un autre <em>layout</em>. En effet, le rendu d’une activité peut rarement
+être réalisé grâce à l’utilisation d’un seul <em>layout</em>. Plus généralement,
+les <em>layouts</em> sont imbriqués les uns dans les autres pour obtenir le rendu
+voulu.</p>
+</div>
+</div>
+<div class="section" id="layout-xml">
+<h2>Layout XML<a class="headerlink" href="#layout-xml" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Nous avons vu au chapitre précédent qu’il est possible de créer un fichier
+XML pour décrire le <em>layout</em> d’une activité (le terme <em>layout</em> est ici
+à prendre au sens général d’un arrangement de composants graphiques sur l’écran).
+Au démarrage de l’activité, on associe ce <em>layout</em> grâce à la méthode
+<a class="reference external" href="https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity#setContentView(int)">setContentView</a> :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">super</span><span class="p">.</span><span class="na">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">);</span>
+    <span class="n">setContentView</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">layout</span><span class="p">.</span><span class="na">activity_main</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il est tout à fait possible de réaliser la même opération par programmation
+en Java. La plupart du temps, le recours à un fichier XML est plus simple et
+la programmation Java d’un <em>layout</em> est laissée pour des implémentations
+avancées.</p>
+</div>
+<p>Avec Android Studio, vous avez la possibilité d’utiliser l’outil de conception
+graphique ou d’éditer et de modifier directement le fichier XML.</p>
+</div>
+<div class="section" id="layout-lineaire-et-positionnement">
+<h2>Layout linéaire et positionnement<a class="headerlink" href="#layout-lineaire-et-positionnement" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour illustrer les bases du <em>layout</em>, nous allons utiliser le fichier suivant :</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Layout linéaire vertical</span><a class="headerlink" href="#id5" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;androidx.appcompat.widget.LinearLayoutCompat</span>
+    <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
+    <span class="na">android:layout_height=</span><span class="s">&quot;match_parent&quot;</span>
+    <span class="na">android:orientation=</span><span class="s">&quot;vertical&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;TextView</span>
+        <span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:text=</span><span class="s">&quot;Hello&quot;</span><span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;TextView</span>
+        <span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:text=</span><span class="s">&quot;Bonjour&quot;</span> <span class="nt">/&gt;</span>
+
+<span class="nt">&lt;/androidx.appcompat.widget.LinearLayoutCompat&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>Ce fichier commence par utiliser un <a class="reference external" href="https://developer.android.com/reference/androidx/appcompat/widget/LinearLayoutCompat">LinearLayoutCompat</a>. Ce dernier permet
+d’organiser les vues qu’il contient horizontalement ou verticalement. L’attribut
+<code class="docutils literal notranslate"><span class="pre">android:orientation</span></code> indique pour cet exemple que le placement sera vertical.</p>
+<div class="figure align-default" id="id6">
+<img alt="../_images/linear_layout_vertical.png" src="../_images/linear_layout_vertical.png" />
+<p class="caption"><span class="caption-text">Rendu du layout linéaire vertical</span><a class="headerlink" href="#id6" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On peut également spécifier un orientation horizontale :</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Layout linéaire horizontal</span><a class="headerlink" href="#id7" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;androidx.appcompat.widget.LinearLayoutCompat</span>
+    <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
+    <span class="na">android:layout_height=</span><span class="s">&quot;match_parent&quot;</span>
+<span class="hll">    <span class="na">android:orientation=</span><span class="s">&quot;horizontal&quot;</span><span class="nt">&gt;</span>
+</span>
+    <span class="nt">&lt;TextView</span>
+        <span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:text=</span><span class="s">&quot;Hello&quot;</span><span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;TextView</span>
+        <span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:text=</span><span class="s">&quot;Bonjour&quot;</span> <span class="nt">/&gt;</span>
+
+<span class="nt">&lt;/androidx.appcompat.widget.LinearLayoutCompat&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="figure align-default" id="id8">
+<img alt="../_images/linear_layout_horizontal.png" src="../_images/linear_layout_horizontal.png" />
+<p class="caption"><span class="caption-text">Rendu du layout linéaire horizontal</span><a class="headerlink" href="#id8" title="Lien permanent vers cette image">¶</a></p>
+</div>
+</div>
+<p>Le <em>layout</em> contient deux <a class="reference external" href="https://developer.android.com/reference/android/widget/TextView">TextView</a> avec les libellés : « Hello » et « Bonjour ».
+Chacun des éléments dans ce fichier possède les attributs <code class="docutils literal notranslate"><span class="pre">android:layout_width</span></code>
+et <code class="docutils literal notranslate"><span class="pre">android:layout_height</span></code>. Ces attributs permettent de définir comment une
+vue doit décider de ses dimensions lors de l’affichage à l’écran.
+Il est possible de donner les valeurs suivantes :</p>
+<dl class="simple">
+<dt>match_parent</dt><dd><p>Le composant doit, autant que possible, adapter sa taille à celle du composant
+dans lequel il se trouve sans tenir compte de son contenu.</p>
+</dd>
+<dt>wrap_content</dt><dd><p>Le composant doit s’assurer que sa taille d’affichage est suffisante pour
+afficher correctement son contenu (par exemple le texte pour un <a class="reference external" href="https://developer.android.com/reference/android/widget/TextView">TextView</a>).</p>
+</dd>
+<dt>fill_parent</dt><dd><p>Le composant doit simplement recouvrir son composant parent.</p>
+</dd>
+</dl>
+<p>Si nous modifions notre fichier <em>layout</em> :</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;androidx.appcompat.widget.LinearLayoutCompat</span>
+    <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
+    <span class="na">android:layout_height=</span><span class="s">&quot;match_parent&quot;</span>
+    <span class="na">android:orientation=</span><span class="s">&quot;vertical&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;TextView</span>
+        <span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span>
+<span class="hll">        <span class="na">android:layout_height=</span><span class="s">&quot;match_parent&quot;</span>
+</span>        <span class="na">android:text=</span><span class="s">&quot;Hello&quot;</span><span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;TextView</span>
+        <span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:text=</span><span class="s">&quot;Bonjour&quot;</span> <span class="nt">/&gt;</span>
+
+<span class="nt">&lt;/androidx.appcompat.widget.LinearLayoutCompat&gt;</span>
+</pre></div>
+</div>
+<p>Nous indiquons maintenant que le premier <a class="reference external" href="https://developer.android.com/reference/android/widget/TextView">TextView</a> a une hauteur <code class="docutils literal notranslate"><span class="pre">match_parent</span></code>.</p>
+<div class="figure align-default" id="id9">
+<img alt="../_images/linear_layout_match_parent.png" src="../_images/linear_layout_match_parent.png" />
+<p class="caption"><span class="caption-text">Rendu du <em>layout</em> modifié</span><a class="headerlink" href="#id9" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Nous voyons sur le rendu que le second <a class="reference external" href="https://developer.android.com/reference/android/widget/TextView">TextView</a> semble avoir disparu. En fait,
+le premier <a class="reference external" href="https://developer.android.com/reference/android/widget/TextView">TextView</a> occupe la totalité de la hauteur du <a class="reference external" href="https://developer.android.com/reference/androidx/appcompat/widget/LinearLayoutCompat">LinearLayoutCompat</a>,
+qui, lui-même, occupe la totalité de l’activité (c’est-à-dire de l’écran). Le
+second <a class="reference external" href="https://developer.android.com/reference/android/widget/TextView">TextView</a> n’a donc pas disparu, il est placé hors écran, sous le premier.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Vous pouvez également définir une valeur chiffrée pour définir une hauteur
+ou une largeur d’une vue dans un <em>layout</em>. La valeur peut être exprimée
+en <strong>dp</strong> (<em>Density-independent Pixels</em>). Il s’agit d’une unité
+de mesure basée sur la taille d’un pixel physique pour un écran de 160 dpi (<em>Dots
+Per Inch</em>). L’avantage de cette mesure est que le système applique un ratio
+de correction en fonction des capacités réelles de l’écran pour assurer un
+affichage correct. Même s’il est possible de donner également des mesures
+en pixels, en centimètres, en millimètres ou en pouce, le <strong>dp</strong> est la
+mesure recommandée lorsque vous devez donner une taille chiffrée pour un
+composant.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;androidx.appcompat.widget.LinearLayoutCompat</span>
+    <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
+    <span class="na">android:layout_height=</span><span class="s">&quot;match_parent&quot;</span>
+    <span class="na">android:orientation=</span><span class="s">&quot;vertical&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;TextView</span>
+        <span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span>
+<span class="hll">        <span class="na">android:layout_height=</span><span class="s">&quot;100dp&quot;</span>
+</span>        <span class="na">android:text=</span><span class="s">&quot;Hello&quot;</span><span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;TextView</span>
+        <span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:text=</span><span class="s">&quot;Bonjour&quot;</span> <span class="nt">/&gt;</span>
+
+<span class="nt">&lt;/androidx.appcompat.widget.LinearLayoutCompat&gt;</span>
+</pre></div>
+</div>
+<div class="figure align-default" id="id10">
+<img alt="../_images/linear_layout_match_exemple_dp.png" src="../_images/linear_layout_match_exemple_dp.png" />
+<p class="caption"><span class="caption-text">Rendu du <em>layout</em> modifié</span><a class="headerlink" href="#id10" title="Lien permanent vers cette image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="techniques-avancees-de-positionnement-dans-un-layout">
+<h2>Techniques avancées de positionnement dans un layout<a class="headerlink" href="#techniques-avancees-de-positionnement-dans-un-layout" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour ajuster le rendu d’un <em>layout</em> vous pouvez agir sur chaque vue individuellement
+avec plusieurs attributs.</p>
+<div class="section" id="layout-margin-et-padding">
+<h3>layout_margin et padding<a class="headerlink" href="#layout-margin-et-padding" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Vous pouvez définir une marge grâce à l’attribut <code class="docutils literal notranslate"><span class="pre">android:layout_margin</span></code> (et
+toutes ses variantes : <code class="docutils literal notranslate"><span class="pre">android:layout_marginBottom</span></code>, <code class="docutils literal notranslate"><span class="pre">android:layout_marginTop</span></code>
+<code class="docutils literal notranslate"><span class="pre">android:layout_marginHorizontal</span></code>, <code class="docutils literal notranslate"><span class="pre">android:layout_marginLeft</span></code>,
+<code class="docutils literal notranslate"><span class="pre">android:layout_marginRight</span></code>, <code class="docutils literal notranslate"><span class="pre">android:layout_marginStart</span></code>,
+<code class="docutils literal notranslate"><span class="pre">android:layout_marginEnd</span></code>, <code class="docutils literal notranslate"><span class="pre">android:layout_marginVertical</span></code>) qui permet définir
+une marge autour de la vue.</p>
+<p>De même, vous pouvez définir un <em>padding</em> grâce à l’attribut <code class="docutils literal notranslate"><span class="pre">android:padding</span></code>
+(et toutes ses variantes : <code class="docutils literal notranslate"><span class="pre">android:paddingBottom</span></code>, <code class="docutils literal notranslate"><span class="pre">android:paddingTop</span></code>
+<code class="docutils literal notranslate"><span class="pre">android:paddingHorizontal</span></code>, <code class="docutils literal notranslate"><span class="pre">android:paddingLeft</span></code>,
+<code class="docutils literal notranslate"><span class="pre">android:paddingRight</span></code>, <code class="docutils literal notranslate"><span class="pre">android:paddingStart</span></code>,
+<code class="docutils literal notranslate"><span class="pre">android:paddingEnd</span></code>, <code class="docutils literal notranslate"><span class="pre">android:paddingVertical</span></code>).</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;androidx.appcompat.widget.LinearLayoutCompat</span>
+    <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
+    <span class="na">android:layout_height=</span><span class="s">&quot;match_parent&quot;</span>
+    <span class="na">android:orientation=</span><span class="s">&quot;vertical&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;TextView</span>
+        <span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+<span class="hll">        <span class="na">android:layout_margin=</span><span class="s">&quot;50dp&quot;</span>
+</span>        <span class="na">android:text=</span><span class="s">&quot;Hello&quot;</span><span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;TextView</span>
+        <span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+<span class="hll">        <span class="na">android:padding=</span><span class="s">&quot;50dp&quot;</span>
+</span>        <span class="na">android:text=</span><span class="s">&quot;Bonjour&quot;</span> <span class="nt">/&gt;</span>
+
+<span class="nt">&lt;/androidx.appcompat.widget.LinearLayoutCompat&gt;</span>
+</pre></div>
+</div>
+<div class="figure align-default" id="id11">
+<img alt="../_images/linear_layout_layout_margin_padding.png" src="../_images/linear_layout_layout_margin_padding.png" />
+<p class="caption"><span class="caption-text">Utilisation du layout_margin et du padding</span><a class="headerlink" href="#id11" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Même si, dans les cas les plus simples, il n’y a pas de différence de rendu
+entre l’utilisation de <code class="docutils literal notranslate"><span class="pre">android:layout_margin</span></code> et de <code class="docutils literal notranslate"><span class="pre">android:padding</span></code>, il
+faut garder à l’esprit que :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">android:layout_margin</span></code> définit une marge autour de la vue. Cette marge
+impacte le comportement du <em>layout</em> qui doit positionner les autres vue en
+accord.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">android:padding</span></code> définit un écart à l’intérieur de la vue elle-même. Si la
+vue déclare une largeur et/ou une hauteur à partir de <code class="docutils literal notranslate"><span class="pre">wrap_content</span></code>, la
+vue aura simplement sa largeur et/ou sa hauteur modifiées pour tenir compte
+du <em>padding</em>. Le <em>padding</em> n’a dont pas d’impact direct sur le <em>layout</em>.</p></li>
+</ul>
+</div>
+<div class="section" id="layout-gravity-et-gravity">
+<h3>layout_gravity et gravity<a class="headerlink" href="#layout-gravity-et-gravity" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les attributs <code class="docutils literal notranslate"><span class="pre">android:layout_gravity</span></code> et <code class="docutils literal notranslate"><span class="pre">android:gravity</span></code> permettent de
+définir comment le contenu d’une vue doit être <em>attiré</em> vers tel ou tel bord
+ou au contraire être centré. <code class="docutils literal notranslate"><span class="pre">android:gravity</span></code> n’agit que sur le contenu
+de la vue indépendamment du reste du <em>layout</em> tandis que <code class="docutils literal notranslate"><span class="pre">android:layout_gravity</span></code>
+agit sur le positionnement de la vue en fonction du <em>layout</em>.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;androidx.appcompat.widget.LinearLayoutCompat</span>
+    <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
+    <span class="na">android:layout_height=</span><span class="s">&quot;match_parent&quot;</span>
+    <span class="na">android:orientation=</span><span class="s">&quot;vertical&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;TextView</span>
+        <span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+<span class="hll">        <span class="na">android:layout_gravity=</span><span class="s">&quot;right&quot;</span>
+</span>        <span class="na">android:text=</span><span class="s">&quot;Hello&quot;</span><span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;TextView</span>
+        <span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+<span class="hll">        <span class="na">android:layout_gravity=</span><span class="s">&quot;center&quot;</span>
+</span>        <span class="na">android:text=</span><span class="s">&quot;Bonjour&quot;</span> <span class="nt">/&gt;</span>
+
+<span class="nt">&lt;/androidx.appcompat.widget.LinearLayoutCompat&gt;</span>
+</pre></div>
+</div>
+<div class="figure align-default" id="id12">
+<img alt="../_images/linear_layout_layout_gravity.png" src="../_images/linear_layout_layout_gravity.png" />
+<p class="caption"><span class="caption-text">Utilisation du layout_gravity</span><a class="headerlink" href="#id12" title="Lien permanent vers cette image">¶</a></p>
+</div>
+</div>
+<div class="section" id="layout-weight">
+<h3>layout_weight<a class="headerlink" href="#layout-weight" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Vous pouvez définir un poids pour chaque vue dans un <em>layout</em> grâce à l’attribut
+<code class="docutils literal notranslate"><span class="pre">android:layout_weight</span></code>. S’il s’agit d’un <em>layout</em> vertical, alors la hauteur
+de chaque vue sera proportionnelle à son poids et, respectivement, s’il s’agit
+d’un <em>layout</em> horizontal, alors la largeur de chaque vue sera proportionnelle à
+son poids. Si la valeur de l’attribut <code class="docutils literal notranslate"><span class="pre">android:layout_weight</span></code> est inférieur à
+1, alors elle est interprétée comme un pourcentage.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;androidx.appcompat.widget.LinearLayoutCompat</span>
+    <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
+    <span class="na">android:layout_height=</span><span class="s">&quot;match_parent&quot;</span>
+    <span class="na">android:orientation=</span><span class="s">&quot;vertical&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;TextView</span>
+        <span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
+        <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:background=</span><span class="s">&quot;@android:color/holo_orange_dark&quot;</span>
+<span class="hll">        <span class="na">android:layout_weight=</span><span class="s">&quot;.2&quot;</span>
+</span>        <span class="na">android:text=</span><span class="s">&quot;Hello&quot;</span><span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;TextView</span>
+        <span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
+        <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:background=</span><span class="s">&quot;@android:color/holo_blue_bright&quot;</span>
+<span class="hll">        <span class="na">android:layout_weight=</span><span class="s">&quot;.3&quot;</span>
+</span>        <span class="na">android:text=</span><span class="s">&quot;Bonjour&quot;</span> <span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;TextView</span>
+        <span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
+        <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:background=</span><span class="s">&quot;@android:color/holo_purple&quot;</span>
+<span class="hll">        <span class="na">android:layout_weight=</span><span class="s">&quot;.5&quot;</span>
+</span>        <span class="na">android:text=</span><span class="s">&quot;à tous&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/androidx.appcompat.widget.LinearLayoutCompat&gt;</span>
+</pre></div>
+</div>
+<div class="figure align-default" id="id13">
+<img alt="../_images/linear_layout_layout_weight.png" src="../_images/linear_layout_layout_weight.png" />
+<p class="caption"><span class="caption-text">Utilisation du layout_weight</span><a class="headerlink" href="#id13" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Dans l’exemple ci-dessus, nous déclarons trois <a class="reference external" href="https://developer.android.com/reference/android/widget/TextView">TextView</a> avec des poids respectifs
+de 20%, 30% et 50%. Pour que le résultat soit plus facile à comprendre, nous
+utilisons également l’attribut <code class="docutils literal notranslate"><span class="pre">android:background</span></code> pour attribuer une couleur
+prédéfinie comme fond à chaque <a class="reference external" href="https://developer.android.com/reference/android/widget/TextView">TextView</a>.</p>
+</div>
+</div>
+<div class="section" id="layout-par-contraintes">
+<h2>Layout par contraintes<a class="headerlink" href="#layout-par-contraintes" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Même s’il est possible d’utiliser une combinaison de <a class="reference external" href="https://developer.android.com/reference/androidx/appcompat/widget/LinearLayoutCompat">LinearLayoutCompat</a> pour
+aligner horizontalement et verticalement les vues, cela finit par créer
+une arborescence complexe de <em>layouts</em>. Comme alternative, vous
+pouvez également utiliser un <a class="reference external" href="https://developer.android.com/reference/androidx/constraintlayout/widget/ConstraintLayout">ConstraintLayout</a>. Ce dernier permet de créer plus
+librement des agencements complexes avec un unique <em>layout</em> au prix, néanmoins,
+d’une plus grande difficulté de prise en main.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La vue <em>Designer</em> de Android Studio dispose d’outils graphiques pour aider à
+la conception d’un <em>layout</em> contraint.</p>
+</div>
+<p>Le principe du <a class="reference external" href="https://developer.android.com/reference/androidx/constraintlayout/widget/ConstraintLayout">ConstraintLayout</a> est de positionner les vues les unes par rapport
+aux autres. Une vue doit au minimum posséder une contrainte pour sa position
+verticale et une pour sa position horizontale. Par exemple, vous pouvez contraindre
+un bouton à se positionner à droite d’un autre bouton et à la même hauteur.</p>
+<p>Ci-dessous un exemple de <em>layout</em> contraint avec le rendu :</p>
+<div class="highlight-xml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+
+<span class="nt">&lt;androidx.constraintlayout.widget.ConstraintLayout</span>
+    <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="na">xmlns:app=</span><span class="s">&quot;http://schemas.android.com/apk/res-auto&quot;</span>
+    <span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
+    <span class="na">android:layout_height=</span><span class="s">&quot;match_parent&quot;</span> <span class="nt">&gt;</span>
+
+    <span class="nt">&lt;TextView</span>
+<span class="hll">        <span class="na">android:id=</span><span class="s">&quot;@+id/textViewHello&quot;</span>
+</span>        <span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:layout_marginLeft=</span><span class="s">&quot;5dp&quot;</span>
+        <span class="na">android:layout_marginTop=</span><span class="s">&quot;50dp&quot;</span>
+        <span class="na">android:text=</span><span class="s">&quot;Hello&quot;</span>
+<span class="hll">        <span class="na">app:layout_constraintTop_toTopOf=</span><span class="s">&quot;parent&quot;</span>
+</span><span class="hll">        <span class="na">app:layout_constraintLeft_toLeftOf=</span><span class="s">&quot;parent&quot;</span> <span class="nt">/&gt;</span>
+</span>
+    <span class="nt">&lt;TextView</span>
+        <span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:layout_marginLeft=</span><span class="s">&quot;5dp&quot;</span>
+        <span class="na">android:text=</span><span class="s">&quot;world&quot;</span>
+<span class="hll">        <span class="na">app:layout_constraintLeft_toRightOf=</span><span class="s">&quot;@+id/textViewHello&quot;</span>
+</span><span class="hll">        <span class="na">app:layout_constraintBaseline_toBaselineOf=</span><span class="s">&quot;@+id/textViewHello&quot;</span> <span class="nt">/&gt;</span>
+</span>
+    <span class="nt">&lt;TextView</span>
+        <span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:layout_marginBottom=</span><span class="s">&quot;50dp&quot;</span>
+        <span class="na">android:text=</span><span class="s">&quot;Bas de page&quot;</span>
+<span class="hll">        <span class="na">app:layout_constraintBottom_toBottomOf=</span><span class="s">&quot;parent&quot;</span>
+</span><span class="hll">        <span class="na">app:layout_constraintEnd_toEndOf=</span><span class="s">&quot;parent&quot;</span>
+</span><span class="hll">        <span class="na">app:layout_constraintStart_toStartOf=</span><span class="s">&quot;parent&quot;</span> <span class="nt">/&gt;</span>
+</span>
+<span class="nt">&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="figure align-default" id="id14">
+<img alt="../_images/contraint_layout.png" src="../_images/contraint_layout.png" />
+<p class="caption"><span class="caption-text">Le rendu du <em>layout</em> contraint</span><a class="headerlink" href="#id14" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Pour le <em>layout</em> précédent, le premier <a class="reference external" href="https://developer.android.com/reference/android/widget/TextView">TextView</a> doit avoir le haut au même niveau
+que le composant parent (c’est-à-dire le <em>layout</em> lui-même) et la bordure gauche doit
+également être au même niveau que le parent. On précise également une marge en haut
+et à gauche pour décoller le <a class="reference external" href="https://developer.android.com/reference/android/widget/TextView">TextView</a>.</p>
+<p>Le second <a class="reference external" href="https://developer.android.com/reference/android/widget/TextView">TextView</a> a sa bordure gauche placée à droite du premier <a class="reference external" href="https://developer.android.com/reference/android/widget/TextView">TextView</a>.
+Notez que le premier <a class="reference external" href="https://developer.android.com/reference/android/widget/TextView">TextView</a> est référencé par un id (<code class="code docutils literal notranslate"><span class="pre">&#64;+id/textViewHello</span></code>)
+et la ligne de texte est au même niveau (à la même hauteur) que la ligne de texte
+du premier <a class="reference external" href="https://developer.android.com/reference/android/widget/TextView">TextView</a>. On applique à ce second <a class="reference external" href="https://developer.android.com/reference/android/widget/TextView">TextView</a> une marge à gauche. Donc
+le <em>layout</em> doit positionner le second <a class="reference external" href="https://developer.android.com/reference/android/widget/TextView">TextView</a> exactement à droite du premier
+avec un espacement de 5dp.</p>
+<p>Enfin le troisième <a class="reference external" href="https://developer.android.com/reference/android/widget/TextView">TextView</a> doit avoir sa bordure du bas au même niveau que
+le bas du composant parent (c’est-à-dire le <em>layout</em> lui-même). De même, le début
+et la fin du <a class="reference external" href="https://developer.android.com/reference/android/widget/TextView">TextView</a> sont identiques au composant parent (c’est-à-dire le
+<em>layout</em> lui-même). Comme cela n’est pas possible car le taille du <a class="reference external" href="https://developer.android.com/reference/android/widget/TextView">TextView</a>
+est limité par son contenu, cela va avoir pour conséquence de centrer ce <a class="reference external" href="https://developer.android.com/reference/android/widget/TextView">TextView</a>.
+Enfin une marge du bas de 50dp est appliquée pour remonter légèrement vers le
+haut le composant.</p>
+<div class="figure align-default" id="id15">
+<img alt="../_images/contraint_layout_avec_cadre.png" src="../_images/contraint_layout_avec_cadre.png" />
+<p class="caption"><span class="caption-text">Le rendu du <em>layout</em> contraint</span><a class="headerlink" href="#id15" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour explorer les possibilités du <a class="reference external" href="https://developer.android.com/reference/androidx/constraintlayout/widget/ConstraintLayout">ConstraintLayout</a>, vous pouvez vous
+reporter au tutoriel sur le site officiel :</p>
+<blockquote>
+<div><p><a class="reference external" href="https://developer.android.com/training/constraint-layout/">https://developer.android.com/training/constraint-layout/</a></p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="ajouter-une-image">
+<h2>Ajouter une image<a class="headerlink" href="#ajouter-une-image" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La vue <a class="reference external" href="https://developer.android.com/reference/android/widget/ImageView">ImageView</a> permet d’insérer une image dans une activité. Grâce à l’attribut
+<code class="docutils literal notranslate"><span class="pre">android:src</span></code>, vous spécifiez la source de l’image (par exemple un fichier PNG).
+La source correspond à un identifiant de ressource de la forme <code class="docutils literal notranslate"><span class="pre">&#64;drawable/</span></code>
+suivi du nom du fichier image sans l’extension.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">ImageView</span>
+    <span class="n">android</span><span class="p">:</span><span class="n">layout_width</span><span class="o">=</span><span class="s">&quot;wrap_content&quot;</span>
+    <span class="n">android</span><span class="p">:</span><span class="n">layout_height</span><span class="o">=</span><span class="s">&quot;wrap_content&quot;</span>
+    <span class="n">android</span><span class="p">:</span><span class="n">src</span><span class="o">=</span><span class="s">&quot;@drawable/mon_image&quot;</span><span class="o">/&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Vous pouvez également référencer une ressource <em>drawable</em> avec l’attribut
+<code class="docutils literal notranslate"><span class="pre">android:background</span></code> pour positionner une image en arrière-plan d’une vue.</p>
+</div>
+<p>Une image PNG ou JPG est une image rastérisée (ou image matricielle). L’image
+est définie par une grille ou chaque point à une couleur. L’inconvénient de ce
+type d’images est qu’il s’adapte mal à des résolutions d’écran différentes.</p>
+<p>Android supporte la possibilité de fournir plusieurs fois la même ressource en
+fonction du contexte d’exécution de l’application (par exemple de la résolution
+de l’écran). Pour une image, une application Android accepte plusieurs résolutions :</p>
+<ul class="simple">
+<li><p><strong>ldpi</strong> (<em>low dots per inch</em>) correspond à une image en 120 dpi.</p></li>
+<li><p><strong>mdpi</strong> (<em>medium dots per inch</em>) correspond à une image en 160 dpi.</p></li>
+<li><p><strong>hdpi</strong> (<em>high dots per inch</em>) correspond à une image en 240 dpi.</p></li>
+<li><p><strong>xhdpi</strong> (<em>extra high dots per inch</em>) correspond à une image en 320 dpi.</p></li>
+<li><p><strong>xxhdpi</strong> (<em>extra extra high dots per inch</em>) correspond à une image en 480 dpi.</p></li>
+<li><p><strong>xxxhdpi</strong> (<em>extra extra extra high dots per inch</em>) correspond à une image en 640 dpi.</p></li>
+</ul>
+<p>Pour mémoire, vous pouvez utiliser un facteur multiplicateur de zoom pour connaître
+les dimensions nécessaires d’une image en prenant comme référence le <em>mdpi</em>.
+Chacune des images doit être placée dans un répertoire ressource comme indiqué
+ci-dessous. Chaque fichier image doit porter le même nom pour indiquer qu’il
+s’agit de la même ressource avec une résolution différente.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>densité</p></th>
+<th class="head"><p>facteur de zoom</p></th>
+<th class="head"><p>répertoire</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ldpi</p></td>
+<td><p>3/4</p></td>
+<td><p>res/drawable-ldpi</p></td>
+</tr>
+<tr class="row-odd"><td><p>mdpi</p></td>
+<td><p>1</p></td>
+<td><p>res/drawable-mdpi</p></td>
+</tr>
+<tr class="row-even"><td><p>hdpi</p></td>
+<td><p>1,5</p></td>
+<td><p>res/drawable-hdpi</p></td>
+</tr>
+<tr class="row-odd"><td><p>xhdpi</p></td>
+<td><p>2</p></td>
+<td><p>res/drawable-xhdpi</p></td>
+</tr>
+<tr class="row-even"><td><p>xxhdpi</p></td>
+<td><p>3</p></td>
+<td><p>res/drawable-xxhdpi</p></td>
+</tr>
+<tr class="row-odd"><td><p>xxxhdpi</p></td>
+<td><p>4</p></td>
+<td><p>res/drawable-xxxhdpi</p></td>
+</tr>
+</tbody>
+</table>
+<p>Vous devez créer ces répertoires dans votre projet et placer chaque image
+dans le bon répertoire.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Avec ce système, vous pouvez définir quel fichier image utiliser en fonction
+de la densité de l’écran. Cette utilisation conditionnelle d’une ressource
+peut être étendue de manière générale avec la notion de <em>qualifier</em>. Un
+<em>qualifier</em> est une condition ajoutée dans le nom du répertoire contenant
+la ressource (comme par exemple <code class="file docutils literal notranslate"><span class="pre">res/drawable-ldpi</span></code> où  <code class="file docutils literal notranslate"><span class="pre">-ldpi</span></code>
+est un <em>qualifier</em>).</p>
+<p>L’utilisation de <em>qualifier</em> permet de fournir des ressources
+différentes en fonction de la langue, de l’orientation de l’écran, de la
+densité de l’écran, du type d’appareil… Pour en savoir plus, reportez-vous
+à la documentation officielle :</p>
+<blockquote>
+<div><p><a class="reference external" href="https://developer.android.com/guide/topics/resources/providing-resources">https://developer.android.com/guide/topics/resources/providing-resources</a></p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="exemple-de-formulaire">
+<h2>Exemple de formulaire<a class="headerlink" href="#exemple-de-formulaire" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une activité assez courante consiste à présenter un formulaire à l’utilisateur
+pour qu’il puisse saisir un ensemble d’informations. Ci-dessous, un exemple
+de <em>layout</em> avec son rendu :</p>
+<div class="literal-block-wrapper docutils container" id="id16">
+<div class="code-block-caption"><span class="caption-text">Un <em>layout</em> pour un formulaire</span><a class="headerlink" href="#id16" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;ScrollView</span>
+    <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
+    <span class="na">android:layout_height=</span><span class="s">&quot;match_parent&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;androidx.appcompat.widget.LinearLayoutCompat</span>
+        <span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
+        <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:orientation=</span><span class="s">&quot;vertical&quot;</span><span class="nt">&gt;</span>
+
+        <span class="nt">&lt;EditText</span>
+            <span class="na">android:id=</span><span class="s">&quot;@+id/prenom&quot;</span>
+            <span class="na">android:layout_margin=</span><span class="s">&quot;5sp&quot;</span>
+            <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+            <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+            <span class="na">android:inputType=</span><span class="s">&quot;textPersonName&quot;</span>
+            <span class="na">android:hint=</span><span class="s">&quot;Prénom&quot;</span><span class="nt">/&gt;</span>
+
+        <span class="nt">&lt;EditText</span>
+            <span class="na">android:id=</span><span class="s">&quot;@+id/nom&quot;</span>
+            <span class="na">android:layout_margin=</span><span class="s">&quot;5sp&quot;</span>
+            <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+            <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+            <span class="na">android:inputType=</span><span class="s">&quot;textPersonName&quot;</span>
+            <span class="na">android:hint=</span><span class="s">&quot;Nom&quot;</span> <span class="nt">/&gt;</span>
+
+        <span class="nt">&lt;EditText</span>
+            <span class="na">android:id=</span><span class="s">&quot;@+id/email&quot;</span>
+            <span class="na">android:layout_margin=</span><span class="s">&quot;5sp&quot;</span>
+            <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+            <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+            <span class="na">android:inputType=</span><span class="s">&quot;textEmailAddress&quot;</span>
+            <span class="na">android:hint=</span><span class="s">&quot;Email&quot;</span><span class="nt">/&gt;</span>
+
+        <span class="nt">&lt;EditText</span>
+            <span class="na">android:id=</span><span class="s">&quot;@+id/naissance&quot;</span>
+            <span class="na">android:layout_margin=</span><span class="s">&quot;5sp&quot;</span>
+            <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+            <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+            <span class="na">android:inputType=</span><span class="s">&quot;date&quot;</span>
+            <span class="na">android:hint=</span><span class="s">&quot;Date de naissance JJ/MM/AAAA&quot;</span><span class="nt">/&gt;</span>
+
+        <span class="nt">&lt;EditText</span>
+            <span class="na">android:id=</span><span class="s">&quot;@+id/description&quot;</span>
+            <span class="na">android:layout_margin=</span><span class="s">&quot;5sp&quot;</span>
+            <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+            <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+            <span class="na">android:inputType=</span><span class="s">&quot;textMultiLine&quot;</span>
+            <span class="na">android:hint=</span><span class="s">&quot;Description&quot;</span>
+            <span class="na">android:gravity=</span><span class="s">&quot;top&quot;</span>
+            <span class="na">android:height=</span><span class="s">&quot;200dp&quot;</span><span class="nt">/&gt;</span>
+
+        <span class="nt">&lt;EditText</span>
+            <span class="na">android:id=</span><span class="s">&quot;@+id/commentaire&quot;</span>
+            <span class="na">android:layout_margin=</span><span class="s">&quot;5sp&quot;</span>
+            <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+            <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+            <span class="na">android:inputType=</span><span class="s">&quot;textMultiLine&quot;</span>
+            <span class="na">android:hint=</span><span class="s">&quot;Commentaire&quot;</span>
+            <span class="na">android:gravity=</span><span class="s">&quot;top&quot;</span>
+            <span class="na">android:height=</span><span class="s">&quot;200dp&quot;</span><span class="nt">/&gt;</span>
+
+        <span class="nt">&lt;CheckBox</span>
+            <span class="na">android:id=</span><span class="s">&quot;@+id/acceptation_conditions&quot;</span>
+            <span class="na">android:layout_margin=</span><span class="s">&quot;5sp&quot;</span>
+            <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+            <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+            <span class="na">android:text=</span><span class="s">&quot;Accepter les conditions d&#39;utilisation&quot;</span> <span class="nt">/&gt;</span>
+
+        <span class="nt">&lt;androidx.appcompat.widget.LinearLayoutCompat</span>
+            <span class="na">android:layout_margin=</span><span class="s">&quot;5sp&quot;</span>
+            <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+            <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+            <span class="na">android:orientation=</span><span class="s">&quot;horizontal&quot;</span>
+            <span class="na">android:gravity=</span><span class="s">&quot;right&quot;</span><span class="nt">&gt;</span>
+
+            <span class="nt">&lt;Button</span>
+                <span class="na">android:id=</span><span class="s">&quot;@+id/bouton_annuler&quot;</span>
+                <span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span>
+                <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+                <span class="na">android:onClick=</span><span class="s">&quot;handleAnnuler&quot;</span>
+                <span class="na">android:text=</span><span class="s">&quot;Annuler&quot;</span><span class="nt">/&gt;</span>
+
+            <span class="nt">&lt;Button</span>
+                <span class="na">android:id=</span><span class="s">&quot;@+id/bouton_ok&quot;</span>
+                <span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span>
+                <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+                <span class="na">android:onClick=</span><span class="s">&quot;handleOk&quot;</span>
+                <span class="na">android:text=</span><span class="s">&quot;Ok&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/androidx.appcompat.widget.LinearLayoutCompat&gt;</span>
+
+    <span class="nt">&lt;/androidx.appcompat.widget.LinearLayoutCompat&gt;</span>
+<span class="nt">&lt;/ScrollView&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="figure align-default" id="id17">
+<img alt="../_images/layout_user_form.png" src="../_images/layout_user_form.png" />
+<p class="caption"><span class="caption-text">Le rendu du formulaire</span><a class="headerlink" href="#id17" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Notez l’utilisation de la <a class="reference external" href="https://developer.android.com/reference/android/widget/ScrollView">ScrollView</a> à la racine du <em>layout</em> pour permettre
+à l’utilisateur de faire défiler l’écran pour parcourir le formulaire. Ce
+<em>layout</em> utilise ensuite un <a class="reference external" href="https://developer.android.com/reference/androidx/appcompat/widget/LinearLayoutCompat">LinearLayoutCompat</a> vertical pour afficher chaque
+élément du formulaire. En dernier, il utilise un autre <a class="reference external" href="https://developer.android.com/reference/androidx/appcompat/widget/LinearLayoutCompat">LinearLayoutCompat</a>
+horizontal pour afficher les boutons côte-à-côte.</p>
+<p>Le formulaire utilise des vues <a class="reference external" href="https://developer.android.com/reference/android/widget/EditText">EditText</a> en précisant, avec l’attribut
+<code class="docutils literal notranslate"><span class="pre">android:inputType</span></code>, le type du champ pour permettre au système de proposer
+un type de saisie adapté au champ. L’utilisation de l’attribut <code class="docutils literal notranslate"><span class="pre">android:hint</span></code>
+permet de préciser le rôle du champ sans avoir à ajouter de libellé de manière
+à ne pas surcharger le formulaire.</p>
+<p>Chaque champ de saisie, ainsi que chaque bouton, déclare un ID afin de pouvoir
+être identifié dans le code Java.</p>
+<p>Pour traiter les données saisies par l’utilisateur, nous pouvons modifier
+l’implémentation de l’activité.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.premiereapplication</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">androidx.appcompat.app.AppCompatActivity</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.util.Log</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.view.View</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.CheckBox</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.TextView</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">AppCompatActivity</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">TAG</span> <span class="o">=</span> <span class="s">&quot;MainActivity&quot;</span><span class="p">;</span>
+
+    <span class="kd">private</span> <span class="n">TextView</span> <span class="n">nom</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">TextView</span> <span class="n">prenom</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">TextView</span> <span class="n">email</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">TextView</span> <span class="n">naissance</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">TextView</span> <span class="n">description</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">TextView</span> <span class="n">commentaire</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">CheckBox</span> <span class="n">acceptationConditions</span><span class="p">;</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">.</span><span class="na">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">);</span>
+        <span class="n">setContentView</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">layout</span><span class="p">.</span><span class="na">activity_main</span><span class="p">);</span>
+
+        <span class="n">nom</span> <span class="o">=</span> <span class="n">findViewById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">nom</span><span class="p">);</span>
+        <span class="n">prenom</span> <span class="o">=</span> <span class="n">findViewById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">prenom</span><span class="p">);</span>
+        <span class="n">email</span> <span class="o">=</span> <span class="n">findViewById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">email</span><span class="p">);</span>
+        <span class="n">naissance</span> <span class="o">=</span> <span class="n">findViewById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">naissance</span><span class="p">);</span>
+        <span class="n">description</span> <span class="o">=</span> <span class="n">findViewById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">description</span><span class="p">);</span>
+        <span class="n">commentaire</span> <span class="o">=</span> <span class="n">findViewById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">commentaire</span><span class="p">);</span>
+        <span class="n">acceptationConditions</span> <span class="o">=</span> <span class="n">findViewById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">acceptation_conditions</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">handleOk</span><span class="p">(</span><span class="n">View</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// TODO faire quelque chose de plus utile</span>
+        <span class="n">Log</span><span class="p">.</span><span class="na">i</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span> <span class="s">&quot;Ok&quot;</span><span class="p">);</span>
+        <span class="n">Log</span><span class="p">.</span><span class="na">i</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;Prénom : %s&quot;</span><span class="p">,</span> <span class="n">prenom</span><span class="p">.</span><span class="na">getText</span><span class="p">()));</span>
+        <span class="n">Log</span><span class="p">.</span><span class="na">i</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;Nom : %s&quot;</span><span class="p">,</span> <span class="n">nom</span><span class="p">.</span><span class="na">getText</span><span class="p">()));</span>
+        <span class="n">Log</span><span class="p">.</span><span class="na">i</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;Email : %s&quot;</span><span class="p">,</span> <span class="n">email</span><span class="p">.</span><span class="na">getText</span><span class="p">()));</span>
+        <span class="n">Log</span><span class="p">.</span><span class="na">i</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;Naissance : %s&quot;</span><span class="p">,</span> <span class="n">naissance</span><span class="p">.</span><span class="na">getText</span><span class="p">()));</span>
+        <span class="n">Log</span><span class="p">.</span><span class="na">i</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;Description : %s&quot;</span><span class="p">,</span> <span class="n">description</span><span class="p">.</span><span class="na">getText</span><span class="p">()));</span>
+        <span class="n">Log</span><span class="p">.</span><span class="na">i</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;Commentaire : %s&quot;</span><span class="p">,</span> <span class="n">commentaire</span><span class="p">.</span><span class="na">getText</span><span class="p">()));</span>
+        <span class="n">Log</span><span class="p">.</span><span class="na">i</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;Conditions acceptées : %b&quot;</span><span class="p">,</span> <span class="n">acceptationConditions</span><span class="p">.</span><span class="na">isChecked</span><span class="p">()));</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">handleAnnuler</span><span class="p">(</span><span class="n">View</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// TODO faire quelque chose de plus utile</span>
+        <span class="n">Log</span><span class="p">.</span><span class="na">i</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span> <span class="s">&quot;Annulé&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Dans la méthode <code class="docutils literal notranslate"><span class="pre">onCreate</span></code>, à partir de la ligne 28, nous utilisons la méthode
+<a class="reference external" href="https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity#findViewById(int)">findViewById</a> pour récupérer chaque vue et la conserver dans un attribut.</p>
+<p>Pour associer une action à chaque bouton, nous utilisons l’attribut <code class="docutils literal notranslate"><span class="pre">android:onClick</span></code>
+dans le <em>layout</em> XML pour donner le nom d’une méthode de l’activité qui doit
+être appelée. Cela évite de déclarer manuellement un <em>listener</em> dans le code
+de l’activité (comme nous l’avons fait au chapitre précédent). La méthode de l’activité
+doit être publique, ne retourner aucun résultat (<code class="docutils literal notranslate"><span class="pre">void</span></code>) et prendre en
+paramètre un objet de type <a class="reference external" href="https://developer.android.com/reference/android/view/View">View</a> correspondant à l’objet cliqué. Nous déclarons
+une méthode <code class="docutils literal notranslate"><span class="pre">handleOk</span></code> pour l’associer au clic sur le bouton <span class="guilabel">Ok</span> et
+une méthode <code class="docutils literal notranslate"><span class="pre">handleAnnuler</span></code> pour l’associer au clic sur le bouton
+<span class="guilabel">Annuler</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Dans cet exemple, en réaction au clic sur un bouton, nous nous contentons
+d’afficher des messages d’information dans les logs du système grâce à la
+classe <a class="reference external" href="https://developer.android.com/reference/android/util/Log">Log</a>.</p>
+<p>À l’exécution de l’application, les logs sont accessibles depuis Android
+Studio dans l’onglet <span class="guilabel">Logcat</span>.</p>
+</div>
+</div>
+<div class="section" id="la-barre-d-action">
+<h2>La barre d’action<a class="headerlink" href="#la-barre-d-action" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La barre d’action est un composant habituel de la conception d’une interface
+mobile. Elle s’affiche en haut de l’écran et propose des actions contextuelles
+sous la forme d’icônes ou d’un menu.</p>
+<div class="figure align-default" id="id18">
+<img alt="../_images/action_bar.png" src="../_images/action_bar.png" />
+<p class="caption"><span class="caption-text">Un exemple de barre d’action</span><a class="headerlink" href="#id18" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<div class="section" id="creer-un-menu-dans-la-barre-d-action">
+<h3>Créer un menu dans la barre d’action<a class="headerlink" href="#creer-un-menu-dans-la-barre-d-action" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Par défaut, une projet créé avec Android Studio utilise un thème qui affiche une
+barre d’action avec le libellé de l’application. Pour ajouter des boutons dans
+la barre d’action, vous devez commencer par créer un menu. Un menu est une
+ressource dans le répertoire <code class="file docutils literal notranslate"><span class="pre">res/menu</span></code>. Vous pouvez le créer directement
+dans Android Studio en faisant un clic droit dans le navigateur de projet et en
+choisissant <span class="guilabel">New &gt; Android Resource File</span>. Vous pouvez ensuite saisir
+le nom du menu et préciser le type <code class="docutils literal notranslate"><span class="pre">Menu</span></code>.</p>
+<div class="figure align-default" id="id19">
+<img alt="../_images/dialog_new_resource_file.png" src="../_images/dialog_new_resource_file.png" />
+<p class="caption"><span class="caption-text">La fenêtre de création d’une ressource pour un menu</span><a class="headerlink" href="#id19" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>En cliquant sur <span class="guilabel">Ok</span>, un fichier XML nommé <code class="file docutils literal notranslate"><span class="pre">app_menu.xml</span></code> est
+ajouté dans le répertoire <code class="file docutils literal notranslate"><span class="pre">res/menu</span></code> qui est créé à cette occasion. Un
+menu est décrit par un document XML.</p>
+<div class="literal-block-wrapper docutils container" id="id20">
+<div class="code-block-caption"><span class="caption-text">Exemple de menu</span><a class="headerlink" href="#id20" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;menu</span>
+    <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="na">xmlns:app=</span><span class="s">&quot;http://schemas.android.com/apk/res-auto&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;item</span>
+        <span class="na">android:id=</span><span class="s">&quot;@+id/menu_edition&quot;</span>
+        <span class="na">android:title=</span><span class="s">&quot;Edition&quot;</span>
+        <span class="na">android:icon=</span><span class="s">&quot;@android:drawable/ic_menu_edit&quot;</span>
+        <span class="na">app:showAsAction=</span><span class="s">&quot;ifRoom&quot;</span><span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;item</span>
+        <span class="na">android:id=</span><span class="s">&quot;@+id/menu_preferences&quot;</span>
+        <span class="na">android:title=</span><span class="s">&quot;Préférences&quot;</span>
+        <span class="na">android:icon=</span><span class="s">&quot;@android:drawable/ic_menu_preferences&quot;</span>
+        <span class="na">app:showAsAction=</span><span class="s">&quot;collapseActionView&quot;</span><span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;item</span>
+        <span class="na">android:id=</span><span class="s">&quot;@+id/menu_aide&quot;</span>
+        <span class="na">android:title=</span><span class="s">&quot;Aide&quot;</span>
+        <span class="na">android:icon=</span><span class="s">&quot;@android:drawable/ic_menu_help&quot;</span>
+        <span class="na">app:showAsAction=</span><span class="s">&quot;collapseActionView&quot;</span><span class="nt">/&gt;</span>
+
+<span class="nt">&lt;/menu&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>Chaque item du menu possède un identifiant unique grâce à l’attribut
+<code class="docutils literal notranslate"><span class="pre">android:id</span></code> ainsi qu’un titre et une icône. Vous pouvez fournir votre
+propre icône sous la forme d’une ressource de type <em>drawable</em>. Notez qu’il
+existe des ressources fournies directement par Android, et notamment des icônes
+de menu auxquelles vous pouvez accéder avec les identifiants commençant par
+<code class="docutils literal notranslate"><span class="pre">&#64;android:drawable/ic_menu_</span></code>.</p>
+<p>L’attribut <code class="docutils literal notranslate"><span class="pre">app:showAsAction</span></code> indique comment un item de menu doit être pris
+en compte par la barre d’action. Vous pouvez donner une des valeurs suivantes :</p>
+<dl class="simple">
+<dt>always</dt><dd><p>L’item doit être toujours affiché dans la barre d’action.</p>
+</dd>
+<dt>never</dt><dd><p>L’item ne doit pas être affiché ni être présent dans le menu.</p>
+</dd>
+<dt>collapseActionView</dt><dd><p>L’item ne sera présent que dans le menu et jamais directement dans
+la barre d’action</p>
+</dd>
+<dt>withText</dt><dd><p>L’item doit afficher son titre et pas uniquement son icône. Cela entraîne
+la plupart du temps que l’item ne peut pas s’afficher correctement dans
+la barre d’action et sera donc présent dans le menu.</p>
+</dd>
+<dt>ifRoom</dt><dd><p>L’item peut s’afficher dans la barre d’action que si cela est possible. Sinon,
+il sera présent dans le menu.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Si votre application n’affiche pas de barre d’action, tous les items
+du menu seront présents dans le menu contextuel de l’activité.</p>
+</div>
+</div>
+<div class="section" id="associer-un-menu-a-une-activite">
+<h3>Associer un menu à une activité<a class="headerlink" href="#associer-un-menu-a-une-activite" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour associer un menu à une activité, il faut surcharger la méthode <code class="docutils literal notranslate"><span class="pre">onCreateOptionsMenu</span></code>
+dans la classe de l’activité :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onCreateOptionsMenu</span><span class="p">(</span><span class="n">Menu</span> <span class="n">menu</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">getMenuInflater</span><span class="p">().</span><span class="na">inflate</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">menu</span><span class="p">.</span><span class="na">app_menu</span><span class="p">,</span> <span class="n">menu</span><span class="p">);</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>L’objet retourné par la méthode <a class="reference external" href="https://developer.android.com/reference/android/app/Activity.html#getMenuInflater()">getMenuInflater</a> permet d’associer l’identifiant
+du <em>layout</em> de menu au menu de l’activité.</p>
+</div>
+<div class="section" id="implementer-les-actions-associees-aux-items-de-menu">
+<h3>Implémenter les actions associées aux items de menu<a class="headerlink" href="#implementer-les-actions-associees-aux-items-de-menu" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour déclencher une action lorsque l’utilisateur clique sur un bouton du menu,
+il faut surcharger la méthode <a class="reference external" href="https://developer.android.com/reference/android/app/Activity#onOptionsItemSelected(android.view.MenuItem)">onOptionsItemSelected</a>. Cette dernière prend en
+paramètre l’item choisi dont il est possible de récupérer l’ID pour décider
+de l’action à réaliser.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onOptionsItemSelected</span><span class="p">(</span><span class="n">MenuItem</span> <span class="n">item</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">item</span><span class="p">.</span><span class="na">getItemId</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">menu_aide</span><span class="p">:</span>
+            <span class="n">Log</span><span class="p">.</span><span class="na">i</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span> <span class="s">&quot;Clic sur le bouton d&#39;aide&quot;</span><span class="p">);</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="k">case</span> <span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">menu_edition</span><span class="p">:</span>
+            <span class="n">Log</span><span class="p">.</span><span class="na">i</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span> <span class="s">&quot;Clic sur le bouton d&#39;édition&quot;</span><span class="p">);</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="k">case</span> <span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">menu_preferences</span><span class="p">:</span>
+            <span class="n">Log</span><span class="p">.</span><span class="na">i</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span> <span class="s">&quot;Clic sur le bouton des préférences&quot;</span><span class="p">);</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="k">default</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kd">super</span><span class="p">.</span><span class="na">onOptionsItemSelected</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="les-boites-de-dialogue">
+<h2>Les boites de dialogue<a class="headerlink" href="#les-boites-de-dialogue" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour créer une boite de dialogue, vous pouvez utiliser la classe <a class="reference external" href="https://developer.android.com/reference/android/app/AlertDialog">AlertDialog</a>
+ainsi que la classe <a class="reference external" href="https://developer.android.com/reference/android/app/AlertDialog.Builder">AlertDialog.Builder</a> pour vous aider à créer votre boite
+de dialogue.</p>
+<div class="section" id="boite-de-dialogue-avec-boutons">
+<h3>Boite de dialogue avec boutons<a class="headerlink" href="#boite-de-dialogue-avec-boutons" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dans une application Android, les boites de dialogue ont généralement un, deux
+ou trois boutons désignés sous le terme de positif (par exemple ok), de neutre
+(par exemple « plus tard ») et de négatif (par exemple « annuler »). Vous pouvez utiliser
+la classe <a class="reference external" href="https://developer.android.com/reference/android/app/AlertDialog.Builder">AlertDialog.Builder</a> pour définir le titre, le message et les boutons
+de la boite de dialogue et appeler ensuite la méthode <code class="docutils literal notranslate"><span class="pre">show</span></code> pour présenter la
+boite de dialogue. L’exemple ci-dessous présente du code qui peut être ajouté
+dans une activité :</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">afficherBoiteDeDialogue</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">DialogInterface</span><span class="p">.</span><span class="na">OnClickListener</span> <span class="n">dialogListener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DialogInterface</span><span class="p">.</span><span class="na">OnClickListener</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="p">(</span><span class="n">DialogInterface</span> <span class="n">dialog</span><span class="p">,</span> <span class="kt">int</span> <span class="n">which</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">onClickBoiteDeDialogue</span><span class="p">(</span><span class="n">dialog</span><span class="p">,</span> <span class="n">which</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+
+    <span class="k">new</span> <span class="n">AlertDialog</span><span class="p">.</span><span class="na">Builder</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+            <span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;Ma boite&quot;</span><span class="p">)</span>
+            <span class="p">.</span><span class="na">setMessage</span><span class="p">(</span><span class="s">&quot;Comment allez-vous ?&quot;</span><span class="p">)</span>
+            <span class="p">.</span><span class="na">setPositiveButton</span><span class="p">(</span><span class="s">&quot;Bien&quot;</span><span class="p">,</span> <span class="n">dialogListener</span><span class="p">)</span>
+            <span class="p">.</span><span class="na">setNeutralButton</span><span class="p">(</span><span class="s">&quot;Ne sais pas&quot;</span><span class="p">,</span> <span class="n">dialogListener</span><span class="p">)</span>
+            <span class="p">.</span><span class="na">setNegativeButton</span><span class="p">(</span><span class="s">&quot;Pas super&quot;</span><span class="p">,</span> <span class="n">dialogListener</span><span class="p">)</span>
+            <span class="p">.</span><span class="na">show</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">private</span> <span class="kt">void</span> <span class="nf">onClickBoiteDeDialogue</span><span class="p">(</span><span class="n">DialogInterface</span> <span class="n">dialog</span><span class="p">,</span> <span class="kt">int</span> <span class="n">which</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">which</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="n">AlertDialog</span><span class="p">.</span><span class="na">BUTTON_POSITIVE</span><span class="p">:</span>
+            <span class="k">new</span> <span class="n">AlertDialog</span><span class="p">.</span><span class="na">Builder</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="na">setMessage</span><span class="p">(</span><span class="s">&quot;Vous positivez !&quot;</span><span class="p">).</span><span class="na">show</span><span class="p">();</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="n">AlertDialog</span><span class="p">.</span><span class="na">BUTTON_NEUTRAL</span><span class="p">:</span>
+            <span class="k">new</span> <span class="n">AlertDialog</span><span class="p">.</span><span class="na">Builder</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="na">setMessage</span><span class="p">(</span><span class="s">&quot;Vous avez le droit de ne pas savoir.&quot;</span><span class="p">).</span><span class="na">show</span><span class="p">();</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="n">AlertDialog</span><span class="p">.</span><span class="na">BUTTON_NEGATIVE</span><span class="p">:</span>
+            <span class="k">new</span> <span class="n">AlertDialog</span><span class="p">.</span><span class="na">Builder</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="na">setMessage</span><span class="p">(</span><span class="s">&quot;Ça ne va pas fort !&quot;</span><span class="p">).</span><span class="na">show</span><span class="p">();</span>
+            <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<div class="figure align-default" id="id21">
+<img alt="../_images/dialogue_avec_boutons.png" src="../_images/dialogue_avec_boutons.png" />
+<p class="caption"><span class="caption-text">Exemple d’une boite de dialogue avec des boutons</span><a class="headerlink" href="#id21" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<div class="figure align-default" id="id22">
+<img alt="../_images/dialogue_sans_bouton.png" src="../_images/dialogue_sans_bouton.png" />
+<p class="caption"><span class="caption-text">Exemple d’une boite de dialogue sans bouton</span><a class="headerlink" href="#id22" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>À la ligne 2, la méthode <code class="docutils literal notranslate"><span class="pre">afficherBoiteDeDialogue</span></code> commence par déclarer un <em>listener</em> qui
+implémente l’interface <a class="reference external" href="https://developer.android.com/reference/android/content/DialogInterface.OnClickListener">DialogInterface.OnClickListener</a>. Cette interface ne
+contient qu’une seule méthode qui est appelée lorsque l’utilisateur interagit
+avec la boite de dialogue. Cette méthode reçoit en paramètre la boite de dialogue concernée
+ainsi qu’un paramètre <code class="docutils literal notranslate"><span class="pre">which</span></code> indiquant quel bouton a été cliqué. Dans cet
+exemple, on se contente d’appeler une autre méthode <code class="docutils literal notranslate"><span class="pre">onClickBoiteDeDialogue</span></code> qui
+affiche elle-même une autre boite de dialogue sans bouton.</p>
+<p>À la ligne 9, on affiche une boite de dialogue en précisant les différents
+éléments (titre, message, boutons avec leur <em>listener</em>) pour finalement appeler
+la méthode <code class="docutils literal notranslate"><span class="pre">show()</span></code>. Notez que pour créer une instance de <a class="reference external" href="https://developer.android.com/reference/android/app/AlertDialog.Builder">AlertDialog.Builder</a>,
+il faut passer en paramètre un contexte d’exécution Android. Une activité est
+un contexte d’exécution. Si ces méthodes sont ajoutées au code d’une activité,
+il suffit de passer <code class="docutils literal notranslate"><span class="pre">this</span></code> en paramètre du constructeur.</p>
+</div>
+<div class="section" id="boite-de-dialogue-avec-choix">
+<h3>Boite de dialogue avec choix<a class="headerlink" href="#boite-de-dialogue-avec-choix" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un autre type de boite de dialogue assez courant consiste à permettre à l’utilisateur
+de faire un choix dans une liste. Pour cela, il est possible d’utiliser la méthode
+<code class="docutils literal notranslate"><span class="pre">setItems</span></code> pour préciser la liste des choix (ou l’ID de la ressource correspondant
+à un <em>array</em>). Comme pour les boutons, on associe un <em>listener</em> à la liste des
+items. Le paramètre <em>which</em> reçu par la méthode <code class="docutils literal notranslate"><span class="pre">onClick</span></code> correspond à l’index
+du choix de l’utilisateur.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">afficherBoiteDeDialogue</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">DialogInterface</span><span class="p">.</span><span class="na">OnClickListener</span> <span class="n">dialogListener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DialogInterface</span><span class="p">.</span><span class="na">OnClickListener</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="p">(</span><span class="n">DialogInterface</span> <span class="n">dialog</span><span class="p">,</span> <span class="kt">int</span> <span class="n">which</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">onClickBoiteDeDialogue</span><span class="p">(</span><span class="n">dialog</span><span class="p">,</span> <span class="n">which</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+
+    <span class="n">String</span><span class="o">[]</span> <span class="n">listeEtats</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;Bien&quot;</span><span class="p">,</span> <span class="s">&quot;Pas super&quot;</span><span class="p">,</span> <span class="s">&quot;Ne sais pas&quot;</span><span class="p">};</span>
+
+    <span class="k">new</span> <span class="n">AlertDialog</span><span class="p">.</span><span class="na">Builder</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+            <span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;Mon autre boite&quot;</span><span class="p">)</span>
+            <span class="p">.</span><span class="na">setItems</span><span class="p">(</span><span class="n">listeEtats</span><span class="p">,</span> <span class="n">dialogListener</span><span class="p">)</span>
+            <span class="p">.</span><span class="na">show</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">private</span> <span class="kt">void</span> <span class="nf">onClickBoiteDeDialogue</span><span class="p">(</span><span class="n">DialogInterface</span> <span class="n">dialog</span><span class="p">,</span> <span class="kt">int</span> <span class="n">which</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">which</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">new</span> <span class="n">AlertDialog</span><span class="p">.</span><span class="na">Builder</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="na">setMessage</span><span class="p">(</span><span class="s">&quot;Vous positivez !&quot;</span><span class="p">).</span><span class="na">show</span><span class="p">();</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">new</span> <span class="n">AlertDialog</span><span class="p">.</span><span class="na">Builder</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="na">setMessage</span><span class="p">(</span><span class="s">&quot;Ça ne va pas fort !&quot;</span><span class="p">).</span><span class="na">show</span><span class="p">();</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">new</span> <span class="n">AlertDialog</span><span class="p">.</span><span class="na">Builder</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="na">setMessage</span><span class="p">(</span><span class="s">&quot;Vous avez le droit de ne pas savoir.&quot;</span><span class="p">).</span><span class="na">show</span><span class="p">();</span>
+            <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<div class="figure align-default" id="id23">
+<img alt="../_images/dialogue_avec_items.png" src="../_images/dialogue_avec_items.png" />
+<p class="caption"><span class="caption-text">Exemple d’une boite de dialogue avec une liste de choix</span><a class="headerlink" href="#id23" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Vous pouvez même concevoir une boite de dialogue avec n’importe quel
+<em>layout</em> en utilisant la méthode <code class="docutils literal notranslate"><span class="pre">setView</span></code> pour fournir un ID de ressource
+de <em>layout</em>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="message-a-l-utilisateur">
+<span id="android-message-vers-utilisateur"></span><h2>Message à l’utilisateur<a class="headerlink" href="#message-a-l-utilisateur" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il est possible de faire apparaître brièvement un message à
+l’utilisateur pour confirmer un choix ou signaler un problème. Pour cela,
+vous pouvez utiliser soit la classe <a class="reference external" href="https://developer.android.com/reference/android/widget/Toast">Toast</a> soit la classe <a class="reference external" href="https://developer.android.com/reference/com/google/android/material/snackbar/Snackbar">Snackbar</a> (la seconde
+est recommandée pour un nouvelle application).</p>
+<div class="section" id="toast">
+<h3>Toast<a class="headerlink" href="#toast" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Toast</span><span class="p">.</span><span class="na">makeText</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s">&quot;Hello world&quot;</span><span class="p">,</span> <span class="n">Toast</span><span class="p">.</span><span class="na">LENGTH_SHORT</span><span class="p">).</span><span class="na">show</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>La méthode statique <a class="reference external" href="https://developer.android.com/reference/android/widget/Toast#makeText(android.content.Context,%20int,%20int)">makeText</a> permet de créer un message que l’on affiche
+avec la méthode <code class="docutils literal notranslate"><span class="pre">show()</span></code>. Comme premier paramètre, il faut passer un contexte
+d’exécution Android. Si cette ligne est ajoutée au code d’une activité,
+il suffit de passer <code class="docutils literal notranslate"><span class="pre">this</span></code> en paramètre. Le second paramètre
+est le texte à afficher et le troisième paramètre est une constante pour indiquer
+la durée d’affichage du message (courte ou longue).</p>
+<div class="figure align-default" id="id24">
+<img alt="../_images/toast.png" src="../_images/toast.png" />
+<p class="caption"><span class="caption-text">Affichage d’un toast</span><a class="headerlink" href="#id24" title="Lien permanent vers cette image">¶</a></p>
+</div>
+</div>
+<div class="section" id="snackbar">
+<h3>Snackbar<a class="headerlink" href="#snackbar" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">View</span> <span class="n">content</span> <span class="o">=</span> <span class="n">findViewById</span><span class="p">(</span><span class="n">android</span><span class="p">.</span><span class="na">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">content</span><span class="p">);</span>
+<span class="n">Snackbar</span><span class="p">.</span><span class="na">make</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="s">&quot;Hello world&quot;</span><span class="p">,</span> <span class="n">Snackbar</span><span class="p">.</span><span class="na">LENGTH_LONG</span><span class="p">).</span><span class="na">show</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Le <a class="reference external" href="https://developer.android.com/reference/com/google/android/material/snackbar/Snackbar">Snackbar</a> fonctionne de manière très similaire au <a class="reference external" href="https://developer.android.com/reference/android/widget/Toast">Toast</a>. La méthode
+statique <a class="reference external" href="https://developer.android.com/reference/com/google/android/material/snackbar/Snackbar#make(android.view.View,%20int,%20int)">make</a> permet de créer le composant pour l’afficher avec la méthode
+<code class="docutils literal notranslate"><span class="pre">show()</span></code>. Le premier paramètre n’est pas un contexte d’exécution mais une vue
+de l’activité. Dans l’exemple ci-dessus, on utilise le contenu de l’activité,
+c’est-à-dire le <em>layout</em> pour créer le <a class="reference external" href="https://developer.android.com/reference/com/google/android/material/snackbar/Snackbar">Snackbar</a>. Le troisième paramètre est une
+constante pour indiquer la durée d’affichage du message (courte ou longue).</p>
+<div class="figure align-default" id="id25">
+<img alt="../_images/snackbar.png" src="../_images/snackbar.png" />
+<p class="caption"><span class="caption-text">Affichage d’un Snackbar</span><a class="headerlink" href="#id25" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour des cas plus complexes, notamment si l’utilisateur doit pouvoir réagir
+au message affiché, vous pouvez utiliser des notifications :</p>
+<blockquote>
+<div><p><a class="reference external" href="https://developer.android.com/guide/topics/ui/notifiers/notifications">https://developer.android.com/guide/topics/ui/notifiers/notifications</a></p>
+</div></blockquote>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="activity.html" class="btn btn-neutral float-right" title="Les activités" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="premiere_app.html" class="btn btn-neutral float-left" title="Une première application" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright David Gayerie - david@gayerie.dev - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

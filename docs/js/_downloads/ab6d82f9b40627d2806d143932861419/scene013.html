@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8>
+    <title>three.js app</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Quelques points le long d'une courbe de Bézier</p>
+    <script src="https://threejs.org/build/three.min.js"></script>
+    <script>
+      // création d'un courbe de Bézier à partir d'un point de départ,
+      // de deux points de contrôle et d'un point d'arrivée.
+      var curve = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(-10,  0, 3),
+        new THREE.Vector3( -5, 15, 2),
+        new THREE.Vector3( 20, 15, 1),
+        new THREE.Vector3( 10,  0, 0)
+      );
+
+      for (var i = 0; i < 11; ++i) {
+        var p = curve.getPoint(i * 1/10);
+        document.write("<p>(" + p.x + ", " +  p.y + ", " + p.z + ")</p>");
+      }
+
+    </script>
+  </body>
+</html>
+

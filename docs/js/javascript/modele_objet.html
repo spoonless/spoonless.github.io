@@ -1,0 +1,686 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Javascript - le modèle objet" name="description" />
+<meta content="Javascript, Ecmascript, ES5, ES6, langage de programmation, Web" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Le modèle objet &mdash; Documentation Le JavaScript moderne </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/js/javascript/modele_objet.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Programmation fonctionnelle" href="fonctionnel.html" />
+    <link rel="prev" title="Les apports de ES5 et ES6" href="evolution_syntaxe.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Le JavaScript moderne
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">JavaScript (notions avancées)</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="evolution_syntaxe.html">Les apports de ES5 et ES6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="evolution_syntaxe.html#le-mode-strict-es5">Le mode strict (ES5)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evolution_syntaxe.html#declarer-une-variable-avec-let-et-const-es6">Déclarer une variable avec let et const (ES6)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evolution_syntaxe.html#gabarit-de-chaine-de-caracteres-es6">Gabarit de chaîne de caractères (ES6)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evolution_syntaxe.html#evolution-de-la-syntaxe-en-es6">Évolution de la syntaxe en ES6</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="evolution_syntaxe.html#valeur-par-defaut-des-parametres">Valeur par défaut des paramètres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="evolution_syntaxe.html#le-parametre-de-reste">Le paramètre de reste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="evolution_syntaxe.html#la-decomposition-de-tableau">La décomposition de tableau</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Le modèle objet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creer-des-objets">Créer des objets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#la-declaration-litterale">La déclaration littérale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#le-constructeur">Le constructeur</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#le-prototype">Le prototype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#la-notion-de-propriete">La notion de propriété</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#l-heritage">L’héritage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#la-notion-de-classe-depuis-es6">La notion de classe depuis ES6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#l-heritage-avec-les-classes">L’héritage avec les classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#utilisation-du-mot-cle-super">Utilisation du mot-clé super</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fonctionnel.html">Programmation fonctionnelle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fonctionnel.html#les-arrow-functions">Les arrow functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonctionnel.html#l-utilisation-de-foreach">L’utilisation de forEach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonctionnel.html#le-modele-filter-map-reduce">Le modèle filter/map/reduce</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="module.html">Les modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="module.html#exporter">Exporter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="module.html#export-par-defaut">Export par défaut</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#importer">Importer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="symbol.html">Les symboles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="symbol.html#les-symboles-comme-noms-de-proprietes">Les symboles comme noms de propriétés</a></li>
+<li class="toctree-l2"><a class="reference internal" href="symbol.html#well-known-symbols">well-known symbols</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="iterateur_generateur.html">Les itérateurs et les générateurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#les-iterateurs">Les itérateurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#les-iterables">Les itérables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#la-structure-for-of">La structure for … of</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterateur_generateur.html#les-generateurs">Les générateurs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="promesse.html">Les promesses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="promesse.html#la-classe-promise">La classe Promise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="promesse.html#le-chainage-des-appels">Le chaînage des appels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="promesse.html#traitements-paralleles">Traitements parallèles</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">three.js</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../threejs/introduction.html">Introduction et mise en place</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/introduction.html#chargement-asynchrone-en-local">Chargement asynchrone en local</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/introduction.html#fichier-html-de-base">Fichier HTML de base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/introduction.html#creation-d-un-renderer">Création d’un renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/introduction.html#creation-d-une-camera">Création d’une caméra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/introduction.html#creation-d-une-scene">Création d’une scène</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/introduction.html#rendu-d-une-scene">Rendu d’une scène</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/introduction.html#redimensionnement-du-canevas">Redimensionnement du canevas</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../threejs/objets_et_scene.html">Objets et scène</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/objets_et_scene.html#repere-de-coordonnees">Repère de coordonnées</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/objets_et_scene.html#mesh-et-geometry">Mesh et Geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/objets_et_scene.html#les-transformations-dans-l-espace">Les transformations dans l’espace</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/objets_et_scene.html#exercice">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/objets_et_scene.html#une-animation-simple">Une animation simple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/objets_et_scene.html#hierarchie-d-objets">Hiérarchie d’objets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/objets_et_scene.html#excercice">Excercice</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../threejs/materiaux.html">Les matériaux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/materiaux.html#le-meshbasicmaterial">Le MeshBasicMaterial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/materiaux.html#les-lumieres">Les lumières</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/materiaux.html#les-materiaux-reagissant-a-la-lumiere">Les matériaux réagissant à la lumière</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/materiaux.html#excercice">Excercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/materiaux.html#textures-et-maps">Textures et Maps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/materiaux.html#chargement-d-une-texture">Chargement d’une texture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/materiaux.html#un-texture-comme-color-map">Un texture comme <em>color map</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/materiaux.html#les-autres-types-de-textures">Les autres types de textures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/materiaux.html#les-ombres">Les ombres</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../threejs/interactions.html">Les interactions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/interactions.html#les-controleurs">Les contrôleurs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../threejs/interactions.html#le-controleur-orbital">Le contrôleur orbital</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/interactions.html#le-lancer-de-rayon">Le lancer de rayon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/interactions.html#la-projection">La projection</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../threejs/chargement_scene.html">Chargement de modèle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/chargement_scene.html#le-chargeur-gltf">Le chargeur glTF</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../threejs/animation_curve.html">Animation à partir de courbes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/animation_curve.html#les-courbes">Les courbes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/animation_curve.html#representation-graphique-d-une-courbe">Représentation graphique d’une courbe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/animation_curve.html#animation-le-long-d-une-courbe">Animation le long d’une courbe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threejs/animation_curve.html#exercice">Exercice</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Le JavaScript moderne</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Le modèle objet</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="fonctionnel.html" class="btn btn-neutral float-right" title="Programmation fonctionnelle" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="evolution_syntaxe.html" class="btn btn-neutral float-left" title="Les apports de ES5 et ES6" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="le-modele-objet">
+<h1>Le modèle objet<a class="headerlink" href="#le-modele-objet" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Le JavaScript utilise un modèle objet un peu particulier puisqu’il se base
+sur le principe du prototype. Il diffère de la plupart des autres langages
+de programmation qui utilisent la notion de <strong>classe</strong>. Depuis ES6, le mot-clé
+<code class="docutils literal notranslate"><span class="pre">classe</span></code> a été introduit pour faciliter la compréhension du code.</p>
+<div class="section" id="creer-des-objets">
+<h2>Créer des objets<a class="headerlink" href="#creer-des-objets" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il existe deux façons de créer des objets en JavaScript : la <strong>déclaration littérale</strong>
+et l’utilisation d’une <strong>fonction de construction</strong> (appelée plus simplement constructeur).</p>
+<div class="section" id="la-declaration-litterale">
+<h3>La déclaration littérale<a class="headerlink" href="#la-declaration-litterale" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La déclaration littérale consiste à utiliser des accolades :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">utilisateur</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">prenom</span><span class="o">:</span> <span class="s2">&quot;David&quot;</span><span class="p">,</span>
+    <span class="nx">nom</span><span class="o">:</span> <span class="s2">&quot;Gayerie&quot;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">utilisateur</span><span class="p">.</span><span class="nx">prenom</span><span class="p">,</span> <span class="nx">utilisateur</span><span class="p">.</span><span class="nx">nom</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Si on désire ajouter des méthodes à l’objet, on peut utiliser les fonctions
+anonymes :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">utilisateur</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">prenom</span><span class="o">:</span> <span class="s2">&quot;David&quot;</span><span class="p">,</span>
+    <span class="nx">nom</span><span class="o">:</span> <span class="s2">&quot;Gayerie&quot;</span><span class="p">,</span>
+    <span class="nx">print</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">nom</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">prenom</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">utilisateur</span><span class="p">.</span><span class="nx">print</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Le mot-clé <code class="docutils literal notranslate"><span class="pre">this</span></code> permet d’accéder aux attributs et aux méthodes de l’objet
+à l’intérieur d’une méthode.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Depuis ES6, il est possible de déclarer directement la fonction sans passer
+par une affectation d’une fonction anonyme :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">utilisateur</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">prenom</span><span class="o">:</span> <span class="s2">&quot;David&quot;</span><span class="p">,</span>
+    <span class="nx">nom</span><span class="o">:</span> <span class="s2">&quot;Gayerie&quot;</span><span class="p">,</span>
+    <span class="nx">print</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">nom</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">prenom</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">utilisateur</span><span class="p">.</span><span class="nx">print</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="le-constructeur">
+<h3>Le constructeur<a class="headerlink" href="#le-constructeur" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un constructeur est une fonction qui permet de créer un objet. Par convention
+ces fonctions commencent par une majuscule :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Utilisateur</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">prenom</span> <span class="o">=</span> <span class="s2">&quot;David&quot;</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">nom</span> <span class="o">=</span> <span class="s2">&quot;Gayerie&quot;</span><span class="p">;</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">print</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">nom</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">prenom</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Pour créer un objet, il faut utiliser le mot-clé <code class="docutils literal notranslate"><span class="pre">new</span></code> :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">u</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Utilisateur</span><span class="p">;</span>
+<span class="nx">u</span><span class="p">.</span><span class="nx">print</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Un des intérêts d’un constructeur est d’utiliser des paramètres pour initialiser
+l’état de l’objet :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Utilisateur</span><span class="p">(</span><span class="nx">prenom</span><span class="p">,</span> <span class="nx">nom</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">prenom</span> <span class="o">=</span> <span class="nx">prenom</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">nom</span> <span class="o">=</span> <span class="nx">nom</span><span class="p">;</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">print</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">nom</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">prenom</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">u</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Utilisateur</span><span class="p">(</span><span class="s2">&quot;David&quot;</span><span class="p">,</span> <span class="s2">&quot;Gayerie&quot;</span><span class="p">);</span>
+<span class="nx">u</span><span class="p">.</span><span class="nx">print</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>En utilisant le principe de la fermeture (<em>closure</em>) sur les fonctions, il
+est possible de créer un état interne et privé pour un objet :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Utilisateur</span><span class="p">(</span><span class="nx">prenom</span><span class="p">,</span> <span class="nx">nom</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">_prenom</span> <span class="o">=</span> <span class="nx">prenom</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">_nom</span> <span class="o">=</span> <span class="nx">nom</span><span class="p">;</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">print</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">_nom</span><span class="p">,</span> <span class="nx">_prenom</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">u</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Utilisateur</span><span class="p">(</span><span class="s2">&quot;David&quot;</span><span class="p">,</span> <span class="s2">&quot;Gayerie&quot;</span><span class="p">);</span>
+<span class="nx">u</span><span class="p">.</span><span class="nx">print</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Dans l’exemple précédent, les variables <code class="docutils literal notranslate"><span class="pre">_prenom</span></code> et <code class="docutils literal notranslate"><span class="pre">_nom</span></code> sont locales
+à la fonction et ne seront pas visibles à travers la variable <code class="docutils literal notranslate"><span class="pre">u</span></code>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="le-prototype">
+<h2>Le prototype<a class="headerlink" href="#le-prototype" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un constructeur possède un attribut <code class="docutils literal notranslate"><span class="pre">prototype</span></code> qui permet de stocker les méthodes
+d’un objet. Plutôt que d’utiliser le mot-clé <code class="docutils literal notranslate"><span class="pre">this</span></code> pour affecter des méthodes
+à la construction, on ajoute les méthodes au prototype.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Utilisateur</span><span class="p">(</span><span class="nx">prenom</span><span class="p">,</span> <span class="nx">nom</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">prenom</span> <span class="o">=</span> <span class="nx">prenom</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">nom</span> <span class="o">=</span> <span class="nx">nom</span><span class="p">;</span>
+
+<span class="p">}</span>
+
+<span class="nx">Utilisateur</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">print</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">nom</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">prenom</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">u</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Utilisateur</span><span class="p">(</span><span class="s2">&quot;David&quot;</span><span class="p">,</span> <span class="s2">&quot;Gayerie&quot;</span><span class="p">);</span>
+<span class="nx">u</span><span class="p">.</span><span class="nx">print</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Nous verrons dans la section suivante que l’utilisation du <code class="docutils literal notranslate"><span class="pre">prototype</span></code> optimise
+la gestion mémoire.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Tous les objets créés possèdent un attribut <code class="docutils literal notranslate"><span class="pre">constructor</span></code> qui permet d’accéder
+à la fonction de construction :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">MaClasse</span><span class="p">()</span> <span class="p">{</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">o</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MaClasse</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">constructor</span> <span class="o">===</span> <span class="nx">MaClasse</span><span class="p">);</span> <span class="c1">// Affiche true</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="la-notion-de-propriete">
+<h2>La notion de propriété<a class="headerlink" href="#la-notion-de-propriete" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une propriété est accessible comme un attribut sauf que sa lecture ou sa modification
+sont réalisées par l’appel à une fonction. Il s’agit la plupart du temps d’une
+valeur calculée ou dérivée d’autres attributs de l’objet.</p>
+<p>Pour une déclaration littérale d’un objet, on utilise les mots-clés <code class="docutils literal notranslate"><span class="pre">get</span></code> et <code class="docutils literal notranslate"><span class="pre">set</span></code> :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">utilisateur</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">prenom</span><span class="o">:</span> <span class="s2">&quot;David&quot;</span><span class="p">,</span>
+    <span class="nx">nom</span><span class="o">:</span> <span class="s2">&quot;Gayerie&quot;</span><span class="p">,</span>
+
+    <span class="nx">get</span> <span class="nx">nom_complet</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">prenom</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">nom</span><span class="p">;</span>
+    <span class="p">},</span>
+
+    <span class="nx">set</span> <span class="nx">nom_complet</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nx">t</span> <span class="o">=</span> <span class="nx">v</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">prenom</span> <span class="o">=</span> <span class="nx">t</span><span class="p">[</span><span class="mf">0</span><span class="p">];</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">nom</span> <span class="o">=</span> <span class="nx">t</span><span class="p">[</span><span class="mf">1</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">utilisateur</span><span class="p">.</span><span class="nx">nom_complet</span><span class="p">);</span> <span class="c1">// affiche David Gayerie</span>
+
+<span class="nx">utilisateur</span><span class="p">.</span><span class="nx">nom_complet</span> <span class="o">=</span> <span class="s2">&quot;John Doe&quot;</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">utilisateur</span><span class="p">.</span><span class="nx">prenom</span><span class="p">,</span> <span class="nx">utilisateur</span><span class="p">.</span><span class="nx">nom</span><span class="p">);</span> <span class="c1">// affiche John Doe</span>
+</pre></div>
+</div>
+<p>Il est également possible de définir dynamiquement une propriété sur un objet
+grâce à la méthode <a class="reference external" href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Object/defineProperty">Object.defineProperty</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Depuis ES6, il existe aussi la méthode <a class="reference external" href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Reflect/defineProperty">Reflect.defineProperty</a>.</p>
+</div>
+</div>
+<div class="section" id="l-heritage">
+<h2>L’héritage<a class="headerlink" href="#l-heritage" title="Lien permanent vers ce titre">¶</a></h2>
+<p>En JavaScript, un objet peut être créé à partir d’une fonction de construction.
+Cette dernière est associé à un prototype qui est un objet représentant l’objet
+parent.</p>
+<p>Par défaut, le prototype correspond à un objet qui ne contient que la propriété
+<code class="docutils literal notranslate"><span class="pre">constructor</span></code> qui désigne la fonction elle-même.</p>
+<p>Pour créer un héritage, il suffit de modifier l’objet prototype pour lui assigner
+un objet parent.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Parent</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">nom</span> <span class="o">=</span> <span class="s2">&quot;parent&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">Enfant</span><span class="p">()</span> <span class="p">{</span>
+<span class="p">}</span>
+
+<span class="nx">Enfant</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Parent</span><span class="p">;</span>
+
+<span class="kd">let</span> <span class="nx">e</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Enfant</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">nom</span><span class="p">);</span> <span class="c1">// Affiche parent</span>
+</pre></div>
+</div>
+<p>Lorsqu’on accède à un attribut, une propriété ou une méthode, l’interpréteur commence
+par le rechercher dans l’objet et, s’il n’existe pas, il recherche récursivement
+dans l’objet prototype. Dans l’exemple précédent, on peut bien dire que l’attribut
+<code class="docutils literal notranslate"><span class="pre">nom</span></code> est hérité de l’objet prototype <code class="docutils literal notranslate"><span class="pre">Parent</span></code>.</p>
+<p>Le mécanisme d’héritage est très souple en JavaScript puisqu’on peut accéder
+à l’objet prototype d’un objet avec la méthode <code class="docutils literal notranslate"><span class="pre">Object.getPrototypeOf(o)</span></code> mais
+on peut également changer dynamiquement le prototype d’un objet grâce à la méthode
+<code class="docutils literal notranslate"><span class="pre">Object.setPrototypeOf(o,</span> <span class="pre">p)</span></code>.</p>
+</div>
+<div class="section" id="la-notion-de-classe-depuis-es6">
+<h2>La notion de classe depuis ES6<a class="headerlink" href="#la-notion-de-classe-depuis-es6" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Depuis ES6, la notion de classe a été introduite car elle est plus largement
+utilisée dans les langages de programmation objet. Cependant, cela ne change
+rien dans le principe de programmation objet par prototype de JavaScript. Il
+s’agit plus d’un sucre syntaxique.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Utilisateur</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="nx">prenom</span><span class="p">,</span> <span class="nx">nom</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">prenom</span> <span class="o">=</span> <span class="nx">prenom</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">nom</span> <span class="o">=</span> <span class="nx">nom</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">print</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">prenom</span><span class="p">,</span> <span class="nx">nom</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">u</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Utilisateur</span><span class="p">(</span><span class="s2">&quot;David&quot;</span><span class="p">,</span> <span class="s2">&quot;Gayerie&quot;</span><span class="p">);</span>
+<span class="nx">u</span><span class="p">.</span><span class="nx">print</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>La méthode nommée <code class="docutils literal notranslate"><span class="pre">constructor</span></code> correspond à la fonction de construction et
+toutes les autres méthodes déclarées dans la classe sont ajoutées au prototype
+de la fonction de construction.</p>
+<p>Il est également possible de déclarer des propriétés grâce aux mots-clés <code class="docutils literal notranslate"><span class="pre">get</span></code>
+et <code class="docutils literal notranslate"><span class="pre">set</span></code>.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Utilisateur</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="nx">prenom</span><span class="p">,</span> <span class="nx">nom</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">prenom</span> <span class="o">=</span> <span class="nx">prenom</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">nom</span> <span class="o">=</span> <span class="nx">nom</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">get</span> <span class="nx">nom_complet</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="sb">`</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">prenom</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">nom</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">set</span> <span class="nx">nom_complet</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nx">t</span> <span class="o">=</span> <span class="nx">v</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">prenom</span> <span class="o">=</span> <span class="nx">t</span><span class="p">[</span><span class="mf">0</span><span class="p">];</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">nom</span> <span class="o">=</span> <span class="nx">t</span><span class="p">[</span><span class="mf">1</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>La déclaration d’une méthode de générateur doit commencer par <code class="docutils literal notranslate"><span class="pre">*</span></code> :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Compteur</span> <span class="p">{</span>
+    <span class="o">*</span> <span class="nx">compter</span><span class="p">(</span><span class="nx">max</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">c</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span> <span class="nx">c</span> <span class="o">&lt;=</span> <span class="nx">max</span><span class="p">;</span> <span class="o">++</span><span class="nx">c</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">yield</span> <span class="nx">c</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">compteur</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Compteur</span><span class="p">();</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="k">of</span> <span class="nx">compteur</span><span class="p">.</span><span class="nx">compter</span><span class="p">(</span><span class="mf">10</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Une méthode avec le mot-clé <code class="docutils literal notranslate"><span class="pre">static</span></code> désigne une fonction qui est directement
+ajoutée à la fonction de construction et non au prototype. Il s’agit donc
+d’une fonction accessible à travers le nom de la classe et dans laquelle on ne
+peut pas utiliser le mot-clé <code class="docutils literal notranslate"><span class="pre">this</span></code> :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Utilisateur</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="nx">prenom</span><span class="p">,</span> <span class="nx">nom</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">prenom</span> <span class="o">=</span> <span class="nx">prenom</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">nom</span> <span class="o">=</span> <span class="nx">nom</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kr">static</span> <span class="nx">meme_famille</span><span class="p">(</span><span class="nx">u1</span><span class="p">,</span> <span class="nx">u2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">u1</span><span class="p">.</span><span class="nx">nom</span> <span class="o">===</span> <span class="nx">u2</span><span class="p">.</span><span class="nx">nom</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">u1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Utilisateur</span><span class="p">(</span><span class="s2">&quot;David&quot;</span><span class="p">,</span> <span class="s2">&quot;Gayerie&quot;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">u2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Utilisateur</span><span class="p">(</span><span class="s2">&quot;Eric&quot;</span><span class="p">,</span> <span class="s2">&quot;Gayerie&quot;</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Utilisateur</span><span class="p">.</span><span class="nx">meme_famille</span><span class="p">(</span><span class="nx">u1</span><span class="p">,</span> <span class="nx">u2</span><span class="p">));</span> <span class="c1">// Affiche true</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="l-heritage-avec-les-classes">
+<h2>L’héritage avec les classes<a class="headerlink" href="#l-heritage-avec-les-classes" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour préciser l’héritage, on utilise le mot-clé <code class="docutils literal notranslate"><span class="pre">extends</span></code>.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Animal</span> <span class="p">{</span>
+
+    <span class="nx">mange</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`mange </span><span class="si">${</span><span class="nx">a</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="kr">class</span> <span class="nx">Chien</span> <span class="kr">extends</span> <span class="nx">Animal</span> <span class="p">{</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">c</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Chien</span><span class="p">;</span>
+<span class="nx">c</span><span class="p">.</span><span class="nx">mange</span><span class="p">(</span><span class="s2">&quot;un os&quot;</span><span class="p">);</span> <span class="c1">// affiche mange un os</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="utilisation-du-mot-cle-super">
+<h2>Utilisation du mot-clé super<a class="headerlink" href="#utilisation-du-mot-cle-super" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour faciliter l’héritage, ES6 introduit le mot-clé <code class="docutils literal notranslate"><span class="pre">super</span></code>. Lorsqu’il est
+utilisé dans un constructeur, cela permet d’appeler le constructeur de la classe
+parente (en lui passant éventuellement des paramètres). Il peut également servir
+à appeler une méthode déclarée dans la superclasse.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Personne</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="nx">prenom</span><span class="p">,</span> <span class="nx">nom</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">prenom</span> <span class="o">=</span> <span class="nx">prenom</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">nom</span> <span class="o">=</span> <span class="nx">nom</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">print</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">prenom</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">nom</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">class</span> <span class="nx">Utilisateur</span> <span class="kr">extends</span> <span class="nx">Personne</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">prenom</span><span class="p">,</span> <span class="nx">nom</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kr">super</span><span class="p">(</span><span class="nx">prenom</span><span class="p">,</span> <span class="nx">nom</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="nx">id</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">print</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+        <span class="kr">super</span><span class="p">.</span><span class="nx">print</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="fonctionnel.html" class="btn btn-neutral float-right" title="Programmation fonctionnelle" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="evolution_syntaxe.html" class="btn btn-neutral float-left" title="Les apports de ES5 et ES6" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright David Gayerie - david@gayerie.dev - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

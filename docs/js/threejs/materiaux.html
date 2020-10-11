@@ -1,0 +1,1256 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Tutoriel three.js" name="description" />
+<meta content="three.js, webgl, 3D" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Les matériaux &mdash; Documentation Le JavaScript moderne </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/js/threejs/materiaux.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Les interactions" href="interactions.html" />
+    <link rel="prev" title="Objets et scène" href="objets_et_scene.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Le JavaScript moderne
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">JavaScript (notions avancées)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../javascript/evolution_syntaxe.html">Les apports de ES5 et ES6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/evolution_syntaxe.html#le-mode-strict-es5">Le mode strict (ES5)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/evolution_syntaxe.html#declarer-une-variable-avec-let-et-const-es6">Déclarer une variable avec let et const (ES6)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/evolution_syntaxe.html#gabarit-de-chaine-de-caracteres-es6">Gabarit de chaîne de caractères (ES6)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/evolution_syntaxe.html#evolution-de-la-syntaxe-en-es6">Évolution de la syntaxe en ES6</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javascript/evolution_syntaxe.html#valeur-par-defaut-des-parametres">Valeur par défaut des paramètres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javascript/evolution_syntaxe.html#le-parametre-de-reste">Le paramètre de reste</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javascript/evolution_syntaxe.html#la-decomposition-de-tableau">La décomposition de tableau</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javascript/modele_objet.html">Le modèle objet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/modele_objet.html#creer-des-objets">Créer des objets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javascript/modele_objet.html#la-declaration-litterale">La déclaration littérale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../javascript/modele_objet.html#le-constructeur">Le constructeur</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/modele_objet.html#le-prototype">Le prototype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/modele_objet.html#la-notion-de-propriete">La notion de propriété</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/modele_objet.html#l-heritage">L’héritage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/modele_objet.html#la-notion-de-classe-depuis-es6">La notion de classe depuis ES6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/modele_objet.html#l-heritage-avec-les-classes">L’héritage avec les classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/modele_objet.html#utilisation-du-mot-cle-super">Utilisation du mot-clé super</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javascript/fonctionnel.html">Programmation fonctionnelle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/fonctionnel.html#les-arrow-functions">Les arrow functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/fonctionnel.html#l-utilisation-de-foreach">L’utilisation de forEach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/fonctionnel.html#le-modele-filter-map-reduce">Le modèle filter/map/reduce</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javascript/module.html">Les modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/module.html#exporter">Exporter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../javascript/module.html#export-par-defaut">Export par défaut</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/module.html#importer">Importer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javascript/symbol.html">Les symboles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/symbol.html#les-symboles-comme-noms-de-proprietes">Les symboles comme noms de propriétés</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/symbol.html#well-known-symbols">well-known symbols</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javascript/iterateur_generateur.html">Les itérateurs et les générateurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/iterateur_generateur.html#les-iterateurs">Les itérateurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/iterateur_generateur.html#les-iterables">Les itérables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/iterateur_generateur.html#la-structure-for-of">La structure for … of</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/iterateur_generateur.html#les-generateurs">Les générateurs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../javascript/promesse.html">Les promesses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/promesse.html#la-classe-promise">La classe Promise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/promesse.html#le-chainage-des-appels">Le chaînage des appels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../javascript/promesse.html#traitements-paralleles">Traitements parallèles</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">three.js</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction et mise en place</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#chargement-asynchrone-en-local">Chargement asynchrone en local</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#fichier-html-de-base">Fichier HTML de base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#creation-d-un-renderer">Création d’un renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#creation-d-une-camera">Création d’une caméra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#creation-d-une-scene">Création d’une scène</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#rendu-d-une-scene">Rendu d’une scène</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#redimensionnement-du-canevas">Redimensionnement du canevas</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="objets_et_scene.html">Objets et scène</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="objets_et_scene.html#repere-de-coordonnees">Repère de coordonnées</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objets_et_scene.html#mesh-et-geometry">Mesh et Geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objets_et_scene.html#les-transformations-dans-l-espace">Les transformations dans l’espace</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="objets_et_scene.html#exercice">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="objets_et_scene.html#une-animation-simple">Une animation simple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="objets_et_scene.html#hierarchie-d-objets">Hiérarchie d’objets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="objets_et_scene.html#excercice">Excercice</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Les matériaux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#le-meshbasicmaterial">Le MeshBasicMaterial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-lumieres">Les lumières</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-materiaux-reagissant-a-la-lumiere">Les matériaux réagissant à la lumière</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#excercice">Excercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#textures-et-maps">Textures et Maps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#chargement-d-une-texture">Chargement d’une texture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#un-texture-comme-color-map">Un texture comme <em>color map</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#les-autres-types-de-textures">Les autres types de textures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#les-ombres">Les ombres</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="interactions.html">Les interactions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="interactions.html#les-controleurs">Les contrôleurs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="interactions.html#le-controleur-orbital">Le contrôleur orbital</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="interactions.html#le-lancer-de-rayon">Le lancer de rayon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interactions.html#la-projection">La projection</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chargement_scene.html">Chargement de modèle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chargement_scene.html#le-chargeur-gltf">Le chargeur glTF</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="animation_curve.html">Animation à partir de courbes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="animation_curve.html#les-courbes">Les courbes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animation_curve.html#representation-graphique-d-une-courbe">Représentation graphique d’une courbe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animation_curve.html#animation-le-long-d-une-courbe">Animation le long d’une courbe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animation_curve.html#exercice">Exercice</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Le JavaScript moderne</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Les matériaux</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="interactions.html" class="btn btn-neutral float-right" title="Les interactions" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="objets_et_scene.html" class="btn btn-neutral float-left" title="Objets et scène" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="les-materiaux">
+<h1>Les matériaux<a class="headerlink" href="#les-materiaux" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Nous avons vu au <a class="reference internal" href="objets_et_scene.html#threejs-mesh"><span class="std std-ref">chapitre précédent</span></a> qu’un
+<a class="reference external" href="https://threejs.org/docs/index.html#api/en/objects/Mesh">Mesh</a> est un objet 3D correspondant à l’association d’une géométrie et d’un matériau.</p>
+<p>Un matériau définit la façon dont la géométrie doit être rendue dans l’image. Un
+matériau fournit les informations nécessaires à un <em>shader</em>, c’est-à-dire à
+un programme exécuté par la carte graphique pour créer le rendu.</p>
+<div class="section" id="le-meshbasicmaterial">
+<h2>Le MeshBasicMaterial<a class="headerlink" href="#le-meshbasicmaterial" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Si vous ne précisez aucun matériau lors de la création d’une instance de <a class="reference external" href="https://threejs.org/docs/index.html#api/en/objects/Mesh">Mesh</a>,
+alors <a class="reference external" href="https://threejs.org/">three.js</a> utilise par défaut un nouveau <a class="reference external" href="https://threejs.org/docs/index.html#api/en/materials/MeshBasicMaterial">MeshBasicMaterial</a> en utilisant
+une couleur au hasard.</p>
+<p>Le <a class="reference external" href="https://threejs.org/docs/index.html#api/en/materials/MeshBasicMaterial">MeshBasicMaterial</a>, comme son nom l’indique, est très simple. Il remplit la
+géométrie à partir d’une couleur ou d’une texture sans tenir compte de l’ombrage
+(<em>shading</em>). Ce matériau fonctionne donc sans avoir besoin d’ajouter des lumières
+dans la scène.</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">utf-8</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>three.js app<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+      <span class="nt">body</span> <span class="p">{</span>
+        <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">overflow</span><span class="p">:</span> <span class="kc">hidden</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://threejs.org/build/three.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+      <span class="c1">// création du renderer</span>
+      <span class="kd">var</span> <span class="nx">renderer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">WebGLRenderer</span><span class="p">();</span>
+      <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">domElement</span><span class="p">);</span>
+      <span class="nx">renderer</span><span class="p">.</span><span class="nx">setSize</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">);</span>
+
+      <span class="c1">// création de la caméra</span>
+      <span class="kd">var</span> <span class="nx">camera</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">PerspectiveCamera</span><span class="p">(</span><span class="mf">45</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span> <span class="o">/</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1000</span><span class="p">);</span>
+
+      <span class="c1">// création de la scène</span>
+      <span class="kd">var</span> <span class="nx">scene</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Scene</span><span class="p">();</span>
+
+      <span class="c1">// couleur de fond noire</span>
+      <span class="nx">scene</span><span class="p">.</span><span class="nx">background</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Color</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">);</span>
+
+      <span class="c1">// création d&#39;un objet à partir d&#39;une géométrie</span>
+      <span class="c1">// et d&#39;un matériau de couleur rouge</span>
+      <span class="kd">var</span> <span class="nx">object</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span>
+          <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">TorusKnotGeometry</span><span class="p">(),</span>
+          <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshBasicMaterial</span><span class="p">({</span><span class="nx">color</span><span class="o">:</span> <span class="mh">0xFF0000</span><span class="p">})</span>
+      <span class="p">);</span>
+      <span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">object</span><span class="p">);</span>
+
+      <span class="c1">// positionnement de la caméra</span>
+      <span class="nx">camera</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">z</span> <span class="o">=</span> <span class="mf">10</span><span class="p">;</span>
+
+      <span class="kd">function</span> <span class="nx">animate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">object</span><span class="p">.</span><span class="nx">rotateY</span><span class="p">(</span><span class="mf">.05</span><span class="p">);</span>
+        <span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="nx">animate</span><span class="p">);</span>
+        <span class="nx">renderer</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">scene</span><span class="p">,</span> <span class="nx">camera</span><span class="p">);</span>
+      <span class="p">}</span>
+
+      <span class="nx">animate</span><span class="p">();</span>
+    <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Vous pouvez <a class="reference download internal" download="" href="../_downloads/c2189453361743e382eb1770c0250a04/scene007.html"><code class="xref download docutils literal notranslate"><span class="pre">télécharger</span> <span class="pre">ce</span> <span class="pre">fichier</span> <span class="pre">directement</span></code></a>.</p>
+<p>À la ligne 34, on passe en paramètre de la construction du <a class="reference external" href="https://threejs.org/docs/index.html#api/en/objects/Mesh">Mesh</a> un nouveau
+<a class="reference external" href="https://threejs.org/docs/index.html#api/en/materials/MeshBasicMaterial">MeshBasicMaterial</a> pour lequel on précise une couleur rouge <code class="docutils literal notranslate"><span class="pre">0xFF0000</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notez qu’un matériau possède des propriétés qui peuvent être changées pour modifier
+dynamiquement le rendu d’un objet. Ainsi, <a class="reference external" href="https://threejs.org/docs/index.html#api/en/materials/MeshBasicMaterial">MeshBasicMaterial</a> possède la propriété
+<a class="reference external" href="https://threejs.org/docs/index.html#api/en/materials/MeshBasicMaterial.wireframe">wireframe</a> qui indique si l’objet doit être rendu en fil de fer. Il est très
+facile de créer un rendu qui peut être contrôlé au moyen du clavier :</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">utf-8</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>three.js app<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+      <span class="nt">body</span> <span class="p">{</span>
+        <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">overflow</span><span class="p">:</span> <span class="kc">hidden</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="p">.</span><span class="nc">instruction</span> <span class="p">{</span>
+        <span class="k">color</span><span class="p">:</span> <span class="kc">white</span><span class="p">;</span>
+        <span class="k">position</span><span class="p">:</span> <span class="kc">fixed</span><span class="p">;</span>
+        <span class="k">top</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">z-index</span><span class="p">:</span> <span class="mi">1000</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;instruction&quot;</span><span class="p">&gt;</span>Appuyer sur une touche pour passer de la vue fil de fer (wireframe) à la vue solide.<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://threejs.org/build/three.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+      <span class="c1">// création du renderer</span>
+      <span class="kd">var</span> <span class="nx">renderer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">WebGLRenderer</span><span class="p">();</span>
+      <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">domElement</span><span class="p">);</span>
+      <span class="nx">renderer</span><span class="p">.</span><span class="nx">setSize</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">);</span>
+
+      <span class="c1">// création de la caméra</span>
+      <span class="kd">var</span> <span class="nx">camera</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">PerspectiveCamera</span><span class="p">(</span><span class="mf">45</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span> <span class="o">/</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1000</span><span class="p">);</span>
+
+      <span class="c1">// création de la scène</span>
+      <span class="kd">var</span> <span class="nx">scene</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Scene</span><span class="p">();</span>
+
+      <span class="c1">// couleur de fond noire</span>
+      <span class="nx">scene</span><span class="p">.</span><span class="nx">background</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Color</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">);</span>
+
+      <span class="c1">// création d&#39;un objet à partir d&#39;une géométrie</span>
+      <span class="c1">// et d&#39;un matériau de couleur rouge</span>
+      <span class="nx">material</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshBasicMaterial</span><span class="p">({</span><span class="nx">color</span><span class="o">:</span> <span class="mh">0xf7e951</span><span class="p">})</span>
+      <span class="nx">material</span><span class="p">.</span><span class="nx">wireframe</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+      <span class="kd">var</span> <span class="nx">object</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span>
+          <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">TorusKnotGeometry</span><span class="p">(),</span>
+          <span class="nx">material</span>
+      <span class="p">);</span>
+      <span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">object</span><span class="p">);</span>
+
+      <span class="c1">// positionnement de la caméra</span>
+      <span class="nx">camera</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">z</span> <span class="o">=</span> <span class="mf">10</span><span class="p">;</span>
+
+      <span class="kd">function</span> <span class="nx">animate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">object</span><span class="p">.</span><span class="nx">rotateY</span><span class="p">(</span><span class="mf">.05</span><span class="p">);</span>
+        <span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="nx">animate</span><span class="p">);</span>
+        <span class="nx">renderer</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">scene</span><span class="p">,</span> <span class="nx">camera</span><span class="p">);</span>
+      <span class="p">}</span>
+
+      <span class="c1">// on enregistre un listener pour changer le mode</span>
+      <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;keydown&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">material</span><span class="p">.</span><span class="nx">wireframe</span> <span class="o">=</span> <span class="o">!</span> <span class="nx">material</span><span class="p">.</span><span class="nx">wireframe</span><span class="p">;</span>
+      <span class="p">});</span>
+
+      <span class="nx">animate</span><span class="p">();</span>
+    <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Vous pouvez <a class="reference download internal" download="" href="../_downloads/1e1566c3e715c81397e619a1ad6b4653/scene008.html"><code class="xref download docutils literal notranslate"><span class="pre">télécharger</span> <span class="pre">ce</span> <span class="pre">fichier</span> <span class="pre">directement</span></code></a>.</p>
+<p>À la ligne 40, on position la valeur de la propriété <a class="reference external" href="https://threejs.org/docs/index.html#api/en/materials/MeshBasicMaterial.wireframe">wireframe</a> à <code class="docutils literal notranslate"><span class="pre">true</span></code>.
+Des lignes 58 à 60, on enregistre un <em>listener</em> pour inverser l’état de cette
+propriété lorsqu’on presse un touche du clavier.</p>
+</div>
+</div>
+<div class="section" id="les-lumieres">
+<h2>Les lumières<a class="headerlink" href="#les-lumieres" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Exception faite du <a class="reference external" href="https://threejs.org/docs/index.html#api/en/materials/MeshBasicMaterial">MeshBasicMaterial</a>, la plupart des matériaux utilisés pour le rendu
+réalise un ombrage sur le modèle pour donner un effet plus ou moins réaliste d’éclairage.</p>
+<p>Ainsi ces matériaux interagissent avec les lumières présentes dans la scène.
+Pour insérer des lumières dans la scène, <a class="reference external" href="https://threejs.org/">three.js</a> offre plusieurs types différents :</p>
+<dl>
+<dt><a class="reference external" href="https://threejs.org/docs/index.html#api/en/lights/AmbientLight">AmbientLight</a></dt><dd><p>Une lumière ambiante sert à fournir une illumination globale à la scène. Cette source
+lumineuse n’a pas de position, elle contribue à l’illumination de la scène en tout point.
+Elle sert à simuler la présence des lumières indirectes et on l’utilise
+généralement à une faible intensité pour donner une ambiance générale.</p>
+</dd>
+<dt><a class="reference external" href="https://threejs.org/docs/index.html#api/en/lights/DirectionalLight">DirectionalLight</a></dt><dd><p>La lumière directionnelle représente une lumière dont tous les rayons sont parallèles.
+Ainsi la position de la lumière dans la scène ne sert qu’à déterminer le vecteur
+directeur des rayons lumineux.</p>
+<p>Ce type de lumière représente des lumières très distantes (à la limite de l’infini)
+et très puissante. Elle est généralement utilisée pour simuler un éclairage par le soleil.</p>
+</dd>
+<dt><a class="reference external" href="https://threejs.org/docs/index.html#api/en/lights/HemisphereLight">HemisphereLight</a></dt><dd><p>La lumière hémisphérique simule un dôme qui émet de la lumière au dessus et en dessous de la scène.
+Ce type d’éclairage permet de simuler un éclairage du ciel en extérieur en
+prenant en compte l’éclairage indirect du sol.</p>
+</dd>
+<dt><a class="reference external" href="https://threejs.org/docs/index.html#api/en/lights/PointLight">PointLight</a></dt><dd><p>Ce type de lumière est émise depuis un point (la position de la lumière dans la scène
+à donc beaucoup d’importance) dans toutes les directions. De plus, l’intensité de
+la lumière décroît à mesure qu’on s’éloigne de la source.
+Ce type de lumière permet de simuler un éclairage par une ampoule.</p>
+</dd>
+<dt><a class="reference external" href="https://threejs.org/docs/index.html#api/en/lights/RectAreaLight">RectAreaLight</a></dt><dd><p>Ce type de lumière est émise de manière uniforme depuis un plan. Ce type de lumière
+permet de simuler un éclairage par une fenêtre par exemple. Comme pour la précédente,
+l’intensité lumineuse décroît à mesure qu’on s’éloigne de la source. Cette
+source de lumière ne fonctionne que pour les matériaux PBR : <a class="reference external" href="https://threejs.org/docs/index.html#api/en/materials/MeshStandardMaterial">MeshStandardMaterial</a>
+et <a class="reference external" href="https://threejs.org/docs/index.html#api/en/materials/MeshPhysicalMaterial">MeshPhysicalMaterial</a> (Cf. ci-dessous).</p>
+</dd>
+<dt><a class="reference external" href="https://threejs.org/docs/index.html#api/en/lights/SpotLight">Spotlight</a></dt><dd><p>Ce type de lumière est émise depuis un point et dans une direction. Le spot
+simule un cône de lumière. L’intensité lumineuse décroît à mesure que l’on s’éloigne
+de la direction du spot.</p>
+</dd>
+</dl>
+<p>Une lumière n’a pas de représentation dans la scène, elle est simplement exploitée
+comme source pour le rendu des matériaux qui nécessitent un éclairage.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour du débogage, si vous voulez faire apparaître la position des lumières dans la scène, vous pouvez utiliser
+les objets correspondants : <a class="reference external" href="https://threejs.org/docs/api/en/helpers/DirectionalLightHelper.html">DirectionalLightHelper</a>, <a class="reference external" href="https://threejs.org/docs/api/en/helpers/HemisphereLightHelper.html">HemisphereLightHelper</a>,
+<a class="reference external" href="https://threejs.org/docs/api/en/helpers/PointLightHelper.html">PointLightHelper</a>, <a class="reference external" href="https://threejs.org/docs/api/en/helpers/RectAreaLightHelper.html">RectAreaLightHelper</a>, <a class="reference external" href="https://threejs.org/docs/api/en/helpers/RectAreaLightHelper.html">RectAreaLightHelper</a>, <a class="reference external" href="https://threejs.org/docs/api/en/helpers/SpotLightHelper.html">SpotLightHelper</a>.</p>
+</div>
+</div>
+<div class="section" id="les-materiaux-reagissant-a-la-lumiere">
+<h2>Les matériaux réagissant à la lumière<a class="headerlink" href="#les-materiaux-reagissant-a-la-lumiere" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il existe cinq matériaux réagissant à la lumière pour un rendu plus ou moins réaliste :</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://threejs.org/docs/index.html#api/en/materials/MeshLambertMaterial">MeshLambertMaterial</a></dt><dd><p>Ce matériau est basé sur le modèle mathématique de <a class="reference external" href="https://en.wikipedia.org/wiki/Gouraud_shading">Gouraud</a> pour calculer les
+ombrages. C’est le modèle le plus ancien, le plus performant mais également
+le moins réaliste. Il se base principalement sur la couleur de l’objet et les
+lumières de la scène.</p>
+</dd>
+<dt><a class="reference external" href="https://threejs.org/docs/index.html#api/en/materials/MeshPhongMaterial">MeshPhongMaterial</a></dt><dd><p>Ce matériau est basé sur le modèle mathématique de <a class="reference external" href="https://en.wikipedia.org/wiki/Blinn%E2%80%93Phong_shading_model">Blinn-Phong</a> qui est une amélioration
+du modèle de <a class="reference external" href="https://en.wikipedia.org/wiki/Gouraud_shading">Gouraud</a>. En plus de la couleur et de la lumière, ce matériau
+tient compte de la spécularité, c’est-à-dire de l’incidence des rayons lumineux
+par rapport à l’observateur pour faire ressortir des effets de réflexion des sources
+lumineuses. Ce matériau reste peu réaliste mais à l’avantage d’être relativement
+peu consommateur en de temps de calcul.</p>
+</dd>
+<dt><a class="reference external" href="https://threejs.org/docs/index.html#api/en/materials/MeshToonMaterial">MeshToonMaterial</a></dt><dd><p>Ce matériau est basé sur le <a class="reference external" href="https://threejs.org/docs/index.html#api/en/materials/MeshPhongMaterial">MeshPhongMaterial</a> pour réaliser du <em>toon shading</em>.
+Ce type de rendu ne se veut pas réaliste et permet de créer des dégradés d’ombrage
+par bande type <em>dessins-animées</em>.</p>
+</dd>
+<dt><a class="reference external" href="https://threejs.org/docs/index.html#api/en/materials/MeshStandardMaterial">MeshStandardMaterial</a></dt><dd><p>Ce matériau est basé sur le principe de rendu <a class="reference external" href="https://fr.wikipedia.org/wiki/Rendu_physique_r%C3%A9aliste">PBR</a> (<em>Physically Based Rendering</em>).
+Ce type de matériau permet des rendus beaucoup plus réalistes en prenant notamment
+en compte les principes optiques de réflexion des surfaces, de l’effet de Fresnel
+et du principe de conservation de l’énergie. Ce matériau est cependant plus complexe
+à manipuler.</p>
+</dd>
+<dt><a class="reference external" href="https://threejs.org/docs/index.html#api/en/materials/MeshPhysicalMaterial">MeshPhysicalMaterial</a></dt><dd><p>Ce matériau est basé sur le <a class="reference external" href="https://threejs.org/docs/index.html#api/en/materials/MeshStandardMaterial">MeshStandardMaterial</a> en ajoutant le principe
+du <em>clear coat</em> afin de simuler une pellicule brillante qui recouvre certains
+matériaux comme la peinture de voiture par exemple.</p>
+</dd>
+</dl>
+<p>L’exemple ci-dessous crée un objet avec un matériau de type <a class="reference external" href="https://threejs.org/docs/index.html#api/en/materials/MeshPhongMaterial">MeshPhongMaterial</a>
+ainsi que trois lumières.</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">utf-8</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>three.js app<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+      <span class="nt">body</span> <span class="p">{</span>
+        <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">overflow</span><span class="p">:</span> <span class="kc">hidden</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://threejs.org/build/three.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+      <span class="c1">// création du renderer</span>
+      <span class="kd">var</span> <span class="nx">renderer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">WebGLRenderer</span><span class="p">();</span>
+      <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">domElement</span><span class="p">);</span>
+      <span class="nx">renderer</span><span class="p">.</span><span class="nx">setSize</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">);</span>
+
+      <span class="c1">// création de la caméra</span>
+      <span class="kd">var</span> <span class="nx">camera</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">PerspectiveCamera</span><span class="p">(</span><span class="mf">45</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span> <span class="o">/</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1000</span><span class="p">);</span>
+
+      <span class="c1">// création de la scène</span>
+      <span class="kd">var</span> <span class="nx">scene</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Scene</span><span class="p">();</span>
+
+      <span class="c1">// couleur de fond noire</span>
+      <span class="nx">scene</span><span class="p">.</span><span class="nx">background</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Color</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">);</span>
+
+      <span class="c1">// création d&#39;un objet</span>
+      <span class="kd">var</span> <span class="nx">object</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span>
+          <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">TorusKnotGeometry</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">.4</span><span class="p">,</span> <span class="mf">128</span><span class="p">,</span> <span class="mf">16</span><span class="p">),</span>
+          <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshPhongMaterial</span><span class="p">({</span><span class="nx">color</span><span class="o">:</span> <span class="mh">0xf7e951</span><span class="p">})</span>
+      <span class="p">);</span>
+      <span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">object</span><span class="p">);</span>
+
+      <span class="c1">// Ambient light</span>
+      <span class="kd">var</span> <span class="nx">ambientLight</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">AmbientLight</span><span class="p">(</span><span class="mh">0xffffff</span><span class="p">,</span> <span class="mf">.1</span><span class="p">);</span>
+      <span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">ambientLight</span><span class="p">);</span>
+
+      <span class="c1">// Directional light</span>
+      <span class="kd">var</span> <span class="nx">directionalLight</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">DirectionalLight</span><span class="p">(</span><span class="mh">0xffdddd</span><span class="p">,</span> <span class="mf">.8</span><span class="p">);</span>
+      <span class="nx">directionalLight</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="mf">1</span><span class="p">,</span><span class="mf">1</span><span class="p">);</span>
+      <span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">directionalLight</span><span class="p">);</span>
+
+      <span class="c1">// Point light</span>
+      <span class="kd">var</span> <span class="nx">pointLight</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">DirectionalLight</span><span class="p">(</span><span class="mh">0xaaaaff</span><span class="p">,</span> <span class="mf">.3</span><span class="p">);</span>
+      <span class="nx">pointLight</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="o">-</span><span class="mf">2</span><span class="p">,</span><span class="mf">1</span><span class="p">,</span><span class="mf">1</span><span class="p">);</span>
+      <span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">pointLight</span><span class="p">);</span>
+
+      <span class="c1">// positionnement de la caméra</span>
+      <span class="nx">camera</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">z</span> <span class="o">=</span> <span class="mf">10</span><span class="p">;</span>
+
+      <span class="kd">function</span> <span class="nx">animate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">object</span><span class="p">.</span><span class="nx">rotateY</span><span class="p">(</span><span class="mf">.05</span><span class="p">);</span>
+        <span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="nx">animate</span><span class="p">);</span>
+        <span class="nx">renderer</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">scene</span><span class="p">,</span> <span class="nx">camera</span><span class="p">);</span>
+      <span class="p">}</span>
+
+      <span class="nx">animate</span><span class="p">();</span>
+    <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Vous pouvez <a class="reference download internal" download="" href="../_downloads/5a00671079617328b4d5c9e22d3eb294/scene009.html"><code class="xref download docutils literal notranslate"><span class="pre">télécharger</span> <span class="pre">ce</span> <span class="pre">fichier</span> <span class="pre">directement</span></code></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Vous trouverez à <a class="reference external" href="https://spoonless.github.io/tuto_threejs/lights.html">cette adresse</a>
+une scène pour tester les matériaux et les lumières.</p>
+</div>
+<div class="section" id="excercice">
+<h3>Excercice<a class="headerlink" href="#excercice" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="exercice admonition">
+<p class="admonition-title">Le système planétaire (suite)</p>
+<p>Ajoutez des matériaux pour la Terre et la Lune. Pour l’instant utilisez du
+bleu pour la Terre et du gris pour la Lune.</p>
+<p>Ajoutez des lumières pour la scène :</p>
+<ul class="simple">
+<li><p>Une lumière ambiante très faible pour simuler l’éclairage du cosmos</p></li>
+<li><p>Une lumière directionnelle pour le Soleil.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="textures-et-maps">
+<h2>Textures et Maps<a class="headerlink" href="#textures-et-maps" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une texture est un fichier image qui est utilisé pour fournir des informations
+supplémentaires au matériau lors du rendu. L’exemple le plus évident consiste
+à utiliser une photo à appliquer sur une surface 3D pour créer un effet plus réaliste.</p>
+<p>L’utilisation de texture implique que pour chaque <em>vertex</em> de la géométrie, on fait
+correspondre un point de la texture (on parle de <strong>texel</strong>). Cela signifie que
+chaque <em>vertex</em> doit disposer de coordonnées dans l’espace mais aussi de
+coordonnées de texture. Pour les textures 2D (les images), on parle de coordonnées
+(u,v) ou UV pour désigner les axes. Les coordonnées (u,v) sont normalisées : la
+position (0, 0) représente le point en bas à gauche de la texture et la position
+(1, 1) représente le point en haut à droite de la texture.</p>
+<img alt="../_images/uvmap.jpg" src="../_images/uvmap.jpg" />
+<p>Dans l’exemple ci-dessus, chaque vertex possède des coordonnées (x, y, z) dans l’espace
+pour former une sphère. Mais chaque vertex possède également des coordonnées (u, v)
+pour indiquer sa position sur la texture à appliquer au modèle.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour les objets de base créés par <a class="reference external" href="https://threejs.org/">three.js</a> (comme les cubes, les sphères…),
+les <em>vertices</em> possèdent déjà des coordonnées UV. Pour ses propres modèles,
+créer des coordonnées UV peut s’avérer plus compliqué. Il vaut mieux pour cela
+utiliser un outil de modélisation 3D qui supporte le dépliage d’UV manuel ou automatique.</p>
+</div>
+<p>On parle de <em>map</em> pour indiquer l’usage de la texture dans le matériau car elle
+fait correspondre une information à un point. Dans le cas d’une <em>color map</em>, l’information
+est la couleur du point.</p>
+<p>La  plupart des matériaux fournies par <a class="reference external" href="https://threejs.org/">three.js</a> peuvent utiliser des <em>maps</em>.</p>
+<div class="section" id="chargement-d-une-texture">
+<h3>Chargement d’une texture<a class="headerlink" href="#chargement-d-une-texture" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour le chargement d’une texture, il suffit d’utiliser une instance de <a class="reference external" href="https://threejs.org/docs/index.html#api/en/loaders/TextureLoader">TextureLoader</a>.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">textureLoader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">TextureLoader</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">texture</span> <span class="o">=</span> <span class="nx">textureLoader</span><span class="p">.</span><span class="nx">load</span><span class="p">(</span><span class="s1">&#39;textures/skin.jpg&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>La méthode <a class="reference external" href="https://threejs.org/docs/index.html#api/en/loaders/TextureLoader.load">load</a> retourne un objet de type <a class="reference external" href="https://threejs.org/docs/index.html#api/en/textures/Texture">Texture</a> à partir duquel il est possible
+de préciser des paramètres d’application de la texture.</p>
+<p>Le chargement des textures est fait en arrière plan par le navigateur. Cela
+signifie que le chargement des textures est asynchrone. Si vous créez une scène
+animée, la méthode de rendu sera appelée périodiquement et les textures ne seront
+visibles qu’à la fin de leur chargement. Si vous voulez faire un seul rendu, alors
+vous pouvez passer une méthode <em>callback</em> comme second paramètre à la méthode <a class="reference external" href="https://threejs.org/docs/index.html#api/en/loaders/TextureLoader.load">load</a>.
+Cette méthode sera appelée à la fin du chargement de la texture. Il est alors
+possible de lancer un rendu :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">textureLoader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">TextureLoader</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">texture</span> <span class="o">=</span> <span class="nx">textureLoader</span><span class="p">.</span><span class="nx">load</span><span class="p">(</span><span class="s1">&#39;textures/skin.jpg&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">texture</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// faire quelque chose avec la texture</span>
+  <span class="c1">// puis lancer le rendu</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Les images qui doivent être utilisées comme <em>map</em> par les matériaux doivent
+avoir une largeur et une hauteur qui correspondent à une puissance de 2 : 512x512,
+1024x1024, 4096x2048… Il s’agit d’une optimisation de WebGL car ces images
+vont devoir être transférées dans la mémoire de la carte graphique. Si vos
+images n’ont pas la bonne dimension, <a class="reference external" href="https://threejs.org/">three.js</a> les ajustent automatiquement
+au prix d’un traitement supplémentaire.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>L’utilisation de texture suppose la génération d’un <em>shader</em> particulier par
+<a class="reference external" href="https://threejs.org/">three.js</a>. Un <em>shader</em> est un programme qui est compilé et exécuté par la
+carte graphique. Si vous voulez modifier un matériau (par exemple ajouter
+ou supprimer une texture) alors que la scène a déjà été rendue une fois,
+vous <strong>devez</strong> indiquer à <a class="reference external" href="https://threejs.org/">three.js</a> qu’il doit créer un nouveau <em>shader</em>
+que la carte graphique doit recompiler. Pour cela, on passe la propriété
+<a class="reference external" href="https://threejs.org/docs/index.html#api/en/materials/Material.needsUpdate">needsUpdate</a> du matériau à <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">mesh</span><span class="p">.</span><span class="nx">material</span><span class="p">.</span><span class="nx">needsUpdate</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="un-texture-comme-color-map">
+<h3>Un texture comme <em>color map</em><a class="headerlink" href="#un-texture-comme-color-map" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La <em>color map</em> (ou <em>map</em> tout court dans <a class="reference external" href="https://threejs.org/">three.js</a>) stocke les informations de couleur.
+Il faut utiliser l’attribut <code class="docutils literal notranslate"><span class="pre">map</span></code> du matériau pour associer la texture au matériau :</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">utf-8</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>three.js app<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+      <span class="nt">body</span> <span class="p">{</span>
+      <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="k">overflow</span><span class="p">:</span> <span class="kc">hidden</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://threejs.org/build/three.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+      <span class="kd">var</span> <span class="nx">renderer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">WebGLRenderer</span><span class="p">();</span>
+      <span class="nx">renderer</span><span class="p">.</span><span class="nx">setSize</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">);</span>
+      <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">domElement</span><span class="p">);</span>
+
+      <span class="kd">var</span> <span class="nx">camera</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">PerspectiveCamera</span><span class="p">(</span><span class="mf">45</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span> <span class="o">/</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">10</span><span class="p">);</span>
+
+      <span class="kd">var</span> <span class="nx">textureLoader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">TextureLoader</span><span class="p">();</span>
+
+      <span class="kd">var</span> <span class="nx">scene</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Scene</span><span class="p">();</span>
+
+      <span class="kd">var</span> <span class="nx">geo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">PlaneGeometry</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span> <span class="mf">1</span><span class="p">);</span>
+      <span class="kd">var</span> <span class="nx">material</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshBasicMaterial</span><span class="p">();</span>
+      <span class="kd">var</span> <span class="nx">plane</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span><span class="nx">geo</span><span class="p">,</span> <span class="nx">material</span><span class="p">);</span>
+      <span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">plane</span><span class="p">);</span>
+
+      <span class="nx">camera</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">z</span> <span class="o">=</span> <span class="mf">4</span><span class="p">;</span>
+
+      <span class="nx">textureLoader</span><span class="p">.</span><span class="nx">load</span><span class="p">(</span><span class="s2">&quot;maps/webgl.logo.png&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">texture</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">plane</span><span class="p">.</span><span class="nx">material</span><span class="p">.</span><span class="nx">map</span> <span class="o">=</span> <span class="nx">texture</span><span class="p">;</span>
+        <span class="nx">renderer</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">scene</span><span class="p">,</span> <span class="nx">camera</span><span class="p">);</span>
+      <span class="p">})</span>
+    <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>La scène précédente utilise l’image ci-dessous :</p>
+<img alt="../_images/webgl.logo.png" src="../_images/webgl.logo.png" />
+<p>À la ligne 33, on charge la texture en passant une fonction <em>callback</em> qui, une
+fois la texture chargée, l’associe comme <em>color map</em> au matériau du <em>mesh</em> et
+génère un rendu.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Vous pouvez visualiser la scène <a class="reference external" href="https://spoonless.github.io/tuto_threejs/webgllogo.html">ici</a>.</p>
+</div>
+</div>
+<div class="section" id="les-autres-types-de-textures">
+<h3>Les autres types de textures<a class="headerlink" href="#les-autres-types-de-textures" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Une texture peut fournir des informations de nature très différentes en plus de la couleur.
+On distingue ainsi les textures selon le type d’information qu’elles contiennent.
+Tous les matériaux pour les <em>meshes</em> fournis par <a class="reference external" href="https://threejs.org/">three.js</a> acceptent différents types
+de maps pour faire varier le rendu de l’objet. Les plus courantes sont :</p>
+<dl class="simple">
+<dt>map (color map)</dt><dd><p>Cette texture stocke la couleur</p>
+</dd>
+<dt>alphaMap</dt><dd><p>Cette texture stocke la transparence. Elle agit comme un masque.</p>
+</dd>
+<dt>bumpMap</dt><dd><p>Cette texture stocke des variations de hauteurs (sous la forme de dégradé du noir
+au blanc) sur la surface pour simuler de légères déformations selon l’angle
+de la lumière.</p>
+</dd>
+<dt>normalMap</dt><dd><p>Comme la précédente, la <em>normal map</em> permet de simuler des légères déformations
+selon l’angle de la lumière. Dans cette texture, on stocke la variation au vecteur
+normal de la face. La plupart des <em>normal maps</em> utilise le repère de coordonnées
+tangent à la face pour lequel le vecteur normal de la face vaut (0, 0, 1). Les
+informations de la texture ne correspondent donc pas à de la couleur mais bien
+à des coordonnées de vecteur entre 0 et 1.</p>
+</dd>
+<dt>aoMap</dt><dd><p>Stocke les informations d’occlusion ambiante (AO pour <em>Ambient Occlusion</em>)
+pour simuler les zones d’ombre générées par l’objet sur lui-même.</p>
+</dd>
+</dl>
+<p>Pour les matériaux <a class="reference external" href="https://fr.wikipedia.org/wiki/Rendu_physique_r%C3%A9aliste">PBR</a> <a class="reference external" href="https://threejs.org/docs/index.html#api/en/materials/MeshStandardMaterial">MeshStandardMaterial</a> et <a class="reference external" href="https://threejs.org/docs/index.html#api/en/materials/MeshPhysicalMaterial">MeshPhysicalMaterial</a>, il existe
+également les maps :</p>
+<dl class="simple">
+<dt>metalnessMap</dt><dd><p>Cette texture indique les parties métalliques et les parties diélectriques (non métalliques).</p>
+</dd>
+<dt>roughnessMap</dt><dd><p>Cette texture indique la capacité de réflexion d’un matériau entre 0 (réflexion
+parfaite) et 1 (réflexion minimale).</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Vous pouvez visualiser <a class="reference external" href="https://spoonless.github.io/tuto_threejs/leaf.html">une scène</a> pour
+tester l’effet de différentes <em>maps</em>.</p>
+</div>
+<div class="exercice admonition">
+<p class="admonition-title">Le système planétaire (suite)</p>
+<p>Ajoutez des textures pour les planètes. Vous pouvez chercher vos propres textures
+sur Internet ou utiliser les suivantes :</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://spoonless.github.io/tuto_threejs/maps/earth/earth_color.jpg">color map pour la Terre</a></p></li>
+<li><p><a class="reference external" href="https://spoonless.github.io/tuto_threejs/maps/earth/earth_normal.jpg">normal map pour la Terre</a></p></li>
+<li><p><a class="reference external" href="https://spoonless.github.io/tuto_threejs/maps/moon/moon_color.jpg">color map pour la Lune</a></p></li>
+</ul>
+</div>
+<div class="exercice admonition">
+<p class="admonition-title">Le système planétaire (suite)</p>
+<p>Ajoutez des nuages autour de la Terre :</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://spoonless.github.io/tuto_threejs/maps/earth/earth_cloud.jpg">alpha map</a> pour les nuages</p></li>
+</ul>
+<p>Créez une sphère autour de la Terre qui représente la couche nuageuse. Le matériau
+pour cette sphère doit être transparent (propriété <code class="docutils literal notranslate"><span class="pre">transparent</span></code> à <code class="docutils literal notranslate"><span class="pre">true</span></code>). Utilisez
+la texture comme une <code class="docutils literal notranslate"><span class="pre">alphaMap</span></code> dans votre matériau pour contrôler la transparence.</p>
+</div>
+<div class="exercice admonition">
+<p class="admonition-title">Le système planétaire (suite)</p>
+<p>Ajoutez la voie lactée et les galaxies en fond. Pour cela, utilisez un <em>environment map</em>.
+Une <em>environment map</em> est composée de six textures qui correspondent aux six
+faces d’un cube (comme si la scène était enfermée dans un cube). On parle de texture
+cubique.
+Les textures cubiques sont chargées par une instance de <a class="reference external" href="https://threejs.org/docs/index.html#api/en/loaders/CubeTextureLoader">CubeTextureLoader</a>. Elle
+dispose d’une méthode <code class="docutils literal notranslate"><span class="pre">load</span></code> à laquelle on passe un tableau de six URI correspondantes
+aux six images constituant la texture cubique.
+On positionne ensuite cette texture dans la propriété <a class="reference external" href="https://threejs.org/docs/index.html#api/en/scenes/Scene.background">background</a> de la scène.</p>
+<p>Pour la voie lactée, vous pouvez utiliser les six textures suivantes :
+<a class="reference external" href="https://spoonless.github.io/tuto_threejs/maps/milkyway/1.jpg">1.jpg</a>,
+<a class="reference external" href="https://spoonless.github.io/tuto_threejs/maps/milkyway/2.jpg">2.jpg</a>,
+<a class="reference external" href="https://spoonless.github.io/tuto_threejs/maps/milkyway/3.jpg">3.jpg</a>,
+<a class="reference external" href="https://spoonless.github.io/tuto_threejs/maps/milkyway/4.jpg">4.jpg</a>,
+<a class="reference external" href="https://spoonless.github.io/tuto_threejs/maps/milkyway/5.jpg">5.jpg</a>,
+<a class="reference external" href="https://spoonless.github.io/tuto_threejs/maps/milkyway/6.jpg">6.jpg</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Une <em>environmentMap</em> est également utile pour les matériaux <a class="reference external" href="https://fr.wikipedia.org/wiki/Rendu_physique_r%C3%A9aliste">PBR</a> (
+<a class="reference external" href="https://threejs.org/docs/index.html#api/en/materials/MeshStandardMaterial">MeshStandardMaterial</a> et <a class="reference external" href="https://threejs.org/docs/index.html#api/en/materials/MeshPhysicalMaterial">MeshPhysicalMaterial</a>) afin de simuler la réflexion,
+notamment pour les matériaux simulant des métaux.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="les-ombres">
+<h2>Les ombres<a class="headerlink" href="#les-ombres" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les ombres apportent un effet de réalisme et permettent au spectateur d’estimer
+plus facilement la position des éléments les uns par rapport aux autres. <a class="reference external" href="https://threejs.org/">three.js</a>
+peut réaliser une approximation de la projection des ombres d’un objet sur l’autre
+en fonction de l’éclairage de la scène. Le rendu des ombres requière des calculs
+supplémentaires et il n’est donc pas activé par défaut. Pour l’activer, il faut
+commencer par activer le <a class="reference external" href="https://threejs.org/docs/index.html#api/en/renderers/WebGLRenderer.shadowMap">shadowMap</a> sur le <em>renderer</em> :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">renderer</span><span class="p">.</span><span class="nx">shadowMap</span><span class="p">.</span><span class="nx">enabled</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Puis pour chaque objet, il faut indiquer s’il peut émettre des ombres (<a class="reference external" href="https://threejs.org/docs/index.html#api/en/core/Object3D.castShadow">castShadow</a>)
+ou recevoir des ombres (<a class="reference external" href="https://threejs.org/docs/index.html#api/en/core/Object3D.receiveShadow">receiveShadow</a>). Enfin, il faut également activer les lumières
+qui sont capables de produire des ombres (<a class="reference external" href="https://threejs.org/docs/index.html#api/en/core/Object3D.castShadow">castShadow</a>) :</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">utf-8</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>three.js app<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+      <span class="nt">body</span> <span class="p">{</span>
+        <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">overflow</span><span class="p">:</span> <span class="kc">hidden</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://threejs.org/build/three.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+      <span class="c1">// création du renderer</span>
+      <span class="kd">var</span> <span class="nx">renderer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">WebGLRenderer</span><span class="p">();</span>
+      <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">domElement</span><span class="p">);</span>
+      <span class="nx">renderer</span><span class="p">.</span><span class="nx">setSize</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">);</span>
+
+      <span class="c1">// création de la caméra</span>
+      <span class="kd">var</span> <span class="nx">camera</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">PerspectiveCamera</span><span class="p">(</span><span class="mf">45</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span> <span class="o">/</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1000</span><span class="p">);</span>
+
+      <span class="c1">// création de la scène</span>
+      <span class="kd">var</span> <span class="nx">scene</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Scene</span><span class="p">();</span>
+
+      <span class="c1">// couleur de fond noire</span>
+      <span class="nx">scene</span><span class="p">.</span><span class="nx">background</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Color</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">);</span>
+
+      <span class="c1">// création d&#39;une géométrie</span>
+      <span class="kd">var</span> <span class="nx">knot</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span>
+        <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">TorusKnotGeometry</span><span class="p">(</span><span class="mf">.5</span><span class="p">,</span> <span class="mf">.2</span><span class="p">,</span> <span class="mf">128</span><span class="p">,</span> <span class="mf">16</span><span class="p">),</span>
+        <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshPhongMaterial</span><span class="p">({</span><span class="nx">color</span><span class="o">:</span> <span class="mh">0xf7e951</span><span class="p">})</span>
+      <span class="p">);</span>
+      <span class="nx">knot</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mf">1.1</span><span class="p">;</span>
+      <span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">knot</span><span class="p">);</span>
+
+      <span class="c1">// création d&#39;une géométrie pour le sol</span>
+      <span class="kd">var</span> <span class="nx">ground</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span>
+        <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">PlaneGeometry</span><span class="p">(),</span>
+        <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshLambertMaterial</span><span class="p">()</span>
+      <span class="p">);</span>
+      <span class="nx">ground</span><span class="p">.</span><span class="nx">rotation</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="o">-</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">/</span> <span class="mf">2</span><span class="p">;</span>
+      <span class="nx">ground</span><span class="p">.</span><span class="nx">scale</span><span class="p">.</span><span class="nx">setScalar</span><span class="p">(</span><span class="mf">5</span><span class="p">);</span>
+      <span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">ground</span><span class="p">);</span>
+
+      <span class="c1">// création d&#39;une lumière directionnelle</span>
+      <span class="kd">var</span> <span class="nb">sun</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">DirectionalLight</span><span class="p">();</span>
+      <span class="nb">sun</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span> <span class="mf">2</span><span class="p">,</span> <span class="mf">1</span><span class="p">);</span>
+      <span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nb">sun</span><span class="p">);</span>
+
+      <span class="c1">// positionnement de la caméra</span>
+      <span class="nx">camera</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mf">4</span><span class="p">;</span>
+      <span class="nx">camera</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">z</span> <span class="o">=</span> <span class="mf">7</span><span class="p">;</span>
+      <span class="nx">camera</span><span class="p">.</span><span class="nx">lookAt</span><span class="p">(</span><span class="nx">ground</span><span class="p">.</span><span class="nx">position</span><span class="p">);</span>
+
+      <span class="c1">// activation des ombres</span>
+<span class="hll">      <span class="nx">renderer</span><span class="p">.</span><span class="nx">shadowMap</span><span class="p">.</span><span class="nx">enabled</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span><span class="hll">      <span class="nx">ground</span><span class="p">.</span><span class="nx">receiveShadow</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span><span class="hll">      <span class="nx">knot</span><span class="p">.</span><span class="nx">castShadow</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span><span class="hll">      <span class="nb">sun</span><span class="p">.</span><span class="nx">castShadow</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span>
+      <span class="kd">function</span> <span class="nx">animate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">knot</span><span class="p">.</span><span class="nx">rotateY</span><span class="p">(</span><span class="mf">.05</span><span class="p">);</span>
+
+        <span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="nx">animate</span><span class="p">);</span>
+        <span class="nx">renderer</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">scene</span><span class="p">,</span> <span class="nx">camera</span><span class="p">);</span>
+      <span class="p">}</span>
+
+      <span class="nx">animate</span><span class="p">();</span>
+    <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Vous pouvez <a class="reference download internal" download="" href="../_downloads/8bd087aadddb45bbc28b7191ad2f7f67/scene016.html"><code class="xref download docutils literal notranslate"><span class="pre">télécharger</span> <span class="pre">ce</span> <span class="pre">fichier</span> <span class="pre">directement</span></code></a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p>Pour les objets non animés, on peut pré-calculer la projection des ombres et
+stocker cette information dans une texture que l’on utilise ensuite comme
+<a class="reference external" href="https://threejs.org/docs/index.html#api/en/materials/MeshStandardMaterial.lightMap">lightMap</a>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="interactions.html" class="btn btn-neutral float-right" title="Les interactions" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="objets_et_scene.html" class="btn btn-neutral float-left" title="Objets et scène" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright David Gayerie - david@gayerie.dev - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

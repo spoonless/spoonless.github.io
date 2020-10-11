@@ -1,0 +1,1022 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Développement d'application Android" name="description" />
+<meta content="android, android studio, java, programmation objet" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Gestion des activités d’une application &mdash; Documentation Développement Android </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/java-android/android/activity_stack.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Gestion des messages broadcast" href="broadcast.html" />
+    <link rel="prev" title="Les activités" href="activity.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Développement Android
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Développement d'applications pour Android</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="premiere_app.html">Une première application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="premiere_app.html#creation-d-une-application-simple">Création d’une application simple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_app.html#organisation-du-projet">Organisation du projet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_app.html#lancement-de-l-application">Lancement de l’application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="premiere_app.html#l-emulateur-android">L’émulateur Android</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_app.html#notion-d-activite">Notion d’activité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_app.html#notion-de-ressources">Notion de ressources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="premiere_app.html#acceder-a-un-identifiant-de-ressource-depuis-le-code-java">Accéder à un identifiant de ressource depuis le code Java</a></li>
+<li class="toctree-l3"><a class="reference internal" href="premiere_app.html#acceder-a-une-ressource-depuis-une-autre-ressource">Accéder à une ressource depuis une autre ressource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="premiere_app.html#identifier-une-ressource-dans-un-layout">Identifier une ressource dans un layout</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_app.html#exercices">Exercices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_app.html#le-fichier-androidmanifest-xml">Le fichier AndroidManifest.xml</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ui_layout.html">Conception d’interfaces graphiques</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ui_layout.html#view-et-layout">View et Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ui_layout.html#layout-xml">Layout XML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ui_layout.html#layout-lineaire-et-positionnement">Layout linéaire et positionnement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ui_layout.html#techniques-avancees-de-positionnement-dans-un-layout">Techniques avancées de positionnement dans un layout</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ui_layout.html#layout-margin-et-padding">layout_margin et padding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui_layout.html#layout-gravity-et-gravity">layout_gravity et gravity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui_layout.html#layout-weight">layout_weight</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ui_layout.html#layout-par-contraintes">Layout par contraintes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ui_layout.html#ajouter-une-image">Ajouter une image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ui_layout.html#exemple-de-formulaire">Exemple de formulaire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ui_layout.html#la-barre-d-action">La barre d’action</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ui_layout.html#creer-un-menu-dans-la-barre-d-action">Créer un menu dans la barre d’action</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui_layout.html#associer-un-menu-a-une-activite">Associer un menu à une activité</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui_layout.html#implementer-les-actions-associees-aux-items-de-menu">Implémenter les actions associées aux items de menu</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ui_layout.html#les-boites-de-dialogue">Les boites de dialogue</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ui_layout.html#boite-de-dialogue-avec-boutons">Boite de dialogue avec boutons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui_layout.html#boite-de-dialogue-avec-choix">Boite de dialogue avec choix</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ui_layout.html#message-a-l-utilisateur">Message à l’utilisateur</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ui_layout.html#toast">Toast</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui_layout.html#snackbar">Snackbar</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="activity.html">Les activités</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="activity.html#le-cycle-de-vie">Le cycle de vie</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="activity.html#terminer-une-activite">Terminer une activité</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="activity.html#gestion-de-l-etat-d-une-activite">Gestion de l’état d’une activité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="activity.html#notion-d-intent">Notion d’intent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="activity.html#associer-une-activite-a-un-intent">Associer une activité à un intent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="activity.html#emettre-un-intent-implicite">Émettre un intent implicite</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Gestion des activités d’une application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#l-application-de-demo">L’application de démo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#structure-de-l-application">Structure de l’application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#l-activite-principale-et-recyclerview">L’activité principale et RecyclerView</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#detail-d-une-occupation-et-pile-des-activites">Détail d’une occupation et pile des activités</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ouverture-d-une-activite-intent-explicite">Ouverture d’une activité (intent explicite)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#strategie-de-gestion-de-la-pile-des-activites">Stratégie de gestion de la pile des activités</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#terminer-une-activite">Terminer une activité</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="broadcast.html">Gestion des messages broadcast</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="broadcast.html#le-broadcastreceiver">Le BroadcastReceiver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="broadcast.html#suivre-le-branchement-sur-secteur">Suivre le branchement sur secteur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="broadcast.html#suivre-l-etat-de-la-connexion-wifi">Suivre l’état de la connexion Wifi</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="broadcast.html#recevoir-des-broadcasts-depuis-une-activite">Recevoir des broadcasts depuis une activité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="broadcast.html#emettre-un-message-broadcast">Émettre un message broadcast</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="acces_web.html">Accès Web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="acces_web.html#permission-pour-l-acces-internet">Permission pour l’accès Internet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acces_web.html#utilisation-de-la-classe-url">Utilisation de la classe URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acces_web.html#utilisation-de-la-bibliotheque-volley">Utilisation de la bibliothèque Volley</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="acces_web.html#ajout-de-la-dependance">Ajout de la dépendance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="acces_web.html#emission-d-une-requete">Émission d’une requête</a></li>
+<li class="toctree-l3"><a class="reference internal" href="acces_web.html#emission-d-une-requete-pour-une-reponse-json">Émission d’une requête pour une réponse JSON</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="service.html">Les services Android</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="service.html#service-en-tache-de-fond">Service en tâche de fond</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="service.html#implementation-et-declaration-du-service">Implémentation et déclaration du service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service.html#le-cycle-de-vie">Le cycle de vie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service.html#execution-en-tache-de-fond">Exécution en tâche de fond</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service.html#interaction-avec-l-utilisateur">Interaction avec l’utilisateur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service.html#lancement-du-service">Lancement du service</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="service.html#service-lie">Service lié</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="service.html#declaration-du-service">Déclaration du service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service.html#id1">Le cycle de vie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service.html#implementation-de-la-methode-onbind">Implémentation de la méthode onBind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service.html#lier-le-service-a-une-activite">Lier le service à une activité</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Développement Android</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Gestion des activités d’une application</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="broadcast.html" class="btn btn-neutral float-right" title="Gestion des messages broadcast" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="activity.html" class="btn btn-neutral float-left" title="Les activités" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gestion-des-activites-d-une-application">
+<h1>Gestion des activités d’une application<a class="headerlink" href="#gestion-des-activites-d-une-application" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="exercice admonition">
+<p class="admonition-title">Le projet d’exemple pour ce chapitre</p>
+<p>Vous pouvez télécharger le projet servant d’exemple pour ce chapitre :
+<a class="reference download internal" download="" href="../_downloads/ff25148543f1f5a789106d804cb84d19/android-demo-occupation.zip"><code class="xref download docutils literal notranslate"><span class="pre">android-demo-occupation.zip</span></code></a></p>
+</div>
+<p>Dans ce chapitre, nous allons voir un exemple d’application assez classique.
+Cette application sera l’occasion de présenter comment gérer plusieurs activités
+au sein d’une même application lorsque nous voulons présenter différents
+écrans à l’utilisateur. Nous aurons également l’occasion de découvrir comment
+gérer des listes d’items avec Android.</p>
+<div class="section" id="l-application-de-demo">
+<h2>L’application de démo<a class="headerlink" href="#l-application-de-demo" title="Lien permanent vers ce titre">¶</a></h2>
+<p>À titre d’exemple, nous nous baserons sur une application de démo qui présente
+au démarrage une liste d’occupations (comme par exemple le bricolage,
+le cinéma…). Les occupations sont regroupées par catégories. Une
+catégorie est désignée par une icône dans l’application.</p>
+<div class="figure align-default" id="id1">
+<img alt="../_images/activity_liste_occupations.png" src="../_images/activity_liste_occupations.png" />
+<p class="caption"><span class="caption-text">La liste des occupations</span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Lorsque l’utilisateur sélectionne une occupation, il peut consulter le détail
+ainsi que la liste des autres occupations appartenant à la même catégorie.</p>
+<div class="figure align-default" id="id2">
+<img alt="../_images/activity_jeuxvideo.png" src="../_images/activity_jeuxvideo.png" />
+<p class="caption"><span class="caption-text">Le détail d’une occupation</span><a class="headerlink" href="#id2" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Pour simplifier notre exemple, la liste des occupations a été codée en dur dans
+l’application. Cependant, nous pourrions faire évoluer le code pour extraire
+cette information depuis une base de données stockée sur le mobile ou en
+effectuant une requête vers une API Web.</p>
+</div>
+<div class="section" id="structure-de-l-application">
+<h2>Structure de l’application<a class="headerlink" href="#structure-de-l-application" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’application fournit une classe <code class="docutils literal notranslate"><span class="pre">OccupationsSingleton</span></code>. Comme son nom l’indique,
+il s’agit d’un <em>singleton</em> qui permet d’obtenir la liste de toutes les occupations,
+la liste des occupations qui sont dans la même catégorie qu’une occupation
+donnée ou une occupation à partir de son identifiant.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">La classe OccupationsSingleton</span><a class="headerlink" href="#id3" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.occupation</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OccupationsSingleton</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">OccupationsSingleton</span> <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OccupationsSingleton</span><span class="p">();</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">OccupationsSingleton</span> <span class="nf">getInstance</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">instance</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="nf">OccupationsSingleton</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// code omis</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Occupation</span><span class="o">&gt;</span> <span class="nf">getOccupations</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// code omis</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="n">Occupation</span> <span class="nf">getOccupation</span><span class="p">(</span><span class="kt">int</span> <span class="n">occupationId</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// code omis</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Occupation</span><span class="o">&gt;</span> <span class="nf">getOccupationsMemeCategorie</span><span class="p">(</span><span class="n">Occupation</span> <span class="n">occupation</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// code omis</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>La classe <code class="docutils literal notranslate"><span class="pre">Occupation</span></code> représente bien sûr les informations sur une occupation.</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">La classe Occupation</span><a class="headerlink" href="#id4" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.occupation</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Occupation</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">nom</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">categorie</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">description</span><span class="p">;</span>
+
+    <span class="c1">// méthodes omises</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="l-activite-principale-et-recyclerview">
+<h3>L’activité principale et RecyclerView<a class="headerlink" href="#l-activite-principale-et-recyclerview" title="Lien permanent vers ce titre">¶</a></h3>
+<p>L’activité principale est représentée par la classe <code class="docutils literal notranslate"><span class="pre">MainActivity</span></code>. Elle utilise
+un <em>layout</em> qui contient un objet de type <a class="reference external" href="https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView">RecyclerView</a>. Un <a class="reference external" href="https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView">RecyclerView</a>
+représente une liste d’items que l’utilisateur peut faire défilée. Le terme
+de <em>recycler</em> vient du fait que ce composant optimise l’utilisation des ressources
+en recyclant les composants graphiques utilisés pour afficher chaque élément de
+la liste. Il s’agit d’un composant évolué de l’API Android. Il repose sur le modèle
+<a class="reference external" href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel">MVVM</a> (Model View ViewModel).</p>
+<p>Le modèle <a class="reference external" href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel">MVVM</a> (Model View ViewModel) est une variante du modèle <a class="reference external" href="https://fr.wikipedia.org/wiki/Mod%C3%A8le-vue-contr%C3%B4leur">MVC</a>.
+Plutôt que de permettre au contrôleur et à la vue d’accéder au modèle, on remplace
+le contrôleur par le <em>ViewModel</em> qui fournit une interface d’accès au modèle.
+Il est notifié par la vue en cas de modification par l’utilisateur
+et il peut également notifier la vue si le modèle est modifié.</p>
+<p>Ce modèle, bien que plus complexe dans sa conception, est plus facile à mettre
+en place car l’implémentation du <a class="reference external" href="https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView">RecyclerView</a> prend en charge une bonne partie
+du code pour nous. Concrètement, nous devons fournir une implémentation du
+<em>ViewModel</em> qui se présente sous la forme d’une classe abstraite Java nommée <a class="reference external" href="https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.Adapter">Adapter</a>.</p>
+<p>Un héritage de la classe abstraite <a class="reference external" href="https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.Adapter">Adapter</a> a pour principale responsabilité
+de fournir et de mettre à jour des objets de type <a class="reference external" href="https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.ViewHolder">ViewHolder</a>. Ces objets
+permettent de gérer la représentation à l’écran de chaque élément de la liste du
+<a class="reference external" href="https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView">RecyclerView</a>. Dans notre application, l’implémentation de cette classe abstraite
+est faite par la classe <code class="docutils literal notranslate"><span class="pre">OccupationAdapter</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<span id="occupationadapter"></span><div class="code-block-caption"><span class="caption-text">La classe OccupationAdapter</span><a class="headerlink" href="#id5" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.occupation</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">android.content.Intent</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.view.LayoutInflater</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.view.View</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.view.ViewGroup</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.TextView</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">androidx.annotation.NonNull</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">androidx.recyclerview.widget.RecyclerView</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OccupationAdapter</span> <span class="kd">extends</span> <span class="n">RecyclerView</span><span class="p">.</span><span class="na">Adapter</span><span class="o">&lt;</span><span class="n">OccupationAdapter</span><span class="p">.</span><span class="na">OccupationViewHolder</span><span class="o">&gt;</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">OccupationViewHolder</span> <span class="kd">extends</span> <span class="n">RecyclerView</span><span class="p">.</span><span class="na">ViewHolder</span> <span class="p">{</span>
+        <span class="kd">private</span> <span class="n">View</span> <span class="n">content</span><span class="p">;</span>
+        <span class="kd">private</span> <span class="n">Occupation</span> <span class="n">occupation</span><span class="p">;</span>
+
+        <span class="kd">public</span> <span class="nf">OccupationViewHolder</span><span class="p">(</span><span class="n">View</span> <span class="n">content</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">super</span><span class="p">(</span><span class="n">content</span><span class="p">);</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">content</span> <span class="o">=</span> <span class="n">content</span><span class="p">;</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">content</span><span class="p">.</span><span class="na">setOnClickListener</span><span class="p">(</span><span class="k">new</span> <span class="n">View</span><span class="p">.</span><span class="na">OnClickListener</span><span class="p">()</span> <span class="p">{</span>
+                <span class="nd">@Override</span>
+                <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="p">(</span><span class="n">View</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Intent</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="na">getContext</span><span class="p">(),</span> <span class="n">OccupationActivity</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+                    <span class="n">intent</span><span class="p">.</span><span class="na">putExtra</span><span class="p">(</span><span class="s">&quot;occupationId&quot;</span><span class="p">,</span> <span class="n">occupation</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span>
+                    <span class="n">v</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">startActivity</span><span class="p">(</span><span class="n">intent</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">});</span>
+        <span class="p">}</span>
+
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setOccupation</span><span class="p">(</span><span class="n">Occupation</span> <span class="n">occupation</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">occupation</span> <span class="o">=</span> <span class="n">occupation</span><span class="p">;</span>
+            <span class="n">TextView</span> <span class="n">textView</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">content</span><span class="p">.</span><span class="na">findViewById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">nomOccupation</span><span class="p">);</span>
+            <span class="n">textView</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">occupation</span><span class="p">.</span><span class="na">getNom</span><span class="p">());</span>
+            <span class="c1">// On extrait l&#39;identifiant de ressource correspondant à l&#39;icône.</span>
+            <span class="kt">int</span> <span class="n">imageId</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">content</span><span class="p">.</span><span class="na">getResources</span><span class="p">().</span><span class="na">getIdentifier</span><span class="p">(</span><span class="s">&quot;ic_categorie_&quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">occupation</span><span class="p">.</span><span class="na">getCategorie</span><span class="p">(),</span> <span class="s">&quot;drawable&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">content</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getPackageName</span><span class="p">());</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">imageId</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">imageId</span> <span class="o">=</span> <span class="n">R</span><span class="p">.</span><span class="na">drawable</span><span class="p">.</span><span class="na">ic_categorie_defaut</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="c1">// On positionne l&#39;image à gauche du libellé du texte.</span>
+            <span class="n">textView</span><span class="p">.</span><span class="na">setCompoundDrawablesWithIntrinsicBounds</span><span class="p">(</span><span class="n">imageId</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Occupation</span><span class="o">&gt;</span> <span class="n">occupations</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">OccupationAdapter</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Occupation</span><span class="o">&gt;</span> <span class="n">occupations</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">occupations</span> <span class="o">=</span> <span class="n">occupations</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@NonNull</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">OccupationViewHolder</span> <span class="nf">onCreateViewHolder</span><span class="p">(</span><span class="nd">@NonNull</span> <span class="n">ViewGroup</span> <span class="n">parent</span><span class="p">,</span> <span class="kt">int</span> <span class="n">viewType</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">View</span> <span class="n">view</span> <span class="o">=</span> <span class="n">LayoutInflater</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="n">parent</span><span class="p">.</span><span class="na">getContext</span><span class="p">()).</span><span class="na">inflate</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">layout</span><span class="p">.</span><span class="na">occupation_view</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">OccupationViewHolder</span><span class="p">(</span><span class="n">view</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onBindViewHolder</span><span class="p">(</span><span class="nd">@NonNull</span> <span class="n">OccupationViewHolder</span> <span class="n">viewHolder</span><span class="p">,</span> <span class="kt">int</span> <span class="n">position</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">viewHolder</span><span class="p">.</span><span class="na">setOccupation</span><span class="p">(</span><span class="n">occupations</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">position</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getItemCount</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">occupations</span><span class="p">.</span><span class="na">size</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>Cette classe connaît la liste des occupations qui lui est passée en paramètre
+de constructeur. Elle doit ensuite implémenter les méthode <a class="reference external" href="https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.Adapter#onCreateViewHolder(android.view.ViewGroup,%20int)">onCreateViewHolder</a>,
+<a class="reference external" href="https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.Adapter#onBindViewHolder(VH,%20int)">onBindViewHolder</a> et <a class="reference external" href="https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.Adapter#getItemCount()">getItemCount</a>.</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.Adapter#onCreateViewHolder(android.view.ViewGroup,%20int)">onCreateViewHolder</a></dt><dd><p>Cette méthode retourne une classe héritant de <a class="reference external" href="https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.ViewHolder">ViewHolder</a>. Comme son nom l’indique,
+elle maintient une référence vers une <a class="reference external" href="https://developer.android.com/reference/android/view/View">View</a> qui correspond à la représentation
+graphique d’un élément de la liste. Pour notre exemple, à la ligne 56, nous
+utilisons le <a class="reference external" href="https://developer.android.com/reference/android/view/LayoutInflater">LayoutInflater</a> pour créer une <a class="reference external" href="https://developer.android.com/reference/android/view/View">View</a> à partir d’un fichier
+XML de <em>layout</em>. Il est ainsi possible de créer n’importe quel type de
+<em>layout</em> pour afficher un élément de la liste.</p>
+</dd>
+<dt><a class="reference external" href="https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.Adapter#onBindViewHolder(VH,%20int)">onBindViewHolder</a></dt><dd><p>Cette méthode est appelée pour associer un <a class="reference external" href="https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.ViewHolder">ViewHolder</a> précédemment créé
+à un élément de la liste. Un élément est représenté par sa position dans
+la liste. Ainsi le <a class="reference external" href="https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView">RecyclerView</a> n’a pas besoin de connaître la type exact
+du modèle, il demande à l’adaptateur de s’assurer que la <a class="reference external" href="https://developer.android.com/reference/android/view/View">View</a> référencée
+par le <a class="reference external" href="https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.ViewHolder">ViewHolder</a> est bien associée à un élément particulier de la liste.</p>
+</dd>
+<dt><a class="reference external" href="https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.Adapter#getItemCount()">getItemCount</a></dt><dd><p>Retourne le nombre d’éléments dans la liste afin de permettre au <a class="reference external" href="https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView">RecyclerView</a>
+de gérer l’affichage et le défilement des éléments à l’écran.</p>
+</dd>
+</dl>
+<p>Pour notre implémentation, nous définissons une classe interne <code class="docutils literal notranslate"><span class="pre">OccupationViewHolder</span></code>
+des lignes 16 à 45. Cette classe maintient une référence vers le composant
+<a class="reference external" href="https://developer.android.com/reference/android/view/View">View</a> d’affichage et un objet de type <code class="docutils literal notranslate"><span class="pre">Occupation</span></code>. La méthode
+<code class="docutils literal notranslate"><span class="pre">setOccupation</span></code>, déclarée des lignes 33 à 44, met à jour le composant <a class="reference external" href="https://developer.android.com/reference/android/view/View">View</a>
+à partir des informations de l’occupation. Elle est appelée par l’adaptateur à
+la ligne 62 quand il lui est demandé d’assigner un élément de la liste à un
+<a class="reference external" href="https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.ViewHolder">ViewHolder</a>.</p>
+<p>Notre classe <code class="docutils literal notranslate"><span class="pre">OccupationAdapter</span></code> est utilisée lors de l’initialisation
+de l’activité principale de l’application dans la classe <code class="docutils literal notranslate"><span class="pre">MainActivity</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">La classe MainActivity</span><a class="headerlink" href="#id6" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.occupation</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">androidx.appcompat.app.AppCompatActivity</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">androidx.recyclerview.widget.LinearLayoutManager</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">androidx.recyclerview.widget.RecyclerView</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">AppCompatActivity</span> <span class="p">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">.</span><span class="na">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">);</span>
+        <span class="n">setContentView</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">layout</span><span class="p">.</span><span class="na">activity_main</span><span class="p">);</span>
+        <span class="n">RecyclerView</span> <span class="n">occupationsView</span> <span class="o">=</span> <span class="n">findViewById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">occupationsView</span><span class="p">);</span>
+        <span class="n">occupationsView</span><span class="p">.</span><span class="na">setLayoutManager</span><span class="p">(</span><span class="k">new</span> <span class="n">LinearLayoutManager</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+        <span class="n">occupationsView</span><span class="p">.</span><span class="na">setAdapter</span><span class="p">(</span><span class="k">new</span> <span class="n">OccupationAdapter</span><span class="p">(</span><span class="n">OccupationsSingleton</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getOccupations</span><span class="p">()));</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>Cette classe est assez simple. Elle redéfinit la méthode <a class="reference external" href="https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)">onCreate</a> afin de positionner
+un <em>layout</em> à partir d’un fichier XML de ressource. Ce <em>layout</em> contient une
+<a class="reference external" href="https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView">RecyclerView</a> pour laquelle on spécifie son propre <em>layout</em> (pour afficher les
+éléments les uns sous les autres) et l’adaptateur à utiliser pour obtenir
+les objets de type <a class="reference external" href="https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.ViewHolder">ViewHolder</a> (ligne 17).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La <a class="reference external" href="https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView">RecyclerView</a> est un composant fourni par Android <a class="reference external" href="https://developer.android.com/jetpack/">JetPack</a>, elle remplace
+le composant <a class="reference external" href="https://developer.android.com/reference/android/widget/ListView">ListView</a> introduit par les anciennes versions de l’API et qui
+est maintenant déprécié.</p>
+<p>Pour être utilisée dans votre projet, vous devez déclarer une dépendance
+avec la <a class="reference external" href="https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView">RecyclerView</a> dans le fichier <code class="file docutils literal notranslate"><span class="pre">build.gradle</span></code> du module utilisant
+ce composant :</p>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">dependencies</span> <span class="o">{</span>
+  <span class="c1">// ...</span>
+
+  <span class="n">implementation</span> <span class="s1">&#39;androidx.recyclerview:recyclerview:1.1.0&#39;</span>
+
+  <span class="c1">// ...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p>Le modèle <a class="reference external" href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel">MVVM</a> permet des implémentations plus élaborées que notre exemple.
+Dans notre application de démo, la liste des occupations est figée mais nous
+pourrions imaginer que des éléments puissent être ajoutés, modifiés ou
+supprimés de la liste. Dans ce cas, la classe héritant de <a class="reference external" href="https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.Adapter">Adapter</a> peut
+prévenir la vue de ces changements grâce à des méthodes de notification comme
+<a class="reference external" href="https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.Adapter#notifyItemInserted(int)">notifyItemInserted</a>, <a class="reference external" href="https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.Adapter#notifyItemChanged(int)">notifyItemChanged</a> ou <a class="reference external" href="https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.Adapter#notifyItemRemoved(int)">notifyItemRemoved</a>. Le <a class="reference external" href="https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView">RecyclerView</a>
+est à l’écoute de ces notifications et se rafraîchit automatiquement.</p>
+<p>Pour plus d’information, vous pouvez consulter la <a class="reference external" href="https://developer.android.com/guide/topics/ui/layout/recyclerview">documentation officielle sur les layouts</a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="detail-d-une-occupation-et-pile-des-activites">
+<h2>Détail d’une occupation et pile des activités<a class="headerlink" href="#detail-d-une-occupation-et-pile-des-activites" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour afficher une activité présentant le détail d’une occupation, il faut
+capter l’événement de clic dans la liste mais il faut surtout ouvrir une seconde
+activité depuis l’activité principale. Le système Android gère les activités
+comme appartenant à une tâche (<em>task</em>). Une tâche peut être définie comme un
+ensemble cohérent d’activités qui permet de réaliser une macro fonctionnalité.
+Dans notre exemple, la tâche représente la consultation des occupations.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Dans ce chapitre, nous ne détaillerons pas le mécanisme de gestion des
+tâches et nous nous limiterons à une application définissant une seule
+tâche.</p>
+<p>Pour plus d’information, reportez-vous à la <a class="reference external" href="https://developer.android.com/guide/components/activities/tasks-and-back-stack">documentation officielle sur les tâches</a>.</p>
+</div>
+<p>Au sein d’une tâche, le système gère les activités sous la forme d’une pile.
+Une nouvelle activité s’empile sur la précédente. Nous pouvons l’illustrer
+comme ci-dessous :</p>
+<div class="figure align-default" id="id7">
+<img alt="../_images/activity_stack_2.png" src="../_images/activity_stack_2.png" />
+<p class="caption"><span class="caption-text">La gestion des activités sous la forme d’une pile</span><a class="headerlink" href="#id7" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Dans l’illustration ci-dessus, à gauche, nous avons l’application au démarrage
+avec la pile des activités qui ne contient que l’activité principale. À droite,
+quand l’utilisateur choisit un élément dans la liste, une activité de détail
+est créée qui s’empile sur l’activité présentant la liste des occupations. Notez
+que l’activité présentant la liste est mise en pause puisqu’elle n’est plus
+visible de l’utilisateur.</p>
+<p>Si l’utilisateur presse le bouton de retour en arrière, cela lui permet de
+revenir à la liste des occupations. L’activité de détail est dépilée et détruite
+par le système. Si l’utilisateur presse le bouton de retour en arrière alors
+qu’il ne reste qu’une seule activité dans la pile, cela amène simplement
+l’application en arrière plan.</p>
+</div>
+<div class="section" id="ouverture-d-une-activite-intent-explicite">
+<h2>Ouverture d’une activité (intent explicite)<a class="headerlink" href="#ouverture-d-une-activite-intent-explicite" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Nous avons vu au <a class="reference internal" href="activity.html#activity"><span class="std std-ref">chapitre d’introduction aux activités</span></a> qu’il
+est possible d’émettre un <em>intent</em> pour déclencher l’ouverture d’une activité.
+Lorsque l’on veut réaliser l’affichage d’une activité interne à l’application,
+on utilise un <em>intent</em> explicite, c’est-à-dire que l’on précise le nom de la
+classe de l’activité. Il est également possible de passer des paramètres à
+l’intent (que l’on appelle des <em>extras</em>). Si l’activité qui affiche le détail
+d’une occupation s’appelle <code class="docutils literal notranslate"><span class="pre">OccupationActivity</span></code>, alors on peut ouvrir l’activité
+avec un code comme celui-ci :</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">Utilisation d’un intent explicite pour ouvrir une activité</span><a class="headerlink" href="#id8" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Intent</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">OccupationActivity</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<span class="n">intent</span><span class="p">.</span><span class="na">putExtra</span><span class="p">(</span><span class="s">&quot;occupationId&quot;</span><span class="p">,</span> <span class="n">occupationId</span><span class="p">);</span>
+<span class="n">context</span><span class="p">.</span><span class="na">startActivity</span><span class="p">(</span><span class="n">intent</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<p>Dans le code ci-dessus, la variable <code class="docutils literal notranslate"><span class="pre">context</span></code> correspond au contexte d’exécution
+de l’application disponible pour chaque composant graphique et la variable
+<code class="docutils literal notranslate"><span class="pre">occupationId</span></code> contient l’identifiant de l’occupation à afficher. À charge
+du code dans la classe <code class="docutils literal notranslate"><span class="pre">OccupationActivity</span></code> d’analyser l’intent pour extraire
+l’identifiant de l’occupation et de récupérer sa représentation objet pour afficher
+les informations.</p>
+<p>Pour l’activité de présentation d’une occupation, le code est le suivant :</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">La classe OccupationActivity</span><a class="headerlink" href="#id9" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.occupation</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">androidx.appcompat.app.AppCompatActivity</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">androidx.recyclerview.widget.LinearLayoutManager</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">androidx.recyclerview.widget.RecyclerView</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">android.content.Intent</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.TextView</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OccupationActivity</span> <span class="kd">extends</span> <span class="n">AppCompatActivity</span> <span class="p">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">.</span><span class="na">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">);</span>
+        <span class="n">setContentView</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">layout</span><span class="p">.</span><span class="na">activity_occupation</span><span class="p">);</span>
+
+        <span class="n">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="n">getIntent</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">occupationId</span> <span class="o">=</span> <span class="n">intent</span><span class="p">.</span><span class="na">getIntExtra</span><span class="p">(</span><span class="s">&quot;occupationId&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+        <span class="n">Occupation</span> <span class="n">occupation</span> <span class="o">=</span> <span class="n">OccupationsSingleton</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getOccupation</span><span class="p">(</span><span class="n">occupationId</span><span class="p">);</span>
+
+        <span class="n">TextView</span> <span class="n">nomView</span> <span class="o">=</span> <span class="n">findViewById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">nomOccupation</span><span class="p">);</span>
+        <span class="n">nomView</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">occupation</span><span class="p">.</span><span class="na">getNom</span><span class="p">());</span>
+
+        <span class="n">TextView</span> <span class="n">descriptionView</span> <span class="o">=</span> <span class="n">findViewById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">descriptionOccupation</span><span class="p">);</span>
+        <span class="n">descriptionView</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">occupation</span><span class="p">.</span><span class="na">getDescription</span><span class="p">());</span>
+
+        <span class="n">RecyclerView</span> <span class="n">occupationsView</span> <span class="o">=</span> <span class="n">findViewById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">memeCategorieRecyclerView</span><span class="p">);</span>
+        <span class="n">occupationsView</span><span class="p">.</span><span class="na">setLayoutManager</span><span class="p">(</span><span class="k">new</span> <span class="n">LinearLayoutManager</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+        <span class="n">occupationsView</span><span class="p">.</span><span class="na">setAdapter</span><span class="p">(</span><span class="k">new</span> <span class="n">OccupationAdapter</span><span class="p">(</span><span class="n">OccupationsSingleton</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getOccupationsMemeCategorie</span><span class="p">(</span><span class="n">occupation</span><span class="p">)));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>À la ligne 18, on récupère l’intent qui a déclenché l’ouverture de l’activité
+et on extrait l’id de l’occupation en tant qu’extra. Ensuite, ligne 21, on
+récupère l’objet <code class="docutils literal notranslate"><span class="pre">Occupation</span></code> grâce au singleton. Le reste du code consiste
+à remplir l’interface graphique avec les informations de l’occupation en utilisant
+les identifiants des composants définis dans le <em>layout</em> de l’activité.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour notre application, la création et l’envoi de l’intent doit se faire
+lorsque l’utilisateur clique sur un élément de la liste. Ainsi dans la
+classe <code class="docutils literal notranslate"><span class="pre">OccupationViewHolder</span></code> présentée <a class="reference internal" href="#occupationadapter"><span class="std std-ref">ci-dessus</span></a>,
+nous enregistrons un <em>listener</em> pour réaliser ce traitement :</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="nf">OccupationViewHolder</span><span class="p">(</span><span class="n">View</span> <span class="n">content</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">super</span><span class="p">(</span><span class="n">content</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">content</span> <span class="o">=</span> <span class="n">content</span><span class="p">;</span>
+<span class="hll">    <span class="k">this</span><span class="p">.</span><span class="na">content</span><span class="p">.</span><span class="na">setOnClickListener</span><span class="p">(</span><span class="k">new</span> <span class="n">View</span><span class="p">.</span><span class="na">OnClickListener</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">        <span class="nd">@Override</span>
+</span><span class="hll">        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="p">(</span><span class="n">View</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">            <span class="n">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Intent</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="na">getContext</span><span class="p">(),</span> <span class="n">OccupationActivity</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+</span><span class="hll">            <span class="n">intent</span><span class="p">.</span><span class="na">putExtra</span><span class="p">(</span><span class="s">&quot;occupationId&quot;</span><span class="p">,</span> <span class="n">occupation</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span>
+</span><span class="hll">            <span class="n">v</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">startActivity</span><span class="p">(</span><span class="n">intent</span><span class="p">);</span>
+</span><span class="hll">        <span class="p">}</span>
+</span><span class="hll">    <span class="p">});</span>
+</span><span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="strategie-de-gestion-de-la-pile-des-activites">
+<h2>Stratégie de gestion de la pile des activités<a class="headerlink" href="#strategie-de-gestion-de-la-pile-des-activites" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Dans notre application, il se trouve que l’activité présentant le détail d’une
+occupation affiche la liste des occupations de la même catégorie. Que se
+passe-t-il si l’utilisateur clique sur un élément de cette liste ? Dans notre
+code, la classe <code class="docutils literal notranslate"><span class="pre">OccupationActivity</span></code> utilise un <a class="reference external" href="https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView">RecyclerView</a> auquel elle
+passe le même adaptateur que pour la liste principale. La seule différence
+est que l’adaptateur reçoit en paramètre de construction uniquement la liste
+des occupations de la même catégorie. Donc il est possible de cliquer sur
+un élément de cette liste pour ouvrir une activité de détail. Dans ce cas,
+le système continue d’empiler les activités les unes sur les autres comme
+illustré ci-dessous :</p>
+<div class="figure align-default" id="id10">
+<img alt="../_images/activity_stack_3.png" src="../_images/activity_stack_3.png" />
+<p class="caption"><span class="caption-text">Empilement successif des activités de l’application</span><a class="headerlink" href="#id10" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Cela signifie que l’utilisateur devra presser plusieurs fois le bouton de retour
+en arrière pour revenir à la liste principale. S’il s’agit du comportement attendu
+de l’application alors il n’est pas nécessaire de produire du code supplémentaire
+car il s’agit effectivement du comportement par défaut pour la gestion de la pile
+des activités.</p>
+<p>Cependant, si nécessaire, il est possible de changer ce comportement. Imaginons
+que nous souhaitions ouvrir le détail d’une occupation que si l’utilisateur est
+en train de consulter la liste générale. S’il est déjà en train de consulter
+le détail d’une occupation, on veut simplement rafraîchir l’activité avec les
+nouvelles données. Dans ce cas, nous aurons une application qui fonctionnera
+plutôt comme l’illustration ci-dessous :</p>
+<div class="figure align-default" id="id11">
+<img alt="../_images/activity_stack_3_with_singletop.png" src="../_images/activity_stack_3_with_singletop.png" />
+<p class="caption"><span class="caption-text">Empilement successif sans répétition de l’activité de détail</span><a class="headerlink" href="#id11" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Dans cette situation, l’utilisateur clique sur une occupation dans la liste globale
+pour consulter le détail. Puis, quand il clique sur une occupation appartenant à
+la même catégorie depuis cet écran de détail, alors l’activité est simplement mise
+à jour avec les nouvelles données. Du point de vue de l’utilisateur, ce qui
+change vraiment, c’est le comportement de l’application lorsqu’il cliquera sur
+le bouton de retour en arrière. Peu importe le nombre d’occupations qu’il aura
+consulté, il sera directement ramené sur la liste générale.</p>
+<p>Pour réaliser ce comportement, il faut considérer que l’activité de détail d’une
+occupation doit être démarrée en mode <strong>single top</strong>. Cela signifie que, si une
+telle activité n’est pas en haut de la pile, elle doit être créée, sinon
+l’activité présente doit être réutilisée.</p>
+<p>Nous pouvons déclarer une activité <strong>single top</strong> de deux manières différentes.
+Soit nous pouvons préciser le mode grâce à l’attribut <code class="docutils literal notranslate"><span class="pre">launchMode</span></code> dans le
+manifeste de l’application :</p>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">Déclaration du mode singletop dans le manifeste de l’application</span><a class="headerlink" href="#id12" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;activity</span> <span class="na">android:name=</span><span class="s">&quot;.OccupationActivity&quot;</span> <span class="na">android:launchMode=</span><span class="s">&quot;singleTop&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/activity&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>Ainsi nous sommes certain qu’une activité de ce type sera toujours <strong>single top</strong>.
+Soit, nous pouvons le faire de manière programmatique en ajoutant un <em>flag</em> à
+l’intent qui va servir à démarrer l’activité :</p>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">Ajout d’un flag à l’intent pour demander le mode single top</span><a class="headerlink" href="#id13" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Intent</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">OccupationActivity</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<span class="n">intent</span><span class="p">.</span><span class="na">putExtra</span><span class="p">(</span><span class="s">&quot;occupationId&quot;</span><span class="p">,</span> <span class="n">occupationId</span><span class="p">);</span>
+<span class="hll"><span class="n">intent</span><span class="p">.</span><span class="na">setFlags</span><span class="p">(</span><span class="n">Intent</span><span class="p">.</span><span class="na">FLAG_ACTIVITY_SINGLE_TOP</span><span class="p">);</span>
+</span><span class="n">context</span><span class="p">.</span><span class="na">startActivity</span><span class="p">(</span><span class="n">intent</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<p>Pour que notre application fonctionne correctement, nous somme obligés de revoir
+l’implémentation de la classe <code class="docutils literal notranslate"><span class="pre">OccupationActivity</span></code>. En effet le mode
+<strong>single top</strong> implique que, si l’activité est déjà au sommet de la pile, elle
+n’est pas recrée. Le système se contente alors d’appeler la méthode <a class="reference external" href="https://developer.android.com/reference/android/app/Activity#onNewIntent(android.content.Intent)">onNewIntent</a>.</p>
+<div class="literal-block-wrapper docutils container" id="id14">
+<div class="code-block-caption"><span class="caption-text">Évolution de la classe OccupationActivity pour le support du single top</span><a class="headerlink" href="#id14" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.occupation</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">androidx.appcompat.app.AppCompatActivity</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">androidx.recyclerview.widget.LinearLayoutManager</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">androidx.recyclerview.widget.RecyclerView</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">android.content.Intent</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.TextView</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OccupationActivity</span> <span class="kd">extends</span> <span class="n">AppCompatActivity</span> <span class="p">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">.</span><span class="na">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">);</span>
+        <span class="n">setContentView</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">layout</span><span class="p">.</span><span class="na">activity_occupation</span><span class="p">);</span>
+
+        <span class="n">onNewIntent</span><span class="p">(</span><span class="n">getIntent</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onNewIntent</span><span class="p">(</span><span class="n">Intent</span> <span class="n">intent</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">.</span><span class="na">onNewIntent</span><span class="p">(</span><span class="n">intent</span><span class="p">);</span>
+        <span class="kt">int</span> <span class="n">occupationId</span> <span class="o">=</span> <span class="n">intent</span><span class="p">.</span><span class="na">getIntExtra</span><span class="p">(</span><span class="s">&quot;occupationId&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+        <span class="n">Occupation</span> <span class="n">occupation</span> <span class="o">=</span> <span class="n">OccupationsSingleton</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getOccupation</span><span class="p">(</span><span class="n">occupationId</span><span class="p">);</span>
+
+        <span class="n">TextView</span> <span class="n">nomView</span> <span class="o">=</span> <span class="n">findViewById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">nomOccupation</span><span class="p">);</span>
+        <span class="n">nomView</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">occupation</span><span class="p">.</span><span class="na">getNom</span><span class="p">());</span>
+
+        <span class="n">TextView</span> <span class="n">descriptionView</span> <span class="o">=</span> <span class="n">findViewById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">descriptionOccupation</span><span class="p">);</span>
+        <span class="n">descriptionView</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">occupation</span><span class="p">.</span><span class="na">getDescription</span><span class="p">());</span>
+
+        <span class="n">RecyclerView</span> <span class="n">occupationsView</span> <span class="o">=</span> <span class="n">findViewById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">memeCategorieRecyclerView</span><span class="p">);</span>
+        <span class="n">occupationsView</span><span class="p">.</span><span class="na">setLayoutManager</span><span class="p">(</span><span class="k">new</span> <span class="n">LinearLayoutManager</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+        <span class="n">occupationsView</span><span class="p">.</span><span class="na">setAdapter</span><span class="p">(</span><span class="k">new</span> <span class="n">OccupationAdapter</span><span class="p">(</span><span class="n">OccupationsSingleton</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getOccupationsMemeCategorie</span><span class="p">(</span><span class="n">occupation</span><span class="p">)));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il existe d’autres stratégies pour altérer le comportement par défaut de
+la pile des activités :</p>
+<dl class="simple">
+<dt>Single instance</dt><dd><p>Ce mode permet de s’assurer qu’il n’existe qu’une seule instance d’une
+activité dans la tâche courante de l’application. Si cette instance est
+déjà dans la pile, alors un nouveau lancement de cette activité a pour
+conséquence de dépiler et de détruire toutes les activités empilées au
+dessus d’elle. Ce mode agit comme un retour rapide en arrière.</p>
+</dd>
+<dt>Single task</dt><dd><p>Ce mode garantit qu’il n’existe qu’une seule activité de ce type dans
+tout le système. Il s’agit d’un usage particulier permettant de définir
+une activité qui se comporte comme un véritable <em>singleton</em>.</p>
+</dd>
+</dl>
+<p>Pour plus d’information, reportez-vous à la <a class="reference external" href="https://developer.android.com/guide/components/activities/tasks-and-back-stack">documentation officielle</a>.</p>
+</div>
+</div>
+<div class="section" id="terminer-une-activite">
+<h2>Terminer une activité<a class="headerlink" href="#terminer-une-activite" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Parfois une activité déclenche l’ouverture d’une autre activité et cette dernière
+doit se substituer à la précédente. Imaginons une activité représentant
+l’écran d’accueil de notre application. Cette activité, après la phase d’initialisation,
+va déclencher l’ouverture d’une nouvelle activité mais on ne souhaite pas empiler
+les activités l’une sur l’autre. En effet, on ne souhaite pas que l’utilisateur,
+en appuyant sur le bouton de retour en arrière, revienne sur l’écran d’accueil.
+Dans ce cas, il suffit d’appeler la méthode <a class="reference external" href="https://developer.android.com/reference/android/app/Activity#finish()">finish</a> dans l’activité représentant
+l’écran d’accueil, juste après l’appel à <a class="reference external" href="https://developer.android.com/reference/android/app/Activity#startActivity(android.content.Intent)">startActivity</a>.</p>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-text">Appel à la méthode finish depuis une activité</span><a class="headerlink" href="#id15" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Intent</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">MaNouvelleActivity</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<span class="k">this</span><span class="p">.</span><span class="na">startActivity</span><span class="p">(</span><span class="n">intent</span><span class="p">);</span>
+<span class="k">this</span><span class="p">.</span><span class="na">finish</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<p>De manière générale, la méthode <a class="reference external" href="https://developer.android.com/reference/android/app/Activity#finish()">finish</a> peut être appelée lorsqu’on veut
+fermer une activité par programmation.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="broadcast.html" class="btn btn-neutral float-right" title="Gestion des messages broadcast" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="activity.html" class="btn btn-neutral float-left" title="Les activités" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright David Gayerie - david@gayerie.dev - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

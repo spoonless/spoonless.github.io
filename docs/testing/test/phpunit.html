@@ -1,0 +1,694 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Les tests unitaires avec PHPUnit" name="description" />
+<meta content="PHP, PHPUnit, mock, test unitaire" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Les tests unitaires automatisés avec PHPUnit &mdash; Documentation Ingénierie des tests </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/testing/test/phpunit.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="TDD : Test Driven Development" href="tdd.html" />
+    <link rel="prev" title="Les tests unitaires automatisés avec JUnit" href="junit.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Ingénierie des tests
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Les tests unitaires</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="junit.html">Les tests unitaires automatisés avec JUnit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="junit.html#junit">JUnit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="junit.html#structure-d-une-classe-de-test-junit">Structure d’une classe de test JUnit</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="junit.html#execution-des-tests-junit">Exécution des tests JUnit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="junit.html#les-methodes-de-test">Les méthodes de test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="junit.html#les-assertions">Les assertions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="junit.html#les-fixtures">Les fixtures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="junit.html#tester-les-exceptions">Tester les exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="junit.html#utilisation-de-doublure">Utilisation de doublure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="junit.html#implementation-d-objet-mock-avec-mockito">Implémentation d’objet mock avec Mockito</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Les tests unitaires automatisés avec PHPUnit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#phpunit">PHPUnit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#structure-d-une-classe-de-test-phpunit">Structure d’une classe de test PHPUnit</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#les-methodes-de-test">Les méthodes de test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#les-assertions">Les assertions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#les-fixtures">Les fixtures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#utilisation-de-doublure">Utilisation de doublure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#implementation-d-objet-mock">Implémentation d’objet mock</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tdd.html">TDD : Test Driven Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tdd.html#qu-est-ce-qu-un-test">Qu’est-ce qu’un test ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tdd.html#test-driven-development">Test Driven Development</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tdd.html#les-etapes-du-tdd">Les étapes du TDD</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tdd.html#qu-est-ce-que-concevoir">Qu’est-ce que concevoir ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tdd.html#exercices">Exercices</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Ingénierie des tests</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../test_acceptation/introduction.html">Introduction à l’ingénierie des tests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/introduction.html#strategie-de-tests-et-types-de-tests">Stratégie de tests et types de tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/introduction.html#les-tests-de-non-regression">Les tests de non régression</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/introduction.html#les-7-principes-des-tests">Les 7 principes des tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../test_acceptation/test_acceptation.html">Les tests d’acceptation et d’intégration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/test_acceptation.html#methode-de-gestion-de-projet">Méthode de gestion de projet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/test_acceptation.html#notion-d-exigence">Notion d’exigence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/test_acceptation.html#recette-fonctionnelle">Recette fonctionnelle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/test_acceptation.html#notion-de-cas-de-test">Notion de cas de test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/test_acceptation.html#scenario-de-test">Scénario de test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/test_acceptation.html#exercice">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/test_acceptation.html#la-matrice-de-tracabilite-des-exigences">La matrice de traçabilité des exigences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/test_acceptation.html#id1">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/test_acceptation.html#rapport-de-test">Rapport de test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/test_acceptation.html#id2">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/test_acceptation.html#dans-le-cadre-d-une-methode-agile">Dans le cadre d’une méthode agile</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/test_acceptation.html#le-behavior-driven-developement-bdd">Le <em>Behavior Driven Developement</em> (BDD)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../test_acceptation/selenium.html">Selenium</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/selenium.html#selenium-ide">Selenium IDE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/selenium.html#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/selenium.html#enregistrer-des-commandes">Enregistrer des commandes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/selenium.html#notion-de-commande">Notion de commande</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/selenium.html#finaliser-un-test">Finaliser un test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/selenium.html#sauver-les-tests">Sauver les tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/selenium.html#creation-de-suites-de-tests">Création de suites de tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/selenium.html#bonnes-pratiques">Bonnes pratiques</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/selenium.html#web-driver">Web Driver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/selenium.html#installation-du-web-driver-pour-chrome">Installation du Web Driver pour Chrome</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../test_acceptation/selenium.html#windows">Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../test_acceptation/selenium.html#macos">MacOs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../test_acceptation/selenium.html#linux">Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/selenium.html#utilisation-d-un-binding">Utilisation d’un binding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/selenium.html#gestion-de-l-attente">Gestion de l’attente</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/selenium.html#exporter-les-tests-selenium-ide">Exporter les tests Selenium IDE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/selenium.html#page-object-models">Page object models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/selenium.html#executer-les-tests-selenium-a-la-phase-integration-test-de-maven">Exécuter les tests Selenium à la phase integration-test de Maven</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../test_acceptation/cucumber.html">Cucumber</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/cucumber.html#behavior-driven-development-bdd">Behavior-Driven-Development (BDD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/cucumber.html#ecrire-des-scenarios-avec-cucumber">Écrire des scénarios avec Cucumber</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/cucumber.html#automatiser-les-scenarios-en-java">Automatiser les scénarios en Java</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/cucumber.html#les-classes-d-implementation-des-etapes">Les classes d’implémentation des étapes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/cucumber.html#la-classe-de-lancement-junit">La classe de lancement JUnit</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/cucumber.html#integration-avec-selenium">Intégration avec Selenium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/cucumber.html#pour-aller-plus-loin">Pour aller plus loin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/cucumber.html#le-plan-de-scenario">Le plan de scénario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/cucumber.html#le-contexte">Le contexte</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/cucumber.html#les-tags">Les tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/cucumber.html#l-injection-de-dependances">L’injection de dépendances</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../test_acceptation/jmeter.html">Automatisation des tests avec JMeter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/jmeter.html#installation-et-lancement">Installation et lancement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/jmeter.html#principe-d-un-plan-de-test">Principe d’un plan de test</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/jmeter.html#les-thread-groups-moteurs-d-utilisateurs">Les <em>thread groups</em> (moteurs d’utilisateurs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/jmeter.html#les-samplers-echantillons">Les <em>samplers</em> (échantillons)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/jmeter.html#les-listeners-recepteurs">Les <em>listeners</em> (récepteurs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/jmeter.html#les-logic-controllers-les-controleurs-logiques">Les <em>logic controllers</em> (les contrôleurs logiques)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/jmeter.html#les-configuration-elements-les-configurations">Les <em>configuration elements</em> (les configurations)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/jmeter.html#les-assertions">Les <em>assertions</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/jmeter.html#les-pre-processeurs-et-les-post-processeurs">Les pré-processeurs et les post-processeurs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/jmeter.html#les-timers-compteurs-de-temps">Les <em>timers</em> (compteurs de temps)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/jmeter.html#utilisation-des-variables">Utilisation des variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/jmeter.html#executer-une-campagne-de-test-mode-sans-ihm">Exécuter une campagne de test (mode sans IHM)</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Ingénierie des tests</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Les tests unitaires automatisés avec PHPUnit</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="tdd.html" class="btn btn-neutral float-right" title="TDD : Test Driven Development" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="junit.html" class="btn btn-neutral float-left" title="Les tests unitaires automatisés avec JUnit" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="les-tests-unitaires-automatises-avec-phpunit">
+<h1>Les tests unitaires automatisés avec PHPUnit<a class="headerlink" href="#les-tests-unitaires-automatises-avec-phpunit" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Un test automatisé est un programme qui se découpe en trois phases dites
+AAA pour <em>Arrange</em>, <em>Act</em>, <em>Assert</em>.</p>
+<dl class="simple">
+<dt>Arrange</dt><dd><p>La mise en place de l’environnement : création et initialisation des
+objets nécessaires à l’exécution du test.</p>
+</dd>
+<dt>Act</dt><dd><p>Le test proprement dit.</p>
+</dd>
+<dt>Assert</dt><dd><p>La vérification des résultats obtenus par le test.</p>
+</dd>
+</dl>
+<p>Le sous-système (l’ensemble des objets) éprouvé par le test est parfois
+appelé <strong>SUT</strong> (<em>System Under Test</em>).</p>
+<div class="section" id="phpunit">
+<h2>PHPUnit<a class="headerlink" href="#phpunit" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference external" href="https://phpunit.readthedocs.io/en/9.2/">PHPUnit</a> est un <em>framework</em> de tests unitaires pour PHP. Il s’inspire de <a class="reference external" href="https://www.junit.org">JUnit</a>,
+la version Java du <em>framework</em>.</p>
+<p><a class="reference external" href="https://phpunit.readthedocs.io/en/9.2/">PHPUnit</a> fournit son propre exécutable <code class="docutils literal notranslate"><span class="pre">phpunit</span></code> pour exécuter les tests. Il
+fournit également une bibliothèque de classes nécessaire pour la rédaction des
+tests.</p>
+<div class="section" id="structure-d-une-classe-de-test-phpunit">
+<h3>Structure d’une classe de test PHPUnit<a class="headerlink" href="#structure-d-une-classe-de-test-phpunit" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Comme PHP est un langage orienté Objet, les tests <a class="reference external" href="https://phpunit.readthedocs.io/en/9.2/">PHPUnit</a> sont regroupés
+dans des classes de test. Généralement, on groupe dans une classe les
+tests ayant la même classe comme point d’entrée et on nomme la classe de
+test à partir du nom de la classe testée suffixé par <code class="docutils literal notranslate"><span class="pre">Test</span></code>. Par exemple, pour
+tester la classe <code class="docutils literal notranslate"><span class="pre">ConversionDate</span></code>, on créera une classe <code class="docutils literal notranslate"><span class="pre">ConversionDateTest</span></code>.</p>
+<p>Suffixer par <code class="docutils literal notranslate"><span class="pre">Test</span></code> le nom de la classe de test est juste une
+convention. Néanmoins, il est très fortement conseillé de la respecter
+car les outils utilisent également cette convention pour découvrir
+les classes de test à exécuter.</p>
+<div class="section" id="les-methodes-de-test">
+<h4>Les méthodes de test<a class="headerlink" href="#les-methodes-de-test" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Une classe de test est une classe qui hérite de la classe <code class="docutils literal notranslate"><span class="pre">TestCase</span></code>. Elle
+déclare des méthodes publiques sans paramètre et dont le nom commence par <code class="docutils literal notranslate"><span class="pre">test</span></code>.
+Ces méthodes ne doivent pas retourner de valeur particulière.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Vous pouvez alternativement utiliser l’annotation <a class="reference external" href="https://phpunit.readthedocs.io/en/9.2/annotations.html#test">&#64;test</a> au dessus de la
+déclaration d’une méthode de test. Ainsi, le format du nom de la méthode est
+libre.</p>
+</div>
+<p>Une méthode de test contient :</p>
+<ul class="simple">
+<li><p>un ensemble d’instructions correspondant à la phase <em>arrange</em> (si nécessaire),</p></li>
+<li><p>un ensemble d’instructions correspondant à la phase <em>act</em> (qui se limite
+généralement à l’appel de la méthode à tester),</p></li>
+<li><p>un ensemble d’instructions correspondant à la phase <em>assert</em>.</p></li>
+</ul>
+<p>L’exemple ci-dessous teste la fonction <a class="reference external" href="https://www.php.net/manual/fr/function.strtoupper.php">strtoupper</a> qui renvoie une chaîne de
+caractères en majuscules :</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Exemple d’une classe de test</span><a class="headerlink" href="#id2" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">PHPUnit\Framework\TestCase</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">StringTest</span> <span class="k">extends</span> <span class="nx">TestCase</span>
+<span class="p">{</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">test_strtoupper_produit_une_chaine_en_majuscule</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// Bloc arrange</span>
+        <span class="nv">$s</span> <span class="o">=</span> <span class="s2">&quot;Bonjour le monde&quot;</span><span class="p">;</span>
+
+        <span class="c1">// Bloc act</span>
+        <span class="nv">$maj</span> <span class="o">=</span> <span class="nb">strtoupper</span><span class="p">(</span><span class="nv">$s</span><span class="p">);</span>
+
+        <span class="c1">// Bloc assert</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertEquals</span><span class="p">(</span><span class="s2">&quot;BONJOUR LE MONDE&quot;</span><span class="p">,</span> <span class="nv">$maj</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Une méthode de test ne doit pas contenir d’instruction <code class="docutils literal notranslate"><span class="pre">if</span></code> ou <code class="docutils literal notranslate"><span class="pre">switch</span></code>
+puisqu’un test traduit un cas d’utilisation simple sans choix possible. De même,
+une méthode de test ne devrait contenir qu’exceptionnellement des boucles <code class="docutils literal notranslate"><span class="pre">for</span></code>
+ou <code class="docutils literal notranslate"><span class="pre">while</span></code>.</p>
+</div>
+<div class="section" id="les-assertions">
+<h4>Les assertions<a class="headerlink" href="#les-assertions" title="Lien permanent vers ce titre">¶</a></h4>
+<p>La classe <code class="docutils literal notranslate"><span class="pre">TestCase</span></code> fournit des méthodes pour déclarer des
+assertions. Ces méthodes permettent de vérifier la valeur d’un
+paramètre ou de comparer deux valeurs passées en paramètres. Si l’assertion
+est fausse, ces méthodes produisent une exception qui fait échouer le test.</p>
+<p>Parmi les méthodes d’assertion, on trouve :</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Méthode</p></th>
+<th class="head"><p>Utilisation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>assertTrue($condition)</p></td>
+<td><p>Vérifie que la condition passée en paramètre est vraie.</p></td>
+</tr>
+<tr class="row-odd"><td><p>assertFalse($condition)</p></td>
+<td><p>Vérifie que la condition passée en paramètre est fausse.</p></td>
+</tr>
+<tr class="row-even"><td><p>assertEquals($expected, $actual)</p></td>
+<td><p>Compare les deux paramètres pour vérifier qu’ils sont égaux.</p></td>
+</tr>
+<tr class="row-odd"><td><p>assertNotEquals($expected, $actual)</p></td>
+<td><p>Compare les deux paramètres pour vérifier qu’ils ne sont pas égaux.</p></td>
+</tr>
+<tr class="row-even"><td><p>assertSame($expected, $actual)</p></td>
+<td><p>Vérifie que les deux objets passés en paramètre sont en fait le même objet en mémoire.</p></td>
+</tr>
+<tr class="row-odd"><td><p>assertNotSame($expected, $actual)</p></td>
+<td><p>Vérifie que les deux objets passés en paramètre ne sont pas les mêmes objets en mémoire.</p></td>
+</tr>
+<tr class="row-even"><td><p>assertNull($actual)</p></td>
+<td><p>Vérifie que l’expression passée en paramètre s’évalue à <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>assertNotNull($actual)</p></td>
+<td><p>Vérifie que l’expression passée en paramètre ne s’évalue pas à <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Chacune des méthodes précédentes accepte une chaîne de caractères comme dernier
+paramètre optionnel. Il s’agit du message d’erreur produit dans le rapport de
+test si l’assertion échoue.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour les méthodes d’assertion qui attendent deux valeurs pour les comparer,
+notez que la première valeur correspond à la valeur attendue pour ce test
+et la deuxième valeur correspond à la valeur produite au moment du test.</p>
+</div>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Exemple d’utilisation des assertions</span><a class="headerlink" href="#id3" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">PHPUnit\Framework\TestCase</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">StringTest</span> <span class="k">extends</span> <span class="nx">TestCase</span>
+<span class="p">{</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">test_exemple_assertions</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$s</span> <span class="o">=</span> <span class="s2">&quot;Bonjour le monde&quot;</span><span class="p">;</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertEquals</span><span class="p">(</span><span class="s2">&quot;Bonjour le monde&quot;</span><span class="p">,</span> <span class="nv">$s</span><span class="p">);</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertNotEquals</span><span class="p">(</span><span class="s2">&quot;Bonsoir le monde&quot;</span><span class="p">,</span> <span class="nv">$s</span><span class="p">);</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertFalse</span><span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$s</span><span class="p">));</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Pour une présentation exhaustive des méthodes d’assertion, consultez la
+<a class="reference external" href="https://phpunit.readthedocs.io/en/9.2/assertions.html">documentation officielle</a>.</p>
+<div class="exercice admonition">
+<p class="admonition-title">Exercice - Tests unitaires de abs</p>
+<p>Écrire les tests unitaires pour la fonction <a class="reference external" href="https://www.php.net/manual/fr/function.abs.php">abs</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>L’exercice précédent propose de tester une fonction sans effet de bord
+(ce que l’on appelle également une <a class="reference external" href="https://fr.wikipedia.org/wiki/Fonction_pure">fonction
+pure</a>). Les tests sur ce
+type de fonction sont faciles à écrire. Ils restent cependant
+l’exception lorsqu’on utilise la programmation orientée objet. En effet,
+l’appel d’une méthode sur un objet modifie le plus souvent son état et
+provoque généralement des effets de bord en sollicitant d’autres objets
+avec lesquels l’objet entretient des dépendances.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="les-fixtures">
+<h3>Les fixtures<a class="headerlink" href="#les-fixtures" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour réaliser un test, il est parfois nécessaire de disposer d’un grand nombre
+d’objets correctement initialisés et de préparer le SUT (<em>System Under Test</em>).
+Plutôt que d’écrire le code nécessaire au début d’un test (au risque de le rendre
+moins lisible), on préfère écrire ce code dans une classe à part ou une méthode
+à part. Dans ce cas, on qualifie ce nouvel objet ou cette nouvelle méthode de
+<strong>fixtures</strong>.</p>
+<p>Avec <a class="reference external" href="https://phpunit.readthedocs.io/en/9.2/">PHPUnit</a>, il est possible d’exécuter des méthodes avant et après chaque test
+pour allouer et désallouer des ressources nécessaires à l’exécution des
+tests. On déclare pour cela des méthodes publiques sans paramètre annotées avec
+<a class="reference external" href="https://phpunit.readthedocs.io/en/9.2/annotations.html#before">&#64;before</a> ou <a class="reference external" href="https://phpunit.readthedocs.io/en/9.2/annotations.html#after">&#64;after</a>.</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Exemple d’une classe de test avec <a class="reference external" href="https://phpunit.readthedocs.io/en/9.2/annotations.html#before">&#64;before</a> et <a class="reference external" href="https://phpunit.readthedocs.io/en/9.2/annotations.html#after">&#64;after</a></span><a class="headerlink" href="#id4" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">PHPUnit\Framework\TestCase</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UneClasseTest</span> <span class="k">extends</span> <span class="nx">TestCase</span>
+<span class="p">{</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @before</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">initTestEnvironment</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// cette méthode est exécutée avant chaque test</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @after</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">destroyTestEnvironment</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// cette méthode est exécutée après chaque test</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">testMethode</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// la méthode de test</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il est également possible de déclarer des méthodes <strong>static</strong> annotées avec
+<a class="reference external" href="https://phpunit.readthedocs.io/en/9.2/annotations.html#beforeclass">&#64;beforeClass</a> ou <a class="reference external" href="https://phpunit.readthedocs.io/en/9.2/annotations.html#afterclass">&#64;afterClass</a>. Ces méthodes ne sont appelées qu’une seule
+fois respectivement avant ou après l’ensemble des méthodes de test de la classe.</p>
+</div>
+</div>
+</div>
+<div class="section" id="utilisation-de-doublure">
+<h2>Utilisation de doublure<a class="headerlink" href="#utilisation-de-doublure" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Parfois, il est utile de contrôler l’environnement de test d’un objet ou
+d’une collaboration d’objets. Pour cela, on peut faire appel à des
+doublures qui vont se substituer lors des tests aux objets réellement
+utilisés lors de l’exécution de l’application dans un environnement de
+production.</p>
+<dl class="simple">
+<dt>Simulateur</dt><dd><p>Un simulateur fournit une implémentation alternative d’un
+sous-système. Un simulateur remplace un sous-système qui n’est pas
+disponible pour l’environnement de test. Par exemple, on peut
+remplacer un système de base de données par une implémentation
+simplifiée en mémoire.</p>
+</dd>
+<dt>Fake object</dt><dd><p>Un fake object permet de remplacer un sous-système dont il est
+difficile de garantir le comportement. Le comportement du fake
+object est défini par le test et est donc déterministe. Par exemple,
+si un objet dépend des informations retournées par un service Web,
+il est souhaitable de remplacer pour les tests l’implémentation du
+client par une implémentation qui retournera une réponse déterminée
+par le test lui-même.</p>
+</dd>
+<dt>Mock object</dt><dd><p>Un objet mock est proche d’un fake object sauf qu’un objet mock est
+également capable de faire des assertions sur les méthodes qui sont
+appelées et les paramètres qui sont transmis à ces méthodes.</p>
+</dd>
+</dl>
+<div class="section" id="implementation-d-objet-mock">
+<h3>Implémentation d’objet mock<a class="headerlink" href="#implementation-d-objet-mock" title="Lien permanent vers ce titre">¶</a></h3>
+<p><a class="reference external" href="https://phpunit.readthedocs.io/en/9.2/">PHPUnit</a> supporte la création d’objets mocks à partir d’une classe.</p>
+<p>La méthode <code class="docutils literal notranslate"><span class="pre">createMock($originalClassName)</span></code> de la classe <code class="docutils literal notranslate"><span class="pre">TestCase</span></code> permet
+de créer une instance d’un mock à partir d’une classe. L’instance d’objet
+retournée par cette  méthode est instrumentalisée. Il est possible d’enregistrer
+sur ce mock des comportements lors de la phase <em>arrange</em> grâce à la méthode
+<code class="docutils literal notranslate"><span class="pre">expects($matcher)</span></code> qui est disponible automatiquement sur l’objet mock.
+À la fin du test, <a class="reference external" href="https://phpunit.readthedocs.io/en/9.2/">PHPUnit</a> vérifie automatiquement que l’objet mock a été
+sollicité comme attendu lors du déroulement du test.</p>
+<p>Imaginons que notre application définisse une classe <code class="docutils literal notranslate"><span class="pre">UtilisateurRepository</span></code>
+responsable d’interagir avec une base de données. Par exemple, cette classe
+peut déclarer la méthode <code class="docutils literal notranslate"><span class="pre">getUtilisateur</span></code>. Pour garder notre exemple simple,
+nous ne fournirons que la structure de base des classes :</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">class</span> <span class="nc">Utilisateur</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">UtilisateurRepository</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     *</span>
+<span class="sd">     * @param int $idUtilisateur identifiant de l&#39;utilisateur</span>
+<span class="sd">     * @return Utilisateur l&#39;utilisateur portant l&#39;id demandé</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getUtilisateur</span><span class="p">(</span><span class="nv">$idUtilisateur</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Si un test unitaire a besoin de manipuler une instance de <code class="docutils literal notranslate"><span class="pre">UtilisateurRepository</span></code>
+mais qu’il ne souhaite pas exécuter le code réel et accéder à la base de données,
+il peut créer un objet mock et contrôler son comportement lors du test.</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Exemple d’une classe de test utilisant un objet mock</span><a class="headerlink" href="#id5" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">PHPUnit\Framework\TestCase</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ExempleMockTest</span> <span class="k">extends</span> <span class="nx">TestCase</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">test_utilisateur_repository_mock</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$utilisateurRepository</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createMock</span><span class="p">(</span><span class="nx">UtilisateurRepository</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+        <span class="nv">$utilisateur</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Utilisateur</span><span class="p">;</span>
+
+        <span class="c1">// On programme le mock pour s&#39;assurer que la méthode getUtilisateur</span>
+        <span class="c1">// sera bien appelée avec le paramètre 1 et retournera l&#39;objet $utilisateur.</span>
+        <span class="nv">$utilisateurRepository</span><span class="o">-&gt;</span><span class="na">expects</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">once</span><span class="p">())</span>
+                              <span class="o">-&gt;</span><span class="na">method</span><span class="p">(</span><span class="s2">&quot;getUtilisateur&quot;</span><span class="p">)</span>
+                              <span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                              <span class="o">-&gt;</span><span class="na">willReturn</span><span class="p">(</span><span class="nv">$utilisateur</span><span class="p">);</span>
+
+        <span class="nv">$resultat</span> <span class="o">=</span> <span class="nv">$utilisateurRepository</span><span class="o">-&gt;</span><span class="na">getUtilisateur</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertSame</span><span class="p">(</span><span class="nv">$utilisateur</span><span class="p">,</span> <span class="nv">$resultat</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>L’exemple de code ci-dessus ne correspond bien évidemment pas à un vrai test
+unitaire. Les objets mock ne sont vraiment utiles que lorsqu’ils sont passés
+en paramètres de méthode ou de constructeur des objets à tester. Un objet
+mock sert avant tout à contrôler le comportement des objets dont dépend le SUT
+(<em>System Under Test</em>) et à vérifier qu’ils sont sollicités comme attendu.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tdd.html" class="btn btn-neutral float-right" title="TDD : Test Driven Development" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="junit.html" class="btn btn-neutral float-left" title="Les tests unitaires automatisés avec JUnit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright David Gayerie - david@gayerie.dev - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

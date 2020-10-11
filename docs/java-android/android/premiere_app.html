@@ -1,0 +1,888 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Développement d'application Android" name="description" />
+<meta content="android, android studio, java, programmation objet" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Une première application &mdash; Documentation Développement Android </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/java-android/android/premiere_app.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Conception d’interfaces graphiques" href="ui_layout.html" />
+    <link rel="prev" title="Sommaire" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Développement Android
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Développement d'applications pour Android</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Une première application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creation-d-une-application-simple">Création d’une application simple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#organisation-du-projet">Organisation du projet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lancement-de-l-application">Lancement de l’application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#l-emulateur-android">L’émulateur Android</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#notion-d-activite">Notion d’activité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notion-de-ressources">Notion de ressources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#acceder-a-un-identifiant-de-ressource-depuis-le-code-java">Accéder à un identifiant de ressource depuis le code Java</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#acceder-a-une-ressource-depuis-une-autre-ressource">Accéder à une ressource depuis une autre ressource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#identifier-une-ressource-dans-un-layout">Identifier une ressource dans un layout</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#exercices">Exercices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#le-fichier-androidmanifest-xml">Le fichier AndroidManifest.xml</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ui_layout.html">Conception d’interfaces graphiques</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ui_layout.html#view-et-layout">View et Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ui_layout.html#layout-xml">Layout XML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ui_layout.html#layout-lineaire-et-positionnement">Layout linéaire et positionnement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ui_layout.html#techniques-avancees-de-positionnement-dans-un-layout">Techniques avancées de positionnement dans un layout</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ui_layout.html#layout-margin-et-padding">layout_margin et padding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui_layout.html#layout-gravity-et-gravity">layout_gravity et gravity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui_layout.html#layout-weight">layout_weight</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ui_layout.html#layout-par-contraintes">Layout par contraintes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ui_layout.html#ajouter-une-image">Ajouter une image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ui_layout.html#exemple-de-formulaire">Exemple de formulaire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ui_layout.html#la-barre-d-action">La barre d’action</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ui_layout.html#creer-un-menu-dans-la-barre-d-action">Créer un menu dans la barre d’action</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui_layout.html#associer-un-menu-a-une-activite">Associer un menu à une activité</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui_layout.html#implementer-les-actions-associees-aux-items-de-menu">Implémenter les actions associées aux items de menu</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ui_layout.html#les-boites-de-dialogue">Les boites de dialogue</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ui_layout.html#boite-de-dialogue-avec-boutons">Boite de dialogue avec boutons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui_layout.html#boite-de-dialogue-avec-choix">Boite de dialogue avec choix</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ui_layout.html#message-a-l-utilisateur">Message à l’utilisateur</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ui_layout.html#toast">Toast</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui_layout.html#snackbar">Snackbar</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="activity.html">Les activités</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="activity.html#le-cycle-de-vie">Le cycle de vie</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="activity.html#terminer-une-activite">Terminer une activité</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="activity.html#gestion-de-l-etat-d-une-activite">Gestion de l’état d’une activité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="activity.html#notion-d-intent">Notion d’intent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="activity.html#associer-une-activite-a-un-intent">Associer une activité à un intent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="activity.html#emettre-un-intent-implicite">Émettre un intent implicite</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="activity_stack.html">Gestion des activités d’une application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="activity_stack.html#l-application-de-demo">L’application de démo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="activity_stack.html#structure-de-l-application">Structure de l’application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="activity_stack.html#l-activite-principale-et-recyclerview">L’activité principale et RecyclerView</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="activity_stack.html#detail-d-une-occupation-et-pile-des-activites">Détail d’une occupation et pile des activités</a></li>
+<li class="toctree-l2"><a class="reference internal" href="activity_stack.html#ouverture-d-une-activite-intent-explicite">Ouverture d’une activité (intent explicite)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="activity_stack.html#strategie-de-gestion-de-la-pile-des-activites">Stratégie de gestion de la pile des activités</a></li>
+<li class="toctree-l2"><a class="reference internal" href="activity_stack.html#terminer-une-activite">Terminer une activité</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="broadcast.html">Gestion des messages broadcast</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="broadcast.html#le-broadcastreceiver">Le BroadcastReceiver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="broadcast.html#suivre-le-branchement-sur-secteur">Suivre le branchement sur secteur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="broadcast.html#suivre-l-etat-de-la-connexion-wifi">Suivre l’état de la connexion Wifi</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="broadcast.html#recevoir-des-broadcasts-depuis-une-activite">Recevoir des broadcasts depuis une activité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="broadcast.html#emettre-un-message-broadcast">Émettre un message broadcast</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="acces_web.html">Accès Web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="acces_web.html#permission-pour-l-acces-internet">Permission pour l’accès Internet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acces_web.html#utilisation-de-la-classe-url">Utilisation de la classe URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acces_web.html#utilisation-de-la-bibliotheque-volley">Utilisation de la bibliothèque Volley</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="acces_web.html#ajout-de-la-dependance">Ajout de la dépendance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="acces_web.html#emission-d-une-requete">Émission d’une requête</a></li>
+<li class="toctree-l3"><a class="reference internal" href="acces_web.html#emission-d-une-requete-pour-une-reponse-json">Émission d’une requête pour une réponse JSON</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="service.html">Les services Android</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="service.html#service-en-tache-de-fond">Service en tâche de fond</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="service.html#implementation-et-declaration-du-service">Implémentation et déclaration du service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service.html#le-cycle-de-vie">Le cycle de vie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service.html#execution-en-tache-de-fond">Exécution en tâche de fond</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service.html#interaction-avec-l-utilisateur">Interaction avec l’utilisateur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service.html#lancement-du-service">Lancement du service</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="service.html#service-lie">Service lié</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="service.html#declaration-du-service">Déclaration du service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service.html#id1">Le cycle de vie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service.html#implementation-de-la-methode-onbind">Implémentation de la méthode onBind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service.html#lier-le-service-a-une-activite">Lier le service à une activité</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Développement Android</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Une première application</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="ui_layout.html" class="btn btn-neutral float-right" title="Conception d’interfaces graphiques" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Sommaire" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="une-premiere-application">
+<h1>Une première application<a class="headerlink" href="#une-premiere-application" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Dans ce chapitre, nous allons créer une premier projet avec Android Studio pour
+comprendre la structure d’une application Android.</p>
+<div class="section" id="creation-d-une-application-simple">
+<h2>Création d’une application simple<a class="headerlink" href="#creation-d-une-application-simple" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Lancez Android Studio et sur la fenêtre d’accueil, choisissez
+<span class="guilabel">Start a new Android Studio project</span>.</p>
+<div class="figure align-default" id="id1">
+<img alt="../_images/android_studio_welcome.png" src="../_images/android_studio_welcome.png" />
+<p class="caption"><span class="caption-text">L’écran d’accueil d’Android Studio</span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Parmi la liste des modèles de projet, choisissez <span class="guilabel">Empty Activity</span> et
+cliquez sur le bouton <span class="guilabel">Next</span>.</p>
+<div class="figure align-default" id="id2">
+<img alt="../_images/android_studio_new_project.png" src="../_images/android_studio_new_project.png" />
+<p class="caption"><span class="caption-text">L’écran de choix du modèle de projet</span><a class="headerlink" href="#id2" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Puis vous devez préciser les informations relatives à votre projet : son nom,
+le package par défaut et la localisation du projet sur votre disque dur.</p>
+<p>Le package correspond à l’identifiant technique de votre application.
+Si vous souhaitez déployer plus tard votre application sur Android Store, c’est
+le package qui permet d’identifier de manière unique votre application et
+l’organisation à qui elle appartient.</p>
+<div class="figure align-default" id="id3">
+<img alt="../_images/android_studio_premiere_app_new_project.png" src="../_images/android_studio_premiere_app_new_project.png" />
+<p class="caption"><span class="caption-text">L’écran de configuration du projet</span><a class="headerlink" href="#id3" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Si vous utilisez Android Studio 3, n’oubliez pas de cocher la case
+<span class="guilabel">Use AndroidX artifacts</span> sur l’écran de configuration du projet !</p>
+<p><a class="reference external" href="https://developer.android.com/jetpack/androidx">AndroidX</a> est une refonte d’une partie de l’API Android. Elle fournit une
+nouvelle implémentation de classes qui est compatible quelle que soit la
+version de l’API Android que vous utilisez dans votre projet. Il est
+recommandé d’utiliser <a class="reference external" href="https://developer.android.com/jetpack/androidx">AndroidX</a> car l’ancienne API n’est actuellement plus
+maintenue.</p>
+</div>
+<p>Cliquez sur le bouton <span class="guilabel">Finish</span> et l’éditeur d’Android Studio s’ouvre
+une fois les fichiers du projet créés. Le projet est automatiquement construit
+et il ne doit pas y avoir d’erreur.</p>
+<div class="figure align-default" id="id4">
+<img alt="../_images/android_studio_premiere_app_ide.png" src="../_images/android_studio_premiere_app_ide.png" />
+<p class="caption"><span class="caption-text">L’éditeur de projet Android Studio</span><a class="headerlink" href="#id4" title="Lien permanent vers cette image">¶</a></p>
+</div>
+</div>
+<div class="section" id="organisation-du-projet">
+<h2>Organisation du projet<a class="headerlink" href="#organisation-du-projet" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un projet Android Studio est géré par l’outil de <em>build</em> <a class="reference external" href="https://gradle.org/">Gradle</a> qui est un outil
+dédié aux projets Java. Un projet géré par <a class="reference external" href="https://gradle.org/">Gradle</a> possède un ou plusieurs fichiers
+<code class="file docutils literal notranslate"><span class="pre">build.gradle</span></code> pour configurer sa construction.</p>
+<p>Les projets Android sont composés de modules. Les projets les plus simples n’ont
+besoin que d’un seul module qui contient l’ensemble des fichiers sources. Par
+défaut, un projet Android contient un seul module nommé <code class="docutils literal notranslate"><span class="pre">app</span></code>. Dans le répertoire
+de votre projet, vous pouvez trouver un répertoire <code class="file docutils literal notranslate"><span class="pre">app</span></code> qui contient
+l’ensemble des fichiers pour ce module.</p>
+<div class="figure align-default" id="id5">
+<img alt="../_images/premiere_app_structure_projet.png" src="../_images/premiere_app_structure_projet.png" />
+<p class="caption"><span class="caption-text">Structure des fichiers d’un projet Android</span><a class="headerlink" href="#id5" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Dans le répertoire d’un module, vous trouverez un fichier <code class="file docutils literal notranslate"><span class="pre">build.gradle</span></code>
+pour configurer la construction du module et les répertoires suivants :</p>
+<ul class="simple">
+<li><p><code class="file docutils literal notranslate"><span class="pre">src/main/java</span></code> : ce répertoire contient les sources Java du module</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">src/main/res</span></code> : ce répertoire contient les ressources du module (Cf. plus bas)</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">src/test/java</span></code> : ce répertoire contient les sources Java des tests unitaires</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">src/androidTest/java</span></code> : ce répertoire contient les sources Java des
+tests instrumentés (c’est-à-dire les tests qui doivent être exécutés directement
+sur un périphérique Android).</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">libs</span></code> : ce répertoire contient éventuellement les bibliothèques nécessaires
+au module</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">build</span></code> : ce répertoire contient les fichiers de travail créés par <a class="reference external" href="https://gradle.org/">Gradle</a>.</p></li>
+</ul>
+<p>On trouve également le fichier <code class="file docutils literal notranslate"><span class="pre">src/main/AndroidManifest.xml</span></code> qui correspond
+au manifeste du module. Un fichier manifeste fournit au système l’ensemble des
+informations nécessaires à l’exécution du module.</p>
+<p>Par défaut, Android Studio affiche l’explorateur de fichiers à gauche de l’éditeur.
+Cet explorateur est par défaut en mode <em>Android</em>, c’est-à-dire qu’il vous affiche
+une vue adaptée. Il ne vous affiche donc pas l’organisation
+réelle des fichiers sur votre disque dur. Vous pouvez choisir le mode <em>Project</em>
+pour voir l’organisation réelle mais le mode <em>Android</em> est généralement plus
+lisible et plus adapté pour réaliser les développements.</p>
+<div class="figure align-default" id="id6">
+<img alt="../_images/premiere_app_structure_android_studio.png" src="../_images/premiere_app_structure_android_studio.png" />
+<p class="caption"><span class="caption-text">La structure des fichiers présentée par Android Studio</span><a class="headerlink" href="#id6" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Dans ce mode, vous
+avez le nom du module à la racine et vous trouvez directement les répertoires :</p>
+<ul class="simple">
+<li><p><code class="file docutils literal notranslate"><span class="pre">manifests</span></code> : qui contient le manifeste du module</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">java</span></code> : qui présente toutes les sources Java en séparant les packages
+de l’application, des packages de tests (unitaires et instrumentés).</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">res</span></code> : qui présente les répertoires de ressources (Cf. plus bas).</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">Gradle</span> <span class="pre">Scripts</span></code>: ce répertoire regroupe tous les fichiers <a class="reference external" href="https://gradle.org/">Gradle</a> de
+l’application et des modules.</p></li>
+</ul>
+</div>
+<div class="section" id="lancement-de-l-application">
+<h2>Lancement de l’application<a class="headerlink" href="#lancement-de-l-application" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Depuis Android Studio, vous pouvez lancer une application sur votre téléphone
+Android. Il vous suffit de brancher votre appareil en USB sur votre station de
+travail et de choisir le menu <span class="guilabel">Run &gt; Run “app”</span>. Android Studio
+utilise l’outils <strong>adb</strong> (<em>Android Debug Bridge</em>) pour installer l’application
+créée sur votre appareil et l’exécuter. Une fois installée, l’application est
+accessible depuis le menu des applications Android sur votre appareil.</p>
+<p>Pour pouvoir utiliser le mode debug depuis Android Studio, vous
+devez activer le mode <em>developer</em> sur votre appareil. Pour plus d’information,
+consultez le guide utilisateur :</p>
+<blockquote>
+<div><p><a class="reference external" href="https://developer.android.com/studio/debug/dev-options">https://developer.android.com/studio/debug/dev-options</a></p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>L’application générée par <a class="reference external" href="https://gradle.org/">Gradle</a> porte l’extension <code class="docutils literal notranslate"><span class="pre">.apk</span></code> et se trouve
+dans le répertoire <code class="file docutils literal notranslate"><span class="pre">app/build/output/debug</span></code> (pour le cas où le module
+principal de l’application porte le nom par défaut <code class="docutils literal notranslate"><span class="pre">app</span></code>).</p>
+</div>
+<div class="section" id="l-emulateur-android">
+<h3>L’émulateur Android<a class="headerlink" href="#l-emulateur-android" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Si vous ne disposez pas d’un appareil Android ou si vous souhaitez tester
+votre application dans des conditions particulières, vous pouvez utiliser
+l’émulateur Android. Il vous permet de choisir le type d’appareil que vous
+souhaitez émuler.</p>
+<p>Pour créer un émulateur, cliquez sur le menu <span class="guilabel">Tools &gt; AVD Manager</span>
+(AVD pour <em>Android Virtual Device</em>).</p>
+<img alt="../_images/android_studio_premiere_app_avd_manager.png" src="../_images/android_studio_premiere_app_avd_manager.png" />
+<p>Cliquez sur le bouton <span class="guilabel">Create Virtual Device…</span> pour ajouter, depuis
+la liste fournie, le modèle d’appareil à émuler.</p>
+<p>À partir de la fenêtre du <em>AVD Manager</em>, vous pouvez directement lancer l’émulateur.
+Lorsque vous lancez votre application depuis Android Studio, l’émulateur apparaît
+dans la liste des périphériques disponibles.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Si l’émulateur n’est pas lancé lorsque vous démarrez votre application, il
+sera préalablement lancé par Android Studio. L’émulateur peut consommer
+beaucoup de ressources systèmes, notamment au lancement. Je vous conseille
+de ne pas fermer l’émulateur après chaque test. Contentez-vous de relancer
+votre application depuis Android Studio de manière à ce qu’elle soit
+redéployée dans l’émulateur en cours d’exécution.</p>
+</div>
+</div>
+</div>
+<div class="section" id="notion-d-activite">
+<h2>Notion d’activité<a class="headerlink" href="#notion-d-activite" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le modèle de projet choisi génère le code pour une application avec une activité.
+Une activité est un composant d’une application Android qui représente un
+écran avec lequel l’utilisateur va pouvoir interagir. Un composant Android est
+représenté par une classe Java. Cependant, un composant n’est pas instancié
+directement dans le code de l’application. C’est lors de l’exécution que le
+système prend en charge la création et le cycle de vie d’un objet de cette classe.
+Dans le cas d’une activité, un objet correspondant est instancié par le système
+quand il est nécessaire d’afficher l’écran à l’utilisateur (par exemple au
+lancement de l’application).</p>
+<p>Pour notre application, le générateur de projet a créé une classe <code class="docutils literal notranslate"><span class="pre">MainActivity</span></code>
+dans le répertoire <code class="file docutils literal notranslate"><span class="pre">java</span></code> dont voici le code :</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.premiereapplication</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">androidx.appcompat.app.AppCompatActivity</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">AppCompatActivity</span> <span class="p">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">.</span><span class="na">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">);</span>
+        <span class="n">setContentView</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">layout</span><span class="p">.</span><span class="na">activity_main</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>La classe <code class="docutils literal notranslate"><span class="pre">MainActivity</span></code> hérite de <a class="reference external" href="https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity">AppCompatActivity</a>. Cette dernière fournit
+du code de base pour la gestion d’une activité. Dans notre exemple, nous surchargeons
+la méthode <code class="docutils literal notranslate"><span class="pre">onCreate</span></code> pour changer le comportement de l’activité au moment de
+sa création.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Remarquez qu’à la ligne 11, la méthode <code class="docutils literal notranslate"><span class="pre">onCreate</span></code> commence par appeler
+sa super-implémentation. Cette manière de faire est courante dans l’API Android.
+Lorsque l’on veut modifier le comportement de l’activité, il faut s’assurer
+que le code d’origine est bien appelé pour que l’activité puisse fonctionner
+correctement.</p>
+</div>
+<p>La ligne 12 constitue le seul véritable changement de comportement pour notre
+activité :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">setContentView</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">layout</span><span class="p">.</span><span class="na">activity_main</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Une activité est associée à une vue, c’est-à-dire à une ensemble de composants
+graphiques prenant en charge le rendu de l’écran. Il est tout à fait possible
+de créer les composants de vue en Java mais il est plus facile d’utiliser un
+<em>layout</em> qui permettra de créer dynamiquement pour nous les composants nécessaires.
+La méthode <a class="reference external" href="https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity#setContentView(int)">setContentView</a> attend en paramètre un identifiant de ressources d’un
+<em>layout</em>.</p>
+<p>Nous allons voir dans la section suivante que la variable <code class="code docutils literal notranslate"><span class="pre">R.layout.activity_main</span></code>
+correspond en fait à l’identifiant d’une ressource qui décrit le rendu de l’activité.
+Cette ligne de code permet donc de créer l’ensemble des composants graphiques
+qui doivent s’afficher dans l’activité.</p>
+</div>
+<div class="section" id="notion-de-ressources">
+<h2>Notion de ressources<a class="headerlink" href="#notion-de-ressources" title="Lien permanent vers ce titre">¶</a></h2>
+<p>En plus du code Java, une application Android peut contenir un ensemble d’informations
+que l’on désigne de manière générale comme des <strong>ressources</strong>. Le type d’une ressource
+peut être très divers. Il peut s’agir d’un nombre, d’une chaîne de caractères,
+d’une image, d’un fichier quelconque, de la description du rendu d’une activité…</p>
+<p>Les ressources sont stockés dans des sous-répertoires dans <code class="file docutils literal notranslate"><span class="pre">[module]/src/main/res</span></code>.
+Dans le module par défaut <code class="docutils literal notranslate"><span class="pre">app</span></code>, les ressources sont donc stockées dans <code class="file docutils literal notranslate"><span class="pre">app/src/main/res</span></code>.
+Dans la vue Android de l’éditeur, le répertoire <code class="file docutils literal notranslate"><span class="pre">res</span></code> est directement affiché
+sous le module. Par défaut, ce répertoire contient les sous-répertoires :</p>
+<ul class="simple">
+<li><p><code class="file docutils literal notranslate"><span class="pre">drawable</span></code> : ce répertoire contient les images (PNG, JPEG…) ou des fichiers
+XML décrivant des images vectorielles (format SVG).</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">layout</span></code> : ce répertoire contient les fichiers XML décrivant la disposition
+des vues d’une activité.</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">mipmap</span></code> : ce répertoire contient les icônes des l’application. Comme une
+application Android doit pouvoir être installée sur différents périphériques, il
+est nécessaire de fournir plusieurs résolutions de la même icône. La technique
+du <a class="reference external" href="https://en.wikipedia.org/wiki/Mipmap">mipmap</a> consiste précisément à fournir plusieurs résolution d’une même image afin
+d’éviter la pixellisation à l’affichage en permettant au système de choisir la
+résolution adéquate.</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">values</span></code> : ce répertoire contient les variables que l’on ne souhaite pas
+écrire en dur dans le code (comme les libellés et les messages).</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il existe d’autres types de ressources. Par exemple, il est possible d’ajouter
+un fichier quelconque dans le répertoire <code class="file docutils literal notranslate"><span class="pre">[module]/src/main/res/raw</span></code>.
+Ce fichier peut ensuite être lu lors de l’exécution de l’application. Pour
+en savoir plus :</p>
+<blockquote>
+<div><p><a class="reference external" href="https://developer.android.com/guide/topics/resources/providing-resources">https://developer.android.com/guide/topics/resources/providing-resources</a></p>
+</div></blockquote>
+</div>
+<p>Pour notre application, le répertoire <code class="file docutils literal notranslate"><span class="pre">app/res/layout</span></code> contient le fichier
+<code class="file docutils literal notranslate"><span class="pre">activity_main.xml</span></code>. Il s’agit d’une fichier de <em>layout</em>, c’est-à-dire un
+fichier qui décrit le rendu visuel de l’activité. Android Studio intègre un éditeur
+de <em>layout</em> qui vous permet d’éditer graphiquement votre <em>layout</em>. L’éditeur est
+ouvert par défaut lorsque vous double-cliquez sur le nom du fichier. Vous pouvez
+à tout moment consulter le source XML en cliquant sur l’onglet <span class="guilabel">Text</span>
+sous l’éditeur.</p>
+<div class="figure align-default" id="id7">
+<img alt="../_images/android_studio_premiere_app_layout_editor.png" src="../_images/android_studio_premiere_app_layout_editor.png" />
+<p class="caption"><span class="caption-text">L’éditeur de <em>layout</em></span><a class="headerlink" href="#id7" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<div class="section" id="acceder-a-un-identifiant-de-ressource-depuis-le-code-java">
+<h3>Accéder à un identifiant de ressource depuis le code Java<a class="headerlink" href="#acceder-a-un-identifiant-de-ressource-depuis-le-code-java" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Toutes les ressources sont accessibles à partir de leur identifiant (une constante
+numérique créée automatiquement par le compilateur). Depuis votre code Java,
+l’identifiant est fourni par la classe <code class="docutils literal notranslate"><span class="pre">R</span></code>. La classe <code class="docutils literal notranslate"><span class="pre">R</span></code> est une classe dont
+le code source est automatiquement écrit par Android Studio et qui est déclarée
+dans le package par défaut de votre application. Pour accéder à l’identifiant
+d’un <em>layout</em>, il faut écrire</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">R</span><span class="p">.</span><span class="na">layout</span><span class="p">.</span><span class="o">[</span><span class="n">nom</span> <span class="n">du</span> <span class="n">layout</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>Le nom du <em>layout</em> correspond au nom du fichier XML en omettant l’extension.</p>
+<p>De la même manière, vous pouvez accéder aux identifiants des fichiers dans
+les différents sous-répertoires de ressources. Il existe une particularité
+pour le répertoires <code class="file docutils literal notranslate"><span class="pre">values</span></code>. Ce dernier contient des fichiers XML
+qui permettent de déclarer des valeurs comme des entiers, des valeurs booléennes,
+des chaînes de caractères, des couleurs…</p>
+<p>Si vous éditez le fichier <code class="file docutils literal notranslate"><span class="pre">app/res/values/strings.xml</span></code>, vous trouverez :</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;resources&gt;</span>
+    <span class="nt">&lt;string</span> <span class="na">name=</span><span class="s">&quot;app_name&quot;</span><span class="nt">&gt;</span>Première Application<span class="nt">&lt;/string&gt;</span>
+<span class="nt">&lt;/resources&gt;</span>
+</pre></div>
+</div>
+<p>Ce fichier déclare une chaîne de caractères nommée <code class="docutils literal notranslate"><span class="pre">app_name</span></code> est qui correspond
+au nom de l’application. Pour accéder à l’identifiant de cette constante depuis
+le code source Java, on utilise la classe <code class="docutils literal notranslate"><span class="pre">R</span></code> de la manière suivante :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">appNameId</span> <span class="o">=</span> <span class="n">R</span><span class="p">.</span><span class="na">string</span><span class="p">.</span><span class="na">app_name</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il existe plusieurs classes <code class="docutils literal notranslate"><span class="pre">R</span></code> dans l’API qui permettent d’accéder
+aux identifiants de ressources fournies en standard par Android.</p>
+</div>
+</div>
+<div class="section" id="acceder-a-une-ressource-depuis-une-autre-ressource">
+<h3>Accéder à une ressource depuis une autre ressource<a class="headerlink" href="#acceder-a-une-ressource-depuis-une-autre-ressource" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il est très souvent utile de pouvoir accéder à une ressource depuis une autre
+ressource. C’est notamment le cas dans les fichiers de <em>layout</em>. Si l’on souhaite
+placer un composant graphique avec un libellé, la valeur du libellé peut être
+externalisé dans le fichier <code class="file docutils literal notranslate"><span class="pre">app/res/values/strings.xml</span></code> et avoir lui-même
+un ID. Dans ce cas, on utilise la notation suivante :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>@[type]/id
+</pre></div>
+</div>
+<p>Par exemple, pour accéder au nom de l’application déclaré dans le fichier
+<code class="file docutils literal notranslate"><span class="pre">app/res/values/strings.xml</span></code>, on écrira :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>@string/app_name
+</pre></div>
+</div>
+<p>On peut donc très facilement ajouter du texte dans le <em>layout</em> d’une activité
+pour afficher le nom de l’application:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;TextView</span>
+<span class="hll">    <span class="na">android:text=</span><span class="s">&quot;@string/app_name&quot;</span>
+</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>N’importe quelle valeur peut être remplacée par un identifiant de ressource à
+condition que le type de la ressource soit compatible avec le type de la valeur.</p>
+</div>
+<div class="section" id="identifier-une-ressource-dans-un-layout">
+<h3>Identifier une ressource dans un layout<a class="headerlink" href="#identifier-une-ressource-dans-un-layout" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Lorsqu’on définit un <em>layout</em> dans un fichier XML, il est utile de pouvoir
+associer un composant graphique à un identifiant. Nous verrons que nous pouvons
+alors récupérer en Java une référence sur ce composant à partir de son identifiant.</p>
+<p>La déclaration d’un identifiant dans un <em>layout</em> XML se fait avec l’attribut
+<code class="docutils literal notranslate"><span class="pre">android:id</span></code> et le format de l’identifiant est :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>@+id/[ID]
+</pre></div>
+</div>
+<p>Par exemple, pour identifier un <em>TextView</em> dans un fichier XML de <em>layout</em> :</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;TextView</span>
+<span class="hll">    <span class="na">android:id=</span><span class="s">&quot;@+id/monTexte&quot;</span>
+</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="exercices">
+<h2>Exercices<a class="headerlink" href="#exercices" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="exercice admonition">
+<p class="admonition-title">Utiliser un identifiant de ressource dans le layout</p>
+<p>Modifier le <em>layout</em> <code class="file docutils literal notranslate"><span class="pre">app/res/layout/activity_main.xml</span></code> afin que le
+texte affiché dans l’activité soit externalisé dans le fichier
+<code class="file docutils literal notranslate"><span class="pre">app/res/values/strings.xml</span></code>.</p>
+</div>
+<div class="exercice admonition">
+<p class="admonition-title">Ajouter un bouton</p>
+<p>Modifiez le <em>layout</em> <code class="file docutils literal notranslate"><span class="pre">app/res/layout/activity_main.xml</span></code> afin d’ajouter
+un bouton avec l’ID <code class="docutils literal notranslate"><span class="pre">bouton</span></code>. Ajouter également l’ID <code class="docutils literal notranslate"><span class="pre">texte</span></code> au libellé
+(de type <a class="reference external" href="https://developer.android.com/reference/android/widget/TextView">TextView</a>) déjà présent dans le <em>layout</em> de l’activité.</p>
+<p>Nous pouvons maintenant modifier le code Java de notre activité. La méthode
+<code class="docutils literal notranslate"><span class="pre">onCreate</span></code> est habituellement utilisée pour récupérer une référence sur les
+<em>Views</em> (les composants graphiques) grâce à la méthode <a class="reference external" href="https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity#findViewById(int)">findViewById</a>.
+Avec une référence sur une <em>View</em>, on peut positionner des valeurs (par exemple
+le contenu dans champ ou le texte à afficher) ou on peut ajouter des <em>listeners</em>
+à appeler en réponse à une action utilisateur. Pour notre application,
+nous allons enregistrer un <em>listener</em> pour agir lorsque l’utilisateur clique
+sur le bouton.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.premiereapplication</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">androidx.appcompat.app.AppCompatActivity</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.view.View</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.Button</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.TextView</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">AppCompatActivity</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="n">TextView</span> <span class="n">texte</span><span class="p">;</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">.</span><span class="na">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">);</span>
+        <span class="n">setContentView</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">layout</span><span class="p">.</span><span class="na">activity_main</span><span class="p">);</span>
+
+        <span class="n">texte</span> <span class="o">=</span> <span class="n">findViewById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">texte</span><span class="p">);</span>
+        <span class="n">Button</span> <span class="n">bouton</span> <span class="o">=</span> <span class="n">findViewById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">bouton</span><span class="p">);</span>
+        <span class="n">bouton</span><span class="p">.</span><span class="na">setOnClickListener</span><span class="p">(</span><span class="k">new</span> <span class="n">View</span><span class="p">.</span><span class="na">OnClickListener</span><span class="p">()</span> <span class="p">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="p">(</span><span class="n">View</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">texte</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="s">&quot;Vous avez cliqué sur le bouton !&quot;</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Aux lignes 19 et 20, notez l’appel à la méthode <a class="reference external" href="https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity#findViewById(int)">findViewById</a> qui attend
+une identifiant de <em>View</em> et qui retourne l’objet correspondant au
+composant graphique. Pour accéder à un identifiant, on utilise la classe
+<code class="docutils literal notranslate"><span class="pre">R</span></code> de la façon suivante :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>R.id.[nom ID]
+</pre></div>
+</div>
+<p>Améliorez le code de l’application en externalisation la chaîne de caractères
+présente dans le code dans le fichier de ressources <code class="file docutils literal notranslate"><span class="pre">res/values/strings.xml</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour améliorer la lisibilité du code, vous pouvez utiliser les lambdas. Pour
+l’exercice précédent, vous pouvez écrire à la place :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.premiereapplication</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">androidx.appcompat.app.AppCompatActivity</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.view.View</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.Button</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.TextView</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">AppCompatActivity</span> <span class="p">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">.</span><span class="na">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">);</span>
+        <span class="n">setContentView</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">layout</span><span class="p">.</span><span class="na">activity_main</span><span class="p">);</span>
+
+        <span class="n">TextView</span> <span class="n">texte</span> <span class="o">=</span> <span class="n">findViewById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">texte</span><span class="p">);</span>
+        <span class="n">Button</span> <span class="n">bouton</span> <span class="o">=</span> <span class="n">findViewById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">bouton</span><span class="p">);</span>
+        <span class="n">bouton</span><span class="p">.</span><span class="na">setOnClickListener</span><span class="p">(</span><span class="n">v</span> <span class="o">-&gt;</span> <span class="n">texte</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="s">&quot;Vous avez cliqué sur le bouton !&quot;</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Pour que votre projet compile, vous devez néanmoins activer le support Java 1.8.
+Pour cela, éditez le fichier <code class="file docutils literal notranslate"><span class="pre">build.gradle</span></code> du module <code class="docutils literal notranslate"><span class="pre">app</span></code> et
+assurez-vous que la section suivante est bien présente dans la section <code class="docutils literal notranslate"><span class="pre">android</span></code> :</p>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">android</span> <span class="o">{</span>
+
+    <span class="c1">// ....</span>
+
+    <span class="n">compileOptions</span> <span class="o">{</span>
+        <span class="n">sourceCompatibility</span> <span class="n">JavaVersion</span><span class="o">.</span><span class="na">VERSION_1_8</span>
+        <span class="n">targetCompatibility</span> <span class="n">JavaVersion</span><span class="o">.</span><span class="na">VERSION_1_8</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Vous devez ensuite resynchroniser votre projet comme demandé par Android Studio.</p>
+</div>
+</div>
+<div class="section" id="le-fichier-androidmanifest-xml">
+<h2>Le fichier AndroidManifest.xml<a class="headerlink" href="#le-fichier-androidmanifest-xml" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Chaque module de votre projet fournit un fichier manifeste nommé
+<code class="file docutils literal notranslate"><span class="pre">AndroidManifest.xml</span></code>. Il se trouve dans le répertoire <code class="file docutils literal notranslate"><span class="pre">src/main</span></code> de
+votre module. Android Studio l’affiche dans le répertoire <code class="file docutils literal notranslate"><span class="pre">manifests</span></code>.
+Ce fichier est lu au lancement de l’application par
+le système pour identifier le comportement de votre application. Nous verrons
+au cours des chapitres suivants que ce fichier contient la déclaration de tous
+les composants de votre application (activités, <em>broadcast receivers</em>, services)
+mais aussi la déclaration des autorisations à demander à l’utilisateur à l’installation,
+la version d’Android requise…</p>
+<p>Pour notre application simple, le fichier <code class="file docutils literal notranslate"><span class="pre">AndroidManifest.xml</span></code> contient :</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">Le fichier AndroidManifest.xml</span><a class="headerlink" href="#id8" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;manifest</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+          <span class="na">package=</span><span class="s">&quot;dev.gayerie.premiereapplication&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;application</span>
+        <span class="na">android:allowBackup=</span><span class="s">&quot;true&quot;</span>
+        <span class="na">android:icon=</span><span class="s">&quot;@mipmap/ic_launcher&quot;</span>
+        <span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span>
+        <span class="na">android:roundIcon=</span><span class="s">&quot;@mipmap/ic_launcher_round&quot;</span>
+        <span class="na">android:supportsRtl=</span><span class="s">&quot;true&quot;</span>
+        <span class="na">android:theme=</span><span class="s">&quot;@style/AppTheme&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;activity</span> <span class="na">android:name=</span><span class="s">&quot;.MainActivity&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;intent-filter&gt;</span>
+                <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.action.MAIN&quot;</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.category.LAUNCHER&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;/intent-filter&gt;</span>
+        <span class="nt">&lt;/activity&gt;</span>
+    <span class="nt">&lt;/application&gt;</span>
+
+<span class="nt">&lt;/manifest&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>Parmi les nombreuses informations fournies, on peut regarder plus précisément :</p>
+<ul>
+<li><p>ligne 3 : l’attribut <code class="docutils literal notranslate"><span class="pre">package</span></code> fournit le package identifiant l’application.
+C’est notamment dans ce package que la classe <code class="docutils literal notranslate"><span class="pre">R</span></code> sera créée.</p></li>
+<li><p>ligne 5 : l’élément <code class="docutils literal notranslate"><span class="pre">application</span></code> marque le début de la déclaration des informations
+sur notre application.</p></li>
+<li><p>ligne 7 : l’attribut <code class="docutils literal notranslate"><span class="pre">android:icon</span></code> déclare l’icône de l’application qui pointe
+vers la ressource <code class="docutils literal notranslate"><span class="pre">&#64;mipmap/ic_launcher</span></code>.</p></li>
+<li><p>ligne 8 : l’attribut <code class="docutils literal notranslate"><span class="pre">android:label</span></code> fournit le nom de l’application à partir
+de la ressource <code class="docutils literal notranslate"><span class="pre">&#64;string/app_name</span></code> (déclarée dans <code class="file docutils literal notranslate"><span class="pre">app/res/values/strings.xml</span></code>)</p></li>
+<li><p>ligne 12 : l’élément <code class="docutils literal notranslate"><span class="pre">activity</span></code> permet de déclarer une activité en fournissant
+sa classe d’implémentation grâce à l’attribut <code class="docutils literal notranslate"><span class="pre">android:name</span></code>. Remarquez que
+dans l’exemple, la classe d’implémentation de l’activité est <code class="docutils literal notranslate"><span class="pre">.MainActivity</span></code>.
+Le point au début signale que la classe doit être cherchée dans le package de
+l’application. Donc l’activité est fournie par la classe :</p>
+<blockquote>
+<div><p>dev.gayerie.premiereapplication.MainActivity</p>
+</div></blockquote>
+</li>
+<li><p>les lignes 13 à 15 indiquent que cette activité est l’activité principale. Autrement
+dit, lorsque l’application est lancée par l’utilisateur, c’est cette activité
+qui doit être affichée. Nous reviendrons plus tard sur les notions <em>d’intent</em> et
+de filtre <em>d’intent</em> qui sont très importantes dans le développement Android
+pour l’échange d’information entre composants.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ui_layout.html" class="btn btn-neutral float-right" title="Conception d’interfaces graphiques" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Sommaire" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright David Gayerie - david@gayerie.dev - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,1286 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Le langage Java - Les collections" name="description" />
+<meta content="Java, programmation objet, POO, langage de programmation, JCF" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Les collections &mdash; Documentation Le langage Java </title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/java/langage_java/les_collections.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Les entrées/sorties" href="entrees_sorties.html" />
+    <link rel="prev" title="Méthodes et classes génériques" href="generiques.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Le langage Java
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Le langage Java</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#l-environnement">L’environnement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#oracle-jdk-et-open-jdk">Oracle JDK et Open JDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#un-bref-historique-des-versions">Un bref historique des versions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#configuration-d-eclipse">Configuration d’Eclipse</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="compilation.html">Compilation &amp; exécution</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#un-premier-programme">Un premier programme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#la-compilation">La compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#l-execution">L’exécution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#la-liaison-dynamique">La liaison dynamique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#le-classpath">Le classpath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#bibliotheques-java-les-fichiers-jar">Bibliothèques Java : les fichiers JAR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#creation-d-un-projet-dans-eclipse">Création d’un projet dans Eclipse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compilation.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structure_fondamentale.html">La structure fondamentale du langage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-instructions">Les instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#le-typage">Le typage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-blocs-de-code">Les blocs de code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-commentaires">Les commentaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#le-formatage-du-code">Le formatage du code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-conventions-de-nommage">Les conventions de nommage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure_fondamentale.html#les-mots-cles">Les mots-clés</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="premiere_classe.html">Une première classe</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#declarer-une-classe">Déclarer une classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#anatomie-d-une-classe">Anatomie d’une classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#ajouter-des-methodes">Ajouter des méthodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#la-methode-main">La méthode main</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#executer-le-programme-en-ligne-de-commandes">Exécuter le programme en ligne de commandes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#executer-le-programme-depuis-eclipse">Exécuter le programme depuis Eclipse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="premiere_classe.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="types_primitifs.html">Les types primitifs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#le-type-booleen-boolean">Le type booléen : boolean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#le-type-caractere-char">Le type caractère : char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#les-types-entiers-byte-short-int-long">Les types entiers : byte, short, int, long</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#les-types-a-virgule-flottante-float-double">Les types à virgule flottante : float, double</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#les-classes-enveloppes">Les classes enveloppes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types_primitifs.html#l-autoboxing">L’autoboxing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="operateurs.html">Les opérateurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur-d-affectation">L’opérateur d’affectation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-arithmetiques">Les opérateurs arithmétiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-arithmetiques-unaires">Les opérateurs arithmétiques unaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur-de-concatenation-de-chaines">L’opérateur de concaténation de chaînes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-relationnels">Les opérateurs relationnels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-logiques">Les opérateurs logiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur-ternaire">L’opérateur ternaire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-bitwise">Les opérateurs <em>bitwise</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#les-operateurs-de-decalage">Les opérateurs de décalage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#le-transtypage-cast">Le transtypage (cast)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#operateur-et-assignation">Opérateur et assignation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#l-operateur">L’opérateur .</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#id1">L’opérateur ,</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operateurs.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structures_de_controle.html">Les structures de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#if-else">if-else</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#return">return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#while">while</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#do-while">do-while</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#for">for</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#for-ameliore">for amélioré</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#break-continue">break-continue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#libelle">libellé</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#switch">switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tableau.html">Les tableaux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#initialisation">Initialisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#creation-avec-new">Création avec new</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#acces-aux-elements-d-un-tableau">Accès aux éléments d’un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#tableau-multi-dimensionnel">Tableau multi-dimensionnel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#conversion-en-chaine-de-caracteres">Conversion en chaîne de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#egalite-de-deux-tableaux">Égalité de deux tableaux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#tri-recherche">Tri &amp; recherche</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#copie-d-un-tableau">Copie d’un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#typage-d-un-tableau">Typage d’un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tableau.html#conversion-d-un-tableau-en-liste">Conversion d’un tableau en liste</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="attributs_et_methodes.html">Attributs &amp; méthodes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#les-attributs">Les attributs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#la-portee">La portée</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#l-initialisation">L’initialisation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#attributs-finaux">attributs finaux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#attributs-de-classe">Attributs de classe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#attributs-de-classe-finaux">Attributs de classe finaux</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#les-methodes">Les méthodes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#id1">La portée</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#la-valeur-de-retour">La valeur de retour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#les-parametres">Les paramètres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#parametre-final">Paramètre final</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#les-variables">Les variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributs_et_methodes.html#methodes-de-classe">Méthodes de classe</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#surcharge-de-methode-overloading">Surcharge de méthode : overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#portee-des-noms-et-this">Portée des noms et this</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#principe-d-encapsulation">Principe d’encapsulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributs_et_methodes.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cycle_de_vie.html">Cycle de vie d’un objet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-constructeur">Le constructeur</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#parametres-de-constructeur">Paramètres de constructeur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#valeur-par-defaut-des-attributs">Valeur par défaut des attributs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#constructeur-par-defaut">Constructeur par défaut</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#constructeur-prive">Constructeur privé</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#appel-d-un-constructeur-dans-un-constructeur">Appel d’un constructeur dans un constructeur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cycle_de_vie.html#appel-d-une-methode-dans-un-constructeur">Appel d’une méthode dans un constructeur</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#injection-de-dependances-par-le-constructeur">Injection de dépendances par le constructeur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-bloc-d-initialisation">Le bloc d’initialisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-bloc-d-initialisation-de-classe">Le bloc d’initialisation de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#exercice">Exercice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#memoire-heap-et-stack">Mémoire heap et stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#le-ramasse-miettes">Le ramasse-miettes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycle_de_vie.html#la-methode-finalize">La méthode finalize</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="package.html">Les packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="package.html#declaration-d-un-package">Déclaration d’un package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#sous-package">Sous package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#nom-d-un-package">Nom d’un package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#nom-complet-d-une-classe">Nom complet d’une classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#import-de-noms">Import de noms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#la-portee-de-niveau-package">La portée de niveau package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#le-fichier-package-info-java">Le fichier package-info.java</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="heritage_composition.html">Héritage et composition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#l-heritage-is-a">L’héritage (is-a)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-et-constructeur">Héritage et constructeur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-simple-object">Héritage simple : Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-et-affectation">Héritage et affectation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#le-mot-cle-instanceof">Le mot-clé instanceof</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#la-portee-protected">La portée protected</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-des-methodes-et-attributs-de-classe">Héritage des méthodes et attributs de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#heritage-et-final">Héritage et final</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage_composition.html#la-composition-has-a">La composition (has-a)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="polymorphisme.html">Le polymorphisme</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#principe-du-polymorphisme">Principe du polymorphisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#une-exception-les-methodes-privees">Une exception : les méthodes privées</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#redefinition-et-signature-de-methode">Redéfinition et signature de méthode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#le-mot-cle-super">Le mot-clé super</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#l-annotation-override">L’annotation &#64;Override</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#les-methodes-de-classe">Les méthodes de classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#methode-finale">Méthode finale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#constructeur-et-polymorphisme">Constructeur et polymorphisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#masquage-des-attributs-par-heritage">Masquage des attributs par héritage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymorphisme.html#le-principe-du-ouvert-ferme">Le principe du ouvert/fermé</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="classe_abstraite.html">Les classes abstraites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classe_abstraite.html#declarer-une-classe-abstraite">Déclarer une classe abstraite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_abstraite.html#declarer-une-methode-abstraite">Déclarer une méthode abstraite</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="la_classe_object.html">La classe Object</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-equals">La méthode equals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-hashcode">La méthode hashCode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-tostring">La méthode toString</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-finalize">La méthode finalize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-clone">La méthode clone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#la-methode-getclass">La méthode getClass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_object.html#les-methodes-de-concurrence">Les méthodes de concurrence</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="la_classe_string.html">La classe String</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#string-et-tableau-de-caracteres">String et tableau de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#quelques-methodes-utilitaires">Quelques méthodes utilitaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#construction-d-une-instance-de-string">Construction d’une instance de String</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#immutabilite-des-chaines-de-caracteres">Immutabilité des chaînes de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#la-classe-stringbuilder">La classe StringBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#formatage-de-texte">Formatage de texte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la_classe_string.html#les-expressions-regulieres">Les expressions régulières</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_exceptions.html">Les exceptions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#qu-est-ce-qu-une-exception">Qu’est-ce qu’une exception ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#signaler-une-exception">Signaler une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#traiter-une-exception">Traiter une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#propagation-d-une-exception">Propagation d’une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#exceptions-et-polymorphisme">Exceptions et polymorphisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#le-bloc-finally">Le bloc finally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#le-try-with-resources">Le try-with-resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#hierarchie-applicative-d-exception">Hiérarchie applicative d’exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#exception-cause">Exception cause</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#les-erreurs-et-les-exceptions-runtime">Les erreurs et les exceptions runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_exceptions.html#choix-entre-checked-et-unchecked">Choix entre checked et unchecked</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="enumeration.html">Les énumérations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#les-methodes-d-une-enumeration">Les méthodes d’une énumération</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#egalite-entre-enumerations">Égalité entre énumérations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#support-de-switch">Support de switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#generation-d-une-enumeration">Génération d’une énumération</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#ajout-de-methodes-et-d-attributs">Ajout de méthodes et d’attributs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumeration.html#ajout-de-constructeurs">Ajout de constructeurs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Les interfaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#declaration-d-une-interface">Déclaration d’une interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#implementation-d-une-interface">Implémentation d’une interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#attributs-et-methodes-statiques">Attributs et méthodes statiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#heritage-d-interface">Héritage d’interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#les-interfaces-marqueurs">Les interfaces marqueurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#implementation-par-defaut">Implémentation par défaut</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#la-segregation-d-interface">La ségrégation d’interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#l-inversion-de-dependance">L’inversion de dépendance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="generiques.html">Méthodes et classes génériques</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#l-exemple-de-la-classe-arraylist">L’exemple de la classe ArrayList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#creation-et-assignation-d-une-classe-generique">Création et assignation d’une classe générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#notation-en-diamant">Notation en diamant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#substitution-et-type-generique">Substitution et type générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#ecrire-une-methode-generique">Écrire une méthode générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#ecrire-une-classe-generique">Écrire une classe générique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generiques.html#limitations">Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Les collections</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#les-listes">Les listes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#la-classe-arraylist">La classe ArrayList</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#la-classe-linkedlist">La classe LinkedList</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#la-classe-arraydeque">La classe ArrayDeque</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#la-classe-priorityqueue">La classe PriorityQueue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#les-classes-vector-et-stack">Les classes Vector et Stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#les-interfaces-pour-les-listes">Les interfaces pour les listes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#les-ensembles-set">Les ensembles (set)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#la-classe-treeset">La classe TreeSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#la-classe-hashset">La classe HashSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#la-classe-linkedhashset">La classe LinkedHashSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#les-interfaces-pour-les-ensembles">Les interfaces pour les ensembles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#copie-d-une-collection-dans-un-tableau">Copie d’une collection dans un tableau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-tableaux-associatifs-maps">Les tableaux associatifs (maps)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#la-classe-treemap">La classe TreeMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#la-classe-hashmap">La classe HashMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#la-classe-linkedhashmap">La classe LinkedHashMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#les-classes-dictionary-et-hashtable">Les classes Dictionary et Hashtable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#les-interfaces-pour-les-tableaux-associatifs">Les interfaces pour les tableaux associatifs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#la-classe-outil-collections">La classe outil Collections</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="entrees_sorties.html">Les entrées/sorties</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#inputstream-et-classes-concretes">InputStream et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#outputstream-et-classes-concretes">OutputStream et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#flux-orientes-caracteres">Flux orientés caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#reader-et-classes-concretes">Reader et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#writer-et-classes-concretes">Writer et classes concrètes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#les-decorateurs-de-flux">Les décorateurs de flux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#la-classe-scanner">La classe Scanner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#fichiers-et-chemins">Fichiers et chemins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#acces-au-reseau">Accès au réseau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrees_sorties.html#la-serialisation-d-objets">La sérialisation d’objets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="entrees_sorties.html#donnee-transient">Donnée transient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="entrees_sorties.html#identifiant-de-version-de-serialisation">Identifiant de version de sérialisation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_dates.html">Les dates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#date-la-classe-historique">Date : la classe historique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#calendar">Calendar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#l-api-date-time">L’API Date/Time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_dates.html#id1">Les Dates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_dates.html#la-classe-instant">La classe Instant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_dates.html#periode-et-duree">Période et durée</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#formatage-des-dates">Formatage des dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#lecture-des-dates">Lecture des dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_dates.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_lambdas.html">Programmation fonctionnelle et lambdas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_lambdas.html#les-fonctions-anonymes-les-lambdas">Les fonctions anonymes : les lambdas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#syntaxe-des-lambdas">Syntaxe des lambdas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#usage-des-lambdas">Usage des lambdas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#lambda-et-closure">Lambda et closure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#les-interfaces-fonctionnelles">Les interfaces fonctionnelles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="les_lambdas.html#l-operateur-de-reference-de-methode">L’opérateur :: de référence de méthode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="les_lambdas.html#la-classe-optional">La classe Optional</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="streams.html">Streams</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#creation-d-un-stream">Création d’un stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#la-reduction">La réduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#la-collecte">La collecte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#le-filtrage">Le filtrage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#le-mapping">Le mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#le-parallelisme">Le parallélisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="classe_interne.html">Les classes internes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#les-classes-internes-static">Les classes internes static</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#id1">Les classes internes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#les-classes-anonymes">Les classes anonymes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#acces-aux-elements-de-l-objet-englobant">Accès aux éléments de l’objet englobant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#classe-interne-a-une-methode">Classe interne à une méthode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#interface-et-enumeration">Interface et énumération</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classe_interne.html#plusieurs-classes-dans-un-meme-fichier">Plusieurs classes dans un même fichier</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="les_annotations.html">Les annotations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#utilisation-des-annotations">Utilisation des annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#declaration-d-une-annotation">Déclaration d’une annotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#retention-d-une-annotation">Rétention d’une annotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#utilisation-des-annotations-par-introspection">Utilisation des annotations par introspection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="les_annotations.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="module.html">Les modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="module.html#des-modules-pour-ameliorer-la-securite">Des modules pour améliorer la sécurité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#des-modules-pour-plus-de-modularite">Des modules pour plus de modularité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#le-descripteur-de-module-module-info-java">Le descripteur de module (module-info.java)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="module.html#dependance-a-d-autres-modules">Dépendance à d’autres modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module.html#exposer-des-packages">Exposer des packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module.html#utiliser-un-service">Utiliser un service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module.html#fournir-un-service">Fournir un service</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#le-module-anonyme">Le module anonyme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html#la-notion-de-module-path">La notion de module path</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Le langage Java</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Les collections</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="entrees_sorties.html" class="btn btn-neutral float-right" title="Les entrées/sorties" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="generiques.html" class="btn btn-neutral float-left" title="Méthodes et classes génériques" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="les-collections">
+<h1>Les collections<a class="headerlink" href="#les-collections" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Lors d’un <a class="reference internal" href="tableau.html"><span class="doc">chapitre précédent</span></a>, nous avons vu qu’il est possible
+de déclarer des tableaux en Java pour gérer un ensemble d’éléments. Cependant,
+ce type de structure reste limité : un tableau a une taille fixe (il est impossible
+d’ajouter ou d’enlever des éléments d’un tableau). De plus, il est souvent utile
+de disposer d’autres structures de données pour gérer des groupes d’éléments.</p>
+<p>On appelle <em>collections</em> un ensemble de classes et d’interfaces fournies par
+l’API standard et disponibles pour la plupart dans le package <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/package-summary.html">java.util</a>.
+Parmi ces collections, on trouve les listes (<em>lists</em>), les ensembles (<em>sets</em>) et
+les tableaux associatifs (<em>maps</em>). Elles forment ce que l’on appelle le
+<a class="reference external" href="https://docs.oracle.com/javase/8/docs/technotes/guides/collections/overview.html">Java Collections Framework</a>.</p>
+<p>Toutes ces classes et interfaces sont génériques. On ne peut donc créer que
+des collections d’objets. Si vous souhaitez créer une collection pour un type
+primitif, vous devez utiliser la classe enveloppe correspondante (par exemple
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html">Integer</a> pour <strong>int</strong>).</p>
+<div class="section" id="les-listes">
+<h2>Les listes<a class="headerlink" href="#les-listes" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une liste est une collection ordonnée d’éléments. Il existe différentes façons
+d’implémenter des listes dont les performances sont optimisées soit pour
+les accès aléatoires aux éléments soit pour les opérations d’insertion et de suppression
+d’éléments.</p>
+<p>Java propose plusieurs classes d’implémentation pour les listes selon les besoins
+de performance. Comme toutes ces classes implémentent des interfaces communes,
+il est conseillé de manipuler les instances de ces classes uniquement à travers
+des variables du type de l’interface adaptée : <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collection.html">Collection</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html">List</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Queue.html">Queue</a>
+ou <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Deque.html">Deque</a>.</p>
+<p>L’interface <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collection.html">Collection</a> dont hérite toutes les autres interfaces pour les listes,
+hérite elle-même de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Iterable.html">Iterable</a>. Cela signifie que toutes les classes et toutes
+les interfaces servant à représenter des listes dans le <a class="reference external" href="https://docs.oracle.com/javase/8/docs/technotes/guides/collections/overview.html">Java Collections Framework</a>
+peuvent être parcourues avec une structure de <strong>for</strong> amélioré (<em>foreach</em>).</p>
+<div class="section" id="la-classe-arraylist">
+<h3>La classe ArrayList<a class="headerlink" href="#la-classe-arraylist" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayList.html">java.util.ArrayList</a> est une implémentation de l’interface <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html">List</a>. Elle
+stocke les éléments de la liste sous la forme de blocs en mémoire. Cela signifie
+que la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayList.html">ArrayList</a> est très performante pour les accès aléatoire en lecture
+aux éléments de la liste. Par contre, les opérations d’ajout et de suppression
+d’un élement se font en temps linéaire. Elle est donc moins performante que la
+classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedList.html">LinkedList</a> sur ce point.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">liste</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="n">liste</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;une première chaîne&quot;</span><span class="p">);</span>
+<span class="n">liste</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;une troisième chaîne&quot;</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">liste</span><span class="p">.</span><span class="na">size</span><span class="p">());</span> <span class="c1">// 2</span>
+
+<span class="c1">// insertion d&#39;un élément</span>
+<span class="n">liste</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;une seconde chaîne&quot;</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">liste</span><span class="p">.</span><span class="na">size</span><span class="p">());</span> <span class="c1">// 3</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">String</span> <span class="n">s</span> <span class="p">:</span> <span class="n">liste</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">String</span> <span class="n">premierElement</span> <span class="o">=</span> <span class="n">liste</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">liste</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="s">&quot;une première chaîne&quot;</span><span class="p">));</span> <span class="c1">// true</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">liste</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="s">&quot;quelque chose qui n&#39;est pas dans la liste&quot;</span><span class="p">));</span> <span class="c1">// false</span>
+
+<span class="c1">// suppression du dernier élément de la liste</span>
+<span class="n">liste</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">liste</span><span class="p">.</span><span class="na">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="c1">// ajout de tous les éléments d&#39;une autre liste à la fin de la liste</span>
+<span class="n">liste</span><span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="s">&quot;une autre chaîne&quot;</span><span class="p">,</span> <span class="s">&quot;et encore une autre chaîne&quot;</span><span class="p">));</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">liste</span><span class="p">.</span><span class="na">size</span><span class="p">());</span> <span class="c1">// 4</span>
+
+<span class="c1">// [une première chaîne, une seconde chaîne, une autre chaîne, et encore une autre chaîne]</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">liste</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Il est possible de réserver de l’espace mémoire pour une liste pouvant contenir
+n éléments. Pour cela, on peut passer la taille voulue à la création d’une
+instance de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayList.html">ArrayList</a> ou en appelant la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayList.html#ensureCapacity(int)">ArrayList.ensureCapacity</a>.
+La liste ne change pas de taille pour autant, un espace mémoire est simplement
+alloué en prévision.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// capacité de 10</span>
+<span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">liste</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+
+<span class="c1">// capacité d&#39;au moins 100</span>
+<span class="n">liste</span><span class="p">.</span><span class="na">ensureCapacity</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">liste</span><span class="p">.</span><span class="na">size</span><span class="p">());</span> <span class="c1">// 0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="la-classe-linkedlist">
+<h3>La classe LinkedList<a class="headerlink" href="#la-classe-linkedlist" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedList.html">java.util.LinkedList</a> est une implémentation de l’interface <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html">List</a>.
+Sa représentation interne est une liste doublement chaînée. Cela signifie que
+la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedList.html">LinkedList</a> est très performante pour les opérations d’insertion et
+de suppression d’éléments. Par contre, l’accès aléatoire en lecture aux éléments
+se fait en temps linéaire. Elle est donc moins performante que la classe
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayList.html">ArrayList</a> sur ce point.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">liste</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+
+
+<span class="n">liste</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;une première chaîne&quot;</span><span class="p">);</span>
+<span class="n">liste</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;une troisième chaîne&quot;</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">liste</span><span class="p">.</span><span class="na">size</span><span class="p">());</span> <span class="c1">// 2</span>
+
+<span class="c1">// insertion d&#39;un élément</span>
+<span class="n">liste</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;une seconde chaîne&quot;</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">liste</span><span class="p">.</span><span class="na">size</span><span class="p">());</span> <span class="c1">// 3</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">String</span> <span class="n">s</span> <span class="p">:</span> <span class="n">liste</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">String</span> <span class="n">premierElement</span> <span class="o">=</span> <span class="n">liste</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">liste</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="s">&quot;une première chaîne&quot;</span><span class="p">));</span> <span class="c1">// true</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">liste</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="s">&quot;quelque chose qui n&#39;est pas dans la liste&quot;</span><span class="p">));</span> <span class="c1">// false</span>
+
+<span class="c1">// suppression du dernier élément de la liste</span>
+<span class="n">liste</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">liste</span><span class="p">.</span><span class="na">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="c1">// ajout de tous les éléments d&#39;une autre liste à la fin de la liste</span>
+<span class="n">liste</span><span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="s">&quot;une autre chaîne&quot;</span><span class="p">,</span> <span class="s">&quot;et encore une autre chaîne&quot;</span><span class="p">));</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">liste</span><span class="p">.</span><span class="na">size</span><span class="p">());</span> <span class="c1">// 4</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">liste</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedList.html">LinkedList</a> implémente également les interfaces <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Queue.html">Queue</a> et <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Deque.html">Deque</a> (<em>double
+ended queue</em>), elle peut donc représenter des structures
+de type LIFO (<em>Last In First Out</em>) ou FIFO (<em>First In First Out</em>).</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="c1">// insère un élément dans la file</span>
+<span class="n">queue</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="s">&quot;un élément&quot;</span><span class="p">);</span>
+
+<span class="c1">// lit l&#39;élément en tête de la file sans l&#39;enlever de la file</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="na">peek</span><span class="p">());</span> <span class="c1">// &quot;un élément&quot;</span>
+<span class="c1">// lit l&#39;élément en tête de la file et l&#39;enleve de la file</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="na">poll</span><span class="p">());</span> <span class="c1">// &quot;un élément&quot;</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Deque</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">deque</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="c1">// empile deux éléments</span>
+<span class="n">deque</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="s">&quot;élément 1&quot;</span><span class="p">);</span>
+<span class="n">deque</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="s">&quot;élément 2&quot;</span><span class="p">);</span>
+
+<span class="c1">// lit le premier élément de la file sans l&#39;enlever</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">deque</span><span class="p">.</span><span class="na">peekFirst</span><span class="p">());</span> <span class="c1">// élément 2</span>
+<span class="c1">// lit le dernier élément de la file sans l&#39;enlever</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">deque</span><span class="p">.</span><span class="na">peekLast</span><span class="p">());</span> <span class="c1">// élément 1</span>
+<span class="c1">// lit l&#39;élément de tête de la file sans l&#39;enlever</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">deque</span><span class="p">.</span><span class="na">peek</span><span class="p">());</span> <span class="c1">// élément 2</span>
+<span class="c1">// lit l&#39;élément de tête de la file et l&#39;enlève</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">deque</span><span class="p">.</span><span class="na">pop</span><span class="p">());</span> <span class="c1">// élément 2</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">deque</span><span class="p">.</span><span class="na">pop</span><span class="p">());</span> <span class="c1">// élément 1</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">deque</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="la-classe-arraydeque">
+<h3>La classe ArrayDeque<a class="headerlink" href="#la-classe-arraydeque" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayDeque.html">java.util.ArrayDeque</a> est une implémentation des interfaces <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Queue.html">Queue</a> et
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Deque.html">Deque</a> (mais elle <strong>n’implémente pas</strong> <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html">List</a>). Elle est conçue pour être plus
+performante que <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedList.html">LinkedList</a> pour les opérations d’ajout et de suppression en tête
+et en fin de liste. Si vous voulez utiliser une collection uniquement pour
+représenter une file ou une pile de type LIFO (<em>Last In First Out</em>) ou FIFO
+(<em>First In First Out</em>), alors il est préférable de créer une instance de la classe
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayDeque.html">ArrayDeque</a>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayDeque</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="c1">// insère un élément dans la file</span>
+<span class="n">queue</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="s">&quot;un élément&quot;</span><span class="p">);</span>
+
+<span class="c1">// lit l&#39;élément en tête de la file sans l&#39;enlever de la file</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="na">peek</span><span class="p">());</span> <span class="c1">// &quot;un élément&quot;</span>
+<span class="c1">// lit l&#39;élément en tête de la file et l&#39;enleve de la file</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="na">poll</span><span class="p">());</span> <span class="c1">// &quot;un élément&quot;</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Deque</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">deque</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayDeque</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="c1">// empile deux éléments</span>
+<span class="n">deque</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="s">&quot;élément 1&quot;</span><span class="p">);</span>
+<span class="n">deque</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="s">&quot;élément 2&quot;</span><span class="p">);</span>
+
+<span class="c1">// lit le premier élément de la file sans l&#39;enlever</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">deque</span><span class="p">.</span><span class="na">peekFirst</span><span class="p">());</span> <span class="c1">// élément 2</span>
+<span class="c1">// lit le dernier élément de la file sans l&#39;enlever</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">deque</span><span class="p">.</span><span class="na">peekLast</span><span class="p">());</span> <span class="c1">// élément 1</span>
+<span class="c1">// lit l&#39;élément de tête de la file sans l&#39;enlever</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">deque</span><span class="p">.</span><span class="na">peek</span><span class="p">());</span> <span class="c1">// élément 2</span>
+<span class="c1">// lit l&#39;élément de tête de la file et l&#39;enlève</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">deque</span><span class="p">.</span><span class="na">pop</span><span class="p">());</span> <span class="c1">// élément 2</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">deque</span><span class="p">.</span><span class="na">pop</span><span class="p">());</span> <span class="c1">// élément 1</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">deque</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<p>Comme pour la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayList.html">ArrayList</a>, il est possible de réserver un espace mémoire
+pour n éléments au moment de la création d’une instance de ArrayDeque.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Assurer une capacité minimale de 100 éléments</span>
+<span class="n">ArrayDeque</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">arrayDeque</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayDeque</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">arrayDeque</span><span class="p">.</span><span class="na">size</span><span class="p">());</span> <span class="c1">// 0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="la-classe-priorityqueue">
+<h3>La classe PriorityQueue<a class="headerlink" href="#la-classe-priorityqueue" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/PriorityQueue.html">java.util.PriorityQueue</a> permet d’ajouter des éléments dans une file
+selon un ordre naturel : soit parce que les éléments de la file implémentent l’interface
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Comparable.html">Comparable</a>, soit parce qu’une instance de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Comparator.html">Comparator</a> a été fournie à la création
+de l’instance de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/PriorityQueue.html">PriorityQueue</a>. Quel que soit l’ordre d’insertion, les éléments
+seront extraits de la file selon l’ordre naturel.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PriorityQueue</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+<span class="n">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;i&quot;</span><span class="p">);</span>
+<span class="n">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;e&quot;</span><span class="p">);</span>
+<span class="n">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;u&quot;</span><span class="p">);</span>
+<span class="n">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;o&quot;</span><span class="p">);</span>
+<span class="n">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">);</span>
+<span class="n">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;y&quot;</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="na">poll</span><span class="p">());</span> <span class="c1">// a</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="na">poll</span><span class="p">());</span> <span class="c1">// e</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="na">poll</span><span class="p">());</span> <span class="c1">// i</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="na">poll</span><span class="p">());</span> <span class="c1">// o</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="na">poll</span><span class="p">());</span> <span class="c1">// u</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="na">poll</span><span class="p">());</span> <span class="c1">// y</span>
+</pre></div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Prudence</p>
+<p>La classe PriorityQueue ne garantit pas que l’ordre naturel sera respecté
+si on parcourt la file à l’aide d’un <strong>for</strong>.</p>
+</div>
+</div>
+<div class="section" id="les-classes-vector-et-stack">
+<h3>Les classes Vector et Stack<a class="headerlink" href="#les-classes-vector-et-stack" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La version 1.0 de Java a d’abord inclus les classes <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Vector.html">java.util.Vector</a> et <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Stack.html">java.util.Stack</a>.
+La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Vector.html">Vector</a> permet de représenter une liste d’éléments comme la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayList.html">ArrayList</a>.
+La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Stack.html">Stack</a> qui hérite de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Vector.html">Vector</a> permet de représenter des piles de type
+LIFO (<em>Last In First Out</em>). Ces deux classes sont toujours présentes dans
+l’API pour des raisons de compatibilité ascendante mais il ne faut <strong>surtout pas</strong>
+s’en servir. En effet, ces classes utilisent des mécanismes de synchronisation
+internes dans le cas où elles sont utilisées pour des accès concurrents
+(programmation parallèle ou <em>multithread</em>). Or, non seulement ces mécanismes
+de synchronisation pénalisent les performances mais en plus, ils se révèlent
+largement inefficaces pour gérer les accès concurrents (il existe d’autres façons
+de faire en Java).</p>
+<p>Les classes <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayList.html">ArrayList</a> et <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayDeque.html">ArrayDeque</a> se substituent très bien aux classes
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Vector.html">Vector</a> et <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Stack.html">Stack</a>.</p>
+</div>
+<div class="section" id="les-interfaces-pour-les-listes">
+<h3>Les interfaces pour les listes<a class="headerlink" href="#les-interfaces-pour-les-listes" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les listes du <a class="reference external" href="https://docs.oracle.com/javase/8/docs/technotes/guides/collections/overview.html">Java Collections Framework</a> sont liées aux interfaces <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Iterable.html">Iterable</a>,
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collection.html">Collection</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html">List</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Queue.html">Queue</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Deque.html">Deque</a> et <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/RandomAccess.html">RandomAccess</a>. Ci-dessous le diagramme
+de classes présentant les différents héritages et implémentations pour les quatre
+principales classes :</p>
+<img alt="../_images/list_classes_interfaces.png" src="../_images/list_classes_interfaces.png" />
+<p>Comme proposé par le <a class="reference external" href="https://en.wikipedia.org/wiki/Interface_segregation_principle">principe de ségrégation d’interface</a>, les variables,
+les paramètres et les attributs représentant des listes devraient avoir le
+type de l’interface adaptée. Par exemple, si vous utilisez une instance de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/PriorityQueue.html">PriorityQueue</a>,
+vous devriez y accéder à partir de l’interface <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Queue.html">Queue</a> si vous n’effectuez que
+des opérations d’ajout, de suppression ou de consultation des éléments.</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Iterable.html">Iterable</a></dt><dd><p>Cette interface permet d’obtenir un <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Iterator.html">Iterator</a> pour parcourir la liste. Elle
+permet également de parcourir la liste avec un <strong>for</strong> amélioré (<em>foreach</em>).</p>
+</dd>
+<dt><a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collection.html">Collection</a></dt><dd><p>Il s’agit de l’interface racine pour les collections. Elle déclare beaucoup de méthodes
+pour consulter ou modifier une collection. C’est également cette interface
+qui déclare la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collection.html#size()">size</a> pour connaître la taille de la collection et les
+méthodes <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collection.html#toArray()">toArray</a> pour obtenir un tableau à partir d’une collection. Par contre,
+cette interface ne permet pas d’accéder aléatoirement à un élément d’une collection
+(c’est-à-dire à partir de son index).</p>
+</dd>
+<dt><a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html">List</a></dt><dd><p>Cette interface représente une collection ordonnée (une séquence) d’éléments.
+Elle déclare des méthodes pour accéder, pour modifier ou pour supprimer des
+éléments à partir de leur index (on parle aussi d’accès aléatoire). Cette
+interface déclare également la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html#sort(java.util.Comparator)">sort</a> pour permettre de trier la liste.</p>
+</dd>
+<dt><a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Queue.html">Queue</a></dt><dd><p>Une file (<em>queue</em>) est une structure de données pour laquelle l’ordre des éléments
+est important mais les opérations de consultation, d’ajout et de suppression se
+font uniquement sur la tête de la file (le premier élément).</p>
+</dd>
+<dt><a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Deque.html">Deque</a></dt><dd><p><a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Deque.html">Deque</a> est la contraction de <em>double ended queue</em>. Cette interface représente une structure
+de données pour laquelle l’ordre des éléments est important mais les opération
+des consultation, d’ajout et de suppression se font soit sur le premier élément
+soit sur le dernier élément.</p>
+</dd>
+<dt><a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/RandomAccess.html">RandomAccess</a></dt><dd><p>Il s’agit d’une <a class="reference internal" href="interface.html#interface-marqueur"><span class="std std-ref">interface marqueur</span></a> qui signale que
+l’implémentation associée supporte les accès aléatoire en un temps constant. Par
+exemple, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayList.html">ArrayList</a> implémente <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/RandomAccess.html">RandomAccess</a> mais pas <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedList.html">LinkedList</a>. Cette interface
+existe avant tout pour des raisons d’optimisation de parcours de liste.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="les-ensembles-set">
+<h2>Les ensembles (set)<a class="headerlink" href="#les-ensembles-set" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les ensembles (<em>set</em>) sont des collections qui ne contiennent aucun doublon.
+Deux élements e1 et e2 sont des doublons si :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">e1</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">e2</span><span class="p">)</span> <span class="o">==</span> <span class="kc">true</span>
+</pre></div>
+</div>
+<p>ou si e1 vaut <strong>null</strong> et e2 vaut <strong>null</strong>. Pour contrôler l’unicité, le
+<a class="reference external" href="https://docs.oracle.com/javase/8/docs/technotes/guides/collections/overview.html">Java Collections Framework</a> fournit trois implémentations : <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/TreeSet.html">TreeSet</a>,
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashSet.html">HashSet</a> et <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedHashSet.html">LinkedHashSet</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il existe également un <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/EnumSet.html">EnumSet</a> qui représente un ensemble d’énumérations. Son
+implémentation est très compacte et très performante mais n’est utilisable que
+pour des <a class="reference internal" href="enumeration.html"><span class="doc">énumérations</span></a>.</p>
+</div>
+<div class="section" id="la-classe-treeset">
+<h3>La classe TreeSet<a class="headerlink" href="#la-classe-treeset" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/TreeSet.html">TreeSet</a> contrôle l’unicité de ces éléments en maintenant en interne
+une liste triée par ordre naturel des éléments. L’ordre peut être donné soit
+parce que les éléments implémentent l’interface <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Comparable.html">Comparable</a> soit parce qu’une
+implémentation de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Comparator.html">Comparator</a> est passée en paramètre de constructeur au moment
+de la création de l’instance de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/TreeSet.html">TreeSet</a>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">ensemble</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeSet</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="n">ensemble</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;élément&quot;</span><span class="p">);</span>
+<span class="n">ensemble</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;élément&quot;</span><span class="p">);</span>
+<span class="n">ensemble</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;élément&quot;</span><span class="p">);</span>
+<span class="n">ensemble</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;élément&quot;</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">ensemble</span><span class="p">.</span><span class="na">size</span><span class="p">());</span> <span class="c1">// 1</span>
+
+<span class="n">ensemble</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="s">&quot;élément&quot;</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">ensemble</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/TreeSet.html">TreeSet</a> a donc comme particularité de toujours conserver ses éléments
+triés.</p>
+</div>
+<div class="section" id="la-classe-hashset">
+<h3>La classe HashSet<a class="headerlink" href="#la-classe-hashset" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashSet.html">HashSet</a> utilise un code de hachage (hash code) pour contrôler l’unicité
+de ces éléments. Un code de hachage est une valeur associée à objet. Deux
+objets identiques doivent obligatoirement avoir le même code de hachage. Par contre
+deux objets distincts ont des codes de hachage qui peuvent être soit différents
+soit identiques. Un ensemble d’éléments différents mais qui ont néanmoins le
+même code de hachage forment un <em>bucket</em>. La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashSet.html">HashSet</a> maintient en interne
+un tableau associatif entre une valeur de hachage et un <em>bucket</em>. Lorsqu’un nouvel
+élément est ajouté au <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashSet.html">HashSet</a>, ce dernier calcule son code de hachage et vérifie
+si cette valeur a déjà été stockée. Si c’est le cas, alors les éléments du
+<em>bucket</em> associé sont parcourus un à un pour vérifier s’ils sont identiques
+ou non au nouvel élément.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Le code de hachage d’un objet est donné par la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html#hashCode()">Object.hashCode</a>.
+L’implémentation par défaut de cette méthode ne convient généralement pas. En
+effet, elle retourne un code différent pour des objets différents en mémoire.
+Deux objets qui ont un état considéré comme identique mais qui existent de
+manière distincte en mémoire auront un code de hachage différent si on utilise l’implémentation
+par défaut. Beaucoup de classes redéfinissent donc cette méthode (c’est notamment le
+cas de la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html">String</a>).</p>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">ensemble</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="n">ensemble</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;élément&quot;</span><span class="p">);</span>
+<span class="n">ensemble</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;élément&quot;</span><span class="p">);</span>
+<span class="n">ensemble</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;élément&quot;</span><span class="p">);</span>
+<span class="n">ensemble</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;élément&quot;</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">ensemble</span><span class="p">.</span><span class="na">size</span><span class="p">());</span> <span class="c1">// 1</span>
+
+<span class="n">ensemble</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="s">&quot;élément&quot;</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">ensemble</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<p>L’implémentation de la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashSet.html">HashSet</a> a des performances en temps très supérieures
+à <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/TreeSet.html">TreeSet</a> pour les opérations d’ajout et de suppression d’élément.
+Elle impose néanmoins que les éléments qu’elle contient génèrent correctement
+un code de hachage avec la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html#hashCode()">hashCode</a>. Contrairement à <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/TreeSet.html">TreeSet</a>, elle
+ne garantit pas l’ordre dans lequel les éléments sont stockés et donc l’ordre dans
+lequel ils peuvent être parcourus.</p>
+</div>
+<div class="section" id="la-classe-linkedhashset">
+<h3>La classe LinkedHashSet<a class="headerlink" href="#la-classe-linkedhashset" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedHashSet.html">LinkedHashSet</a>, comme la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashSet.html">HashSet</a>, utilise en interne un code
+de hachage mais elle garantit en plus que l’ordre de parcours des éléments sera le
+même que l’ordre d’insertion. Cette implémentation garantit également que si
+elle est créée à partir d’un autre <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html">Set</a>, l’ordre des éléments sera maintenu.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">ensemble</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedHashSet</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="n">ensemble</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;premier élément&quot;</span><span class="p">);</span>
+<span class="n">ensemble</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;premier élément&quot;</span><span class="p">);</span>
+<span class="n">ensemble</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;premier élément&quot;</span><span class="p">);</span>
+<span class="n">ensemble</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;premier élément&quot;</span><span class="p">);</span>
+
+<span class="n">ensemble</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;deuxième élément&quot;</span><span class="p">);</span>
+
+<span class="n">ensemble</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;premier élément&quot;</span><span class="p">);</span>
+
+<span class="n">ensemble</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;troisième élément&quot;</span><span class="p">);</span>
+
+<span class="n">ensemble</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;premier élément&quot;</span><span class="p">);</span>
+
+<span class="c1">// [premier élément, deuxième élément, troisième élément]</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">ensemble</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedHashSet.html">LinkedHashSet</a> a été créée pour réaliser un compromis entre la classe
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashSet.html">HashSet</a> et la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/TreeSet.html">TreeSet</a> afin d’avoir des performances proches de la première
+tout en offrant l’ordre de parcours pour ses éléments.</p>
+</div>
+<div class="section" id="les-interfaces-pour-les-ensembles">
+<h3>Les interfaces pour les ensembles<a class="headerlink" href="#les-interfaces-pour-les-ensembles" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les ensembles du <a class="reference external" href="https://docs.oracle.com/javase/8/docs/technotes/guides/collections/overview.html">Java Collections Framework</a> sont liés aux interfaces <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Iterable.html">Iterable</a>,
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collection.html">Collection</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html">Set</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/SortedSet.html">SortedSet</a> et <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/NavigableSet.html">NavigableSet</a>. Ci-dessous le diagramme
+de classes présentant les différents héritages et implémentations pour les trois
+principales classes :</p>
+<img alt="../_images/set_classes_interfaces.png" src="../_images/set_classes_interfaces.png" />
+<p>Comme proposé par le <a class="reference external" href="https://en.wikipedia.org/wiki/Interface_segregation_principle">principe de ségrégation d’interface</a>, les variables,
+les paramètres et les attributs représentant des ensemble devraient avoir le
+type de l’interface adaptée. Par exemple, si vous utilisez une instance de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashSet.html">HashSet</a>,
+vous devriez y accéder à partir de l’interface <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html">Set</a>.</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Iterable.html">Iterable</a></dt><dd><p>Cette interface permet d’obtenir un <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Iterator.html">Iterator</a> pour parcourir la liste. Elle
+permet également de parcourir l’ensemble avec un <strong>for</strong> amélioré (<em>foreach</em>).</p>
+</dd>
+<dt><a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collection.html">Collection</a></dt><dd><p>Il s’agit de l’interface racine pour les collections. Elle déclare beaucoup de méthodes
+pour consulter ou modifier une collection. C’est également cette interface
+qui déclare la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collection.html#size()">size</a> pour connaître la taille de la collection et les
+méthodes <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collection.html#toArray()">toArray</a> pour obtenir un tableau à partir d’une collection.</p>
+</dd>
+<dt><a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html">Set</a></dt><dd><p>Il s’agit de l’interface qui définit la collection comme un ensemble, c’est-à-dire
+comme une liste d’éléments sans doublon.</p>
+</dd>
+<dt><a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/SortedSet.html">SortedSet</a></dt><dd><p>Cette interface indique que l’ensemble maintient en interne un ordre naturel
+de ses éléments. Elle offre notamment des méthodes pour accéder au premier et
+au dernier élément de l’ensemble.</p>
+</dd>
+<dt><a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/NavigableSet.html">NavigableSet</a></dt><dd><p>Cette interface déclare des méthodes de navigation permettant par exemple
+de créer un sous ensemble à partir des éléments qui sont plus grands qu’un
+élément donné.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="copie-d-une-collection-dans-un-tableau">
+<h2>Copie d’une collection dans un tableau<a class="headerlink" href="#copie-d-une-collection-dans-un-tableau" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’interface <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collection.html">Collection</a> commune aux listes et aux ensembles déclare deux
+méthodes qui permettent de copier les références des éléments d’une collection
+dans un tableau :</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collection.html#toArray()">toArray()</a></dt><dd><p>Crée une nouvelle instance d’un tableau d’Object de la même taille que la collection et
+copie les références des éléments de la collection dans ce tableau.</p>
+</dd>
+<dt><a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collection.html#toArray(T[])">toArray(T[])</a></dt><dd><p>Si le tableau passé en paramètre est suffisamment grand pour contenir les éléments
+de la collection, alors les références y sont copiées. Sinon un tableau du même
+type que celui passé en paramètre est créé et les références des éléments
+de la collection y sont copiées.</p>
+</dd>
+</dl>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">collection</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">collection</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;un&quot;</span><span class="p">);</span>
+<span class="n">collection</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;deux&quot;</span><span class="p">);</span>
+<span class="n">collection</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;trois&quot;</span><span class="p">);</span>
+
+<span class="n">Object</span><span class="o">[]</span> <span class="n">tableauObjet</span> <span class="o">=</span> <span class="n">collection</span><span class="p">.</span><span class="na">toArray</span><span class="p">();</span>
+
+<span class="n">String</span><span class="o">[]</span> <span class="n">tableauString</span> <span class="o">=</span> <span class="n">collection</span><span class="p">.</span><span class="na">toArray</span><span class="p">(</span><span class="k">new</span> <span class="n">String</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">);</span>
+
+<span class="n">String</span><span class="o">[]</span> <span class="n">autreTableauString</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[</span><span class="n">collection</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="o">]</span><span class="p">;</span>
+<span class="n">String</span><span class="o">[]</span> <span class="n">memeTableauString</span> <span class="o">=</span> <span class="n">collection</span><span class="p">.</span><span class="na">toArray</span><span class="p">(</span><span class="n">autreTableauString</span><span class="p">);</span>
+
+<span class="c1">// Tous les tableaux contiennent les mêmes éléments</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">tableauObjet</span><span class="p">,</span> <span class="n">tableauString</span><span class="p">));</span> <span class="c1">// true</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">tableauObjet</span><span class="p">,</span> <span class="n">autreTableauString</span><span class="p">));</span> <span class="c1">// true</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">tableauObjet</span><span class="p">,</span> <span class="n">memeTableauString</span><span class="p">));</span> <span class="c1">// true</span>
+
+<span class="c1">// Les variables référencent le même tableau</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">autreTableauString</span> <span class="o">==</span> <span class="n">memeTableauString</span><span class="p">);</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="les-tableaux-associatifs-maps">
+<h2>Les tableaux associatifs (maps)<a class="headerlink" href="#les-tableaux-associatifs-maps" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un tableau associatif (parfois appelé dictionnaire) ou <em>map</em> permet d’associer
+une clé à une valeur. Un tableau associatif ne peut pas contenir de doublon
+de clés.</p>
+<p>Les classes et les interfaces représentant des tableaux associatifs sont génériques
+et permettent de spécifier un type pour la clé et un type pour la valeur. Le
+<a class="reference external" href="https://docs.oracle.com/javase/8/docs/technotes/guides/collections/overview.html">Java Collections Framework</a> fournit plusieurs implémentations de tableaux
+associatifs : <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/TreeMap.html">TreeMap</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashMap.html">HashMap</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedHashMap.html">LinkedHashMap</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/EnumMap.html">EnumMap</a> qui représente un tableau associatif dont les clés sont
+des énumérations. Son implémentation est très compacte et très performante
+mais n’est utilisable que pour des clés de type <a class="reference internal" href="enumeration.html"><span class="doc">énumération</span></a>.</p>
+</div>
+<div class="section" id="la-classe-treemap">
+<h3>La classe TreeMap<a class="headerlink" href="#la-classe-treemap" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/TreeMap.html">TreeMap</a> est basée sur l’implémentation d’un arbre bicolore pour déterminer
+si une clé existe ou non dans le tableau associatif. Elle dispose d’une bonne
+performance en temps pour les opérations d’accès, d’ajout et de suppression de la
+clé.</p>
+<p>Cette classe contrôle l’unicité et l’accès à la clé en maintenant en interne
+une liste triée par ordre naturel des clés. L’ordre peut être donné soit
+parce que les éléments implémentent l’interface <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Comparable.html">Comparable</a> soit parce qu’une
+implémentation de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Comparator.html">Comparator</a> est passée en paramètre de constructeur au moment
+de la création de l’instance de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/TreeMap.html">TreeMap</a>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">tableauAssociatif</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">tableauAssociatif</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;un&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">tableauAssociatif</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;deux&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">tableauAssociatif</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;trois&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">tableauAssociatif</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;deux&quot;</span><span class="p">));</span> <span class="c1">// 2</span>
+
+<span class="kt">int</span> <span class="n">resultat</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">String</span> <span class="n">s</span> <span class="p">:</span> <span class="s">&quot;un deux trois&quot;</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">))</span> <span class="p">{</span>
+  <span class="n">resultat</span> <span class="o">+=</span> <span class="n">tableauAssociatif</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">resultat</span><span class="p">);</span> <span class="c1">// 6</span>
+
+<span class="n">tableauAssociatif</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="s">&quot;trois&quot;</span><span class="p">);</span>
+<span class="n">tableauAssociatif</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;deux&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">tableauAssociatif</span><span class="p">.</span><span class="na">keySet</span><span class="p">());</span> <span class="c1">// [deux, un]</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">tableauAssociatif</span><span class="p">.</span><span class="na">values</span><span class="p">());</span> <span class="c1">// [1000, 1]</span>
+</pre></div>
+</div>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/TreeMap.html">TreeMap</a> a donc comme particularité de conserver toujours ses clés
+triées.</p>
+</div>
+<div class="section" id="la-classe-hashmap">
+<h3>La classe HashMap<a class="headerlink" href="#la-classe-hashmap" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashMap.html">HashMap</a> utilise un code de hachage (hash code) pour contrôler l’unicité
+et l’accès aux clés. Un code de hachage est une valeur associée à un objet. Deux
+objets identiques doivent obligatoirement avoir le même code de hachage. Par contre
+deux objets distincts ont des codes de hachage qui peuvent être soit différents
+soit identiques. Un ensemble de clés différentes mais qui ont néanmoins le
+même code de hachage forment un <em>bucket</em>. La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashMap.html">HashMap</a> maintient en interne
+un tableau associatif entre une valeur de hachage et un <em>bucket</em>. Lorsqu’une nouvelle
+clé est ajoutée au <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashMap.html">HashMap</a>, ce dernier calcule son code de hachage et vérifie
+si ce code a déjà été stocké. Si c’est le cas, alors la valeur passée remplace
+l’ancienne valeur associée à cette clé. Sinon la nouvelle clé est ajoutée avec
+sa valeur.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Le code de hachage d’un objet est donné par la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html#hashCode()">Object.hashCode</a>.
+L’implémentation par défaut de cette méthode ne convient généralement pas. En
+effet, elle retourne un code différent pour des objets différents en mémoire.
+Deux objets qui ont un état considéré comme identique mais qui existent de
+manière distincte en mémoire auront un code de hachage différent si on utilise l’implémentation
+par défaut. Beaucoup de classes redéfinissent donc cette méthode (c’est notamment le
+cas de la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html">String</a>).</p>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">tableauAssociatif</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">tableauAssociatif</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;un&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">tableauAssociatif</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;deux&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">tableauAssociatif</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;trois&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">tableauAssociatif</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;deux&quot;</span><span class="p">));</span> <span class="c1">// 2</span>
+
+<span class="kt">int</span> <span class="n">resultat</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">String</span> <span class="n">s</span> <span class="p">:</span> <span class="s">&quot;un deux trois&quot;</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">))</span> <span class="p">{</span>
+  <span class="n">resultat</span> <span class="o">+=</span> <span class="n">tableauAssociatif</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">resultat</span><span class="p">);</span> <span class="c1">// 6</span>
+
+<span class="n">tableauAssociatif</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="s">&quot;trois&quot;</span><span class="p">);</span>
+<span class="n">tableauAssociatif</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;deux&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">tableauAssociatif</span><span class="p">.</span><span class="na">keySet</span><span class="p">());</span> <span class="c1">// [deux, un]</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">tableauAssociatif</span><span class="p">.</span><span class="na">values</span><span class="p">());</span> <span class="c1">// [1, 1000]</span>
+</pre></div>
+</div>
+<p>L’implémentation de la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashSet.html">HashSet</a> a des performances en temps supérieures
+à <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/TreeSet.html">TreeSet</a> pour les opérations d’ajout et d’accès.
+Elle impose néanmoins que les éléments qu’elle contient génèrent correctement
+un code de hachage avec la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html#hashCode()">hashCode</a>. Contrairement à la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/TreeMap.html">TreeMap</a>, elle
+ne garantit pas l’ordre dans lequel les clés sont stockées et donc l’ordre dans
+lequel elles peuvent être parcourues.</p>
+</div>
+<div class="section" id="la-classe-linkedhashmap">
+<h3>La classe LinkedHashMap<a class="headerlink" href="#la-classe-linkedhashmap" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedHashMap.html">LinkedHashMap</a>, comme la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashMap.html">HashMap</a>, utilise en interne un code
+de hachage mais elle garantit en plus que l’ordre de parcours des clés sera le
+même que l’ordre d’insertion. Cette implémentation garantit également que si
+elle est créée à partir d’une autre <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Map.html">Map</a>, l’ordre des clés sera maintenu.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">tableauAssociatif</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">tableauAssociatif</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;rouge&quot;</span><span class="p">,</span> <span class="mh">0xff0000</span><span class="p">);</span>
+<span class="n">tableauAssociatif</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;vert&quot;</span><span class="p">,</span> <span class="mh">0x00ff00</span><span class="p">);</span>
+<span class="n">tableauAssociatif</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;bleu&quot;</span><span class="p">,</span> <span class="mh">0x0000ff</span><span class="p">);</span>
+
+<span class="c1">// affichera : rouge puis vert puis bleu</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">String</span> <span class="n">k</span><span class="p">:</span> <span class="n">tableauAssociatif</span><span class="p">.</span><span class="na">keySet</span><span class="p">())</span> <span class="p">{</span>
+  <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">k</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedHashMap.html">LinkedHashMap</a> a été créée pour réaliser un compromis entre la classe
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashMap.html">HashMap</a> et la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/TreeMap.html">TreeMap</a> afin d’avoir des performances proches de la première
+tout en offrant l’ordre de parcours pour ses clés.</p>
+</div>
+<div class="section" id="les-classes-dictionary-et-hashtable">
+<h3>Les classes Dictionary et Hashtable<a class="headerlink" href="#les-classes-dictionary-et-hashtable" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La version 1.0 de Java a d’abord inclus les classes <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Dictionary.html">java.util.Dictionary</a> et
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Hashtable.html">java.util.Hashtable</a> pour représenter des tableaux associatifs.
+Ces deux classes sont toujours présentent dans
+l’API pour des raisons de compatibilité ascendante mais il ne faut <strong>surtout pas</strong>
+s’en servir. En effet, ces classes utilisent des mécanismes de synchronisation
+internes dans le cas où elles sont utilisées pour des accès concurrents
+(programmation parallèle ou <em>multithread</em>). Or, non seulement ces mécanismes
+de synchronisation pénalisent les performances mais en plus, ils se révèlent
+largement inefficaces pour gérer les accès concurrents (il existe d’autres façons
+de faire en Java).</p>
+</div>
+<div class="section" id="les-interfaces-pour-les-tableaux-associatifs">
+<h3>Les interfaces pour les tableaux associatifs<a class="headerlink" href="#les-interfaces-pour-les-tableaux-associatifs" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les tableaux associatifs du <a class="reference external" href="https://docs.oracle.com/javase/8/docs/technotes/guides/collections/overview.html">Java Collections Framework</a> sont liés aux interfaces
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Map.html">Map</a>, <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/SortedMap.html">SortedMap</a> et <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/NavigableMap.html">NavigableMap</a>. Ci-dessous le diagramme
+de classes présentant les différents héritages et implémentations pour les trois
+principales classes :</p>
+<img alt="../_images/map_classes_interfaces.png" src="../_images/map_classes_interfaces.png" />
+<p>Comme proposé par le <a class="reference external" href="https://en.wikipedia.org/wiki/Interface_segregation_principle">principe de ségrégation d’interface</a>, les variables,
+les paramètres et les attributs représentant des tableaux associatifs devraient avoir
+le type de l’interface adaptée. Par exemple, si vous utilisez une instance de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashMap.html">HashMap</a>,
+vous devriez y accéder à partir de l’interface <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Map.html">Map</a>.</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Map.html">Map</a></dt><dd><p>Il s’agit de l’interface qui définit un tableau associatif. Elle déclare
+les méthodes d’ajout de clé et de valeur, de consultation et de suppression
+à partir de la clé. Il est également possible d’obtenir l’ensemble des clés
+ou la collection de toutes les valeurs. Cette interface permet également
+de connaître la taille du tableau associatif.</p>
+</dd>
+<dt><a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/SortedMap.html">SortedMap</a></dt><dd><p>Cette interface indique que le tableau associatif maintient en interne un ordre naturel
+de ses clés. Elle offre notamment des méthodes pour accéder à la première et
+à la dernière clé de l’ensemble.</p>
+</dd>
+<dt><a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/NavigableMap.html">NavigableMap</a></dt><dd><p>Cette interface déclare des méthodes de navigation permettant par exemple
+de créer un sous ensemble à partir des clés qui sont plus grandes qu’une
+clé donnée.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="la-classe-outil-collections">
+<h2>La classe outil Collections<a class="headerlink" href="#la-classe-outil-collections" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collections.html">java.util.Collections</a> est une classe outil qui contient de nombreuses
+méthodes pour les listes, les ensembles et les tableaux associatifs. Elle contient
+également des attributs de classes correspondant à une liste, un ensemble et
+un tableau associatif vides et immutables.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestCollections</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">liste</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="n">Collections</span><span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="n">liste</span><span class="p">,</span> <span class="s">&quot;un&quot;</span><span class="p">,</span> <span class="s">&quot;deux&quot;</span><span class="p">,</span> <span class="s">&quot;trois&quot;</span><span class="p">,</span> <span class="s">&quot;quatre&quot;</span><span class="p">);</span>
+
+    <span class="c1">// La chaîne a plus grande dans la liste : &quot;un&quot;</span>
+    <span class="n">String</span> <span class="n">max</span> <span class="o">=</span> <span class="n">Collections</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">liste</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">max</span><span class="p">);</span>
+
+    <span class="c1">// Inverse l&#39;ordre de la liste</span>
+    <span class="n">Collections</span><span class="p">.</span><span class="na">reverse</span><span class="p">(</span><span class="n">liste</span><span class="p">);</span>
+    <span class="c1">// [quatre, trois, deux, un]</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">liste</span><span class="p">);</span>
+
+    <span class="c1">// Trie la liste</span>
+    <span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">liste</span><span class="p">);</span>
+    <span class="c1">// [deux, quatre, trois, un]</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">liste</span><span class="p">);</span>
+
+    <span class="c1">// Recherche de l&#39;index de la chaîne &quot;deux&quot; dans la liste triée : 0</span>
+    <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">Collections</span><span class="p">.</span><span class="na">binarySearch</span><span class="p">(</span><span class="n">liste</span><span class="p">,</span> <span class="s">&quot;deux&quot;</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">index</span><span class="p">);</span>
+
+    <span class="c1">// Remplace tous les éléments par la même chaîne</span>
+    <span class="n">Collections</span><span class="p">.</span><span class="na">fill</span><span class="p">(</span><span class="n">liste</span><span class="p">,</span> <span class="s">&quot;même chaîne partout&quot;</span><span class="p">);</span>
+    <span class="c1">// [même chaîne partout, même chaîne partout, même chaîne partout, même chaîne partout]</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">liste</span><span class="p">);</span>
+
+    <span class="c1">// Enveloppe la liste dans une liste qui n&#39;autorise plus a modifier son contenu</span>
+    <span class="n">liste</span> <span class="o">=</span> <span class="n">Collections</span><span class="p">.</span><span class="na">unmodifiableList</span><span class="p">(</span><span class="n">liste</span><span class="p">);</span>
+
+    <span class="c1">// On tente de modifier une liste qui n&#39;est plus modifiable</span>
+<span class="hll">    <span class="n">liste</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;Test&quot;</span><span class="p">);</span> <span class="c1">// ERREUR à l&#39;exécution : UnsupportedOperationException</span>
+</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="entrees_sorties.html" class="btn btn-neutral float-right" title="Les entrées/sorties" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="generiques.html" class="btn btn-neutral float-left" title="Méthodes et classes génériques" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright David Gayerie - david@gayerie.dev - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>
