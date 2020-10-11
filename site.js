@@ -27,13 +27,13 @@ function typeText(targetElement, text) {
 function getBackgroundKeywords() {
   const keywords =
   "JAVA,BEHAVIOUR DRIVEN DEVELOPMENT,TOMCAT,KANBAN,SPRING FRAMEWORK,C++,JS,ANDROID," +
-  "SCRUM,JAKARTA EE,PYSIDE2,SQL,HTTP,XML,SVG,CODE COVERAGE,GIT,JMETER,WEBGL,REFACTORING," +
+  "SCRUM,JAKARTA EE,PYSIDE2,PYTEST,SQL,HTTP,XML,SVG,CODE COVERAGE,GIT,JMETER,WEBGL,REFACTORING," +
   "DOCKER,QT,JENKINS,MOCK,ASYNCIO,LINUX,CUCUMBER,THREE.JS,DEPLOIEMENT CONTINU,GNU," +
   "JSON,CSS,PYTHON,CLEAN CODE,MYSQL,ANSIBLE,HATEOAS,HIBERNATE,EXTREME PROGRAMMING,JUNIT," +
-  "API WEB,SELENIUM,ANGULAR,DEVOPS,PYTEST,BLE,HTML5,JPA,SUBVERSION,LXD/LXC,MAVEN,KOTLIN," +
-  "HTTP/2,AGILE,BASH,GERKHIN,TEST DRIVEN DEVELOPMENT,ORACLE,C,LEAN,MAKE,JPA,ORM," +
+  "API WEB,SELENIUM,ANGULAR,DEVOPS,PYTEST,HTML5,JPA,SUBVERSION,LXD/LXC,MAVEN,KOTLIN," +
+  "HTTP/2,AGILE,BASH,GERKHIN,TEST DRIVEN DEVELOPMENT,ORACLE,C,LEAN,CMAKE,JPA,ORM," +
   "UML,MVC,N-TIERS,DESIGN PATTERNS,DOMAIN DRIVEN DEVELOPMENT,TEST ACCEPTATION," +
-  "TEST UNITAIRE,REACT,JAVASCRIPT,LUA";
+  "TEST UNITAIRE,REACT,JAVASCRIPT,LUA,SPRING BOOT";
   return shuffleWords(keywords, ",");
 }
 
@@ -49,7 +49,7 @@ function registerIconMessageListener() {
   }
 
   for(let e of document.getElementsByClassName("icon")) {
-    e.addEventListener("mouseover", updateIconMessage.bind(null, e.dataset.title));
+    e.addEventListener("mouseover", updateIconMessage.bind(null, e.parentElement.dataset.title));
     e.addEventListener("mouseout", updateIconMessage.bind(null, ""));
   }
 }
@@ -69,15 +69,31 @@ function rot13(e) {
   })
 }
 
-function unobfusce(e) {
+function alpha2num(e) {
+  return e.replace(/[A-J]/g,function(e){
+    return String.fromCharCode(e.charCodeAt(0)-17)
+  })
+}
+
+function unobfuscemail(e) {
+  e = rot13(e);
   for(let a of document.getElementsByClassName("obfuscemail")){
     a.href = "mailto:" + e;
+    a.dataset.title = a.dataset.title.replace("{}", e);
   }
 }
 
-unobfusce = unobfusce.bind(null, rot13("qnivq@tnlrevr.qri"));
+function unobfuscetel(e, e2) {
+  e = alpha2num(e);
+  e2 = alpha2num(e2);
+  for(let a of document.getElementsByClassName("obfuscetel")){
+    a.href = "tel:" + e;
+    a.dataset.title = a.dataset.title.replace("{}", e2);
+  }
+}
 
-window.addEventListener("load", unobfusce);
+window.addEventListener("load", unobfuscemail.bind(null, "qnivq@tnlrevr.qri"));
+window.addEventListener("load", unobfuscetel.bind(null, "+DDHGGHDHHFD", "AH.GG.HD.HH.FD"));
 window.addEventListener("load", updateBackgroundHeight);
 window.addEventListener("resize", updateBackgroundHeight);
 window.addEventListener("orientationchange", updateBackgroundHeight);
