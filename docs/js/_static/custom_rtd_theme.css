@@ -56,6 +56,31 @@ table.karnaugh tr td {
   background-color: #AF81E3;
 }
 
+.banner {
+    background: #4e4a4a;
+    color: #d9d9d9;
+    padding: 6px 12px;
+    border-radius: 50px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.banner a:link, .banner a:visited {
+    color: #d9d9d9;
+    font-weight: bold;
+}
+
+.copyright {
+    font-size: .75rem;
+    line-height: 1rem;
+}
+
+.copyright img {
+    float: left;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
 /* override table width restrictions */
 @media screen and (min-width: 600px) {
 
