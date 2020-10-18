@@ -43,7 +43,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Les tests d’acceptation et d’intégration" href="test_acceptation.html" />
+    <link rel="next" title="Les tests d’acceptation" href="test_acceptation.html" />
     <link rel="prev" title="TDD : Test Driven Development" href="../test/tdd.html" /> 
 </head>
 
@@ -136,14 +136,14 @@
 <p class="caption"><span class="caption-text">Ingénierie des tests</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction à l’ingénierie des tests</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#strategie-de-tests-et-types-de-tests">Stratégie de tests et types de tests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#strategie-de-test-et-types-de-test">Stratégie de test et types de test</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#les-tests-de-non-regression">Les tests de non régression</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#les-7-principes-des-tests">Les 7 principes des tests</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="test_acceptation.html">Les tests d’acceptation et d’intégration</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="test_acceptation.html">Les tests d’acceptation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="test_acceptation.html#methode-de-gestion-de-projet">Méthode de gestion de projet</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#notion-d-exigence">Notion d’exigence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#recette-fonctionnelle">Recette fonctionnelle</a></li>
@@ -156,7 +156,7 @@
 <li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#id2">Exercice</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="test_acceptation.html#dans-le-cadre-d-une-methode-agile">Dans le cadre d’une méthode agile</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="test_acceptation.html#methodes-agiles">Méthodes agiles</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="test_acceptation.html#le-behavior-driven-developement-bdd">Le <em>Behavior Driven Developement</em> (BDD)</a></li>
 </ul>
 </li>
@@ -286,7 +286,7 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="test_acceptation.html" class="btn btn-neutral float-right" title="Les tests d’acceptation et d’intégration" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="test_acceptation.html" class="btn btn-neutral float-right" title="Les tests d’acceptation" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../test/tdd.html" class="btn btn-neutral float-left" title="TDD : Test Driven Development" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
@@ -332,9 +332,9 @@ selon la complexité des systèmes) et coûteuse. Elle est donc réservée à de
 contextes à haut risque pour les système exigeant un haut niveau de fiabilité.
 Elle n’est donc pas appliquée dans le domaine du génie logiciel.</p>
 </div>
-<div class="section" id="strategie-de-tests-et-types-de-tests">
-<h2>Stratégie de tests et types de tests<a class="headerlink" href="#strategie-de-tests-et-types-de-tests" title="Lien permanent vers ce titre">¶</a></h2>
-<p>En informatique, les tests sont conditionnés par la stratégie de tests que
+<div class="section" id="strategie-de-test-et-types-de-test">
+<h2>Stratégie de test et types de test<a class="headerlink" href="#strategie-de-test-et-types-de-test" title="Lien permanent vers ce titre">¶</a></h2>
+<p>En informatique, les tests sont conditionnés par la stratégie de test que
 l’on souhaite mettre en place. Cette stratégie est dépendante du budget mais
 également des types de défauts contre lesquels on souhaite se prémunir. Un
 test permet de fournir un certain degré de confiance sur le fait qu’un système
@@ -342,7 +342,7 @@ test permet de fournir un certain degré de confiance sur le fait qu’un systè
 il est possible d’envisager le fonctionnement d’un système sous divers aspects,
 il existe divers types de test. Chacun de ces types servent à adresser un des
 aspects du fonctionnement du système.</p>
-<p>Parmi les types de tests, on distingue généralement :</p>
+<p>Parmi les types de test, on distingue généralement :</p>
 <ul class="simple">
 <li><p>Les tests unitaires : testent une partie (une unité) d’un système afin de
 s’assurer qu’il s’exécute sans erreur (<em>build the system right</em>)</p></li>
@@ -364,7 +364,7 @@ d’un système donné, il est tout à fait possible d’envisager un type de te
 permettant d’identifier des défauts spécifiques à ce système.</p>
 <p>Comme nous le rappelle les grands principes des tests (Cf. ci-dessous), il est
 impossible d’envisager une activité de test qui soit exhaustive, la stratégie de
-test sert donc à préciser quels types de tests doivent être réalisés et les
+test sert donc à préciser quels types de test doivent être réalisés et les
 conditions opérationnelles de réalisation de ces tests.</p>
 <div class="section" id="les-tests-de-non-regression">
 <h3>Les tests de non régression<a class="headerlink" href="#les-tests-de-non-regression" title="Lien permanent vers ce titre">¶</a></h3>
@@ -376,7 +376,7 @@ parties qui ne devraient pas être impactées par cette modification. Un test de
 non-régression suppose donc une modification limitée du système et s’applique
 aux parties du système qui n’ont pas subies cette modification.</p>
 <p>Les tests de non régression sont fondamentaux pour garantir la stabilité d’un
-système dans le temps. Cela supposent que l’activité de test est une activité
+système dans le temps. Cela suppose que l’activité de test est une activité
 périodique : on teste le système régulièrement et pas simplement une fois.
 C’est une des raisons majeures qui conduit les équipes à automatiser
 certains tests, c’est-à-dire à concevoir et développer des programmes capables
@@ -399,7 +399,7 @@ confiance sur la capacité du système à fonctionner avec un minimum de défaut
 <dt>Les tests exhaustifs sont impossibles</dt><dd><p>Sauf pour des systèmes extrêmement simples, il n’est pas possible d’envisager
 la totalité des combinaisons impliquées par les entrées fournies au système
 et les conditions d’exécution du système. Ce principe implique la nécessité
-de réfléchir à une stratégie de test, c’est-à-dire aux types de tests que
+de réfléchir à une stratégie de test, c’est-à-dire aux types de test que
 l’on souhaite réaliser et les conditions de réalisation de ces tests.</p>
 </dd>
 <dt>Tester au plus tôt</dt><dd><p>Les tests doivent être réalisés au plus tôt après la production du système
@@ -414,14 +414,14 @@ sur ces composants ou ces fonctionnalités.</p>
 </dd>
 <dt>Le paradoxe du pesticide</dt><dd><p>Si les tests ne trouvent pas de défaut, cela peut signifier que
 les tests tendent à mettre en valeur une catégorie particulière de défauts
-ignorant ainsi les autres. On prend l’image du pesticide qui éliminent un
-ensemble d’insectes jugés nuisibles mais laissent indemnes d’autres
+ignorant ainsi les autres. On prend l’image du pesticide qui élimine un
+ensemble d’insectes jugés nuisibles mais laisse indemnes d’autres
 populations d’insectes qui vont proliférer et devenir nuisibles à leur tour.
 Il est important de faire varier la nature des tests en produisant de
 nouveaux cas ou en enrichissant les données en entrée.</p>
 </dd>
-<dt>La stratégie de tests dépend du contexte</dt><dd><p>Il n’est pas possible de prévoir une procédure unique de tests applicable
-quel que soit le système car la stratégie de tests dépend du contexte. Un site
+<dt>La stratégie de test dépend du contexte</dt><dd><p>Il n’est pas possible de prévoir une procédure unique de tests applicable
+quel que soit le système car la stratégie de test dépend du contexte. Un site
 Web grand public n’aura pas les mêmes exigences de fiabilité que des applications
 Web internes à une entreprise. De même sur un site Web de e-commerce,
 les pages de consultation des produits n’auront sans doute pas la même exigence
@@ -444,7 +444,7 @@ non mis en valeur par les tests réalisés.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="test_acceptation.html" class="btn btn-neutral float-right" title="Les tests d’acceptation et d’intégration" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="test_acceptation.html" class="btn btn-neutral float-right" title="Les tests d’acceptation" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../test/tdd.html" class="btn btn-neutral float-left" title="TDD : Test Driven Development" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
