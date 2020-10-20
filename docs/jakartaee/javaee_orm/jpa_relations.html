@@ -271,16 +271,20 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Les relations avec JPA</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#la-relation-1-1-one-to-one">La relation 1:1 (one to one)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#la-relation-n-1-many-to-one">La relation n:1 (many to one)</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#la-relation-1-1-one-to-one">La relation 1:1 (one to one)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#la-relation-n-1-many-to-one">La relation n:1 (many to one)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#la-relation-1-n-one-to-many">La relation 1:n (one to many)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#la-relation-n-n-many-to-many">La relation n:n (many to many)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#les-relations-bi-directionnelles">Les relations bi-directionnelles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#la-propagation-en-cascade">La propagation en cascade</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#requetes-jpql-et-jointure">Requêtes JPQL et jointure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#fetch-lazy-ou-fetch-eager">Fetch lazy ou fetch eager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#relation-avec-des-attributs">Relation avec des attributs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#solution-1-referencer-la-cle-composee-avec-idclass">Solution 1 : Référencer la clé composée avec &#64;IdClass</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#solution-2-referencer-la-cle-composee-avec-embeddedid">Solution 2 : Référencer la clé composée avec &#64;EmbeddedId</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#solution-3-utiliser-une-cle-technique-simple">Solution 3 : Utiliser une clé technique simple</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="jpa_inheritance.html">L’héritage avec JPA</a><ul>
@@ -604,8 +608,9 @@ Si on désire exprimer un requête de la forme</p>
 </div>
 </div></blockquote>
 </div>
+</div>
 <div class="section" id="la-relation-n-1-many-to-one">
-<h3>La relation n:1 (many to one)<a class="headerlink" href="#la-relation-n-1-many-to-one" title="Lien permanent vers ce titre">¶</a></h3>
+<h2>La relation n:1 (many to one)<a class="headerlink" href="#la-relation-n-1-many-to-one" title="Lien permanent vers ce titre">¶</a></h2>
 <p>L’annotation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/ManyToOne.html">&#64;ManyToOne</a> définit une relation n:1 entre deux entités.</p>
 <div class="literal-block-wrapper docutils container" id="id5">
 <div class="code-block-caption"><span class="caption-text">Exemple de relation ManyToOne</span><a class="headerlink" href="#id5" title="Lien permanent vers ce code">¶</a></div>
@@ -708,7 +713,6 @@ Si on désire exprimer un requête de la forme</p>
 <div class="line"><strong>select i from Individu i where i.societe.id = 1</strong></div>
 </div>
 </div></blockquote>
-</div>
 </div>
 </div>
 <div class="section" id="la-relation-1-n-one-to-many">
@@ -1150,6 +1154,654 @@ n’est plus disponible. On utilise dans la requête l’option
 </div>
 <p>La définition des stratégies de fetch est une partie importante du
 tuning dans le développement d’une application utilisant JPA.</p>
+</div>
+<div class="section" id="relation-avec-des-attributs">
+<h2>Relation avec des attributs<a class="headerlink" href="#relation-avec-des-attributs" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Dans un modèle relationnel, il est courant que des tables d’association contiennent
+des colonnes pour caractériser une relation. Reprenons et complétons l’exemple de
+relation n:n présenté plus haut : un individu peut être associé à une ou plusieurs
+compétences et, pour chacune de ces compétences, il dispose d’un niveau de maîtrise
+(disons entre 0 et 5). Nous pouvons très facilement représenter cette relation
+avec le schéma suivant :</p>
+<div class="figure align-default" id="id22">
+<img alt="../_images/relation_many2many_with_attribute.png" src="../_images/relation_many2many_with_attribute.png" />
+<p class="caption"><span class="caption-text">Le modèle de base de données avec un attribut sur la relation entre Individu et Competence</span><a class="headerlink" href="#id22" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Cependant, dans le modèle objet, une relation entre deux objets ne peut pas avoir
+d’attribut. Pour ce type de <em>mapping</em>, nous avons une différence importante
+entre le modèle relationnel et le modèle objet. Si nous voulons traduire la colonne
+<code class="docutils literal notranslate"><span class="pre">niveau_maitrise</span></code> en Java, nous devons créer une entité pour représenter la table
+<code class="docutils literal notranslate"><span class="pre">individu_competence</span></code>. Ainsi, ce modèle ne peut pas être traduit comme une
+relation n:n entre deux entités <code class="docutils literal notranslate"><span class="pre">Individu</span></code> et <code class="docutils literal notranslate"><span class="pre">Competence</span></code> mais comme deux
+relations 1:n :</p>
+<ul class="simple">
+<li><p>une relation 1:N entre <code class="docutils literal notranslate"><span class="pre">IndividuCompetence</span></code> et <code class="docutils literal notranslate"><span class="pre">Individu</span></code></p></li>
+<li><p>une relation 1:N entre <code class="docutils literal notranslate"><span class="pre">IndividuCompetence</span></code> et <code class="docutils literal notranslate"><span class="pre">Competence</span></code></p></li>
+</ul>
+<p>La classe <code class="docutils literal notranslate"><span class="pre">Competence</span></code> reste identique à l’exemple vu précédemment :</p>
+<div class="literal-block-wrapper docutils container" id="id23">
+<div class="code-block-caption"><span class="caption-text">La classe Competence</span><a class="headerlink" href="#id23" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="p">;</span>
+
+<span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Competence</span> <span class="p">{</span>
+
+  <span class="nd">@Id</span>
+  <span class="nd">@GeneratedValue</span><span class="p">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">GenerationType</span><span class="p">.</span><span class="na">IDENTITY</span><span class="p">)</span>
+  <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="p">;</span>
+
+  <span class="c1">// getters et setters omis ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>Pour réaliser le reste du <em>mapping</em>, nous avons le choix entre trois solutions.
+En effet, il existe plusieurs <em>mappings</em> pour représenter la clé composée de la
+table <code class="docutils literal notranslate"><span class="pre">individu_competence</span></code>.</p>
+<div class="section" id="solution-1-referencer-la-cle-composee-avec-idclass">
+<h3>Solution 1 : Référencer la clé composée avec &#64;IdClass<a class="headerlink" href="#solution-1-referencer-la-cle-composee-avec-idclass" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="literal-block-wrapper docutils container" id="id24">
+<div class="code-block-caption"><span class="caption-text">La classe IndividuCompetence</span><a class="headerlink" href="#id24" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Column</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.IdClass</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.JoinColumn</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.ManyToOne</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Table</span><span class="p">;</span>
+
+<span class="nd">@Entity</span>
+<span class="nd">@Table</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;individu_competence&quot;</span><span class="p">)</span>
+<span class="nd">@IdClass</span><span class="p">(</span><span class="n">IndividuCompetencePK</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IndividuCompetence</span> <span class="p">{</span>
+
+  <span class="nd">@Id</span>
+  <span class="nd">@Column</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;individu_id&quot;</span><span class="p">)</span>
+  <span class="kd">private</span> <span class="n">Long</span> <span class="n">individuId</span><span class="p">;</span>
+
+  <span class="nd">@Id</span>
+  <span class="nd">@Column</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;competence_id&quot;</span><span class="p">)</span>
+  <span class="kd">private</span> <span class="n">Long</span> <span class="n">competenceId</span><span class="p">;</span>
+
+  <span class="nd">@Column</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;niveau_maitrise&quot;</span><span class="p">)</span>
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">niveauMaitrise</span><span class="p">;</span>
+
+  <span class="nd">@ManyToOne</span>
+  <span class="nd">@JoinColumn</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;individu_id&quot;</span><span class="p">,</span> <span class="n">insertable</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="n">updatable</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span>
+  <span class="kd">private</span> <span class="n">Individu</span> <span class="n">individu</span><span class="p">;</span>
+
+  <span class="nd">@ManyToOne</span>
+  <span class="nd">@JoinColumn</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;competence_id&quot;</span><span class="p">,</span> <span class="n">insertable</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="n">updatable</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span>
+  <span class="kd">private</span> <span class="n">Competence</span> <span class="n">competence</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getNiveauMaitrise</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">niveauMaitrise</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setNiveauMaitrise</span><span class="p">(</span><span class="kt">int</span> <span class="n">niveauMaitrise</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">niveauMaitrise</span> <span class="o">=</span> <span class="n">niveauMaitrise</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="n">Individu</span> <span class="nf">getIndividu</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">individu</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setIndividu</span><span class="p">(</span><span class="n">Individu</span> <span class="n">individu</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">individu</span> <span class="o">=</span> <span class="n">individu</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">individuId</span> <span class="o">=</span> <span class="n">individu</span><span class="p">.</span><span class="na">getId</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="n">Competence</span> <span class="nf">getCompetence</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">competence</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setCompetence</span><span class="p">(</span><span class="n">Competence</span> <span class="n">competence</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">competence</span> <span class="o">=</span> <span class="n">competence</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">competenceId</span> <span class="o">=</span> <span class="n">competence</span><span class="p">.</span><span class="na">getId</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>La classe <code class="docutils literal notranslate"><span class="pre">IndividuCompetence</span></code> est l’entité qui représente la table
+<code class="docutils literal notranslate"><span class="pre">individu_competence</span></code>, elle déclare deux relations <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/ManyToOne.html">&#64;ManyToOne</a> : à la ligne
+25 pour la relation avec l’entité <code class="docutils literal notranslate"><span class="pre">Individu</span></code> et à la ligne 29 pour la relation
+avec l’entité <code class="docutils literal notranslate"><span class="pre">Competence</span></code>. Elle dispose d’un attribut <code class="docutils literal notranslate"><span class="pre">niveauMaitrise</span></code> afin
+de fournir l’information sur la relation.</p>
+<p>L’inconvénient est que cette entité dispose d’une clé primaire composée des deux
+clés étrangères de l’association (<code class="docutils literal notranslate"><span class="pre">individu_id</span></code> et <code class="docutils literal notranslate"><span class="pre">competence_id</span></code>).
+Nous sommes donc obligés de déclarer deux attributs avec l’annotation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/Id.html">&#64;Id</a> pour
+identifier les deux attributs qui forment la clé composée (lignes 14 et 18).
+Remarquez que nous n’utilisons pas l’annotation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/GeneratedValue.html">&#64;GeneratedValue</a> pour ces
+attributs. En effet, la clé ne doit pas être générée puisqu’elle est la composition
+de deux autres clés déjà existantes : celle de <code class="docutils literal notranslate"><span class="pre">Individu</span></code> et celle de <code class="docutils literal notranslate"><span class="pre">Competence</span></code>.</p>
+<p>Notre <em>mapping</em> associe deux fois les colonnes <code class="docutils literal notranslate"><span class="pre">individu_id</span></code> et <code class="docutils literal notranslate"><span class="pre">competence_id</span></code>
+à des attributs de la classe puisque ces deux colonnes sont à la fois des composantes
+de la clé primaire et des clés étrangères. Nous sommes donc obligés d’indiquer à JPA
+qu’il ne doit pas tenir compte de ces colonnes lorsqu’il doit faire des insertions
+et des mises à jour pour les colonnes de jointure. C’est la signification
+des attributs <code class="docutils literal notranslate"><span class="pre">insertable</span> <span class="pre">=</span> <span class="pre">false</span></code> et <code class="docutils literal notranslate"><span class="pre">updatable</span> <span class="pre">=</span> <span class="pre">false</span></code> pour les annotations
+<a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/JoinColumn.html">&#64;JoinColumn</a> aux lignes 26 et 30.</p>
+<p>Plutôt que de fournir des getters/setters aux attributs <code class="docutils literal notranslate"><span class="pre">individuId</span></code> et
+<code class="docutils literal notranslate"><span class="pre">competenceId</span></code>, nous préférons les mettre à jour lorsqu’on invoque les
+méthodes <code class="docutils literal notranslate"><span class="pre">setIndividu</span></code> (ligne 47) et <code class="docutils literal notranslate"><span class="pre">setCompetence</span></code> (ligne 56). En effet,
+ces identifiants sont en fait dupliqués puisqu’ils doivent être identiques à
+la valeur des identifiants des objets de type <code class="docutils literal notranslate"><span class="pre">Individu</span></code> et <code class="docutils literal notranslate"><span class="pre">Competence</span></code>.</p>
+<p>Une entité JPA doit forcément disposer d’une classe qui représente sa clé. Jusqu’à
+présent, nous avons toujours déclaré des clés de type <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Long.html">Long</a>, une classe déjà
+fournie par la bibliothèque standard Java. Dans le cas de l’entité
+<code class="docutils literal notranslate"><span class="pre">IndividuCompetence</span></code>, nous avons déclaré deux clés dans la classe. Il faut
+donc fournir une classe supplémentaire pour représenter la composition de ces
+deux clés. Grâce à l’annotation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/IdClass.html">&#64;IdClass</a>, nous indiquons à la ligne 11 le type
+de la classe Java qui représente la clé composée pour cette entité.</p>
+<div class="literal-block-wrapper docutils container" id="id25">
+<div class="code-block-caption"><span class="caption-text">La classe IndividuCompetencePK</span><a class="headerlink" href="#id25" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.Serializable</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Objects</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IndividuCompetencePK</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="n">Long</span> <span class="n">individuId</span><span class="p">;</span>
+
+  <span class="kd">private</span> <span class="n">Long</span> <span class="n">competenceId</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="n">Long</span> <span class="nf">getIndividuId</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">individuId</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setIndividuId</span><span class="p">(</span><span class="n">Long</span> <span class="n">individuId</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">individuId</span> <span class="o">=</span> <span class="n">individuId</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="n">Long</span> <span class="nf">getCompetenceId</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">competenceId</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setCompetenceId</span><span class="p">(</span><span class="n">Long</span> <span class="n">competenceId</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">competenceId</span> <span class="o">=</span> <span class="n">competenceId</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="p">(</span><span class="n">Object</span> <span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">other</span> <span class="k">instanceof</span> <span class="n">IndividuCompetencePK</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">IndividuCompetencePK</span> <span class="n">pk</span> <span class="o">=</span> <span class="p">(</span><span class="n">IndividuCompetencePK</span><span class="p">)</span> <span class="n">other</span><span class="p">;</span>
+      <span class="k">return</span> <span class="n">Objects</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">individuId</span><span class="p">,</span> <span class="n">pk</span><span class="p">.</span><span class="na">individuId</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+             <span class="n">Objects</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">competenceId</span><span class="p">,</span> <span class="n">pk</span><span class="p">.</span><span class="na">competenceId</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">hashCode</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">Objects</span><span class="p">.</span><span class="na">hash</span><span class="p">(</span><span class="n">individuId</span><span class="p">,</span> <span class="n">competenceId</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>La classe <code class="docutils literal notranslate"><span class="pre">IndividuCompetencePK</span></code> représente la clé de la classe
+<code class="docutils literal notranslate"><span class="pre">IndividuCompetence</span></code>. Son implémentation doit respecter les contraintes suivantes :</p>
+<ul class="simple">
+<li><p>elle doit implémenter l’interface <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Serializable.html">Serializable</a> (ligne 4),</p></li>
+<li><p>elle doit déclarer tous les attributs qui composent la clé primaire (lignes 6 et 8),</p></li>
+<li><p>elle doit fournir une implémentation pour les méthodes <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)">equals</a> (ligne 26) et
+<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html#hashCode()">hashCode</a> (ligne 35).</p></li>
+</ul>
+<div class="literal-block-wrapper docutils container" id="id26">
+<div class="code-block-caption"><span class="caption-text">La classe Individu</span><a class="headerlink" href="#id26" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.CascadeType</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.OneToMany</span><span class="p">;</span>
+
+<span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Individu</span>  <span class="p">{</span>
+
+  <span class="nd">@Id</span>
+  <span class="nd">@GeneratedValue</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="n">GenerationType</span><span class="p">.</span><span class="na">IDENTITY</span><span class="p">)</span>
+  <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="p">;</span>
+
+  <span class="nd">@OneToMany</span><span class="p">(</span><span class="n">mappedBy</span><span class="o">=</span><span class="s">&quot;individu&quot;</span><span class="p">,</span> <span class="n">cascade</span> <span class="o">=</span> <span class="n">CascadeType</span><span class="p">.</span><span class="na">ALL</span><span class="p">)</span>
+  <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">IndividuCompetence</span><span class="o">&gt;</span> <span class="n">individuCompetences</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+  <span class="c1">// getters et setters omis ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>Pour notre exemple, il paraît utile qu’un objet de type <code class="docutils literal notranslate"><span class="pre">Individu</span></code> possède une
+liste de <code class="docutils literal notranslate"><span class="pre">IndividuCompetence</span></code> pour permettre au programme de connaître le niveau
+de compétence d’un individu donné. La relation entre <code class="docutils literal notranslate"><span class="pre">Individu</span></code> et <code class="docutils literal notranslate"><span class="pre">IndividuCompetence</span></code>
+est donc bi-directionnelle (ligne 18).</p>
+<p>Notez que la relation avec la liste <code class="docutils literal notranslate"><span class="pre">IndividuCompetence</span></code> indique une propagation
+en cascade pour toutes les opérations. En effet, d’un point de vue objet, cette
+relation est très certainement une relation de composition (aussi appelée
+agrégation composite en UML) et dénote un lien très fort entre ces entités.</p>
+</div>
+<div class="section" id="solution-2-referencer-la-cle-composee-avec-embeddedid">
+<h3>Solution 2 : Référencer la clé composée avec &#64;EmbeddedId<a class="headerlink" href="#solution-2-referencer-la-cle-composee-avec-embeddedid" title="Lien permanent vers ce titre">¶</a></h3>
+<p>L’implémentation précédente a un inconvénient : elle oblige à dupliquer les
+attributs représentant la clé composée de l’entité <code class="docutils literal notranslate"><span class="pre">IndividuCompetence</span></code> dans
+la classe <code class="docutils literal notranslate"><span class="pre">IndividuCompetencePK</span></code> qui représente la clé. Il est possible
+d’utiliser la notion de clé embarquée pour éviter cette duplication. Le code Java
+devient alors :</p>
+<div class="literal-block-wrapper docutils container" id="id27">
+<div class="code-block-caption"><span class="caption-text">La classe IndividuCompetencePK</span><a class="headerlink" href="#id27" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.Serializable</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Objects</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.Column</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Embeddable</span><span class="p">;</span>
+
+<span class="nd">@Embeddable</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IndividuCompetencePK</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="p">{</span>
+
+  <span class="nd">@Column</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;individu_id&quot;</span><span class="p">)</span>
+  <span class="kd">private</span> <span class="n">Long</span> <span class="n">individuId</span><span class="p">;</span>
+
+  <span class="nd">@Column</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;competence_id&quot;</span><span class="p">)</span>
+  <span class="kd">private</span> <span class="n">Long</span> <span class="n">competenceId</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="n">Long</span> <span class="nf">getIndividuId</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">individuId</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setIndividuId</span><span class="p">(</span><span class="n">Long</span> <span class="n">individuId</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">individuId</span> <span class="o">=</span> <span class="n">individuId</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="n">Long</span> <span class="nf">getCompetenceId</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">competenceId</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setCompetenceId</span><span class="p">(</span><span class="n">Long</span> <span class="n">competenceId</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">competenceId</span> <span class="o">=</span> <span class="n">competenceId</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="p">(</span><span class="n">Object</span> <span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">other</span> <span class="k">instanceof</span> <span class="n">IndividuCompetencePK</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">IndividuCompetencePK</span> <span class="n">pk</span> <span class="o">=</span> <span class="p">(</span><span class="n">IndividuCompetencePK</span><span class="p">)</span> <span class="n">other</span><span class="p">;</span>
+      <span class="k">return</span> <span class="n">Objects</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">individuId</span><span class="p">,</span> <span class="n">pk</span><span class="p">.</span><span class="na">individuId</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">Objects</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">competenceId</span><span class="p">,</span> <span class="n">pk</span><span class="p">.</span><span class="na">competenceId</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">hashCode</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">Objects</span><span class="p">.</span><span class="na">hash</span><span class="p">(</span><span class="n">individuId</span><span class="p">,</span> <span class="n">competenceId</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>La classe <code class="docutils literal notranslate"><span class="pre">IndividuCompetencePK</span></code> utilise l’annotation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/Embeddable.html">&#64;Embeddable</a> (ligne 9)
+pour indiquer qu’elle peut être utilisée dans une entité pour fournir une partie
+du <em>mapping</em>. Ainsi, elle déclare le <em>mapping</em> pour les attributs <code class="docutils literal notranslate"><span class="pre">individuId</span></code> et
+<code class="docutils literal notranslate"><span class="pre">competenceId</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id28">
+<div class="code-block-caption"><span class="caption-text">La classe IndividuCompetence</span><a class="headerlink" href="#id28" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Column</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.EmbeddedId</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.JoinColumn</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.ManyToOne</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Table</span><span class="p">;</span>
+
+<span class="nd">@Entity</span>
+<span class="nd">@Table</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;individu_competence&quot;</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IndividuCompetence</span> <span class="p">{</span>
+
+  <span class="nd">@EmbeddedId</span>
+  <span class="kd">private</span> <span class="n">IndividuCompetencePK</span> <span class="n">id</span> <span class="o">=</span> <span class="k">new</span> <span class="n">IndividuCompetencePK</span><span class="p">();</span>
+
+  <span class="nd">@Column</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;niveau_maitrise&quot;</span><span class="p">)</span>
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">niveauMaitrise</span><span class="p">;</span>
+
+  <span class="nd">@ManyToOne</span>
+  <span class="nd">@JoinColumn</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;individu_id&quot;</span><span class="p">,</span> <span class="n">insertable</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="n">updatable</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span>
+  <span class="kd">private</span> <span class="n">Individu</span> <span class="n">individu</span><span class="p">;</span>
+
+  <span class="nd">@ManyToOne</span>
+  <span class="nd">@JoinColumn</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;competence_id&quot;</span><span class="p">,</span> <span class="n">insertable</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="n">updatable</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span>
+  <span class="kd">private</span> <span class="n">Competence</span> <span class="n">competence</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getNiveauMaitrise</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">niveauMaitrise</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setNiveauMaitrise</span><span class="p">(</span><span class="kt">int</span> <span class="n">niveauMaitrise</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">niveauMaitrise</span> <span class="o">=</span> <span class="n">niveauMaitrise</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="n">Individu</span> <span class="nf">getIndividu</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">individu</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setIndividu</span><span class="p">(</span><span class="n">Individu</span> <span class="n">individu</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">individu</span> <span class="o">=</span> <span class="n">individu</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">setIndividuId</span><span class="p">(</span><span class="n">individu</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="n">Competence</span> <span class="nf">getCompetence</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">competence</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setCompetence</span><span class="p">(</span><span class="n">Competence</span> <span class="n">competence</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">competence</span> <span class="o">=</span> <span class="n">competence</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">setCompetenceId</span><span class="p">(</span><span class="n">competence</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>La classe <code class="docutils literal notranslate"><span class="pre">IndividuCompetence</span></code> n’utilise plus l’annotation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/IdClass.html">&#64;IdClass</a> et ne
+déclare plus les différents attributs composant la clé. À la place, elle déclare
+un attribut de type <code class="docutils literal notranslate"><span class="pre">IndividuCompetencePK</span></code> avec l’annotation <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/persistence/EmbeddedId.html">&#64;EmbeddedId</a>
+(ligne 12) pour signaler à JPA que cet attribut fournit le <em>mapping</em> de la clé
+composée. Le reste du code de la classe est adapté en fonction.</p>
+</div>
+<div class="section" id="solution-3-utiliser-une-cle-technique-simple">
+<h3>Solution 3 : Utiliser une clé technique simple<a class="headerlink" href="#solution-3-utiliser-une-cle-technique-simple" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il est important de comprendre que la complexité du <em>mapping</em> d’une table
+d’association en Java vient du fait qu’un modèle relationnel et un modèle objet
+ne se recoupent qu’imparfaitement. Dans les deux solutions vues précédemment, nous
+adaptons le modèle objet pour qu’il corresponde au modèle relationnel. Mais nous
+pouvons tout aussi bien adapter le modèle relationnel pour correspondre au modèle
+objet. Pour cela, il suffit de dénormaliser le modèle relationnel en ajoutant
+une colonne pour la clé primaire dans la table <code class="docutils literal notranslate"><span class="pre">individu_competence</span></code>.</p>
+<div class="figure align-default" id="id29">
+<img alt="../_images/relation_many2many_with_attribute_denormalized.png" src="../_images/relation_many2many_with_attribute_denormalized.png" />
+<p class="caption"><span class="caption-text">Le modèle de base de données dénormalisé</span><a class="headerlink" href="#id29" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Dans ce cas, nous n’avons plus besoin d’une classe spécifique pour représenter
+la clé et nous pouvons nous contenter de l’implémentation suivante pour la classe
+<code class="docutils literal notranslate"><span class="pre">IndividuCompetence</span></code> :</p>
+<div class="literal-block-wrapper docutils container" id="id30">
+<div class="code-block-caption"><span class="caption-text">La classe IndividuCompetence</span><a class="headerlink" href="#id30" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.persistence.Column</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.JoinColumn</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.ManyToOne</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Table</span><span class="p">;</span>
+
+<span class="nd">@Entity</span>
+<span class="nd">@Table</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;individu_competence&quot;</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IndividuCompetence</span> <span class="p">{</span>
+
+  <span class="nd">@Id</span>
+  <span class="nd">@GeneratedValue</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="n">GenerationType</span><span class="p">.</span><span class="na">IDENTITY</span><span class="p">)</span>
+  <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="p">;</span>
+
+  <span class="nd">@Column</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;niveau_maitrise&quot;</span><span class="p">)</span>
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">niveauMaitrise</span><span class="p">;</span>
+
+  <span class="nd">@ManyToOne</span>
+  <span class="nd">@JoinColumn</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;individu_id&quot;</span><span class="p">)</span>
+  <span class="kd">private</span> <span class="n">Individu</span> <span class="n">individu</span><span class="p">;</span>
+
+  <span class="nd">@ManyToOne</span>
+  <span class="nd">@JoinColumn</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;competence_id&quot;</span><span class="p">)</span>
+  <span class="kd">private</span> <span class="n">Competence</span> <span class="n">competence</span><span class="p">;</span>
+
+  <span class="c1">// getters et setters omis ...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
 </div>
 </div>
 
