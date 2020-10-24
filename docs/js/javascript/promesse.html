@@ -43,7 +43,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Introduction et mise en place" href="../threejs/introduction.html" />
+    <link rel="next" title="Programmation asynchrone avec async et await" href="async_await.html" />
     <link rel="prev" title="Les itérateurs et les générateurs" href="iterateur_generateur.html" /> 
 </head>
 
@@ -88,16 +88,20 @@
             
               <p class="caption"><span class="caption-text">JavaScript (notions avancées)</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="evolution_syntaxe.html">Les apports de ES5 et ES6</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="evolution_syntaxe.html">Les évolutions de la syntaxe depuis ES5</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="evolution_syntaxe.html#le-mode-strict-es5">Le mode strict (ES5)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="evolution_syntaxe.html#declarer-une-variable-avec-let-et-const-es6">Déclarer une variable avec let et const (ES6)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evolution_syntaxe.html#la-structure-for-of-es6">La structure for … of (ES6)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="evolution_syntaxe.html#gabarit-de-chaine-de-caracteres-es6">Gabarit de chaîne de caractères (ES6)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="evolution_syntaxe.html#evolution-de-la-syntaxe-en-es6">Évolution de la syntaxe en ES6</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="evolution_syntaxe.html#valeur-par-defaut-des-parametres">Valeur par défaut des paramètres</a></li>
-<li class="toctree-l3"><a class="reference internal" href="evolution_syntaxe.html#le-parametre-de-reste">Le paramètre de reste</a></li>
-<li class="toctree-l3"><a class="reference internal" href="evolution_syntaxe.html#la-decomposition-de-tableau">La décomposition de tableau</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="evolution_syntaxe.html#valeur-par-defaut-des-parametres-es6">Valeur par défaut des paramètres (ES6)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evolution_syntaxe.html#le-parametre-de-reste-es6">Le paramètre de reste (ES6)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evolution_syntaxe.html#la-decomposition-de-tableau-es6">La décomposition de tableau (ES6)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evolution_syntaxe.html#l-affectation-de-tableau-par-decomposition-es6">L’affectation de tableau par décomposition (ES6)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evolution_syntaxe.html#l-affectation-d-objet-par-decomposition-es6">L’affectation d’objet par décomposition (ES6)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evolution_syntaxe.html#l-operateur-d-exponentiation-es7">L’opérateur d’exponentiation (ES7)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evolution_syntaxe.html#programmation-asynchrone-avec-async-et-await-es7">Programmation asynchrone avec async et await (ES7)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evolution_syntaxe.html#operateur-de-coalescence-des-valeurs-nulles-es11">Opérateur de coalescence des valeurs nulles (ES11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evolution_syntaxe.html#chainage-optionnel-es11">Chaînage optionnel (ES11)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="modele_objet.html">Le modèle objet</a><ul>
@@ -144,6 +148,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#la-classe-promise">La classe Promise</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#le-chainage-des-appels">Le chaînage des appels</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#traitements-paralleles">Traitements parallèles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="async_await.html">Programmation asynchrone avec async et await</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="async_await.html#fonction-asynchrone">Fonction asynchrone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="async_await.html#ordre-des-appels-dans-un-traitement-asynchrone">Ordre des appels dans un traitement asynchrone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="async_await.html#la-boucle-for-await">La boucle for await</a></li>
 </ul>
 </li>
 </ul>
@@ -269,7 +279,7 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="../threejs/introduction.html" class="btn btn-neutral float-right" title="Introduction et mise en place" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="async_await.html" class="btn btn-neutral float-right" title="Programmation asynchrone avec async et await" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="iterateur_generateur.html" class="btn btn-neutral float-left" title="Les itérateurs et les générateurs" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
@@ -283,12 +293,21 @@
             
   <div class="section" id="les-promesses">
 <h1>Les promesses<a class="headerlink" href="#les-promesses" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Il est très courant d’écrire du code asynchrone en JavaScript. Dans un navigateur,
-cela permet de charger des informations en ajax. Dans un serveur, cela permet
-de préciser les traitements à réaliser lors de la réception d’une requête.
-Avant l’apparition des promesses, il fallait utiliser des méthodes de <em>callback</em>.</p>
-<p>Par exemple, le code suivant permet dans un navigateur de récupérer des données
-JSON :</p>
+<p>La programmation asynchrone a pris une place prépondérante dans le développement
+d’application en JavaScript. La raison principale vient du fait que l’interpréteur
+JavaScript intégré à tous les navigateurs Web ne supporte pas le parallélisme :
+le code JavaScript dans une page Web s’exécute dans un <em>thread</em> unique. Cela
+implique qu’il n’est pas possible de réaliser du code bloquant ou des boucles
+infinies. Pour le développement d’application serveur en JavaScript avec Node.js,
+le problème reste le même puisque Node.js reprend le même principe d’exécution
+dans un <em>thread</em> unique. Habituellement en programmation, les appels au système
+de fichiers ou les appels réseaux sont des appels bloquants. En JavaScript, comme
+un appel bloquant pénalise l’ensemble de la page Web ou de l’application, ce type
+d’appels est remplacé par un appel asynchrone.</p>
+<p>La première façon de réaliser des appels asynchrones en JavaScript est d’utiliser
+des méthodes de <em>callback</em> passées en paramètres de l’appel asynchrone. Par exemple,
+le code suivant permet depuis une page Web de récupérer des données JSON sur un
+serveur distant (appel réseau) :</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;http://monsite.fr/data.json&quot;</span><span class="p">);</span>
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">responseType</span> <span class="o">=</span> <span class="s2">&quot;json&quot;</span><span class="p">;</span>
@@ -348,17 +367,17 @@ la forme d’une promesse :</p>
 </div>
 <p>La méthode <strong>resolve</strong> est appelée en passant en paramètre le résultat de la tache.
 La méthode <strong>reject</strong> est appelée en passant un message d’erreur.</p>
-<p>Une promesse dispose de la méthode <code class="docutils literal notranslate"><span class="pre">then</span></code> pour passer le traitement à réaliser
-à la fin de la tache, c’est-à-dire lorsque la méthode <strong>resolve</strong> sera appelée.
-La méthode <code class="docutils literal notranslate"><span class="pre">then</span></code> attend une fonction <em>callback</em> qui recevra en paramètre l’objet
-passé en paramètre de la méthode <strong>resolve</strong>. Dans notre cas, il s’agira de la
-réponse de la requête.</p>
+<p>Une promesse dispose de la méthode <code class="docutils literal notranslate"><span class="pre">then</span></code> qui accepte en paramètre une méthode
+de <em>callback</em> fournissant le traitement à réaliser à la fin de la tache, c’est-à-dire
+lorsque la méthode <strong>resolve</strong> sera appelée. La fonction <em>callback</em> recevra en
+paramètre l’objet passé en paramètre de la méthode <strong>resolve</strong>. Dans notre cas,
+il s’agira de la réponse de la requête.</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">ajax</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Réponse du serveur :&quot;</span><span class="p">,</span> <span class="nx">response</span><span class="p">));</span>
 </pre></div>
 </div>
 <p>Si la tache échoue et que c’est la méthode <strong>reject</strong> qui est appelée, alors
 on peut utiliser la méthode <code class="docutils literal notranslate"><span class="pre">catch</span></code> pour préciser le traitement à appliquer
-lors de l’échec. Cette méthode attent une fonction <em>callback</em> qui recevra en
+lors de l’échec. Cette méthode attend une fonction <em>callback</em> qui recevra en
 paramètre le message passé en paramètre de la méthode <strong>reject</strong>.</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">ajax</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Réponse du serveur :&quot;</span><span class="p">,</span> <span class="nx">response</span><span class="p">))</span>
     <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">msg</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Message d&#39;erreur :&quot;</span><span class="p">,</span> <span class="nx">msg</span><span class="p">));</span>
@@ -398,7 +417,7 @@ que l’on peut chaîner les appels à la méthode <strong>then</strong>.</p>
 <p>Si une des méthodes <em>callback</em> passées aux méthodes <strong>then</strong> produit une exception,
 le chaînage des appels est interrompu et c’est la fonction passée à <strong>catch</strong> qui
 est exécutée.</p>
-<p>L’intérêt des promesses est de fournir un modèle lisible et universelle pour la
+<p>L’intérêt des promesses est de fournir un modèle lisible et universel pour la
 prise en charge des appels asynchrones. S’il est assez simple de créer ses propres
 promesses, de plus en plus de <em>frameworks</em> et de bibliothèques JavaScript proposent
 des API qui sont directement basées sur le modèle des promesses.</p>
@@ -424,7 +443,7 @@ sera achevée.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../threejs/introduction.html" class="btn btn-neutral float-right" title="Introduction et mise en place" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="async_await.html" class="btn btn-neutral float-right" title="Programmation asynchrone avec async et await" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="iterateur_generateur.html" class="btn btn-neutral float-left" title="Les itérateurs et les générateurs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>

@@ -10,7 +10,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Les apports de ES5 et ES6 &mdash; Documentation Le JavaScript moderne </title>
+  <title>Les évolutions de la syntaxe depuis ES5 &mdash; Documentation Le JavaScript moderne </title>
   
 
   
@@ -88,16 +88,20 @@
             
               <p class="caption"><span class="caption-text">JavaScript (notions avancées)</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Les apports de ES5 et ES6</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Les évolutions de la syntaxe depuis ES5</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#le-mode-strict-es5">Le mode strict (ES5)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#declarer-une-variable-avec-let-et-const-es6">Déclarer une variable avec let et const (ES6)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#la-structure-for-of-es6">La structure for … of (ES6)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gabarit-de-chaine-de-caracteres-es6">Gabarit de chaîne de caractères (ES6)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#evolution-de-la-syntaxe-en-es6">Évolution de la syntaxe en ES6</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#valeur-par-defaut-des-parametres">Valeur par défaut des paramètres</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#le-parametre-de-reste">Le paramètre de reste</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#la-decomposition-de-tableau">La décomposition de tableau</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#valeur-par-defaut-des-parametres-es6">Valeur par défaut des paramètres (ES6)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#le-parametre-de-reste-es6">Le paramètre de reste (ES6)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#la-decomposition-de-tableau-es6">La décomposition de tableau (ES6)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#l-affectation-de-tableau-par-decomposition-es6">L’affectation de tableau par décomposition (ES6)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#l-affectation-d-objet-par-decomposition-es6">L’affectation d’objet par décomposition (ES6)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#l-operateur-d-exponentiation-es7">L’opérateur d’exponentiation (ES7)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#programmation-asynchrone-avec-async-et-await-es7">Programmation asynchrone avec async et await (ES7)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#operateur-de-coalescence-des-valeurs-nulles-es11">Opérateur de coalescence des valeurs nulles (ES11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chainage-optionnel-es11">Chaînage optionnel (ES11)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="modele_objet.html">Le modèle objet</a><ul>
@@ -144,6 +148,12 @@
 <li class="toctree-l2"><a class="reference internal" href="promesse.html#la-classe-promise">La classe Promise</a></li>
 <li class="toctree-l2"><a class="reference internal" href="promesse.html#le-chainage-des-appels">Le chaînage des appels</a></li>
 <li class="toctree-l2"><a class="reference internal" href="promesse.html#traitements-paralleles">Traitements parallèles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="async_await.html">Programmation asynchrone avec async et await</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="async_await.html#fonction-asynchrone">Fonction asynchrone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="async_await.html#ordre-des-appels-dans-un-traitement-asynchrone">Ordre des appels dans un traitement asynchrone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="async_await.html#la-boucle-for-await">La boucle for await</a></li>
 </ul>
 </li>
 </ul>
@@ -255,7 +265,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Les apports de ES5 et ES6</li>
+      <li>Les évolutions de la syntaxe depuis ES5</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -281,11 +291,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="les-apports-de-es5-et-es6">
-<h1>Les apports de ES5 et ES6<a class="headerlink" href="#les-apports-de-es5-et-es6" title="Lien permanent vers ce titre">¶</a></h1>
-<p>ES5 et surtout ES6 ont apporté des évolutions importantes à la syntaxe du langage
-pour aller vers une meilleure cohérence et une meilleure robustesse dans le code
-produit. Ce chapitre résume les évolutions les plus importantes.</p>
+  <div class="section" id="les-evolutions-de-la-syntaxe-depuis-es5">
+<h1>Les évolutions de la syntaxe depuis ES5<a class="headerlink" href="#les-evolutions-de-la-syntaxe-depuis-es5" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Depuis la version 5 de ECMAScript (et surtout avec la version 6), la syntaxe du
+langage a beaucoup évolué pour aller vers une meilleure cohérence et une meilleure
+robustesse dans le code produit. Ce chapitre résume les évolutions les plus importantes.</p>
 <div class="section" id="le-mode-strict-es5">
 <h2>Le mode strict (ES5)<a class="headerlink" href="#le-mode-strict-es5" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Depuis ES5, il existe un mode strict qui active un renforcement des contrôles
@@ -375,6 +385,40 @@ déclaration est constante.</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="la-structure-for-of-es6">
+<h2>La structure for … of (ES6)<a class="headerlink" href="#la-structure-for-of-es6" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une nouvelle structure de contrôle <code class="docutils literal notranslate"><span class="pre">for</span></code> a été ajoutée avec ES6 pour permettre
+de parcourir les objets itérables. Il s’agit de la structure <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">...</span> <span class="pre">of</span></code></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">v</span> <span class="k">of</span> <span class="nx">voyelles</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">v</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Affiche</span>
+<span class="c1">// a</span>
+<span class="c1">// e</span>
+<span class="c1">// i</span>
+<span class="c1">// o</span>
+<span class="c1">// u</span>
+<span class="c1">// y</span>
+</pre></div>
+</div>
+<p>Les tableaux et les chaînes de caractères sont des objets itérables. Il est donc
+très facile de les parcourir avec cette nouvelle structure de contrôle.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="k">of</span> <span class="p">[</span><span class="mf">1</span><span class="p">,</span> <span class="mf">2</span><span class="p">,</span> <span class="mf">3</span><span class="p">,</span> <span class="mf">4</span><span class="p">])</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">l</span> <span class="k">of</span> <span class="s2">&quot;Bonjour&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">l</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Nous reviendrons dans un <a class="reference internal" href="iterateur_generateur.html#javascript-iterator"><span class="std std-ref">chapitre ultérieur</span></a> sur
+la notion d’itérateur et nous verrons comment créer nos propres itérateurs.</p>
+</div>
+</div>
 <div class="section" id="gabarit-de-chaine-de-caracteres-es6">
 <h2>Gabarit de chaîne de caractères (ES6)<a class="headerlink" href="#gabarit-de-chaine-de-caracteres-es6" title="Lien permanent vers ce titre">¶</a></h2>
 <p>ES6 introduit les gabarits de chaîne de caractères (<em>template string</em>) pour formater
@@ -413,10 +457,8 @@ peut être une expression complète : un appel de fonction, l’attribut d’un 
 </pre></div>
 </div>
 </div>
-<div class="section" id="evolution-de-la-syntaxe-en-es6">
-<h2>Évolution de la syntaxe en ES6<a class="headerlink" href="#evolution-de-la-syntaxe-en-es6" title="Lien permanent vers ce titre">¶</a></h2>
-<div class="section" id="valeur-par-defaut-des-parametres">
-<h3>Valeur par défaut des paramètres<a class="headerlink" href="#valeur-par-defaut-des-parametres" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="valeur-par-defaut-des-parametres-es6">
+<h2>Valeur par défaut des paramètres (ES6)<a class="headerlink" href="#valeur-par-defaut-des-parametres-es6" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Depuis ES6, il est possible de fournir des valeurs par défaut aux paramètres
 d’une fonction.</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">saluer</span><span class="p">(</span><span class="nx">qui</span><span class="p">,</span> <span class="nx">message</span> <span class="o">=</span> <span class="s2">&quot;Bonjour&quot;</span><span class="p">)</span> <span class="p">{</span>
@@ -428,8 +470,8 @@ d’une fonction.</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="le-parametre-de-reste">
-<h3>Le paramètre de reste<a class="headerlink" href="#le-parametre-de-reste" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="le-parametre-de-reste-es6">
+<h2>Le paramètre de reste (ES6)<a class="headerlink" href="#le-parametre-de-reste-es6" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Avec l’opérateur <code class="docutils literal notranslate"><span class="pre">...</span></code>, il est possible de déclarer une liste quelconque
 de paramètres correspondant au reste des paramètres. Cette liste sera vue comme
 un tableau à l’intérieur de la fonction</p>
@@ -467,8 +509,8 @@ un tableau à l’intérieur de la fonction</p>
 compréhension de la fonction.</p>
 </div>
 </div>
-<div class="section" id="la-decomposition-de-tableau">
-<h3>La décomposition de tableau<a class="headerlink" href="#la-decomposition-de-tableau" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="la-decomposition-de-tableau-es6">
+<h2>La décomposition de tableau (ES6)<a class="headerlink" href="#la-decomposition-de-tableau-es6" title="Lien permanent vers ce titre">¶</a></h2>
 <p>L’opérateur <code class="docutils literal notranslate"><span class="pre">...</span></code> sert également à la décomposition de tableau qui permet
 de passer les paramètres à l’appel d’une fonction sous la forme d’un tableau.</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">args</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2</span><span class="p">,</span> <span class="mf">3</span><span class="p">];</span>
@@ -493,6 +535,191 @@ d’une fonction :</p>
 <span class="nx">additionner</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span> <span class="c1">// Affiche 5</span>
 </pre></div>
 </div>
+</div>
+</div>
+<div class="section" id="l-affectation-de-tableau-par-decomposition-es6">
+<h2>L’affectation de tableau par décomposition (ES6)<a class="headerlink" href="#l-affectation-de-tableau-par-decomposition-es6" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’affectation par décomposition (<em>destructuring assignment</em>) permet de réaliser
+des affectations multiples à partir d’un tableau.</p>
+<p>On peut déclarer un tableau de variables à gauche de l’affectation.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">tableau</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1</span><span class="p">,</span> <span class="mf">2</span><span class="p">,</span> <span class="mf">3</span><span class="p">];</span>
+<span class="kd">let</span> <span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">]</span> <span class="o">=</span> <span class="nx">tableau</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// Affiche 1</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span> <span class="c1">// Affiche 2</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">c</span><span class="p">);</span> <span class="c1">// Affiche 3</span>
+</pre></div>
+</div>
+<p>Nous pouvons utiliser cette syntaxe pour intervertir la valeur de deux variables.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mf">1</span><span class="o">:</span>
+<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="mf">2</span><span class="o">:</span>
+<span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nx">b</span><span class="p">,</span> <span class="nx">a</span><span class="p">];</span> <span class="c1">// a vaut 2 et b vaut 1</span>
+</pre></div>
+</div>
+<p>Le tableau à gauche de l’affectation peut avoir une taille différent du tableau
+à droite de l’affectation. Si le tableau à gauche est plus petit, les éléments
+en plus à droite ne sont pas pris en compte.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1</span><span class="p">,</span> <span class="mf">2</span><span class="p">,</span> <span class="mf">3</span><span class="p">,</span> <span class="mf">4</span><span class="p">];</span> <span class="c1">// a vaut 1 et b vaut 2</span>
+</pre></div>
+</div>
+<p>Si le tableau à gauche de l’affectation est plus grand, les éléments en plus
+reçoivent la valeur <code class="docutils literal notranslate"><span class="pre">undefined</span></code>.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">,</span> <span class="nx">d</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1</span><span class="p">,</span> <span class="mf">2</span><span class="p">];</span> <span class="c1">// a vaut 1, b vaut 2, c et d valent undefined</span>
+</pre></div>
+</div>
+<p>On peut utiliser l’opérateur de reste <code class="docutils literal notranslate"><span class="pre">...</span></code> pour affecter à une variable tous
+les éléments restant :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="p">...</span><span class="nx">b</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1</span><span class="p">,</span> <span class="mf">2</span><span class="p">,</span> <span class="mf">3</span><span class="p">,</span> <span class="mf">4</span><span class="p">];</span> <span class="c1">// a vaut 1 et b vaut [2, 3, 4]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="l-affectation-d-objet-par-decomposition-es6">
+<h2>L’affectation d’objet par décomposition (ES6)<a class="headerlink" href="#l-affectation-d-objet-par-decomposition-es6" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’affectation par décomposition (<em>destructuring assignment</em>) permet également
+de réaliser des affectations multiples à partir d’un objet. Dans ce cas, le nom
+des variables à gauche de l’affectation correspondent au nom des propriétés
+de l’objet.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">personne</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">prenom</span><span class="o">:</span> <span class="s2">&quot;David&quot;</span><span class="p">,</span>
+    <span class="nx">nom</span><span class="o">:</span> <span class="s2">&quot;Gayerie&quot;</span>
+<span class="p">};</span>
+
+<span class="kd">let</span> <span class="p">{</span><span class="nx">nom</span><span class="p">,</span> <span class="nx">prenom</span><span class="p">}</span> <span class="o">=</span> <span class="nx">personne</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">prenom</span><span class="p">);</span> <span class="c1">// Affiche David</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">nom</span><span class="p">);</span> <span class="c1">// Affiche Gayerie</span>
+</pre></div>
+</div>
+<p>Comme pour l’affectation de tableau par décomposition, on peut spécifier moins
+de variables à gauche ou plus de variables ou utiliser l’opérateur de reste <code class="docutils literal notranslate"><span class="pre">...</span></code>
+pour affecter les propriétés restantes sous la forme d’un nouvel objet.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">personne</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">prenom</span><span class="o">:</span> <span class="s2">&quot;David&quot;</span><span class="p">,</span>
+    <span class="nx">nom</span><span class="o">:</span> <span class="s2">&quot;Gayerie&quot;</span><span class="p">,</span>
+    <span class="nx">taille</span><span class="o">:</span> <span class="mf">174</span>
+<span class="p">};</span>
+
+<span class="kd">let</span> <span class="p">{</span><span class="nx">nom</span><span class="p">,</span> <span class="nx">prenom</span><span class="p">}</span> <span class="o">=</span> <span class="nx">personne</span><span class="p">;</span> <span class="c1">// nom vaut &quot;David&quot; et prenom vaut &quot;Gayerie&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">personne</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">nom</span><span class="o">:</span> <span class="s2">&quot;Gayerie&quot;</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kd">let</span> <span class="p">{</span><span class="nx">nom</span><span class="p">,</span> <span class="nx">prenom</span><span class="p">}</span> <span class="o">=</span> <span class="nx">personne</span><span class="p">;</span> <span class="c1">// nom vaut &quot;David&quot; et prenom vaut undefined</span>
+</pre></div>
+</div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">personne</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">prenom</span><span class="o">:</span> <span class="s2">&quot;David&quot;</span><span class="p">,</span>
+    <span class="nx">nom</span><span class="o">:</span> <span class="s2">&quot;Gayerie&quot;</span><span class="p">,</span>
+    <span class="nx">taille</span><span class="o">:</span> <span class="mf">174</span>
+<span class="p">};</span>
+
+<span class="kd">let</span> <span class="p">{</span><span class="nx">taille</span><span class="p">,</span> <span class="p">...</span><span class="nx">nomComplet</span><span class="p">}</span> <span class="o">=</span> <span class="nx">personne</span><span class="p">;</span> <span class="c1">// taille vaut 174</span>
+                                        <span class="c1">// nomComplet vaut {prenom: &quot;David&quot;, nom: &quot;Gayerie&quot;}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="l-operateur-d-exponentiation-es7">
+<h2>L’opérateur d’exponentiation (ES7)<a class="headerlink" href="#l-operateur-d-exponentiation-es7" title="Lien permanent vers ce titre">¶</a></h2>
+<p>ECMAScript 7 a introduit l’opérateur d’exponentiation <code class="docutils literal notranslate"><span class="pre">**</span></code> qui se comporte
+comme un appel à <code class="docutils literal notranslate"><span class="pre">Math.pow</span></code>.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">carre</span> <span class="o">=</span> <span class="mf">4</span> <span class="o">**</span> <span class="mf">2</span><span class="p">;</span> <span class="c1">// produit 16</span>
+<span class="kr">const</span> <span class="nx">cube</span> <span class="o">=</span> <span class="mf">4</span> <span class="o">**</span> <span class="mf">3</span><span class="p">;</span> <span class="c1">// produit 64</span>
+</pre></div>
+</div>
+<p>Le code ci-dessus est strictement équivalent à</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">carre</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mf">4</span><span class="p">,</span> <span class="mf">2</span><span class="p">);</span> <span class="c1">// produit 16</span>
+<span class="kr">const</span> <span class="nx">cube</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mf">4</span><span class="p">,</span> <span class="mf">3</span><span class="p">);</span> <span class="c1">// produit 64</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="programmation-asynchrone-avec-async-et-await-es7">
+<h2>Programmation asynchrone avec async et await (ES7)<a class="headerlink" href="#programmation-asynchrone-avec-async-et-await-es7" title="Lien permanent vers ce titre">¶</a></h2>
+<p>ECMAScript 7 a ajouté les mots-clés <code class="docutils literal notranslate"><span class="pre">aync</span></code> et <code class="docutils literal notranslate"><span class="pre">await</span></code> pour faciliter la
+programmation asynchrone. Nous verrons plus en détail l’utilisation de ces
+mots-clés dans un <a class="reference internal" href="async_await.html#javascript-async-await"><span class="std std-ref">chapitre ultérieur</span></a>.</p>
+</div>
+<div class="section" id="operateur-de-coalescence-des-valeurs-nulles-es11">
+<h2>Opérateur de coalescence des valeurs nulles (ES11)<a class="headerlink" href="#operateur-de-coalescence-des-valeurs-nulles-es11" title="Lien permanent vers ce titre">¶</a></h2>
+<p>ECMAScript 11 a introduit l’opérateur <code class="docutils literal notranslate"><span class="pre">??</span></code> qui est appelé l’opérateur de
+coalescence des valeurs nulles (<em>nullish coalescing operator</em>). Il permet
+de fournir une valeur alternative lorsqu’une expression vaut <code class="docutils literal notranslate"><span class="pre">null</span></code> ou
+<code class="docutils literal notranslate"><span class="pre">undefined</span></code>.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="kc">null</span> <span class="o">??</span> <span class="s2">&quot;valeur par défaut&quot;</span><span class="p">;</span>      <span class="c1">// x vaut &quot;valeur par défaut&quot;</span>
+<span class="kd">let</span> <span class="nx">y</span> <span class="o">=</span> <span class="kc">undefined</span> <span class="o">??</span> <span class="s2">&quot;valeur par défaut&quot;</span><span class="p">;</span> <span class="c1">// y vaut &quot;valeur par défaut&quot;</span>
+<span class="kd">let</span> <span class="nx">z</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span> <span class="o">??</span> <span class="s2">&quot;valeur par défaut&quot;</span><span class="p">;</span>   <span class="c1">// z vaut &quot;hello&quot;</span>
+</pre></div>
+</div>
+<p>Avant l’apparition de cette opérateur, les développeurs JavaScript avaient
+l’habitude d’utiliser l’opérateur logique <code class="docutils literal notranslate"><span class="pre">||</span></code> pour réaliser un traitement
+similaire :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="kc">null</span> <span class="o">||</span> <span class="s2">&quot;valeur par défaut&quot;</span><span class="p">;</span>      <span class="c1">// x vaut &quot;valeur par défaut&quot;</span>
+<span class="kd">let</span> <span class="nx">y</span> <span class="o">=</span> <span class="kc">undefined</span> <span class="o">||</span> <span class="s2">&quot;valeur par défaut&quot;</span><span class="p">;</span> <span class="c1">// y vaut &quot;valeur par défaut&quot;</span>
+<span class="kd">let</span> <span class="nx">z</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span> <span class="o">||</span> <span class="s2">&quot;valeur par défaut&quot;</span><span class="p">;</span>   <span class="c1">// z vaut &quot;hello&quot;</span>
+</pre></div>
+</div>
+<p>Cependant les deux opérateurs ne sont pas identiques dans leur comportement.
+L’opérateur logique <code class="docutils literal notranslate"><span class="pre">||</span></code> retourne l’opérande de droite si l’opérande de gauche
+est <strong>faux</strong>. Or, en JavaScript, il n’y a pas que <code class="docutils literal notranslate"><span class="pre">null</span></code> et <code class="docutils literal notranslate"><span class="pre">undefined</span></code> qui
+s’évaluent à faux.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">m</span> <span class="o">=</span> <span class="kc">false</span> <span class="o">||</span> <span class="s2">&quot;valeur par défaut&quot;</span><span class="p">;</span> <span class="c1">// x vaut &quot;valeur par défaut&quot;</span>
+<span class="kd">let</span> <span class="nx">n</span> <span class="o">=</span> <span class="kc">false</span> <span class="o">??</span> <span class="s2">&quot;valeur par défaut&quot;</span><span class="p">;</span> <span class="c1">// y vaut false</span>
+
+<span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mf">0</span> <span class="o">||</span> <span class="s2">&quot;valeur par défaut&quot;</span><span class="p">;</span>  <span class="c1">// x vaut &quot;valeur par défaut&quot;</span>
+<span class="kd">let</span> <span class="nx">y</span> <span class="o">=</span> <span class="mf">0</span> <span class="o">??</span> <span class="s2">&quot;valeur par défaut&quot;</span><span class="p">;</span>  <span class="c1">// y vaut 0</span>
+
+<span class="kd">let</span> <span class="nx">w</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="o">||</span> <span class="s2">&quot;valeur par défaut&quot;</span><span class="p">;</span> <span class="c1">// x vaut &quot;valeur par défaut&quot;</span>
+<span class="kd">let</span> <span class="nx">z</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="o">??</span> <span class="s2">&quot;valeur par défaut&quot;</span><span class="p">;</span> <span class="c1">// y vaut &quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="chainage-optionnel-es11">
+<h2>Chaînage optionnel (ES11)<a class="headerlink" href="#chainage-optionnel-es11" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il est très courant de chaîner les références pour une meilleure lisibilité
+du code :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">personne</span><span class="p">.</span><span class="nx">adresse</span><span class="p">.</span><span class="nx">rue</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Le problème avec le code ci-dessus, c’est que nous devons être sûr que la propriété
+<code class="docutils literal notranslate"><span class="pre">adresse</span></code> existe et possède une valeur définie sinon cette expression échouera
+avec une erreur du type :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">TypeError</span><span class="o">:</span> <span class="nx">Cannot</span> <span class="nx">read</span> <span class="nx">property</span> <span class="s1">&#39;adresse&#39;</span> <span class="k">of</span> <span class="kc">undefined</span>
+</pre></div>
+</div>
+<p>Pour écrire du code robuste, nous pouvons vérifier préalablement que cette
+propriété existe ou, avec ES11, nous pouvons utiliser l’opérateur de chaînage
+optionel <code class="docutils literal notranslate"><span class="pre">?.</span></code> :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">personne</span><span class="p">.</span><span class="nx">adresse</span><span class="o">?</span><span class="p">.</span><span class="nx">rue</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Si <code class="docutils literal notranslate"><span class="pre">adresse</span></code> vaut <code class="docutils literal notranslate"><span class="pre">null</span></code> ou <code class="docutils literal notranslate"><span class="pre">undefined</span></code>, l’évaluation de l’expression s’arrête
+sans erreur et produit la valeur <code class="docutils literal notranslate"><span class="pre">undefined</span></code>.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">personne</span> <span class="o">=</span> <span class="p">{};</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">personne</span><span class="p">.</span><span class="nx">adresse</span><span class="o">?</span><span class="p">.</span><span class="nx">rue</span><span class="p">);</span> <span class="c1">// Affiche &quot;undefined&quot;</span>
+</pre></div>
+</div>
+<p>Il est également possible d’utiliser cet opérateur pour l’appel de méthode. Si
+la méthode n’existe pas, l’expression produit également la valeur <code class="docutils literal notranslate"><span class="pre">undefined</span></code>.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">personne</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">parler</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s2">&quot;bonjour&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">personne</span><span class="p">.</span><span class="nx">parler</span><span class="o">?</span><span class="p">.());</span> <span class="c1">// Affiche &quot;bonjour&quot;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">personne</span><span class="p">.</span><span class="nx">crier</span><span class="o">?</span><span class="p">.());</span> <span class="c1">// Affiche &quot;undefined&quot;</span>
+</pre></div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Prudence</p>
+<p>Le chaînage optionnel ne s’applique pas sur la première référence de la chaîne.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">personne</span><span class="o">?</span><span class="p">.</span><span class="nx">nom</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>L’utilisation de l’opérateur <code class="docutils literal notranslate"><span class="pre">?.</span></code> sur la variable <code class="docutils literal notranslate"><span class="pre">personne</span></code> n’a aucun
+effet. Si <code class="docutils literal notranslate"><span class="pre">personne</span></code> vaut <code class="docutils literal notranslate"><span class="pre">null</span></code> ou <code class="docutils literal notranslate"><span class="pre">undefined</span></code>, ce programme échouera :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Uncaught</span> <span class="nx">ReferenceError</span><span class="o">:</span> <span class="nx">personne</span> <span class="nx">is</span> <span class="nx">not</span> <span class="nx">defined</span>
+</pre></div>
 </div>
 </div>
 </div>
