@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Syne|Comfortaa');
 
 html {
-  font-size: 9pt;
+  font-size: 8.5pt;
   scroll-behavior: smooth;
 }
 
@@ -336,7 +336,7 @@ p.avis:after {
 
 @media (min-width: 45rem) {
   html {
-    font-size: 7pt;
+    font-size: 7.5pt;
   }
 
   .terminal {
