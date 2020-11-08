@@ -335,6 +335,10 @@ p.avis:after {
 }
 
 @media (min-width: 45rem) {
+  html {
+    font-size: 7pt;
+  }
+
   .terminal {
     font-size: 3rem;
   }
