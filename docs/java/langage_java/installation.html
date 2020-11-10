@@ -577,6 +577,58 @@ pour l’ajouter manuellement :</p>
 <p>N’oubliez pas de cocher la ligne de votre JDK dans l’écran <span class="guilabel">Installed JREs</span> pour
 qu’il devienne l’environnement d’exécution par défaut.</p>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p><strong>Eclipse ne se lance pas !</strong></p>
+<a class="reference internal image-reference" href="../_images/eclipse_error.png"><img alt="../_images/eclipse_error.png" src="../_images/eclipse_error.png" style="width: 75%;" /></a>
+<p>Il est possible que Eclipse échoue à démarrer. Comme Eclipse est lui-même écrit
+en Java, il a besoin d’une machine virtuelle Java (JVM) pour s’exécuter. Il est
+possible que votre système n’arrive pas à détecter la présence d’une JVM. Cela
+peut se produire si vous avez réalisé l’installation manuellement à partir
+d’une archive. Vous devez alors préciser dans le fichier de configuration de lancement
+d’Eclipse, le chemin complet de l’exécutable <code class="file docutils literal notranslate"><span class="pre">javaw.exe</span></code> (sous Windows)
+ou <code class="file docutils literal notranslate"><span class="pre">java</span></code> (sous MacOS et Linux). Cet exécutable est présent dans le répertoire
+<code class="file docutils literal notranslate"><span class="pre">bin</span></code> du JDK que vous avez installé. Sous Windows, il s’installe par défaut
+dans <code class="file docutils literal notranslate"><span class="pre">C:\Program</span> <span class="pre">Files\Java\jdk-</span><em><span class="pre">version</span> <span class="pre">du</span> <span class="pre">JDK</span></em><span class="pre">\bin</span></code></p>
+<p>Pour modifier la configuration d’Eclipse, éditez le fichier <code class="file docutils literal notranslate"><span class="pre">eclipse.ini</span></code>
+dans le répertoire de votre installation d’Eclipse. Pensez à faire une copie de
+ce fichier au cas où… Vous devez ajouter le paramètre <code class="docutils literal notranslate"><span class="pre">-vm</span></code> suivi à la ligne
+du chemin complet vers l’exécutable <code class="file docutils literal notranslate"><span class="pre">javaw.exe</span></code> (ou <code class="file docutils literal notranslate"><span class="pre">java</span></code>).
+<strong>ATTENTION</strong>, le paramètre <code class="docutils literal notranslate"><span class="pre">-vm</span></code> précède obligatoirement le paramètre <code class="docutils literal notranslate"><span class="pre">-vmargs</span></code>
+déjà présent dans le fichier :</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Un exemple de fichier eclipse.ini modifié</span><a class="headerlink" href="#id1" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>-startup
+plugins/org.eclipse.equinox.launcher_1.5.700.v20200207-2156.jar
+--launcher.library
+plugins/org.eclipse.equinox.launcher.gtk.linux.x86_64_1.1.1200.v20200508-1552
+-product
+org.eclipse.epp.package.jee.product
+-showsplash
+org.eclipse.epp.package.common
+--launcher.defaultAction
+openFile
+--launcher.defaultAction
+openFile
+--launcher.appendVmargs
+<span class="hll">-vm
+</span><span class="hll">C:/Progra~1/Java/jdk11/bin/javaw.exe
+</span>-vmargs
+-Dosgi.requiredJavaVersion=1.8
+-Dosgi.instance.area.default=@user.home/eclipse-workspace
+-XX:+UseG1GC
+-XX:+UseStringDeduplication
+--add-modules=ALL-SYSTEM
+-Dosgi.requiredJavaVersion=1.8
+-Dosgi.dataAreaRequiresExplicitInit=true
+-Xms256m
+-Xmx2048m
+--add-modules=ALL-SYSTEM
+</pre></div>
+</div>
+</div>
+<p>Pour plus de détail, reportez-vous au <a class="reference external" href="https://wiki.eclipse.org/Eclipse.ini#Specifying_the_JVM">Wiki d’Eclipse</a>.</p>
+</div>
 </div>
 </div>
 

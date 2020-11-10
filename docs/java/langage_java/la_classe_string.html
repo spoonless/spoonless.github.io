@@ -807,8 +807,14 @@ utilisation de la classe <a class="reference external" href="https://docs.oracle
 <div class="section" id="formatage-de-texte">
 <h2>Formatage de texte<a class="headerlink" href="#formatage-de-texte" title="Lien permanent vers ce titre">¶</a></h2>
 <p>La méthode de classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#format(java.lang.String,java.lang.Object...)">String.format</a> permet de passer une chaîne de caractères
-décrivant un formatage ainsi que plusieurs objets correspondant à des paramètres
-du formatage.</p>
+décrivant un formatage ainsi que plusieurs objets correspondant aux valeurs à
+mettre en forme.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Cette section ne présente que les notions de base de la mise en forme des chaînes
+de caractères. Reportez-vous à la documentation de la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Formatter.html">Formatter</a> qui est
+utilisée par la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#format(java.lang.String,java.lang.Object...)">String.format</a>.</p>
+</div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">who</span> <span class="o">=</span> <span class="s">&quot;the world&quot;</span><span class="p">;</span>
 <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;Hello %s!&quot;</span><span class="p">,</span> <span class="n">who</span><span class="p">);</span>
 
@@ -816,12 +822,72 @@ du formatage.</p>
 </pre></div>
 </div>
 <p>Dans l’exemple ci-dessus, la chaîne de formatage « Hello %s » contient un paramètre
-identifié par <em>%s</em> (s signifie que le paramètre attendu est de type <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html">String</a>.</p>
-<p>Un paramètre dans la chaîne de formatage peut contenir différente information :</p>
+identifié par <code class="docutils literal notranslate"><span class="pre">%s</span></code> (s signifie que le paramètre attendu est de type <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html">String</a>).</p>
+<p>Un paramètre dans la chaîne de formatage peut contenir différentes informations :</p>
 <blockquote>
 <div><p>%[index$][flags][taille]conversion</p>
 </div></blockquote>
-<p>L’index est la place du paramètre dans l’appel à la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#format(java.lang.String,java.lang.Object...)">String.format</a>.</p>
+<p>La conversion indique le type de donnée à convertir. L’information de conversion
+est obligatoire ! Attention, cela doit correspondre au type de la donnée effectivement
+passée en paramètre de <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#format(java.lang.String,java.lang.Object...)">String.format</a>. Quelques exemples de conversions acceptées :</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 89%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>conversion</p></th>
+<th class="head"><p>type de données</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>s</p></td>
+<td><p>Une chaîne de caractères (ou sinon la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html#toString()">toString</a> est appelée sur l’objet passé en paramètre)</p></td>
+</tr>
+<tr class="row-odd"><td><p>c</p></td>
+<td><p>Un caractère</p></td>
+</tr>
+<tr class="row-even"><td><p>b</p></td>
+<td><p>Un booléen</p></td>
+</tr>
+<tr class="row-odd"><td><p>d</p></td>
+<td><p>Un nombre décimal (<code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">long</span></code>, <code class="docutils literal notranslate"><span class="pre">short</span></code>, <code class="docutils literal notranslate"><span class="pre">byte</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p>f</p></td>
+<td><p>Un nombre flottant (<code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>t</p></td>
+<td><p>Une date ou un horaire. On peut préciser l’information spécifique que l’on souhaite extraire de la date : <code class="docutils literal notranslate"><span class="pre">te</span></code> pour le jour du mois, <code class="docutils literal notranslate"><span class="pre">tB</span></code> pour le nom du mois, <code class="docutils literal notranslate"><span class="pre">tY</span></code> pour l’année sur quatre décimales…</p></td>
+</tr>
+<tr class="row-even"><td><p>%</p></td>
+<td><p>Le caractère %</p></td>
+</tr>
+<tr class="row-odd"><td><p>n</p></td>
+<td><p>Un retour à la ligne spécifique à la plate-forme sur laquelle le programme s’exécute</p></td>
+</tr>
+</tbody>
+</table>
+<p>Les <em>flags</em> sont spécifiques au type de données et permettent de préciser le formatage.
+Par exemple pour les nombres, <code class="docutils literal notranslate"><span class="pre">0</span></code> permet de spécifier qu’il faut ajouter des zéros
+avant ou après si la donnée n’a pas la taille requise. Pour les nombres à virgule
+flottante, on peut utiliser <code class="docutils literal notranslate"><span class="pre">.</span></code> suivi d’un nombre pour indiquer le nombre maximum
+de chiffres après la virgule.</p>
+<p>La taille donne le nombre  minimum de caractères que la donnée doit occuper, une
+fois qu’elle est mise en forme.</p>
+<p>L’index est la place du paramètre dans l’appel à la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#format(java.lang.String,java.lang.Object...)">String.format</a>. S’il
+n’est pas mentionné, on présume que les données sont dans l’ordre des paramètres
+passés à la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#format(java.lang.String,java.lang.Object...)">String.format</a>.</p>
+<p>Quelques exemples d’appels à la méthode <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#format(java.lang.String,java.lang.Object...)">String.format</a> :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;Nom : %10s%10s&quot;</span><span class="p">,</span> <span class="s">&quot;David&quot;</span><span class="p">,</span> <span class="s">&quot;Gayerie&quot;</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">message</span><span class="p">);</span> <span class="c1">// &quot;Nom :      David   Gayerie&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;Prix TTC : %08.2f %s&quot;</span><span class="p">,</span> <span class="mf">12.5</span><span class="p">)</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">message</span><span class="p">);</span> <span class="c1">// &quot;Prix TTC : 00012,50 euros&quot;</span>
+</pre></div>
+</div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">quantite</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
 <span class="n">LocalDate</span> <span class="n">now</span> <span class="o">=</span> <span class="n">LocalDate</span><span class="p">.</span><span class="na">now</span><span class="p">();</span>
 
@@ -841,9 +907,6 @@ et permet de formater les nombres, les dates, etc comme attendu.</p>
 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">message</span><span class="p">);</span> <span class="c1">// &quot;quantity = 0000000012 on 5 september 2017&quot;</span>
 </pre></div>
 </div>
-<p>Pour mieux comprendre la syntaxe des paramètres dans une chaîne de formatage,
-reportez-vous à la documentation du <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Formatter.html">Formatter</a> qui est utilisé par la méthode
-<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#format(java.lang.String,java.lang.Object...)">String.format</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Il est également possible de formater des messages avec la classe <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/text/MessageFormat.html">MessageFormat</a>.
