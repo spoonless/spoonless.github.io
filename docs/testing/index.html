@@ -5,13 +5,31 @@
 <head>
   <meta charset="utf-8">
   <meta content="David Gayerie" name="author" />
-<meta content="Support de formation" name="description" />
-<meta content="développement, informatique, formation, programmation" name="keywords" />
+<meta content="Introduction à l'ingénierie des tests et à l'automatisation des tests" name="description" />
+<meta content="test, test automatisé, junit, phpunit, tdd, cucumber, bdd, selenium, jmeter" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Sommaire &mdash; Documentation Ingénierie des tests </title>
+
+  <title>Ingénierie des tests &mdash; Documentation Ingénierie des tests </title>
   
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Ingénierie des tests",
+    "description": "Introduction à l&#39;ingénierie des tests et à l&#39;automatisation des tests",
+    "provider": {
+      "@type": "Person",
+      "name": "David Gayerie",
+      "sameAs": "https://gayerie.dev"
+      
+    }
+  }
+  </script>
+
+
 
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
@@ -43,7 +61,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="Les tests unitaires automatisés avec JUnit" href="test/junit.html" /> 
+    <link rel="next" title="Introduction à l’ingénierie des tests" href="test_acceptation/introduction.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -85,54 +103,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Les tests unitaires</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="test/junit.html">Les tests unitaires automatisés avec JUnit</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="test/junit.html#junit">JUnit</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="test/junit.html#structure-d-une-classe-de-test-junit">Structure d’une classe de test JUnit</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="test/junit.html#execution-des-tests-junit">Exécution des tests JUnit</a></li>
-<li class="toctree-l4"><a class="reference internal" href="test/junit.html#les-methodes-de-test">Les méthodes de test</a></li>
-<li class="toctree-l4"><a class="reference internal" href="test/junit.html#les-assertions">Les assertions</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="test/junit.html#les-fixtures">Les fixtures</a></li>
-<li class="toctree-l3"><a class="reference internal" href="test/junit.html#tester-les-exceptions">Tester les exceptions</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="test/junit.html#utilisation-de-doublure">Utilisation de doublure</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="test/junit.html#implementation-d-objet-mock-avec-mockito">Implémentation d’objet mock avec Mockito</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="test/phpunit.html">Les tests unitaires automatisés avec PHPUnit</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="test/phpunit.html#phpunit">PHPUnit</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="test/phpunit.html#structure-d-une-classe-de-test-phpunit">Structure d’une classe de test PHPUnit</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="test/phpunit.html#les-methodes-de-test">Les méthodes de test</a></li>
-<li class="toctree-l4"><a class="reference internal" href="test/phpunit.html#les-assertions">Les assertions</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="test/phpunit.html#les-fixtures">Les fixtures</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="test/phpunit.html#utilisation-de-doublure">Utilisation de doublure</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="test/phpunit.html#implementation-d-objet-mock">Implémentation d’objet mock</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="test/tdd.html">TDD : Test Driven Development</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="test/tdd.html#qu-est-ce-qu-un-test">Qu’est-ce qu’un test ?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="test/tdd.html#test-driven-development">Test Driven Development</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="test/tdd.html#les-etapes-du-tdd">Les étapes du TDD</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="test/tdd.html#qu-est-ce-que-concevoir">Qu’est-ce que concevoir ?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="test/tdd.html#exercices">Exercices</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Ingénierie des tests</span></p>
+              <p class="caption"><span class="caption-text">Ingénierie des tests</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="test_acceptation/introduction.html">Introduction à l’ingénierie des tests</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="test_acceptation/introduction.html#strategie-de-test-et-types-de-test">Stratégie de test et types de test</a><ul>
@@ -224,6 +195,53 @@
 </ul>
 </li>
 </ul>
+<p class="caption"><span class="caption-text">Les tests unitaires</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="test/junit.html">Les tests unitaires automatisés avec JUnit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="test/junit.html#junit">JUnit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="test/junit.html#structure-d-une-classe-de-test-junit">Structure d’une classe de test JUnit</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="test/junit.html#execution-des-tests-junit">Exécution des tests JUnit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test/junit.html#les-methodes-de-test">Les méthodes de test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test/junit.html#les-assertions">Les assertions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="test/junit.html#les-fixtures">Les fixtures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="test/junit.html#tester-les-exceptions">Tester les exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="test/junit.html#utilisation-de-doublure">Utilisation de doublure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="test/junit.html#implementation-d-objet-mock-avec-mockito">Implémentation d’objet mock avec Mockito</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="test/phpunit.html">Les tests unitaires automatisés avec PHPUnit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="test/phpunit.html#phpunit">PHPUnit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="test/phpunit.html#structure-d-une-classe-de-test-phpunit">Structure d’une classe de test PHPUnit</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="test/phpunit.html#les-methodes-de-test">Les méthodes de test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test/phpunit.html#les-assertions">Les assertions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="test/phpunit.html#les-fixtures">Les fixtures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="test/phpunit.html#utilisation-de-doublure">Utilisation de doublure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="test/phpunit.html#implementation-d-objet-mock">Implémentation d’objet mock</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="test/tdd.html">TDD : Test Driven Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="test/tdd.html#qu-est-ce-qu-un-test">Qu’est-ce qu’un test ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test/tdd.html#test-driven-development">Test Driven Development</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="test/tdd.html#les-etapes-du-tdd">Les étapes du TDD</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="test/tdd.html#qu-est-ce-que-concevoir">Qu’est-ce que concevoir ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test/tdd.html#exercices">Exercices</a></li>
+</ul>
+</li>
+</ul>
 
             
           
@@ -271,7 +289,7 @@
     
       <li><a href="#" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Sommaire</li>
+      <li>Ingénierie des tests</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -285,7 +303,7 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="test/junit.html" class="btn btn-neutral float-right" title="Les tests unitaires automatisés avec JUnit" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="test_acceptation/introduction.html" class="btn btn-neutral float-right" title="Introduction à l’ingénierie des tests" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
   </div>
@@ -295,24 +313,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="sommaire">
-<h1>Sommaire<a class="headerlink" href="#sommaire" title="Lien permanent vers ce titre">¶</a></h1>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Les tests unitaires</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="test/junit.html">Les tests unitaires automatisés avec JUnit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="test/phpunit.html">Les tests unitaires automatisés avec PHPUnit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="test/tdd.html">TDD : Test Driven Development</a></li>
-</ul>
-</div>
+  <div class="section" id="ingenierie-des-tests">
+<h1>Ingénierie des tests<a class="headerlink" href="#ingenierie-des-tests" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Introduction à l’ingénierie des tests et à l’automatisation des tests</p>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Ingénierie des tests</span></p>
 <ul>
@@ -324,36 +327,12 @@
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Les tests unitaires</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="test/junit.html">Les tests unitaires automatisés avec JUnit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test/phpunit.html">Les tests unitaires automatisés avec PHPUnit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test/tdd.html">TDD : Test Driven Development</a></li>
+</ul>
 </div>
 </div>
 
@@ -365,7 +344,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="test/junit.html" class="btn btn-neutral float-right" title="Les tests unitaires automatisés avec JUnit" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="test_acceptation/introduction.html" class="btn btn-neutral float-right" title="Introduction à l’ingénierie des tests" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>
