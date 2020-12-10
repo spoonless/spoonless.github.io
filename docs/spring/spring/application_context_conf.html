@@ -1,0 +1,1117 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Spring Framework - Configuration d'une application" name="description" />
+<meta content="Java, Spring Framework, Spring Boot, framework, Jakarta EE, Java EE, IoC, injection de dépendances" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+
+  <title>Configuration d’une application &mdash; Spring Framework / Spring Boot</title>
+
+
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/spring/spring/application_context_conf.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Le langage d’expression SpEL" href="spel.html" />
+    <link rel="prev" title="Déclaration par annotations" href="annotations.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Spring Framework / Spring Boot
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Spring Framework et Spring Boot</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#le-spring-framework-vs-j2ee">Le Spring Framework vs. J2EE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#spring-boot-et-la-configuration-automatique">Spring Boot et la configuration automatique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#les-modules-spring-framework">Les modules Spring Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#les-projets-spring">Les projets Spring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="principe_ioc.html">L’inversion de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="principe_ioc.html#l-injection-de-dependance">L’injection de dépendance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="principe_ioc.html#id2">L’inversion de contrôle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="principe_ioc.html#notion-de-conteneur-ioc">Notion de conteneur IoC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="application_context.html">Le contexte d’application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#mise-en-place-du-projet">Mise en place du projet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#une-premiere-application-avec-spring">Une première application avec Spring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#notion-de-portee-scope">Notion de portée (scope)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#l-injection-de-bean">L’injection de bean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#les-methodes-d-initialisation-et-de-destruction">Les méthodes d’initialisation et de destruction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="annotations.html">Déclaration par annotations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#l-annotation-autowired">L’annotation &#64;Autowired</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#desambiguisation-avec-primary-et-qualifier">Désambiguïsation avec &#64;Primary et &#64;Qualifier</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="annotations.html#l-annotation-primary">L’annotation &#64;Primary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="annotations.html#l-annotation-qualifier">L’annotation &#64;Qualifier</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#l-annotation-value">L’annotation &#64;Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#les-annotations-jsr-250">Les annotations JSR-250</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#detection-automatique-des-composants-component-scan">Détection automatique des composants (<em>component scan</em>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#notion-de-composant">Notion de composant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#stereotype-de-composant">Stéréotype de composant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#le-stereotype-configuration">Le stéréotype &#64;Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#creation-de-stereotype-de-composant">Création de stéréotype de composant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#notions-avancees-pour-la-gestion-des-dependances">Notions avancées pour la gestion des dépendances</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="annotations.html#l-annotation-order">L’annotation &#64;Order</a></li>
+<li class="toctree-l3"><a class="reference internal" href="annotations.html#l-annotation-dependson">L’annotation &#64;DependsOn</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#support-des-annotations-standard-jsr-330">Support des annotations standard JSR-330</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuration d’une application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#lancer-une-application-spring-boot">Lancer une application Spring Boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#spring-boot-et-le-fichier-application-properties">Spring Boot et le fichier application.properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#injection-des-proprietes-avec-value">Injection des propriétés avec &#64;Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ajout-de-fichiers-de-proprietes-avec-propertysource">Ajout de fichiers de propriétés avec &#64;PropertySource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-variables-d-environnement">Les variables d’environnement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#la-classe-environment">La classe Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#beans-de-proprietes-avec-configurationproperties-spring-boot">Beans de propriétés avec &#64;ConfigurationProperties (Spring Boot)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction-a-bean-validation">Introduction à Bean Validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pour-en-savoir-plus">Pour en savoir plus</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spel.html">Le langage d’expression SpEL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spel.html#un-exemple-d-utilisation-de-spel">Un exemple d’utilisation de SpEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spel.html#principe-de-spel">Principe de SpEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spel.html#l-operateur-ternaire">L’opérateur ternaire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spel.html#l-operateur-elvis">L’opérateur Elvis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spel.html#l-operateur-de-surete">L’opérateur de sûreté</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spel.html#la-projection">La projection</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aop.html">Spring AOP : programmation orientée aspect</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aop.html#principe-de-la-programmation-orientee-aspect">Principe de la programmation orientée aspect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aop.html#terminologie-de-la-programmation-orientee-aspect">Terminologie de la programmation orientée aspect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aop.html#integration-du-module-spring-aop">Intégration du module Spring AOP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aop.html#integration-dans-une-application-spring-boot">Intégration dans une application Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aop.html#integration-dans-une-application-sans-spring-boot">Intégration dans une application sans Spring Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aop.html#exemple-de-programmation-orientee-aspect-avec-spring-aop">Exemple de programmation orientée aspect avec Spring AOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aop.html#la-programmation-orientee-aspect-pour-gerer-les-annotations">La programmation orientée Aspect pour gérer les annotations</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Spring Web MVC</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="spring_mvc_intro.html">Introduction à Spring Web MVC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_intro.html#le-modele-mvc">Le modèle MVC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_intro.html#integration-de-spring-web-mvc">Intégration de Spring Web MVC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc_intro.html#integration-dans-une-application-avec-spring-boot">Intégration dans une application avec Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc_intro.html#integration-dans-une-application-sans-spring-boot">Intégration dans une application sans Spring Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_intro.html#l-encodage-des-parametres-de-requetes">L’encodage des paramètres de requêtes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spring_mvc.html">Les applications Web avec Spring Web MVC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#les-controleurs">Les contrôleurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#les-vues-jsp">Les vues JSP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#pour-une-application-avec-spring-boot">Pour une application avec Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#pour-une-application-sans-spring-boot">Pour une application sans Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#utilisation-des-vues-jsp">Utilisation des vues JSP</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#les-vues-thymeleaf">Les vues Thymeleaf</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#id1">Pour une application avec Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#id2">Pour une application sans Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#utilisation-des-vues-thymeleaf">Utilisation des vues Thymeleaf</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#le-modele">Le modèle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#une-application-multi-couches-n-tiers">Une application multi-couches (N-Tiers)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#la-signature-des-methodes-de-controleur">La signature des méthodes de contrôleur</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#les-parametres">Les paramètres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#la-valeur-de-retour">La valeur de retour</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#taglib-jsp-et-gestion-des-formulaires">Taglib JSP et gestion des formulaires</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#spring-s-jsp-taglib">Spring’s JSP taglib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#form-taglib">Form taglib</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#gestion-des-formulaires-avec-thymeleaf">Gestion des formulaires avec Thymeleaf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#externalisation-des-messages">Externalisation des messages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#id4">Pour une application avec Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#id5">Pour une application sans Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#utilisation-des-messages-dans-une-jsp">Utilisation des messages dans une JSP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#utilisation-des-messages-avec-thymeleaf">Utilisation des messages avec Thymeleaf</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#validation-des-parametres-d-une-requete">Validation des paramètres d’une requête</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#la-notion-de-binding-et-le-bindingresult">La notion de <em>binding</em> et le BindingResult</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#validation-dans-la-methode-du-controleur">Validation dans la méthode du contrôleur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#creation-d-un-validateur">Création d’un validateur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#validation-declarative-avec-bean-validation">Validation déclarative avec Bean Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#affichage-des-erreurs-de-validation">Affichage des erreurs de validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#post-redirect-get">POST-redirect-GET</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#la-gestion-des-exceptions">La gestion des exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#methodes-de-modele">Méthodes de modèle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#methodes-de-binder">Méthodes de binder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#controlleradvice">ControllerAdvice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spring_mvc_apiweb.html">Les API Web avec Spring Web MVC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#support-pour-les-formats-json-et-xml">Support pour les formats JSON et XML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#l-annotation-restcontroller">L’annotation &#64;RestController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#un-controleur-pour-une-api-web">Un contrôleur pour une API Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#la-negociation-de-contenu">La négociation de contenu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#l-envoi-de-donnees">L’envoi de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#la-reponse">La réponse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#restcontrolleradvice">RestControllerAdvice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#les-annotations-jackson">Les annotations Jackson</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc_apiweb.html#les-vues-json">Les vues JSON</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#implementation-d-un-client">Implémentation d’un client</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="thymeleaf.html">Introduction à Thymeleaf</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#integration-de-thymeleaf">Intégration de Thymeleaf</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="thymeleaf.html#pour-une-application-avec-spring-boot">Pour une application avec Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="thymeleaf.html#pour-une-application-sans-spring-boot">Pour une application sans Spring Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#les-attributs-thymeleaf">Les attributs Thymeleaf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#l-expression-d-evaluation">${…} : l’expression d’évaluation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#l-expression-de-selection">*{…} : l’expression de sélection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#l-expression-de-message">#{…} : l’expression de message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#l-expression-d-url">&#64;{…} : l’expression d’URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#prevention-de-l-injection">Prévention de l’injection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#les-conditions-et-les-boucles">Les conditions et les boucles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#operateur-de-coalescence-des-nuls">Opérateur de coalescence des nuls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#le-formatage-des-donnees">Le formatage des données</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Spring et l'accès aux bases de données</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="spring_dao.html">Spring DAO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spring_dao.html#l-annotation-repository">L’annotation &#64;Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_dao.html#integration-de-jpa">Intégration de JPA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_dao.html#integration-dans-une-application-spring-boot">Intégration dans une application Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_dao.html#integration-dans-une-application-sans-spring-boot">Intégration dans une application sans Spring Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_dao.html#acces-aux-donnees-avec-jdbc">Accès aux données avec JDBC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_dao.html#id1">Intégration dans une application Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_dao.html#id2">Intégration dans une application sans Spring Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_dao.html#uniformite-de-la-hierarchie-des-exceptions">Uniformité de la hiérarchie des exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spring_data_jpa.html">Spring Data avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spring_data_jpa.html#notion-de-repository">Notion de repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_data_jpa.html#spring-data-jpa">Spring Data JPA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_data_jpa.html#integration-des-repositories">Intégration des repositories</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_data_jpa.html#integration-dans-une-application-spring-boot">Intégration dans une application Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_data_jpa.html#integration-dans-une-application-sans-spring-boot">Intégration dans une application sans Spring Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_data_jpa.html#injection-des-repositories">Injection des <em>repositories</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_data_jpa.html#ajout-de-methodes-dans-une-interface-de-repository">Ajout de méthodes dans une interface de repository</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_data_jpa.html#requetes-nommees-jpa">Requêtes nommées JPA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_data_jpa.html#utilisation-de-query">Utilisation de &#64;Query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_data_jpa.html#declaration-de-requetes-de-modification">Déclaration de requêtes de modification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_data_jpa.html#implementation-des-methodes-de-repository">Implémentation des méthodes de <em>repository</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spring_tx.html">Spring Transaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#la-transaction">La transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#spring-boot-et-la-configuration-automatique">Spring Boot et la configuration automatique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#transaction-et-couche-de-service">Transaction et couche de service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#l-annotation-transactional">L’annotation &#64;Transactional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#gestion-declarative-du-rollback">Gestion déclarative du <em>rollback</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#configuration-avancee-pour-les-transactions">Configuration avancée pour les transactions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_tx.html#la-propagation">La propagation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_tx.html#l-isolation">L’isolation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#configuration-des-transactions-sans-spring-boot">Configuration des transactions sans Spring Boot</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Spring Framework / Spring Boot</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+<div class="banner">D'autres formations sont sur <a href="https://gayerie.dev">https://gayerie.dev</a></div>
+
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Configuration d’une application</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="spel.html" class="btn btn-neutral float-right" title="Le langage d’expression SpEL" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="annotations.html" class="btn btn-neutral float-left" title="Déclaration par annotations" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="configuration-d-une-application">
+<h1>Configuration d’une application<a class="headerlink" href="#configuration-d-une-application" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Le fait de dépendre du conteneur IoC pour la création de notre application va
+avoir certains avantages : notre application va être plus facilement configurable.
+En effet, le Spring Framework va pouvoir injecter pour nous des valeurs extraites
+de fichiers de configuration.</p>
+<p>Nous allons également utiliser dans ce chapitre pour la première fois la classe
+<a class="reference external" href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/SpringApplication.html">SpringApplication</a> qui est fournie spécifiquement par Spring Boot. Il est
+recommandé d’utiliser cette classe pour démarrer une application Spring Boot
+afin de bénéficier des mécanismes d’auto-configuration.</p>
+<div class="section" id="lancer-une-application-spring-boot">
+<h2>Lancer une application Spring Boot<a class="headerlink" href="#lancer-une-application-spring-boot" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Comme nous l’avons précisé dans notre chapitre d’introduction, Spring Boot n’est
+pas une évolution ou une nouvelle version du Spring Framework. Il s’agit d’une
+extension destinée à simplifier la création d’application en se basant sur des
+mécanismes de configuration automatique.</p>
+<p>Une application Spring Boot utilise la classe <a class="reference external" href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/SpringApplication.html">SpringApplication</a>. Cette classe
+fournit la méthode statique <code class="docutils literal notranslate"><span class="pre">run</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">La base d’une application Spring Boot</span><a class="headerlink" href="#id2" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.boot.SpringApplication</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.boot.autoconfigure.SpringBootApplication</span><span class="p">;</span>
+
+<span class="nd">@SpringBootApplication</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyApplication</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">SpringApplication</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">MyApplication</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="n">args</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>La méthode <code class="docutils literal notranslate"><span class="pre">run</span></code> attend en paramètres la classe qui va servir de base pour
+la création du contexte d’application et la liste des paramètres de lancement
+de l’application. La méthode <code class="docutils literal notranslate"><span class="pre">run</span></code> a pour responsabilité de créer un
+contexte d’application mais elle a aussi la charge de <em>deviner</em> le comportement
+attendu. Par exemple, nous verrons dans le chapitre <a class="reference internal" href="spring_mvc.html"><span class="doc">Les applications Web avec Spring Web MVC</span></a> que
+si nous activons le support pour une application Web, l’appel à la méthode
+<code class="docutils literal notranslate"><span class="pre">run</span></code> va également lancer un serveur Web embarqué.</p>
+<p>Cette méthode <code class="docutils literal notranslate"><span class="pre">run</span></code> retourne une instance de <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/ApplicationContext.html">ApplicationContext</a>. Contrairement
+à une application Spring classique, il n’est pas nécessaire de fermer le contexte
+d’application ainsi créé, Spring Boot s’en chargera à la fin de l’exécution de
+notre méthode <code class="docutils literal notranslate"><span class="pre">main</span></code>. Ainsi, la classe de lancement d’une application Spring
+Boot se limite souvent au code donné ci-dessus.</p>
+<p>L’annotation <a class="reference external" href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/SpringBootApplication.html">&#64;SpringBootApplication</a> est équivalente à <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Configuration.html">&#64;Configuration</a> et
+<a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/ComponentScan.html">&#64;ComponentScan</a> (plus d’autres choses). Il n’est donc pas nécessaire d’ajouter
+ces annotations. Si vous souhaitez configurer la détection de <em>beans</em>, l’annotation
+<a class="reference external" href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/SpringBootApplication.html">&#64;SpringBootApplication</a> fournit les attributs <code class="docutils literal notranslate"><span class="pre">scanBasePackages</span></code> et
+<code class="docutils literal notranslate"><span class="pre">scanBasePackageClasses</span></code> qui sont équivalents aux attributs <code class="docutils literal notranslate"><span class="pre">basePackages</span></code> et
+<code class="docutils literal notranslate"><span class="pre">basePackagesClasses</span></code> de l’annotation <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/ComponentScan.html">&#64;ComponentScan</a>.</p>
+</div>
+<div class="section" id="spring-boot-et-le-fichier-application-properties">
+<h2>Spring Boot et le fichier application.properties<a class="headerlink" href="#spring-boot-et-le-fichier-application-properties" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une application Spring Boot dispose également d’un fichier de configuration
+par défaut nommé <code class="file docutils literal notranslate"><span class="pre">application.properties</span></code>. Ce fichier est présent dans
+le chemin de classe (<em>classpath</em>) de l’application. Pour un projet géré avec
+Maven, cela signifie que le fichier <code class="file docutils literal notranslate"><span class="pre">application.properties</span></code> se trouve
+dans <code class="file docutils literal notranslate"><span class="pre">src/main/resources</span></code>. Ce fichier est utilisé pour paramétrer le
+comportement par défaut de l’application. En fonction des dépendances déclarées
+dans notre projet et en fonction de la valeur des propriétés présentes dans ce
+fichier, Spring Boot va adapter la création du contexte d’application. Nous
+verrons que cela simplifie considérablement le développement d’une application
+Web et l’interaction avec les bases de données.</p>
+<p>La documentation complète des propriétés disponibles avec Spring Boot est
+disponible à cette adresse :</p>
+<blockquote>
+<div><p><a class="reference external" href="https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html">https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html</a></p>
+</div></blockquote>
+</div>
+<div class="section" id="injection-des-proprietes-avec-value">
+<h2>Injection des propriétés avec &#64;Value<a class="headerlink" href="#injection-des-proprietes-avec-value" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Nous avons vu <a class="reference internal" href="annotations.html#spring-annotation-value"><span class="std std-ref">au chapitre précédent</span></a> qu’il est
+possible d’utiliser l’annotation <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Value.html">&#64;Value</a> pour injecter une valeur dans une
+propriété. Dans la valeur à injecter, nous pouvons utiliser la syntaxe <code class="docutils literal notranslate"><span class="pre">${</span></code> <code class="docutils literal notranslate"><span class="pre">}</span></code>
+pour donner le nom d’une propriété. Alors c’est la valeur extraite du fichier de
+propriétés qui sera injectée. Il est donc facile d’extraire n’importe quelle
+valeur de configuration pour notre application.</p>
+<p>Si nous reprenons notre exemple d’un fournisseur de connexion à une base de données
+en utilisant l’API JDBC, nous pouvons très facilement extraire la configuration
+nécessaire dans le fichier <code class="file docutils literal notranslate"><span class="pre">application.properties</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Implémentation d’un fournisseur de connexion à une base de données</span><a class="headerlink" href="#id3" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.db</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.sql.Connection</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.sql.DriverManager</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.sql.SQLException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.function.Supplier</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.annotation.PostConstruct</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.annotation.PreDestroy</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Value</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Component</span><span class="p">;</span>
+
+<span class="nd">@Component</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SimpleConnectionProvider</span> <span class="kd">implements</span> <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">Connection</span><span class="o">&gt;</span> <span class="p">{</span>
+
+<span class="hll">  <span class="nd">@Value</span><span class="p">(</span><span class="s">&quot;${database.uri}&quot;</span><span class="p">)</span>
+</span>  <span class="kd">private</span> <span class="n">String</span> <span class="n">databaseUri</span><span class="p">;</span>
+<span class="hll">  <span class="nd">@Value</span><span class="p">(</span><span class="s">&quot;${database.login}&quot;</span><span class="p">)</span>
+</span>  <span class="kd">private</span> <span class="n">String</span> <span class="n">login</span><span class="p">;</span>
+<span class="hll">  <span class="nd">@Value</span><span class="p">(</span><span class="s">&quot;${database.password}&quot;</span><span class="p">)</span>
+</span>  <span class="kd">private</span> <span class="n">String</span> <span class="n">password</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="n">Connection</span> <span class="n">connection</span><span class="p">;</span>
+
+  <span class="nd">@PostConstruct</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">openConnection</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">SQLException</span> <span class="p">{</span>
+    <span class="n">connection</span> <span class="o">=</span> <span class="n">DriverManager</span><span class="p">.</span><span class="na">getConnection</span><span class="p">(</span><span class="n">databaseUri</span><span class="p">,</span> <span class="n">login</span><span class="p">,</span> <span class="n">password</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nd">@PreDestroy</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">closeConnection</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">SQLException</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">connection</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">connection</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="n">Connection</span> <span class="nf">get</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">connection</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Le fichier application.properties</span><a class="headerlink" href="#id4" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">database.uri</span> <span class="o">=</span> <span class="s">jdbc:mariadb://localhost:3306/db</span>
+<span class="na">database.login</span> <span class="o">=</span> <span class="s">root</span>
+<span class="na">database.password</span> <span class="o">=</span> <span class="s">r00t</span>
+</pre></div>
+</div>
+</div>
+<p>Le type de la valeur à injecter ne se limite pas à une chaînes de caractères.
+Le Spring Framework est capable de réaliser une conversion de type. Ainsi,
+on peut injecter des primitives (nombres, valeurs booléennes, caractères). On
+peut également injecter un objet de n’importe quel type. Il suffit que la classe
+du type possède un constructeur qui accepte en paramètre une chaîne de caractères
+ou une méthode statique de fabrique <code class="docutils literal notranslate"><span class="pre">valueOf</span></code> qui accepte en paramètre une chaîne de
+caractères. Par exemple, la classe standard Java <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/net/URL.html">URL</a> possède un constructeur
+avec un paramètre de type <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html">String</a>. Nous pouvons donc injecter une propriété
+dans un attribut de ce type à l’aide de <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Value.html">&#64;Value</a> :</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Utilisation de &#64;Value pour injecter une URL</span><a class="headerlink" href="#id5" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.net.URL</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Value</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Component</span><span class="p">;</span>
+
+<span class="nd">@Component</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RemoteServerAccess</span> <span class="p">{</span>
+
+  <span class="nd">@Value</span><span class="p">(</span><span class="s">&quot;${remote.server.url}&quot;</span><span class="p">)</span>
+  <span class="kd">private</span> <span class="n">URL</span> <span class="n">url</span><span class="p">;</span>
+
+  <span class="c1">// ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Le fichier application.properties</span><a class="headerlink" href="#id6" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">remote.server.url</span> <span class="o">=</span> <span class="s">http://localhost/access</span>
+</pre></div>
+</div>
+</div>
+<p>Si la propriété n’existe pas, la valeur correspond à la chaîne de caractères
+donnée directement dans <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Value.html">&#64;Value</a>. Cependant, il est possible de fournir une
+valeur par défaut avec la syntaxe :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>${propriete : valeur}
+</pre></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Utilisation de &#64;Value avec une valeur par défaut</span><a class="headerlink" href="#id7" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.net.URL</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Value</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Component</span><span class="p">;</span>
+
+<span class="nd">@Component</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RemoteServerAccess</span> <span class="p">{</span>
+
+  <span class="nd">@Value</span><span class="p">(</span><span class="s">&quot;${remote.server.url}&quot;</span><span class="p">)</span>
+  <span class="kd">private</span> <span class="n">URL</span> <span class="n">url</span><span class="p">;</span>
+
+<span class="hll">  <span class="nd">@Value</span><span class="p">(</span><span class="s">&quot;${remote.server.timeout : 1000}&quot;</span><span class="p">)</span>
+</span>  <span class="kd">private</span> <span class="kt">int</span> <span class="n">timeout</span><span class="p">;</span>
+
+  <span class="c1">// ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ajout-de-fichiers-de-proprietes-avec-propertysource">
+<h2>Ajout de fichiers de propriétés avec &#64;PropertySource<a class="headerlink" href="#ajout-de-fichiers-de-proprietes-avec-propertysource" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une application Spring Boot supporte par défaut l’utilisation d’un fichier
+<code class="file docutils literal notranslate"><span class="pre">application.properties</span></code>. Mais si vous ne souhaitez pas utiliser
+Spring Boot ou que vous voulez ajouter des fichiers de configuration supplémentaires,
+vous pouvez utiliser l’annotation <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/PropertySource.html">&#64;PropertySource</a> pour désigner l’emplacement
+du fichier ou des fichiers de propriétés.</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">Utilisation de &#64;PropertySource</span><a class="headerlink" href="#id8" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.boot.SpringApplication</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.boot.autoconfigure.SpringBootApplication</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.PropertySource</span><span class="p">;</span>
+
+<span class="nd">@SpringBootApplication</span>
+<span class="hll"><span class="nd">@PropertySource</span><span class="p">(</span><span class="s">&quot;classpath:config.properties&quot;</span><span class="p">)</span>
+</span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyApplication</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">SpringApplication</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">MyApplication</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="n">args</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>L’emplacement du fichier est donné sous la forme d’une URI. Le Spring Framework
+introduit le schéma <code class="docutils literal notranslate"><span class="pre">classpath</span></code> pour désigner l’emplacement d’une fichier
+dans le chemin de classe. Mais il est également possible d’utiliser <code class="docutils literal notranslate"><span class="pre">file</span></code> pour
+désigner un chemin dans le système de fichiers ou même <code class="docutils literal notranslate"><span class="pre">http</span></code> et <code class="docutils literal notranslate"><span class="pre">https</span></code> pour
+télécharger un fichier de configuration depuis le Web.</p>
+<p>Pour notre application Spring Boot, le fichier <code class="file docutils literal notranslate"><span class="pre">config.properties</span></code> s’ajoute
+au fichier <code class="file docutils literal notranslate"><span class="pre">application.properties</span></code>. Donc si la même propriété est déclarée dans
+les deux fichiers alors c’est la valeur déclarée dans <code class="file docutils literal notranslate"><span class="pre">application.properties</span></code>
+qui sera utilisée.</p>
+<p>Il est possible de déclarer plusieurs fichiers en même temps :</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">Utilisation de &#64;PropertySource pour déclarer plusieurs fichiers</span><a class="headerlink" href="#id9" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.boot.SpringApplication</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.boot.autoconfigure.SpringBootApplication</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.PropertySource</span><span class="p">;</span>
+
+<span class="nd">@SpringBootApplication</span>
+<span class="hll"><span class="nd">@PropertySource</span><span class="p">({</span><span class="s">&quot;classpath:config.properties&quot;</span><span class="p">,</span> <span class="s">&quot;file:config.properties&quot;</span><span class="p">})</span>
+</span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyApplication</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">SpringApplication</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">MyApplication</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="n">args</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Cela permet de créer un ordre d’évaluation. Dans notre exemple ci-dessus, quand
+une propriété doit être injectée, sa valeur est recherchée d’abord dans le fichier
+<code class="file docutils literal notranslate"><span class="pre">application.properties</span></code> puis dans le fichier <code class="file docutils literal notranslate"><span class="pre">config.properties</span></code> qui
+se trouve dans le répertoire courant du lancement de l’application et enfin
+dans le fichier <code class="file docutils literal notranslate"><span class="pre">config.properties</span></code> qui se trouve dans le <em>classpath</em>.
+Les fichiers les plus à droite dans la liste sont prioritaires.</p>
+<p>Attention, les fichiers de propriétés doivent exister ou sinon la création du
+contexte d’application échouera. Si vous voulez rendre la présence d’un fichier
+optionnelle, vous devez passer l’attribut <code class="docutils literal notranslate"><span class="pre">ignoreResourceNotFound</span></code> à la valeur
+<code class="docutils literal notranslate"><span class="pre">true</span></code> :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.boot.SpringApplication</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.boot.autoconfigure.SpringBootApplication</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.PropertySource</span><span class="p">;</span>
+
+<span class="nd">@SpringBootApplication</span>
+<span class="nd">@PropertySource</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;classpath:config.properties&quot;</span><span class="p">,</span> <span class="s">&quot;file:config.properties&quot;</span><span class="p">},</span>
+                <span class="n">ignoreResourceNotFound</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyApplication</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">SpringApplication</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">MyApplication</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="n">args</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p>Pour une application Spring Boot, le fichier <code class="file docutils literal notranslate"><span class="pre">application.properties</span></code>
+est recherché dans plusieurs emplacements et il peut donc exister plusieurs
+fichiers nommés <code class="file docutils literal notranslate"><span class="pre">application.properties</span></code> :</p>
+<ol class="arabic simple">
+<li><p>Dans le chemin des classes (<em>classpath</em>)</p></li>
+<li><p>Dans le package <code class="file docutils literal notranslate"><span class="pre">config</span></code> du chemin des classes (<em>classpath</em>)</p></li>
+<li><p>Dans le répertoire de lancement de l’application</p></li>
+<li><p>Dans le sous répertoire <code class="file docutils literal notranslate"><span class="pre">config</span></code> depuis le répertoire de lancement de l’application</p></li>
+<li><p>Dans n’importe quel sous répertoire du sous répertoire <code class="file docutils literal notranslate"><span class="pre">config</span></code></p></li>
+</ol>
+<p>S’il existe plusieurs fichiers disponibles, la priorité est donnée à celui
+qui est le plus bas dans cette liste.</p>
+<p>De plus, il est possible de passer des propriétés en paramètres du lancement
+de l’application. Dans ce cas, ces valeurs sont prioritaires sur les valeurs
+présentes dans les fichiers de configuration. Une fois le projet sous la
+forme d’un fichier jar, on peut utiliser en ligne de commandes :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ java -jar myapplication.jar --remote.server.timeout<span class="o">=</span><span class="m">20000</span>
+</pre></div>
+</div>
+<p>Il est ainsi possible de positionner les propriétés que nous avons déclarées
+mais également les propriétés standards prises en charge par Spring Boot.</p>
+</div>
+</div>
+<div class="section" id="les-variables-d-environnement">
+<h2>Les variables d’environnement<a class="headerlink" href="#les-variables-d-environnement" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’annotation <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Value.html">&#64;Value</a> ne permet pas uniquement d’injecter des propriétés, nous
+pouvons également injecter des variables d’environnement. Par exemple, sous un
+système Linux, il existe la variables d’environnement <code class="docutils literal notranslate"><span class="pre">USER</span></code> qui donne le
+login de la session en cours. Pour récupérer sa valeur par injection :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Value</span><span class="p">(</span><span class="s">&quot;${USER}&quot;</span><span class="p">)</span>
+<span class="kd">private</span> <span class="n">String</span> <span class="n">user</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Notez qu’il existe également des variables standards à l’environnement d’exécution
+Java (et donc portables entre les systèmes). Le login de session est également
+disponible avec la variable <code class="docutils literal notranslate"><span class="pre">user.name</span></code> :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Value</span><span class="p">(</span><span class="s">&quot;${user.name}&quot;</span><span class="p">)</span>
+<span class="kd">private</span> <span class="n">String</span> <span class="n">user</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Notez que les variables d’environnement sont prioritaires sur les propriétés
+du même nom déclarées dans les fichiers de configuration. Il est donc possible
+de redéfinir la valeur d’une propriété dans un fichier de configuration en
+déclarant une variable d’environnement.</p>
+</div>
+<div class="section" id="la-classe-environment">
+<h2>La classe Environment<a class="headerlink" href="#la-classe-environment" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Si vous avez besoin de réaliser des traitements plus complexes à partir des
+propriétés, vous pouvez demander à injecter un <em>bean</em> de type <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/env/Environment.html">Environment</a>.
+Cette interface définie par le Spring Framework, vous permet d’accéder à la
+valeur des propriétés de votre application en appelant une de ses méthodes
+(telles que <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/env/PropertyResolver.html#getProperty-java.lang.String-">getProperty</a>).</p>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Un exemple d’injection d’une instance de Environment</span><a class="headerlink" href="#id10" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie.db</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.annotation.PostConstruct</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.core.env.Environment</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Component</span><span class="p">;</span>
+
+<span class="nd">@Component</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DemoProperty</span> <span class="p">{</span>
+
+  <span class="nd">@Autowired</span>
+  <span class="kd">private</span> <span class="n">Environment</span> <span class="n">env</span><span class="p">;</span>
+
+  <span class="nd">@PostConstruct</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">display</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">env</span><span class="p">.</span><span class="na">getProperty</span><span class="p">(</span><span class="s">&quot;user.name&quot;</span><span class="p">));</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="beans-de-proprietes-avec-configurationproperties-spring-boot">
+<h2>Beans de propriétés avec &#64;ConfigurationProperties (Spring Boot)<a class="headerlink" href="#beans-de-proprietes-avec-configurationproperties-spring-boot" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Spring Boot propose une version avancée de la configuration d’une application.
+Il s’agit de représenter les données présentes dans un fichier de propriétés
+sous la forme d’un <em>bean</em> avec les annotations <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Configuration.html">&#64;Configuration</a> et
+<a class="reference external" href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/context/properties/ConfigurationProperties.html">&#64;ConfigurationProperties</a>.</p>
+<p>Reprenons notre exemple de configuration à l’accès d’une base de données. Si
+dans notre fichier <code class="file docutils literal notranslate"><span class="pre">application.properties</span></code> nous avons :</p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">Le fichier application.properties</span><a class="headerlink" href="#id11" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">database.uri</span> <span class="o">=</span> <span class="s">jdbc:mariadb://localhost:3306/db</span>
+<span class="na">database.login</span> <span class="o">=</span> <span class="s">root</span>
+<span class="na">database.password</span> <span class="o">=</span> <span class="s">r00t</span>
+</pre></div>
+</div>
+</div>
+<p>Alors nous pouvons créer un <em>bean</em> représentant cette configuration.</p>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">Un bean de configuration</span><a class="headerlink" href="#id12" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.boot.context.properties.ConfigurationProperties</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Configuration</span><span class="p">;</span>
+
+<span class="nd">@Configuration</span>
+<span class="nd">@ConfigurationProperties</span><span class="p">(</span><span class="n">prefix</span> <span class="o">=</span> <span class="s">&quot;database&quot;</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DatabaseConfig</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">uri</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">login</span><span class="p">;</span>
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">password</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">getUri</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">uri</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUri</span><span class="p">(</span><span class="n">String</span> <span class="n">uri</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">uri</span> <span class="o">=</span> <span class="n">uri</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">getLogin</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">login</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setLogin</span><span class="p">(</span><span class="n">String</span> <span class="n">login</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">login</span> <span class="o">=</span> <span class="n">login</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">getPassword</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">password</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setPassword</span><span class="p">(</span><span class="n">String</span> <span class="n">password</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">password</span> <span class="o">=</span> <span class="n">password</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>À la ligne 7, l’annotation <a class="reference external" href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/context/properties/ConfigurationProperties.html">&#64;ConfigurationProperties</a> signale que les attributs
+du <em>bean</em> doivent être remplis à partir des propriétés de configuration.
+L’annotation précise que le préfixe est <code class="docutils literal notranslate"><span class="pre">database</span></code>. Donc Spring va rechercher
+la valeur pour les propriétés <code class="docutils literal notranslate"><span class="pre">database.url</span></code>, <code class="docutils literal notranslate"><span class="pre">database.login</span></code> et
+<code class="docutils literal notranslate"><span class="pre">database.password</span></code> qui sont bien présentes dans le fichier <code class="file docutils literal notranslate"><span class="pre">application.properties</span></code>.</p>
+<p>Attention, la présence des <em>setters</em> est obligatoire pour signaler à Spring
+quelles propriétés doivent être injectées.</p>
+<p>On peut ensuite revoir la déclaration du <em>bean</em> de connexion en injectant ce
+nouveau <em>bean</em> de configuration :</p>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">Injection et utilisation du bean de configuration</span><a class="headerlink" href="#id13" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.sql.Connection</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.sql.DriverManager</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.sql.SQLException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.function.Supplier</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.annotation.PostConstruct</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.annotation.PreDestroy</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Component</span><span class="p">;</span>
+
+<span class="nd">@Component</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SimpleConnectionProvider</span> <span class="kd">implements</span> <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">Connection</span><span class="o">&gt;</span> <span class="p">{</span>
+
+<span class="hll">  <span class="nd">@Autowired</span>
+</span><span class="hll">  <span class="kd">private</span> <span class="n">DatabaseConfig</span> <span class="n">databaseConfig</span><span class="p">;</span>
+</span>  <span class="kd">private</span> <span class="n">Connection</span> <span class="n">connection</span><span class="p">;</span>
+
+  <span class="nd">@PostConstruct</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">openConnection</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">SQLException</span> <span class="p">{</span>
+    <span class="n">connection</span> <span class="o">=</span> <span class="n">DriverManager</span><span class="p">.</span><span class="na">getConnection</span><span class="p">(</span><span class="n">databaseConfig</span><span class="p">.</span><span class="na">getUri</span><span class="p">(),</span>
+                                             <span class="n">databaseConfig</span><span class="p">.</span><span class="na">getLogin</span><span class="p">(),</span>
+                                             <span class="n">databaseConfig</span><span class="p">.</span><span class="na">getPassword</span><span class="p">());</span>
+  <span class="p">}</span>
+
+  <span class="nd">@PreDestroy</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">closeConnection</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">SQLException</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">connection</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">connection</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="n">Connection</span> <span class="nf">get</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">connection</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>Une classe annotée avec <a class="reference external" href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/context/properties/ConfigurationProperties.html">&#64;ConfigurationProperties</a> peut également profiter de
+la validation déclarative en utilisant l’API standard <a class="reference external" href="https://beanvalidation.org/">Bean Validation</a>.</p>
+<div class="section" id="introduction-a-bean-validation">
+<h3>Introduction à Bean Validation<a class="headerlink" href="#introduction-a-bean-validation" title="Lien permanent vers ce titre">¶</a></h3>
+<p>L’API standard <a class="reference external" href="https://beanvalidation.org/">Bean Validation</a> permet d’ajouter des contraintes sur les attributs
+d’une classe afin de réaliser une validation sur leur valeur. Elle peut être
+utilisée dans différents contextes et nous verrons qu’elle peut être très utile
+pour valider les données envoyées par un utilisateur dans une application Web
+développée avec <a class="reference internal" href="spring_mvc.html"><span class="doc">Les applications Web avec Spring Web MVC</span></a>.</p>
+<p>Spring Boot permet de valider les attributs d’une classe annotée avec
+<a class="reference external" href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/context/properties/ConfigurationProperties.html">&#64;ConfigurationProperties</a>. Cela permet de rendre l’application plus robuste
+en détectant, dès le lancement, les valeurs qui ne sont pas conformes.</p>
+<p>À partir de la version 2.4 de Spring Boot, vous devez activer le support de
+<a class="reference external" href="https://beanvalidation.org/">Bean Validation</a> en déclarant une dépendance. Pour un projet Maven, il suffit
+d’ajouter dans fichier <code class="file docutils literal notranslate"><span class="pre">pom.xml</span></code> :</p>
+<div class="literal-block-wrapper docutils container" id="id14">
+<div class="code-block-caption"><span class="caption-text">Dépendance Spring Boot pour Spring Validation</span><a class="headerlink" href="#id14" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-validation<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>Ensuite nous pouvons faire évoluer notre classe <code class="docutils literal notranslate"><span class="pre">DatabaseConfig</span></code> pour préciser
+les règles de validation :</p>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-text">Validation du bean de configuration avec bean validation</span><a class="headerlink" href="#id15" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.validation.constraints.NotBlank</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.validation.constraints.NotNull</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.validation.constraints.Pattern</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.boot.context.properties.ConfigurationProperties</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Configuration</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.validation.annotation.Validated</span><span class="p">;</span>
+
+<span class="nd">@Configuration</span>
+<span class="nd">@ConfigurationProperties</span><span class="p">(</span><span class="n">prefix</span> <span class="o">=</span> <span class="s">&quot;database&quot;</span><span class="p">)</span>
+<span class="hll"><span class="nd">@Validated</span>
+</span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DatabaseConfig</span> <span class="p">{</span>
+
+<span class="hll">  <span class="nd">@Pattern</span><span class="p">(</span><span class="n">regexp</span> <span class="o">=</span> <span class="s">&quot;jdbc:.*&quot;</span><span class="p">,</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Database JDBC URI must start with jdbc:&quot;</span><span class="p">)</span>
+</span>  <span class="kd">private</span> <span class="n">String</span> <span class="n">uri</span><span class="p">;</span>
+<span class="hll">  <span class="nd">@NotBlank</span><span class="p">(</span><span class="n">message</span> <span class="o">=</span> <span class="s">&quot;login cannot be blank&quot;</span><span class="p">)</span>
+</span>  <span class="kd">private</span> <span class="n">String</span> <span class="n">login</span><span class="p">;</span>
+<span class="hll">  <span class="nd">@NotNull</span><span class="p">(</span><span class="n">message</span> <span class="o">=</span> <span class="s">&quot;password is mandatory but can be left empty&quot;</span><span class="p">)</span>
+</span>  <span class="kd">private</span> <span class="n">String</span> <span class="n">password</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">getUri</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">uri</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUri</span><span class="p">(</span><span class="n">String</span> <span class="n">uri</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">uri</span> <span class="o">=</span> <span class="n">uri</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">getLogin</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">login</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setLogin</span><span class="p">(</span><span class="n">String</span> <span class="n">login</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">login</span> <span class="o">=</span> <span class="n">login</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">getPassword</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">password</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setPassword</span><span class="p">(</span><span class="n">String</span> <span class="n">password</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">password</span> <span class="o">=</span> <span class="n">password</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Dans cet exemple, nous imposons que l’URI de la base de données commence par
+<code class="docutils literal notranslate"><span class="pre">jdbc:</span></code> grâce à une expression régulière. Nous indiquons que le login ne
+peut pas être vide (ou ne contenir que des espaces). Enfin, le mot de passe
+doit être présent (même s’il est vide). L’attribut <code class="docutils literal notranslate"><span class="pre">message</span></code> des annotations
+permet de fournir une erreur explicite qui sera affichée en cas d’erreur de
+validation au démarrage.</p>
+<div class="admonition warning">
+<p class="admonition-title">Avertissement</p>
+<p>Notez que la classe porte elle-même l’annotation <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/validation/annotation/Validated.html">&#64;Validated</a> pour activer
+le processus de validation.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La liste des annotations de Bean Validation est disponible dans la
+<a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/validation/constraints/package-summary.html">documentation Java EE</a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="pour-en-savoir-plus">
+<h2>Pour en savoir plus<a class="headerlink" href="#pour-en-savoir-plus" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les auteurs du Spring Framework et de Spring Boot ont voulu laisser une grande liberté
+aux développeurs sur la façon de configurer leurs applications. Nous n’avons
+fait que présenter les principes fondamentaux. Par exemple, il est possible
+de stocker la configuration de son application non pas dans un fichier de propriétés
+mais dans un fichier YAML. Il est également possible de gérer des profils d’exécution
+pour mieux contrôler l’instanciation des <em>beans</em> et les paramètres de configuration.</p>
+<p>Pour les applications Spring Boot, vous pouvez vous référer à la
+<a class="reference external" href="https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config">documentation officielle</a> pour une présentation complète de ces possibilités.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="spel.html" class="btn btn-neutral float-right" title="Le langage d’expression SpEL" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="annotations.html" class="btn btn-neutral float-left" title="Déclaration par annotations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  <div  role="contentinfo">
+    <p>
+    Par David Gayerie
+    - <script>!function(){function e(e){return e.replace(/[a-zA-Z]/g,function(e){return String.fromCharCode((e<="Z"?90:122)>=(e=e.charCodeAt(0)+13)?e:e-26)})}!function(e){document.write("<a href='mailto:"+e+"'>"+e+"</a>")}(e("qnivq@tnlrevr.qri"))}();</script>
+    - <a class="reference external" href="https://gayerie.dev">https://gayerie.dev</a>
+    </p>
+    <p class="copyright">
+      <a class="reference external image-reference" href="https://creativecommons.org/licenses/by-sa/3.0/fr/"><img alt="Licence Creative Commons" src="https://i.creativecommons.org/l/by-sa/3.0/fr/88x31.png" /></a>
+      Cette œuvre est mise à disposition selon les termes de la <a class="reference external" href="https://creativecommons.org/licenses/by-sa/3.0/fr/">Licence Creative Commons Attribution</a> -  Partage dans les Mêmes Conditions 3.0 France
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

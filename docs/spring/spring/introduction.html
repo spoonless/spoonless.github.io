@@ -1,0 +1,643 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Spring Framework" name="description" />
+<meta content="Java, Spring Framework, framework, Jakarta EE, Java EE, IoC, injection de dépendances" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+
+  <title>Introduction &mdash; Spring Framework / Spring Boot</title>
+
+
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/spring/spring/introduction.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="L’inversion de contrôle" href="principe_ioc.html" />
+    <link rel="prev" title="Spring Framework / Spring Boot" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Spring Framework / Spring Boot
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Spring Framework et Spring Boot</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#le-spring-framework-vs-j2ee">Le Spring Framework vs. J2EE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#spring-boot-et-la-configuration-automatique">Spring Boot et la configuration automatique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-modules-spring-framework">Les modules Spring Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-projets-spring">Les projets Spring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="principe_ioc.html">L’inversion de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="principe_ioc.html#l-injection-de-dependance">L’injection de dépendance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="principe_ioc.html#id2">L’inversion de contrôle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="principe_ioc.html#notion-de-conteneur-ioc">Notion de conteneur IoC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="application_context.html">Le contexte d’application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#mise-en-place-du-projet">Mise en place du projet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#une-premiere-application-avec-spring">Une première application avec Spring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#notion-de-portee-scope">Notion de portée (scope)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#l-injection-de-bean">L’injection de bean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#les-methodes-d-initialisation-et-de-destruction">Les méthodes d’initialisation et de destruction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="annotations.html">Déclaration par annotations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#l-annotation-autowired">L’annotation &#64;Autowired</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#desambiguisation-avec-primary-et-qualifier">Désambiguïsation avec &#64;Primary et &#64;Qualifier</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="annotations.html#l-annotation-primary">L’annotation &#64;Primary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="annotations.html#l-annotation-qualifier">L’annotation &#64;Qualifier</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#l-annotation-value">L’annotation &#64;Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#les-annotations-jsr-250">Les annotations JSR-250</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#detection-automatique-des-composants-component-scan">Détection automatique des composants (<em>component scan</em>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#notion-de-composant">Notion de composant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#stereotype-de-composant">Stéréotype de composant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#le-stereotype-configuration">Le stéréotype &#64;Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#creation-de-stereotype-de-composant">Création de stéréotype de composant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#notions-avancees-pour-la-gestion-des-dependances">Notions avancées pour la gestion des dépendances</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="annotations.html#l-annotation-order">L’annotation &#64;Order</a></li>
+<li class="toctree-l3"><a class="reference internal" href="annotations.html#l-annotation-dependson">L’annotation &#64;DependsOn</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#support-des-annotations-standard-jsr-330">Support des annotations standard JSR-330</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="application_context_conf.html">Configuration d’une application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="application_context_conf.html#lancer-une-application-spring-boot">Lancer une application Spring Boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context_conf.html#spring-boot-et-le-fichier-application-properties">Spring Boot et le fichier application.properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context_conf.html#injection-des-proprietes-avec-value">Injection des propriétés avec &#64;Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context_conf.html#ajout-de-fichiers-de-proprietes-avec-propertysource">Ajout de fichiers de propriétés avec &#64;PropertySource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context_conf.html#les-variables-d-environnement">Les variables d’environnement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context_conf.html#la-classe-environment">La classe Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context_conf.html#beans-de-proprietes-avec-configurationproperties-spring-boot">Beans de propriétés avec &#64;ConfigurationProperties (Spring Boot)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="application_context_conf.html#introduction-a-bean-validation">Introduction à Bean Validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="application_context_conf.html#pour-en-savoir-plus">Pour en savoir plus</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spel.html">Le langage d’expression SpEL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spel.html#un-exemple-d-utilisation-de-spel">Un exemple d’utilisation de SpEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spel.html#principe-de-spel">Principe de SpEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spel.html#l-operateur-ternaire">L’opérateur ternaire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spel.html#l-operateur-elvis">L’opérateur Elvis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spel.html#l-operateur-de-surete">L’opérateur de sûreté</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spel.html#la-projection">La projection</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aop.html">Spring AOP : programmation orientée aspect</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aop.html#principe-de-la-programmation-orientee-aspect">Principe de la programmation orientée aspect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aop.html#terminologie-de-la-programmation-orientee-aspect">Terminologie de la programmation orientée aspect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aop.html#integration-du-module-spring-aop">Intégration du module Spring AOP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aop.html#integration-dans-une-application-spring-boot">Intégration dans une application Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aop.html#integration-dans-une-application-sans-spring-boot">Intégration dans une application sans Spring Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aop.html#exemple-de-programmation-orientee-aspect-avec-spring-aop">Exemple de programmation orientée aspect avec Spring AOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aop.html#la-programmation-orientee-aspect-pour-gerer-les-annotations">La programmation orientée Aspect pour gérer les annotations</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Spring Web MVC</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="spring_mvc_intro.html">Introduction à Spring Web MVC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_intro.html#le-modele-mvc">Le modèle MVC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_intro.html#integration-de-spring-web-mvc">Intégration de Spring Web MVC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc_intro.html#integration-dans-une-application-avec-spring-boot">Intégration dans une application avec Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc_intro.html#integration-dans-une-application-sans-spring-boot">Intégration dans une application sans Spring Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_intro.html#l-encodage-des-parametres-de-requetes">L’encodage des paramètres de requêtes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spring_mvc.html">Les applications Web avec Spring Web MVC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#les-controleurs">Les contrôleurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#les-vues-jsp">Les vues JSP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#pour-une-application-avec-spring-boot">Pour une application avec Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#pour-une-application-sans-spring-boot">Pour une application sans Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#utilisation-des-vues-jsp">Utilisation des vues JSP</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#les-vues-thymeleaf">Les vues Thymeleaf</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#id1">Pour une application avec Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#id2">Pour une application sans Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#utilisation-des-vues-thymeleaf">Utilisation des vues Thymeleaf</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#le-modele">Le modèle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#une-application-multi-couches-n-tiers">Une application multi-couches (N-Tiers)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#la-signature-des-methodes-de-controleur">La signature des méthodes de contrôleur</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#les-parametres">Les paramètres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#la-valeur-de-retour">La valeur de retour</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#taglib-jsp-et-gestion-des-formulaires">Taglib JSP et gestion des formulaires</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#spring-s-jsp-taglib">Spring’s JSP taglib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#form-taglib">Form taglib</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#gestion-des-formulaires-avec-thymeleaf">Gestion des formulaires avec Thymeleaf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#externalisation-des-messages">Externalisation des messages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#id4">Pour une application avec Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#id5">Pour une application sans Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#utilisation-des-messages-dans-une-jsp">Utilisation des messages dans une JSP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#utilisation-des-messages-avec-thymeleaf">Utilisation des messages avec Thymeleaf</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#validation-des-parametres-d-une-requete">Validation des paramètres d’une requête</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#la-notion-de-binding-et-le-bindingresult">La notion de <em>binding</em> et le BindingResult</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#validation-dans-la-methode-du-controleur">Validation dans la méthode du contrôleur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#creation-d-un-validateur">Création d’un validateur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#validation-declarative-avec-bean-validation">Validation déclarative avec Bean Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#affichage-des-erreurs-de-validation">Affichage des erreurs de validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#post-redirect-get">POST-redirect-GET</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#la-gestion-des-exceptions">La gestion des exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#methodes-de-modele">Méthodes de modèle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#methodes-de-binder">Méthodes de binder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#controlleradvice">ControllerAdvice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spring_mvc_apiweb.html">Les API Web avec Spring Web MVC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#support-pour-les-formats-json-et-xml">Support pour les formats JSON et XML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#l-annotation-restcontroller">L’annotation &#64;RestController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#un-controleur-pour-une-api-web">Un contrôleur pour une API Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#la-negociation-de-contenu">La négociation de contenu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#l-envoi-de-donnees">L’envoi de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#la-reponse">La réponse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#restcontrolleradvice">RestControllerAdvice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#les-annotations-jackson">Les annotations Jackson</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc_apiweb.html#les-vues-json">Les vues JSON</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#implementation-d-un-client">Implémentation d’un client</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="thymeleaf.html">Introduction à Thymeleaf</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#integration-de-thymeleaf">Intégration de Thymeleaf</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="thymeleaf.html#pour-une-application-avec-spring-boot">Pour une application avec Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="thymeleaf.html#pour-une-application-sans-spring-boot">Pour une application sans Spring Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#les-attributs-thymeleaf">Les attributs Thymeleaf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#l-expression-d-evaluation">${…} : l’expression d’évaluation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#l-expression-de-selection">*{…} : l’expression de sélection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#l-expression-de-message">#{…} : l’expression de message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#l-expression-d-url">&#64;{…} : l’expression d’URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#prevention-de-l-injection">Prévention de l’injection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#les-conditions-et-les-boucles">Les conditions et les boucles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#operateur-de-coalescence-des-nuls">Opérateur de coalescence des nuls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#le-formatage-des-donnees">Le formatage des données</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Spring et l'accès aux bases de données</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="spring_dao.html">Spring DAO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spring_dao.html#l-annotation-repository">L’annotation &#64;Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_dao.html#integration-de-jpa">Intégration de JPA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_dao.html#integration-dans-une-application-spring-boot">Intégration dans une application Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_dao.html#integration-dans-une-application-sans-spring-boot">Intégration dans une application sans Spring Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_dao.html#acces-aux-donnees-avec-jdbc">Accès aux données avec JDBC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_dao.html#id1">Intégration dans une application Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_dao.html#id2">Intégration dans une application sans Spring Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_dao.html#uniformite-de-la-hierarchie-des-exceptions">Uniformité de la hiérarchie des exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spring_data_jpa.html">Spring Data avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spring_data_jpa.html#notion-de-repository">Notion de repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_data_jpa.html#spring-data-jpa">Spring Data JPA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_data_jpa.html#integration-des-repositories">Intégration des repositories</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_data_jpa.html#integration-dans-une-application-spring-boot">Intégration dans une application Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_data_jpa.html#integration-dans-une-application-sans-spring-boot">Intégration dans une application sans Spring Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_data_jpa.html#injection-des-repositories">Injection des <em>repositories</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_data_jpa.html#ajout-de-methodes-dans-une-interface-de-repository">Ajout de méthodes dans une interface de repository</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_data_jpa.html#requetes-nommees-jpa">Requêtes nommées JPA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_data_jpa.html#utilisation-de-query">Utilisation de &#64;Query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_data_jpa.html#declaration-de-requetes-de-modification">Déclaration de requêtes de modification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_data_jpa.html#implementation-des-methodes-de-repository">Implémentation des méthodes de <em>repository</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spring_tx.html">Spring Transaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#la-transaction">La transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#spring-boot-et-la-configuration-automatique">Spring Boot et la configuration automatique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#transaction-et-couche-de-service">Transaction et couche de service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#l-annotation-transactional">L’annotation &#64;Transactional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#gestion-declarative-du-rollback">Gestion déclarative du <em>rollback</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#configuration-avancee-pour-les-transactions">Configuration avancée pour les transactions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_tx.html#la-propagation">La propagation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_tx.html#l-isolation">L’isolation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#configuration-des-transactions-sans-spring-boot">Configuration des transactions sans Spring Boot</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Spring Framework / Spring Boot</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+<div class="banner">D'autres formations sont sur <a href="https://gayerie.dev">https://gayerie.dev</a></div>
+
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="principe_ioc.html" class="btn btn-neutral float-right" title="L’inversion de contrôle" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Spring Framework / Spring Boot" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Le <strong>Spring Framework</strong> est très largement utilisé dans la communauté Java. Il
+permet d’accélérer le développement d’applications d’entreprise (notamment le
+développement d’applications Web et d’API Web). Mais on trouve des applications
+basées sur le Spring Framework dans bien d’autres domaines.</p>
+<p>Pour comprendre l’origine et l’apport du Spring Framework, il faut savoir que
+son principal auteur, Rod Johnson, voulait proposer une alternative au modèle
+d’architecture logiciel proposé par la plate-forme J2EE au début des années 2000.</p>
+<div class="section" id="le-spring-framework-vs-j2ee">
+<h2>Le Spring Framework vs. J2EE<a class="headerlink" href="#le-spring-framework-vs-j2ee" title="Lien permanent vers ce titre">¶</a></h2>
+<p>J2EE (et ses successeurs Java EE et Jakarta EE) propose un environnement basé
+sur des serveurs d’application. Ces serveurs déploient et gèrent les composants
+fournis par les développeurs au sein de conteneurs logiciels.
+Ces composants (les Servlet, les EJB…) doivent être conformes à une spécification
+technique afin qu’ils puissent être pris en charge par un serveur. Le modèle
+d’architecture sur lequel se base J2EE a pour objectif de laisser aux
+serveurs d’application la responsabilité de fournir les services
+prenant en charge la sécurité, la gestion des transactions, la gestion des accès
+aux services externes (comme les bases de données)… Le développeur d’application
+n’a plus à gérer directement ces aspects. Mais il doit tout de même maîtriser ces
+problématiques et surtout connaître les différentes API nécessaires pour
+pouvoir développer des composants conformes à cette plate-forme. Ces API se
+révèlent souvent assez complexes, ce qui fait de J2EE un environnement
+techniquement ardu à appréhender. De plus, le succès de la virtualisation,
+du <em>cloud computing</em> et des architectures micro-services a remis en cause le
+choix du modèle initial de J2EE. Ce dernier est basé sur un serveur centralisé,
+monolithique, exigeant en ressources et peu adapté à des redémarrages fréquents.
+Le passage à Java EE n’a pas remis en cause ce modèle et beaucoup d’experts ont
+alors souligné son inadéquation avec les besoins des infrastructures actuelles.</p>
+<p>À l’opposé, le Spring Framework propose de bâtir des applications qui embarquent
+elles-mêmes les services dont elles ont besoin. C’est pour cette raison, que
+l’on qualifie parfois le Spring Framework de <em>conteneur léger</em>. Plutôt que de
+recourir à un serveur complexe qui déploie des applications dans des conteneurs,
+c’est l’application qui, en utilisant le Spring Framework, devient un mini
+conteneur pour accueillir les services normalement offerts par un serveur J2EE.
+En soit, le Spring Framework ne fournit aucune solution nouvelle pour la
+réalisation de ces services. Mais il permet d’intégrer des solutions déjà
+existantes (et notamment celles conformes aux normes J2EE). Une des forces du Spring
+Framework est sa très grande modularité. En fonction des besoins techniques d’une
+application, il est possible d’incorporer tel ou tel module du Spring Framework
+et de laisser de côté ceux qui ne sont pas nécessaires. Il est donc possible de
+dimensionner les applications sans dépendre <em>a priori</em> d’un serveur
+monolithique. Cette approche s’est révélée plus adaptée à des infrastructures
+<em>cloud</em> et à la mise en place de micro-services.</p>
+<p>L’idée centrale du Spring Framework est de n’imposer aucune norme de développement
+ni aucune contrainte technique sur la façon dont les développeurs doivent coder
+leurs applications. Le Spring Framework se veut non intrusif tout en se basant
+sur le principe de l’inversion de contrôle (<em>Inversion of Control</em> ou IoC) et
+sur la programmation orientée Aspect (<em>Aspect Oriented Programming</em> AOP). Il met
+en œuvre des modèles de conception (<em>Design Patterns</em>) tels que les <em>factories</em>
+pour fournir un environnement le plus souple possible.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>En fait, le Spring framework est une approche différente en terme
+d’architecture logicielle par rapport à la plate-forme J2EE. Le Spring
+Framework se présente comme une sorte de <em>meta framework</em> dont un des objectifs
+est d’aider les développeurs à intégrer d’autres <em>frameworks</em> (dont ceux
+conçus pour la plate-forme J2EE et ensuite Java EE).</p>
+<p>Du fait de son niveau d’abstraction et de généralité, il est parfois difficile de
+comprendre immédiatement les apports essentiels d’un tel <em>framework</em>.
+On peut n’y voir qu’un simple outil pour concevoir des applications Web Java
+(puisqu’il est souvent utilisé dans ce contexte). Cependant, les principes à
+l’origine du Spring Framework touchent à des problématiques générales
+d’architecture logicielle et restent encore valides après presque 20 ans.
+La pérennité de ces choix est assez unique dans l’ingénierie logicielle
+récente. Même si la façon d’utiliser le Spring Framework a évolué
+au cours des années pour s’adapter aux styles de programmation, son noyau et
+les modèles de conception sur lesquels il repose restent inchangés.</p>
+</div>
+</div>
+<div class="section" id="spring-boot-et-la-configuration-automatique">
+<h2>Spring Boot et la configuration automatique<a class="headerlink" href="#spring-boot-et-la-configuration-automatique" title="Lien permanent vers ce titre">¶</a></h2>
+<p>À l’origine, le Spring Framework n’est pas plus facile à apprendre que J2EE.
+Les auteurs du <em>framework</em> s’adressent en priorité aux ingénieurs expérimentés dans le
+développement d’application d’entreprise en Java. Il s’agit de leur
+fournir le plus de liberté pour implémenter les architectures les plus appropriées.
+Cette liberté demande de faire un travail important d’intégration des différents
+services techniques à l’aide de fichiers XML et donc, de bien connaître le
+fonctionnement et la configuration de ces services.</p>
+<p>Avec l’évolution des pratiques et du langage Java, il est apparu évident
+que ce travail d’intégration peut être considérablement simplifié. D’une part,
+il est devenu possible de remplacer l’écriture de fichiers XML par l’utilisation
+d’annotations dans le code source (même si cela remet en cause l’idée que le
+Spring Framework ne doit pas être intrusif). D’autre part, beaucoup
+d’applications (notamment les applications Web) ont des architectures techniques
+très similaires. Il devrait être possible de bâtir plus rapidement des applications
+en se basant sur des modèles que l’on peut adapter par simple paramétrage.</p>
+<p>Le projet <strong>Spring Boot</strong> est une extension du Spring Framework pour mettre en place
+rapidement des applications Java. Grâce à un système modulaire de dépendances
+et un principe de configuration automatique, il permet de disposer d’une
+structure de projet complète et immédiatement opérationnelle. La perte de souplesse
+dans les choix d’architecture est contre-balancée par la rapidité de mise en place
+et un large choix de paramètres de configuration. Spring Boot n’est pas un nouvelle
+version du Spring Framework. Il s’agit d’une utilisation particulière du <em>framework</em>,
+évitant aux développeurs de gérer une complexité technique souvent inutile au
+moment de l’initialisation d’un projet.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour créer un projet Spring basé sur Spring Boot, il suffit d’utiliser le
+générateur de projet en ligne :</p>
+<blockquote>
+<div><p><a class="reference external" href="https://start.spring.io/">https://start.spring.io/</a></p>
+</div></blockquote>
+<p>Ce générateur vous permet de créer une structure de projet Maven ou Gradle
+en intégrant des dépendances qui sont en fait autant de services ajoutés et
+configurés par défaut dans votre application : support des API Web, support
+de l’accès à des bases de données SQL ou NoSQL, gestion de la sécurité…</p>
+</div>
+</div>
+<div class="section" id="les-modules-spring-framework">
+<h2>Les modules Spring Framework<a class="headerlink" href="#les-modules-spring-framework" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le Spring Framework est découpé en modules pour faciliter son intégration
+dans les projets.</p>
+<img alt="vue générale des modules Spring" src="../_images/spring_modules.png" />
+<p>Parmi ces modules, il y a les modules fondamentaux qui font partie du noyau
+du Spring Framework (<em>core</em>) :</p>
+<dl class="simple">
+<dt><em>Core</em></dt><dd><p>Les classes fondamentales utilisées par tous les autre modules</p>
+</dd>
+<dt><em>Beans</em></dt><dd><p>Le module qui permet de manipuler les objets Java et de créer des <em>beans</em></p>
+</dd>
+<dt><em>Context</em></dt><dd><p>Ce module introduit la notion de contexte d’application et fournit plusieurs implementations
+de ces contextes. Avec ce module, il est possible de construire un conteneur
+léger IoC.</p>
+</dd>
+<dt><em>SpEL</em></dt><dd><p>Ce module fournit un interpréteur pour le langage d’expression intégré au
+Spring Framework (<em>Spring Expression Language</em> ou <em>SpEL</em>).</p>
+</dd>
+</dl>
+<p>Un autre ensemble de modules permet d’intégrer la programmation orientée
+aspect (<em>Aspect Oriented Programming</em> ou AOP) dans une application. Le module
+<em>Spring AOP</em> est le module de base pour le support de l’AOP.</p>
+<p>Les autres modules du Spring Framework permettent majoritairement d’intégrer
+dans une application des technologies tierces. Ainsi le Spring Framework agit
+comme une glu qui permet de construire des applications par ajout de
+services. Par exemple, Spring Web est le module qui permet de créer
+des applications Web et de les déployer dans un conteneur de servlets Java EE.
+Spring Data permet de gérer les interactions avec des bases de données en utilisant
+diverses technologies : JDBC, JPA, Hibernate, MongoDB…</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Spring Boot utilise ces modules et les incorpore comme dépendances dans
+vos projets. Il n’est donc pas nécessaire de les connaître pour démarrer
+le développement d’une application avec Spring Boot. Par contre, une bonne
+idée générale de l’organisation en modules vous permettra de vous retrouver
+plus facilement dans la documentation Spring.</p>
+</div>
+</div>
+<div class="section" id="les-projets-spring">
+<h2>Les projets Spring<a class="headerlink" href="#les-projets-spring" title="Lien permanent vers ce titre">¶</a></h2>
+<p>En plus des modules, le Spring Framework s’est enrichi de projets bâtis sur le
+Spring Framework et qui apportent des fonctionnalités de haut niveau pour les
+développeurs. Spring Boot fait partie des projets Spring.</p>
+<p>Parmi les projets Spring, on trouve notamment :</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://spring.io/projects/spring-boot">Spring Boot</a></p></li>
+<li><p><a class="reference external" href="https://projects.spring.io/spring-cloud">Spring Cloud</a></p></li>
+<li><p><a class="reference external" href="https://spring.io/projects/spring-data">Spring Data</a></p></li>
+<li><p><a class="reference external" href="https://spring.io/projects/spring-security">Spring Security</a></p></li>
+<li><p><a class="reference external" href="https://spring.io/projects/spring-hateoas">Spring HATEOAS</a></p></li>
+</ul>
+</div>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un autre point fort du Spring Framework est la qualité de sa documentation.
+Attention cependant, l’environnement du Spring Framework est très vaste et
+il est très facile de se perdre dans la documentation.</p>
+<p>Pour commencer, vous pouvez consulter la documentation sur Spring Core :</p>
+<p><a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#spring-core">https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#spring-core</a></p>
+<p>et plus généralement la documentation sur les principaux modules du Spring Framework :</p>
+<p><a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/reference/html/index.html">https://docs.spring.io/spring-framework/docs/current/reference/html/index.html</a></p>
+<p>Pour Spring Boot, vous pouvez vous référer à la documentation officielle :</p>
+<p><a class="reference external" href="https://docs.spring.io/spring-boot/docs/current/reference/html/">https://docs.spring.io/spring-boot/docs/current/reference/html/</a></p>
+<p>Pour avoir une vision d’ensemble des projets qui existent dans l’éco-système Spring :</p>
+<p><a class="reference external" href="https://spring.io/projects">https://spring.io/projects</a></p>
+<p>Enfin les guides fournissent des réponses pratiques et rapides sur certains
+points techniques :</p>
+<p><a class="reference external" href="https://spring.io/guides">https://spring.io/guides</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="principe_ioc.html" class="btn btn-neutral float-right" title="L’inversion de contrôle" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Spring Framework / Spring Boot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  <div  role="contentinfo">
+    <p>
+    Par David Gayerie
+    - <script>!function(){function e(e){return e.replace(/[a-zA-Z]/g,function(e){return String.fromCharCode((e<="Z"?90:122)>=(e=e.charCodeAt(0)+13)?e:e-26)})}!function(e){document.write("<a href='mailto:"+e+"'>"+e+"</a>")}(e("qnivq@tnlrevr.qri"))}();</script>
+    - <a class="reference external" href="https://gayerie.dev">https://gayerie.dev</a>
+    </p>
+    <p class="copyright">
+      <a class="reference external image-reference" href="https://creativecommons.org/licenses/by-sa/3.0/fr/"><img alt="Licence Creative Commons" src="https://i.creativecommons.org/l/by-sa/3.0/fr/88x31.png" /></a>
+      Cette œuvre est mise à disposition selon les termes de la <a class="reference external" href="https://creativecommons.org/licenses/by-sa/3.0/fr/">Licence Creative Commons Attribution</a> -  Partage dans les Mêmes Conditions 3.0 France
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

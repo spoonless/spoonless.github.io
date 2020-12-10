@@ -1,0 +1,740 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Spring Framework - Le langage d'expression SpEL" name="description" />
+<meta content="Java, Spring Framework, framework, Jakarta EE, Java EE, IoC, injection de dépendances" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+
+  <title>Le langage d’expression SpEL &mdash; Spring Framework / Spring Boot</title>
+
+
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/spring/spring/spel.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Spring AOP : programmation orientée aspect" href="aop.html" />
+    <link rel="prev" title="Configuration d’une application" href="application_context_conf.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Spring Framework / Spring Boot
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Spring Framework et Spring Boot</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#le-spring-framework-vs-j2ee">Le Spring Framework vs. J2EE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#spring-boot-et-la-configuration-automatique">Spring Boot et la configuration automatique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#les-modules-spring-framework">Les modules Spring Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#les-projets-spring">Les projets Spring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="principe_ioc.html">L’inversion de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="principe_ioc.html#l-injection-de-dependance">L’injection de dépendance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="principe_ioc.html#id2">L’inversion de contrôle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="principe_ioc.html#notion-de-conteneur-ioc">Notion de conteneur IoC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="application_context.html">Le contexte d’application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#mise-en-place-du-projet">Mise en place du projet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#une-premiere-application-avec-spring">Une première application avec Spring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#notion-de-portee-scope">Notion de portée (scope)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#l-injection-de-bean">L’injection de bean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#les-methodes-d-initialisation-et-de-destruction">Les méthodes d’initialisation et de destruction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="annotations.html">Déclaration par annotations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#l-annotation-autowired">L’annotation &#64;Autowired</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#desambiguisation-avec-primary-et-qualifier">Désambiguïsation avec &#64;Primary et &#64;Qualifier</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="annotations.html#l-annotation-primary">L’annotation &#64;Primary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="annotations.html#l-annotation-qualifier">L’annotation &#64;Qualifier</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#l-annotation-value">L’annotation &#64;Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#les-annotations-jsr-250">Les annotations JSR-250</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#detection-automatique-des-composants-component-scan">Détection automatique des composants (<em>component scan</em>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#notion-de-composant">Notion de composant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#stereotype-de-composant">Stéréotype de composant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#le-stereotype-configuration">Le stéréotype &#64;Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#creation-de-stereotype-de-composant">Création de stéréotype de composant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#notions-avancees-pour-la-gestion-des-dependances">Notions avancées pour la gestion des dépendances</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="annotations.html#l-annotation-order">L’annotation &#64;Order</a></li>
+<li class="toctree-l3"><a class="reference internal" href="annotations.html#l-annotation-dependson">L’annotation &#64;DependsOn</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#support-des-annotations-standard-jsr-330">Support des annotations standard JSR-330</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="application_context_conf.html">Configuration d’une application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="application_context_conf.html#lancer-une-application-spring-boot">Lancer une application Spring Boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context_conf.html#spring-boot-et-le-fichier-application-properties">Spring Boot et le fichier application.properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context_conf.html#injection-des-proprietes-avec-value">Injection des propriétés avec &#64;Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context_conf.html#ajout-de-fichiers-de-proprietes-avec-propertysource">Ajout de fichiers de propriétés avec &#64;PropertySource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context_conf.html#les-variables-d-environnement">Les variables d’environnement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context_conf.html#la-classe-environment">La classe Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context_conf.html#beans-de-proprietes-avec-configurationproperties-spring-boot">Beans de propriétés avec &#64;ConfigurationProperties (Spring Boot)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="application_context_conf.html#introduction-a-bean-validation">Introduction à Bean Validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="application_context_conf.html#pour-en-savoir-plus">Pour en savoir plus</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Le langage d’expression SpEL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#un-exemple-d-utilisation-de-spel">Un exemple d’utilisation de SpEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#principe-de-spel">Principe de SpEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#l-operateur-ternaire">L’opérateur ternaire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#l-operateur-elvis">L’opérateur Elvis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#l-operateur-de-surete">L’opérateur de sûreté</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#la-projection">La projection</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aop.html">Spring AOP : programmation orientée aspect</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aop.html#principe-de-la-programmation-orientee-aspect">Principe de la programmation orientée aspect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aop.html#terminologie-de-la-programmation-orientee-aspect">Terminologie de la programmation orientée aspect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aop.html#integration-du-module-spring-aop">Intégration du module Spring AOP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aop.html#integration-dans-une-application-spring-boot">Intégration dans une application Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aop.html#integration-dans-une-application-sans-spring-boot">Intégration dans une application sans Spring Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aop.html#exemple-de-programmation-orientee-aspect-avec-spring-aop">Exemple de programmation orientée aspect avec Spring AOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aop.html#la-programmation-orientee-aspect-pour-gerer-les-annotations">La programmation orientée Aspect pour gérer les annotations</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Spring Web MVC</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="spring_mvc_intro.html">Introduction à Spring Web MVC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_intro.html#le-modele-mvc">Le modèle MVC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_intro.html#integration-de-spring-web-mvc">Intégration de Spring Web MVC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc_intro.html#integration-dans-une-application-avec-spring-boot">Intégration dans une application avec Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc_intro.html#integration-dans-une-application-sans-spring-boot">Intégration dans une application sans Spring Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_intro.html#l-encodage-des-parametres-de-requetes">L’encodage des paramètres de requêtes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spring_mvc.html">Les applications Web avec Spring Web MVC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#les-controleurs">Les contrôleurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#les-vues-jsp">Les vues JSP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#pour-une-application-avec-spring-boot">Pour une application avec Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#pour-une-application-sans-spring-boot">Pour une application sans Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#utilisation-des-vues-jsp">Utilisation des vues JSP</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#les-vues-thymeleaf">Les vues Thymeleaf</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#id1">Pour une application avec Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#id2">Pour une application sans Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#utilisation-des-vues-thymeleaf">Utilisation des vues Thymeleaf</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#le-modele">Le modèle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#une-application-multi-couches-n-tiers">Une application multi-couches (N-Tiers)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#la-signature-des-methodes-de-controleur">La signature des méthodes de contrôleur</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#les-parametres">Les paramètres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#la-valeur-de-retour">La valeur de retour</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#taglib-jsp-et-gestion-des-formulaires">Taglib JSP et gestion des formulaires</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#spring-s-jsp-taglib">Spring’s JSP taglib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#form-taglib">Form taglib</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#gestion-des-formulaires-avec-thymeleaf">Gestion des formulaires avec Thymeleaf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#externalisation-des-messages">Externalisation des messages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#id4">Pour une application avec Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#id5">Pour une application sans Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#utilisation-des-messages-dans-une-jsp">Utilisation des messages dans une JSP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#utilisation-des-messages-avec-thymeleaf">Utilisation des messages avec Thymeleaf</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#validation-des-parametres-d-une-requete">Validation des paramètres d’une requête</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#la-notion-de-binding-et-le-bindingresult">La notion de <em>binding</em> et le BindingResult</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#validation-dans-la-methode-du-controleur">Validation dans la méthode du contrôleur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#creation-d-un-validateur">Création d’un validateur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#validation-declarative-avec-bean-validation">Validation déclarative avec Bean Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#affichage-des-erreurs-de-validation">Affichage des erreurs de validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#post-redirect-get">POST-redirect-GET</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#la-gestion-des-exceptions">La gestion des exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#methodes-de-modele">Méthodes de modèle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#methodes-de-binder">Méthodes de binder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#controlleradvice">ControllerAdvice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spring_mvc_apiweb.html">Les API Web avec Spring Web MVC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#support-pour-les-formats-json-et-xml">Support pour les formats JSON et XML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#l-annotation-restcontroller">L’annotation &#64;RestController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#un-controleur-pour-une-api-web">Un contrôleur pour une API Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#la-negociation-de-contenu">La négociation de contenu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#l-envoi-de-donnees">L’envoi de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#la-reponse">La réponse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#restcontrolleradvice">RestControllerAdvice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#les-annotations-jackson">Les annotations Jackson</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc_apiweb.html#les-vues-json">Les vues JSON</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#implementation-d-un-client">Implémentation d’un client</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="thymeleaf.html">Introduction à Thymeleaf</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#integration-de-thymeleaf">Intégration de Thymeleaf</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="thymeleaf.html#pour-une-application-avec-spring-boot">Pour une application avec Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="thymeleaf.html#pour-une-application-sans-spring-boot">Pour une application sans Spring Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#les-attributs-thymeleaf">Les attributs Thymeleaf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#l-expression-d-evaluation">${…} : l’expression d’évaluation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#l-expression-de-selection">*{…} : l’expression de sélection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#l-expression-de-message">#{…} : l’expression de message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#l-expression-d-url">&#64;{…} : l’expression d’URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#prevention-de-l-injection">Prévention de l’injection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#les-conditions-et-les-boucles">Les conditions et les boucles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#operateur-de-coalescence-des-nuls">Opérateur de coalescence des nuls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#le-formatage-des-donnees">Le formatage des données</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Spring et l'accès aux bases de données</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="spring_dao.html">Spring DAO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spring_dao.html#l-annotation-repository">L’annotation &#64;Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_dao.html#integration-de-jpa">Intégration de JPA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_dao.html#integration-dans-une-application-spring-boot">Intégration dans une application Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_dao.html#integration-dans-une-application-sans-spring-boot">Intégration dans une application sans Spring Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_dao.html#acces-aux-donnees-avec-jdbc">Accès aux données avec JDBC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_dao.html#id1">Intégration dans une application Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_dao.html#id2">Intégration dans une application sans Spring Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_dao.html#uniformite-de-la-hierarchie-des-exceptions">Uniformité de la hiérarchie des exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spring_data_jpa.html">Spring Data avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spring_data_jpa.html#notion-de-repository">Notion de repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_data_jpa.html#spring-data-jpa">Spring Data JPA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_data_jpa.html#integration-des-repositories">Intégration des repositories</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_data_jpa.html#integration-dans-une-application-spring-boot">Intégration dans une application Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_data_jpa.html#integration-dans-une-application-sans-spring-boot">Intégration dans une application sans Spring Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_data_jpa.html#injection-des-repositories">Injection des <em>repositories</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_data_jpa.html#ajout-de-methodes-dans-une-interface-de-repository">Ajout de méthodes dans une interface de repository</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_data_jpa.html#requetes-nommees-jpa">Requêtes nommées JPA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_data_jpa.html#utilisation-de-query">Utilisation de &#64;Query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_data_jpa.html#declaration-de-requetes-de-modification">Déclaration de requêtes de modification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_data_jpa.html#implementation-des-methodes-de-repository">Implémentation des méthodes de <em>repository</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spring_tx.html">Spring Transaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#la-transaction">La transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#spring-boot-et-la-configuration-automatique">Spring Boot et la configuration automatique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#transaction-et-couche-de-service">Transaction et couche de service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#l-annotation-transactional">L’annotation &#64;Transactional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#gestion-declarative-du-rollback">Gestion déclarative du <em>rollback</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#configuration-avancee-pour-les-transactions">Configuration avancée pour les transactions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_tx.html#la-propagation">La propagation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_tx.html#l-isolation">L’isolation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#configuration-des-transactions-sans-spring-boot">Configuration des transactions sans Spring Boot</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Spring Framework / Spring Boot</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+<div class="banner">D'autres formations sont sur <a href="https://gayerie.dev">https://gayerie.dev</a></div>
+
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Le langage d’expression SpEL</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="aop.html" class="btn btn-neutral float-right" title="Spring AOP : programmation orientée aspect" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="application_context_conf.html" class="btn btn-neutral float-left" title="Configuration d’une application" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="le-langage-d-expression-spel">
+<h1>Le langage d’expression SpEL<a class="headerlink" href="#le-langage-d-expression-spel" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Un langage d’expression est un langage de programmation simplifié qui permet
+(comme son nom l’indique) d’évaluer une expression simple pour produire un
+résultat. Il s’agit assez souvent de parcourir un graphe d’objets pour accéder à
+la valeur d’une propriété. En Java EE, il existe un langage d’expression (nommé
+simplement <em>EL</em> pour <em>Expression Language</em>) qui permet, notamment, d’accéder à
+des propriétés pour produire une page Web dynamiquement (avec JSP ou JSF).</p>
+<p>Le Spring Framework introduit son propre langage d’expression (nommé <em>SpEL</em>
+pour <em>Spring Expression Language</em>). Il est très similaire à l’EL Java EE (tout
+en étant plus expressif). Pour la configuration d’un contexte d’application,
+ce langage permet l’évaluation d’expressions pour désigner le <em>bean</em> ou la valeur
+à injecter. Lorsqu’elle est écrite comme valeur de l’annotation <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Value.html">&#64;Value</a>, une
+expression SpEL est délimitée par <code class="docutils literal notranslate"><span class="pre">#{</span></code> <code class="docutils literal notranslate"><span class="pre">}</span></code> .</p>
+<p>Nous verrons dans le chapitre <a class="reference internal" href="spring_mvc.html"><span class="doc">Les applications Web avec Spring Web MVC</span></a> que les expressions SpEL
+sont surtout utiles pour produire des pages Web dynamiquement à partir du
+moteur de rendu Thymeleaf.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour une présentation complète du langage SpEL, reportez-vous à la
+<a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions-language-ref">documentation officielle</a>.</p>
+</div>
+<div class="section" id="un-exemple-d-utilisation-de-spel">
+<h2>Un exemple d’utilisation de SpEL<a class="headerlink" href="#un-exemple-d-utilisation-de-spel" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Imaginons que notre application déclare une classe <code class="docutils literal notranslate"><span class="pre">RemoteServiceConfiguration</span></code>
+qui possède des informations sur la connexion à un service.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Exemple de classe Configuration</span><a class="headerlink" href="#id1" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.net.URL</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Value</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Configuration</span><span class="p">;</span>
+
+<span class="nd">@Configuration</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RemoteServiceConfiguration</span> <span class="p">{</span>
+
+  <span class="nd">@Value</span><span class="p">(</span><span class="s">&quot;${remote.service.url}&quot;</span><span class="p">)</span>
+  <span class="kd">private</span> <span class="n">URL</span> <span class="n">url</span><span class="p">;</span>
+
+  <span class="nd">@Value</span><span class="p">(</span><span class="s">&quot;${remote.service.connection.timeout : 1000}&quot;</span><span class="p">)</span>
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">connectionTimeout</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="n">URL</span> <span class="nf">getUrl</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">url</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getConnectionTimeout</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">connectionTimeout</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Comme nous l’avons vu au chapitre précédent, nous pouvons utiliser l’annotation
+<a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Value.html">&#64;Value</a> pour injecter des valeurs extraites d’un fichier de propriétés.</p>
+<p>Nous déclarons également dans l’application une classe <code class="docutils literal notranslate"><span class="pre">RemoteService</span></code> qui
+est responsable de se connecter au service distant à partir des informations
+fournies par le <em>bean</em> de type <code class="docutils literal notranslate"><span class="pre">RemoteServiceConfiguration</span></code>.</p>
+<p>Une première implémentation pourrait être :</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Exemple de classe Service</span><a class="headerlink" href="#id2" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.net.URLConnection</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.annotation.PostConstruct</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Service</span><span class="p">;</span>
+
+<span class="nd">@Service</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RemoteService</span> <span class="p">{</span>
+
+  <span class="nd">@Autowired</span>
+  <span class="kd">private</span> <span class="n">RemoteServiceConfiguration</span> <span class="n">remoteServiceConfiguration</span><span class="p">;</span>
+
+  <span class="nd">@PostConstruct</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">connect</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+    <span class="n">URLConnection</span> <span class="n">openConnection</span> <span class="o">=</span> <span class="n">remoteServiceConfiguration</span><span class="p">.</span><span class="na">getUrl</span><span class="p">().</span><span class="na">openConnection</span><span class="p">();</span>
+    <span class="n">openConnection</span><span class="p">.</span><span class="na">setConnectTimeout</span><span class="p">(</span><span class="n">remoteServiceConfiguration</span><span class="p">.</span><span class="na">getConnectionTimeout</span><span class="p">());</span>
+
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Même si cette implémentation fonctionne parfaitement, elle suppose que la classe
+<code class="docutils literal notranslate"><span class="pre">RemoteService</span></code> à une dépendance avec la classe <code class="docutils literal notranslate"><span class="pre">RemoteServiceConfiguration</span></code>.
+Nous pouvons préférer que Spring injecte le contenu des propriétés <code class="docutils literal notranslate"><span class="pre">url</span></code> et
+<code class="docutils literal notranslate"><span class="pre">connectionTimeout</span></code> dans des attributs de la classe <code class="docutils literal notranslate"><span class="pre">RemoteService</span></code>. Ainsi
+la dépendance directe sera supprimée. La classe <code class="docutils literal notranslate"><span class="pre">RemoteService</span></code> pourrait alors
+être implémentée comme ceci :</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Exemple de classe Service avec l’utilisation de spEL</span><a class="headerlink" href="#id3" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">dev.gayerie</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.net.URL</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.net.URLConnection</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.annotation.PostConstruct</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Value</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Service</span><span class="p">;</span>
+
+<span class="nd">@Service</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RemoteService</span> <span class="p">{</span>
+
+  <span class="nd">@Value</span><span class="p">(</span><span class="s">&quot;#{remoteServiceConfiguration.url}&quot;</span><span class="p">)</span>
+  <span class="kd">private</span> <span class="n">URL</span> <span class="n">url</span><span class="p">;</span>
+  <span class="nd">@Value</span><span class="p">(</span><span class="s">&quot;#{remoteServiceConfiguration.connectionTimeout}&quot;</span><span class="p">)</span>
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">connectionTimeout</span><span class="p">;</span>
+
+  <span class="nd">@PostConstruct</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">connect</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+    <span class="n">URLConnection</span> <span class="n">openConnection</span> <span class="o">=</span> <span class="n">url</span><span class="p">.</span><span class="na">openConnection</span><span class="p">();</span>
+    <span class="n">openConnection</span><span class="p">.</span><span class="na">setConnectTimeout</span><span class="p">(</span><span class="n">connectionTimeout</span><span class="p">);</span>
+
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>À la ligne 13 et à la ligne 14, nous utilisons deux expressions SpEL pour
+injecter les propriétés du <em>bean</em> <code class="docutils literal notranslate"><span class="pre">remoteServiceConfiguration</span></code>. Notez d’abord que
+c’est le nom du <em>bean</em> qui est utilisé dans l’expression, en utilisant la
+convention par défaut de Spring qui nomme le <em>bean</em> suivant le nom de la classe
+en commençant par une lettre minuscule. Notez ensuite que l’expression commence
+par <code class="docutils literal notranslate"><span class="pre">#{</span></code> pour ne pas la confondre avec la référence à une propriété d’un
+fichier de configuration ou une variable d’environnement.</p>
+</div>
+<div class="section" id="principe-de-spel">
+<h2>Principe de SpEL<a class="headerlink" href="#principe-de-spel" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Avec une expression SpEL, on peut référencer n’importe quel <em>bean</em> dans
+une expression par son nom et on peut accéder à ses propriétés grâce à l’opérateur
+<code class="docutils literal notranslate"><span class="pre">.</span></code>.</p>
+<p>On peut également utiliser les opérateurs arithmétiques et logiques dans une expression.</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Quelques exemples d’expressions avec SpEL</span><a class="headerlink" href="#id4" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>produit.dateLimite
+
+produit.quantite - 1
+
+1024 * 1024 * 1024
+
+! produit.epuise &amp;&amp; produit.quantite &gt; 0 &amp;&amp; produit.quantite &lt; 100
+</pre></div>
+</div>
+</div>
+<p>SpEL supporte la même écriture que Java mais, pour les opérateurs logiques, il
+est possible d’utiliser une forme textuelle :</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Utilisation de la forme textuelle pour les opérateurs logiques</span><a class="headerlink" href="#id5" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>not produit.epuise and produit.quantite gt 0 and produit.quantite lt 100
+</pre></div>
+</div>
+</div>
+<p>Il est également possible d’appeler des méthodes sur des <em>beans</em> :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>produit.nom.toUppercase()
+</pre></div>
+</div>
+<p>ou des méthodes statiques en donnant le nom de la classe entre <code class="docutils literal notranslate"><span class="pre">T(</span></code> <code class="docutils literal notranslate"><span class="pre">)</span></code> :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>T(java.lang.Math).min(stock.prixPlancher, stock.prixAlerte)
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>L’opérateur spécial <code class="docutils literal notranslate"><span class="pre">T(...)</span></code> permet d’indiquer dans une expression que l’on
+référence une classe et non pas un <em>bean</em>.</p>
+</div>
+<p>Il est possible de manipuler le contenu de tableaux, de listes ou de dictionnaires
+(<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Map.html">Map</a>) grâce à l’opérateur <code class="docutils literal notranslate"><span class="pre">[]</span></code>.</p>
+<p>Il existe un objet implicite nommé « systemProperties » qui correspond à un
+dictionnaire des propriétés systèmes au moment de l’exécution de la JVM.
+L’expression suivante :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>systemProperties[&#39;user.name&#39;]
+</pre></div>
+</div>
+<p>retourne la valeur de la propriété système <code class="docutils literal notranslate"><span class="pre">user.name</span></code> qui correspond au login
+de la session utilisateur qui exécute la JVM.</p>
+<p>Il est également possible de créer dans une expression, un tableau, une liste ou
+un dictionnaire (<a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Map.html">Map</a>) :</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Expression pour la création d’une liste ou d’un tableau</span><a class="headerlink" href="#id6" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{1,2,3,4}
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Expression pour la création d’un dictionnaire</span><a class="headerlink" href="#id7" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{prenom: &#39;David&#39;, nom: &#39;Gayerie&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="l-operateur-ternaire">
+<h2>L’opérateur ternaire<a class="headerlink" href="#l-operateur-ternaire" title="Lien permanent vers ce titre">¶</a></h2>
+<p>SpEL supporte l’opérateur ternaire de la forme <code class="docutils literal notranslate"><span class="pre">expression</span> <span class="pre">?</span> <span class="pre">si</span> <span class="pre">vraie</span> <span class="pre">:</span> <span class="pre">si</span> <span class="pre">fausse</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">Expression ternaire</span><a class="headerlink" href="#id8" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>connection.timeout &lt; 0 ? 0 : connection.timeout
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="l-operateur-elvis">
+<h2>L’opérateur Elvis<a class="headerlink" href="#l-operateur-elvis" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il existe une variante de l’opérateur ternaire, appelée l’opérateur Elvis. Elle
+permet d’écrire plus simplement l’expression suivante :</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">Expression ternaire pour contrôler la nullité</span><a class="headerlink" href="#id9" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>warning.message != null &lt; warning.message ? &quot;Warning&quot;
+</pre></div>
+</div>
+</div>
+<p>Lorsque nous voulons simplement déclarer une valeur par défaut si l’expression
+est nulle, nous pouvons utiliser l’opérateur Elvis :</p>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Expression avec l’opérateur Elvic</span><a class="headerlink" href="#id10" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>warning.message ?: &quot;Warning&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="l-operateur-de-surete">
+<h2>L’opérateur de sûreté<a class="headerlink" href="#l-operateur-de-surete" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’opérateur de sûreté (<em>safe navigation operator</em>) <code class="docutils literal notranslate"><span class="pre">?.</span></code> permet d’éviter une
+erreur de type <code class="docutils literal notranslate"><span class="pre">NullPointerException</span></code> si une propriété dans l’expression vaut
+<code class="docutils literal notranslate"><span class="pre">null</span></code>. Dans ce cas, le résultat de l’expression est simplement <code class="docutils literal notranslate"><span class="pre">null</span></code> :</p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">Expression avec l’opérateur de sûreté</span><a class="headerlink" href="#id11" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>service?.connection?.url
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="la-projection">
+<h2>La projection<a class="headerlink" href="#la-projection" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un usage plus avancé des expressions est la projection. Imaginons que nous disposons
+d’un <em>bean</em> annuaire qui contient une liste de personnes. Chaque personne dispose
+d’une adresse contenant le nom de la ville. Si nous souhaitons récupérer la liste
+de toutes les villes nous pouvons utiliser une projection :</p>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">Expression avec une projection</span><a class="headerlink" href="#id12" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>annuaire.personnes.![adresse.ville]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="aop.html" class="btn btn-neutral float-right" title="Spring AOP : programmation orientée aspect" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="application_context_conf.html" class="btn btn-neutral float-left" title="Configuration d’une application" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  <div  role="contentinfo">
+    <p>
+    Par David Gayerie
+    - <script>!function(){function e(e){return e.replace(/[a-zA-Z]/g,function(e){return String.fromCharCode((e<="Z"?90:122)>=(e=e.charCodeAt(0)+13)?e:e-26)})}!function(e){document.write("<a href='mailto:"+e+"'>"+e+"</a>")}(e("qnivq@tnlrevr.qri"))}();</script>
+    - <a class="reference external" href="https://gayerie.dev">https://gayerie.dev</a>
+    </p>
+    <p class="copyright">
+      <a class="reference external image-reference" href="https://creativecommons.org/licenses/by-sa/3.0/fr/"><img alt="Licence Creative Commons" src="https://i.creativecommons.org/l/by-sa/3.0/fr/88x31.png" /></a>
+      Cette œuvre est mise à disposition selon les termes de la <a class="reference external" href="https://creativecommons.org/licenses/by-sa/3.0/fr/">Licence Creative Commons Attribution</a> -  Partage dans les Mêmes Conditions 3.0 France
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

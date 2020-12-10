@@ -1,0 +1,725 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8">
+  <meta content="David Gayerie" name="author" />
+<meta content="Spring Framework - Principe d'inversion de contrôle" name="description" />
+<meta content="Java, Spring Framework, framework, Jakarta EE, Java EE, IoC, injection de dépendances" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+
+  <title>L’inversion de contrôle &mdash; Spring Framework / Spring Boot</title>
+
+
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://gayerie.dev/docs/spring/spring/principe_ioc.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Le contexte d’application" href="application_context.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Spring Framework / Spring Boot
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Spring Framework et Spring Boot</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#le-spring-framework-vs-j2ee">Le Spring Framework vs. J2EE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#spring-boot-et-la-configuration-automatique">Spring Boot et la configuration automatique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#les-modules-spring-framework">Les modules Spring Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#les-projets-spring">Les projets Spring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">L’inversion de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#l-injection-de-dependance">L’injection de dépendance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">L’inversion de contrôle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notion-de-conteneur-ioc">Notion de conteneur IoC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="application_context.html">Le contexte d’application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#mise-en-place-du-projet">Mise en place du projet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#une-premiere-application-avec-spring">Une première application avec Spring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#notion-de-portee-scope">Notion de portée (scope)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#l-injection-de-bean">L’injection de bean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context.html#les-methodes-d-initialisation-et-de-destruction">Les méthodes d’initialisation et de destruction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="annotations.html">Déclaration par annotations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#l-annotation-autowired">L’annotation &#64;Autowired</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#desambiguisation-avec-primary-et-qualifier">Désambiguïsation avec &#64;Primary et &#64;Qualifier</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="annotations.html#l-annotation-primary">L’annotation &#64;Primary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="annotations.html#l-annotation-qualifier">L’annotation &#64;Qualifier</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#l-annotation-value">L’annotation &#64;Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#les-annotations-jsr-250">Les annotations JSR-250</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#detection-automatique-des-composants-component-scan">Détection automatique des composants (<em>component scan</em>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#notion-de-composant">Notion de composant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#stereotype-de-composant">Stéréotype de composant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#le-stereotype-configuration">Le stéréotype &#64;Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#creation-de-stereotype-de-composant">Création de stéréotype de composant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#notions-avancees-pour-la-gestion-des-dependances">Notions avancées pour la gestion des dépendances</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="annotations.html#l-annotation-order">L’annotation &#64;Order</a></li>
+<li class="toctree-l3"><a class="reference internal" href="annotations.html#l-annotation-dependson">L’annotation &#64;DependsOn</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="annotations.html#support-des-annotations-standard-jsr-330">Support des annotations standard JSR-330</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="application_context_conf.html">Configuration d’une application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="application_context_conf.html#lancer-une-application-spring-boot">Lancer une application Spring Boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context_conf.html#spring-boot-et-le-fichier-application-properties">Spring Boot et le fichier application.properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context_conf.html#injection-des-proprietes-avec-value">Injection des propriétés avec &#64;Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context_conf.html#ajout-de-fichiers-de-proprietes-avec-propertysource">Ajout de fichiers de propriétés avec &#64;PropertySource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context_conf.html#les-variables-d-environnement">Les variables d’environnement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context_conf.html#la-classe-environment">La classe Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application_context_conf.html#beans-de-proprietes-avec-configurationproperties-spring-boot">Beans de propriétés avec &#64;ConfigurationProperties (Spring Boot)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="application_context_conf.html#introduction-a-bean-validation">Introduction à Bean Validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="application_context_conf.html#pour-en-savoir-plus">Pour en savoir plus</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spel.html">Le langage d’expression SpEL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spel.html#un-exemple-d-utilisation-de-spel">Un exemple d’utilisation de SpEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spel.html#principe-de-spel">Principe de SpEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spel.html#l-operateur-ternaire">L’opérateur ternaire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spel.html#l-operateur-elvis">L’opérateur Elvis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spel.html#l-operateur-de-surete">L’opérateur de sûreté</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spel.html#la-projection">La projection</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aop.html">Spring AOP : programmation orientée aspect</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aop.html#principe-de-la-programmation-orientee-aspect">Principe de la programmation orientée aspect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aop.html#terminologie-de-la-programmation-orientee-aspect">Terminologie de la programmation orientée aspect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aop.html#integration-du-module-spring-aop">Intégration du module Spring AOP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aop.html#integration-dans-une-application-spring-boot">Intégration dans une application Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aop.html#integration-dans-une-application-sans-spring-boot">Intégration dans une application sans Spring Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aop.html#exemple-de-programmation-orientee-aspect-avec-spring-aop">Exemple de programmation orientée aspect avec Spring AOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aop.html#la-programmation-orientee-aspect-pour-gerer-les-annotations">La programmation orientée Aspect pour gérer les annotations</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Spring Web MVC</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="spring_mvc_intro.html">Introduction à Spring Web MVC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_intro.html#le-modele-mvc">Le modèle MVC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_intro.html#integration-de-spring-web-mvc">Intégration de Spring Web MVC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc_intro.html#integration-dans-une-application-avec-spring-boot">Intégration dans une application avec Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc_intro.html#integration-dans-une-application-sans-spring-boot">Intégration dans une application sans Spring Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_intro.html#l-encodage-des-parametres-de-requetes">L’encodage des paramètres de requêtes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spring_mvc.html">Les applications Web avec Spring Web MVC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#les-controleurs">Les contrôleurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#les-vues-jsp">Les vues JSP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#pour-une-application-avec-spring-boot">Pour une application avec Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#pour-une-application-sans-spring-boot">Pour une application sans Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#utilisation-des-vues-jsp">Utilisation des vues JSP</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#les-vues-thymeleaf">Les vues Thymeleaf</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#id1">Pour une application avec Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#id2">Pour une application sans Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#utilisation-des-vues-thymeleaf">Utilisation des vues Thymeleaf</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#le-modele">Le modèle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#une-application-multi-couches-n-tiers">Une application multi-couches (N-Tiers)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#la-signature-des-methodes-de-controleur">La signature des méthodes de contrôleur</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#les-parametres">Les paramètres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#la-valeur-de-retour">La valeur de retour</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#taglib-jsp-et-gestion-des-formulaires">Taglib JSP et gestion des formulaires</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#spring-s-jsp-taglib">Spring’s JSP taglib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#form-taglib">Form taglib</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#gestion-des-formulaires-avec-thymeleaf">Gestion des formulaires avec Thymeleaf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#externalisation-des-messages">Externalisation des messages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#id4">Pour une application avec Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#id5">Pour une application sans Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#utilisation-des-messages-dans-une-jsp">Utilisation des messages dans une JSP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#utilisation-des-messages-avec-thymeleaf">Utilisation des messages avec Thymeleaf</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#validation-des-parametres-d-une-requete">Validation des paramètres d’une requête</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#la-notion-de-binding-et-le-bindingresult">La notion de <em>binding</em> et le BindingResult</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#validation-dans-la-methode-du-controleur">Validation dans la méthode du contrôleur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#creation-d-un-validateur">Création d’un validateur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#validation-declarative-avec-bean-validation">Validation déclarative avec Bean Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#affichage-des-erreurs-de-validation">Affichage des erreurs de validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#post-redirect-get">POST-redirect-GET</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#la-gestion-des-exceptions">La gestion des exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#methodes-de-modele">Méthodes de modèle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#methodes-de-binder">Méthodes de binder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#controlleradvice">ControllerAdvice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spring_mvc_apiweb.html">Les API Web avec Spring Web MVC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#support-pour-les-formats-json-et-xml">Support pour les formats JSON et XML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#l-annotation-restcontroller">L’annotation &#64;RestController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#un-controleur-pour-une-api-web">Un contrôleur pour une API Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#la-negociation-de-contenu">La négociation de contenu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#l-envoi-de-donnees">L’envoi de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#la-reponse">La réponse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#restcontrolleradvice">RestControllerAdvice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#les-annotations-jackson">Les annotations Jackson</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc_apiweb.html#les-vues-json">Les vues JSON</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#implementation-d-un-client">Implémentation d’un client</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="thymeleaf.html">Introduction à Thymeleaf</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#integration-de-thymeleaf">Intégration de Thymeleaf</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="thymeleaf.html#pour-une-application-avec-spring-boot">Pour une application avec Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="thymeleaf.html#pour-une-application-sans-spring-boot">Pour une application sans Spring Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#les-attributs-thymeleaf">Les attributs Thymeleaf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#l-expression-d-evaluation">${…} : l’expression d’évaluation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#l-expression-de-selection">*{…} : l’expression de sélection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#l-expression-de-message">#{…} : l’expression de message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#l-expression-d-url">&#64;{…} : l’expression d’URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#prevention-de-l-injection">Prévention de l’injection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#les-conditions-et-les-boucles">Les conditions et les boucles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#operateur-de-coalescence-des-nuls">Opérateur de coalescence des nuls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#le-formatage-des-donnees">Le formatage des données</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Spring et l'accès aux bases de données</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="spring_dao.html">Spring DAO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spring_dao.html#l-annotation-repository">L’annotation &#64;Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_dao.html#integration-de-jpa">Intégration de JPA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_dao.html#integration-dans-une-application-spring-boot">Intégration dans une application Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_dao.html#integration-dans-une-application-sans-spring-boot">Intégration dans une application sans Spring Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_dao.html#acces-aux-donnees-avec-jdbc">Accès aux données avec JDBC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_dao.html#id1">Intégration dans une application Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_dao.html#id2">Intégration dans une application sans Spring Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_dao.html#uniformite-de-la-hierarchie-des-exceptions">Uniformité de la hiérarchie des exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spring_data_jpa.html">Spring Data avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spring_data_jpa.html#notion-de-repository">Notion de repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_data_jpa.html#spring-data-jpa">Spring Data JPA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_data_jpa.html#integration-des-repositories">Intégration des repositories</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_data_jpa.html#integration-dans-une-application-spring-boot">Intégration dans une application Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_data_jpa.html#integration-dans-une-application-sans-spring-boot">Intégration dans une application sans Spring Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_data_jpa.html#injection-des-repositories">Injection des <em>repositories</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_data_jpa.html#ajout-de-methodes-dans-une-interface-de-repository">Ajout de méthodes dans une interface de repository</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_data_jpa.html#requetes-nommees-jpa">Requêtes nommées JPA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_data_jpa.html#utilisation-de-query">Utilisation de &#64;Query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_data_jpa.html#declaration-de-requetes-de-modification">Déclaration de requêtes de modification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_data_jpa.html#implementation-des-methodes-de-repository">Implémentation des méthodes de <em>repository</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spring_tx.html">Spring Transaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#la-transaction">La transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#spring-boot-et-la-configuration-automatique">Spring Boot et la configuration automatique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#transaction-et-couche-de-service">Transaction et couche de service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#l-annotation-transactional">L’annotation &#64;Transactional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#gestion-declarative-du-rollback">Gestion déclarative du <em>rollback</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#configuration-avancee-pour-les-transactions">Configuration avancée pour les transactions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_tx.html#la-propagation">La propagation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_tx.html#l-isolation">L’isolation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spring_tx.html#configuration-des-transactions-sans-spring-boot">Configuration des transactions sans Spring Boot</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Spring Framework / Spring Boot</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+<div class="banner">D'autres formations sont sur <a href="https://gayerie.dev">https://gayerie.dev</a></div>
+
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>L’inversion de contrôle</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="application_context.html" class="btn btn-neutral float-right" title="Le contexte d’application" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="l-inversion-de-controle">
+<span id="spring-ioc"></span><h1>L’inversion de contrôle<a class="headerlink" href="#l-inversion-de-controle" title="Lien permanent vers ce titre">¶</a></h1>
+<p>À la base du Spring Framework, on trouve un unique principe de conception :
+<a class="reference external" href="https://en.wikipedia.org/wiki/Inversion_of_control">l’inversion de contrôle</a>.</p>
+<p>L’inversion de contrôle est une façon de concevoir l’architecture d’une application
+en se basant sur le mécanisme objet de l’injection de dépendance.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>L’inversion de contrôle est liée étroitement au principe d’inversion de dépendance.
+Le principe d’inversion de dépendance est un des cinq principes fondamentaux
+de la conception objet identifiés par Robert C. Martin et résumés par
+l’acronyme <a class="reference external" href="https://fr.wikipedia.org/wiki/SOLID_(informatique)">SOLID</a>. Le D de <a class="reference external" href="https://fr.wikipedia.org/wiki/SOLID_(informatique)">SOLID</a> signifie <em>Dependency inversion principle</em>.</p>
+</div>
+<div class="section" id="l-injection-de-dependance">
+<h2>L’injection de dépendance<a class="headerlink" href="#l-injection-de-dependance" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’injection de dépendance est un mécanisme simple à mettre en œuvre dans
+le cadre de la programmation objet et qui permet de diminuer le couplage entre
+deux ou plusieurs objets.</p>
+<p>Dans un programme objet, les objets ont des relations les uns avec les autres.
+Imaginons un exemple simple d’un objet qui permet de réaliser une réservation
+d’une salle de réunion. Une implémentation en Java pourrait ressembler à ceci :</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Un exemple d’implémentation de la classe ReservationSalleService</span><a class="headerlink" href="#id3" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReservationSalleService</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="n">ReservationSalleDao</span> <span class="n">reservationSalleDao</span><span class="p">;</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">reserver</span><span class="p">(</span><span class="n">ReservationSalle</span> <span class="n">reservationSalle</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// faire un traitement nécessaire</span>
+    <span class="c1">// (par exemple la validation de la réservation)</span>
+
+    <span class="c1">// sauvegarder la réservation</span>
+    <span class="n">reservationSalleDao</span><span class="p">.</span><span class="na">sauver</span><span class="p">(</span><span class="n">reservationSalle</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Dans l’exemple ci-dessus, nous avons une répartition assez classique des
+responsabilités avec trois classes :</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ReservationSalleService</span></code></dt><dd><p>Représente le service à rendre par l’application. On peut imaginer plusieurs
+traitements à réaliser lors de l’appel à la méthode <code class="docutils literal notranslate"><span class="pre">reserver(ReservationSalle)</span></code>
+et, au final, la réservation est sauvegardée dans un système de base de données.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ReservationSalleDao</span></code></dt><dd><p>Représente l’accès à un système de base de données. Le suffixe <code class="docutils literal notranslate"><span class="pre">Dao</span></code> signifie
+<em>Database access object</em> et permet d’indiquer au lecteur que cette classe a
+pour responsabilité d’interagir avec un système de base de données. La
+méthode <code class="docutils literal notranslate"><span class="pre">sauver(ReservationSalle)</span></code> appelée dans notre exemple doit sans
+doute réaliser une insertion en SQL.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ReservationSalle</span></code></dt><dd><p>Réprésente la notion de réservation d’une salle de réunion.</p>
+</dd>
+</dl>
+<p>Le code ci-dessus, nous conduit à dire que pour réaliser son travail, la classe
+<code class="docutils literal notranslate"><span class="pre">ReservationSalleService</span></code> est <strong>dépendante</strong> d’objets des classes
+<code class="docutils literal notranslate"><span class="pre">ReservationSalleDao</span></code> et <code class="docutils literal notranslate"><span class="pre">ReservationSalle</span></code>. L’objet de type <code class="docutils literal notranslate"><span class="pre">ReservationSalleDao</span></code>
+est particulièrement intéressant car il est déclaré comme attribut de la classe.
+Cela signifie que cet objet fait partie de l’état de notre service et nous conduit
+à nous poser un problème fondamental en architecture logicielle : quelle partie
+du programme doit être responsable de la création de cette instance de
+<code class="docutils literal notranslate"><span class="pre">ReservationSalleDao</span></code>.</p>
+<p>Une réponse simple consisterait à dire que chaque objet de la classe
+<code class="docutils literal notranslate"><span class="pre">ReservationSalleService</span></code> est responsable de créer l’objet <code class="docutils literal notranslate"><span class="pre">ReservationSalleDao</span></code>.
+En programmation orientée objet, ce type de comportement est très facile à
+implémenter avec un constructeur.</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Création de la dépendance dans le constructeur</span><a class="headerlink" href="#id4" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReservationSalleService</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="n">ReservationSalleDao</span> <span class="n">reservationSalleDao</span><span class="p">;</span>
+
+<span class="hll">  <span class="kd">public</span> <span class="nf">ReservationSalleService</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">    <span class="n">reservationSalleDao</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ReservationSalleDao</span><span class="p">();</span>
+</span><span class="hll">  <span class="p">}</span>
+</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">reserver</span><span class="p">(</span><span class="n">ReservationSalle</span> <span class="n">reservationSalle</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// faire un traitement nécessaire</span>
+    <span class="c1">// (par exemple la validation de la réservation)</span>
+
+    <span class="c1">// sauvegarder la réservation</span>
+    <span class="n">reservationSalleDao</span><span class="p">.</span><span class="na">sauver</span><span class="p">(</span><span class="n">reservationSalle</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Cette solution, bien que simple, est problématique. En faisant cela, nous
+introduisons un couplage fort entre la classe <code class="docutils literal notranslate"><span class="pre">ReservationSalleService</span></code> et
+la classe <code class="docutils literal notranslate"><span class="pre">ReservationSalleDao</span></code>. D’une part, il n’est pas possible de considérer
+<code class="docutils literal notranslate"><span class="pre">ReservationSalleDao</span></code> comme une abstraction ou une interface puisque le service
+doit lui-même spécifier le type concret de l’attribut <code class="docutils literal notranslate"><span class="pre">reservationSalleDao</span></code>.
+D’autre part, il est possible que la création d’un objet de type
+<code class="docutils literal notranslate"><span class="pre">ReservationSalleDao</span></code> nécessite de passer des paramètres. Par exemple, puisqu’il
+s’agit d’un objet représentant un accès à une base de données, peut-être qu’il
+attend comme paramètres de constructeur l’adresse de la base de données, le login,
+le mot de passe d’accès… Tout un ensemble d’informations que la classe
+<code class="docutils literal notranslate"><span class="pre">ReservationSalleService</span></code> n’a sans doute pas à connaître. Enfin, un objet de
+type <code class="docutils literal notranslate"><span class="pre">ReservationSalleDao</span></code> a un état interne à maintenir comme, par exemple,
+une ou plusieurs connexions à une base de données. Il peut être plus judicieux
+de partager la même instance d’un tel objet à travers le programme afin de mieux
+gérer les ressources de l’application. Dans notre exemple, l’objet de type
+<code class="docutils literal notranslate"><span class="pre">ReservationSalleDao</span></code> est créé spécifiquement pour le service et sa durée de
+vie est liée à celle du service. En UML, on parle de composition pour désigner
+ce type fort de relation.</p>
+<p>Tous ces problèmes potentiels devraient nous amener à relativiser la simplicité
+d’une telle solution et à chercher une façon alternative d’établir la
+dépendance entre les objets de types <code class="docutils literal notranslate"><span class="pre">ReservationSalleService</span></code> et
+<code class="docutils literal notranslate"><span class="pre">ReservationSalleDao</span></code>.</p>
+<p>Une approche plus élaborée se base sur le principe du <em>service locator</em> conçu
+comme un <em>singleton</em>. Nous pourrions créer une classe <code class="docutils literal notranslate"><span class="pre">ReservationSalleDaoLocator</span></code>
+qui agirait comme une classe outil pour accéder à une instance d’un objet
+<code class="docutils literal notranslate"><span class="pre">ReservationSalleDao</span></code> en appelant la méthode de classe <code class="docutils literal notranslate"><span class="pre">getDao()</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Utilisation du modèle du <em>service locator</em></span><a class="headerlink" href="#id5" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReservationSalleService</span> <span class="p">{</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">reserver</span><span class="p">(</span><span class="n">ReservationSalle</span> <span class="n">reservationSalle</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// faire un traitement nécessaire</span>
+    <span class="c1">// (par exemple la validation de la réservation)</span>
+
+    <span class="c1">// sauvegarder la réservation</span>
+<span class="hll">    <span class="n">ReservationSalleDao</span> <span class="n">reservationSalleDao</span> <span class="o">=</span> <span class="n">ReservationSalleDaoLocator</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+</span>    <span class="n">reservationSalleDao</span><span class="p">.</span><span class="na">sauver</span><span class="p">(</span><span class="n">reservationSalle</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Cette implémentation élimine tous les problèmes évoqués pour la précédente
+implémentation. La classe <code class="docutils literal notranslate"><span class="pre">ReservationSalleService</span></code> n’a plus à connaître le
+type concret de l’objet et <code class="docutils literal notranslate"><span class="pre">ReservationSalleDao</span></code> peut être implémentée sous
+la forme d’une abstraction ou d’une interface. La classe <code class="docutils literal notranslate"><span class="pre">ReservationSalleService</span></code>
+n’est plus responsable directement de la création de l’objet, elle peut
+donc ignorer les paramètres nécessaires à la construction d’un tel objet. Il est
+possible d’utiliser la même instance de l’objet DAO dans d’autres objets.
+La solution d’un singleton de type <em>service locator</em> est très largement utilisée
+pour tous ces avantages… mais ce modèle n’est pas exempt de critiques.</p>
+<p>Le recours au modèle du <em>service locator</em> comme singleton n’est pas la méthode
+la plus optimale pour représenter un lien de dépendance. Si nous reprenons,
+l’exemple ci-dessus, il est évident que la classe <code class="docutils literal notranslate"><span class="pre">ReservationSalleService</span></code>
+entretient une dépendance avec la classe <code class="docutils literal notranslate"><span class="pre">ReservationSalle</span></code> puisqu’elle attend
+un paramètre de ce type à sa méthode <code class="docutils literal notranslate"><span class="pre">reserver(ReservationSalle)</span></code>. Par contre,
+même si la dépendance à <code class="docutils literal notranslate"><span class="pre">ReservationSalleDao</span></code> existe toujours, elle est plus
+difficile à saisir car elle n’apparaît que dans le code de la méthode
+<code class="docutils literal notranslate"><span class="pre">reserver(ReservationSalle)</span></code>. À l’usage, ce type de solution rend donc le code
+difficile à lire et difficile à tester. Il repose trop sur un principe d’effet
+de bord.</p>
+<p>Une troisième solution permet de conserver les avantages de l’implémentation
+précédente tout en rendant le lien de dépendance explicite entre les classes
+<code class="docutils literal notranslate"><span class="pre">ReservationSalleService</span></code> et <code class="docutils literal notranslate"><span class="pre">ReservationSalleDao</span></code> : il suffit de réaliser
+une <strong>injection de dépendance</strong> par le constructeur :</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Injection de la dépendance par le constructeur</span><a class="headerlink" href="#id6" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReservationSalleService</span> <span class="p">{</span>
+
+<span class="hll">  <span class="kd">private</span> <span class="n">ReservationSalleDao</span> <span class="n">reservationSalleDao</span><span class="p">;</span>
+</span>
+<span class="hll">  <span class="kd">public</span> <span class="nf">ReservationSalleService</span><span class="p">(</span><span class="n">ReservationSalleDao</span> <span class="n">reservationSalleDao</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">    <span class="k">this</span><span class="p">.</span><span class="na">reservationSalleDao</span> <span class="o">=</span> <span class="n">reservationSalleDao</span><span class="p">;</span>
+</span><span class="hll">  <span class="p">}</span>
+</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">reserver</span><span class="p">(</span><span class="n">ReservationSalle</span> <span class="n">reservationSalle</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// faire un traitement nécessaire</span>
+    <span class="c1">// (par exemple la validation de la réservation)</span>
+
+    <span class="c1">// sauvegarder la réservation</span>
+    <span class="n">reservationSalleDao</span><span class="p">.</span><span class="na">sauver</span><span class="p">(</span><span class="n">reservationSalle</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>On dit que la classe <code class="docutils literal notranslate"><span class="pre">ReservationSalleService</span></code> reçoit par injection une instance
+de <code class="docutils literal notranslate"><span class="pre">ReservationSalleDao</span></code>. Le lien de dépendance est clairement indiqué par
+la signature du constructeur et l’attribut <code class="docutils literal notranslate"><span class="pre">reservationSalleDao</span></code>.</p>
+<p>Cette implémentation est préférable aux précédentes en repoussant le problème
+de la création d’un objet de type <code class="docutils literal notranslate"><span class="pre">ReservationSalleDao</span></code> en dehors de la classe
+<code class="docutils literal notranslate"><span class="pre">ReservationSalleService</span></code>. Mais elle ne résout pas complètement le problème
+puisque nous imaginons qu’il va falloir qu’une autre partie du programme crée
+une instance de <code class="docutils literal notranslate"><span class="pre">ReservationSalleDao</span></code> et une instance de <code class="docutils literal notranslate"><span class="pre">ReservationSalleService</span></code>
+en passant l’objet DAO en paramètre. C’est précisément la fonction du Spring
+Framework de réaliser ce type d’opérations.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>En java, il est également possible de réaliser une injection de propriété
+à l’aide d’un <em>setter</em> :</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Injection de la dépendance par <em>setter</em></span><a class="headerlink" href="#id7" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReservationSalleService</span> <span class="p">{</span>
+
+  <span class="kd">private</span> <span class="n">ReservationSalleDao</span> <span class="n">reservationSalleDao</span><span class="p">;</span>
+
+<span class="hll">  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setReservationSalleDao</span><span class="p">(</span><span class="n">ReservationSalleDao</span> <span class="n">reservationSalleDao</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">    <span class="k">this</span><span class="p">.</span><span class="na">reservationSalleDao</span> <span class="o">=</span> <span class="n">reservationSalleDao</span><span class="p">;</span>
+</span><span class="hll">  <span class="p">}</span>
+</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">reserver</span><span class="p">(</span><span class="n">ReservationSalle</span> <span class="n">reservationSalle</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// faire un traitement nécessaire</span>
+    <span class="c1">// (par exemple la validation de la réservation)</span>
+
+    <span class="c1">// sauvegarder la réservation</span>
+    <span class="n">reservationSalleDao</span><span class="p">.</span><span class="na">sauver</span><span class="p">(</span><span class="n">reservationSalle</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>D’un point de vue conception, une injection par <em>setter</em> indique que la
+dépendance est optionnelle puisqu’il est possible de créer et d’utiliser
+un objet sans réaliser l’injection.</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>L’inversion de contrôle<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’inversion de contrôle (<em>Inversion of control</em> ou IoC) est un principe
+d’architecture conduisant à inverser le flux de contrôle par rapport au développement
+traditionnel.</p>
+<p>Habituellement, si je veux développer un programme qui utilise des bibliothèques
+tierces, je vais appeler les objets ou les fonctions de ces bibliothèques dans
+mon programme. Le flux de contrôle est géré par mon propre code qui doit réaliser
+les appels au code tiers.</p>
+<p>Dans une approche IoC, le flux de contrôle est orienté du code tiers vers le code
+de mon application. Le code que je fournis sera sous le contrôle du code tiers.
+L’IoC est en fait le principe qui est mis en application par la plupart des
+<em>frameworks</em>. On peut même dire que c’est principalement ce qui distingue un
+<em>framework</em> d’une bibliothèque. Le <em>framework</em> fournit une ossature, une charpente
+(d’où son nom) à mon application et je ne dois fournir que le code spécifique
+qui doit être conforme à ce que le <em>framework</em> attend. Par exemple, en fournissant
+des classes qui héritent de telles classes ou qui implémentent telles interfaces
+qui sont définies par le <em>framework</em>.</p>
+<p>Donc le Spring Framework n’est pas fondamentalement différent des autres
+<em>frameworks</em>… sauf qu’il met en pratique le principe de l’IoC dans sa forme
+la plus générale et la moins intrusive en proposant la notion de <strong>conteneur IoC</strong>.</p>
+</div>
+<div class="section" id="notion-de-conteneur-ioc">
+<h2>Notion de conteneur IoC<a class="headerlink" href="#notion-de-conteneur-ioc" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour pouvoir être mise en pratique, l’inversion de contrôle implique l’existence
+d’un composant supplémentaire. Dans l’exemple que nous avons pris précédemment,
+un code tiers doit être responsable de créer une instance des classes
+<code class="docutils literal notranslate"><span class="pre">ReservationSalleDao</span></code> et <code class="docutils literal notranslate"><span class="pre">ReservationSalleService</span></code>. Il faut également que ce
+composant soit capable de réaliser l’injection de l’objet de type <code class="docutils literal notranslate"><span class="pre">ReservationSalleDao</span></code>.</p>
+<p>La construction des objets de notre application va être déléguée à ce composant
+que l’on appelle un conteneur IoC (<em>IoC container</em>). Ce conteneur accueille un
+ensemble d’objets dont il a la responsabilité de gérer le cycle de vie. Le Spring
+Framework est avant tout un conteneur IoC. On peut résumer le rôle du Spring
+Framework en disant qu’il est responsable de la création des objets qui constituent
+l’ossature de notre application et qu’il s’assure que les dépendances entre
+eux sont correctement créées.</p>
+<p>Comme son principe reste général, il va être possible d’utiliser le Spring
+Framework pour des types d’application très divers. Il faut simplement pouvoir
+laisser au Spring Framework la possibilité d’initialiser l’application au lancement
+en créant le conteneur IoC. Dans la terminologie du Spring Framework, le conteneur
+IoC est constitué d’un ou de plusieurs <strong>contextes d’application</strong>.</p>
+<p>Nous allons voir au chapitre suivant comment créer un contexte d’application avec
+le Spring Framework.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="application_context.html" class="btn btn-neutral float-right" title="Le contexte d’application" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  <div  role="contentinfo">
+    <p>
+    Par David Gayerie
+    - <script>!function(){function e(e){return e.replace(/[a-zA-Z]/g,function(e){return String.fromCharCode((e<="Z"?90:122)>=(e=e.charCodeAt(0)+13)?e:e-26)})}!function(e){document.write("<a href='mailto:"+e+"'>"+e+"</a>")}(e("qnivq@tnlrevr.qri"))}();</script>
+    - <a class="reference external" href="https://gayerie.dev">https://gayerie.dev</a>
+    </p>
+    <p class="copyright">
+      <a class="reference external image-reference" href="https://creativecommons.org/licenses/by-sa/3.0/fr/"><img alt="Licence Creative Commons" src="https://i.creativecommons.org/l/by-sa/3.0/fr/88x31.png" /></a>
+      Cette œuvre est mise à disposition selon les termes de la <a class="reference external" href="https://creativecommons.org/licenses/by-sa/3.0/fr/">Licence Creative Commons Attribution</a> -  Partage dans les Mêmes Conditions 3.0 France
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99071053-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>
