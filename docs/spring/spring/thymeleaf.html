@@ -259,7 +259,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#l-expression-d-url">&#64;{…} : l’expression d’URL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prevention-de-l-injection">Prévention de l’injection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#les-conditions-et-les-boucles">Les conditions et les boucles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#operateur-de-coalescence-des-nuls">Opérateur de coalescence des nuls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#operateur-de-surete">Opérateur de sûreté</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#le-formatage-des-donnees">Le formatage des données</a></li>
 </ul>
 </li>
@@ -821,9 +821,9 @@ des expressions de référence :</p>
 </div>
 </div>
 </div>
-<div class="section" id="operateur-de-coalescence-des-nuls">
-<h2>Opérateur de coalescence des nuls<a class="headerlink" href="#operateur-de-coalescence-des-nuls" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Attention à la gestion des valeurs nulles dans le modèle. Si on souhaite afficher
+<div class="section" id="operateur-de-surete">
+<h2>Opérateur de sûreté<a class="headerlink" href="#operateur-de-surete" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Attention à la gestion des valeurs nulles dans le modèle. Si on veut afficher
 la valeur de l’attribut <code class="docutils literal notranslate"><span class="pre">nom</span></code> d’un objet du modèle appelé <code class="docutils literal notranslate"><span class="pre">utilisateur</span></code>. On
 peut écrire :</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-th-text</span><span class="o">=</span><span class="s">&quot;${ utilisateur.nom }&quot;</span><span class="p">&gt;</span>le nom ici<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
@@ -832,8 +832,8 @@ peut écrire :</p>
 <p>Mais que se passe-t-il si l’objet <code class="docutils literal notranslate"><span class="pre">utilisateur</span></code> n’est pas présent dans le
 modèle ? La génération de la page va échouer avec une erreur car <code class="docutils literal notranslate"><span class="pre">utilisateur</span></code>
 vaut <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p>
-<p>Les expressions à évaluer supportent l’opérateur de coalescence des valeurs nulles
-noté <code class="docutils literal notranslate"><span class="pre">?.</span></code>. Ainsi si nous modifions l’expression :</p>
+<p>SpEL définit un opérateur de sûreté (<em>safe navigation operator</em>) : <code class="docutils literal notranslate"><span class="pre">?.</span></code>. Si
+nous modifions l’expression :</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-th-text</span><span class="o">=</span><span class="s">&quot;${ utilisateur?.nom }&quot;</span><span class="p">&gt;</span>le nom ici<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
@@ -842,8 +842,7 @@ disponible. Le résultat de l’expression <code class="docutils literal notrans
 chaîne vide.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>L’opérateur de coalescence des valeurs nulles est utilisable à tous les
-niveaux d’une expression :</p>
+<p>L’opérateur de sûreté est utilisable à tous les niveaux d’une expression :</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>${ utilisateur?.adresse?.ville?.toUppercase() }
 </pre></div>
 </div>
