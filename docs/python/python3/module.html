@@ -45,8 +45,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Les décorateurs" href="decorateur.html" />
-    <link rel="prev" title="Liste en compréhension" href="list_comprehension.html" /> 
+    <link rel="next" title="Les fonctions (notions avancées)" href="fonction_avance.html" />
+    <link rel="prev" title="Les exceptions et la gestion des erreurs" href="exception.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -117,10 +117,12 @@
 <li class="toctree-l1"><a class="reference internal" href="type_et_variable.html">Types et variables</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#nombres-et-calcul-arithmetique">Nombres et calcul arithmétique</a></li>
 <li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#les-variables">Les variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#exercice">Exercice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#la-chaine-de-caracteres">La chaîne de caractères</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="type_et_variable.html#formatage-de-chaine-de-caracteres">Formatage de chaîne de caractères</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#id1">Exercice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#le-type-booleen">Le type booléen</a></li>
 </ul>
 </li>
@@ -133,6 +135,7 @@
 <li class="toctree-l3"><a class="reference internal" href="fonction.html#convertir-en-chaine-de-caracteres">Convertir en chaîne de caractères</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#tester-le-type-d-une-valeur-ou-d-une-variable">Tester le type d’une valeur ou d’une variable</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fonction.html#exercices">Exercices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fonction.html#declarer-une-fonction">Déclarer une fonction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fonction.html#documenter-une-fonction">Documenter une fonction</a></li>
@@ -162,6 +165,28 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="list.html#quelques-methodes-pour-les-listes">Quelques méthodes pour les listes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="list.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structures_de_controle.html">Les structures de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#l-indentation-du-code">L’indentation du code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#structures-de-decision">Structures de décision</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-if">L’instruction <em>if</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-else">L’instruction <em>else</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-elif">L’instruction <em>elif</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-operateur-ternaire">L’opérateur ternaire</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#exercice">Exercice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#structures-iteratives">Structures itératives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-while">L’instruction <em>while</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-for">L’instruction <em>for</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#la-fonction-range">La fonction <em>range</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#interrompre-un-bloc-d-iteration">Interrompre un bloc d’itération</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#structure-iterative-avec-else">Structure itérative avec <em>else</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#id1">Exercice</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tuple.html">Le n-uplet (<em>tuple</em>)</a><ul>
@@ -197,6 +222,7 @@
 <li class="toctree-l2"><a class="reference internal" href="set.html#quelques-methodes-pour-les-ensembles">Quelques méthodes pour les ensembles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="set.html#ensemble-liste-et-tuple">Ensemble, liste et tuple</a></li>
 <li class="toctree-l2"><a class="reference internal" href="set.html#ensemble-fige">Ensemble figé</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set.html#exercices">Exercices</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="dict.html">Le dictionnaire</a><ul>
@@ -210,40 +236,20 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="dict.html#quelques-methodes-pour-les-dictionnaires">Quelques méthodes pour les dictionnaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#parcourir-un-dictionnaire-avec-for">Parcourir un dictionnaire avec for</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#exercices">Exercices</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="structures_de_controle.html">Les structures de contrôle</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#l-indentation-du-code">L’indentation du code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#structures-de-decision">Structures de décision</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-if">L’instruction <em>if</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-else">L’instruction <em>else</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-elif">L’instruction <em>elif</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-operateur-ternaire">L’opérateur ternaire</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">Les exceptions et la gestion des erreurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#traiter-une-exception">Traiter une exception</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exception.html#recuperer-le-message-d-une-exception">Récupérer le message d’une exception</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#exercice">Exercice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#structures-iteratives">Structures itératives</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-while">L’instruction <em>while</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-for">L’instruction <em>for</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#la-fonction-range">La fonction <em>range</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#interrompre-un-bloc-d-iteration">Interrompre un bloc d’itération</a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#structure-iterative-avec-else">Structure itérative avec <em>else</em></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#id1">Exercice</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="fonction_avance.html">Les fonctions (notions avancées)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#decompactage-des-parametres">décompactage des paramètres</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#compactage-des-parametres">compactage des paramètres</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#appel-recursif-de-fonction">Appel récursif de fonction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#declaration-de-fonction-dans-une-fonction">Déclaration de fonction dans une fonction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#la-fonction-comme-type-python">La fonction comme type Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#les-fonctions-anonymes-lambdas">Les fonctions anonymes (lambdas)</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="list_comprehension.html">Liste en compréhension</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="list_comprehension.html#dictionnaire-en-comprehension">Dictionnaire en compréhension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#clause-else">Clause <em>else</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#post-traitement">Post-traitement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#lever-une-exception">Lever une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#les-exceptions-a-connaitre">Les exceptions à connaître</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#exercices">Exercices</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Les modules</a><ul>
@@ -261,6 +267,19 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fonction_avance.html">Les fonctions (notions avancées)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#decompactage-des-parametres">décompactage des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#compactage-des-parametres">compactage des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#appel-recursif-de-fonction">Appel récursif de fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#declaration-de-fonction-dans-une-fonction">Déclaration de fonction dans une fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#la-fonction-comme-type-python">La fonction comme type Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#les-fonctions-anonymes-lambdas">Les fonctions anonymes (lambdas)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="list_comprehension.html">Liste en compréhension</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="list_comprehension.html#dictionnaire-en-comprehension">Dictionnaire en compréhension</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="decorateur.html">Les décorateurs</a><ul>
@@ -294,6 +313,7 @@
 <li class="toctree-l2"><a class="reference internal" href="heritage.html#le-polymorphisme">Le polymorphisme</a></li>
 <li class="toctree-l2"><a class="reference internal" href="heritage.html#polymorphisme-et-duck-typing">Polymorphisme et <em>duck typing</em></a></li>
 <li class="toctree-l2"><a class="reference internal" href="heritage.html#masquer-les-attributs-et-les-methodes-pour-les-classe-filles">Masquer les attributs et les méthodes pour les classe filles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#les-exceptions-comme-objets">Les exceptions comme objets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="heritage.html#heritage-multiple-et-mixin">Héritage multiple et <em>mixin</em></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="heritage.html#l-heritage-en-diamant">L’héritage en diamant</a></li>
 <li class="toctree-l3"><a class="reference internal" href="heritage.html#appel-des-constructeurs">Appel des constructeurs</a></li>
@@ -302,17 +322,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="heritage.html#la-meta-classe">La méta-classe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="heritage.html#classes-et-methodes-abstraites">Classes et méthodes abstraites</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="exception.html">Les exceptions et la gestion des erreurs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#traiter-une-exception">Traiter une exception</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="exception.html#recuperer-les-donnees-d-une-exception">Récupérer les données d’une exception</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#clause-else">Clause <em>else</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#post-traitement">Post-traitement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#lever-une-exception">Lever une exception</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#creer-son-exception">Créer son exception</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="dunder.html">Les méthodes spéciales (<em>dunders</em>)</a><ul>
@@ -367,6 +376,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="fichier.html#lecture-de-fichiers-csv">Lecture de fichiers CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fichier.html#exercices">Exercices</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="unittest.html">Les tests unitaires automatisés avec unittest</a><ul>
@@ -385,6 +395,49 @@
 <li class="toctree-l2"><a class="reference internal" href="socket.html#exemple-d-implementation-d-un-serveur">Exemple d’implémentation d’un serveur</a></li>
 <li class="toctree-l2"><a class="reference internal" href="socket.html#exemple-d-implementation-d-un-client">Exemple d’implémentation d’un client</a></li>
 <li class="toctree-l2"><a class="reference internal" href="socket.html#exemple-d-un-serveur-multi-thread">Exemple d’un serveur multi-thread</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">Accès aux bases de données (MySQL)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#installation-du-connecteur-mysql">Installation du connecteur MySQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#connexion-a-la-base-de-donnees">Connexion à la base de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#insertion-de-donnees">Insertion de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#selection-de-donnees">Sélection de données</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mysql.html#recuperer-les-donnees-en-flux">Récupérer les données en flux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mysql.html#utilisation-de-parametres-dans-les-conditions-where">Utilisation de paramètres dans les conditions <em>where</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#modification-des-donnees">Modification des données</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tkinter.html">Les applications graphiques avec Tkinter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#un-premier-programme">Un premier programme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#notion-de-boucle-d-evenements">Notion de boucle d’événements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#une-application-orientee-objet">Une application orientée objet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#un-exemple-de-gestion-des-evenements">Un exemple de gestion des événements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#les-widgets-et-le-positionnement">Les widgets et le positionnement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.html#positionnement-des-widgets">Positionnement des widgets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.html#collecter-les-donnees-des-widgets">Collecter les données des widgets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#les-boites-de-messages">Les boites de messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#les-boites-de-dialogue-avancees">Les boites de dialogue avancées</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_venv.html">Gestion des packages avec pip et venv</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_venv.html#gerer-les-packages-avec-pip">Gérer les packages avec pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#installation-de-pip">Installation de pip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#installer-des-packages">Installer des packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#autres-commandes-utiles">Autres commandes utiles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pip_venv.html#gerer-l-environnement-avec-venv">Gérer l’environnement avec venv</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#creation-d-un-environnement">Création d’un environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#activation-de-l-environnement">Activation de l’environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#desactivation-de-l-environnement">Désactivation de l’environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#supprimer-un-environnement">Supprimer un environnement</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pip_venv.html#configuration-d-un-projet">Configuration d’un projet</a></li>
 </ul>
 </li>
 </ul>
@@ -478,10 +531,10 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="decorateur.html" class="btn btn-neutral float-right" title="Les décorateurs" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="fonction_avance.html" class="btn btn-neutral float-right" title="Les fonctions (notions avancées)" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="list_comprehension.html" class="btn btn-neutral float-left" title="Liste en compréhension" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+        <a href="exception.html" class="btn btn-neutral float-left" title="Les exceptions et la gestion des erreurs" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
       
   </div>
   
@@ -522,11 +575,11 @@ en préfixant le nom de la fonction par le nom du module :</p>
 </pre></div>
 </div>
 <p>Dans l’exemple ci-dessus, il est même possible d’appeler la méthode standard
-<a class="reference external" href="https://docs.python.org/3.6/library/functions.html#abs" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">abs()</span></code></a> qui permet de calculer la valeur absolue d’un nombre.</p>
+<a class="reference external" href="https://docs.python.org/3.7/library/functions.html#abs" title="(disponible dans Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">abs()</span></code></a> qui permet de calculer la valeur absolue d’un nombre.</p>
 </div>
 <div class="section" id="la-bibliotheque-standard-python">
 <h2>La bibliothèque standard Python<a class="headerlink" href="#la-bibliotheque-standard-python" title="Lien permanent vers ce titre">¶</a></h2>
-<p>La <a class="reference external" href="https://docs.python.org/3.6/library/index.html">bibliothèque standard Python</a> contient déjà beaucoup de modules. La liste
+<p>La <a class="reference external" href="https://docs.python.org/3.7/library/index.html">bibliothèque standard Python</a> contient déjà beaucoup de modules. La liste
 ci-dessous énumère les modules les plus utiles à connaître pour débuter en Python :</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
@@ -534,25 +587,25 @@ ci-dessous énumère les modules les plus utiles à connaître pour débuter en 
 <col style="width: 71%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.6/library/sys.html#module-sys" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sys</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.7/library/sys.html#module-sys" title="(disponible dans Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sys</span></code></a></p></td>
 <td><p>variables et fonctions pour interagir avec l’interpréteur Python</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/library/os.html#module-os" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">os</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.7/library/os.html#module-os" title="(disponible dans Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">os</span></code></a></p></td>
 <td><p>fonctions élémentaires pour interagir avec le système d’exploitation</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.6/library/math.html#module-math" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">math</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.7/library/math.html#module-math" title="(disponible dans Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">math</span></code></a></p></td>
 <td><p>fonctions mathématiques avancées</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/library/random.html#module-random" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">random</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.7/library/random.html#module-random" title="(disponible dans Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">random</span></code></a></p></td>
 <td><p>bibliothèque pour la génération de nombres aléatoires</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.6/library/datetime.html#module-datetime" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">datetime</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.7/library/datetime.html#module-datetime" title="(disponible dans Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">datetime</span></code></a></p></td>
 <td><p>représentation des dates et du temps</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/library/calendar.html#module-calendar" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">calendar</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.7/library/calendar.html#module-calendar" title="(disponible dans Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">calendar</span></code></a></p></td>
 <td><p>gestion du calendrier</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.6/library/collections.html#module-collections" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">collections</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.7/library/collections.html#module-collections" title="(disponible dans Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">collections</span></code></a></p></td>
 <td><p>structures de données supplémentaires pour les séquences et les dictionnaires</p></td>
 </tr>
 </tbody>
@@ -561,15 +614,15 @@ ci-dessous énumère les modules les plus utiles à connaître pour débuter en 
 <div class="section" id="importer-un-module">
 <h2>Importer un module<a class="headerlink" href="#importer-un-module" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Pour accéder à un élément d’un module, il faut d’abord importer le module grâce
-au mot-clé <a class="reference external" href="https://docs.python.org/3.6/reference/simple_stmts.html#import" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">import</span></code></a>. Par exemple, le module <a class="reference external" href="https://docs.python.org/3.6/library/sys.html#module-sys" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sys</span></code></a> définit la variable
-<a class="reference external" href="https://docs.python.org/3.6/library/sys.html#sys.version" title="(disponible dans Python v3.6)"><code class="xref py py-data docutils literal notranslate"><span class="pre">version</span></code></a> qui contient la version de l’interpréteur Python. Pour
-pouvoir y accéder, il faut préalablement importer le module <a class="reference external" href="https://docs.python.org/3.6/library/sys.html#module-sys" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sys</span></code></a> :</p>
+au mot-clé <a class="reference external" href="https://docs.python.org/3.7/reference/simple_stmts.html#import" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">import</span></code></a>. Par exemple, le module <a class="reference external" href="https://docs.python.org/3.7/library/sys.html#module-sys" title="(disponible dans Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sys</span></code></a> définit la variable
+<a class="reference external" href="https://docs.python.org/3.7/library/sys.html#sys.version" title="(disponible dans Python v3.7)"><code class="xref py py-data docutils literal notranslate"><span class="pre">version</span></code></a> qui contient la version de l’interpréteur Python. Pour
+pouvoir y accéder, il faut préalablement importer le module <a class="reference external" href="https://docs.python.org/3.7/library/sys.html#module-sys" title="(disponible dans Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sys</span></code></a> :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>De même, le module <a class="reference external" href="https://docs.python.org/3.6/library/random.html#module-random" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">random</span></code></a> définit la fonction <a class="reference external" href="https://docs.python.org/3.6/library/random.html#random.random" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">random()</span></code></a> qui
+<p>De même, le module <a class="reference external" href="https://docs.python.org/3.7/library/random.html#module-random" title="(disponible dans Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">random</span></code></a> définit la fonction <a class="reference external" href="https://docs.python.org/3.7/library/random.html#random.random" title="(disponible dans Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">random()</span></code></a> qui
 retourne un nombre compris entre 0 et 1 :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
 
@@ -577,13 +630,13 @@ retourne un nombre compris entre 0 et 1 :</p>
 <span class="nb">print</span><span class="p">(</span><span class="n">nombre</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>L’instruction <a class="reference external" href="https://docs.python.org/3.6/reference/simple_stmts.html#import" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">import</span></code></a> peut être placée à n’importe quel endroit dans un programme
+<p>L’instruction <a class="reference external" href="https://docs.python.org/3.7/reference/simple_stmts.html#import" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">import</span></code></a> peut être placée à n’importe quel endroit dans un programme
 (y compris dans le corps d’une fonction). Cela permet d’importer le module uniquement
 lorsqu’il est réellement nécessaire d’accéder à un élément qu’il définit.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Si vous souhaitez importer plusieurs modules, vous pouvez utiliser une seule
-instruction <a class="reference external" href="https://docs.python.org/3.6/reference/simple_stmts.html#import" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">import</span></code></a> en séparant le nom des modules par une virgule :</p>
+instruction <a class="reference external" href="https://docs.python.org/3.7/reference/simple_stmts.html#import" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">import</span></code></a> en séparant le nom des modules par une virgule :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">random</span>
 </pre></div>
 </div>
@@ -601,13 +654,13 @@ sous un autre nom.</p>
 <h2>Importer directement un nom<a class="headerlink" href="#importer-directement-un-nom" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Parfois, vous ne souhaitez pas importer tout un module et il peut être fastidieux
 de préfixer systématiquement un nom par le module qui le définit. Il existe
-la syntaxe <a class="reference external" href="https://docs.python.org/3.6/reference/simple_stmts.html#import" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">from</span> <span class="pre">...</span> <span class="pre">import</span></code></a> pour résoudre cette situation :</p>
+la syntaxe <a class="reference external" href="https://docs.python.org/3.7/reference/simple_stmts.html#import" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">from</span> <span class="pre">...</span> <span class="pre">import</span></code></a> pour résoudre cette situation :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">version</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">version</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Grâce à cette syntaxe, la variable <a class="reference external" href="https://docs.python.org/3.6/library/sys.html#sys.version" title="(disponible dans Python v3.6)"><code class="xref py py-data docutils literal notranslate"><span class="pre">version</span></code></a> du module <a class="reference external" href="https://docs.python.org/3.6/library/sys.html#module-sys" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sys</span></code></a>
+<p>Grâce à cette syntaxe, la variable <a class="reference external" href="https://docs.python.org/3.7/library/sys.html#sys.version" title="(disponible dans Python v3.7)"><code class="xref py py-data docutils literal notranslate"><span class="pre">version</span></code></a> du module <a class="reference external" href="https://docs.python.org/3.7/library/sys.html#module-sys" title="(disponible dans Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sys</span></code></a>
 est directement accessible par son nom.</p>
 <p>Cette syntaxe est également utilisable pour les fonctions :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">factorial</span>
@@ -620,7 +673,7 @@ est directement accessible par son nom.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Si vous souhaitez importer plusieurs noms du même module, vous pouvez utiliser
-une seule instruction <a class="reference external" href="https://docs.python.org/3.6/reference/simple_stmts.html#import" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">from</span> <span class="pre">...</span> <span class="pre">import</span></code></a> en séparant les noms par une virgule :</p>
+une seule instruction <a class="reference external" href="https://docs.python.org/3.7/reference/simple_stmts.html#import" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">from</span> <span class="pre">...</span> <span class="pre">import</span></code></a> en séparant les noms par une virgule :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">version</span><span class="p">,</span> <span class="n">platform</span><span class="p">,</span> <span class="n">exit</span>
 </pre></div>
 </div>
@@ -700,7 +753,7 @@ le souhaitez, un module peut avoir une comportement différent s’il est exécu
 directement par l’interpréteur (comme programme principal) ou s’il est importé
 depuis un autre fichier. Cela permet de créer des modules exécutables de
 manière autonome. Pour cela, il suffit de tester la valeur de l’attribut
-du module appelé <a class="reference external" href="https://docs.python.org/3.6/reference/import.html#__name__" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">__name__</span></code></a>. Si cet attribut vaut <code class="docutils literal notranslate"><span class="pre">&quot;__main__&quot;</span></code> alors
+du module appelé <a class="reference external" href="https://docs.python.org/3.7/reference/import.html#__name__" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">__name__</span></code></a>. Si cet attribut vaut <code class="docutils literal notranslate"><span class="pre">&quot;__main__&quot;</span></code> alors
 cela signifie que le fichier est lancée directement par l’interpréteur. Il
 n’est pas importé et n’agit donc pas comme un module.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
@@ -769,7 +822,7 @@ modifié par rapport à l’exemple de la section précédente :</p>
 <p>Si un module est représenté par un répertoire, il est possible de le rendre
 exécutable en ajoutant un fichier <code class="file docutils literal notranslate"><span class="pre">__main__.py</span></code> dans le répertoire. Ce
 fichier contient le code a exécuter uniquement si le module est lancé directement
-à partir de l’interpréteur Python grâce à l’option <a class="reference external" href="https://docs.python.org/3.6/using/cmdline.html#cmdoption-m" title="(disponible dans Python v3.6)"><code class="xref std std-option docutils literal notranslate"><span class="pre">-m</span></code></a> :</p>
+à partir de l’interpréteur Python grâce à l’option <a class="reference external" href="https://docs.python.org/3.7/using/cmdline.html#cmdoption-m" title="(disponible dans Python v3.7)"><code class="xref std std-option docutils literal notranslate"><span class="pre">-m</span></code></a> :</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python3 -m mon_module
 </pre></div>
 </div>
@@ -779,7 +832,7 @@ fichier contient le code a exécuter uniquement si le module est lancé directem
 <p>Comme un module est représenté par un fichier ou par un répertoire, l’interpréteur
 doit définir quel est l’emplacement par défaut des modules. L’ensemble des
 répertoires pouvant contenir des modules est appelé le <strong>path</strong>. Il est accessible
-directement par un programme avec <a class="reference external" href="https://docs.python.org/3.6/library/sys.html#sys.path" title="(disponible dans Python v3.6)"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a>.</p>
+directement par un programme avec <a class="reference external" href="https://docs.python.org/3.7/library/sys.html#sys.path" title="(disponible dans Python v3.7)"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
 
@@ -789,12 +842,12 @@ directement par un programme avec <a class="reference external" href="https://do
 <span class="c1">#  &#39;/usr/lib/python3/dist-packages&#39;, &#39;/usr/lib/python3.6/dist-packages&#39;]</span>
 </pre></div>
 </div>
-<p>Pour un système Linux, la variable <a class="reference external" href="https://docs.python.org/3.6/library/sys.html#sys.path" title="(disponible dans Python v3.6)"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> indique tous les répertoires
+<p>Pour un système Linux, la variable <a class="reference external" href="https://docs.python.org/3.7/library/sys.html#sys.path" title="(disponible dans Python v3.7)"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> indique tous les répertoires
 systèmes pouvant contenir des modules Python sous la forme d’un tableau. Le
 premier chemin indiqué est <code class="docutils literal notranslate"><span class="pre">''</span></code>, ce qui signifie que l’interpréteur cherche
 en priorité un module directement à partir du répertoire de travail dans lequel
 l’interpréteur a été lancé.</p>
-<p>Il est possible de modifier le contenu de <a class="reference external" href="https://docs.python.org/3.6/library/sys.html#sys.path" title="(disponible dans Python v3.6)"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> par programmation. On
+<p>Il est possible de modifier le contenu de <a class="reference external" href="https://docs.python.org/3.7/library/sys.html#sys.path" title="(disponible dans Python v3.7)"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> par programmation. On
 peut également utiliser la variable d’environnement système <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> pour
 ajouter des chemins supplémentaires au moment du lancement de l’interpréteur.
 Si on souhaite spécifier plusieurs chemins, il faut les séparer par <code class="docutils literal notranslate"><span class="pre">:</span></code>.</p>
@@ -837,7 +890,7 @@ un projet a l’arborescence suivante :</p>
 </pre></div>
 </div>
 <p>Si on veut éviter de préciser systématiquement le chemin de packages pour accéder
-à élément du module, on peut utiliser la syntaxe du <a class="reference external" href="https://docs.python.org/3.6/reference/simple_stmts.html#import" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">from</span> <span class="pre">...</span> <span class="pre">import</span></code></a> :</p>
+à élément du module, on peut utiliser la syntaxe du <a class="reference external" href="https://docs.python.org/3.7/reference/simple_stmts.html#import" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">from</span> <span class="pre">...</span> <span class="pre">import</span></code></a> :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">stock.gestion</span> <span class="kn">import</span> <span class="n">commande</span>
 
 <span class="n">commande</span><span class="o">.</span><span class="n">traiter_commande</span><span class="p">()</span>
@@ -895,14 +948,14 @@ dans le même répertoire, on peut écrire :</p>
 </div>
 <div class="exercice admonition">
 <p class="admonition-title">Exercice : Trouver un nombre</p>
-<p>Utilisez la fonction <a class="reference external" href="https://docs.python.org/3.6/library/random.html#random.randint" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">randint()</span></code></a> du module <a class="reference external" href="https://docs.python.org/3.6/library/random.html#module-random" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">random</span></code></a> pour
+<p>Utilisez la fonction <a class="reference external" href="https://docs.python.org/3.7/library/random.html#random.randint" title="(disponible dans Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">randint()</span></code></a> du module <a class="reference external" href="https://docs.python.org/3.7/library/random.html#module-random" title="(disponible dans Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">random</span></code></a> pour
 tirer un nombre aléatoirement entre 1 et 20.</p>
 <p>L’utilisateur a droit à trois tentatives pour deviner ce nombre.</p>
 </div>
 <div class="exercice admonition">
-<p class="admonition-title">Exercice : Trouver un nombre</p>
-<p>Utilisez la fonction <a class="reference external" href="https://docs.python.org/3.6/library/datetime.html#datetime.datetime.now" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">datetime.now()</span></code></a>
-du module <a class="reference external" href="https://docs.python.org/3.6/library/datetime.html#module-datetime" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">datetime</span></code></a> pour connaître la date et l’heure et l’afficher.</p>
+<p class="admonition-title">Exercice : Afficher la date</p>
+<p>Utilisez la fonction <a class="reference external" href="https://docs.python.org/3.7/library/datetime.html#datetime.datetime.now" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">datetime.now()</span></code></a>
+du module <a class="reference external" href="https://docs.python.org/3.7/library/datetime.html#module-datetime" title="(disponible dans Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">datetime</span></code></a> pour connaître la date et l’heure et l’afficher.</p>
 </div>
 <div class="exercice admonition">
 <p class="admonition-title">Exercice : Organiser un projet en module</p>
@@ -937,10 +990,10 @@ en invoquant le module :</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="decorateur.html" class="btn btn-neutral float-right" title="Les décorateurs" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="fonction_avance.html" class="btn btn-neutral float-right" title="Les fonctions (notions avancées)" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="list_comprehension.html" class="btn btn-neutral float-left" title="Liste en compréhension" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+        <a href="exception.html" class="btn btn-neutral float-left" title="Les exceptions et la gestion des erreurs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
       
     </div>
   

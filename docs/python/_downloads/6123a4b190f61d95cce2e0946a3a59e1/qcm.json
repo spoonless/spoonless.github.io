@@ -1,0 +1,12 @@
+[
+    {
+        "libelle": "Comment s'appelle le chien de Tintin ?",
+        "choix": ["Félix", "Gustave", "Milou"],
+        "reponse": 2
+    },
+    {
+        "libelle": "Combien y a-t-il de points cardinaux ?",
+        "choix": ["2", "4", "360"],
+        "reponse": 1
+    }
+]

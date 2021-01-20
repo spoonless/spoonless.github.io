@@ -45,7 +45,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Les signaux et les slots" href="../pyside2/signal_slot.html" />
+    <link rel="next" title="Accès aux bases de données (MySQL)" href="mysql.html" />
     <link rel="prev" title="Les tests unitaires automatisés avec unittest" href="unittest.html" /> 
 </head>
 
@@ -117,10 +117,12 @@
 <li class="toctree-l1"><a class="reference internal" href="type_et_variable.html">Types et variables</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#nombres-et-calcul-arithmetique">Nombres et calcul arithmétique</a></li>
 <li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#les-variables">Les variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#exercice">Exercice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#la-chaine-de-caracteres">La chaîne de caractères</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="type_et_variable.html#formatage-de-chaine-de-caracteres">Formatage de chaîne de caractères</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#id1">Exercice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#le-type-booleen">Le type booléen</a></li>
 </ul>
 </li>
@@ -133,6 +135,7 @@
 <li class="toctree-l3"><a class="reference internal" href="fonction.html#convertir-en-chaine-de-caracteres">Convertir en chaîne de caractères</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#tester-le-type-d-une-valeur-ou-d-une-variable">Tester le type d’une valeur ou d’une variable</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fonction.html#exercices">Exercices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fonction.html#declarer-une-fonction">Déclarer une fonction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fonction.html#documenter-une-fonction">Documenter une fonction</a></li>
@@ -162,6 +165,28 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="list.html#quelques-methodes-pour-les-listes">Quelques méthodes pour les listes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="list.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structures_de_controle.html">Les structures de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#l-indentation-du-code">L’indentation du code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#structures-de-decision">Structures de décision</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-if">L’instruction <em>if</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-else">L’instruction <em>else</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-elif">L’instruction <em>elif</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-operateur-ternaire">L’opérateur ternaire</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#exercice">Exercice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#structures-iteratives">Structures itératives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-while">L’instruction <em>while</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-for">L’instruction <em>for</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#la-fonction-range">La fonction <em>range</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#interrompre-un-bloc-d-iteration">Interrompre un bloc d’itération</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#structure-iterative-avec-else">Structure itérative avec <em>else</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#id1">Exercice</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tuple.html">Le n-uplet (<em>tuple</em>)</a><ul>
@@ -197,6 +222,7 @@
 <li class="toctree-l2"><a class="reference internal" href="set.html#quelques-methodes-pour-les-ensembles">Quelques méthodes pour les ensembles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="set.html#ensemble-liste-et-tuple">Ensemble, liste et tuple</a></li>
 <li class="toctree-l2"><a class="reference internal" href="set.html#ensemble-fige">Ensemble figé</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set.html#exercices">Exercices</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="dict.html">Le dictionnaire</a><ul>
@@ -210,40 +236,20 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="dict.html#quelques-methodes-pour-les-dictionnaires">Quelques méthodes pour les dictionnaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#parcourir-un-dictionnaire-avec-for">Parcourir un dictionnaire avec for</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#exercices">Exercices</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="structures_de_controle.html">Les structures de contrôle</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#l-indentation-du-code">L’indentation du code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#structures-de-decision">Structures de décision</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-if">L’instruction <em>if</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-else">L’instruction <em>else</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-elif">L’instruction <em>elif</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-operateur-ternaire">L’opérateur ternaire</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">Les exceptions et la gestion des erreurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#traiter-une-exception">Traiter une exception</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exception.html#recuperer-le-message-d-une-exception">Récupérer le message d’une exception</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#exercice">Exercice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#structures-iteratives">Structures itératives</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-while">L’instruction <em>while</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-for">L’instruction <em>for</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#la-fonction-range">La fonction <em>range</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#interrompre-un-bloc-d-iteration">Interrompre un bloc d’itération</a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#structure-iterative-avec-else">Structure itérative avec <em>else</em></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#id1">Exercice</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="fonction_avance.html">Les fonctions (notions avancées)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#decompactage-des-parametres">décompactage des paramètres</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#compactage-des-parametres">compactage des paramètres</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#appel-recursif-de-fonction">Appel récursif de fonction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#declaration-de-fonction-dans-une-fonction">Déclaration de fonction dans une fonction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#la-fonction-comme-type-python">La fonction comme type Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#les-fonctions-anonymes-lambdas">Les fonctions anonymes (lambdas)</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="list_comprehension.html">Liste en compréhension</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="list_comprehension.html#dictionnaire-en-comprehension">Dictionnaire en compréhension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#clause-else">Clause <em>else</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#post-traitement">Post-traitement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#lever-une-exception">Lever une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#les-exceptions-a-connaitre">Les exceptions à connaître</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#exercices">Exercices</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="module.html">Les modules</a><ul>
@@ -261,6 +267,19 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="module.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fonction_avance.html">Les fonctions (notions avancées)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#decompactage-des-parametres">décompactage des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#compactage-des-parametres">compactage des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#appel-recursif-de-fonction">Appel récursif de fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#declaration-de-fonction-dans-une-fonction">Déclaration de fonction dans une fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#la-fonction-comme-type-python">La fonction comme type Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#les-fonctions-anonymes-lambdas">Les fonctions anonymes (lambdas)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="list_comprehension.html">Liste en compréhension</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="list_comprehension.html#dictionnaire-en-comprehension">Dictionnaire en compréhension</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="decorateur.html">Les décorateurs</a><ul>
@@ -294,6 +313,7 @@
 <li class="toctree-l2"><a class="reference internal" href="heritage.html#le-polymorphisme">Le polymorphisme</a></li>
 <li class="toctree-l2"><a class="reference internal" href="heritage.html#polymorphisme-et-duck-typing">Polymorphisme et <em>duck typing</em></a></li>
 <li class="toctree-l2"><a class="reference internal" href="heritage.html#masquer-les-attributs-et-les-methodes-pour-les-classe-filles">Masquer les attributs et les méthodes pour les classe filles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#les-exceptions-comme-objets">Les exceptions comme objets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="heritage.html#heritage-multiple-et-mixin">Héritage multiple et <em>mixin</em></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="heritage.html#l-heritage-en-diamant">L’héritage en diamant</a></li>
 <li class="toctree-l3"><a class="reference internal" href="heritage.html#appel-des-constructeurs">Appel des constructeurs</a></li>
@@ -302,17 +322,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="heritage.html#la-meta-classe">La méta-classe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="heritage.html#classes-et-methodes-abstraites">Classes et méthodes abstraites</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="exception.html">Les exceptions et la gestion des erreurs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#traiter-une-exception">Traiter une exception</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="exception.html#recuperer-les-donnees-d-une-exception">Récupérer les données d’une exception</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#clause-else">Clause <em>else</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#post-traitement">Post-traitement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#lever-une-exception">Lever une exception</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#creer-son-exception">Créer son exception</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="dunder.html">Les méthodes spéciales (<em>dunders</em>)</a><ul>
@@ -367,6 +376,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="fichier.html#lecture-de-fichiers-csv">Lecture de fichiers CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fichier.html#exercices">Exercices</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="unittest.html">Les tests unitaires automatisés avec unittest</a><ul>
@@ -385,6 +395,49 @@
 <li class="toctree-l2"><a class="reference internal" href="#exemple-d-implementation-d-un-serveur">Exemple d’implémentation d’un serveur</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#exemple-d-implementation-d-un-client">Exemple d’implémentation d’un client</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#exemple-d-un-serveur-multi-thread">Exemple d’un serveur multi-thread</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">Accès aux bases de données (MySQL)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#installation-du-connecteur-mysql">Installation du connecteur MySQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#connexion-a-la-base-de-donnees">Connexion à la base de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#insertion-de-donnees">Insertion de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#selection-de-donnees">Sélection de données</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mysql.html#recuperer-les-donnees-en-flux">Récupérer les données en flux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mysql.html#utilisation-de-parametres-dans-les-conditions-where">Utilisation de paramètres dans les conditions <em>where</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#modification-des-donnees">Modification des données</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tkinter.html">Les applications graphiques avec Tkinter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#un-premier-programme">Un premier programme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#notion-de-boucle-d-evenements">Notion de boucle d’événements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#une-application-orientee-objet">Une application orientée objet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#un-exemple-de-gestion-des-evenements">Un exemple de gestion des événements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#les-widgets-et-le-positionnement">Les widgets et le positionnement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.html#positionnement-des-widgets">Positionnement des widgets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.html#collecter-les-donnees-des-widgets">Collecter les données des widgets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#les-boites-de-messages">Les boites de messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#les-boites-de-dialogue-avancees">Les boites de dialogue avancées</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_venv.html">Gestion des packages avec pip et venv</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_venv.html#gerer-les-packages-avec-pip">Gérer les packages avec pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#installation-de-pip">Installation de pip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#installer-des-packages">Installer des packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#autres-commandes-utiles">Autres commandes utiles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pip_venv.html#gerer-l-environnement-avec-venv">Gérer l’environnement avec venv</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#creation-d-un-environnement">Création d’un environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#activation-de-l-environnement">Activation de l’environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#desactivation-de-l-environnement">Désactivation de l’environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#supprimer-un-environnement">Supprimer un environnement</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pip_venv.html#configuration-d-un-projet">Configuration d’un projet</a></li>
 </ul>
 </li>
 </ul>
@@ -478,7 +531,7 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="../pyside2/signal_slot.html" class="btn btn-neutral float-right" title="Les signaux et les slots" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="mysql.html" class="btn btn-neutral float-right" title="Accès aux bases de données (MySQL)" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="unittest.html" class="btn btn-neutral float-left" title="Les tests unitaires automatisés avec unittest" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
@@ -492,36 +545,36 @@
             
   <div class="section" id="les-sockets-et-la-programmation-reseau">
 <h1>Les sockets et la programmation réseau<a class="headerlink" href="#les-sockets-et-la-programmation-reseau" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Le module <a class="reference external" href="https://docs.python.org/3.6/library/socket.html#module-socket" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">socket</span></code></a> permet de programmer des accès réseau bas niveau en Python.
+<p>Le module <a class="reference external" href="https://docs.python.org/3.7/library/socket.html#module-socket" title="(disponible dans Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">socket</span></code></a> permet de programmer des accès réseau bas niveau en Python.
 Dans ce chapitre, nous présenterons uniquement l’utilisation des sockets TCP/IP
-mais le module <a class="reference external" href="https://docs.python.org/3.6/library/socket.html#module-socket" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">socket</span></code></a> permet, en utilisant la même API, de créer et
+mais le module <a class="reference external" href="https://docs.python.org/3.7/library/socket.html#module-socket" title="(disponible dans Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">socket</span></code></a> permet, en utilisant la même API, de créer et
 d’utiliser des sockets Unix, des sockets Bluetooth…</p>
 <p>L’API socket suppose une architecture client/serveur. Le serveur est en attente
 d’une connexion d’un client. Des données peuvent être lues et écrites aussi bien
 par le client que par le serveur.</p>
 <div class="section" id="exemple-d-implementation-d-un-serveur">
 <h2>Exemple d’implémentation d’un serveur<a class="headerlink" href="#exemple-d-implementation-d-un-serveur" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Pour implémenter un serveur, il suffit d’appeler la fonction <a class="reference external" href="https://docs.python.org/3.6/library/socket.html#socket.socket" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">socket()</span></code></a>
-en spécifiant le type. Les constantes <a class="reference external" href="https://docs.python.org/3.6/library/socket.html#socket.AF_INET" title="(disponible dans Python v3.6)"><code class="xref py py-data docutils literal notranslate"><span class="pre">socket.AF_INET</span></code></a> et <a class="reference external" href="https://docs.python.org/3.6/library/socket.html#socket.SOCK_STREAM" title="(disponible dans Python v3.6)"><code class="xref py py-data docutils literal notranslate"><span class="pre">socket.SOCK_STREAM</span></code></a>
+<p>Pour implémenter un serveur, il suffit d’appeler la fonction <a class="reference external" href="https://docs.python.org/3.7/library/socket.html#socket.socket" title="(disponible dans Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">socket()</span></code></a>
+en spécifiant le type. Les constantes <a class="reference external" href="https://docs.python.org/3.7/library/socket.html#socket.AF_INET" title="(disponible dans Python v3.7)"><code class="xref py py-data docutils literal notranslate"><span class="pre">socket.AF_INET</span></code></a> et <a class="reference external" href="https://docs.python.org/3.7/library/socket.html#socket.SOCK_STREAM" title="(disponible dans Python v3.7)"><code class="xref py py-data docutils literal notranslate"><span class="pre">socket.SOCK_STREAM</span></code></a>
 passées en paramètres permettent de spécifier respectivement que l’on veut
 créer une socket IP pour une transmission par paquets, c’est-à-dire une socket TCP.</p>
 <p>Une socket doit être fermée après usage. À la ligne 6, la socket est crée dans
-une instruction <a class="reference external" href="https://docs.python.org/3.6/reference/compound_stmts.html#with" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">with</span></code></a> pour s’assurer qu’elle sera fermée à la fin du bloc.</p>
+une instruction <a class="reference external" href="https://docs.python.org/3.7/reference/compound_stmts.html#with" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">with</span></code></a> pour s’assurer qu’elle sera fermée à la fin du bloc.</p>
 <p>On appelle les méthodes suivantes :</p>
 <dl class="simple">
-<dt><a class="reference external" href="https://docs.python.org/3.6/library/socket.html#socket.socket.setsockopt" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setsockopt()</span></code></a></dt><dd><p>Pour spécifier les paramètres pour la socket. Ici, on passe 1 pour la valeur
+<dt><a class="reference external" href="https://docs.python.org/3.7/library/socket.html#socket.socket.setsockopt" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setsockopt()</span></code></a></dt><dd><p>Pour spécifier les paramètres pour la socket. Ici, on passe 1 pour la valeur
 <code class="xref py py-data docutils literal notranslate"><span class="pre">socket.SO_REUSEADDR</span></code> afin d’indiquer au système que le port utilisé
 par la socket peut être immédiatement réutilisé dès que cette dernière est
 fermée. Sinon, le système temporise la réutilisation et la réexécution du
 programme peut entraîner un échec.</p>
 </dd>
-<dt><a class="reference external" href="https://docs.python.org/3.6/library/socket.html#socket.socket.bind" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">bind()</span></code></a></dt><dd><p>Pour spécifier sous la forme d’un n-uplet le nom ou l’adresse de l’hôte et le
+<dt><a class="reference external" href="https://docs.python.org/3.7/library/socket.html#socket.socket.bind" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">bind()</span></code></a></dt><dd><p>Pour spécifier sous la forme d’un n-uplet le nom ou l’adresse de l’hôte et le
 port utilisés par cette socket.</p>
 </dd>
-<dt><a class="reference external" href="https://docs.python.org/3.6/library/socket.html#socket.socket.listen" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">listen()</span></code></a></dt><dd><p>Pour spécifier qu’il s’agit d’une socket serveur et le nombre de connexions
+<dt><a class="reference external" href="https://docs.python.org/3.7/library/socket.html#socket.socket.listen" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">listen()</span></code></a></dt><dd><p>Pour spécifier qu’il s’agit d’une socket serveur et le nombre de connexions
 en attente qui peuvent être tolérées avant rejet par le système.</p>
 </dd>
-<dt><a class="reference external" href="https://docs.python.org/3.6/library/socket.html#socket.socket.accept" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">accept()</span></code></a></dt><dd><p>Cet appel suspend l’exécution du thread jusqu’à ce qu’une connexion entrante
+<dt><a class="reference external" href="https://docs.python.org/3.7/library/socket.html#socket.socket.accept" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">accept()</span></code></a></dt><dd><p>Cet appel suspend l’exécution du thread jusqu’à ce qu’une connexion entrante
 se produise pour cette socket. Alors, le programme est réveillé et cette
 méthode retourne une socket de communication avec le client ainsi que l’adresse
 du client.</p>
@@ -559,16 +612,16 @@ du client.</p>
 </pre></div>
 </td></tr></table></div>
 <p>À partir de la socket de connexion du client, il est possible de lire les données reçues
-grâce à la méthode <a class="reference external" href="https://docs.python.org/3.6/library/socket.html#socket.socket.recv" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">recv()</span></code></a> et de répondre avec la méthode
-<a class="reference external" href="https://docs.python.org/3.6/library/socket.html#socket.socket.send" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">send()</span></code></a>. Les données lues et écrites par une socket sont
-des objets de type <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#bytes" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>.</p>
+grâce à la méthode <a class="reference external" href="https://docs.python.org/3.7/library/socket.html#socket.socket.recv" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">recv()</span></code></a> et de répondre avec la méthode
+<a class="reference external" href="https://docs.python.org/3.7/library/socket.html#socket.socket.send" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">send()</span></code></a>. Les données lues et écrites par une socket sont
+des objets de type <a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#bytes" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>.</p>
 </div>
 <div class="section" id="exemple-d-implementation-d-un-client">
 <h2>Exemple d’implémentation d’un client<a class="headerlink" href="#exemple-d-implementation-d-un-client" title="Lien permanent vers ce titre">¶</a></h2>
-<p>On utilise la même fonction <a class="reference external" href="https://docs.python.org/3.6/library/socket.html#socket.socket" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">socket()</span></code></a> pour créer une socket cliente.
+<p>On utilise la même fonction <a class="reference external" href="https://docs.python.org/3.7/library/socket.html#socket.socket" title="(disponible dans Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">socket()</span></code></a> pour créer une socket cliente.
 Pour le client, on appelle la méthode :</p>
 <dl class="simple">
-<dt><a class="reference external" href="https://docs.python.org/3.6/library/socket.html#socket.socket.connect" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">connect()</span></code></a></dt><dd><p>Pour se connecter au serveur en indiquant son adresse et son port.</p>
+<dt><a class="reference external" href="https://docs.python.org/3.7/library/socket.html#socket.socket.connect" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">connect()</span></code></a></dt><dd><p>Pour se connecter au serveur en indiquant son adresse et son port.</p>
 </dd>
 </dl>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -583,16 +636,16 @@ Pour le client, on appelle la méthode :</p>
 </pre></div>
 </td></tr></table></div>
 <p>À partir de la socket client, il est possible d’envoyer des données avec la méthode
-<a class="reference external" href="https://docs.python.org/3.6/library/socket.html#socket.socket.send" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">send()</span></code></a> et de lire la réponse du serveur grâce à la méthode
-<a class="reference external" href="https://docs.python.org/3.6/library/socket.html#socket.socket.recv" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">recv()</span></code></a>. Les données lues et écrites par une socket sont
-des objets de type <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#bytes" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>.</p>
+<a class="reference external" href="https://docs.python.org/3.7/library/socket.html#socket.socket.send" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">send()</span></code></a> et de lire la réponse du serveur grâce à la méthode
+<a class="reference external" href="https://docs.python.org/3.7/library/socket.html#socket.socket.recv" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">recv()</span></code></a>. Les données lues et écrites par une socket sont
+des objets de type <a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#bytes" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>.</p>
 </div>
 <div class="section" id="exemple-d-un-serveur-multi-thread">
 <h2>Exemple d’un serveur multi-thread<a class="headerlink" href="#exemple-d-un-serveur-multi-thread" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Il est possible d’améliorer l’implémentation du serveur en créant des <em>worker threads</em>
 pour prendre en charge la connexion de chaque client. Il est ainsi possible
 pour le serveur de traiter simultanément avec plusieurs clients. On peut
-utiliser le module <a class="reference external" href="https://docs.python.org/3.6/library/multiprocessing.html#module-multiprocessing" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">multiprocessing</span></code></a> et sa classe <a class="reference external" href="https://docs.python.org/3.6/library/multiprocessing.html#multiprocessing.pool.Pool" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pool</span></code></a>
+utiliser le module <a class="reference external" href="https://docs.python.org/3.7/library/multiprocessing.html#module-multiprocessing" title="(disponible dans Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">multiprocessing</span></code></a> et sa classe <a class="reference external" href="https://docs.python.org/3.7/library/multiprocessing.html#multiprocessing.pool.Pool" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pool</span></code></a>
 qui gère en groupe de threads réutilisables :</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -646,7 +699,7 @@ qui gère en groupe de threads réutilisables :</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../pyside2/signal_slot.html" class="btn btn-neutral float-right" title="Les signaux et les slots" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="mysql.html" class="btn btn-neutral float-right" title="Accès aux bases de données (MySQL)" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="unittest.html" class="btn btn-neutral float-left" title="Les tests unitaires automatisés avec unittest" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>

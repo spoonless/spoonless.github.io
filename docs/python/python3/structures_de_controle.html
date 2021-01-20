@@ -45,8 +45,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Les fonctions (notions avancées)" href="fonction_avance.html" />
-    <link rel="prev" title="Le dictionnaire" href="dict.html" /> 
+    <link rel="next" title="Le n-uplet (tuple)" href="tuple.html" />
+    <link rel="prev" title="La liste (list)" href="list.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -117,10 +117,12 @@
 <li class="toctree-l1"><a class="reference internal" href="type_et_variable.html">Types et variables</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#nombres-et-calcul-arithmetique">Nombres et calcul arithmétique</a></li>
 <li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#les-variables">Les variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#exercice">Exercice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#la-chaine-de-caracteres">La chaîne de caractères</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="type_et_variable.html#formatage-de-chaine-de-caracteres">Formatage de chaîne de caractères</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#id1">Exercice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#le-type-booleen">Le type booléen</a></li>
 </ul>
 </li>
@@ -133,6 +135,7 @@
 <li class="toctree-l3"><a class="reference internal" href="fonction.html#convertir-en-chaine-de-caracteres">Convertir en chaîne de caractères</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#tester-le-type-d-une-valeur-ou-d-une-variable">Tester le type d’une valeur ou d’une variable</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fonction.html#exercices">Exercices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fonction.html#declarer-une-fonction">Déclarer une fonction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fonction.html#documenter-une-fonction">Documenter une fonction</a></li>
@@ -162,6 +165,28 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="list.html#quelques-methodes-pour-les-listes">Quelques méthodes pour les listes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="list.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Les structures de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#l-indentation-du-code">L’indentation du code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#structures-de-decision">Structures de décision</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#l-instruction-if">L’instruction <em>if</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#l-instruction-else">L’instruction <em>else</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#l-instruction-elif">L’instruction <em>elif</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#l-operateur-ternaire">L’opérateur ternaire</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#exercice">Exercice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#structures-iteratives">Structures itératives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#l-instruction-while">L’instruction <em>while</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#l-instruction-for">L’instruction <em>for</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#la-fonction-range">La fonction <em>range</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interrompre-un-bloc-d-iteration">Interrompre un bloc d’itération</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#structure-iterative-avec-else">Structure itérative avec <em>else</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Exercice</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tuple.html">Le n-uplet (<em>tuple</em>)</a><ul>
@@ -197,6 +222,7 @@
 <li class="toctree-l2"><a class="reference internal" href="set.html#quelques-methodes-pour-les-ensembles">Quelques méthodes pour les ensembles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="set.html#ensemble-liste-et-tuple">Ensemble, liste et tuple</a></li>
 <li class="toctree-l2"><a class="reference internal" href="set.html#ensemble-fige">Ensemble figé</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set.html#exercices">Exercices</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="dict.html">Le dictionnaire</a><ul>
@@ -210,40 +236,20 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="dict.html#quelques-methodes-pour-les-dictionnaires">Quelques méthodes pour les dictionnaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#parcourir-un-dictionnaire-avec-for">Parcourir un dictionnaire avec for</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#exercices">Exercices</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Les structures de contrôle</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#l-indentation-du-code">L’indentation du code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#structures-de-decision">Structures de décision</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#l-instruction-if">L’instruction <em>if</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#l-instruction-else">L’instruction <em>else</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#l-instruction-elif">L’instruction <em>elif</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#l-operateur-ternaire">L’opérateur ternaire</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">Les exceptions et la gestion des erreurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#traiter-une-exception">Traiter une exception</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exception.html#recuperer-le-message-d-une-exception">Récupérer le message d’une exception</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#exercice">Exercice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#structures-iteratives">Structures itératives</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#l-instruction-while">L’instruction <em>while</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#l-instruction-for">L’instruction <em>for</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#la-fonction-range">La fonction <em>range</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#interrompre-un-bloc-d-iteration">Interrompre un bloc d’itération</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#structure-iterative-avec-else">Structure itérative avec <em>else</em></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#id1">Exercice</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="fonction_avance.html">Les fonctions (notions avancées)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#decompactage-des-parametres">décompactage des paramètres</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#compactage-des-parametres">compactage des paramètres</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#appel-recursif-de-fonction">Appel récursif de fonction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#declaration-de-fonction-dans-une-fonction">Déclaration de fonction dans une fonction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#la-fonction-comme-type-python">La fonction comme type Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#les-fonctions-anonymes-lambdas">Les fonctions anonymes (lambdas)</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="list_comprehension.html">Liste en compréhension</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="list_comprehension.html#dictionnaire-en-comprehension">Dictionnaire en compréhension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#clause-else">Clause <em>else</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#post-traitement">Post-traitement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#lever-une-exception">Lever une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#les-exceptions-a-connaitre">Les exceptions à connaître</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#exercices">Exercices</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="module.html">Les modules</a><ul>
@@ -261,6 +267,19 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="module.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fonction_avance.html">Les fonctions (notions avancées)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#decompactage-des-parametres">décompactage des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#compactage-des-parametres">compactage des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#appel-recursif-de-fonction">Appel récursif de fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#declaration-de-fonction-dans-une-fonction">Déclaration de fonction dans une fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#la-fonction-comme-type-python">La fonction comme type Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#les-fonctions-anonymes-lambdas">Les fonctions anonymes (lambdas)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="list_comprehension.html">Liste en compréhension</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="list_comprehension.html#dictionnaire-en-comprehension">Dictionnaire en compréhension</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="decorateur.html">Les décorateurs</a><ul>
@@ -294,6 +313,7 @@
 <li class="toctree-l2"><a class="reference internal" href="heritage.html#le-polymorphisme">Le polymorphisme</a></li>
 <li class="toctree-l2"><a class="reference internal" href="heritage.html#polymorphisme-et-duck-typing">Polymorphisme et <em>duck typing</em></a></li>
 <li class="toctree-l2"><a class="reference internal" href="heritage.html#masquer-les-attributs-et-les-methodes-pour-les-classe-filles">Masquer les attributs et les méthodes pour les classe filles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#les-exceptions-comme-objets">Les exceptions comme objets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="heritage.html#heritage-multiple-et-mixin">Héritage multiple et <em>mixin</em></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="heritage.html#l-heritage-en-diamant">L’héritage en diamant</a></li>
 <li class="toctree-l3"><a class="reference internal" href="heritage.html#appel-des-constructeurs">Appel des constructeurs</a></li>
@@ -302,17 +322,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="heritage.html#la-meta-classe">La méta-classe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="heritage.html#classes-et-methodes-abstraites">Classes et méthodes abstraites</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="exception.html">Les exceptions et la gestion des erreurs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#traiter-une-exception">Traiter une exception</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="exception.html#recuperer-les-donnees-d-une-exception">Récupérer les données d’une exception</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#clause-else">Clause <em>else</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#post-traitement">Post-traitement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#lever-une-exception">Lever une exception</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#creer-son-exception">Créer son exception</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="dunder.html">Les méthodes spéciales (<em>dunders</em>)</a><ul>
@@ -367,6 +376,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="fichier.html#lecture-de-fichiers-csv">Lecture de fichiers CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fichier.html#exercices">Exercices</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="unittest.html">Les tests unitaires automatisés avec unittest</a><ul>
@@ -385,6 +395,49 @@
 <li class="toctree-l2"><a class="reference internal" href="socket.html#exemple-d-implementation-d-un-serveur">Exemple d’implémentation d’un serveur</a></li>
 <li class="toctree-l2"><a class="reference internal" href="socket.html#exemple-d-implementation-d-un-client">Exemple d’implémentation d’un client</a></li>
 <li class="toctree-l2"><a class="reference internal" href="socket.html#exemple-d-un-serveur-multi-thread">Exemple d’un serveur multi-thread</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">Accès aux bases de données (MySQL)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#installation-du-connecteur-mysql">Installation du connecteur MySQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#connexion-a-la-base-de-donnees">Connexion à la base de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#insertion-de-donnees">Insertion de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#selection-de-donnees">Sélection de données</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mysql.html#recuperer-les-donnees-en-flux">Récupérer les données en flux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mysql.html#utilisation-de-parametres-dans-les-conditions-where">Utilisation de paramètres dans les conditions <em>where</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#modification-des-donnees">Modification des données</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tkinter.html">Les applications graphiques avec Tkinter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#un-premier-programme">Un premier programme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#notion-de-boucle-d-evenements">Notion de boucle d’événements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#une-application-orientee-objet">Une application orientée objet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#un-exemple-de-gestion-des-evenements">Un exemple de gestion des événements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#les-widgets-et-le-positionnement">Les widgets et le positionnement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.html#positionnement-des-widgets">Positionnement des widgets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.html#collecter-les-donnees-des-widgets">Collecter les données des widgets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#les-boites-de-messages">Les boites de messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#les-boites-de-dialogue-avancees">Les boites de dialogue avancées</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_venv.html">Gestion des packages avec pip et venv</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_venv.html#gerer-les-packages-avec-pip">Gérer les packages avec pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#installation-de-pip">Installation de pip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#installer-des-packages">Installer des packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#autres-commandes-utiles">Autres commandes utiles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pip_venv.html#gerer-l-environnement-avec-venv">Gérer l’environnement avec venv</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#creation-d-un-environnement">Création d’un environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#activation-de-l-environnement">Activation de l’environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#desactivation-de-l-environnement">Désactivation de l’environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#supprimer-un-environnement">Supprimer un environnement</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pip_venv.html#configuration-d-un-projet">Configuration d’un projet</a></li>
 </ul>
 </li>
 </ul>
@@ -478,10 +531,10 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="fonction_avance.html" class="btn btn-neutral float-right" title="Les fonctions (notions avancées)" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="tuple.html" class="btn btn-neutral float-right" title="Le n-uplet (tuple)" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="dict.html" class="btn btn-neutral float-left" title="Le dictionnaire" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+        <a href="list.html" class="btn btn-neutral float-left" title="La liste (list)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
       
   </div>
   
@@ -505,7 +558,7 @@ indiqué par l’indentation (généralement de quatre espaces supplémentaires 
 <div class="admonition tip">
 <p class="admonition-title">Astuce</p>
 <p>Une structure de contrôle doit contenir obligatoirement un bloc de code. Si
-vous voulez laisser le bloc vide, vous pouvez utiliser le mot-clé <a class="reference external" href="https://docs.python.org/3.6/reference/simple_stmts.html#pass" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">pass</span></code></a>.</p>
+vous voulez laisser le bloc vide, vous pouvez utiliser le mot-clé <a class="reference external" href="https://docs.python.org/3.7/reference/simple_stmts.html#pass" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">pass</span></code></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
     <span class="k">pass</span>
 </pre></div>
@@ -516,13 +569,13 @@ vous voulez laisser le bloc vide, vous pouvez utiliser le mot-clé <a class="ref
 <h2>Structures de décision<a class="headerlink" href="#structures-de-decision" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="section" id="l-instruction-if">
 <h3>L’instruction <em>if</em><a class="headerlink" href="#l-instruction-if" title="Lien permanent vers ce titre">¶</a></h3>
-<p>La structure de décision <a class="reference external" href="https://docs.python.org/3.6/reference/compound_stmts.html#if" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">if</span></code></a> exécute un bloc de code si l’expression
-associée est évaluée à <a class="reference external" href="https://docs.python.org/3.6/library/constants.html#True" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">True</span></code></a>.</p>
+<p>La structure de décision <a class="reference external" href="https://docs.python.org/3.7/reference/compound_stmts.html#if" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">if</span></code></a> exécute un bloc de code si l’expression
+associée est évaluée à <a class="reference external" href="https://docs.python.org/3.7/library/constants.html#True" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">True</span></code></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s1">&#39;b&#39;</span> <span class="ow">in</span> <span class="s1">&#39;bonjour&#39;</span><span class="p">:</span>
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;La lettre b est présente dans le mot bonjour&quot;</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="s1">&#39;z&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s1">&#39;bonjour&#39;</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;La lettre z est présente dans le mot bonjour&quot;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;La lettre z n&#39;est pas présente dans le mot bonjour&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
@@ -546,11 +599,11 @@ associée est évaluée à <a class="reference external" href="https://docs.pyth
 <p>Pour simplifier l’écriture, beaucoup de types peuvent directement s’évaluer
 comme une expression booléenne en python. Par exemple :</p>
 <ul class="simple">
-<li><p>une variable ou un paramètre est équivalent à <a class="reference external" href="https://docs.python.org/3.6/library/constants.html#False" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">False</span></code></a> s’il vaut <a class="reference external" href="https://docs.python.org/3.6/library/constants.html#None" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">None</span></code></a></p></li>
-<li><p>un nombre est équivalent à <a class="reference external" href="https://docs.python.org/3.6/library/constants.html#True" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">True</span></code></a> s’il est différent de 0</p></li>
-<li><p>une chaîne de caractères est équivalente à <a class="reference external" href="https://docs.python.org/3.6/library/constants.html#True" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">True</span></code></a> si elle n’est pas la chaîne
+<li><p>une variable ou un paramètre est équivalent à <a class="reference external" href="https://docs.python.org/3.7/library/constants.html#False" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">False</span></code></a> s’il vaut <a class="reference external" href="https://docs.python.org/3.7/library/constants.html#None" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">None</span></code></a></p></li>
+<li><p>un nombre est équivalent à <a class="reference external" href="https://docs.python.org/3.7/library/constants.html#True" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">True</span></code></a> s’il est différent de 0</p></li>
+<li><p>une chaîne de caractères est équivalente à <a class="reference external" href="https://docs.python.org/3.7/library/constants.html#True" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">True</span></code></a> si elle n’est pas la chaîne
 vide <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></li>
-<li><p>une liste, un ensemble, un dictionnaire ou un tuple est équivalent à <a class="reference external" href="https://docs.python.org/3.6/library/constants.html#True" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">True</span></code></a>
+<li><p>une liste, un ensemble, un dictionnaire ou un tuple est équivalent à <a class="reference external" href="https://docs.python.org/3.7/library/constants.html#True" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">True</span></code></a>
 s’il n’est pas vide</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="kc">None</span>
@@ -573,8 +626,8 @@ s’il n’est pas vide</p></li>
 </div>
 <div class="section" id="l-instruction-else">
 <h3>L’instruction <em>else</em><a class="headerlink" href="#l-instruction-else" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Il est possible d’ajouter un bloc <a class="reference external" href="https://docs.python.org/3.6/reference/compound_stmts.html#else" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">else</span></code></a> qui sera exécuté si la condition
-est évaluée à <a class="reference external" href="https://docs.python.org/3.6/library/constants.html#False" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">False</span></code></a> :</p>
+<p>Il est possible d’ajouter un bloc <a class="reference external" href="https://docs.python.org/3.7/reference/compound_stmts.html#else" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">else</span></code></a> qui sera exécuté si la condition
+est évaluée à <a class="reference external" href="https://docs.python.org/3.7/library/constants.html#False" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">False</span></code></a> :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="k">if</span> <span class="n">a</span> <span class="o">%</span> <span class="mi">2</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s2">&quot;est un nombre impair&quot;</span><span class="p">)</span>
@@ -586,7 +639,7 @@ est évaluée à <a class="reference external" href="https://docs.python.org/3.6
 <div class="section" id="l-instruction-elif">
 <h3>L’instruction <em>elif</em><a class="headerlink" href="#l-instruction-elif" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Si on souhaite représenter plusieurs alternatives, il est possible d’utiliser
-le mot-clé <a class="reference external" href="https://docs.python.org/3.6/reference/compound_stmts.html#elif" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">elif</span></code></a> :</p>
+le mot-clé <a class="reference external" href="https://docs.python.org/3.7/reference/compound_stmts.html#elif" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">elif</span></code></a> :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_mention</span><span class="p">(</span><span class="n">note</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">note</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
         <span class="k">return</span> <span class="s2">&quot;insuffisant&quot;</span>
@@ -601,7 +654,7 @@ le mot-clé <a class="reference external" href="https://docs.python.org/3.6/refe
 </pre></div>
 </div>
 <p>Il est possible de créer des expressions booléennes complexes en les combinant
-grâce aux mots-clés <a class="reference external" href="https://docs.python.org/3.6/reference/expressions.html#and" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">and</span></code></a> ou <a class="reference external" href="https://docs.python.org/3.6/reference/expressions.html#or" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">or</span></code></a> ou en chaînant les opérateurs de comparaison :</p>
+grâce aux mots-clés <a class="reference external" href="https://docs.python.org/3.7/reference/expressions.html#and" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">and</span></code></a> ou <a class="reference external" href="https://docs.python.org/3.7/reference/expressions.html#or" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">or</span></code></a> ou en chaînant les opérateurs de comparaison :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">50</span>
 <span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
 <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="mi">100</span> <span class="ow">and</span> <span class="n">a</span> <span class="o">%</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
@@ -635,7 +688,7 @@ pour les hommes et 1m65 pour les femmes.</p>
 <p>Les structures itératives permettent de répéter un bloc de code.</p>
 <div class="section" id="l-instruction-while">
 <h3>L’instruction <em>while</em><a class="headerlink" href="#l-instruction-while" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Avec l’instruction <a class="reference external" href="https://docs.python.org/3.6/reference/compound_stmts.html#while" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">while</span></code></a>, le bloc de code associé est répété tant que la
+<p>Avec l’instruction <a class="reference external" href="https://docs.python.org/3.7/reference/compound_stmts.html#while" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">while</span></code></a>, le bloc de code associé est répété tant que la
 condition est vraie.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reponse</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="k">while</span> <span class="n">reponse</span> <span class="o">!=</span> <span class="s2">&quot;oui&quot;</span><span class="p">:</span>
@@ -653,8 +706,8 @@ condition est vraie.</p>
 </div>
 <div class="section" id="l-instruction-for">
 <h3>L’instruction <em>for</em><a class="headerlink" href="#l-instruction-for" title="Lien permanent vers ce titre">¶</a></h3>
-<p>L’instruction <a class="reference external" href="https://docs.python.org/3.6/reference/compound_stmts.html#for" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">for</span></code></a> permet de parcourir (itérer) tous les éléments d’une
-séquence (tuple, ensemble, liste, dictionnaire, chaîne de caractères).</p>
+<p>L’instruction <a class="reference external" href="https://docs.python.org/3.7/reference/compound_stmts.html#for" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">for</span></code></a> permet de parcourir (itérer) tous les éléments *
+d’une liste.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ma_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;premier&quot;</span><span class="p">,</span> <span class="s2">&quot;deuxième&quot;</span><span class="p">,</span> <span class="s2">&quot;troisième&quot;</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">ma_liste</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
@@ -663,17 +716,30 @@ séquence (tuple, ensemble, liste, dictionnaire, chaîne de caractères).</p>
 <p>Dans l’exemple ci-dessus la portée de la variable <code class="docutils literal notranslate"><span class="pre">element</span></code> est limitée
 au bloc de code associé à l’instruction <code class="docutils literal notranslate"><span class="pre">for</span></code>. La variable <code class="docutils literal notranslate"><span class="pre">element</span></code> prend
 successivement la valeur des éléments de la liste.</p>
-<p>Utiliser une chaîne de caractères comme séquence permet de parcourir un à un
-les caractère qui la compose :</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Hello world&quot;</span>
+<p>Il est également possible de parcourir tous les caractères d’une chaîne de caractères :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
 <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">message</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;caractère : &quot;</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+
+<span class="c1"># Affiche :</span>
+<span class="c1"># caractère : H</span>
+<span class="c1"># caractère : e</span>
+<span class="c1"># caractère : l</span>
+<span class="c1"># caractère : l</span>
+<span class="c1"># caractère : o</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>De manière plus générale, il est possible de parcourir une séquence à l’aide
+de l’instruction <code class="docutils literal notranslate"><span class="pre">for</span></code>. Nous verrons dans les chapitres suivants d’autres
+types de séquence : le n-uplet (<em>tuple</em>), l’ensemble (<em>set</em>) et le dictionnaire
+(<em>dict</em>).</p>
 </div>
 </div>
 <div class="section" id="la-fonction-range">
 <h3>La fonction <em>range</em><a class="headerlink" href="#la-fonction-range" title="Lien permanent vers ce titre">¶</a></h3>
-<p>La fonction <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#range" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">range</span></code></a> permet de parcourir une liste de nombres. La méthode
+<p>La fonction <a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#range" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">range</span></code></a> permet de parcourir une liste de nombres. La méthode
 accepte :</p>
 <ul>
 <li><p>un paramètre pour indiquer la borne supérieure (en commençant la liste à 0 et
@@ -737,10 +803,10 @@ le pas d’incrément entre chaque valeur</p>
 </div>
 <div class="section" id="interrompre-un-bloc-d-iteration">
 <h3>Interrompre un bloc d’itération<a class="headerlink" href="#interrompre-un-bloc-d-iteration" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Il est possible d’utiliser les mots-clés <a class="reference external" href="https://docs.python.org/3.6/reference/simple_stmts.html#break" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">break</span></code></a> et
-<a class="reference external" href="https://docs.python.org/3.6/reference/simple_stmts.html#continue" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">continue</span></code></a> pour interrompre l’exécution d’un bloc d’itération.</p>
+<p>Il est possible d’utiliser les mots-clés <a class="reference external" href="https://docs.python.org/3.7/reference/simple_stmts.html#break" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">break</span></code></a> et
+<a class="reference external" href="https://docs.python.org/3.7/reference/simple_stmts.html#continue" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">continue</span></code></a> pour interrompre l’exécution d’un bloc d’itération.</p>
 <dl>
-<dt><a class="reference external" href="https://docs.python.org/3.6/reference/simple_stmts.html#break" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">break</span></code></a></dt><dd><p>interrompt immédiatement le bloc et le flot d’exécution sort de la boucle
+<dt><a class="reference external" href="https://docs.python.org/3.7/reference/simple_stmts.html#break" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">break</span></code></a></dt><dd><p>interrompt immédiatement le bloc et le flot d’exécution sort de la boucle
 et reprend après le bloc.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="k">if</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Voulez-vous arrêter ? (oui/non) &quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;oui&quot;</span><span class="p">:</span>
@@ -749,7 +815,7 @@ et reprend après le bloc.</p>
 </pre></div>
 </div>
 </dd>
-<dt><a class="reference external" href="https://docs.python.org/3.6/reference/simple_stmts.html#continue" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">continue</span></code></a></dt><dd><p>interrompt immédiatement le bloc et on passe à l’itération suivante.</p>
+<dt><a class="reference external" href="https://docs.python.org/3.7/reference/simple_stmts.html#continue" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">continue</span></code></a></dt><dd><p>interrompt immédiatement le bloc et on passe à l’itération suivante.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="s2">&quot;Python&quot;</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">l</span> <span class="ow">in</span> <span class="s2">&quot;aeiouy&quot;</span><span class="p">:</span>
         <span class="k">continue</span>
@@ -761,13 +827,13 @@ et reprend après le bloc.</p>
 </div>
 <div class="section" id="structure-iterative-avec-else">
 <h3>Structure itérative avec <em>else</em><a class="headerlink" href="#structure-iterative-avec-else" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Il est possible d’utiliser une clause <a class="reference external" href="https://docs.python.org/3.6/reference/compound_stmts.html#else" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">else</span></code></a> après un
-<a class="reference external" href="https://docs.python.org/3.6/reference/compound_stmts.html#while" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">while</span></code></a> ou un <a class="reference external" href="https://docs.python.org/3.6/reference/compound_stmts.html#for" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">for</span></code></a>.
-Cette clause est exécutée lorsque l’expression de la condition <a class="reference external" href="https://docs.python.org/3.6/reference/compound_stmts.html#while" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">while</span></code></a> est
-fausse ou dès que la fin de la séquence à parcourir avec l’instruction <a class="reference external" href="https://docs.python.org/3.6/reference/compound_stmts.html#for" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">for</span></code></a>
+<p>Il est possible d’utiliser une clause <a class="reference external" href="https://docs.python.org/3.7/reference/compound_stmts.html#else" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">else</span></code></a> après un
+<a class="reference external" href="https://docs.python.org/3.7/reference/compound_stmts.html#while" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">while</span></code></a> ou un <a class="reference external" href="https://docs.python.org/3.7/reference/compound_stmts.html#for" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">for</span></code></a>.
+Cette clause est exécutée lorsque l’expression de la condition <a class="reference external" href="https://docs.python.org/3.7/reference/compound_stmts.html#while" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">while</span></code></a> est
+fausse ou dès que la fin de la séquence à parcourir avec l’instruction <a class="reference external" href="https://docs.python.org/3.7/reference/compound_stmts.html#for" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">for</span></code></a>
 est atteinte.</p>
-<p>L’intérêt du bloc <a class="reference external" href="https://docs.python.org/3.6/reference/compound_stmts.html#else" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">else</span></code></a> réside dans le fait qu’il <strong>n’est pas exécuté</strong> si
-l’itération a été interrompue par un <a class="reference external" href="https://docs.python.org/3.6/reference/simple_stmts.html#break" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">break</span></code></a>.</p>
+<p>L’intérêt du bloc <a class="reference external" href="https://docs.python.org/3.7/reference/compound_stmts.html#else" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">else</span></code></a> réside dans le fait qu’il <strong>n’est pas exécuté</strong> si
+l’itération a été interrompue par un <a class="reference external" href="https://docs.python.org/3.7/reference/simple_stmts.html#break" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">break</span></code></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;choisissez-vous le nombre </span><span class="si">%d</span><span class="s2"> ? (oui/non) &quot;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;oui&quot;</span><span class="p">:</span>
         <span class="k">break</span>
@@ -842,16 +908,16 @@ ci-dessous utilise un décalage de 23. Cela donne comme équivalence :</p>
 le programme doit afficher la phrase chiffrée avec un décalage de 23 lettres.</p>
 <div class="admonition tip">
 <p class="admonition-title">Astuce</p>
-<p>Vous pouvez, par exemple, vous aider des fonctions <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#ord" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">ord()</span></code></a> et
-<a class="reference external" href="https://docs.python.org/3.6/library/functions.html#chr" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">chr()</span></code></a>. La première retourne le code d’un caractère et la seconde
+<p>Vous pouvez, par exemple, vous aider des fonctions <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#ord" title="(disponible dans Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">ord()</span></code></a> et
+<a class="reference external" href="https://docs.python.org/3.7/library/functions.html#chr" title="(disponible dans Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">chr()</span></code></a>. La première retourne le code d’un caractère et la seconde
 retourne un caractère à partir de son code.</p>
 </div>
 </div>
 <div class="exercice admonition">
 <p class="admonition-title">Exercice : le code de César (pythonique)</p>
 <p>Écrivez à nouveau le programme précédent mais en utilisant la fonction
-<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str.maketrans" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">str.maketrans()</span></code></a> pour créer une table de traduction. Utilisez ensuite
-la méthode <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str.translate" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">str.translate()</span></code></a> pour chiffrer la phrase saisie par
+<a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str.maketrans" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">str.maketrans()</span></code></a> pour créer une table de traduction. Utilisez ensuite
+la méthode <a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str.translate" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">str.translate()</span></code></a> pour chiffrer la phrase saisie par
 l’utilisateur.</p>
 <p>Vous pouvez trouver un exemple d’utilisation dans
 <a class="reference external" href="https://www.tutorialspoint.com/python/string_translate.htm">ce tutoriel</a>.</p>
@@ -867,10 +933,10 @@ l’utilisateur.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="fonction_avance.html" class="btn btn-neutral float-right" title="Les fonctions (notions avancées)" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="tuple.html" class="btn btn-neutral float-right" title="Le n-uplet (tuple)" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="dict.html" class="btn btn-neutral float-left" title="Le dictionnaire" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+        <a href="list.html" class="btn btn-neutral float-left" title="La liste (list)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
       
     </div>
   

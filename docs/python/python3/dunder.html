@@ -46,7 +46,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
     <link rel="next" title="Itérateurs et Générateurs" href="iterateur_generateur.html" />
-    <link rel="prev" title="Les exceptions et la gestion des erreurs" href="exception.html" /> 
+    <link rel="prev" title="Héritage et polymorphisme" href="heritage.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -117,10 +117,12 @@
 <li class="toctree-l1"><a class="reference internal" href="type_et_variable.html">Types et variables</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#nombres-et-calcul-arithmetique">Nombres et calcul arithmétique</a></li>
 <li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#les-variables">Les variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#exercice">Exercice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#la-chaine-de-caracteres">La chaîne de caractères</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="type_et_variable.html#formatage-de-chaine-de-caracteres">Formatage de chaîne de caractères</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#id1">Exercice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#le-type-booleen">Le type booléen</a></li>
 </ul>
 </li>
@@ -133,6 +135,7 @@
 <li class="toctree-l3"><a class="reference internal" href="fonction.html#convertir-en-chaine-de-caracteres">Convertir en chaîne de caractères</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#tester-le-type-d-une-valeur-ou-d-une-variable">Tester le type d’une valeur ou d’une variable</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fonction.html#exercices">Exercices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fonction.html#declarer-une-fonction">Déclarer une fonction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fonction.html#documenter-une-fonction">Documenter une fonction</a></li>
@@ -162,6 +165,28 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="list.html#quelques-methodes-pour-les-listes">Quelques méthodes pour les listes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="list.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structures_de_controle.html">Les structures de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#l-indentation-du-code">L’indentation du code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#structures-de-decision">Structures de décision</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-if">L’instruction <em>if</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-else">L’instruction <em>else</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-elif">L’instruction <em>elif</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-operateur-ternaire">L’opérateur ternaire</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#exercice">Exercice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#structures-iteratives">Structures itératives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-while">L’instruction <em>while</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-for">L’instruction <em>for</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#la-fonction-range">La fonction <em>range</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#interrompre-un-bloc-d-iteration">Interrompre un bloc d’itération</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#structure-iterative-avec-else">Structure itérative avec <em>else</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#id1">Exercice</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tuple.html">Le n-uplet (<em>tuple</em>)</a><ul>
@@ -197,6 +222,7 @@
 <li class="toctree-l2"><a class="reference internal" href="set.html#quelques-methodes-pour-les-ensembles">Quelques méthodes pour les ensembles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="set.html#ensemble-liste-et-tuple">Ensemble, liste et tuple</a></li>
 <li class="toctree-l2"><a class="reference internal" href="set.html#ensemble-fige">Ensemble figé</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set.html#exercices">Exercices</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="dict.html">Le dictionnaire</a><ul>
@@ -210,40 +236,20 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="dict.html#quelques-methodes-pour-les-dictionnaires">Quelques méthodes pour les dictionnaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#parcourir-un-dictionnaire-avec-for">Parcourir un dictionnaire avec for</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#exercices">Exercices</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="structures_de_controle.html">Les structures de contrôle</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#l-indentation-du-code">L’indentation du code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#structures-de-decision">Structures de décision</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-if">L’instruction <em>if</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-else">L’instruction <em>else</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-elif">L’instruction <em>elif</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-operateur-ternaire">L’opérateur ternaire</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">Les exceptions et la gestion des erreurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#traiter-une-exception">Traiter une exception</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exception.html#recuperer-le-message-d-une-exception">Récupérer le message d’une exception</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#exercice">Exercice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#structures-iteratives">Structures itératives</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-while">L’instruction <em>while</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-for">L’instruction <em>for</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#la-fonction-range">La fonction <em>range</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#interrompre-un-bloc-d-iteration">Interrompre un bloc d’itération</a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#structure-iterative-avec-else">Structure itérative avec <em>else</em></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#id1">Exercice</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="fonction_avance.html">Les fonctions (notions avancées)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#decompactage-des-parametres">décompactage des paramètres</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#compactage-des-parametres">compactage des paramètres</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#appel-recursif-de-fonction">Appel récursif de fonction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#declaration-de-fonction-dans-une-fonction">Déclaration de fonction dans une fonction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#la-fonction-comme-type-python">La fonction comme type Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#les-fonctions-anonymes-lambdas">Les fonctions anonymes (lambdas)</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="list_comprehension.html">Liste en compréhension</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="list_comprehension.html#dictionnaire-en-comprehension">Dictionnaire en compréhension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#clause-else">Clause <em>else</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#post-traitement">Post-traitement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#lever-une-exception">Lever une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#les-exceptions-a-connaitre">Les exceptions à connaître</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#exercices">Exercices</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="module.html">Les modules</a><ul>
@@ -261,6 +267,19 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="module.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fonction_avance.html">Les fonctions (notions avancées)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#decompactage-des-parametres">décompactage des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#compactage-des-parametres">compactage des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#appel-recursif-de-fonction">Appel récursif de fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#declaration-de-fonction-dans-une-fonction">Déclaration de fonction dans une fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#la-fonction-comme-type-python">La fonction comme type Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#les-fonctions-anonymes-lambdas">Les fonctions anonymes (lambdas)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="list_comprehension.html">Liste en compréhension</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="list_comprehension.html#dictionnaire-en-comprehension">Dictionnaire en compréhension</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="decorateur.html">Les décorateurs</a><ul>
@@ -294,6 +313,7 @@
 <li class="toctree-l2"><a class="reference internal" href="heritage.html#le-polymorphisme">Le polymorphisme</a></li>
 <li class="toctree-l2"><a class="reference internal" href="heritage.html#polymorphisme-et-duck-typing">Polymorphisme et <em>duck typing</em></a></li>
 <li class="toctree-l2"><a class="reference internal" href="heritage.html#masquer-les-attributs-et-les-methodes-pour-les-classe-filles">Masquer les attributs et les méthodes pour les classe filles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#les-exceptions-comme-objets">Les exceptions comme objets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="heritage.html#heritage-multiple-et-mixin">Héritage multiple et <em>mixin</em></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="heritage.html#l-heritage-en-diamant">L’héritage en diamant</a></li>
 <li class="toctree-l3"><a class="reference internal" href="heritage.html#appel-des-constructeurs">Appel des constructeurs</a></li>
@@ -302,17 +322,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="heritage.html#la-meta-classe">La méta-classe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="heritage.html#classes-et-methodes-abstraites">Classes et méthodes abstraites</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="exception.html">Les exceptions et la gestion des erreurs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#traiter-une-exception">Traiter une exception</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="exception.html#recuperer-les-donnees-d-une-exception">Récupérer les données d’une exception</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#clause-else">Clause <em>else</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#post-traitement">Post-traitement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#lever-une-exception">Lever une exception</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#creer-son-exception">Créer son exception</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Les méthodes spéciales (<em>dunders</em>)</a><ul>
@@ -367,6 +376,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="fichier.html#lecture-de-fichiers-csv">Lecture de fichiers CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fichier.html#exercices">Exercices</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="unittest.html">Les tests unitaires automatisés avec unittest</a><ul>
@@ -385,6 +395,49 @@
 <li class="toctree-l2"><a class="reference internal" href="socket.html#exemple-d-implementation-d-un-serveur">Exemple d’implémentation d’un serveur</a></li>
 <li class="toctree-l2"><a class="reference internal" href="socket.html#exemple-d-implementation-d-un-client">Exemple d’implémentation d’un client</a></li>
 <li class="toctree-l2"><a class="reference internal" href="socket.html#exemple-d-un-serveur-multi-thread">Exemple d’un serveur multi-thread</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">Accès aux bases de données (MySQL)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#installation-du-connecteur-mysql">Installation du connecteur MySQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#connexion-a-la-base-de-donnees">Connexion à la base de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#insertion-de-donnees">Insertion de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#selection-de-donnees">Sélection de données</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mysql.html#recuperer-les-donnees-en-flux">Récupérer les données en flux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mysql.html#utilisation-de-parametres-dans-les-conditions-where">Utilisation de paramètres dans les conditions <em>where</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#modification-des-donnees">Modification des données</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tkinter.html">Les applications graphiques avec Tkinter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#un-premier-programme">Un premier programme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#notion-de-boucle-d-evenements">Notion de boucle d’événements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#une-application-orientee-objet">Une application orientée objet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#un-exemple-de-gestion-des-evenements">Un exemple de gestion des événements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#les-widgets-et-le-positionnement">Les widgets et le positionnement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.html#positionnement-des-widgets">Positionnement des widgets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.html#collecter-les-donnees-des-widgets">Collecter les données des widgets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#les-boites-de-messages">Les boites de messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#les-boites-de-dialogue-avancees">Les boites de dialogue avancées</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_venv.html">Gestion des packages avec pip et venv</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_venv.html#gerer-les-packages-avec-pip">Gérer les packages avec pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#installation-de-pip">Installation de pip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#installer-des-packages">Installer des packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#autres-commandes-utiles">Autres commandes utiles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pip_venv.html#gerer-l-environnement-avec-venv">Gérer l’environnement avec venv</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#creation-d-un-environnement">Création d’un environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#activation-de-l-environnement">Activation de l’environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#desactivation-de-l-environnement">Désactivation de l’environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#supprimer-un-environnement">Supprimer un environnement</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pip_venv.html#configuration-d-un-projet">Configuration d’un projet</a></li>
 </ul>
 </li>
 </ul>
@@ -481,7 +534,7 @@
         <a href="iterateur_generateur.html" class="btn btn-neutral float-right" title="Itérateurs et Générateurs" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="exception.html" class="btn btn-neutral float-left" title="Les exceptions et la gestion des erreurs" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+        <a href="heritage.html" class="btn btn-neutral float-left" title="Héritage et polymorphisme" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
       
   </div>
   
@@ -499,28 +552,28 @@ comment faire pour que les instances de notre classe <code class="docutils liter
 fournisse une implémentation pour une ou plusieurs méthodes spéciales.
 Ces méthodes sont facilement reconnaissables car leur nom est encadré
 par deux caractères soulignés (<em>double underscores</em>) comme par exemple
-<a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__add__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__add__()</span></code></a>. Cela a valu à ces méthodes leur surnom (non officiel)
+<a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__add__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__add__()</span></code></a>. Cela a valu à ces méthodes leur surnom (non officiel)
 de <em>dunder</em>. La documentation Python y fait parfois référence sous le nom
 de <em>magic methods</em>.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Si une méthode spéciale ne peut pas réaliser correctement son traitement
 à cause de la valeur ou du type d’un des paramètres qui lui sont transmis, elle
-doit retourner le mot-clé spécial <a class="reference external" href="https://docs.python.org/3.6/library/constants.html#NotImplemented" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">NotImplemented</span></code></a> ou produire une exception.</p>
+doit retourner le mot-clé spécial <a class="reference external" href="https://docs.python.org/3.7/library/constants.html#NotImplemented" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">NotImplemented</span></code></a> ou produire une exception.</p>
 </div>
 <div class="section" id="methodes-speciales-elementaires">
 <h2>Méthodes spéciales élémentaires<a class="headerlink" href="#methodes-speciales-elementaires" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Nous avons déjà traité d’une méthode spéciale : la méthode <a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__init__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a>
+<p>Nous avons déjà traité d’une méthode spéciale : la méthode <a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__init__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a>
 qui désigne le constructeur. Pour des usages plus avancés, on peut définir
-les méthodes <a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__new__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__new__()</span></code></a> et <a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__del__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__del__()</span></code></a> pour réaliser
+les méthodes <a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__new__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__new__()</span></code></a> et <a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__del__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__del__()</span></code></a> pour réaliser
 les traitements de création et de suppression des objets.</p>
-<p>On peut également déclarer la méthode <a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__repr__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__repr__()</span></code></a> qui doit retourner
+<p>On peut également déclarer la méthode <a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__repr__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__repr__()</span></code></a> qui doit retourner
 la chaîne de caractères correspondant à la représentation de l’objet. Cette
-méthode est appelée directement par la fonction <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#repr" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a>. C’est également
+méthode est appelée directement par la fonction <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#repr" title="(disponible dans Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a>. C’est également
 cette méthode qui est utilisée par la console Python pour afficher un objet.
 Si nous reprenons comme exemple notre classe <code class="docutils literal notranslate"><span class="pre">Vecteur</span></code> du chapitre sur la
 programmation objet, nous pouvons proposer une implémentation pour la méthode
-<a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__repr__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__repr__()</span></code></a>.</p>
+<a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__repr__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__repr__()</span></code></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 
 <span class="k">class</span> <span class="nc">Vecteur</span><span class="p">:</span>
@@ -552,13 +605,13 @@ programmation objet, nous pouvons proposer une implémentation pour la méthode
 <span class="go">Vecteur(5,15)</span>
 </pre></div>
 </div>
-<p>La méthode <a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__hash__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__hash__()</span></code></a> permet de produire un nombre de hachage.
+<p>La méthode <a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__hash__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__hash__()</span></code></a> permet de produire un nombre de hachage.
 Ce nombre est nécessaire si votre objet doit être ajouté dans un ensemble
 ou comme clé d’un dictionnaire. Deux objets égaux doivent avoir le même nombre
 de hachage. Par contre l’inverse n’est pas nécessairement vrai. Le calcul d’un
 nombre de hachage n’est pas trivial car ce nombre est utilisé en interne par
 les ensembles et les dictionnaires pour garantir l’unicité des objets mais aussi pour assurer
-une bonne performance dans l’accès aux données. La fonction <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#hash" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">hash()</span></code></a> peut
+une bonne performance dans l’accès aux données. La fonction <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#hash" title="(disponible dans Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">hash()</span></code></a> peut
 vous aider à le calculer à partir des attributs d’un objet si ces derniers
 peuvent eux-mêmes produire une valeur de hachage. Il peut être intéressant de
 produire une valeur de hachage pour les instances de notre classe <code class="docutils literal notranslate"><span class="pre">Vecteur</span></code>.</p>
@@ -612,8 +665,8 @@ soit le développeur de la classe doit s’assurer qu’une fois l’état de l�
 positionné, il n’est plus possible de le modifier. C’est cette dernière
 stratégie qui est la plus sûr et qui est utilisée dans l’API standard de
 Python. On parle alors <strong>d’immutabilité</strong> des objets ou de classe
-<strong>immutable</strong>. C’est pour cette raison que les classes <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#int" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>,
-<a class="reference external" href="https://docs.python.org/3.6/library/functions.html#float" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#bool" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> et <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#tuple" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> sont immutables.
+<strong>immutable</strong>. C’est pour cette raison que les classes <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#int" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>,
+<a class="reference external" href="https://docs.python.org/3.7/library/functions.html#float" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#bool" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, <a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> et <a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#tuple" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> sont immutables.
 Il n’est pas possible d’altérer l’état interne des objets une fois créés.
 Une opération de modification produit en fait un nouvel objet avec le nouvel état.</p>
 <p>Pour notre exemple de la classe <code class="docutils literal notranslate"><span class="pre">Vecteur</span></code>, il faudrait réfléchir à deux
@@ -628,7 +681,7 @@ l’idée qu’un objet de type <code class="docutils literal notranslate"><span
 <p>Il est possible de réaliser des conversions lorsque l’objet est passé en paramètre
 de certaines fonctions. La conversion en valeur booléenne est également utilisée
 lorsqu’un objet doit être évalué comme expression booléenne dans une structure
-<a class="reference external" href="https://docs.python.org/3.6/reference/compound_stmts.html#if" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">if</span></code></a> ou <a class="reference external" href="https://docs.python.org/3.6/reference/compound_stmts.html#while" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">while</span></code></a>.</p>
+<a class="reference external" href="https://docs.python.org/3.7/reference/compound_stmts.html#if" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">if</span></code></a> ou <a class="reference external" href="https://docs.python.org/3.7/reference/compound_stmts.html#while" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">while</span></code></a>.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50%" />
@@ -640,31 +693,31 @@ lorsqu’un objet doit être évalué comme expression booléenne dans une struc
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__str__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__str__(self)</span></code></a></p></td>
-<td><p><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__str__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__str__(self)</span></code></a></p></td>
+<td><p><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__bytes__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__bytes__(self)</span></code></a></p></td>
-<td><p><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#bytes" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__bytes__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__bytes__(self)</span></code></a></p></td>
+<td><p><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#bytes" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__bool__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__bool__(self)</span></code></a></p></td>
-<td><p><a class="reference external" href="https://docs.python.org/3.6/library/functions.html#bool" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> ou expression booléenne</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__bool__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__bool__(self)</span></code></a></p></td>
+<td><p><a class="reference external" href="https://docs.python.org/3.7/library/functions.html#bool" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> ou expression booléenne</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__int__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__int__(self)</span></code></a></p></td>
-<td><p><a class="reference external" href="https://docs.python.org/3.6/library/functions.html#int" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__int__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__int__(self)</span></code></a></p></td>
+<td><p><a class="reference external" href="https://docs.python.org/3.7/library/functions.html#int" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__float__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__float__(self)</span></code></a></p></td>
-<td><p><a class="reference external" href="https://docs.python.org/3.6/library/functions.html#float" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__float__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__float__(self)</span></code></a></p></td>
+<td><p><a class="reference external" href="https://docs.python.org/3.7/library/functions.html#float" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__complex__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__complex__(self)</span></code></a></p></td>
-<td><p><a class="reference external" href="https://docs.python.org/3.6/library/functions.html#complex" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">complex</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__complex__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__complex__(self)</span></code></a></p></td>
+<td><p><a class="reference external" href="https://docs.python.org/3.7/library/functions.html#complex" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">complex</span></code></a></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">__dict__(self)</span></code></p></td>
-<td><p><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#dict" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p></td>
+<td><p><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#dict" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p></td>
 </tr>
 </tbody>
 </table>
 <p>Pour notre classe <code class="docutils literal notranslate"><span class="pre">Vector</span></code>, en nous inspirant du fonctionnement des nombres
-en Python, nous pourrions considérer qu’un vecteur est évalué à <a class="reference external" href="https://docs.python.org/3.6/library/constants.html#True" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">True</span></code></a>
+en Python, nous pourrions considérer qu’un vecteur est évalué à <a class="reference external" href="https://docs.python.org/3.7/library/constants.html#True" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">True</span></code></a>
 si ses coordonnées sont différentes de zéro. La conversion en chaîne de caractères
 est également utile.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Vecteur</span><span class="p">:</span>
@@ -700,10 +753,10 @@ est également utile.</p>
 <div class="section" id="methodes-speciales-pour-les-operateurs-unaires">
 <h2>Méthodes spéciales pour les opérateurs unaires<a class="headerlink" href="#methodes-speciales-pour-les-operateurs-unaires" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Si les objets doivent pouvoir être utilisés avec les opérateurs unaires <code class="docutils literal notranslate"><span class="pre">+</span></code>,
-<code class="docutils literal notranslate"><span class="pre">-</span></code> ou s’ils peuvent être passés en paramètre de la fonction <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#abs" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">abs()</span></code></a>,
+<code class="docutils literal notranslate"><span class="pre">-</span></code> ou s’ils peuvent être passés en paramètre de la fonction <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#abs" title="(disponible dans Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">abs()</span></code></a>,
 vous devez fournir respectivement une implémentation des méthodes
-<a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__pos__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__pos__(self)</span></code></a>, <a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__neg__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__neg__(self)</span></code></a>,
-<a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__abs__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__abs__(self)</span></code></a>.</p>
+<a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__pos__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__pos__(self)</span></code></a>, <a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__neg__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__neg__(self)</span></code></a>,
+<a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__abs__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__abs__(self)</span></code></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Vecteur</span><span class="p">:</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
@@ -737,42 +790,42 @@ alors vous pouvez fournir une implémentation pour les méthodes suivantes :</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__add__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__add__(self,</span> <span class="pre">o)</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__add__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__add__(self,</span> <span class="pre">o)</span></code></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__sub__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__sub__(self,</span> <span class="pre">o)</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__sub__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__sub__(self,</span> <span class="pre">o)</span></code></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__mul__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__mul__(self,</span> <span class="pre">o)</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__mul__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__mul__(self,</span> <span class="pre">o)</span></code></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__matmul__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__matmul__(self,</span> <span class="pre">o)</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__matmul__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__matmul__(self,</span> <span class="pre">o)</span></code></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">&#64;</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__truediv__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__truediv__(self,</span> <span class="pre">o)</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__truediv__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__truediv__(self,</span> <span class="pre">o)</span></code></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__floordiv__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__floordiv__(self,</span> <span class="pre">o)</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__floordiv__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__floordiv__(self,</span> <span class="pre">o)</span></code></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">//</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__mod__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__mod__(self,</span> <span class="pre">o)</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__mod__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__mod__(self,</span> <span class="pre">o)</span></code></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__divmod__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__divmod__(self,</span> <span class="pre">o)</span></code></a></p></td>
-<td><p><a class="reference external" href="https://docs.python.org/3.6/library/functions.html#divmod" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">divmod()</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__divmod__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__divmod__(self,</span> <span class="pre">o)</span></code></a></p></td>
+<td><p><a class="reference external" href="https://docs.python.org/3.7/library/functions.html#divmod" title="(disponible dans Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">divmod()</span></code></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__pow__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__pow__(self,</span> <span class="pre">o,</span> <span class="pre">modulo)</span></code></a></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">**</span></code> ou <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#pow" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pow()</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__pow__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__pow__(self,</span> <span class="pre">o,</span> <span class="pre">modulo)</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">**</span></code> ou <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#pow" title="(disponible dans Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pow()</span></code></a></p></td>
 </tr>
 </tbody>
 </table>
 <p>Ces méthodes prennent toutes en paramètres <code class="docutils literal notranslate"><span class="pre">self</span></code> et le deuxième opérande de
-l’opérateur arithmétique. <a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__pow__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__pow__(self,</span> <span class="pre">o,</span> <span class="pre">modulo)</span></code></a>
+l’opérateur arithmétique. <a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__pow__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__pow__(self,</span> <span class="pre">o,</span> <span class="pre">modulo)</span></code></a>
 accepte un troisième paramètre optionnel correspondant à la valeur du modulo
-passée en paramètre de la fonction <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#pow" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pow()</span></code></a>. Ces méthodes doivent retourner
-le résultat de l’opération sauf <a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__divmod__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__divmod__(self,</span> <span class="pre">o)</span></code></a>
+passée en paramètre de la fonction <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#pow" title="(disponible dans Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pow()</span></code></a>. Ces méthodes doivent retourner
+le résultat de l’opération sauf <a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__divmod__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__divmod__(self,</span> <span class="pre">o)</span></code></a>
 qui doit retourner le résultat de la division et le reste pour être conforme
-à <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#divmod" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">divmod()</span></code></a>. Normalement, ces méthodes ne doivent pas modifier l’état interne
+à <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#divmod" title="(disponible dans Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">divmod()</span></code></a>. Normalement, ces méthodes ne doivent pas modifier l’état interne
 de l’objet mais, au plus, produire un nouvel objet (comme par exemple pour le
 résultat de l’addition).</p>
 <p>Pour notre classe <code class="docutils literal notranslate"><span class="pre">Vecteur</span></code>, nous pouvons, par exemple, autoriser l’addition de
@@ -806,9 +859,9 @@ deux vecteurs ou d’un vecteur avec un scalaire.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Remarquez l’utilisation du mot-clé <a class="reference external" href="https://docs.python.org/3.6/library/constants.html#NotImplemented" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">NotImplemented</span></code></a> pour le cas
+<p>Remarquez l’utilisation du mot-clé <a class="reference external" href="https://docs.python.org/3.7/library/constants.html#NotImplemented" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">NotImplemented</span></code></a> pour le cas
 où l’addition ne concerne ni un scalaire, ni un vecteur. Le fait de retourner
-ce mot-clé produira une erreur de type <a class="reference external" href="https://docs.python.org/3.6/library/exceptions.html#TypeError" title="(disponible dans Python v3.6)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> lorsque l’addition
+ce mot-clé produira une erreur de type <a class="reference external" href="https://docs.python.org/3.7/library/exceptions.html#TypeError" title="(disponible dans Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> lorsque l’addition
 ne sera pas possible.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Vecteur</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">+</span> <span class="s2">&quot;ceci n&#39;est pas un nombre ni un Vecteur&quot;</span>
@@ -833,34 +886,34 @@ binaire et l’objet à gauche ne supporte pas l’opération.</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__radd__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__radd__(self,</span> <span class="pre">o)</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__radd__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__radd__(self,</span> <span class="pre">o)</span></code></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__rsub__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__rsub__(self,</span> <span class="pre">o)</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__rsub__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__rsub__(self,</span> <span class="pre">o)</span></code></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__rmul__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__rmul__(self,</span> <span class="pre">o)</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__rmul__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__rmul__(self,</span> <span class="pre">o)</span></code></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__rmatmul__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__rmatmul__(self,</span> <span class="pre">o)</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__rmatmul__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__rmatmul__(self,</span> <span class="pre">o)</span></code></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">&#64;</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__rtruediv__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__rtruediv__(self,</span> <span class="pre">o)</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__rtruediv__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__rtruediv__(self,</span> <span class="pre">o)</span></code></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__rfloordiv__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__rfloordiv__(self,</span> <span class="pre">o)</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__rfloordiv__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__rfloordiv__(self,</span> <span class="pre">o)</span></code></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">//</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__rmod__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__rmod__(self,</span> <span class="pre">o)</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__rmod__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__rmod__(self,</span> <span class="pre">o)</span></code></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__rpow__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__rpow__(self,</span> <span class="pre">o,</span> <span class="pre">modulo)</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__rpow__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__rpow__(self,</span> <span class="pre">o,</span> <span class="pre">modulo)</span></code></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">**</span></code></p></td>
 </tr>
 </tbody>
 </table>
 <p>Par exemple pour additionner un scalaire à un vecteur, il faut fournir une
-implémentation pour la méthode <a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__radd__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__radd__(self,</span> <span class="pre">o)</span></code></a>.</p>
+implémentation pour la méthode <a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__radd__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__radd__(self,</span> <span class="pre">o)</span></code></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Vecteur</span><span class="p">:</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
@@ -886,8 +939,8 @@ implémentation pour la méthode <a class="reference external" href="https://doc
 <span class="go">Vecteur(12,13)</span>
 </pre></div>
 </div>
-<p>Pour notre exemple, l’implémentation de la méthode <a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__radd__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__radd__(self,</span> <span class="pre">o)</span></code></a>
-se contente de retourner le résultat de l’appel à <a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__add__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__add__(self,</span> <span class="pre">o)</span></code></a>
+<p>Pour notre exemple, l’implémentation de la méthode <a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__radd__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__radd__(self,</span> <span class="pre">o)</span></code></a>
+se contente de retourner le résultat de l’appel à <a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__add__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__add__(self,</span> <span class="pre">o)</span></code></a>
 puisque l’addition est commutative.</p>
 <p>Enfin, la classe peut fournir une implémentation pour les opérateurs <em>in-place</em>.
 Il s’agit des opérateurs qui réalisent une opération et une affectation dans le
@@ -903,28 +956,28 @@ même temps.</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__iadd__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iadd__(self,</span> <span class="pre">o)</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__iadd__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iadd__(self,</span> <span class="pre">o)</span></code></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">+=</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__isub__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__isub__(self,</span> <span class="pre">o)</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__isub__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__isub__(self,</span> <span class="pre">o)</span></code></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">-=</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__imul__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__imul__(self,</span> <span class="pre">o)</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__imul__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__imul__(self,</span> <span class="pre">o)</span></code></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">*=</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__imatmul__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__imatmul__(self,</span> <span class="pre">o)</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__imatmul__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__imatmul__(self,</span> <span class="pre">o)</span></code></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">&#64;=</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__itruediv__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__itruediv__(self,</span> <span class="pre">o)</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__itruediv__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__itruediv__(self,</span> <span class="pre">o)</span></code></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">/=</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__ifloordiv__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__ifloordiv__(self,</span> <span class="pre">o)</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__ifloordiv__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__ifloordiv__(self,</span> <span class="pre">o)</span></code></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">//=</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__imod__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__imod__(self,</span> <span class="pre">o)</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__imod__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__imod__(self,</span> <span class="pre">o)</span></code></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">%=</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__ipow__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__ipow__(self,</span> <span class="pre">o,</span> <span class="pre">modulo)</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__ipow__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__ipow__(self,</span> <span class="pre">o,</span> <span class="pre">modulo)</span></code></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">**=</span></code></p></td>
 </tr>
 </tbody>
@@ -932,7 +985,7 @@ même temps.</p>
 <p>Généralement, l’implémentation de ces méthodes permet simplement une optimisation.
 Si ces méthodes ne sont pas présentes alors l’interpréteur appelle la méthode arithmétique
 équivalente et affecte le résultat à la variable. Ainsi, si l’appel à la méthode
-<a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__iadd__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iadd__(self,</span> <span class="pre">o)</span></code></a> produit un résultat <a class="reference external" href="https://docs.python.org/3.6/library/constants.html#NotImplemented" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">NotImplemented</span></code></a>,
+<a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__iadd__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iadd__(self,</span> <span class="pre">o)</span></code></a> produit un résultat <a class="reference external" href="https://docs.python.org/3.7/library/constants.html#NotImplemented" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">NotImplemented</span></code></a>,
 l’instruction</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">+=</span> <span class="n">b</span>
 </pre></div>
@@ -1010,7 +1063,7 @@ par défaut en fournissant notre propre méthode d’égalité :</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>En Python, si vous désirez vérifier s’il s’agit ou non du même objet en mémoire,
-il faut utiliser le mot clé <a class="reference external" href="https://docs.python.org/3.6/reference/expressions.html#is" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">is</span></code></a>. Ainsi :</p>
+il faut utiliser le mot clé <a class="reference external" href="https://docs.python.org/3.7/reference/expressions.html#is" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">is</span></code></a>. Ainsi :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v1</span> <span class="o">=</span> <span class="n">Vecteur</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">v2</span> <span class="o">=</span> <span class="n">Vecteur</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">v1</span> <span class="ow">is</span> <span class="n">v1</span>
@@ -1032,22 +1085,22 @@ il faut utiliser le mot clé <a class="reference external" href="https://docs.py
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__eq__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__eq__(self,</span> <span class="pre">v)</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__eq__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__eq__(self,</span> <span class="pre">v)</span></code></a></p></td>
 <td><p>o == v</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__ne__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__ne__(self,</span> <span class="pre">v)</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__ne__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__ne__(self,</span> <span class="pre">v)</span></code></a></p></td>
 <td><p>o != v</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__lt__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__lt__(self,</span> <span class="pre">v)</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__lt__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__lt__(self,</span> <span class="pre">v)</span></code></a></p></td>
 <td><p>o &lt; v</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__le__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__le__(self,</span> <span class="pre">v)</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__le__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__le__(self,</span> <span class="pre">v)</span></code></a></p></td>
 <td><p>o &lt;= v</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__gt__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__gt__(self,</span> <span class="pre">v)</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__gt__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__gt__(self,</span> <span class="pre">v)</span></code></a></p></td>
 <td><p>o &gt; v</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__ge__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__ge__(self,</span> <span class="pre">v)</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__ge__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__ge__(self,</span> <span class="pre">v)</span></code></a></p></td>
 <td><p>o &gt;= v</p></td>
 </tr>
 </tbody>
@@ -1055,7 +1108,7 @@ il faut utiliser le mot clé <a class="reference external" href="https://docs.py
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>S’il n’existe pas d’implémentation pour la méthode
-<a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__ne__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__ne__(self,</span> <span class="pre">v)</span></code></a>, alors l’interpréteur qui tente
+<a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__ne__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__ne__(self,</span> <span class="pre">v)</span></code></a>, alors l’interpréteur qui tente
 de résoudre l’instruction :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">o</span> <span class="o">!=</span> <span class="n">v</span>
 </pre></div>
@@ -1068,9 +1121,9 @@ de résoudre l’instruction :</p>
 <div class="admonition tip">
 <p class="admonition-title">Astuce</p>
 <p>Si vous souhaitez que les séquences de vos objets soient triables
-grâce à la fonction <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#sorted" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sorted()</span></code></a>, vous devez au minimum fournir
-une implémentation pour les méthodes <a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__eq__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__eq__(self,</span> <span class="pre">v)</span></code></a>
-et <a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__lt__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__lt__(self,</span> <span class="pre">v)</span></code></a>.</p>
+grâce à la fonction <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#sorted" title="(disponible dans Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sorted()</span></code></a>, vous devez au minimum fournir
+une implémentation pour les méthodes <a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__eq__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__eq__(self,</span> <span class="pre">v)</span></code></a>
+et <a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__lt__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__lt__(self,</span> <span class="pre">v)</span></code></a>.</p>
 </div>
 </div>
 <div class="section" id="methodes-speciales-pour-les-conteneurs">
@@ -1089,19 +1142,19 @@ spéciales telles que :</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__len__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__len__(self)</span></code></a></p></td>
-<td><p>utilisation de la méthode <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#len" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">len()</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__len__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__len__(self)</span></code></a></p></td>
+<td><p>utilisation de la méthode <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#len" title="(disponible dans Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">len()</span></code></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__getitem__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__(self,</span> <span class="pre">key)</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__getitem__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__(self,</span> <span class="pre">key)</span></code></a></p></td>
 <td><p>o[key]</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__setitem__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__setitem__(self,</span> <span class="pre">key,</span> <span class="pre">value)</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__setitem__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__setitem__(self,</span> <span class="pre">key,</span> <span class="pre">value)</span></code></a></p></td>
 <td><p>o[key] = value</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__delitem__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__delitem__(self,</span> <span class="pre">key)</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__delitem__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__delitem__(self,</span> <span class="pre">key)</span></code></a></p></td>
 <td><p>del o[key]</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__contains__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__contains__(self,</span> <span class="pre">key)</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__contains__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__contains__(self,</span> <span class="pre">key)</span></code></a></p></td>
 <td><p>key in o</p></td>
 </tr>
 </tbody>
@@ -1157,7 +1210,7 @@ spéciales telles que :</p>
 <h2>Tout est objet !<a class="headerlink" href="#tout-est-objet" title="Lien permanent vers ce titre">¶</a></h2>
 <p>En découvrant les méthodes spéciales en Python, on se rend compte que les opérateurs
 arithmétiques ne sont que des raccourcis d’écriture pour les méthodes telles
-que <a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__add__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__add__(self,</span> <span class="pre">o)</span></code></a> ou <a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__sub__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__sub__(self,</span> <span class="pre">o)</span></code></a>.
+que <a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__add__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__add__(self,</span> <span class="pre">o)</span></code></a> ou <a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__sub__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__sub__(self,</span> <span class="pre">o)</span></code></a>.
 Il en va de même pour les opérateurs <code class="docutils literal notranslate"><span class="pre">[]</span></code> ou même les opérations booléennes.</p>
 <p>En fait en Python, <strong>tout est un objet</strong> ! Les nombres sont des objets et il
 est donc possible d’écrire :</p>
@@ -1167,7 +1220,7 @@ est donc possible d’écrire :</p>
 </pre></div>
 </div>
 <p>Les objets représentant les entiers ont même des méthodes propres comme
-<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#int.bit_length" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">bit_length()</span></code></a> pour connaître la taille en bits nécessaire pour stocker
+<a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#int.bit_length" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">bit_length()</span></code></a> pour connaître la taille en bits nécessaire pour stocker
 la valeur.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">bit_length</span><span class="p">()</span>
@@ -1177,11 +1230,11 @@ la valeur.</p>
 <span class="go">20</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="https://docs.python.org/3.6/library/functions.html#int" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#float" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#complex" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">complex</span></code></a>, <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#bool" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#tuple" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>,
-<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#list" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>, <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#set" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a>, <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#dict" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> ne sont pas des fonctions mais les
+<p><a class="reference external" href="https://docs.python.org/3.7/library/functions.html#int" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#float" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#complex" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">complex</span></code></a>, <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#bool" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, <a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#tuple" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>,
+<a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#list" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>, <a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#set" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a>, <a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#dict" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> ne sont pas des fonctions mais les
 classes de ces différents types. Il est donc possible de créer des classes en
-héritant de ces types. Les classes <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#int" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#float" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#complex" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">complex</span></code></a>
-et <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#bool" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> héritent même d’une classe commune : la classe <a class="reference external" href="https://docs.python.org/3.6/library/numbers.html#numbers.Number" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Number</span></code></a>.</p>
+héritant de ces types. Les classes <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#int" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#float" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#complex" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">complex</span></code></a>
+et <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#bool" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> héritent même d’une classe commune : la classe <a class="reference external" href="https://docs.python.org/3.7/library/numbers.html#numbers.Number" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Number</span></code></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">numbers</span> <span class="kn">import</span> <span class="n">Number</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Number</span><span class="p">)</span>
 <span class="go">True</span>
@@ -1217,7 +1270,7 @@ son attribut privé <code class="docutils literal notranslate"><span class="pre"
 </pre></div>
 </div>
 <p>De même un objet peut se comporter comme une fonction. Pour cela, il suffit
-d’implémenter la méthode spéciale <a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__call__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__call__(self,</span> <span class="pre">args)</span></code></a>.</p>
+d’implémenter la méthode spéciale <a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__call__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__call__(self,</span> <span class="pre">args)</span></code></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numbers</span> <span class="kn">import</span> <span class="n">Number</span>
 
 
@@ -1250,9 +1303,9 @@ d’implémenter la méthode spéciale <a class="reference external" href="https
 <span class="go">2</span>
 </pre></div>
 </div>
-<p>La fonction <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#callable" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">callable()</span></code></a> permet de découvrir sur une variable ou un paramètre
+<p>La fonction <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#callable" title="(disponible dans Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">callable()</span></code></a> permet de découvrir sur une variable ou un paramètre
 représente un type appelable, c’est-à-dire une fonction ou un objet disposant
-de la méthode <a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__call__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__call__(self,</span> <span class="pre">args)</span></code></a>.</p>
+de la méthode <a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__call__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__call__(self,</span> <span class="pre">args)</span></code></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">callable</span><span class="p">(</span><span class="nb">print</span><span class="p">)</span>
 <span class="go">True</span>
 </pre></div>
@@ -1312,7 +1365,7 @@ d’utiliser une classe également comme un décorateur.</p>
 </div>
 <div class="section" id="les-classes-comme-objet">
 <h2>Les classes comme objet<a class="headerlink" href="#les-classes-comme-objet" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Les classes sont elles-mêmes des objets qui héritent de <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#type" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a>. Par exemple,
+<p>Les classes sont elles-mêmes des objets qui héritent de <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#type" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a>. Par exemple,
 une classe possède un attribut <code class="docutils literal notranslate"><span class="pre">__name__</span></code> qui contient le nom de la classe.
 Ses attributs sont également composés des méthodes et des attributs de classe. Il est
 donc possible de traiter une classe comme n’importe quel objet dans un programme.
@@ -1351,7 +1404,7 @@ n’étaient pas connus au moment de l’écriture de ces bibliothèques et de c
 <h2>Et bien d’autres méthodes spéciales…<a class="headerlink" href="#et-bien-d-autres-methodes-speciales" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Il existe encore d’autres méthodes spéciales pour la réflexivité ou encore
 pour permettre de réaliser des arrondis ou des opérations binaires. Pour la liste
-complète, vous pouvez consulter la documentation officielle du <a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#datamodel" title="(disponible dans Python v3.6)"><code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">model</span></code></a>.
+complète, vous pouvez consulter la documentation officielle du <a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#datamodel" title="(disponible dans Python v3.7)"><code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">model</span></code></a>.
 Le chapitre suivant présente les méthodes spéciales pour les itérateurs.</p>
 <p>Ci-dessous, vous trouverez l’implémentation complète de la classe <code class="docutils literal notranslate"><span class="pre">Vecteur</span></code> :</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -1521,8 +1574,8 @@ Le chapitre suivant présente les méthodes spéciales pour les itérateurs.</p>
 <div class="section" id="methodes-speciales-et-classes-abstraites">
 <h2>Méthodes spéciales et classes abstraites<a class="headerlink" href="#methodes-speciales-et-classes-abstraites" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Beaucoup de méthodes abstraites n’ont de sens que lorsqu’elles sont implémentées
-ensemble par la même classe. Par exemple les méthodes <a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__len__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__len__(self)</span></code></a>
-<a class="reference external" href="https://docs.python.org/3.6/reference/datamodel.html#object.__getitem__" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__(self,</span> <span class="pre">key)</span></code></a> permettent de définir une
+ensemble par la même classe. Par exemple les méthodes <a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__len__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__len__(self)</span></code></a>
+<a class="reference external" href="https://docs.python.org/3.7/reference/datamodel.html#object.__getitem__" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__(self,</span> <span class="pre">key)</span></code></a> permettent de définir une
 séquence puisqu’il est possible de connaître la taille et l’élément associé à
 une clé.</p>
 <p>Le module <code class="xref py py-mod docutils literal notranslate"><span class="pre">container.abc</span></code> fournit des classes abstraites qui définissent
@@ -1555,7 +1608,7 @@ au développeur de vérifier que son implémentation est conforme au contrat.</p
         <a href="iterateur_generateur.html" class="btn btn-neutral float-right" title="Itérateurs et Générateurs" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="exception.html" class="btn btn-neutral float-left" title="Les exceptions et la gestion des erreurs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+        <a href="heritage.html" class="btn btn-neutral float-left" title="Héritage et polymorphisme" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
       
     </div>
   

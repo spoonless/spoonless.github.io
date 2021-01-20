@@ -5,13 +5,11 @@
 <head>
   <meta charset="utf-8">
   <meta content="David Gayerie" name="author" />
-<meta content="Python 3 - Les fondamentaux du langage" name="description" />
-<meta content="Python, programmation objet, POO, langage de programmation" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
 
-  <title>Le dictionnaire &mdash; Python 3.X</title>
+  <title>Gestion des packages avec pip et venv &mdash; Python 3.X</title>
 
 
 
@@ -24,7 +22,7 @@
   
   
   
-    <link rel="canonical" href="https://gayerie.dev/docs/python/python3/dict.html"/>
+    <link rel="canonical" href="https://gayerie.dev/docs/python/python3/pip_venv.html"/>
   
 
   
@@ -45,8 +43,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Les exceptions et la gestion des erreurs" href="exception.html" />
-    <link rel="prev" title="L’ensemble (set)" href="set.html" /> 
+    <link rel="next" title="Les signaux et les slots" href="../pyside2/signal_slot.html" />
+    <link rel="prev" title="Les applications graphiques avec Tkinter" href="tkinter.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -225,19 +223,19 @@
 <li class="toctree-l2"><a class="reference internal" href="set.html#exercices">Exercices</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Le dictionnaire</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#creer-un-dictionnaire">Créer un dictionnaire</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#acceder-aux-elements">Accéder aux éléments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#les-operations-sur-les-dictionnaires">Les opérations sur les dictionnaires</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#connaitre-la-taille-d-un-dictionnaire">Connaître la taille d’un dictionnaire</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#supprimer-une-cle-d-un-dictionnaire">Supprimer une clé d’un dictionnaire</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#savoir-si-une-cle-est-presente-dans-un-dictionnaire">Savoir si une clé est présente dans un dictionnaire</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#comparer-deux-dictionnaires">Comparer deux dictionnaires</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dict.html">Le dictionnaire</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#creer-un-dictionnaire">Créer un dictionnaire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#acceder-aux-elements">Accéder aux éléments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#les-operations-sur-les-dictionnaires">Les opérations sur les dictionnaires</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dict.html#connaitre-la-taille-d-un-dictionnaire">Connaître la taille d’un dictionnaire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dict.html#supprimer-une-cle-d-un-dictionnaire">Supprimer une clé d’un dictionnaire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dict.html#savoir-si-une-cle-est-presente-dans-un-dictionnaire">Savoir si une clé est présente dans un dictionnaire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dict.html#comparer-deux-dictionnaires">Comparer deux dictionnaires</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#quelques-methodes-pour-les-dictionnaires">Quelques méthodes pour les dictionnaires</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#parcourir-un-dictionnaire-avec-for">Parcourir un dictionnaire avec for</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#exercices">Exercices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#quelques-methodes-pour-les-dictionnaires">Quelques méthodes pour les dictionnaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#parcourir-un-dictionnaire-avec-for">Parcourir un dictionnaire avec for</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#exercices">Exercices</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="exception.html">Les exceptions et la gestion des erreurs</a><ul>
@@ -423,21 +421,21 @@
 <li class="toctree-l2"><a class="reference internal" href="tkinter.html#les-boites-de-dialogue-avancees">Les boites de dialogue avancées</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="pip_venv.html">Gestion des packages avec pip et venv</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pip_venv.html#gerer-les-packages-avec-pip">Gérer les packages avec pip</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#installation-de-pip">Installation de pip</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#installer-des-packages">Installer des packages</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#autres-commandes-utiles">Autres commandes utiles</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Gestion des packages avec pip et venv</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#gerer-les-packages-avec-pip">Gérer les packages avec pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation-de-pip">Installation de pip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installer-des-packages">Installer des packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#autres-commandes-utiles">Autres commandes utiles</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="pip_venv.html#gerer-l-environnement-avec-venv">Gérer l’environnement avec venv</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#creation-d-un-environnement">Création d’un environnement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#activation-de-l-environnement">Activation de l’environnement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#desactivation-de-l-environnement">Désactivation de l’environnement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#supprimer-un-environnement">Supprimer un environnement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gerer-l-environnement-avec-venv">Gérer l’environnement avec venv</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creation-d-un-environnement">Création d’un environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#activation-de-l-environnement">Activation de l’environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#desactivation-de-l-environnement">Désactivation de l’environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#supprimer-un-environnement">Supprimer un environnement</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="pip_venv.html#configuration-d-un-projet">Configuration d’un projet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-d-un-projet">Configuration d’un projet</a></li>
 </ul>
 </li>
 </ul>
@@ -517,7 +515,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Le dictionnaire</li>
+      <li>Gestion des packages avec pip et venv</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -531,10 +529,10 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="exception.html" class="btn btn-neutral float-right" title="Les exceptions et la gestion des erreurs" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../pyside2/signal_slot.html" class="btn btn-neutral float-right" title="Les signaux et les slots" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="set.html" class="btn btn-neutral float-left" title="L’ensemble (set)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+        <a href="tkinter.html" class="btn btn-neutral float-left" title="Les applications graphiques avec Tkinter" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
       
   </div>
   
@@ -543,219 +541,287 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="le-dictionnaire">
-<span id="py-dict"></span><h1>Le dictionnaire<a class="headerlink" href="#le-dictionnaire" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Un dictionnaire (<em>dictionnary</em> ou, en abrégé en Python, <em>dict</em>) est une
-collection qui associe une clé à une valeur. Par exemple, il est possible
-d’associer la clé <code class="docutils literal notranslate"><span class="pre">&quot;nom&quot;</span></code> à un nom et la clé <code class="docutils literal notranslate"><span class="pre">&quot;prenom&quot;</span></code> à un prénom.</p>
+  <div class="section" id="gestion-des-packages-avec-pip-et-venv">
+<h1>Gestion des packages avec pip et venv<a class="headerlink" href="#gestion-des-packages-avec-pip-et-venv" title="Lien permanent vers ce titre">¶</a></h1>
+<p>L’API standard Python est déjà très riche, mais la communauté l’a considérablement
+complétée en mettant à disposition en ligne des milliers de packages supplémentaires.</p>
+<p>Le site <em>Python Package Index</em> (ou <a class="reference external" href="https://pypi.org/">PyPI</a> en abrégé) centralise sur le web les
+projets de la communauté. <a class="reference external" href="https://pypi.org/">PyPI</a> propose un moteur de recherche pour nous aider
+à trouver les packages dont nous pourrions avoir besoin. Mais surtout, <a class="reference external" href="https://pypi.org/">PyPI</a>
+héberge différentes versions de ces packages et nous permet de les télécharger
+pour les incorporer dans notre environnement de développement et d’exécution Python.</p>
+<p>Deux outils sont particulièrement utiles pour nous aider à gérer l’installation
+de ces packages tiers :</p>
+<dl class="simple">
+<dt><strong>pip</strong></dt><dd><p><code class="xref py py-mod docutils literal notranslate"><span class="pre">pip</span></code> (<em>Package Installer for Python</em>) permet d’installer les modules
+fournis par <a class="reference external" href="https://pypi.org/">PyPI</a>.</p>
+</dd>
+<dt><strong>venv</strong></dt><dd><p><a class="reference external" href="https://docs.python.org/3.7/library/venv.html#module-venv" title="(disponible dans Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">venv</span></code></a> (<em>Virtual Environment</em>) permet de créer un environnement virtuel
+Python afin d’isoler l’environnement d’exécution de nos projets Python.</p>
+</dd>
+</dl>
+<div class="section" id="gerer-les-packages-avec-pip">
+<h2>Gérer les packages avec pip<a class="headerlink" href="#gerer-les-packages-avec-pip" title="Lien permanent vers ce titre">¶</a></h2>
+<p><code class="xref py py-mod docutils literal notranslate"><span class="pre">pip</span></code> est le module Python qui permet d’installer des packages à partir
+de <a class="reference external" href="https://pypi.org/">PyPI</a> (ou de n’importe quel dépôt compatible <a class="reference external" href="https://pypi.org/">PyPI</a>).</p>
+<p><code class="xref py py-mod docutils literal notranslate"><span class="pre">pip</span></code> est un projet qui suit ses propres cycles de livraison. Il n’est
+plus directement intégré à la distribution Python. Il est néanmoins très souvent
+installé en même temps que l’interpréteur Python.</p>
+<div class="section" id="installation-de-pip">
+<h3>Installation de pip<a class="headerlink" href="#installation-de-pip" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Si <code class="xref py py-mod docutils literal notranslate"><span class="pre">pip</span></code> n’est pas présent sur votre système, le plus simple est d’utiliser
+le module <a class="reference external" href="https://docs.python.org/3.7/library/ensurepip.html#module-ensurepip" title="(disponible dans Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ensurepip</span></code></a> qui est disponible par défaut et dont l’objectif est
+justement d’installer <code class="xref py py-mod docutils literal notranslate"><span class="pre">pip</span></code>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python -m ensurepip
+</pre></div>
+</div>
+<p>Si vous voulez mettre à jour <code class="xref py py-mod docutils literal notranslate"><span class="pre">pip</span></code> :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python -m ensurepip --upgrade
+</pre></div>
+</div>
 <div class="admonition caution">
 <p class="admonition-title">Prudence</p>
-<p>Pour qu’une donnée puisse être utilisée comme une clé dans un dictionnaire,
-il faut qu’elle puisse produire une valeur de hachage (<em>hash</em> en anglais).
-Il s’agit d’une valeur numérique qui permet d’identifier la clé sans forcément
-lui être unique. Par défaut en Python, les nombres, les chaînes de
-caractères et les valeurs booléennes peuvent produire une valeur de hachage.
-Ils peuvent donc être utilisés comme clé dans un dictionnaire. On peut aussi
-utiliser comme clé un tuple d’éléments produisant une valeur de hachage.</p>
-</div>
-<div class="section" id="creer-un-dictionnaire">
-<h2>Créer un dictionnaire<a class="headerlink" href="#creer-un-dictionnaire" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Pour créer un dictionnaire, on associe une clé à une valeur en les séparant par
-<code class="docutils literal notranslate"><span class="pre">:</span></code>, le tout entre accolades <code class="docutils literal notranslate"><span class="pre">{}</span></code> :</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mon_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;Gayerie&quot;</span><span class="p">,</span> <span class="s2">&quot;prenom&quot;</span><span class="p">:</span> <span class="s2">&quot;David&quot;</span><span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="acceder-aux-elements">
-<h2>Accéder aux éléments<a class="headerlink" href="#acceder-aux-elements" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Pour accéder à un élément d’une liste, il faut utiliser les crochets et préciser
-la valeur de la clé.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mon_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;Gayerie&quot;</span><span class="p">,</span> <span class="s2">&quot;prenom&quot;</span><span class="p">:</span> <span class="s2">&quot;David&quot;</span><span class="p">}</span>
-<span class="n">nom</span> <span class="o">=</span> <span class="n">mon_dict</span><span class="p">[</span><span class="s2">&quot;nom&quot;</span><span class="p">]</span>
-<span class="n">prenom</span> <span class="o">=</span> <span class="n">mon_dict</span><span class="p">[</span><span class="s2">&quot;prenom&quot;</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>Attention, si un programme veut accéder à une valeur à partir d’une clé qui
-n’existe pas, l’erreur <a class="reference external" href="https://docs.python.org/3.7/library/exceptions.html#KeyError" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">KeyError</span></code></a> est produite.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mon_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;Gayerie&quot;</span><span class="p">,</span> <span class="s2">&quot;prenom&quot;</span><span class="p">:</span> <span class="s2">&quot;David&quot;</span><span class="p">}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">surnom</span> <span class="o">=</span> <span class="n">mon_dict</span><span class="p">[</span><span class="s2">&quot;surnom&quot;</span><span class="p">]</span>
-<span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">KeyError</span>: <span class="n">&#39;surnom&#39;</span>
-</pre></div>
-</div>
-<p>Il est possible de changer la valeur pour une clé donnée ou ajouter une nouvelle
-valeur pour une nouvelle clé :</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mon_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;Gayerie&quot;</span><span class="p">,</span> <span class="s2">&quot;prenom&quot;</span><span class="p">:</span> <span class="s2">&quot;Eric&quot;</span><span class="p">}</span>
-<span class="n">mon_dict</span><span class="p">[</span><span class="s2">&quot;prenom&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;David&quot;</span>
-<span class="n">mon_dict</span><span class="p">[</span><span class="s2">&quot;surnom&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Spoonless&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mon_dict</span><span class="p">)</span>
-<span class="c1"># affiche {&#39;nom&#39;: &#39;Gayerie&#39;, &#39;prenom&#39;: &#39;David&#39;, &#39;surnom&#39;: &#39;Spoonless&#39;}</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="les-operations-sur-les-dictionnaires">
-<h2>Les opérations sur les dictionnaires<a class="headerlink" href="#les-operations-sur-les-dictionnaires" title="Lien permanent vers ce titre">¶</a></h2>
-<div class="section" id="connaitre-la-taille-d-un-dictionnaire">
-<h3>Connaître la taille d’un dictionnaire<a class="headerlink" href="#connaitre-la-taille-d-un-dictionnaire" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Pour connaître le nombre de valeurs dans un dictionnaire, il faut utiliser la fonction
-<a class="reference external" href="https://docs.python.org/3.7/library/functions.html#len" title="(disponible dans Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">len()</span></code></a> (qui est la contraction de <em>length</em>) :</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mon_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;Gayerie&quot;</span><span class="p">,</span> <span class="s2">&quot;prenom&quot;</span><span class="p">:</span> <span class="s2">&quot;Eric&quot;</span><span class="p">}</span>
-<span class="n">taille_dict</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mon_dict</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">taille_dict</span><span class="p">)</span>
-<span class="c1"># affiche 2</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="supprimer-une-cle-d-un-dictionnaire">
-<h3>Supprimer une clé d’un dictionnaire<a class="headerlink" href="#supprimer-une-cle-d-un-dictionnaire" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Pour supprimer une clé dans un dictionnaire, on utilise le mot-clé <a class="reference external" href="https://docs.python.org/3.7/reference/simple_stmts.html#del" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">del</span></code></a> :</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mon_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;Gayerie&quot;</span><span class="p">,</span> <span class="s2">&quot;prenom&quot;</span><span class="p">:</span> <span class="s2">&quot;Eric&quot;</span><span class="p">}</span>
-<span class="k">del</span> <span class="n">mon_dict</span><span class="p">[</span><span class="s2">&quot;prenom&quot;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mon_dict</span><span class="p">)</span>
-<span class="c1"># affiche {&#39;nom&#39;: &#39;Gayerie&#39;}</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="savoir-si-une-cle-est-presente-dans-un-dictionnaire">
-<h3>Savoir si une clé est présente dans un dictionnaire<a class="headerlink" href="#savoir-si-une-cle-est-presente-dans-un-dictionnaire" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Pour savoir si une clé est présente dans un dictionnaire, on peut utiliser le
-mot-clé <a class="reference external" href="https://docs.python.org/3.7/reference/expressions.html#in" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">in</span></code></a> :</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mon_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;Gayerie&quot;</span><span class="p">,</span> <span class="s2">&quot;prenom&quot;</span><span class="p">:</span> <span class="s2">&quot;David&quot;</span><span class="p">}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;nom&quot;</span> <span class="ow">in</span> <span class="n">mon_dict</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;surnom&quot;</span> <span class="ow">in</span> <span class="n">mon_dict</span>
-<span class="go">False</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;surnom&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mon_dict</span>
-<span class="go">True</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="comparer-deux-dictionnaires">
-<h3>Comparer deux dictionnaires<a class="headerlink" href="#comparer-deux-dictionnaires" title="Lien permanent vers ce titre">¶</a></h3>
-<p>On peut tester si deux dictionnaires sont ou non identiques.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dict1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;Gayerie&quot;</span><span class="p">,</span> <span class="s2">&quot;prenom&quot;</span><span class="p">:</span> <span class="s2">&quot;Eric&quot;</span><span class="p">}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">dict2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;Gayerie&quot;</span><span class="p">,</span> <span class="s2">&quot;prenom&quot;</span><span class="p">:</span> <span class="s2">&quot;David&quot;</span><span class="p">}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">dict1</span> <span class="o">==</span> <span class="n">dict2</span>
-<span class="go">False</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">dict1</span> <span class="o">!=</span> <span class="n">dict2</span>
-<span class="go">True</span>
+<p>Installer ou mettre à jour <code class="xref py py-mod docutils literal notranslate"><span class="pre">pip</span></code> peut nécessiter des droits d’administrateur.
+Si vous préférez installer <code class="xref py py-mod docutils literal notranslate"><span class="pre">pip</span></code> uniquement pour le compte utilisateur
+courant, il faut utiliser le paramètre <code class="docutils literal notranslate"><span class="pre">--user</span></code> :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python -m ensurepip --user
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="quelques-methodes-pour-les-dictionnaires">
-<h2>Quelques méthodes pour les dictionnaires<a class="headerlink" href="#quelques-methodes-pour-les-dictionnaires" title="Lien permanent vers ce titre">¶</a></h2>
-<dl>
-<dt><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#dict.get" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get(key[,</span> <span class="pre">default])</span></code></a></dt><dd><p>Retourne la valeur associée à la clé fournie en paramètre. Cette méthode
-diffère de l’utilisation des crochets <code class="docutils literal notranslate"><span class="pre">[]</span></code> car elle retourne la valeur
-du paramètre <code class="docutils literal notranslate"><span class="pre">default</span></code> (par défaut <a class="reference external" href="https://docs.python.org/3.7/library/constants.html#None" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">None</span></code></a>) si la clé n’est pas présente
-dans le dictionnaire.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;Gayerie&quot;</span><span class="p">,</span> <span class="s2">&quot;prenom&quot;</span><span class="p">:</span> <span class="s2">&quot;David&quot;</span><span class="p">}</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;surnom&quot;</span><span class="p">))</span>
-<span class="c1"># affiche None</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;surnom&quot;</span><span class="p">,</span> <span class="s2">&quot;Pas de valeur&quot;</span><span class="p">))</span>
-<span class="c1"># affiche Pas de valeur</span>
+<div class="section" id="installer-des-packages">
+<h3>Installer des packages<a class="headerlink" href="#installer-des-packages" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour installer un package, on utilise la commande <code class="docutils literal notranslate"><span class="pre">install</span></code> du module <code class="xref py py-mod docutils literal notranslate"><span class="pre">pip</span></code> :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python -m pip install &lt;nom_du_package&gt;
 </pre></div>
 </div>
-</dd>
-<dt><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#dict.clear" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">clear()</span></code></a></dt><dd><p>Supprime tous les éléments du dictionnaire.</p>
-</dd>
-<dt><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#dict.items" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">items()</span></code></a></dt><dd><p>Retourne une <a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#dictionary-view-objects">vue du dictionnaire</a> sous la forme d’une séquence itérable de
-tuples contenant le couple clé, valeur. Les modifications réalisées sur la vue
-sont répercutées sur le dictionnaire.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;Gayerie&quot;</span><span class="p">,</span> <span class="s2">&quot;prenom&quot;</span><span class="p">:</span> <span class="s2">&quot;David&quot;</span><span class="p">}</span>
-<span class="n">vue_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">items</span><span class="p">();</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">vue_dict</span><span class="p">)</span>
-<span class="c1"># Affiche dict_items([(&#39;nom&#39;, &#39;Gayerie&#39;), (&#39;prenom&#39;, &#39;David&#39;)])</span>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="xref py py-mod docutils literal notranslate"><span class="pre">pip</span></code> est généralement installé avec un lanceur de programme permettant
+de l’utiliser directement comme une commande du système :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ pip install &lt;nom_du_package&gt;
 </pre></div>
 </div>
-</dd>
-<dt><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#dict.keys" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">keys()</span></code></a></dt><dd><p>Retourne une <a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#dictionary-view-objects">vue du dictionnaire</a> sous la forme d’une séquence itérable
-contenant les clés. Les modifications réalisées sur la vue sont répercutées
-sur le dictionnaire.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;Gayerie&quot;</span><span class="p">,</span> <span class="s2">&quot;prenom&quot;</span><span class="p">:</span> <span class="s2">&quot;David&quot;</span><span class="p">}</span>
-<span class="n">vue_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">keys</span><span class="p">();</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">vue_dict</span><span class="p">)</span>
-<span class="c1"># Affiche dict_keys([&#39;nom&#39;, &#39;prenom&#39;])</span>
+<p>La commande <strong class="command">pip</strong> est liée à la version de Python par défaut de votre
+session. Si vous avez plusieurs versions disponibles sur votre système, alors
+il est plus intéressant d’appeler <code class="xref py py-mod docutils literal notranslate"><span class="pre">pip</span></code> comme un module depuis votre
+interpréteur Python. Cela vous permet de spécifier explicitement pour quelle
+version de Python vous souhaitez installer le package.</p>
+</div>
+<p>Si nous voulons installer le package <a class="reference external" href="https://pypi.org/project/art/">art</a> qui fournit des fonctions pour créer
+de l’art ASCII, il suffit d’utiliser la commande :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python -m pip install art
 </pre></div>
 </div>
-</dd>
-<dt><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#dict.values" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">values()</span></code></a></dt><dd><p>Retourne une <a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#dictionary-view-objects">vue du dictionnaire</a> sous la forme d’une séquence itérable
-contenant les valeurs. Les modifications réalisées sur la vue sont répercutées
-sur le dictionnaire.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;Gayerie&quot;</span><span class="p">,</span> <span class="s2">&quot;prenom&quot;</span><span class="p">:</span> <span class="s2">&quot;David&quot;</span><span class="p">}</span>
-<span class="n">vue_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">values</span><span class="p">();</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">vue_dict</span><span class="p">)</span>
-<span class="c1"># Affiche dict_values([&#39;Gayerie&#39;, &#39;David&#39;])</span>
+<p>Le module <a class="reference external" href="https://pypi.org/project/art/">art</a> est maintenant disponible dans l’environnement Python. On peut
+lancer un interpréteur et tester le code suivant :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">art</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">art</span><span class="o">.</span><span class="n">aprint</span><span class="p">(</span><span class="s2">&quot;random&quot;</span><span class="p">)</span>
+<span class="go">~(^-^)~</span>
 </pre></div>
 </div>
-</dd>
-<dt><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#dict.copy" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">copy()</span></code></a></dt><dd><p>Crée une copie d’un dictionnaire.</p>
-</dd>
-</dl>
-</div>
-<div class="section" id="parcourir-un-dictionnaire-avec-for">
-<h2>Parcourir un dictionnaire avec for<a class="headerlink" href="#parcourir-un-dictionnaire-avec-for" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Le dictionnaire est une structure de données très courante en Python. On peut
-peut parcourir un dictionnaire à partir de ses clés, de ses valeurs ou encore
-les deux à la fois :</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">civilite</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;M&#39;</span><span class="p">:</span> <span class="s1">&#39;Monsieur&#39;</span><span class="p">,</span> <span class="s1">&#39;Mme&#39;</span><span class="p">:</span> <span class="s1">&#39;Madame&#39;</span><span class="p">,</span> <span class="s1">&#39;Mlle&#39;</span><span class="p">:</span> <span class="s1">&#39;Mademoiselle&#39;</span><span class="p">}</span>
-
-<span class="c1"># On parcourt les clés du dictionnaire</span>
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">civilite</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
-
-<span class="c1"># Par défaut, on parcourt les clés du dictionnaire</span>
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">civilite</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
-
-<span class="c1"># On parcourt les valeurs du dictionnaire</span>
-<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">civilite</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-
-<span class="c1"># On parcourt les clés et les valeurs du dictionnaire</span>
-<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">civilite</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Si vous souhaitez mettre à jour un package déjà installé pour obtenir une
+version plus récente vous devez ajouter le paramètre  <code class="docutils literal notranslate"><span class="pre">--upgrade</span></code>
+à la commande <code class="docutils literal notranslate"><span class="pre">install</span></code> :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python -m pip install --upgrade art
 </pre></div>
 </div>
 </div>
-<div class="section" id="exercices">
-<h2>Exercices<a class="headerlink" href="#exercices" title="Lien permanent vers ce titre">¶</a></h2>
-<div class="exercice admonition" id="python-exercice-qcm">
-<p class="admonition-title">Exercice : QCM en invite de commande</p>
-<p>On définit un QCM comme une liste de questions. Une question est un
-dictionnaire avec les clés :</p>
-<dl class="simple">
-<dt><strong>libelle</strong></dt><dd><p>qui donne le libellé de la question.</p>
-</dd>
-<dt><strong>choix</strong></dt><dd><p>qui est un tableau des différents choix de réponse.</p>
-</dd>
-<dt><strong>reponse</strong></dt><dd><p>qui est un nombre correspondant à l’index du choix qui correspond à la
-bonne réponse.</p>
-</dd>
-</dl>
-<p>Complétez le programme suivant :</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">qcm</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># Le contenu du QCM à définir</span>
-
-<span class="k">def</span> <span class="nf">poser_question</span><span class="p">(</span><span class="n">question</span><span class="p">)</span> <span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Une fonction qui affiche la question,</span>
-<span class="sd">       les choix possibles de réponse et qui demande à</span>
-<span class="sd">       l&#39;utilisateur son choix.</span>
-
-<span class="sd">       La fonction retourne ``True`` si l&#39;utilisateur a choisi</span>
-<span class="sd">       la bonne réponse</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">pass</span>
-
-<span class="n">score</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="c1"># on parcourt la liste des questions et on calcule le score de l&#39;utilisateur</span>
-<span class="c1"># ....</span>
-
-<span class="c1"># on affiche le score</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vous avez obtenu un score de &quot;</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span>
+<p>Par défaut, la commande <strong class="command">pip</strong> installe le nouveau package au niveau
+système. Il est possible que cette opération requière des droits super-utilisateur.
+Si vous le souhaitez, vous pouvez installer un package uniquement pour
+l’utilisateur connecté. Cette opération ne requière pas de droit particulier
+puisque le package sera installé dans un répertoire de configuration de
+l’utilisateur. Pour ce type d’installation, on utilise le paramètre
+<code class="docutils literal notranslate"><span class="pre">--user</span></code> :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python -m pip install --user art
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour une installation limitée à l’utilisateur, le package est stocké dans
+un répertoire appartenant à l’utilisateur. Pour un système Linux ou MacOS,
+il s’agit du répertoire :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>~/.local/lib/pythonX.X/site-packages
+</pre></div>
+</div>
+<p>Pour un système Windows, il s’agit du répertoire :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>%APPDATA%\Python\PythonXX\site-packages
+</pre></div>
+</div>
+<p>Les <code class="docutils literal notranslate"><span class="pre">X</span></code> représentent la version de Python.</p>
+</div>
+<p>Si on ne précise pas de version pour le package, <code class="xref py py-mod docutils literal notranslate"><span class="pre">pip</span></code> installera la dernière
+version disponible. Il est cependant possible de préciser explicitement la version :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python -m pip install <span class="nv">art</span><span class="o">==</span><span class="m">5</span>.1
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Plutôt que de donner une version précise, il est possible de préciser :</p>
+<ul>
+<li><p>Une version principale</p>
+<blockquote>
+<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python -m pip install <span class="s1">&#39;art==5.*&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Une version minimale</p>
+<blockquote>
+<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python -m pip install <span class="s1">&#39;art&gt;=4.1&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Une version compatible avec la version donnée</p>
+<blockquote>
+<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python -m pip install <span class="s1">&#39;art~=5.1&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="autres-commandes-utiles">
+<h3>Autres commandes utiles<a class="headerlink" href="#autres-commandes-utiles" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour afficher le détail d’un package installé, vous pouvez utiliser la commande
+<code class="docutils literal notranslate"><span class="pre">show</span></code>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python -m pip show art
+</pre></div>
+</div>
+<p>Pour connaître la totalité des packages installés et leur version, vous pouvez
+utiliser la commande <strong class="command">freeze</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python -m pip freeze
+</pre></div>
+</div>
+<p>Cette commande est particulièrement utile car elle affiche la liste des packages
+dans un format compatible au format d’installation. Il est donc possible de
+<em>geler</em> les informations de dépendance logicielle à un instant et les sauver
+dans un fichier. Par convention, ce fichier est le plus souvent nommé
+<code class="file docutils literal notranslate"><span class="pre">requirements.txt</span></code>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python -m pip freeze &gt; requirements.txt
+</pre></div>
+</div>
+<p>Si vous placez ce fichier à la racine de l’arborescence de votre projet, il sera
+très facile de s’assurer que les dépendances nécessaires sont installées grâce
+à l’option <code class="docutils literal notranslate"><span class="pre">-r</span></code> utilisée avec la commande <code class="docutils literal notranslate"><span class="pre">install</span></code>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python -m pip install -r requirements.txt
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="gerer-l-environnement-avec-venv">
+<h2>Gérer l’environnement avec venv<a class="headerlink" href="#gerer-l-environnement-avec-venv" title="Lien permanent vers ce titre">¶</a></h2>
+<p>S’il est pratique de disposer d’un module comme <code class="xref py py-mod docutils literal notranslate"><span class="pre">pip</span></code> pour gérer les
+dépendances, cela ne permet pas de résoudre tous les problèmes. En effet que
+se passe-t-il si vous voulez utiliser pour des projets différents le même
+package mais dans des versions différentes ? Ce problème est d’autant plus complexe
+à résoudre au quotidien pour des systèmes GNU/Linux qui utilisent déjà des programmes
+Python pour la gestion du système. Vous pouvez installer des dépendances qui
+rendent votre système ou votre session utilisateur instable.</p>
+<p>Lorsqu’on fait du développement Python, le plus simple est d’utiliser un
+environnement isolé, une sorte de bac à sable, indépendant du système et de la
+session utilisateur. Cela permet de contrôler parfaitement la version de Python
+utilisée ainsi que les dépendances. Le module <a class="reference external" href="https://docs.python.org/3.7/library/venv.html#module-venv" title="(disponible dans Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">venv</span></code></a> nous permet de gérer
+ces environnements isolés que l’on appelle des <em>environnements virtuels</em> Python.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Les environnements virtuels Python n’ont rien à voir avec la virtualisation
+de système. Ils permettent simplement d’isoler l’exécution de scripts Python.</p>
+</div>
+<div class="section" id="creation-d-un-environnement">
+<h3>Création d’un environnement<a class="headerlink" href="#creation-d-un-environnement" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour créer un environnement virtuel, il suffit de lancer le module <a class="reference external" href="https://docs.python.org/3.7/library/venv.html#module-venv" title="(disponible dans Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">venv</span></code></a>
+en lui passant en paramètre le chemin dans lequel seront stockés la configuration
+et les dépendances de cet environnement.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python -m venv &lt;chemin environnement&gt;
+</pre></div>
+</div>
+<p>Pour un projet, on peut décider de stocker l’environnement dans un dossier
+<code class="file docutils literal notranslate"><span class="pre">~/.venv/mon_projet</span></code> :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python -m venv ~/.venv/mon_projet
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Le choix de l’interpréteur Python que vous utilisez pour lancer le module
+<a class="reference external" href="https://docs.python.org/3.7/library/venv.html#module-venv" title="(disponible dans Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">venv</span></code></a> est important. C’est cet interpréteur qui sera associé à
+l’environnement et qui sera lancé avec la commande <strong class="command">python</strong>.</p>
+</div>
+</div>
+<div class="section" id="activation-de-l-environnement">
+<h3>Activation de l’environnement<a class="headerlink" href="#activation-de-l-environnement" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour utiliser un environnement, il faut l’activer. C’est-à-dire qu’il faut définir
+un certain nombre de variables d’environnement qui vont permettre d’isoler toutes
+les commandes Python dans l’environnement. Heureusement, l’environnement créé
+contient des scripts qui nous permettent de réaliser l’activation simplement.</p>
+<p>Pour un système *Nix ou MacOS, il faut sourcer le fichier <code class="file docutils literal notranslate"><span class="pre">bin/activate</span></code>
+qui se trouve dans le répertoire de l’environnement. Pour reprendre l’exemple
+de création d’environnement de la précédente section :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">source</span> ~/.venv/mon_projet/bin/activate
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour un système Windows, il faut lancer le script <code class="file docutils literal notranslate"><span class="pre">Scripts\activate</span></code>
+qui se trouve dans le répertoire de l’environnement virtuel.</p>
+</div>
+<p>Une fois l’environnement activée, toutes les commandes <strong class="command">python</strong> et
+<strong class="command">pip</strong> se feront dans l’environnement virtuel. Cela signifie notamment
+que les packages installés le seront indépendamment du système et sans nécessiter
+de droit de super-utilisateur.</p>
+<p>Une fois l’environnement activé, tous les programmes lancés depuis le terminal
+utiliseront cet environnement Python.</p>
+</div>
+<div class="section" id="desactivation-de-l-environnement">
+<h3>Désactivation de l’environnement<a class="headerlink" href="#desactivation-de-l-environnement" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un environnement virtuel Python est en fait un ensemble de fichiers dans
+un répertoire et un ensemble de déclaration de variables d’environnement. En tant
+que tel, un environnement virtuel Python n’est pas en cours d’exécution.</p>
+<p>Pour désactiver l’environnement, il vous suffit simplement de fermer le terminal
+dans lequel il a été activé.</p>
+<p>Cependant, si vous souhaitez conserver le terminal ouvert, il vous suffit de taper
+la commande <strong class="command">deactivate</strong>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ deactivate
+</pre></div>
+</div>
+</div>
+<div class="section" id="supprimer-un-environnement">
+<h3>Supprimer un environnement<a class="headerlink" href="#supprimer-un-environnement" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour supprimer un environnement, il suffit de supprimer tous les fichiers de cet
+environnement. Il n’y a pas à proprement parlé de désinstallation à effectuer.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ rm -fr ~/.venv/mon_projet
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="configuration-d-un-projet">
+<h2>Configuration d’un projet<a class="headerlink" href="#configuration-d-un-projet" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La plupart des projets Python fournissent un fichier <code class="file docutils literal notranslate"><span class="pre">requirements.txt</span></code>
+qui, nous l’avons vu, donne la liste des dépendances nécessaires avec leur version.
+Lorsque vous récupérez un projet Python, les étapes initiales de configuration
+de ce projet sont quasi-systématiquement les mêmes :</p>
+<ol class="arabic simple">
+<li><p>Créer un environnement virtuel</p></li>
+<li><p>Activer l’environnement virtuel</p></li>
+<li><p>installer les dépendances déclarées par le fichier <code class="file docutils literal notranslate"><span class="pre">requirements.txt</span></code></p></li>
+</ol>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python3.7 -m venv venv
+$ <span class="nb">source</span> venv/bin/activate
+$ pip install -r requirements.txt
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p>Dans l’exemple ci-dessus, le répertoire de l’environnement virtuel est nommé
+<code class="file docutils literal notranslate"><span class="pre">venv</span></code> et il est placé à la racine du projet. Cela permet d’établir
+une convention qui peut être pratique. De plus, l’environnement virtuel sera
+supprimé en même temps que les sources du projet si on supprime le répertoire
+du projet.</p>
 </div>
 </div>
 </div>
@@ -768,10 +834,10 @@ bonne réponse.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="exception.html" class="btn btn-neutral float-right" title="Les exceptions et la gestion des erreurs" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../pyside2/signal_slot.html" class="btn btn-neutral float-right" title="Les signaux et les slots" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="set.html" class="btn btn-neutral float-left" title="L’ensemble (set)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+        <a href="tkinter.html" class="btn btn-neutral float-left" title="Les applications graphiques avec Tkinter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
       
     </div>
   

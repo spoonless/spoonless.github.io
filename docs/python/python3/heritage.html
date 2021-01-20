@@ -45,7 +45,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Les exceptions et la gestion des erreurs" href="exception.html" />
+    <link rel="next" title="Les méthodes spéciales (dunders)" href="dunder.html" />
     <link rel="prev" title="La programmation orientée objet" href="objet.html" /> 
 </head>
 
@@ -117,10 +117,12 @@
 <li class="toctree-l1"><a class="reference internal" href="type_et_variable.html">Types et variables</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#nombres-et-calcul-arithmetique">Nombres et calcul arithmétique</a></li>
 <li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#les-variables">Les variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#exercice">Exercice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#la-chaine-de-caracteres">La chaîne de caractères</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="type_et_variable.html#formatage-de-chaine-de-caracteres">Formatage de chaîne de caractères</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#id1">Exercice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#le-type-booleen">Le type booléen</a></li>
 </ul>
 </li>
@@ -133,6 +135,7 @@
 <li class="toctree-l3"><a class="reference internal" href="fonction.html#convertir-en-chaine-de-caracteres">Convertir en chaîne de caractères</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#tester-le-type-d-une-valeur-ou-d-une-variable">Tester le type d’une valeur ou d’une variable</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fonction.html#exercices">Exercices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fonction.html#declarer-une-fonction">Déclarer une fonction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fonction.html#documenter-une-fonction">Documenter une fonction</a></li>
@@ -162,6 +165,28 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="list.html#quelques-methodes-pour-les-listes">Quelques méthodes pour les listes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="list.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structures_de_controle.html">Les structures de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#l-indentation-du-code">L’indentation du code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#structures-de-decision">Structures de décision</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-if">L’instruction <em>if</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-else">L’instruction <em>else</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-elif">L’instruction <em>elif</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-operateur-ternaire">L’opérateur ternaire</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#exercice">Exercice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#structures-iteratives">Structures itératives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-while">L’instruction <em>while</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-for">L’instruction <em>for</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#la-fonction-range">La fonction <em>range</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#interrompre-un-bloc-d-iteration">Interrompre un bloc d’itération</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#structure-iterative-avec-else">Structure itérative avec <em>else</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#id1">Exercice</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tuple.html">Le n-uplet (<em>tuple</em>)</a><ul>
@@ -197,6 +222,7 @@
 <li class="toctree-l2"><a class="reference internal" href="set.html#quelques-methodes-pour-les-ensembles">Quelques méthodes pour les ensembles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="set.html#ensemble-liste-et-tuple">Ensemble, liste et tuple</a></li>
 <li class="toctree-l2"><a class="reference internal" href="set.html#ensemble-fige">Ensemble figé</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set.html#exercices">Exercices</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="dict.html">Le dictionnaire</a><ul>
@@ -210,40 +236,20 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="dict.html#quelques-methodes-pour-les-dictionnaires">Quelques méthodes pour les dictionnaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#parcourir-un-dictionnaire-avec-for">Parcourir un dictionnaire avec for</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#exercices">Exercices</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="structures_de_controle.html">Les structures de contrôle</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#l-indentation-du-code">L’indentation du code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#structures-de-decision">Structures de décision</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-if">L’instruction <em>if</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-else">L’instruction <em>else</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-elif">L’instruction <em>elif</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-operateur-ternaire">L’opérateur ternaire</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">Les exceptions et la gestion des erreurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#traiter-une-exception">Traiter une exception</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exception.html#recuperer-le-message-d-une-exception">Récupérer le message d’une exception</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#exercice">Exercice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#structures-iteratives">Structures itératives</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-while">L’instruction <em>while</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-for">L’instruction <em>for</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#la-fonction-range">La fonction <em>range</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#interrompre-un-bloc-d-iteration">Interrompre un bloc d’itération</a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#structure-iterative-avec-else">Structure itérative avec <em>else</em></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#id1">Exercice</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="fonction_avance.html">Les fonctions (notions avancées)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#decompactage-des-parametres">décompactage des paramètres</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#compactage-des-parametres">compactage des paramètres</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#appel-recursif-de-fonction">Appel récursif de fonction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#declaration-de-fonction-dans-une-fonction">Déclaration de fonction dans une fonction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#la-fonction-comme-type-python">La fonction comme type Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#les-fonctions-anonymes-lambdas">Les fonctions anonymes (lambdas)</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="list_comprehension.html">Liste en compréhension</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="list_comprehension.html#dictionnaire-en-comprehension">Dictionnaire en compréhension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#clause-else">Clause <em>else</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#post-traitement">Post-traitement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#lever-une-exception">Lever une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#les-exceptions-a-connaitre">Les exceptions à connaître</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#exercices">Exercices</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="module.html">Les modules</a><ul>
@@ -261,6 +267,19 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="module.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fonction_avance.html">Les fonctions (notions avancées)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#decompactage-des-parametres">décompactage des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#compactage-des-parametres">compactage des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#appel-recursif-de-fonction">Appel récursif de fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#declaration-de-fonction-dans-une-fonction">Déclaration de fonction dans une fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#la-fonction-comme-type-python">La fonction comme type Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#les-fonctions-anonymes-lambdas">Les fonctions anonymes (lambdas)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="list_comprehension.html">Liste en compréhension</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="list_comprehension.html#dictionnaire-en-comprehension">Dictionnaire en compréhension</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="decorateur.html">Les décorateurs</a><ul>
@@ -294,6 +313,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#le-polymorphisme">Le polymorphisme</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#polymorphisme-et-duck-typing">Polymorphisme et <em>duck typing</em></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#masquer-les-attributs-et-les-methodes-pour-les-classe-filles">Masquer les attributs et les méthodes pour les classe filles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#les-exceptions-comme-objets">Les exceptions comme objets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#heritage-multiple-et-mixin">Héritage multiple et <em>mixin</em></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#l-heritage-en-diamant">L’héritage en diamant</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#appel-des-constructeurs">Appel des constructeurs</a></li>
@@ -302,17 +322,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#la-meta-classe">La méta-classe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#classes-et-methodes-abstraites">Classes et méthodes abstraites</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="exception.html">Les exceptions et la gestion des erreurs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#traiter-une-exception">Traiter une exception</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="exception.html#recuperer-les-donnees-d-une-exception">Récupérer les données d’une exception</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#clause-else">Clause <em>else</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#post-traitement">Post-traitement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#lever-une-exception">Lever une exception</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#creer-son-exception">Créer son exception</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="dunder.html">Les méthodes spéciales (<em>dunders</em>)</a><ul>
@@ -367,6 +376,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="fichier.html#lecture-de-fichiers-csv">Lecture de fichiers CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fichier.html#exercices">Exercices</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="unittest.html">Les tests unitaires automatisés avec unittest</a><ul>
@@ -385,6 +395,49 @@
 <li class="toctree-l2"><a class="reference internal" href="socket.html#exemple-d-implementation-d-un-serveur">Exemple d’implémentation d’un serveur</a></li>
 <li class="toctree-l2"><a class="reference internal" href="socket.html#exemple-d-implementation-d-un-client">Exemple d’implémentation d’un client</a></li>
 <li class="toctree-l2"><a class="reference internal" href="socket.html#exemple-d-un-serveur-multi-thread">Exemple d’un serveur multi-thread</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">Accès aux bases de données (MySQL)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#installation-du-connecteur-mysql">Installation du connecteur MySQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#connexion-a-la-base-de-donnees">Connexion à la base de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#insertion-de-donnees">Insertion de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#selection-de-donnees">Sélection de données</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mysql.html#recuperer-les-donnees-en-flux">Récupérer les données en flux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mysql.html#utilisation-de-parametres-dans-les-conditions-where">Utilisation de paramètres dans les conditions <em>where</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#modification-des-donnees">Modification des données</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tkinter.html">Les applications graphiques avec Tkinter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#un-premier-programme">Un premier programme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#notion-de-boucle-d-evenements">Notion de boucle d’événements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#une-application-orientee-objet">Une application orientée objet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#un-exemple-de-gestion-des-evenements">Un exemple de gestion des événements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#les-widgets-et-le-positionnement">Les widgets et le positionnement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.html#positionnement-des-widgets">Positionnement des widgets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.html#collecter-les-donnees-des-widgets">Collecter les données des widgets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#les-boites-de-messages">Les boites de messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#les-boites-de-dialogue-avancees">Les boites de dialogue avancées</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_venv.html">Gestion des packages avec pip et venv</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_venv.html#gerer-les-packages-avec-pip">Gérer les packages avec pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#installation-de-pip">Installation de pip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#installer-des-packages">Installer des packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#autres-commandes-utiles">Autres commandes utiles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pip_venv.html#gerer-l-environnement-avec-venv">Gérer l’environnement avec venv</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#creation-d-un-environnement">Création d’un environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#activation-de-l-environnement">Activation de l’environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#desactivation-de-l-environnement">Désactivation de l’environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#supprimer-un-environnement">Supprimer un environnement</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pip_venv.html#configuration-d-un-projet">Configuration d’un projet</a></li>
 </ul>
 </li>
 </ul>
@@ -478,7 +531,7 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="exception.html" class="btn btn-neutral float-right" title="Les exceptions et la gestion des erreurs" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="dunder.html" class="btn btn-neutral float-right" title="Les méthodes spéciales (dunders)" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="objet.html" class="btn btn-neutral float-left" title="La programmation orientée objet" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
@@ -652,7 +705,7 @@ remplace et cache celui hérité de la classe <code class="docutils literal notr
 de l’attribut <code class="docutils literal notranslate"><span class="pre">_vitesse</span></code> n’est plus faite. Quand une classe hérite d’une autre
 classe, elle a la responsabilité de s’assurer que le constructeur de la classe
 parente est appelé pour garantir l’initialisation. Pour cela, Python 3 fournit
-la fonction <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#super" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">super()</span></code></a> qui retourne le type de la super classe. L’implémentation
+la fonction <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#super" title="(disponible dans Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">super()</span></code></a> qui retourne le type de la super classe. L’implémentation
 correcte de la classe <code class="docutils literal notranslate"><span class="pre">Voiture</span></code> doit donc être :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Voiture</span><span class="p">(</span><span class="n">Vehicule</span><span class="p">):</span>
 
@@ -721,7 +774,7 @@ directement le constructeur en désignant la classe parente :</p>
 </pre></div>
 </div>
 <p>Cette écriture est cependant considérée comme obsolète en Python 3 grâce à
-la fonction <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#super" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">super()</span></code></a>.</p>
+la fonction <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#super" title="(disponible dans Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">super()</span></code></a>.</p>
 </div>
 </div>
 <div class="section" id="heritage-et-mutualisation-de-code">
@@ -744,9 +797,9 @@ appropriées pour notre système et qui sont des véhicules.</p>
 </div>
 <div class="section" id="la-classe-object">
 <h2>La classe <em>object</em><a class="headerlink" href="#la-classe-object" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Python définit la classe <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a>. Toutes les classes hérite directement
+<p>Python définit la classe <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#object" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a>. Toutes les classes hérite directement
 ou indirectement de cette classe. Si une classe ne déclare aucune classe parente
-alors sa classe parente est <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a>.</p>
+alors sa classe parente est <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#object" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MaClasse</span><span class="p">:</span>
     <span class="k">pass</span>
 </pre></div>
@@ -756,7 +809,7 @@ alors sa classe parente est <a class="reference external" href="https://docs.pyt
     <span class="k">pass</span>
 </pre></div>
 </div>
-<p>Il est possible de créer des instances de la classe <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a>. Cela
+<p>Il est possible de créer des instances de la classe <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#object" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a>. Cela
 reste d’un usage limité car cette classe n’offre aucune méthode particulière et
 il n’est pas possible d’ajouter dynamiquement des attributs à ses instances.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">o</span> <span class="o">=</span> <span class="nb">object</span><span class="p">()</span>
@@ -814,7 +867,7 @@ de la méthode <code class="docutils literal notranslate"><span class="pre">crie
 disposent bien de la méthode <code class="docutils literal notranslate"><span class="pre">crier()</span></code> mais son comportement est polymorphe.
 Il dépend du type réel de l’objet.</p>
 <p>À noter qu’il est toujours possible d’appeler la méthode parente dans la classe
-enfant grâce à la fonction <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#super" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">super()</span></code></a>.</p>
+enfant grâce à la fonction <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#super" title="(disponible dans Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">super()</span></code></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Chien</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="nf">crier</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -897,6 +950,32 @@ Après tout, il est toujours possible d’implémenter une classe fille qui util
 un attribut ou déclare une méthode sans que le développeur ait conscience
 qu’il réutilise un attribut ou qu’il redéfinit une méthode d’une classe
 parente.</p>
+</div>
+</div>
+<div class="section" id="les-exceptions-comme-objets">
+<h2>Les exceptions comme objets<a class="headerlink" href="#les-exceptions-comme-objets" title="Lien permanent vers ce titre">¶</a></h2>
+<p>En Python, une exception est un objet qui est directement ou indirectement
+une instance de la classe <a class="reference external" href="https://docs.python.org/3.7/library/exceptions.html#BaseException" title="(disponible dans Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BaseException</span></code></a>.</p>
+<p>Il existe beaucoup de classes pour représenter des exceptions en Python.
+Vous pouvez consulter la documentation pour connaître la
+<a class="reference external" href="https://docs.python.org/3.7/library/exceptions.html#exception-hierarchy">hiérarchie des exceptions</a>. Néanmoins, il est très simple de créer ses
+propres exceptions. Il est recommandé de créer des exceptions en héritant de
+<a class="reference external" href="https://docs.python.org/3.7/library/exceptions.html#Exception" title="(disponible dans Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">Exception</span></code></a> ou d’une classe héritant de <a class="reference external" href="https://docs.python.org/3.7/library/exceptions.html#Exception" title="(disponible dans Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">Exception</span></code></a>.
+<a class="reference external" href="https://docs.python.org/3.7/library/exceptions.html#Exception" title="(disponible dans Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">Exception</span></code></a> est une classe qui hérite de <a class="reference external" href="https://docs.python.org/3.7/library/exceptions.html#BaseException" title="(disponible dans Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BaseException</span></code></a>.
+Pour simplifier l’implémentation, <a class="reference external" href="https://docs.python.org/3.7/library/exceptions.html#BaseException" title="(disponible dans Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BaseException</span></code></a> définit l’attribut
+<a class="reference external" href="https://docs.python.org/3.7/library/exceptions.html#BaseException.args" title="(disponible dans Python v3.7)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">args</span></code></a> qui contient tous les paramètres passés au
+constructeur.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MonException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="n">MonException</span><span class="p">(</span><span class="s2">&quot;Mon message&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">MonException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
+    <span class="c1"># Affiche (&#39;Mon message&#39;,)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="c1"># Affiche Mon message</span>
+</pre></div>
 </div>
 </div>
 <div class="section" id="heritage-multiple-et-mixin">
@@ -1082,8 +1161,8 @@ de <code class="docutils literal notranslate"><span class="pre">point_de_vie</sp
 se base sur un algorithme appelé <strong>method resolution order</strong> ou <strong>mro</strong>. Il
 s’agit de chercher dans la liste de l’héritage des classes la première déclaration
 de la méthode appelée. On peut facilement connaître le <em>mro</em> d’une classe car
-il existe la méthode <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#class.mro" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">class.mro()</span></code></a> qui retourne précisément cette liste.
-Pour accéder à la classe d’une instance, on peut utiliser la fonction <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#type" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a>.</p>
+il existe la méthode <a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#class.mro" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">class.mro()</span></code></a> qui retourne précisément cette liste.
+Pour accéder à la classe d’une instance, on peut utiliser la fonction <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#type" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">.</span><span class="n">mro</span><span class="p">()</span>
 <span class="go">[&lt;class &#39;__main__.Chien&#39;&gt;, &lt;class &#39;__main__.Animal&#39;&gt;,</span>
 <span class="go"> &lt;class &#39;__main__.Carnivore&#39;&gt;, &lt;class &#39;__main__.EtreVivant&#39;&gt;,</span>
@@ -1096,7 +1175,7 @@ cette méthode d’abord dans la classe <code class="docutils literal notranslat
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Rappelez-vous qu’une classe qui ne précise explicitement aucune classe parente
-hérite tout de même de la classe <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a>.</p>
+hérite tout de même de la classe <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#object" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a>.</p>
 </div>
 <p>Si nous intervertissons l’ordre d’héritage de la déclaration de la classe
 <code class="docutils literal notranslate"><span class="pre">Chien</span></code>.</p>
@@ -1262,7 +1341,7 @@ le constructeur de la super classe</strong>.</p>
 <span class="go">70</span>
 </pre></div>
 </div>
-<p>La fonction <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#super" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">super()</span></code></a> retourne le type suivant dans la liste du
+<p>La fonction <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#super" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">super()</span></code></a> retourne le type suivant dans la liste du
 <em>mro</em>. La classe <code class="docutils literal notranslate"><span class="pre">Carnivore</span></code> ne proposant pas de constructeur, elle se contente
 de passer l’appel au constructeur de la classe <code class="docutils literal notranslate"><span class="pre">Animal</span></code> qui est la classe
 suivante dans la liste <em>mro</em>.</p>
@@ -1364,7 +1443,7 @@ nommés <code class="docutils literal notranslate"><span class="pre">identation<
 </div>
 <p>Les paramètres <code class="docutils literal notranslate"><span class="pre">indentation</span></code> et <code class="docutils literal notranslate"><span class="pre">separateur</span></code> sont placés après l’opérateur
 de compactage <code class="docutils literal notranslate"><span class="pre">*args</span></code> ce qui implique qu’il s’agit de paramètres nommés.
-Le constructeur utilise à la fin la fonction <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#super" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">super()</span></code></a> pour appeler
+Le constructeur utilise à la fin la fonction <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#super" title="(disponible dans Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">super()</span></code></a> pour appeler
 le constructeur suivant en lui passant tous les paramètres que le <em>mixin</em>
 ne reconnaît pas. On voit qu’il est tout à fait possible de concevoir un <em>mixin</em>
 qui accepte des paramètres de constructeur tout en s’intégrant élégamment
@@ -1388,7 +1467,7 @@ tout-en-un difficiles à comprendre et à maintenir.</p>
 <h2>La méta-classe<a class="headerlink" href="#la-meta-classe" title="Lien permanent vers ce titre">¶</a></h2>
 <p>La méta-classe est un concept avancé en Python qui n’est que très très rarement
 utilisé directement par les développeurs.</p>
-<p>En Python, les classes sont elles-mêmes des objets qui héritent de <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#type" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a>.
+<p>En Python, les classes sont elles-mêmes des objets qui héritent de <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#type" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a>.
 Il est possible de spécifier le type dont doit hériter l’objet qui représente
 la classe. On parle alors de <strong>méta-classe</strong>.</p>
 <p>Une méta-classe est une classe qui décrit une classe. Cela signifie que tous
@@ -1396,7 +1475,7 @@ les attributs et toutes les méthodes d’une méta-classe seront les attributs
 et les méthodes de la classe.</p>
 <p>L’usage de la <strong>méta-classe</strong> permet de réaliser des implémentations qui ne sont pas
 possibles avec une simple classe. Par exemple, il n’est pas possible en Python
-de déclarer une propriété de classe avec le décorateur <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#property" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;property</span></code></a>.
+de déclarer une propriété de classe avec le décorateur <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#property" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;property</span></code></a>.
 Mais cela devient possible par le truchement d’une méta-classe.</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -1437,7 +1516,7 @@ Mais cela devient possible par le truchement d’une méta-classe.</p>
         <span class="n">MaClasse</span><span class="o">.</span><span class="n">plus_une_instance</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>Une méta-classe doit hériter directement ou indirectement de <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#type" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a>. À la
+<p>Une méta-classe doit hériter directement ou indirectement de <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#type" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a>. À la
 ligne 16, on déclare la méta-classe de la classe <code class="docutils literal notranslate"><span class="pre">MaClasse</span></code>. Cette méta-classe
 va fournir la propriété de classe <code class="docutils literal notranslate"><span class="pre">nb_instances</span></code> ainsi que la méthode de classe
 <code class="docutils literal notranslate"><span class="pre">plus_une_instance()</span></code>.</p>
@@ -1471,11 +1550,11 @@ c’est-à-dire implémentera les méthodes attendues. On parle parfois de progr
 par contrat, dans le sens où ces classes abstraites et ces interfaces sont
 comme des contrats qui lient les objets qui les implémentent et les objets
 qui appellent ces méthodes.</p>
-<p>En Python, le module <a class="reference external" href="https://docs.python.org/3.6/library/abc.html#module-abc" title="(disponible dans Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">abc</span></code></a> permet de simuler ce type d’approche.
+<p>En Python, le module <a class="reference external" href="https://docs.python.org/3.7/library/abc.html#module-abc" title="(disponible dans Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">abc</span></code></a> permet de simuler ce type d’approche.
 Le nom de ce module est la contraction de <em>abstract base classes</em>. Ce module
-fournit une méta-classe appelée <a class="reference external" href="https://docs.python.org/3.6/library/abc.html#abc.ABCMeta" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABCMeta</span></code></a> qui permet
+fournit une méta-classe appelée <a class="reference external" href="https://docs.python.org/3.7/library/abc.html#abc.ABCMeta" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABCMeta</span></code></a> qui permet
 de transformer une classe Python en classe abstraite. Ce module fournit également
-le décorateur <a class="reference external" href="https://docs.python.org/3.6/library/abc.html#abc.abstractmethod" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">&#64;abstractmethod</span></code></a> qui permet de déclarer
+le décorateur <a class="reference external" href="https://docs.python.org/3.7/library/abc.html#abc.abstractmethod" title="(disponible dans Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">&#64;abstractmethod</span></code></a> qui permet de déclarer
 comme abstraite une méthode, une méthode statique, une méthode de classe ou une
 propriété. Cela signifie qu’il n’est pas possible de créer une instance
 d’une classe qui hérite d’une classe abstraite tant que toutes les méthodes
@@ -1484,7 +1563,7 @@ abstraites ne sont pas implémentées.</p>
 une méthode <code class="docutils literal notranslate"><span class="pre">crier()</span></code> pour laquelle il n’est pas vraiment possible de fournir
 une implémentation correcte pour un animal. On peut donc
 considérer que la classe <code class="docutils literal notranslate"><span class="pre">Animal</span></code> est abstraite en déclarant que sa
-méta-classe est <a class="reference external" href="https://docs.python.org/3.6/library/abc.html#abc.ABCMeta" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABCMeta</span></code></a> et déclarer la méthode <code class="docutils literal notranslate"><span class="pre">crier()</span></code>
+méta-classe est <a class="reference external" href="https://docs.python.org/3.7/library/abc.html#abc.ABCMeta" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABCMeta</span></code></a> et déclarer la méthode <code class="docutils literal notranslate"><span class="pre">crier()</span></code>
 comme une méthode abstraite.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABCMeta</span><span class="p">,</span> <span class="n">abstractmethod</span>
 
@@ -1527,7 +1606,7 @@ classe qui en hérite doit fournir une implémentation pour la méthode <code cl
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="exception.html" class="btn btn-neutral float-right" title="Les exceptions et la gestion des erreurs" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="dunder.html" class="btn btn-neutral float-right" title="Les méthodes spéciales (dunders)" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="objet.html" class="btn btn-neutral float-left" title="La programmation orientée objet" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>

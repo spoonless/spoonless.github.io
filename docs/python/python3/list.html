@@ -45,7 +45,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Le n-uplet (tuple)" href="tuple.html" />
+    <link rel="next" title="Les structures de contrôle" href="structures_de_controle.html" />
     <link rel="prev" title="Les fonctions" href="fonction.html" /> 
 </head>
 
@@ -117,10 +117,12 @@
 <li class="toctree-l1"><a class="reference internal" href="type_et_variable.html">Types et variables</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#nombres-et-calcul-arithmetique">Nombres et calcul arithmétique</a></li>
 <li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#les-variables">Les variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#exercice">Exercice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#la-chaine-de-caracteres">La chaîne de caractères</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="type_et_variable.html#formatage-de-chaine-de-caracteres">Formatage de chaîne de caractères</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#id1">Exercice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="type_et_variable.html#le-type-booleen">Le type booléen</a></li>
 </ul>
 </li>
@@ -133,6 +135,7 @@
 <li class="toctree-l3"><a class="reference internal" href="fonction.html#convertir-en-chaine-de-caracteres">Convertir en chaîne de caractères</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="fonction.html#tester-le-type-d-une-valeur-ou-d-une-variable">Tester le type d’une valeur ou d’une variable</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fonction.html#exercices">Exercices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fonction.html#declarer-une-fonction">Déclarer une fonction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fonction.html#documenter-une-fonction">Documenter une fonction</a></li>
@@ -162,6 +165,28 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#quelques-methodes-pour-les-listes">Quelques méthodes pour les listes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structures_de_controle.html">Les structures de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#l-indentation-du-code">L’indentation du code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#structures-de-decision">Structures de décision</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-if">L’instruction <em>if</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-else">L’instruction <em>else</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-elif">L’instruction <em>elif</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-operateur-ternaire">L’opérateur ternaire</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#exercice">Exercice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#structures-iteratives">Structures itératives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-while">L’instruction <em>while</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-for">L’instruction <em>for</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#la-fonction-range">La fonction <em>range</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#interrompre-un-bloc-d-iteration">Interrompre un bloc d’itération</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#structure-iterative-avec-else">Structure itérative avec <em>else</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#id1">Exercice</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tuple.html">Le n-uplet (<em>tuple</em>)</a><ul>
@@ -197,6 +222,7 @@
 <li class="toctree-l2"><a class="reference internal" href="set.html#quelques-methodes-pour-les-ensembles">Quelques méthodes pour les ensembles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="set.html#ensemble-liste-et-tuple">Ensemble, liste et tuple</a></li>
 <li class="toctree-l2"><a class="reference internal" href="set.html#ensemble-fige">Ensemble figé</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set.html#exercices">Exercices</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="dict.html">Le dictionnaire</a><ul>
@@ -210,40 +236,20 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="dict.html#quelques-methodes-pour-les-dictionnaires">Quelques méthodes pour les dictionnaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#parcourir-un-dictionnaire-avec-for">Parcourir un dictionnaire avec for</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dict.html#exercices">Exercices</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="structures_de_controle.html">Les structures de contrôle</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#l-indentation-du-code">L’indentation du code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#structures-de-decision">Structures de décision</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-if">L’instruction <em>if</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-else">L’instruction <em>else</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-elif">L’instruction <em>elif</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-operateur-ternaire">L’opérateur ternaire</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">Les exceptions et la gestion des erreurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#traiter-une-exception">Traiter une exception</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exception.html#recuperer-le-message-d-une-exception">Récupérer le message d’une exception</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#exercice">Exercice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#structures-iteratives">Structures itératives</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-while">L’instruction <em>while</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#l-instruction-for">L’instruction <em>for</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#la-fonction-range">La fonction <em>range</em></a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#interrompre-un-bloc-d-iteration">Interrompre un bloc d’itération</a></li>
-<li class="toctree-l3"><a class="reference internal" href="structures_de_controle.html#structure-iterative-avec-else">Structure itérative avec <em>else</em></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="structures_de_controle.html#id1">Exercice</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="fonction_avance.html">Les fonctions (notions avancées)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#decompactage-des-parametres">décompactage des paramètres</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#compactage-des-parametres">compactage des paramètres</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#appel-recursif-de-fonction">Appel récursif de fonction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#declaration-de-fonction-dans-une-fonction">Déclaration de fonction dans une fonction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#la-fonction-comme-type-python">La fonction comme type Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#les-fonctions-anonymes-lambdas">Les fonctions anonymes (lambdas)</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="list_comprehension.html">Liste en compréhension</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="list_comprehension.html#dictionnaire-en-comprehension">Dictionnaire en compréhension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#clause-else">Clause <em>else</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#post-traitement">Post-traitement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#lever-une-exception">Lever une exception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#les-exceptions-a-connaitre">Les exceptions à connaître</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exception.html#exercices">Exercices</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="module.html">Les modules</a><ul>
@@ -261,6 +267,19 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="module.html#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fonction_avance.html">Les fonctions (notions avancées)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#decompactage-des-parametres">décompactage des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#compactage-des-parametres">compactage des paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#appel-recursif-de-fonction">Appel récursif de fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#declaration-de-fonction-dans-une-fonction">Déclaration de fonction dans une fonction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#la-fonction-comme-type-python">La fonction comme type Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fonction_avance.html#les-fonctions-anonymes-lambdas">Les fonctions anonymes (lambdas)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="list_comprehension.html">Liste en compréhension</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="list_comprehension.html#dictionnaire-en-comprehension">Dictionnaire en compréhension</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="decorateur.html">Les décorateurs</a><ul>
@@ -294,6 +313,7 @@
 <li class="toctree-l2"><a class="reference internal" href="heritage.html#le-polymorphisme">Le polymorphisme</a></li>
 <li class="toctree-l2"><a class="reference internal" href="heritage.html#polymorphisme-et-duck-typing">Polymorphisme et <em>duck typing</em></a></li>
 <li class="toctree-l2"><a class="reference internal" href="heritage.html#masquer-les-attributs-et-les-methodes-pour-les-classe-filles">Masquer les attributs et les méthodes pour les classe filles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heritage.html#les-exceptions-comme-objets">Les exceptions comme objets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="heritage.html#heritage-multiple-et-mixin">Héritage multiple et <em>mixin</em></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="heritage.html#l-heritage-en-diamant">L’héritage en diamant</a></li>
 <li class="toctree-l3"><a class="reference internal" href="heritage.html#appel-des-constructeurs">Appel des constructeurs</a></li>
@@ -302,17 +322,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="heritage.html#la-meta-classe">La méta-classe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="heritage.html#classes-et-methodes-abstraites">Classes et méthodes abstraites</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="exception.html">Les exceptions et la gestion des erreurs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#traiter-une-exception">Traiter une exception</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="exception.html#recuperer-les-donnees-d-une-exception">Récupérer les données d’une exception</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#clause-else">Clause <em>else</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#post-traitement">Post-traitement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#lever-une-exception">Lever une exception</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exception.html#creer-son-exception">Créer son exception</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="dunder.html">Les méthodes spéciales (<em>dunders</em>)</a><ul>
@@ -367,6 +376,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="fichier.html#lecture-de-fichiers-csv">Lecture de fichiers CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fichier.html#exercices">Exercices</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="unittest.html">Les tests unitaires automatisés avec unittest</a><ul>
@@ -385,6 +395,49 @@
 <li class="toctree-l2"><a class="reference internal" href="socket.html#exemple-d-implementation-d-un-serveur">Exemple d’implémentation d’un serveur</a></li>
 <li class="toctree-l2"><a class="reference internal" href="socket.html#exemple-d-implementation-d-un-client">Exemple d’implémentation d’un client</a></li>
 <li class="toctree-l2"><a class="reference internal" href="socket.html#exemple-d-un-serveur-multi-thread">Exemple d’un serveur multi-thread</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">Accès aux bases de données (MySQL)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#installation-du-connecteur-mysql">Installation du connecteur MySQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#connexion-a-la-base-de-donnees">Connexion à la base de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#insertion-de-donnees">Insertion de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#selection-de-donnees">Sélection de données</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mysql.html#recuperer-les-donnees-en-flux">Récupérer les données en flux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mysql.html#utilisation-de-parametres-dans-les-conditions-where">Utilisation de paramètres dans les conditions <em>where</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#modification-des-donnees">Modification des données</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tkinter.html">Les applications graphiques avec Tkinter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#un-premier-programme">Un premier programme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#notion-de-boucle-d-evenements">Notion de boucle d’événements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#une-application-orientee-objet">Une application orientée objet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#un-exemple-de-gestion-des-evenements">Un exemple de gestion des événements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#les-widgets-et-le-positionnement">Les widgets et le positionnement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.html#positionnement-des-widgets">Positionnement des widgets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tkinter.html#collecter-les-donnees-des-widgets">Collecter les données des widgets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#les-boites-de-messages">Les boites de messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkinter.html#les-boites-de-dialogue-avancees">Les boites de dialogue avancées</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_venv.html">Gestion des packages avec pip et venv</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_venv.html#gerer-les-packages-avec-pip">Gérer les packages avec pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#installation-de-pip">Installation de pip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#installer-des-packages">Installer des packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#autres-commandes-utiles">Autres commandes utiles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pip_venv.html#gerer-l-environnement-avec-venv">Gérer l’environnement avec venv</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#creation-d-un-environnement">Création d’un environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#activation-de-l-environnement">Activation de l’environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#desactivation-de-l-environnement">Désactivation de l’environnement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pip_venv.html#supprimer-un-environnement">Supprimer un environnement</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pip_venv.html#configuration-d-un-projet">Configuration d’un projet</a></li>
 </ul>
 </li>
 </ul>
@@ -478,7 +531,7 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="tuple.html" class="btn btn-neutral float-right" title="Le n-uplet (tuple)" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="structures_de_controle.html" class="btn btn-neutral float-right" title="Les structures de contrôle" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="fonction.html" class="btn btn-neutral float-left" title="Les fonctions" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
@@ -508,7 +561,7 @@ séparés par des virgules :</p>
 </div>
 <p>Comme le montre la <code class="docutils literal notranslate"><span class="pre">liste_depareillee</span></code> ci-dessus, une liste peut contenir
 des éléments de types différents. Elle peut même contenir un élément ou des
-éléments <a class="reference external" href="https://docs.python.org/3.6/library/constants.html#None" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">None</span></code></a> ce qui signifie qu’elle contient un élément qui n’est rien.</p>
+éléments <a class="reference external" href="https://docs.python.org/3.7/library/constants.html#None" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">None</span></code></a> ce qui signifie qu’elle contient un élément qui n’est rien.</p>
 </div>
 <div class="section" id="acceder-aux-elements">
 <h2>Accéder aux éléments<a class="headerlink" href="#acceder-aux-elements" title="Lien permanent vers ce titre">¶</a></h2>
@@ -527,7 +580,7 @@ l’index <strong>-1</strong>.</p>
 </pre></div>
 </div>
 <p>Attention, si un programme veut accéder à un indice qui n’existe pas, cela
-produit une erreur de type <a class="reference external" href="https://docs.python.org/3.6/library/exceptions.html#IndexError" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IndexError</span></code></a>.</p>
+produit une erreur de type <a class="reference external" href="https://docs.python.org/3.7/library/exceptions.html#IndexError" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IndexError</span></code></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ma_liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ma_liste</span><span class="p">[</span><span class="mi">10000</span><span class="p">]</span>
 <span class="gt">Traceback (most recent call last):</span>
@@ -549,7 +602,7 @@ la liste s’il est placé à gauche de l’opérateur d’affectation :</p>
 <div class="section" id="connaitre-la-taille-d-une-liste">
 <h3>Connaître la taille d’une liste<a class="headerlink" href="#connaitre-la-taille-d-une-liste" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Pour connaître le nombre d’éléments d’une liste, il faut utiliser la fonction
-<a class="reference external" href="https://docs.python.org/3.6/library/functions.html#len" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">len()</span></code></a> (qui est la contraction de <em>length</em>) :</p>
+<a class="reference external" href="https://docs.python.org/3.7/library/functions.html#len" title="(disponible dans Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">len()</span></code></a> (qui est la contraction de <em>length</em>) :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ma_liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
 <span class="n">taille_liste</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ma_liste</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">taille_liste</span><span class="p">)</span>
@@ -559,7 +612,7 @@ la liste s’il est placé à gauche de l’opérateur d’affectation :</p>
 </div>
 <div class="section" id="supprimer-un-element-d-une-liste">
 <h3>Supprimer un élément d’une liste<a class="headerlink" href="#supprimer-un-element-d-une-liste" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Pour supprimer un élément d’une liste, on utilise le mot-clé <a class="reference external" href="https://docs.python.org/3.6/reference/simple_stmts.html#del" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">del</span></code></a> :</p>
+<p>Pour supprimer un élément d’une liste, on utilise le mot-clé <a class="reference external" href="https://docs.python.org/3.7/reference/simple_stmts.html#del" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">del</span></code></a> :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ma_liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
 <span class="k">del</span> <span class="n">ma_liste</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ma_liste</span><span class="p">)</span>
@@ -602,7 +655,7 @@ autant de fois que spécifié :</p>
 <div class="section" id="savoir-si-un-element-est-present-dans-une-liste">
 <h3>Savoir si un élément est présent dans une liste<a class="headerlink" href="#savoir-si-un-element-est-present-dans-une-liste" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Pour savoir si un élément est présent dans une liste, on peut utiliser le mot-clé
-<a class="reference external" href="https://docs.python.org/3.6/reference/expressions.html#in" title="(disponible dans Python v3.6)"><code class="xref any docutils literal notranslate"><span class="pre">in</span></code></a> :</p>
+<a class="reference external" href="https://docs.python.org/3.7/reference/expressions.html#in" title="(disponible dans Python v3.7)"><code class="xref any docutils literal notranslate"><span class="pre">in</span></code></a> :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ma_liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="ow">in</span> <span class="n">ma_liste</span>
 <span class="go">True</span>
@@ -633,7 +686,7 @@ contenir des éléments deux à deux identiques.</p>
 <div class="section" id="connaitre-le-plus-grand-element-d-une-liste">
 <h3>Connaître le plus grand élément d’une liste<a class="headerlink" href="#connaitre-le-plus-grand-element-d-une-liste" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Pour connaître le plus grand élément d’une liste, il faut utiliser la fonction
-<a class="reference external" href="https://docs.python.org/3.6/library/functions.html#max" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">max()</span></code></a> :</p>
+<a class="reference external" href="https://docs.python.org/3.7/library/functions.html#max" title="(disponible dans Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">max()</span></code></a> :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ma_liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
 <span class="n">element</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">ma_liste</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
@@ -641,7 +694,7 @@ contenir des éléments deux à deux identiques.</p>
 </pre></div>
 </div>
 <p>Cela suppose néanmoins que tous les éléments d’une liste sont comparables et
-donc de type similaire sinon on obtient une erreur de type <a class="reference external" href="https://docs.python.org/3.6/library/exceptions.html#TypeError" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">TypeError</span></code></a>.</p>
+donc de type similaire sinon on obtient une erreur de type <a class="reference external" href="https://docs.python.org/3.7/library/exceptions.html#TypeError" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">TypeError</span></code></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ma_liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;coconut&quot;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">element</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">ma_liste</span><span class="p">)</span>
 <span class="gt">Traceback (most recent call last):</span>
@@ -653,14 +706,14 @@ donc de type similaire sinon on obtient une erreur de type <a class="reference e
 <div class="section" id="connaitre-le-plus-petit-element-d-une-liste">
 <h3>Connaître le plus petit élément d’une liste<a class="headerlink" href="#connaitre-le-plus-petit-element-d-une-liste" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Pour connaître le plus petit élément d’une liste, il faut utiliser la fonction
-<a class="reference external" href="https://docs.python.org/3.6/library/functions.html#min" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">min()</span></code></a> :</p>
+<a class="reference external" href="https://docs.python.org/3.7/library/functions.html#min" title="(disponible dans Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">min()</span></code></a> :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ma_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">]</span>
 <span class="n">element</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">ma_liste</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
 <span class="c1"># affiche a</span>
 </pre></div>
 </div>
-<p>Comme pour la méthode <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#max" title="(disponible dans Python v3.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">max()</span></code></a>, cela suppose que tous les éléments d’une
+<p>Comme pour la méthode <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#max" title="(disponible dans Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">max()</span></code></a>, cela suppose que tous les éléments d’une
 liste sont comparables et donc de type similaire.</p>
 </div>
 <div class="section" id="decouper-une-liste">
@@ -757,7 +810,7 @@ et plusieurs poignées peuvent accéder aux mêmes données. Les listes en Pytho
 sont des séquences mutables (<em>mutable sequences</em>), cela signifie que l’on peut
 modifier leur contenu. Ainsi toutes les variables qui référencent la même liste
 partagent les modifications effectuées sur cette liste.</p>
-<p>Pour copier une liste, on peut utiliser la fonction <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#list" title="(disponible dans Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> :</p>
+<p>Pour copier une liste, on peut utiliser la fonction <a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#list" title="(disponible dans Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ma_liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
 <span class="n">une_autre_liste</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ma_liste</span><span class="p">)</span>
 
@@ -832,31 +885,95 @@ s’agit d’un copie intégrale de la liste.</p>
 </pre></div>
 </div>
 </dd>
-<dt><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#list.sort" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">sort()</span></code></a></dt><dd><p>Pour trier une liste.</p>
+<dt><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#list.sort" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">sort()</span></code></a></dt><dd><p>Pour trier une liste par ordre croissant.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ma_liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="n">ma_liste</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ma_liste</span><span class="p">)</span>
 <span class="c1"># affiche [2, 3, 4, 6]</span>
 </pre></div>
 </div>
-</dd>
-<dt><code class="xref py py-meth docutils literal notranslate"><span class="pre">reverse()</span></code></dt><dd><p>Pour inverser l’ordre des éléments dans la liste.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ma_liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="n">ma_liste</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ma_liste</span><span class="p">)</span>
-<span class="c1"># affiche [3, 2, 1]</span>
-</pre></div>
-</div>
-<p>On peut obtenir le même effet
-en utilisant le paramètre nommé <code class="docutils literal notranslate"><span class="pre">reverse</span></code> avec la fonction <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#list.sort" title="(disponible dans Python v3.6)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">sort()</span></code></a> :</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ma_liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<p>Pour trier par ordre décroissant, on utilise le paramètre nommé <code class="docutils literal notranslate"><span class="pre">reverse</span></code> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ma_liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="n">ma_liste</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ma_liste</span><span class="p">)</span>
-<span class="c1"># affiche [3, 2, 1]</span>
+<span class="c1"># affiche [6, 4, 3, 2]</span>
+</pre></div>
+</div>
+</dd>
+<dt><code class="xref py py-meth docutils literal notranslate"><span class="pre">reverse()</span></code></dt><dd><p>Pour inverser l’ordre des éléments dans la liste.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ma_liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">ma_liste</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ma_liste</span><span class="p">)</span>
+<span class="c1"># affiche [3, 2, 4]</span>
 </pre></div>
 </div>
 </dd>
 </dl>
+</div>
+<div class="section" id="exercices">
+<h2>Exercices<a class="headerlink" href="#exercices" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="exercice admonition">
+<p class="admonition-title">Exercice : manipuler une phrase</p>
+<p>Demandez à l’utilisateur de saisir une phrase sans ponctuation. Découper la
+phrase afin d’obtenir la liste des mots.</p>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p>Pour découper la phrase, utilisez la méthode <a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str.split" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">split()</span></code></a> d’une
+chaîne de caractères qui attend en paramètre le séparateur et qui retourne
+la liste des mots :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;Longtemps je me suis couché de bonne heure&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="go">[&#39;Longtemps&#39;, &#39;je&#39;, &#39;me&#39;, &#39;suis&#39;, &#39;couché&#39;, &#39;de&#39;, &#39;bonne&#39;, &#39;heure&#39;]</span>
+</pre></div>
+</div>
+</div>
+<ol class="arabic simple">
+<li><p>Affichez le nombre de mots.</p></li>
+<li><p>Affichez le nombre d’occurrences du mot « python ».</p></li>
+<li><p>Supprimez le dernier mot de la liste.</p></li>
+<li><p>Ajoutez à la fin de la liste <code class="docutils literal notranslate"><span class="pre">[&quot;n'est-ce&quot;,</span> <span class="pre">&quot;pas&quot;]</span></code></p></li>
+<li><p>Insérez <code class="docutils literal notranslate"><span class="pre">&quot;euh&quot;</span></code> en deuxième position de la liste</p></li>
+</ol>
+<p>Puis, recréez une phrase à partir de ces mots et affichez là.</p>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p>On peut créer une chaîne de caractères à partir d’une liste de chaînes de
+caractères grâce à la méthode <a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str.join" title="(disponible dans Python v3.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">join()</span></code></a> d’une chaîne de caractères.
+Cette méthode utilise la chaîne comme séparateur pour concaténer la liste
+passée en paramètre.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Longtemps&#39;</span><span class="p">,</span> <span class="s1">&#39;je&#39;</span><span class="p">,</span> <span class="s1">&#39;me&#39;</span><span class="p">,</span> <span class="s1">&#39;suis&#39;</span><span class="p">,</span> <span class="s1">&#39;couché&#39;</span><span class="p">,</span> <span class="s1">&#39;de&#39;</span><span class="p">,</span> <span class="s1">&#39;bonne&#39;</span><span class="p">,</span> <span class="s1">&#39;heure&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot; voyez-vous &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="go">&#39;Longtemps voyez-vous je voyez-vous me voyez-vous suis voyez-vous couché voyez-vous de voyez-vous bonne voyez-vous heure&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="exercice admonition">
+<p class="admonition-title">Exercice : slicing</p>
+<p>Réalisez les opérations demandées en utilisant le <em>slicing</em> (découpage de liste).</p>
+<p>Soit la liste :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">jours</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lundi&#39;</span><span class="p">,</span> <span class="s1">&#39;mardi&#39;</span><span class="p">,</span> <span class="s1">&#39;mercredi&#39;</span><span class="p">,</span> <span class="s1">&#39;jeudi&#39;</span><span class="p">,</span> <span class="s1">&#39;vendredi&#39;</span><span class="p">,</span> <span class="s1">&#39;samedi&#39;</span><span class="p">,</span> <span class="s1">&#39;dimanche&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Créez une nouvelle liste que ne contient pas les jours du week-end.</p></li>
+<li><p>Créez une nouvelle liste que ne contient que les jours du week-end.</p></li>
+<li><p>Créez une nouvelle liste qui commence par les jours du week-end.</p></li>
+<li><p>Créez une nouvelle liste qui commence par dimanche.</p></li>
+</ol>
+</div>
+<div class="exercice admonition">
+<p class="admonition-title">Exercice : slicing (suite)</p>
+<p>Réalisez les opérations demandées en utilisant le <em>slicing</em> (découpage de liste).</p>
+<p>Soit la liste :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nombres</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Créez une nouvelle liste qui ne contient que les nombres impairs.</p></li>
+<li><p>Créez une nouvelle liste qui ne contient que les nombres pairs.</p></li>
+<li><p>Créez une nouvelle liste qui contient d’abord les nombres pairs puis les nombres impairs.</p></li>
+</ol>
+</div>
 </div>
 </div>
 
@@ -868,7 +985,7 @@ en utilisant le paramètre nommé <code class="docutils literal notranslate"><sp
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="tuple.html" class="btn btn-neutral float-right" title="Le n-uplet (tuple)" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="structures_de_controle.html" class="btn btn-neutral float-right" title="Les structures de contrôle" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="fonction.html" class="btn btn-neutral float-left" title="Les fonctions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
