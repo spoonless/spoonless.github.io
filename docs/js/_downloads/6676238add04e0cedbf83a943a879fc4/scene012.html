@@ -67,8 +67,8 @@
         // On conserve la position de la souris dans l'espace de coordonnées
         // NDC (Normalized device coordinates).
         var domRect = renderer.domElement.getBoundingClientRect();
-        position.x = (event.clientX / domRect.width) * 2 - 1 + domRect.left;
-        position.y = - (event.clientY / domRect.height) * 2 + 1 + domRect.top;
+        position.x = ((event.clientX - domRect.left) / domRect.width) * 2 - 1;
+        position.y = - ((event.clientY - domRect.top) / domRect.height) * 2 + 1;
 
         var s = getSelectionneLePlusProche(position);
         if (s) {
