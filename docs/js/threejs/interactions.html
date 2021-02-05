@@ -670,9 +670,9 @@ HTML par rapport au contenu de la scène.</p>
 du vecteur sur le plan de projection de la caméra <strong>dans le repère
 normalisé</strong> (NDC : <em>Normalized Device Coordinates</em>). On peut utiliser la fonction
 ci-dessous pour obtenir les coordonnées en pixels dans la fenêtre. Cette fonction
-prend en paramètres le canevas HTML du rendu 3D ainsi que la caméra et l’objet
-dont on souhaite connaître la position à l’écran :</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">getPositionOnScreen</span><span class="p">(</span><span class="nx">canvas</span><span class="p">,</span> <span class="nx">camera</span><span class="p">,</span> <span class="nx">object3d</span><span class="p">)</span> <span class="p">{</span>
+prend en paramètres le <em>renderer</em>, la caméra et l’objet dont on souhaite connaître
+la position à l’écran :</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">getPositionOnScreen</span><span class="p">(</span><span class="nx">renderer</span><span class="p">,</span> <span class="nx">camera</span><span class="p">,</span> <span class="nx">object3d</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">vector</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">THREE</span><span class="p">.</span><span class="nx">Vector3</span><span class="p">();</span>
   <span class="nx">object3d</span><span class="p">.</span><span class="nx">getWorldPosition</span><span class="p">(</span><span class="nx">vector</span><span class="p">).</span><span class="nx">project</span><span class="p">(</span><span class="nx">camera</span><span class="p">);</span>
   <span class="kd">var</span> <span class="nx">domRect</span> <span class="o">=</span> <span class="nx">renderer</span><span class="p">.</span><span class="nx">domElement</span><span class="p">.</span><span class="nx">getBoundingClientRect</span><span class="p">();</span>
